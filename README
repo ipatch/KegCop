@@ -1,0 +1,15 @@
+README
+
+You have found the readme file for the KegCop project.  I will keep this short and sweet.
+Right now this project has a lot of work to do, but I'm working on it. :P
+
+This project was built with Xcode 4.3.2 and the target iOS is 5.1.1
+
+
+Bugs
+
+There's a known bug when scrolling the the scroll view in the login screen or the create account screen.  I am going to try and squash that as soon as possible.
+
+
+cheers
+- Chris

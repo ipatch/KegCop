@@ -24,7 +24,7 @@
 //
 //
 //
-// this is a sample commit to view the git commits.
+// this is a sample comment to view the git commits.
 
 // End Notes
 

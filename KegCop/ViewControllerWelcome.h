@@ -36,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wrongUserPin;
 @property (weak, nonatomic) IBOutlet UIButton *welcomeLogin;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
 // end Welcome
 

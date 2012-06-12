@@ -7,7 +7,7 @@
 
 // think of the controller is how your model is presented to the user
 
-#import "ViewController.h"
+#import "ViewControllerWelcome.h"
 
 @interface ViewController ()
 
@@ -37,6 +37,7 @@
 @synthesize wrongUserPin = _wrongUserPin;
 @synthesize welcomeLogin = _welcomeLogin;
 @synthesize welcomeActivityIndicator = _welcomeActivityIndicator;
+@synthesize welcomeAbout = _welcomeAbout;
 // end welcome
 
 // create new account
@@ -131,6 +132,7 @@ __unsafe_unretained UITextField *activeField;
     [self setCreatePhoneNumberNotValid:nil];
     [self setCreateAccountSuccess:nil];
     [self setWelcomeScroller:nil];
+    [self setWelcomeAbout:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
@@ -296,7 +298,7 @@ __unsafe_unretained UITextField *activeField;
     // TODO: spawn a login thread
     
     
-    NSString *string = @"admin";
+    NSString *string = @"root";
     // get the value inputted in textFieldUsername and put it in a string object.
     NSString *tf_Username = [_textFieldUsername text ];
     
@@ -315,6 +317,12 @@ __unsafe_unretained UITextField *activeField;
 	
 	_welcomeLogin.enabled = FALSE;
 }
+
+
+
+
+
+
 - (IBAction)createAccount:(id)sender {
     
     // insert code here.

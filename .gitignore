@@ -1,1 +1,4 @@
 KegCop.xcodeproj/project.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate
+
+# Exclude OS X folder attributes
+.DS_Store

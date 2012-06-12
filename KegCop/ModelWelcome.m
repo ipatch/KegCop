@@ -5,7 +5,7 @@
 //  Created by capin on 6/10/12.
 //
 
-#import "Model.h"
+#import "ModelWelcome.h"
 
 // not sure how to implement the model, but it's here for when it
 // will be needed, if needed \o/

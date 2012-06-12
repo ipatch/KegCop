@@ -10,7 +10,7 @@
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <viewController title="Welcome to KegCop" id="2" userLabel="Welcome" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="Welcome to KegCop" id="2" userLabel="Welcome" customClass="ViewControllerWelcome" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -235,15 +235,18 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="buildnumber" destination="O5X-BN-7Gc" id="fXU-1P-1d7"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="8" y="743"/>
         </scene>
-        <!--View Controller - Forgot Username / Pin-->
+        <!--View Controller Forgot - Forgot Username / Pin-->
         <scene sceneID="Qcb-Df-0IJ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zM-2u-8rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Forgot Username / Pin" id="eXh-SP-s3V" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="Forgot Username / Pin" id="eXh-SP-s3V" customClass="ViewControllerForgot" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W1H-tO-PKE">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -343,7 +346,7 @@
         <scene sceneID="QhE-hZ-kO5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdw-TY-3lV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="New Account" id="iDf-5q-CIv" userLabel="Account Creation" customClass="ViewController" sceneMemberID="viewController">
+                <viewController title="New Account" id="iDf-5q-CIv" userLabel="Account Creation" customClass="ViewControllerCreate" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="beU-xu-GPN">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -927,13 +930,16 @@
         </scene>
     </scenes>
     <classes>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        <class className="ViewControllerAbout" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buildnumber" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerCreate" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCreate.h"/>
             <relationships>
                 <relationship kind="action" name="createAccount:"/>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="processLogin:"/>
-                <relationship kind="action" name="textFieldDoneEditing:"/>
                 <relationship kind="outlet" name="createAccountSuccess" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createEmailNotValid" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createEmailTextField" candidateClass="UITextField"/>
@@ -945,9 +951,23 @@
                 <relationship kind="outlet" name="createSubmit" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="createUNnotValid" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createUserTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerForgot" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerForgot.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="outlet" name="forgotEmailInvalid" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="forgotEmailSent" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textFieldEmailReset" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerWelcome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerWelcome.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="processLogin:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
                 <relationship kind="outlet" name="textFieldPin" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="textFieldUsername" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="welcomeAbout" candidateClass="UIButton"/>
@@ -956,9 +976,6 @@
                 <relationship kind="outlet" name="welcomeScroller" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="wrongUserPin" candidateClass="UILabel"/>
             </relationships>
-        </class>
-        <class className="ViewControllerAbout" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

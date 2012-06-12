@@ -5,8 +5,12 @@
 //  Created by capin on 6/11/12.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ViewControllerAbout : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *buildnumber;
+
 @end
+
+

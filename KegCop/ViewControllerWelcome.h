@@ -25,6 +25,7 @@
 //
 //
 // this is a sample comment to view the git commits.
+// this is another sample comment to observe git commit behavior.
 
 // End Notes
 

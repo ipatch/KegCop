@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>KegCopTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>EAA33D6D1588612600826A02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>EAEFEE8E157B296B00C666D5</key>
 		<dict>
 			<key>primary</key>

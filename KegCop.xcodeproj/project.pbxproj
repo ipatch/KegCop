@@ -12,6 +12,12 @@
 		EA1E87B0157C66B9002C945B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA1E87AF157C66B9002C945B /* Default@2x.png */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA1E87B5157C9A51002C945B /* CoreData-DesignModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA1E87B3157C9A51002C945B /* CoreData-DesignModel.xcdatamodeld */; };
+		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
+		EAA33D711588612600826A02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
+		EAA33D721588612600826A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
+		EAA33D781588612600826A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D761588612600826A02 /* InfoPlist.strings */; };
+		EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D7A1588612600826A02 /* KegCopTests.m */; };
+		EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA33D831588AA9100826A02 /* SenTestingKit.framework */; };
 		EABE1D741581C9B700FF9FA0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D731581C9B700FF9FA0 /* Account.m */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABE1D791581CBEC00FF9FA0 /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */; };
@@ -32,6 +38,16 @@
 		EAFC1333157B3A20002F76FD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC1331157B396E002F76FD /* Default.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EAA33D811588614D00826A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAEFEE86157B296B00C666D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAEFEE8E157B296B00C666D5;
+			remoteInfo = KegCop;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EA1890351585F7E7003A64FC /* ViewControllerAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAbout.h; sourceTree = "<group>"; };
 		EA1890361585F7E7003A64FC /* ViewControllerAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAbout.m; sourceTree = "<group>"; };
@@ -40,6 +56,15 @@
 		EA1E87AF157C66B9002C945B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA1E87B4157C9A51002C945B /* CoreData-DesignModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CoreData-DesignModel.xcdatamodel"; sourceTree = "<group>"; };
+		EA699308158721E8009E0397 /* ViewControllerForgot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerForgot.h; sourceTree = "<group>"; };
+		EA699309158721E8009E0397 /* ViewControllerForgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerForgot.m; sourceTree = "<group>"; };
+		EAA33D6E1588612600826A02 /* KegCopTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KegCopTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAA33D751588612600826A02 /* KegCopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KegCopTests-Info.plist"; sourceTree = "<group>"; };
+		EAA33D771588612600826A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EAA33D791588612600826A02 /* KegCopTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KegCopTests.h; sourceTree = "<group>"; };
+		EAA33D7A1588612600826A02 /* KegCopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KegCopTests.m; sourceTree = "<group>"; };
+		EAA33D7C1588612600826A02 /* KegCopTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCopTests-Prefix.pch"; sourceTree = "<group>"; };
+		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EABE1D721581C9B700FF9FA0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		EABE1D731581C9B700FF9FA0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -70,6 +95,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EAA33D6A1588612600826A02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */,
+				EAA33D711588612600826A02 /* UIKit.framework in Frameworks */,
+				EAA33D721588612600826A02 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAEFEE8C157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,10 +120,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EAA33D731588612600826A02 /* KegCopApplicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAA33D791588612600826A02 /* KegCopTests.h */,
+				EAA33D7A1588612600826A02 /* KegCopTests.m */,
+				EAA33D741588612600826A02 /* Supporting Files */,
+			);
+			name = KegCopApplicationTests;
+			path = KegCopTests;
+			sourceTree = "<group>";
+		};
+		EAA33D741588612600826A02 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAA33D751588612600826A02 /* KegCopTests-Info.plist */,
+				EAA33D761588612600826A02 /* InfoPlist.strings */,
+				EAA33D7C1588612600826A02 /* KegCopTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
 				EAEFEE99157B296B00C666D5 /* KegCop */,
+				EAA33D731588612600826A02 /* KegCopApplicationTests */,
 				EAEFEE92157B296B00C666D5 /* Frameworks */,
 				EAEFEE90157B296B00C666D5 /* Products */,
 			);
@@ -98,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				EAEFEE8F157B296B00C666D5 /* KegCop.app */,
+				EAA33D6E1588612600826A02 /* KegCopTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +163,7 @@
 		EAEFEE92157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAA33D831588AA9100826A02 /* SenTestingKit.framework */,
 				EABE1D751581CB1E00FF9FA0 /* Security.framework */,
 				EA1E87B1157C999A002C945B /* CoreData.framework */,
 				EAEFEE93157B296B00C666D5 /* UIKit.framework */,
@@ -122,6 +181,8 @@
 				EAEFEEA3157B296B00C666D5 /* AppDelegate.m */,
 				EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */,
 				EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */,
+				EA699308158721E8009E0397 /* ViewControllerForgot.h */,
+				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
 				EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */,
 				EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */,
 				EA1890391585F890003A64FC /* ViewControllerCreate.h */,
@@ -160,6 +221,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EAA33D6D1588612600826A02 /* KegCopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAA33D7F1588612600826A02 /* Build configuration list for PBXNativeTarget "KegCopTests" */;
+			buildPhases = (
+				EAA33D691588612600826A02 /* Sources */,
+				EAA33D6A1588612600826A02 /* Frameworks */,
+				EAA33D6B1588612600826A02 /* Resources */,
+				EAA33D6C1588612600826A02 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAA33D821588614D00826A02 /* PBXTargetDependency */,
+			);
+			name = KegCopTests;
+			productName = KegCopTests;
+			productReference = EAA33D6E1588612600826A02 /* KegCopTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		EAEFEE8E157B296B00C666D5 /* KegCop */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAEFEEAD157B296B00C666D5 /* Build configuration list for PBXNativeTarget "KegCop" */;
@@ -167,6 +247,7 @@
 				EAEFEE8B157B296B00C666D5 /* Sources */,
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
 				EAEFEE8D157B296B00C666D5 /* Resources */,
+				EA69930C15873920009E0397 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -198,11 +279,20 @@
 			projectRoot = "";
 			targets = (
 				EAEFEE8E157B296B00C666D5 /* KegCop */,
+				EAA33D6D1588612600826A02 /* KegCopTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EAA33D6B1588612600826A02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA33D781588612600826A02 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAEFEE8D157B296B00C666D5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,7 +310,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EA69930C15873920009E0397 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" /Users/capin/Projects/KegCop/KegCop/KegCop-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" /Users/capin/Projects/KegCop/KegCop/KegCop-Info.plist";
+		};
+		EAA33D6C1588612600826A02 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		EAA33D691588612600826A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAEFEE8B157B296B00C666D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,12 +362,29 @@
 				EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */,
 				EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */,
 				EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */,
+				EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EAA33D821588614D00826A02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAEFEE8E157B296B00C666D5 /* KegCop */;
+			targetProxy = EAA33D811588614D00826A02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		EAA33D761588612600826A02 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAA33D771588612600826A02 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -260,6 +404,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EAA33D7D1588612600826A02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KegCop.app/KegCop";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KegCopTests/KegCopTests-Prefix.pch";
+				INFOPLIST_FILE = "KegCopTests/KegCopTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		EAA33D7E1588612600826A02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KegCop.app/KegCop";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KegCopTests/KegCopTests-Prefix.pch";
+				INFOPLIST_FILE = "KegCopTests/KegCopTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		EAEFEEAB157B296B00C666D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -316,6 +494,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KegCop/KegCop-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -327,6 +506,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KegCop/KegCop-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -336,6 +516,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EAA33D7F1588612600826A02 /* Build configuration list for PBXNativeTarget "KegCopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAA33D7D1588612600826A02 /* Debug */,
+				EAA33D7E1588612600826A02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		EAEFEE89157B296B00C666D5 /* Build configuration list for PBXProject "KegCop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

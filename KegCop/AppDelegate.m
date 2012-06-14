@@ -7,6 +7,13 @@
 
 #import "AppDelegate.h"
 
+
+/* Notes
+ It loads the view controller and puts it into the window.
+ */
+
+
+
 @implementation AppDelegate
 
 

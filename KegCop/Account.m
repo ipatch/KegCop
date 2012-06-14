@@ -10,7 +10,8 @@
 
 @implementation Account
 
-- (NSString*)password {
+- (NSString*)password 
+{
     
 }
 

@@ -3,25 +3,17 @@
 //  KegCop
 //
 //  Created by capin on 6/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "ViewControllerCreate.h"
 
 @interface ViewControllerCreate ()
 
-
-
 @end
-
-
 
 
 @implementation ViewControllerCreate
 
-
-//KeychainItemWrapper *keychain = 
-//[[KeychainItemWrapper alloc] initWithIdentifier:@"TestAppLoginData" accessGroup:nil];
 
 // create new account
 @synthesize createScroller = _createScroller;
@@ -92,6 +84,7 @@
 [_createPhoneNumber resignFirstResponder];
 }
 
+// method to pull code from text fields and store in keychain and account
 - (IBAction)createAccount:(id)sender {
     
     // insert code here.
@@ -105,6 +98,8 @@
     else {
         
     }
+
+    
     
 }
 
@@ -149,7 +144,6 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex]; 
     return [emailTest evaluateWithObject:email];
 }
-
 
 
 @end

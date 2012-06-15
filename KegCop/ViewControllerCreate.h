@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewControllerCreate : UIViewController
+{
+    
+}
 
 // Create new account
 @property (weak, nonatomic) IBOutlet UITextField *createUserTextField;

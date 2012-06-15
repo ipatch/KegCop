@@ -12,4 +12,8 @@
 
 @dynamic username;
 
+@dynamic email;
+
+@dynamic phoneNumber;
+
 @end

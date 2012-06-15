@@ -53,7 +53,7 @@ static const NSString *SERVICE_NAME = @"com.chrisrjones.kegcop";
     CFTypeRef result = NULL;
     BOOL statusCode = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &result);
     if (statusCode == errSecSuccess) {
-        NSData *resultData = CfBridgingRelease(result);
+        NSData *resultData = CFBridgingRelease(result);
         password = [[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding];
 
     }

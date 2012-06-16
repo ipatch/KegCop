@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Account.h"
 
-@interface ViewControllerCreate : UIViewController
+@interface ViewControllerCreate : UIViewController <UITextFieldDelegate>
 {
     
 }
@@ -16,6 +17,7 @@
 // Create new account
 @property (weak, nonatomic) IBOutlet UITextField *createUserTextField;
 @property (weak, nonatomic) IBOutlet UITextField *createPinTextField;
+@property (weak, nonatomic) IBOutlet UITextField *createPinReTextField;
 @property (weak, nonatomic) IBOutlet UITextField *createEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *createPhoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *createSubmit;
@@ -27,6 +29,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *createAccountSuccess;
 
 // end Create
+
+
+// Core Data
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
 // Create new account - methods

@@ -500,7 +500,7 @@
                                         <color key="textColor" red="0.37240526870000001" green="0.83791185459999995" blue="0.55185885170000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <navigationBar contentMode="scaleToFill" id="MIX-nh-kVP">
+                                    <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="MIX-nh-kVP">
                                         <rect key="frame" x="2" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <items>
@@ -535,6 +535,7 @@
                         <outlet property="createPhoneNumber" destination="ITa-v6-HYM" id="Ql9-bL-J6W"/>
                         <outlet property="createPhoneNumberNotValid" destination="UG2-7f-4lj" id="Qdp-kh-YIG"/>
                         <outlet property="createPinNotValid" destination="BSK-Yw-jPQ" id="0MK-PT-pFW"/>
+                        <outlet property="createPinReTextField" destination="gTc-Gb-TZM" id="V3a-Rz-De1"/>
                         <outlet property="createPinTextField" destination="FdE-WM-ajn" id="mRa-4b-Hde"/>
                         <outlet property="createScroller" destination="Dbl-or-BuX" id="lDy-1c-0m9"/>
                         <outlet property="createSubmit" destination="nR5-dW-DFg" id="oOf-BF-jqL"/>
@@ -962,6 +963,7 @@
                 <relationship kind="outlet" name="createPhoneNumber" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="createPhoneNumberNotValid" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createPinNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createPinReTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="createPinTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="createScroller" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="createSubmit" candidateClass="UIButton"/>

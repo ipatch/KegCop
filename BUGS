@@ -1,2 +1,3 @@
 14JUN12 - There's a known bug when comparing the Keycahin to a CFType.
 14JUN12 - bug should be squashed, had a lowercase f (-.-)
+17JUN12 - trying to fix the runtime script bug, git is giving me issues.

@@ -7,6 +7,8 @@
 
 
 #import "ViewControllerWelcome.h"
+#import "Account.h"
+#import "AppDelegate.h"
 
 @interface ViewControllerWelcome ()
 
@@ -39,6 +41,9 @@
 @synthesize welcomeAbout = _welcomeAbout;
 // end welcome
 
+// Core Data
+// @synthesize managedObjectContext = _managedObjectContext;
+
 
 //
 // ViewControllerWelcome Methods
@@ -50,7 +55,7 @@
     
     // load Welcome Scrollview
     //[_welcomeScroller setScrollerEnabled:YES];
-    [_welcomeScroller setContentSize:CGSizeMake(320,1000)];
+    [_welcomeScroller setContentSize:CGSizeMake(320,750)];
     
     // hidden at load
     [_wrongUserPin setHidden:YES];            
@@ -96,27 +101,79 @@
 
 - (IBAction)processLogin:(id)sender {
     
-    //http://www.riccomini.name/Topics/Mobile/iPhone/SimpleLoginScreen/
-    // TODO: spawn a login thread
+    // check if username and pin text fields are populated
+    if ([_textFieldUsername.text length ] == 0 &&  [_textFieldPin.text length ] == 0)
+    {
+        [_wrongUserPin setHidden:NO];   
+    }
+    
+    // check if username is in Account DB
+    NSString *inputUser = _textFieldUsername.text;
+    
+    // fetch request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // fetchRequest.entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"self.name == %@", inputUser];
+    fetchRequest.fetchLimit = 1;
+    
+    NSError *error = nil;
+    //NSArray *users = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     
+    
+    
+    // Set up a predicate (or search criteria) for checking the username
+    //NSPredicate *pred = [NSPredicate predicateWithFormat:@"(username == %@)", [_textFieldUsername text]];
+    
+    // check if _textFieldPin matches pin stored in keychain
+   
+    // if ([pin = *password]);
+                          
+                          
+    // - (NSString*)password 
+    
+    
+    /*
+    NSString *inputKey = _textFieldPin.text;
+    NSString *password = [KeychainHelper getPasswordForKey:inputKey];
+    if ([password isEqualToString:inputKey]) {
+        NSLog(@"password matches stored pin");
+    }
+    else {
+        [_wrongUserPin setHidden:NO];
+    }
+    */
+    
+    //+ (NSString*)getPasswordForKey:(NSString*)aKey;
+    
+    
+    // Actually run the query in Core Data and return the count of found users with these details
+    // Obviously if it found ANY then we got the username right!
+    
+    
+    
+    // check if username and pin are a match
+    
+    /*
+    // check if username = root
     NSString *string = @"root";
     // get the value inputted in textFieldUsername and put it in a string object.
     NSString *tf_Username = [_textFieldUsername text ];
     
-    // compare "admin" with tf_Username
+    // compare "root" with tf_Username
     if ([string isEqualToString: tf_Username])  {
-        // do my bidding!!!
+        // load root Welcome Screen
         [self performSegueWithIdentifier:@"AdminSegue" sender:sender];
     }
     else {
+        // load user Welcome screen
         [self performSegueWithIdentifier:@"UserSegue" sender: sender];
     }
-    
+    */
 	
 	_welcomeActivityIndicator.hidden = FALSE;
 	[_welcomeActivityIndicator startAnimating];
 	
-	_welcomeLogin.enabled = FALSE;
+	// _welcomeLogin.enabled = FALSE;
 }
 @end

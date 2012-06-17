@@ -9,6 +9,8 @@
 
 @interface Account : AccountBase
 
+// nonatomic - don't worry about multithreading
+
 @property (nonatomic, assign) NSString *password;
 
 @end

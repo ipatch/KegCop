@@ -32,7 +32,7 @@
 
 
 // Core Data
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
 // Create new account - methods

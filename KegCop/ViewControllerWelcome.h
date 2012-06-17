@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerWelcome : UIViewController
+@interface ViewControllerWelcome : UIViewController {
+    
+}
 
 // Notes
 //
@@ -36,6 +38,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
 // end Welcome
+
+// Core Data
+//@property (strong, nonatomic) NSManagedObject *managedObjectContext;
 
 
 // Welcome to KepCop - methods

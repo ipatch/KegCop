@@ -42,7 +42,7 @@
 // end welcome
 
 // Core Data
-// @synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectContext = _managedObjectContext;
 
 
 //
@@ -116,7 +116,7 @@
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"self.name == %@", inputUser];
     fetchRequest.fetchLimit = 1;
     
-    NSError *error = nil;
+   // NSError *error = nil;
     //NSArray *users = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     

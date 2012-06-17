@@ -6,7 +6,7 @@
 //
 
 #import "ViewControllerCreate.h"
-#import "AppDelegate.h"
+
 
 @interface ViewControllerCreate()
 
@@ -33,7 +33,7 @@
 // end create new account
 
 // Core Data
-// @synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectContext = _managedObjectContext;
 
 
 - (void)viewDidLoad {
@@ -50,7 +50,7 @@
     
     // create account - scrollview
     [_createScroller setScrollEnabled:YES];
-    [_createScroller setContentSize:CGSizeMake(320, 1000)];
+    [_createScroller setContentSize:CGSizeMake(320, 750)];
     
     // set delegate of pin textfields
     _createUserTextField.delegate =self;
@@ -58,6 +58,12 @@
     _createPinReTextField.delegate = self;
     _createPhoneNumber.delegate = self;
     
+    // Core Data
+    if (_managedObjectContext == nil)
+    {
+        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        NSLog(@"After _managedObjectContext: %@", _managedObjectContext);
+    }
         
 }
 
@@ -90,6 +96,7 @@
     if(textField == _createPinTextField) return (_createPinTextField.text.length + string.length <= 4);
     if(textField == _createPinReTextField) return (_createPinReTextField.text.length + string.length <=4);
     if(textField == _createPhoneNumber) return (_createPhoneNumber.text.length + string.length <=10);
+    return YES;
 }
 
 // method to determine values in text fields - compare pins, 
@@ -138,11 +145,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
-// create new account
 [_createUserTextField resignFirstResponder];
 [_createPinTextField resignFirstResponder];
 [_createPinReTextField resignFirstResponder];
@@ -155,55 +161,86 @@
 
 - (IBAction)createAccount:(id)sender {
     
-    // insert code here.
     // check if create textfields are empty - WRONG
   
-    // call method located in same class
-    [self checktextfieldcharlength];
+    [self checkTextFieldCharLength];
     
-    /*
-    // Core Data - retrieve values from text fields and store in database.
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    // check if boolean is true / false
+    if([self checkTextFieldEmpty] == TRUE ) // empty text fields
+    {
+        NSLog(@"Please fill in text fields");
+    }
     
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSManagedObject *newAccount;
-    newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:context];
-    [newAccount setValue:_createUserTextField forKey:@"username"];
-    [newAccount setValue:_createEmailTextField forKey:@"email"];
-    [newAccount setValue:_createPhoneNumber forKey:@"phoneNumber"];
-    _createUserTextField.text = @"";
-    _createEmailTextField.text = @"";
-    _createPhoneNumber.text = @"";
-    NSError *error;
-    [context save:&error];
-    [_createAccountSuccess setHidden:NO];
-    NSLog(@"Succefully created account.");
-     */
+    else {
+        NSLog(@"Thanks for filling out the text fields.");
+        // Core Data - retrieve values from text fields and store in database.
+        NSManagedObject *newAccount;
+        newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+        [newAccount setValue:_createUserTextField forKey:@"username"];
+        [newAccount setValue:_createEmailTextField forKey:@"email"];
+        [newAccount setValue:_createPhoneNumber forKey:@"phoneNumber"];
+        _createUserTextField.text = @"";
+        _createEmailTextField.text = @"";
+        _createPhoneNumber.text = @"";
+        NSError *error;
+        [_managedObjectContext save:&error];
+        [_createAccountSuccess setHidden:NO];
+        NSLog(@"Succefully created account.");
+    }
 }
 
-- (void)checktextfieldcharlength
+- (void)checkTextFieldCharLength
 {
     // Check text fields for values
     if ([_createUserTextField.text length] >= 4 ) {
-      return  ([_createUNnotValid setHidden:YES]);
-       return NSLog(@"execution reached here.");
+        ([_createUNnotValid setHidden:YES]);
     }
     
     if ([_createPinTextField.text length] == 4) {
-       return [_createPinNotValid setHidden:YES];
+        [_createPinNotValid setHidden:YES];
     }
     if ([_createEmailTextField.text length] >= 4 ) {
-       return [_createEmailNotValid setHidden:YES];
+        [_createEmailNotValid setHidden:YES];
     }
     if ([_createPhoneNumber.text length] == 10) {
-       return [_createPhoneNumberNotValid setHidden:YES];
+        [_createPhoneNumberNotValid setHidden:YES];
     }
-   
+    NSLog(@"Passed text field char length.");
+
 }
+
+- (BOOL) checkTextFieldEmpty
+{
+    int i = 0;
+
+    if (_createUserTextField.text.length == 0) 
+    {
+        [_createUNnotValid setHidden:NO]; i++;
+    }
+    if (_createPinTextField.text.length == 0) 
+    {
+        [_createPinNotValid setHidden:NO]; i++;
+    }
+    if (_createPinReTextField.text.length == 0)
+    {
+        [_createPinNotValid setHidden:NO]; i++;
+    }
+    if (_createEmailTextField.text.length == 0)
+    {
+        [_createEmailNotValid setHidden:NO]; i++;
+    }
+    if (_createPhoneNumber.text.length == 0)
+    {
+        [_createPhoneNumberNotValid setHidden:NO]; i++;
+    }
+if (i >= 1) return YES; else return NO;
+}
+
 
 // method to validate email
 
-- (BOOL) validateEmail: (NSString *) candidate {
+- (BOOL) validateEmail: (NSString *) candidate 
+{
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     //	return 0;

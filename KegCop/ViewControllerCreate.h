@@ -3,11 +3,11 @@
 //  KegCop
 //
 //  Created by capin on 6/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "Account.h"
+#import "AppDelegate.h"
 
 @interface ViewControllerCreate : UIViewController <UITextFieldDelegate>
 {
@@ -32,7 +32,7 @@
 
 
 // Core Data
-//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
 // Create new account - methods

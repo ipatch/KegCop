@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "AccountBase.h"
+#import "ViewControllerWelcome.h"
 
 
 /* Notes
@@ -27,6 +28,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
+    
+    NSManagedObjectContext *context = (NSManagedObjectContext *) [self managedObjectContext];
+    if (!context) {
+        NSLog(@"\nCould not create *context for self");
+    }
+    
+    viewControllerWelcome = context;
+    
+    // Do I need to declare my view controllers here?
+    
+    // Pass the managed object context to the view controller.
+
+    
+    
+    
     return YES;
 }
 							

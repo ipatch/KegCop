@@ -7,8 +7,7 @@
 
 
 #import "ViewControllerWelcome.h"
-#import "Account.h"
-#import "AppDelegate.h"
+
 
 @interface ViewControllerWelcome ()
 
@@ -58,7 +57,15 @@
     [_welcomeScroller setContentSize:CGSizeMake(320,750)];
     
     // hidden at load
-    [_wrongUserPin setHidden:YES];            
+    [_wrongUserPin setHidden:YES];
+    
+    // Core Data
+    if (_managedObjectContext == nil)
+    {
+        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+
+    }
 }
 
 - (void)viewDidUnload {
@@ -101,79 +108,40 @@
 
 - (IBAction)processLogin:(id)sender {
     
+    // First - make activity indicator visible, then start animating, then turn of wrong user / pin label
+    _welcomeActivityIndicator.hidden = FALSE;
+    [_welcomeActivityIndicator startAnimating];
+    [_wrongUserPin setHidden:YES];
+        
     // check if username and pin text fields are populated
     if ([_textFieldUsername.text length ] == 0 &&  [_textFieldPin.text length ] == 0)
     {
+        [_welcomeActivityIndicator stopAnimating];
         [_wrongUserPin setHidden:NO];   
     }
     
-    // check if username is in Account DB
-    NSString *inputUser = _textFieldUsername.text;
-    
-    // fetch request
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // fetchRequest.entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"self.name == %@", inputUser];
-    fetchRequest.fetchLimit = 1;
-    
-   // NSError *error = nil;
-    //NSArray *users = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    // CORE DATA
+    NSManagedObjectContext *context = _managedObjectContext;
     
     
+    NSFetchRequest *request= [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:context];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"username==%@",self.textFieldUsername.text];
+    [request setEntity:entity];
+    [request setPredicate:predicate];
     
+    NSError *error = nil;
     
-    // Set up a predicate (or search criteria) for checking the username
-    //NSPredicate *pred = [NSPredicate predicateWithFormat:@"(username == %@)", [_textFieldUsername text]];
+    // Below line is giving me error
     
-    // check if _textFieldPin matches pin stored in keychain
-   
-    // if ([pin = *password]);
-                          
-                          
-    // - (NSString*)password 
-    
-    
-    /*
-    NSString *inputKey = _textFieldPin.text;
-    NSString *password = [KeychainHelper getPasswordForKey:inputKey];
-    if ([password isEqualToString:inputKey]) {
-        NSLog(@"password matches stored pin");
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    if (array != nil) {
+        NSUInteger count = [array count]; // may be 0 if the object has been deleted.
+        NSLog(@"Username may exist, %@",count);
     }
+    
     else {
-        [_wrongUserPin setHidden:NO];
+        NSLog(@"Username does not exist.");
     }
-    */
-    
-    //+ (NSString*)getPasswordForKey:(NSString*)aKey;
-    
-    
-    // Actually run the query in Core Data and return the count of found users with these details
-    // Obviously if it found ANY then we got the username right!
-    
-    
-    
-    // check if username and pin are a match
-    
-    /*
-    // check if username = root
-    NSString *string = @"root";
-    // get the value inputted in textFieldUsername and put it in a string object.
-    NSString *tf_Username = [_textFieldUsername text ];
-    
-    // compare "root" with tf_Username
-    if ([string isEqualToString: tf_Username])  {
-        // load root Welcome Screen
-        [self performSegueWithIdentifier:@"AdminSegue" sender:sender];
-    }
-    else {
-        // load user Welcome screen
-        [self performSegueWithIdentifier:@"UserSegue" sender: sender];
-    }
-    */
-	
-	_welcomeActivityIndicator.hidden = FALSE;
-	[_welcomeActivityIndicator startAnimating];
-	
-	// _welcomeLogin.enabled = FALSE;
 }
 @end

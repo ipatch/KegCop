@@ -35,7 +35,7 @@
         NSLog(@"\nCould not create *context for self");
     }
     
-    viewControllerWelcome = context;
+    [viewControllerWelcome setManagedObjectContext:context];
     
     // Do I need to declare my view controllers here?
     

@@ -43,7 +43,7 @@
 // end Welcome
 
 // Core Data
-@property (strong, nonatomic) NSManagedObject *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
 // Welcome to KepCop - methods

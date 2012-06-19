@@ -108,6 +108,11 @@
 
 - (IBAction)processLogin:(id)sender {
     
+    // hide keyboard
+    [_textFieldUsername resignFirstResponder];
+    [_textFieldPin resignFirstResponder];
+
+    
     // First - make activity indicator visible, then start animating, then turn of wrong user / pin label
     _welcomeActivityIndicator.hidden = FALSE;
     [_welcomeActivityIndicator startAnimating];
@@ -123,7 +128,6 @@
     // CORE DATA
     NSManagedObjectContext *context = _managedObjectContext;
     
-    
     NSFetchRequest *request= [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:context];
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"username==%@",self.textFieldUsername.text];
@@ -131,9 +135,7 @@
     [request setPredicate:predicate];
     
     NSError *error = nil;
-    
-    // Below line is giving me error
-    
+        
     NSArray *array = [context executeFetchRequest:request error:&error];
     if (array != nil) {
         NSUInteger count = [array count]; // may be 0 if the object has been deleted.

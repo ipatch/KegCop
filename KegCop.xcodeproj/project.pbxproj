@@ -17,7 +17,9 @@
 		EAA33D721588612600826A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAA33D781588612600826A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D761588612600826A02 /* InfoPlist.strings */; };
 		EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D7A1588612600826A02 /* KegCopTests.m */; };
+		EAA33D7F158EE6B000031D96 /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D7E158EE6B000031D96 /* scratchpad.txt */; };
 		EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA33D831588AA9100826A02 /* SenTestingKit.framework */; };
+		EAA33D87158F0A0000031D96 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D86158F0A0000031D96 /* CoreDataHelper.m */; };
 		EABE1D741581C9B700FF9FA0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D731581C9B700FF9FA0 /* Account.m */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABE1D791581CBEC00FF9FA0 /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */; };
@@ -64,7 +66,10 @@
 		EAA33D791588612600826A02 /* KegCopTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KegCopTests.h; sourceTree = "<group>"; };
 		EAA33D7A1588612600826A02 /* KegCopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KegCopTests.m; sourceTree = "<group>"; };
 		EAA33D7C1588612600826A02 /* KegCopTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCopTests-Prefix.pch"; sourceTree = "<group>"; };
+		EAA33D7E158EE6B000031D96 /* scratchpad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scratchpad.txt; sourceTree = "<group>"; };
 		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		EAA33D85158F0A0000031D96 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		EAA33D86158F0A0000031D96 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		EABE1D721581C9B700FF9FA0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		EABE1D731581C9B700FF9FA0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -179,14 +184,16 @@
 				EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */,
 				EAEFEEA2157B296B00C666D5 /* AppDelegate.h */,
 				EAEFEEA3157B296B00C666D5 /* AppDelegate.m */,
+				EAA33D85158F0A0000031D96 /* CoreDataHelper.h */,
+				EAA33D86158F0A0000031D96 /* CoreDataHelper.m */,
 				EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */,
 				EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */,
-				EA699308158721E8009E0397 /* ViewControllerForgot.h */,
-				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
 				EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */,
 				EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */,
 				EA1890391585F890003A64FC /* ViewControllerCreate.h */,
 				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
+				EA699308158721E8009E0397 /* ViewControllerForgot.h */,
+				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
 				EA1890351585F7E7003A64FC /* ViewControllerAbout.h */,
 				EA1890361585F7E7003A64FC /* ViewControllerAbout.m */,
 				EABE1D811582E97600FF9FA0 /* AccountBase.h */,
@@ -203,6 +210,7 @@
 		EAEFEE9A157B296B00C666D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAA33D7E158EE6B000031D96 /* scratchpad.txt */,
 				EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */,
 				EAFC1331157B396E002F76FD /* Default.png */,
 				EABE1D951584BC5900FF9FA0 /* launch.png */,
@@ -305,6 +313,7 @@
 				EA1E87B0157C66B9002C945B /* Default@2x.png in Resources */,
 				EABE1D961584BC5900FF9FA0 /* launch.png in Resources */,
 				EABE1D981584BD1000FF9FA0 /* launch-retina.png in Resources */,
+				EAA33D7F158EE6B000031D96 /* scratchpad.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +372,7 @@
 				EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */,
 				EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */,
 				EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */,
+				EAA33D87158F0A0000031D96 /* CoreDataHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

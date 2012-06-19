@@ -7,6 +7,9 @@
 
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "Account.h"
+#import "CoreDataHelper.h"
 
 @interface ViewControllerWelcome : UIViewController {
     

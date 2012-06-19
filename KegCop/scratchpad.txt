@@ -1,4 +1,46 @@
+Hey Chris, I'm back.
+
+I saw your question at stackoverflow, but I don't think I understand correctly. You should be able to create a new instance of Account doing something like:
+
+Account *account = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:yourContextVariable];
+
+By the time you do that, the entry has already been created in your managed object context, so to set the values of the account you would just fill its properties, like:
+
+account.email = some string
+
+Your changes in the managed object context are not "flushed" so to speak until you call [yourContextVariable save] though.
+
+Not sure if that's where you were stuck at.
+
    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // CORE DATA - APPLE EXAMPLE
     NSManagedObjectContext *context = _managedObjectContext;
     

@@ -161,6 +161,11 @@
 
 - (IBAction)createAccount:(id)sender {
     
+    // hide keyboard when login button is pressed
+    [_createUserTextField resignFirstResponder];
+    
+    
+    
     // check if create textfields are empty - WRONG
   
     [self checkTextFieldCharLength];

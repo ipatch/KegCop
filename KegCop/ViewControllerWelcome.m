@@ -38,6 +38,7 @@
 @synthesize welcomeLogin = _welcomeLogin;
 @synthesize welcomeActivityIndicator = _welcomeActivityIndicator;
 @synthesize welcomeAbout = _welcomeAbout;
+
 // end welcome
 
 // Core Data
@@ -66,6 +67,13 @@
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
 
     }
+    
+    
+    // keyboard toolbar
+    fieldsArray = [[NSArray alloc] initWithObjects:_textFieldUsername, _textFieldPin, nil];
+
+    
+    
 }
 
 - (void)viewDidUnload {
@@ -89,6 +97,57 @@
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {  
     return YES; 
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+ 
+    [textField setInputAccessoryView:toolBar];
+    
+    
+    
+    for (int i=0; i<[fieldsArray count]; i++)
+        if ([fieldsArray objectAtIndex:i]==textField)
+        {
+            if (i==[fieldsArray count]-1)
+            {
+                [barButton setStyle:UIBarButtonItemStyleDone];
+            }
+        }
+}
+
+- (IBAction) next
+{
+    for (int i=0; i<[fieldsArray count]; i++)
+    {
+        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=[fieldsArray count]-1)
+        {
+            [[fieldsArray objectAtIndex:i+1] becomeFirstResponder];
+            if (i+1==[fieldsArray count]-1)
+            {
+                [barButton setTitle:@"Done"];
+                [barButton setStyle:UIBarButtonItemStyleDone];
+            }else {
+                [barButton setTitle:@"Closer"];
+                [barButton setStyle:UIBarButtonItemStyleBordered];
+            }
+            break;
+        }
+    }
+}
+
+- (IBAction) previous
+{
+    for (int i=0; i<[fieldsArray count]; i++)
+    {
+        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=0)
+        {
+            [[fieldsArray objectAtIndex:i-1] becomeFirstResponder];
+            [barButton setTitle:@"Close"];
+            [barButton setStyle:UIBarButtonItemStyleBordered];
+            break;
+        }
+    }
+}
+
 
 
 - (IBAction)dismissKeyboard:(id)sender {
@@ -146,4 +205,7 @@
         NSLog(@"Username does not exist.");
     }
 }
+
+
+
 @end

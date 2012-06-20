@@ -13,6 +13,15 @@
 
 @interface ViewControllerWelcome : UIViewController {
     
+    
+    // toolbar
+    IBOutlet UIToolbar *toolBar;
+    NSArray *fieldsArray;
+    IBOutlet UIBarButtonItem *barButton;
+
+  
+    
+
 }
 
 // Notes
@@ -40,21 +49,25 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
+
+
+
+
 // end Welcome
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
-// Welcome to KepCop - methods
+
 - (IBAction)dismissKeyboard:(id)sender;
 
 - (IBAction)textFieldDoneEditing:(id)sender;
 
 - (IBAction)processLogin:(id)sender;
-// endWelcome - methods
 
-
+- (IBAction) next;
+- (IBAction) previous;
 
 
 @end

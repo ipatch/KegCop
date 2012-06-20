@@ -64,7 +64,9 @@
         _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
         NSLog(@"After _managedObjectContext: %@", _managedObjectContext);
     }
-        
+    
+    // keyboard behavior
+    [self registerForKeyboardNotifications];
 }
 
 
@@ -99,11 +101,21 @@
     return YES;
 }
 
+- (void) textFieldDidBeginEditing:(UITextField *)textFieldView
+{
+    currentTextField = textFieldView;
+    
+}
+
+
+
 // method to determine values in text fields - compare pins, 
 // implement method to validate - createUserTextField, creatPinTextField, createEmailTextField, createPhoneTextField
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    currentTextField = nil;
+    
     NSString *pin = _createPinTextField.text;
     NSString *repin = _createPinReTextField.text;
     // TODO - figure out how to check for equality after both pins are entered
@@ -157,20 +169,13 @@
 }
 
 
-// method to pull code from text fields and store in keychain and account database
+// method to pull text from text fields and store in keychain and account database
 
 - (IBAction)createAccount:(id)sender {
     
-    // hide keyboard when login button is pressed
-    [_createUserTextField resignFirstResponder];
-    
-    
-    
-    // check if create textfields are empty - WRONG
-  
     [self checkTextFieldCharLength];
     
-    // check if boolean is true / false
+    // check if create textfields are empty, check if boolean is true / false
     if([self checkTextFieldEmpty] == TRUE ) // empty text fields
     {
         NSLog(@"Please fill in text fields");
@@ -179,14 +184,21 @@
     else {
         NSLog(@"Thanks for filling out the text fields.");
         // Core Data - retrieve values from text fields and store in database.
-        NSManagedObject *newAccount;
+        Account *newAccount;
         newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:_managedObjectContext];
-        [newAccount setValue:_createUserTextField forKey:@"username"];
-        [newAccount setValue:_createEmailTextField forKey:@"email"];
-        [newAccount setValue:_createPhoneNumber forKey:@"phoneNumber"];
+        [newAccount setValue:_createUserTextField.text forKey:@"username"];
+        [newAccount setValue:_createEmailTextField.text forKey:@"email"];
+        [newAccount setValue:_createPhoneNumber.text forKey:@"phoneNumber"];
+        
+        // TODO store pin in keychain
+        [newAccount setPassword:_createPinTextField.text];
+        NSLog(@"Pin saved is %@", [newAccount password]);
+        
+        
         _createUserTextField.text = @"";
         _createEmailTextField.text = @"";
         _createPhoneNumber.text = @"";
+        _createPinTextField.text = @"";
         NSError *error;
         [_managedObjectContext save:&error];
         [_createAccountSuccess setHidden:NO];
@@ -251,5 +263,48 @@ if (i >= 1) return YES; else return NO;
     //	return 0;
     return [emailTest evaluateWithObject:candidate];
 }
+
+// method - keyboard behavior
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWasShown:(NSNotification*)aNotification
+
+{
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    _createScroller.contentInset = contentInsets;
+    _createScroller.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, currentTextField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbSize.height);
+        [_createScroller setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+
+{
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    _createScroller.contentInset = contentInsets;
+    _createScroller.scrollIndicatorInsets = contentInsets;
+    
+}
+    
 
 @end

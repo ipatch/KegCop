@@ -11,7 +11,8 @@
 
 @interface ViewControllerCreate : UIViewController <UITextFieldDelegate>
 {
-    
+    BOOL keyboardIsShown;
+    UITextField *currentTextField;
 }
 
 // Create new account

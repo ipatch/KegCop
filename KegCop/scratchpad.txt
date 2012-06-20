@@ -1,3 +1,168 @@
+- (void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    [textField setInputAccessoryView:keyboardToolbar];
+    for (int i=0; i<[textFields count]; i++) {
+        if ([textFields objectAtIndex:i]==textField) {
+            if (i==[textFields count]-1) {
+                toolbarActionButton.title = @"Done";
+                [toolbarActionButton setStyle:UIBarButtonItemStyleDone];
+            }
+           // [self. scrollToRowAtIndexPath: [NSIndexPath indexPathForRow:i inSection:0]
+                           //       atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        }
+    }
+}
+
+- (IBAction) closedKeyboard{
+    for (UITextField *t in textFields){
+        if ([t isEditing]) {
+            [t resignFirstResponder];
+            break;
+        }
+    }
+}
+
+- (IBAction) nextField{
+    for (int i=0; i<[textFields count]; i++) {
+        
+        if ([[textFields objectAtIndex:i] isEditing] && i!=[textFields count]-1) {
+            [[textFields objectAtIndex:i+1] becomeFirstResponder];
+            if (i+1==[textFields count]-1) {
+                [toolbarActionButton setTitle:@"Done"];
+                [toolbarActionButton setStyle:UIBarButtonItemStyleDone];
+            }else {
+                [toolbarActionButton setTitle:@"Close"];
+                [toolbarActionButton setStyle:UIBarButtonItemStyleBordered];
+            }
+            
+            [self.uiviewcontroller scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:i+1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            
+            break;
+        }
+    }
+
+}
+
+- (IBAction) prevField{
+    for (int i=0; i<[textFields count]; i++) {
+        if ([[textFields objectAtIndex:i] isEditing] && i!=0) {
+            [[textFields objectAtIndex:i-1] becomeFirstResponder];
+            [toolbarActionButton setTitle:@"Close"];
+            //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:i-1 inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            [toolbarActionButton setStyle:UIBarButtonItemStyleBordered];
+            break;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// method - notifications - keyboard
+
+- (void) viewWillAppear: (BOOL)animated {
+    // registers the notifications for keyboard
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:self.view.window];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    // removes the notifications for keyboard
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void) keyboardDidShow:(NSNotification *) notification {
+    if (keyboardIsShown) return;
+    
+    NSDictionary* info = [notification userInfo];
+    
+    // obtain the size of the keyboard
+    NSValue *aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+    CGSize keyboardsize = [aValue CGRectValue].size;
+    
+    // resize the sccroll view (with keyboard)
+    CGRect viewFrame = [_createScroller frame];
+    viewFrame.size.height -= keyboardsize.height;
+    _createScroller.frame = viewFrame;
+    
+    // scroll to the current text field
+    CGRect textFieldRect = [currentTextField frame];
+    [_createScroller scrollRectToVisible:textFieldRect animated:YES];
+    
+    keyboardIsShown = YES;
+}
+
+- (void) keyboardDidHide:(NSNotification *) notification {
+    NSDictionary* info = [notification userInfo];
+    
+    // obtain size of keyboard
+    NSValue* aValue = [info objectForKey:UIKeyboardBoundsUserInfoKey];
+    CGSize keyboardSize = [aValue CGRectValue].size;
+    
+    // resize the scroll view back to the original size
+    CGRect viewFrame = [_createScroller frame];
+    viewFrame.size.height += keyboardSize.height;
+    _createScroller.frame = viewFrame;
+    
+    keyboardIsShown = NO;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Hey Chris, I'm back.
 
 I saw your question at stackoverflow, but I don't think I understand correctly. You should be able to create a new instance of Account doing something like:

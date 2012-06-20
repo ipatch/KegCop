@@ -15,4 +15,6 @@
 
 @dynamic phoneNumber;
 
+@dynamic credit;
+
 @end

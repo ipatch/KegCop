@@ -7,10 +7,14 @@
 
 #import "AccountBase.h"
 
-@interface Account : AccountBase
+@interface Account : AccountBase {
+    
+}
 
 // nonatomic - don't worry about multithreading
 
 @property (nonatomic, assign) NSString *password;
+
+- (void)setPassword:(NSString*)aPassword;
 
 @end

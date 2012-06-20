@@ -16,6 +16,8 @@
 
 @property (nonatomic, retain) NSString *email;
 
-@property (nonatomic, retain) NSNumber *phoneNumber;
+@property (nonatomic, retain) NSString *phoneNumber;
+
+@property (nonatomic, retain) NSNumber *credit;
 
 @end

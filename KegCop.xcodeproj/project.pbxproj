@@ -38,6 +38,7 @@
 		EAEFEEA4157B296B00C666D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA3157B296B00C666D5 /* AppDelegate.m */; };
 		EAEFEEA7157B296B00C666D5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */; };
 		EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */; };
+		EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF27855159191C9009663A8 /* ViewControllerHome.m */; };
 		EAFC132E157B3883002F76FD /* icon57x57_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC132D157B3883002F76FD /* icon57x57_flat.png */; };
 		EAFC1330157B3890002F76FD /* icon114x114_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC132F157B3890002F76FD /* icon114x114_flat.png */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,8 @@
 		EAEFEEA6157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerWelcome.h; sourceTree = "<group>"; };
 		EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWelcome.m; sourceTree = "<group>"; };
+		EAF27854159191C8009663A8 /* ViewControllerHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerHome.h; sourceTree = "<group>"; };
+		EAF27855159191C9009663A8 /* ViewControllerHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerHome.m; sourceTree = "<group>"; };
 		EAFC132D157B3883002F76FD /* icon57x57_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57x57_flat.png; path = ../icon57x57_flat.png; sourceTree = "<group>"; };
 		EAFC132F157B3890002F76FD /* icon114x114_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114x114_flat.png; path = ../icon114x114_flat.png; sourceTree = "<group>"; };
 		EAFC1331157B396E002F76FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */,
 				EA1890391585F890003A64FC /* ViewControllerCreate.h */,
 				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
+				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
+				EAF27855159191C9009663A8 /* ViewControllerHome.m */,
 				EA699308158721E8009E0397 /* ViewControllerForgot.h */,
 				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
 				EA1890351585F7E7003A64FC /* ViewControllerAbout.h */,
@@ -377,6 +382,7 @@
 				EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */,
 				EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */,
 				EAA33D87158F0A0000031D96 /* CoreDataHelper.m in Sources */,
+				EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

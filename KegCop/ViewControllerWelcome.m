@@ -66,13 +66,10 @@
         _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
 
-    }
-    
+    }    
     
     // keyboard toolbar
-    fieldsArray = [[NSArray alloc] initWithObjects:_textFieldUsername, _textFieldPin, nil];
-
-    
+    fieldsArray = [[NSArray alloc] initWithObjects: _textFieldUsername, _textFieldPin, nil];
     
 }
 
@@ -102,9 +99,8 @@
  
     [textField setInputAccessoryView:toolBar];
     
-    
-    
     for (int i=0; i<[fieldsArray count]; i++)
+    {
         if ([fieldsArray objectAtIndex:i]==textField)
         {
             if (i==[fieldsArray count]-1)
@@ -112,41 +108,9 @@
                 [barButton setStyle:UIBarButtonItemStyleDone];
             }
         }
-}
-
-- (IBAction) next
-{
-    for (int i=0; i<[fieldsArray count]; i++)
-    {
-        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=[fieldsArray count]-1)
-        {
-            [[fieldsArray objectAtIndex:i+1] becomeFirstResponder];
-            if (i+1==[fieldsArray count]-1)
-            {
-                [barButton setTitle:@"Done"];
-                [barButton setStyle:UIBarButtonItemStyleDone];
-            }else {
-                [barButton setTitle:@"Closer"];
-                [barButton setStyle:UIBarButtonItemStyleBordered];
-            }
-            break;
-        }
     }
 }
 
-- (IBAction) previous
-{
-    for (int i=0; i<[fieldsArray count]; i++)
-    {
-        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=0)
-        {
-            [[fieldsArray objectAtIndex:i-1] becomeFirstResponder];
-            [barButton setTitle:@"Close"];
-            [barButton setStyle:UIBarButtonItemStyleBordered];
-            break;
-        }
-    }
-}
 
 
 
@@ -206,6 +170,86 @@
     }
 }
 
+// method keyboard behavior
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+// method keyboard behavior
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+// method keyboard behavior
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    
+    CGRect frame = self->toolBar.frame;
+    frame.origin.y = self.view.frame.size.height - 260.0;
+    self->toolBar.frame = frame;
+    
+    [UIView commitAnimations];
+}
+
+// method keyboard behavior
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    
+    CGRect frame = self->toolBar.frame;
+    frame.origin.y = self.view.frame.size.height;
+    self->toolBar.frame = frame;
+    
+    [UIView commitAnimations];
+}
+
+// method keyboard behavior - next button
+
+- (IBAction) next
+{
+    for (int i=0; i<[fieldsArray count]; i++)
+    {
+        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=[fieldsArray count]-1)
+        {
+            [[fieldsArray objectAtIndex:i+1] becomeFirstResponder];
+            if (i+1==[fieldsArray count]-1)
+            {
+                [barButton setTitle:@"Done"];
+                [barButton setStyle:UIBarButtonItemStyleDone];
+            }else {
+                [barButton setTitle:@"Closer"];
+                [barButton setStyle:UIBarButtonItemStyleBordered];
+            }
+            break;
+        }
+    }
+}
+
+// method keyboard behavior - prev button
+
+- (IBAction) prev
+{
+    for (int i=0; i<[fieldsArray count]; i++)
+    {
+        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=0)
+        {
+            [[fieldsArray objectAtIndex:i-1] becomeFirstResponder];
+            [barButton setTitle:@"Close"];
+            [barButton setStyle:UIBarButtonItemStyleBordered];
+            break;
+        }
+    }
+}
 
 @end

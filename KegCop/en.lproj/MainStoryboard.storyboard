@@ -155,9 +155,13 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="barButton" destination="XRK-hP-6tW" id="dpY-cu-bKX"/>
+                        <outlet property="done" destination="St1-Qc-CcF" id="wTN-LM-uDc"/>
+                        <outlet property="next" destination="w7R-bW-FMt" id="7mk-W5-BQQ"/>
+                        <outlet property="prev" destination="XRK-hP-6tW" id="fBx-FX-WAj"/>
                         <outlet property="textFieldPin" destination="ouS-iy-nbk" id="qja-Jr-msZ"/>
                         <outlet property="textFieldUsername" destination="LHi-CK-bre" id="Z2O-2f-SK0"/>
-                        <outlet property="view" destination="xx2-Vx-8Pc" id="5Zu-s9-e0D"/>
+                        <outlet property="toolBar" destination="FaE-k4-3gd" id="PEh-A2-n2U"/>
                         <outlet property="welcomeAbout" destination="vvG-Yp-BGt" id="VON-j4-mHw"/>
                         <outlet property="welcomeActivityIndicator" destination="FHu-Dk-pjF" id="HmN-xN-VIJ"/>
                         <outlet property="welcomeLogin" destination="F81-yy-Ds4" id="a7c-Zc-zGX"/>
@@ -165,26 +169,22 @@
                         <outlet property="wrongUserPin" destination="rtA-LP-7De" id="36M-pe-Lsk"/>
                     </connections>
                 </viewController>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.60000000000000009" contentMode="scaleToFill" barStyle="blackTranslucent" id="xx2-Vx-8Pc">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="FaE-k4-3gd">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem title="Prev" id="YLS-59-vk5">
+                        <barButtonItem title="Previous" id="XRK-hP-6tW">
                             <connections>
-                                <action selector="previous" destination="2" id="7kn-RE-TPT"/>
+                                <action selector="prev" destination="2" id="fyJ-wb-stI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Next" id="ocQ-0q-z7M">
+                        <barButtonItem title="Next" id="w7R-bW-FMt">
                             <connections>
-                                <action selector="next" destination="2" id="WZJ-wq-CZy"/>
+                                <action selector="next" destination="2" id="KmE-Kl-B10"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="QXA-3b-60A"/>
-                        <barButtonItem title="Close" id="LtH-sw-D08">
-                            <connections>
-                                <action selector="dismissKeyboard:" destination="2" id="lQn-0x-zUf"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="dA9-Zh-cpr"/>
+                        <barButtonItem title="Done" id="St1-Qc-CcF"/>
                     </items>
                 </toolbar>
             </objects>
@@ -991,7 +991,7 @@
             <relationships>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="next"/>
-                <relationship kind="action" name="previous"/>
+                <relationship kind="action" name="prev"/>
                 <relationship kind="action" name="processLogin:"/>
                 <relationship kind="action" name="textFieldDoneEditing:"/>
                 <relationship kind="outlet" name="barButton" candidateClass="UIBarButtonItem"/>

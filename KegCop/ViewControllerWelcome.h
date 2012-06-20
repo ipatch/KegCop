@@ -18,10 +18,6 @@
     IBOutlet UIToolbar *toolBar;
     NSArray *fieldsArray;
     IBOutlet UIBarButtonItem *barButton;
-
-  
-    
-
 }
 
 // Notes
@@ -67,7 +63,7 @@
 - (IBAction)processLogin:(id)sender;
 
 - (IBAction) next;
-- (IBAction) previous;
+- (IBAction) prev;
 
 
 @end

@@ -1,3 +1,63 @@
+- (IBAction) next
+{
+    for (int i=0; i<[fieldsArray count]; i++)
+    {
+        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=[fieldsArray count]-1)
+        {
+            [[fieldsArray objectAtIndex:i+1] becomeFirstResponder];
+            if (i+1==[fieldsArray count]-1)
+            {
+                [barButton setTitle:@"Done"];
+                [barButton setStyle:UIBarButtonItemStyleDone];
+            }else {
+                [barButton setTitle:@"Closer"];
+                [barButton setStyle:UIBarButtonItemStyleBordered];
+            }
+            break;
+        }
+    }
+}
+
+- (IBAction) previous
+{
+    for (int i=0; i<[fieldsArray count]; i++)
+    {
+        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=0)
+        {
+            [[fieldsArray objectAtIndex:i-1] becomeFirstResponder];
+            [barButton setTitle:@"Close"];
+            [barButton setStyle:UIBarButtonItemStyleBordered];
+            break;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
     [textField setInputAccessoryView:keyboardToolbar];

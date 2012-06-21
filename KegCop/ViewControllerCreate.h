@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "Account.h"
 #import "AppDelegate.h"
+#import "ViewControllerHome.h"
 
 @interface ViewControllerCreate : UIViewController <UITextFieldDelegate>
 {

@@ -18,10 +18,7 @@
     IBOutlet UIToolbar *toolBar;
     NSArray *fieldsArray;
     IBOutlet UIBarButtonItem *barButton;
-
-  
     
-
 }
 
 // Notes
@@ -49,15 +46,14 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
+// keyboard toolbar
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
-
-
-
-// end Welcome
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+// end Welcome
 
 
 - (IBAction)dismissKeyboard:(id)sender;
@@ -67,7 +63,7 @@
 - (IBAction)processLogin:(id)sender;
 
 - (IBAction) next;
-- (IBAction) previous;
+- (IBAction) prev;
 
 
 @end

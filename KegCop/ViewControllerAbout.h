@@ -6,10 +6,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface ViewControllerAbout : UIViewController
+@interface ViewControllerAbout : UIViewController 
+{
+
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *buildnumber;
+@property (weak, nonatomic) IBOutlet UILabel *createdaccounts;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
 

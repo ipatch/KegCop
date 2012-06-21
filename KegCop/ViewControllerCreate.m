@@ -93,7 +93,7 @@
     // Release any retained subviews of the main view.
 }
 
-// method to limit character input in certain text fields
+// method to limit character input in text fields
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {

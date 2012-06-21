@@ -30,6 +30,9 @@
 @synthesize createPhoneNumberNotValid = _createPhoneNumberNotValid;
 @synthesize createAccountSuccess = _createAccountSuccess;
 
+// keyboard toolbar
+@synthesize doneButton = _doneButton;
+
 // end create new account
 
 // Core Data
@@ -104,10 +107,9 @@
 - (void) textFieldDidBeginEditing:(UITextField *)textFieldView
 {
     currentTextField = textFieldView;
+    [currentTextField setInputAccessoryView:toolBar];
     
 }
-
-
 
 // method to determine values in text fields - compare pins, 
 // implement method to validate - createUserTextField, creatPinTextField, createEmailTextField, createPhoneTextField
@@ -166,6 +168,7 @@
 [_createPinReTextField resignFirstResponder];
 [_createEmailTextField resignFirstResponder];
 [_createPhoneNumber resignFirstResponder];
+
 }
 
 
@@ -199,10 +202,14 @@
         _createEmailTextField.text = @"";
         _createPhoneNumber.text = @"";
         _createPinTextField.text = @"";
+        _createPinReTextField.text = @"";
         NSError *error;
         [_managedObjectContext save:&error];
         [_createAccountSuccess setHidden:NO];
         NSLog(@"Succefully created account.");
+        
+        // Segue to user home screen
+        
     }
 }
 
@@ -305,6 +312,75 @@ if (i >= 1) return YES; else return NO;
     _createScroller.scrollIndicatorInsets = contentInsets;
     
 }
+
+// methods - keyboard behavior
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    NSLog(@"method was loaded at startup");
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    
+    CGRect frame = self->toolBar.frame;
+    frame.origin.y = self.view.frame.size.height;
+    self->toolBar.frame = frame;
+    
+    [UIView commitAnimations];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    
+    CGRect frame = self->toolBar.frame;
+    frame.origin.y = self.view.frame.size.height - 260.0;
+    self->toolBar.frame = frame;
+    
+    [UIView commitAnimations];
+}
+
+- (IBAction) next:(id)sender
+{
+    if([self.createUserTextField isFirstResponder]) [self.createPinTextField becomeFirstResponder];
+    
+    else if ([self.createPinTextField isFirstResponder]) [self.createPinReTextField becomeFirstResponder];
+    
+    else if ([self.createPinReTextField isFirstResponder]) [self.createEmailTextField becomeFirstResponder];
+    
+    else if ([self.createEmailTextField isFirstResponder]) [self.createPhoneNumber becomeFirstResponder];
+    
+    else if ([self.createPhoneNumber isFirstResponder]) [self.createUserTextField becomeFirstResponder];
+}
+
+- (IBAction) prev: (id)sender
+{
+    if([self.createUserTextField isFirstResponder]) [self.createPhoneNumber becomeFirstResponder];
+    
+    else if ([_createPinTextField isFirstResponder]) [self.createUserTextField becomeFirstResponder];
+    
+    else if ([_createPinReTextField isFirstResponder]) [self.createPinTextField becomeFirstResponder];
+    
+    else if ([_createEmailTextField isFirstResponder]) [self.createPinReTextField becomeFirstResponder];
+    
+    else if ([_createPhoneNumber isFirstResponder]) [self.createEmailTextField becomeFirstResponder];
+    
+}
+
     
 
 @end

@@ -13,6 +13,8 @@
 {
     BOOL keyboardIsShown;
     UITextField *currentTextField;
+    // keyboard toolbar
+    IBOutlet UIToolbar *toolBar;
 }
 
 // Create new account
@@ -29,15 +31,28 @@
 @property (weak, nonatomic) IBOutlet UILabel *createPhoneNumberNotValid;
 @property (weak, nonatomic) IBOutlet UILabel *createAccountSuccess;
 
-// end Create
+// keyboard toolbar
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
+
 
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+// end Create
+
 
 // Create new account - methods
 - (IBAction)createAccount:(id)sender;
+
+- (IBAction)dismissKeyboard:(id)sender;
+
+
+- (IBAction) next:(id)sender;
+- (IBAction) prev:(id)sender;
+
+
 
 // end Create
 

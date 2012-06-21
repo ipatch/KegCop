@@ -178,8 +178,8 @@
     
     [self checkTextFieldCharLength];
     
-    // check if create textfields are empty, check if boolean is true / false
-    if([self checkTextFieldEmpty] == TRUE ) // empty text fields
+    // check if create textfields are empty, check if boolean is YES / NO
+    if([self checkTextFieldEmpty] == YES ) // empty text fields
     {
         NSLog(@"Please fill in text fields");
     }
@@ -208,8 +208,10 @@
         [_createAccountSuccess setHidden:NO];
         NSLog(@"Succefully created account.");
         
-        // Segue to user home screen
-        
+        // Load ViewControllerHome
+        //[self performSegueWithIdentifier: @"loadHome" sender: self];
+        ViewControllerHome *viewControllerHome = [[ViewControllerHome alloc] init ];
+         [self presentViewController:viewControllerHome animated:YES completion: nil];
     }
 }
 

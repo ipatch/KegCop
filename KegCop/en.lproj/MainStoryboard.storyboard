@@ -105,7 +105,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eXh-SP-s3V" kind="modal" identifier="Forgot" id="coK-XK-nQa"/>
+                                            <segue destination="eXh-SP-s3V" kind="modal" identifier="toForgot" id="coK-XK-nQa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DnI-wi-p7f">
@@ -120,7 +120,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="iDf-5q-CIv" kind="modal" identifier="Create" id="kHc-6z-joi"/>
+                                            <segue destination="iDf-5q-CIv" kind="modal" identifier="toCreate" id="kHc-6z-joi"/>
                                         </connections>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="FHu-Dk-pjF">
@@ -139,7 +139,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ckf-V2-ViC" kind="modal" id="Gdh-aR-sL9"/>
+                                            <segue destination="Ckf-V2-ViC" kind="modal" identifier="toAbout" id="Gdh-aR-sL9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -218,7 +218,7 @@
                                             <navigationItem title="KegCop - About" id="gps-OW-YcP">
                                                 <barButtonItem key="rightBarButtonItem" title="Done" id="AVq-RA-x4d">
                                                     <connections>
-                                                        <segue destination="2" kind="modal" id="7AF-Y7-gBi"/>
+                                                        <segue destination="2" kind="modal" identifier="toWelcome" id="7AF-Y7-gBi"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
@@ -300,7 +300,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2" kind="modal" id="k6G-9y-mst"/>
+                                    <segue destination="2" kind="modal" identifier="forgotToWelcome" id="k6G-9y-mst"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email sent." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="T9N-Rr-lZD">
@@ -459,7 +459,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="2" kind="modal" id="ykP-Vl-4X8"/>
+                                            <segue destination="2" kind="modal" identifier="cancelToWelcome" id="ykP-Vl-4X8"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not valid." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fkj-Ah-GFF">
@@ -744,7 +744,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="bh2-Aj-hbd" kind="modal" id="0P9-eb-uzu"/>
+                                            <segue destination="bh2-Aj-hbd" kind="modal" identifier="homeToPourBeer" id="0P9-eb-uzu"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Would you like to purchase more credits?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FTZ-pA-2D2">
@@ -766,7 +766,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="j4C-1I-1is" kind="modal" id="eLH-ce-qDN"/>
+                                            <segue destination="j4C-1I-1is" kind="modal" identifier="homeToPurchase" id="eLH-ce-qDN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IcF-KU-2Nu">
@@ -781,7 +781,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="2" kind="modal" id="0tp-Bx-eRt"/>
+                                            <segue destination="2" kind="modal" identifier="homeToWelcome" id="0tp-Bx-eRt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -904,7 +904,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uGc-YU-kQy" kind="modal" id="7eN-2A-ESh"/>
+                                    <segue destination="uGc-YU-kQy" kind="modal" identifier="thankyouToHome" id="7eN-2A-ESh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KaR-ZO-iJg">
@@ -919,7 +919,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uGc-YU-kQy" kind="push" id="VzB-8E-V0o"/>
+                                    <segue destination="uGc-YU-kQy" kind="push" identifier="thankyouToWelcome" id="VzB-8E-V0o"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="5" minimumFontSize="17" id="44X-zg-3uX">
@@ -963,7 +963,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uGc-YU-kQy" kind="modal" id="3qk-yn-FTA"/>
+                                    <segue destination="uGc-YU-kQy" kind="modal" identifier="pourBeerToHome" id="3qk-yn-FTA"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -27,7 +27,4 @@
 {
     if (self.username) [KeychainHelper removePasswordForKey:self.username];
 }
-
-
-
 @end

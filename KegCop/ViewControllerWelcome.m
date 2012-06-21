@@ -39,10 +39,15 @@
 @synthesize welcomeActivityIndicator = _welcomeActivityIndicator;
 @synthesize welcomeAbout = _welcomeAbout;
 
-// end welcome
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
+
+// keyboard toolbar
+@synthesize doneButton = _doneButton;
+
+
+// end welcome
 
 
 //
@@ -119,6 +124,7 @@
     [_textFieldUsername resignFirstResponder];
     [_textFieldPin resignFirstResponder];
     
+    
 }
 
 
@@ -153,7 +159,7 @@
     
     NSFetchRequest *request= [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:context];
-    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"username==%@",self.textFieldUsername.text];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"username=%@",self.textFieldUsername.text];
     [request setEntity:entity];
     [request setPredicate:predicate];
     

@@ -155,10 +155,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="barButton" destination="XRK-hP-6tW" id="dpY-cu-bKX"/>
-                        <outlet property="done" destination="St1-Qc-CcF" id="wTN-LM-uDc"/>
-                        <outlet property="next" destination="w7R-bW-FMt" id="7mk-W5-BQQ"/>
-                        <outlet property="prev" destination="XRK-hP-6tW" id="fBx-FX-WAj"/>
+                        <outlet property="doneButton" destination="eev-bv-eyl" id="KjW-vJ-oKn"/>
                         <outlet property="textFieldPin" destination="ouS-iy-nbk" id="qja-Jr-msZ"/>
                         <outlet property="textFieldUsername" destination="LHi-CK-bre" id="Z2O-2f-SK0"/>
                         <outlet property="toolBar" destination="FaE-k4-3gd" id="PEh-A2-n2U"/>
@@ -173,18 +170,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem title="Previous" id="XRK-hP-6tW">
+                        <barButtonItem title="Previous" id="NgQ-vx-PjP"/>
+                        <barButtonItem title="Next" id="w1Y-zU-iDb"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="je1-oo-0H6"/>
+                        <barButtonItem title="Done" id="eev-bv-eyl">
                             <connections>
-                                <action selector="prev" destination="2" id="fyJ-wb-stI"/>
+                                <action selector="dismissKeyboard:" destination="2" id="XVH-J0-yWk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Next" id="w7R-bW-FMt">
-                            <connections>
-                                <action selector="next" destination="2" id="KmE-Kl-B10"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="dA9-Zh-cpr"/>
-                        <barButtonItem title="Done" id="St1-Qc-CcF"/>
                     </items>
                 </toolbar>
             </objects>
@@ -949,63 +942,6 @@
             <point key="canvasLocation" x="1576" y="724"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ViewControllerAbout" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
-            <relationships>
-                <relationship kind="outlet" name="buildnumber" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ViewControllerCreate" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCreate.h"/>
-            <relationships>
-                <relationship kind="action" name="createAccount:"/>
-                <relationship kind="outlet" name="createAccountSuccess" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="createEmailNotValid" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="createEmailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="createPhoneNumber" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="createPhoneNumberNotValid" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="createPinNotValid" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="createPinReTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="createPinTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="createScroller" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="createSubmit" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="createUNnotValid" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="createUserTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ViewControllerForgot" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerForgot.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="outlet" name="forgotEmailInvalid" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="forgotEmailSent" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textFieldEmailReset" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ViewControllerHome" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerHome.h"/>
-        </class>
-        <class className="ViewControllerWelcome" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerWelcome.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="next"/>
-                <relationship kind="action" name="prev"/>
-                <relationship kind="action" name="processLogin:"/>
-                <relationship kind="action" name="textFieldDoneEditing:"/>
-                <relationship kind="outlet" name="barButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="textFieldPin" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textFieldUsername" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="welcomeAbout" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="welcomeActivityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="welcomeLogin" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="welcomeScroller" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="wrongUserPin" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

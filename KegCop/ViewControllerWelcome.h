@@ -16,8 +16,6 @@
     
     // toolbar
     IBOutlet UIToolbar *toolBar;
-    NSArray *fieldsArray;
-    IBOutlet UIBarButtonItem *barButton;
     
 }
 
@@ -62,8 +60,9 @@
 
 - (IBAction)processLogin:(id)sender;
 
-- (IBAction) next;
-- (IBAction) prev;
+// keyboard toolbar
+- (IBAction) next:(id)sender;
+- (IBAction) prev:(id)sender;
 
 
 @end

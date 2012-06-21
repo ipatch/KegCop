@@ -59,7 +59,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     // load Welcome Scrollview
-    //[_welcomeScroller setScrollerEnabled:YES];
     [_welcomeScroller setContentSize:CGSizeMake(320,750)];
     
     // hidden at load
@@ -72,10 +71,6 @@
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
 
     }    
-    
-    // keyboard toolbar
-    fieldsArray = [[NSArray alloc] initWithObjects: _textFieldUsername, _textFieldPin, nil];
-    
 }
 
 - (void)viewDidUnload {
@@ -103,20 +98,7 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
  
     [textField setInputAccessoryView:toolBar];
-    
-    for (int i=0; i<[fieldsArray count]; i++)
-    {
-        if ([fieldsArray objectAtIndex:i]==textField)
-        {
-            if (i==[fieldsArray count]-1)
-            {
-                [barButton setStyle:UIBarButtonItemStyleDone];
-            }
-        }
-    }
 }
-
-
 
 
 - (IBAction)dismissKeyboard:(id)sender {
@@ -128,7 +110,7 @@
 }
 
 
-// method to dismiss keyboard
+// method to dismiss keyboard - return button
 - (IBAction) textFieldDoneEditing : (id) sender {
     [sender resignFirstResponder];
 }
@@ -182,7 +164,10 @@
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+   
+    NSLog(@"method was loaded at startup");
 }
 
 // method keyboard behavior
@@ -222,40 +207,22 @@
 
 // method keyboard behavior - next button
 
-- (IBAction) next
+- (IBAction) next:(id)sender
 {
-    for (int i=0; i<[fieldsArray count]; i++)
-    {
-        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=[fieldsArray count]-1)
-        {
-            [[fieldsArray objectAtIndex:i+1] becomeFirstResponder];
-            if (i+1==[fieldsArray count]-1)
-            {
-                [barButton setTitle:@"Done"];
-                [barButton setStyle:UIBarButtonItemStyleDone];
-            }else {
-                [barButton setTitle:@"Closer"];
-                [barButton setStyle:UIBarButtonItemStyleBordered];
-            }
-            break;
-        }
-    }
+    if([self.textFieldUsername isFirstResponder])[self.textFieldPin becomeFirstResponder];
+    
+    else if([self.textFieldPin isFirstResponder])[self.textFieldUsername becomeFirstResponder];
 }
 
 // method keyboard behavior - prev button
 
-- (IBAction) prev
+- (IBAction) prev:(id)sender
 {
-    for (int i=0; i<[fieldsArray count]; i++)
-    {
-        if ([[fieldsArray objectAtIndex:i] isEditing] && i!=0)
-        {
-            [[fieldsArray objectAtIndex:i-1] becomeFirstResponder];
-            [barButton setTitle:@"Close"];
-            [barButton setStyle:UIBarButtonItemStyleBordered];
-            break;
-        }
-    }
+    if([self.textFieldUsername isFirstResponder])[self.textFieldPin becomeFirstResponder];
+    
+    else if([self.textFieldPin isFirstResponder])[self.textFieldUsername becomeFirstResponder];
+       
+    
 }
 
 @end

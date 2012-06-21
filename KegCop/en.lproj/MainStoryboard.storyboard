@@ -170,12 +170,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem title="Previous" id="NgQ-vx-PjP"/>
-                        <barButtonItem title="Next" id="w1Y-zU-iDb"/>
+                        <barButtonItem title="Previous" id="NgQ-vx-PjP">
+                            <connections>
+                                <action selector="prev:" destination="2" id="bZB-t0-aBp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Next" id="w1Y-zU-iDb">
+                            <connections>
+                                <action selector="next:" destination="2" id="lp2-Gq-Xxw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="je1-oo-0H6"/>
                         <barButtonItem title="Done" id="eev-bv-eyl">
                             <connections>
-                                <action selector="dismissKeyboard:" destination="2" id="XVH-J0-yWk"/>
+                                <action selector="dismissKeyboard:" destination="2" id="QDm-UI-Hjm"/>
                             </connections>
                         </barButtonItem>
                     </items>
@@ -531,8 +539,32 @@
                         <outlet property="createSubmit" destination="nR5-dW-DFg" id="oOf-BF-jqL"/>
                         <outlet property="createUNnotValid" destination="fkj-Ah-GFF" id="y2I-nF-3gY"/>
                         <outlet property="createUserTextField" destination="v77-BR-zeR" id="cno-ps-ZFU"/>
+                        <outlet property="doneButton" destination="FNv-Zb-8qk" id="85u-sB-DwW"/>
+                        <outlet property="toolBar" destination="Ug8-pX-IHk" id="P7r-jt-RZq"/>
                     </connections>
                 </viewController>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="Ug8-pX-IHk">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Previous" id="oLr-9E-aE1">
+                            <connections>
+                                <action selector="prev:" destination="iDf-5q-CIv" id="az9-O3-VNz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Next" id="l3Z-LK-Eeh">
+                            <connections>
+                                <action selector="next:" destination="iDf-5q-CIv" id="CZo-32-NZ4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="klO-7p-YOd"/>
+                        <barButtonItem title="Done" id="FNv-Zb-8qk">
+                            <connections>
+                                <action selector="dismissKeyboard:" destination="iDf-5q-CIv" id="PIy-Mb-InL"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="653" y="-229"/>
         </scene>
@@ -942,6 +974,68 @@
             <point key="canvasLocation" x="1576" y="724"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ViewControllerAbout" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buildnumber" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerCreate" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCreate.h"/>
+            <relationships>
+                <relationship kind="action" name="createAccount:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="next:"/>
+                <relationship kind="action" name="prev:"/>
+                <relationship kind="outlet" name="createAccountSuccess" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEmailNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEmailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPhoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPhoneNumberNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createPinNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createPinReTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPinTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="createSubmit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="createUNnotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createUserTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerForgot" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerForgot.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="outlet" name="forgotEmailInvalid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="forgotEmailSent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textFieldEmailReset" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerHome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerHome.h"/>
+        </class>
+        <class className="ViewControllerWelcome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerWelcome.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="next:"/>
+                <relationship kind="action" name="prev:"/>
+                <relationship kind="action" name="processLogin:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="textFieldPin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldUsername" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="welcomeAbout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="welcomeActivityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="welcomeLogin" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="welcomeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wrongUserPin" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

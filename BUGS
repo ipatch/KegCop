@@ -1,4 +1,10 @@
-14JUN12 - There's a known bug when comparing the Keycahin to a CFType.
-14JUN12 - bug should be squashed, had a lowercase f (-.-)
-17JUN12 - trying to fix the runtime script bug, git is giving me issues.
-17JUN12 - runtime script causing compile errors should be fixed.
+2012-06-21 Chris <chris.r.jones.1983@gmail.com
+
+   * when account is created a black is loaded instead of ViewControllerHome
+
+2012-06-14 Chris <chris.r.jones.1983@gmail.com
+
+   * There's a known bug when comparing the Keycahin to a CFType.
+   * bug should be squashed, had a lowercase f (-.-)
+   * trying to fix the runtime script bug, git is giving me issues.
+   * runtime script causing compile errors should be fixed.

@@ -10,7 +10,7 @@ An iDevice, i.e. iPhone will connect to an Arduino via USB / iPhone connector ca
 This project was built with Xcode 4.3.2 and the target iOS is 5.1.1
 
 ## License and Copyright
-All code is offered under the GPLv2 license, unless otherwise noted.  Please see LICENSE.text for
+All code is offered under the GPLv2 license, unless otherwise noted.  Please see LICENSE.txt for
 the full license.  All code and documentation are Copyright 2012 Chris Jones, unless otherwise
 noted.
 

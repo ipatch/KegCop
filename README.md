@@ -1,4 +1,4 @@
-# README
+# KegCop - README
 
 ## Objective
 The purpose of this software is to create user accounts for a kegerator, and have a paypal account that is associated with a root account which recieves money from the users for the beer they drink.

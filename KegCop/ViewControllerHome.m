@@ -13,23 +13,32 @@
 
 @implementation ViewControllerHome
 
+// Home screen / scene
+
+@synthesize homeScroller = _homeScroller;
+// @synthesize removeAccount = _removeAccount;
+
 
 - (void)viewDidLoad
 {
-    /*
-    // create DELETE ACCOUNT BUTTON
+    
+    // load Home Scrollview
+    [_homeScroller setContentSize:CGSizeMake(320,750)];
+    
+    // declare button
     removeAccount = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [removeAccount addTarget:self
-               action:@selector(removeAccount:)
-     forControlEvents:UIControlEventTouchDown];
+    
+    // set title for button
     [removeAccount setTitle:@"Delete Account" forState:UIControlStateNormal];
-    removeAccount.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
-    //[_view addSubview:removeAccount];
-    */
     
+    // set the position of the button - CGRectMake (X, Y, bsize width, bsize height)
+    removeAccount.frame = CGRectMake(100, 440, 150, 30);
     
+    // listen for clicks
+    [removeAccount addTarget:self action:@selector(removeAccount) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    // add the button to the scrollview
+    [self.homeScroller addSubview:removeAccount];
     
     
     
@@ -40,6 +49,7 @@
 
 - (void)viewDidUnload
 {
+    [self setHomeScroller:nil];
     [super viewDidUnload];
   
 }
@@ -47,6 +57,23 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+- (void)removeAccount {
+    NSLog(@"Button Pressed");
+    
+    // TODO data needs to be fetched from CORE DATA
+    
+    // TODO delete username & all related information from Core Data DB
+    
+    // TODO delete username
+    
+    // TODO delete keychain asosciated user account - dele pin & repin
+    
+    // TODO delete email address
+    
+    // TODO dele phone number
+    
 }
 
 @end

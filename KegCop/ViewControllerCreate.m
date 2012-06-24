@@ -209,9 +209,9 @@
         NSLog(@"Succefully created account.");
         
         // Load ViewControllerHome
-        //[self performSegueWithIdentifier: @"loadHome" sender: self];
-        ViewControllerHome *viewControllerHome = [[ViewControllerHome alloc] init ];
-         [self presentViewController:viewControllerHome animated:YES completion: nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
+        [self presentModalViewController:home animated:YES];
     }
 }
 
@@ -263,7 +263,7 @@ if (i >= 1) return YES; else return NO;
 }
 
 
-// method to validate email
+// method - validate email
 
 - (BOOL) validateEmail: (NSString *) candidate 
 {

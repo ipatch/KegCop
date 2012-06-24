@@ -13,5 +13,6 @@
 {
     UIButton *removeAccount;
 }
+@property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
 
 @end

@@ -1,6 +1,10 @@
+2012-06-23 Chris <chris.r.jones.1983@gmail.com
+
+   * fixed black screen error, home screen is now loaded (yay).
+
 2012-06-21 Chris <chris.r.jones.1983@gmail.com
 
-   * when account is created a black is loaded instead of ViewControllerHome
+   * when account is created a black screen is loaded instead of ViewControllerHome
 
 2012-06-14 Chris <chris.r.jones.1983@gmail.com
 

@@ -11,6 +11,7 @@
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA1E87B5157C9A51002C945B /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */; };
+		EA58163A15980B6900920AAF /* KegCop-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA58163915980B6900920AAF /* KegCop-Info.plist */; };
 		EA64CC2A1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2B1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2C1591194300517704 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC1331157B396E002F76FD /* Default.png */; };
@@ -61,6 +62,7 @@
 		EA1E87AF157C66B9002C945B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA1E87B4157C9A51002C945B /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
+		EA58163915980B6900920AAF /* KegCop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KegCop-Info.plist"; sourceTree = "<group>"; };
 		EA64CC291591192C00517704 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		EA64CC2D1591198D00517704 /* launch-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-retina.png"; sourceTree = "<group>"; };
 		EA699308158721E8009E0397 /* ViewControllerForgot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerForgot.h; sourceTree = "<group>"; };
@@ -88,7 +90,6 @@
 		EAEFEE93157B296B00C666D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EAEFEE95157B296B00C666D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EAEFEE9B157B296B00C666D5 /* KegCop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KegCop-Info.plist"; sourceTree = "<group>"; };
 		EAEFEE9D157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAEFEE9F157B296B00C666D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
@@ -225,7 +226,7 @@
 				EA1E87AF157C66B9002C945B /* Default@2x.png */,
 				EAFC132F157B3890002F76FD /* icon114x114_flat.png */,
 				EAFC132D157B3883002F76FD /* icon57x57_flat.png */,
-				EAEFEE9B157B296B00C666D5 /* KegCop-Info.plist */,
+				EA58163915980B6900920AAF /* KegCop-Info.plist */,
 				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
 				EAEFEE9F157B296B00C666D5 /* main.m */,
 				EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */,
@@ -323,6 +324,7 @@
 				EA64CC2C1591194300517704 /* Default.png in Resources */,
 				EA64CC2E1591198D00517704 /* launch-retina.png in Resources */,
 				EA64CC301591199B00517704 /* Default@2x.png in Resources */,
+				EA58163A15980B6900920AAF /* KegCop-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

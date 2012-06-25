@@ -137,17 +137,25 @@
     }
     
     // CORE DATA
-    NSManagedObjectContext *context = _managedObjectContext;
+    // NSManagedObjectContext *context = _managedObjectContext;
     
     NSFetchRequest *request= [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"username=%@",self.textFieldUsername.text];
+    
+    // TODO check pin
+    Account *pinAccount = [[Account alloc] init];
+    
+    // GETTING ERROR ON BELOW LINE OF CODE! - ERR0R - No visible @interface for 'Account' declares the selector 'password:'
+    // [pinAccount password:_textFieldPin.text];
+    
+    
     [request setEntity:entity];
     [request setPredicate:predicate];
     
     NSError *error = nil;
         
-    NSArray *array = [context executeFetchRequest:request error:&error];
+    NSArray *array = [_managedObjectContext executeFetchRequest:request error:&error];
     if (array != nil) {
         NSUInteger count = [array count]; // may be 0 if the object has been deleted.
         NSLog(@"Username may exist, %@",count);

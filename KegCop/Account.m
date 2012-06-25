@@ -17,6 +17,13 @@
     return nil;
 }
 
+-(NSString*)getPasswordFromKeychain
+{
+    if (self.username)
+        return [KeychainHelper getPasswordForKey:self.username];
+    return nil;
+}
+
 - (void)setPassword:(NSString*)aPassword 
 {
     if (self.username) [KeychainHelper setPassword:aPassword forKey:self.username];

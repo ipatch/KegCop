@@ -145,9 +145,10 @@
     
     // TODO check pin
     Account *pinAccount = [[Account alloc] init];
+    [pinAccount getPasswordFromKeychain:_textFieldPin.text];
     
     // GETTING ERROR ON BELOW LINE OF CODE! - ERR0R - No visible @interface for 'Account' declares the selector 'password:'
-    // [pinAccount password:_textFieldPin.text];
+    // [pinAccount getPasswordFromKeychain:_textFieldPin.text];
     
     
     [request setEntity:entity];
@@ -164,6 +165,14 @@
     else {
         NSLog(@"Username does not exist.");
     }
+    
+    // play audio bell if user logs in correctly
+    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    CFURLRef soundFileURLRef;
+    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"Glass", CFSTR("aiff"), NULL);
+    UInt32 soundID;
+    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+    AudioServicesPlaySystemSound(soundID);
 }
 
 // method keyboard behavior

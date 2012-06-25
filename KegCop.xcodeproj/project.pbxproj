@@ -11,7 +11,6 @@
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA1E87B5157C9A51002C945B /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */; };
-		EA58163A15980B6900920AAF /* KegCop-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA58163915980B6900920AAF /* KegCop-Info.plist */; };
 		EA64CC2A1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2B1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2C1591194300517704 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC1331157B396E002F76FD /* Default.png */; };
@@ -26,6 +25,8 @@
 		EAA33D7F158EE6B000031D96 /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D7E158EE6B000031D96 /* scratchpad.txt */; };
 		EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA33D831588AA9100826A02 /* SenTestingKit.framework */; };
 		EAA33D87158F0A0000031D96 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D86158F0A0000031D96 /* CoreDataHelper.m */; };
+		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
+		EAA51B1615983E3100D0D777 /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EAA51B1515983E3100D0D777 /* Glass.aiff */; };
 		EABE1D741581C9B700FF9FA0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D731581C9B700FF9FA0 /* Account.m */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABE1D791581CBEC00FF9FA0 /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */; };
@@ -77,6 +78,8 @@
 		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EAA33D85158F0A0000031D96 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		EAA33D86158F0A0000031D96 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		EAA51B131598385B00D0D777 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EAA51B1515983E3100D0D777 /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = Glass.aiff; path = sounds/Glass.aiff; sourceTree = SOURCE_ROOT; };
 		EABE1D721581C9B700FF9FA0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		EABE1D731581C9B700FF9FA0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -120,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */,
 				EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */,
 				EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */,
 				EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */,
@@ -174,6 +178,7 @@
 		EAEFEE92157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAA51B131598385B00D0D777 /* AudioToolbox.framework */,
 				EAA33D831588AA9100826A02 /* SenTestingKit.framework */,
 				EABE1D751581CB1E00FF9FA0 /* Security.framework */,
 				EA1E87B1157C999A002C945B /* CoreData.framework */,
@@ -218,6 +223,7 @@
 		EAEFEE9A157B296B00C666D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAA51B1515983E3100D0D777 /* Glass.aiff */,
 				EAA33D7E158EE6B000031D96 /* scratchpad.txt */,
 				EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */,
 				EAFC1331157B396E002F76FD /* Default.png */,
@@ -324,7 +330,7 @@
 				EA64CC2C1591194300517704 /* Default.png in Resources */,
 				EA64CC2E1591198D00517704 /* launch-retina.png in Resources */,
 				EA64CC301591199B00517704 /* Default@2x.png in Resources */,
-				EA58163A15980B6900920AAF /* KegCop-Info.plist in Resources */,
+				EAA51B1615983E3100D0D777 /* Glass.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

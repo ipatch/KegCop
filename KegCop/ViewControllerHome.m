@@ -59,8 +59,17 @@
     return YES;
 }
 
-- (void)removeAccount {
+- (IBAction)removeAccount {
     NSLog(@"Button Pressed");
+    
+    // TODO present alertview to confirm deletion of account
+    alert = [[UIAlertView alloc]initWithTitle:@"Do you really want to delete this account?" message:@"This can not be undone!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];    
+    // display the alert    
+    [alert show];
+    
+    
+    
+    
     
     // TODO data needs to be fetched from CORE DATA
     

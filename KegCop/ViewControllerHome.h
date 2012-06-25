@@ -12,7 +12,12 @@
 @interface ViewControllerHome : UIViewController
 {
     UIButton *removeAccount;
+    UIAlertView *alert;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
+
+
+-(IBAction)removeAccount;
+
 
 @end

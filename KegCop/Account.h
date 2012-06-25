@@ -15,6 +15,10 @@
 
 @property (nonatomic, assign) NSString *password;
 
+-(NSString *)getPasswordFromKeychain; 
+
 - (void)setPassword:(NSString*)aPassword;
+
+
 
 @end

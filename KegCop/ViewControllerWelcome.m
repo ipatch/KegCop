@@ -9,6 +9,7 @@
 #import "ViewControllerWelcome.h"
 
 
+
 @interface ViewControllerWelcome ()
 
 // declare private methods here
@@ -137,42 +138,65 @@
     }
     
     // CORE DATA
-    // NSManagedObjectContext *context = _managedObjectContext;
-    
-    NSFetchRequest *request= [[NSFetchRequest alloc] init];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
-    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"username=%@",self.textFieldUsername.text];
-    
-    // TODO check pin
-    Account *pinAccount = [[Account alloc] init];
-    [pinAccount getPasswordFromKeychain:_textFieldPin.text];
-    
-    // GETTING ERROR ON BELOW LINE OF CODE! - ERR0R - No visible @interface for 'Account' declares the selector 'password:'
-    // [pinAccount getPasswordFromKeychain:_textFieldPin.text];
-    
-    
     [request setEntity:entity];
-    [request setPredicate:predicate];
+        
+    // filter results using a predicate
+    NSPredicate *pred =[NSPredicate predicateWithFormat:(@"username = %@"), _textFieldUsername.text];
+    
+    // set predicate for the request
+    [request setPredicate:pred];
     
     NSError *error = nil;
-        
-    NSArray *array = [_managedObjectContext executeFetchRequest:request error:&error];
-    if (array != nil) {
-        NSUInteger count = [array count]; // may be 0 if the object has been deleted.
-        NSLog(@"Username may exist, %@",count);
-    }
     
-    else {
-        NSLog(@"Username does not exist.");
-    }
+    // store DB usernames in results array
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
     
-    // play audio bell if user logs in correctly
-    CFBundleRef mainBundle = CFBundleGetMainBundle();
-    CFURLRef soundFileURLRef;
-    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"Glass", CFSTR("aiff"), NULL);
-    UInt32 soundID;
-    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-    AudioServicesPlaySystemSound(soundID);
+    NSLog(@"The returned results are %@",results);
+    
+    
+    // check text field against results stored in DB
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:_textFieldUsername.text]){
+            NSLog(@"Your username exists");
+            if ([anAccount.password isEqualToString:_textFieldPin.text]){
+                NSLog(@"Your pin is correct");
+                
+                // TODO - put this in proper place - play audio bell if user logs in correctly
+                CFBundleRef mainBundle = CFBundleGetMainBundle();
+                CFURLRef soundFileURLRef;
+                soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"Glass", CFSTR("aiff"), NULL);
+                UInt32 soundID;
+                AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+                AudioServicesPlaySystemSound(soundID);
+                
+                // TODO - put this in proper place - Load ViewControllerHome
+                if([anAccount.username isEqualToString:@"root"])
+                {
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    ViewControllerRootHome *roothome = (ViewControllerRootHome *)[storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
+                    [self presentModalViewController:roothome animated:YES];
+                }
+                else {
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                    ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
+                    [self presentModalViewController:home animated:YES];
+                }
+            }
+            else {
+                NSLog(@"Your pin is wrong");
+                [_welcomeActivityIndicator stopAnimating];
+                [_wrongUserPin setHidden:NO];
+                }
+            }
+        else {
+            NSLog(@"Your username was not found");
+            [_welcomeActivityIndicator stopAnimating];
+            [_wrongUserPin setHidden:NO];
+            }
+        }
+    
 }
 
 // method keyboard behavior

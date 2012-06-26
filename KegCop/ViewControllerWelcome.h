@@ -10,6 +10,10 @@
 #import "AppDelegate.h"
 #import "Account.h"
 #import "CoreDataHelper.h"
+#import "ViewControllerHome.h"
+#import "ViewControllerRootHome.h"
+#import <AudioToolbox/AudioToolbox.h>
+
 
 @interface ViewControllerWelcome : UIViewController {
     

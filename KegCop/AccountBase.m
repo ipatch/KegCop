@@ -7,6 +7,9 @@
 
 #import "AccountBase.h"
 
+// Notes
+// dynamic - means getter and setter should be implemented manually.
+
 @implementation AccountBase
 
 @dynamic username;

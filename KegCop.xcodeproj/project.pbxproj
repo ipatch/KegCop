@@ -11,6 +11,7 @@
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA1E87B5157C9A51002C945B /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */; };
+		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
 		EA64CC2A1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2B1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2C1591194300517704 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC1331157B396E002F76FD /* Default.png */; };
@@ -63,6 +64,8 @@
 		EA1E87AF157C66B9002C945B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA1E87B4157C9A51002C945B /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
+		EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHome.h; sourceTree = "<group>"; };
+		EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHome.m; sourceTree = "<group>"; };
 		EA58163915980B6900920AAF /* KegCop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KegCop-Info.plist"; sourceTree = "<group>"; };
 		EA64CC291591192C00517704 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		EA64CC2D1591198D00517704 /* launch-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-retina.png"; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
 				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
 				EAF27855159191C9009663A8 /* ViewControllerHome.m */,
+				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
+				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
 				EA699308158721E8009E0397 /* ViewControllerForgot.h */,
 				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
 				EA1890351585F7E7003A64FC /* ViewControllerAbout.h */,
@@ -391,6 +396,7 @@
 				EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */,
 				EAA33D87158F0A0000031D96 /* CoreDataHelper.m in Sources */,
 				EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */,
+				EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

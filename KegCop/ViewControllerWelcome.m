@@ -140,6 +140,8 @@
     // CORE DATA
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    
+    // set entity for request
     [request setEntity:entity];
         
     // filter results using a predicate
@@ -171,7 +173,7 @@
                 AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                 AudioServicesPlaySystemSound(soundID);
                 
-                // TODO - put this in proper place - Load ViewControllerHome
+                // TODO - put this in proper place - Load ViewController(Root)Home
                 if([anAccount.username isEqualToString:@"root"])
                 {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];

@@ -11,8 +11,10 @@
 
 @interface ViewControllerRootHome : UIViewController {
     
-    // NSMutableArray *mutableFetchResults;
     UIButton *nuke;
+    UITextField *tfEmail;
+    UIButton *btnEmailSave;
+    
     
 }
 
@@ -26,11 +28,15 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnDisplayAccount;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnDisplayEmail;
+
 @property (weak, nonatomic) IBOutlet UITextView *tvDisplayAccount;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblArduinoGood;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblArduinoBad;
+
+@property (weak, nonatomic) IBOutlet UISwitch *switchRfid;
 
 
 // Core Data
@@ -42,9 +48,16 @@
 
 - (IBAction)displayAccount:(id)sender;
 
+- (IBAction)displayEmail:(id)sender;
+
 - (IBAction)deleteAccount:(id)sender;
 
 - (IBAction)dismissKeyboard:(id)sender;
 
+- (IBAction)testArduinoConnection:(id)sender;
+
+- (IBAction)saveMasterEmail;
+
+- (IBAction)rfidOnOff;
 
 @end

@@ -17,9 +17,11 @@
 @synthesize tfDeleteAccount = _tfDeleteAccount;
 @synthesize btnDeleteAccount = _btnDeleteAccount;
 @synthesize btnDisplayAccount = _btnDisplayAccount;
+@synthesize btnDisplayEmail = _btnDisplayEmail;
 @synthesize tvDisplayAccount = _tvDisplayAccount;
 @synthesize lblArduinoGood = _lblArduinoGood;
 @synthesize lblArduinoBad = _lblArduinoBad;
+@synthesize switchRfid = _switchRfid;
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
@@ -30,7 +32,7 @@
     [super viewDidLoad];
     
     // load Home Scrollview
-    [_rootHomeScroller setContentSize:CGSizeMake(320,750)];
+    [_rootHomeScroller setContentSize:CGSizeMake(320,1000)];
     
     // hide Arduino connection labels
     [_lblArduinoGood setHidden:TRUE];
@@ -61,6 +63,40 @@
     
     // add nuke to the scrollview
     [self.rootHomeScroller addSubview:nuke];
+    
+    
+    // declare / initialize tfEmail
+    tfEmail = [[UITextField alloc] initWithFrame:CGRectMake(10, 500, 250, 30)];
+    
+    tfEmail.borderStyle = UITextBorderStyleRoundedRect;
+    tfEmail.textColor = [UIColor blackColor];
+    tfEmail.font = [UIFont systemFontOfSize:17.0];
+    tfEmail.placeholder = @"Enter Master Paypal Address.";
+    tfEmail.backgroundColor = [UIColor whiteColor];
+    tfEmail.autocorrectionType = UITextAutocorrectionTypeNo;
+    tfEmail.keyboardType = UIKeyboardTypeDefault;
+    tfEmail.returnKeyType = UIReturnKeyDone;
+    
+    [self.rootHomeScroller addSubview:tfEmail];
+         
+    // declare / initialize btnEmailSave
+    btnEmailSave = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [btnEmailSave setTitle:@"SaveMasterEmail" forState:UIControlStateNormal];
+    
+    btnEmailSave.frame = CGRectMake(100, 550, 150, 30);
+    
+    [btnEmailSave addTarget:self action:@selector(saveMasterEmail)forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.rootHomeScroller addSubview:btnEmailSave];
+    
+    
+    // RFID switch
+    UISwitch *switchRfid = [[UISwitch alloc] initWithFrame: CGRectMake(20, 550, 50, 50)];
+    [switchRfid addTarget: self action: @selector(rfidOnOff) forControlEvents:UIControlEventValueChanged];
+    // add switch to the desired frame
+    [self.rootHomeScroller addSubview:switchRfid];
+    
    
 }
 
@@ -72,6 +108,7 @@
     [self setTvDisplayAccount:nil];
     [self setLblArduinoGood:nil];
     [self setLblArduinoBad:nil];
+    [self setBtnDisplayEmail:nil];
     [super viewDidUnload];
     
 }
@@ -116,8 +153,45 @@
     _tvDisplayAccount.text = string;    
 }
 
-- (IBAction)deleteAccount:(id)sender {
+- (IBAction)displayEmail:(id)sender {
     
+    // CORE DATA
+    // setup up the fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define our table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    
+    // define how records are sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"email" ascending:NO];
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    [request setSortDescriptors:sortDescriptors];
+    
+    // Fetch the records and handle an error
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:& error] mutableCopy];
+    
+    if (!mutableFetchResults) {
+        // handle error.
+        // should advise user to restart
+    }
+    
+    NSMutableString *string = [NSMutableString string];
+    for ( Account *anAccount in mutableFetchResults) {
+        [string appendString:[NSString stringWithFormat:@"%@\n",anAccount.email]];
+    }
+    
+    // print results in text view
+    _tvDisplayAccount.text = string;
+    
+    
+}
+
+- (IBAction)deleteAccount:(id)sender {
+        
     // TODO - implement method / code to delete a user account
     
     // CORE DATA
@@ -144,24 +218,42 @@
         // should advise user to restart
     }
     
-    // delete attributes from Core Data DB
+    // put text field text in a string
+    NSString *tfdelstr = [[NSString alloc] init];
+    tfdelstr = _tfDeleteAccount.text;
+    NSLog(@"text field text = %@",tfdelstr);
     
-    // delete username
     
-    // delete pin / repin / keychain
-    Account *anAccount = [[Account alloc] init];
-    anAccount.prepareForDeletion;
-    
-    // delete email
-    
-    // delete phone number
-
-    
+    // compare text field text / string with results in an array
+    for (Account *anAccount in mutableFetchResults) {
+        if([anAccount.username isEqualToString:self.tfDeleteAccount.text]) {
+            NSLog(@"username found.");
+            
+            // delete keychain for account
+            [anAccount prepareForDeletion];
+            
+            // delete account object
+            [_managedObjectContext deleteObject:anAccount];
+            
+            // save the managed object context
+            NSError *error = nil;
+            if (![_managedObjectContext save:&error])
+            {
+                NSLog(@"error %@", error);
+            }
+        }
+    }
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
     
     [_tfDeleteAccount resignFirstResponder];
+    [tfEmail resignFirstResponder];
+}
+
+- (IBAction)testArduinoConnection:(id)sender {
+    
+
 }
 
 - (void) deleteAllObjects: (NSString *) entityDescription  {
@@ -181,6 +273,17 @@
         NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
     }
     
+}
+
+- (IBAction)saveMasterEmail {
+ //- (IBAction)saveMasterEmail:(id)sender {
+    
+    NSLog(@"save master Email button pressed");
+    
+}
+- (IBAction)rfidOnOff {
+//- (IBAction)rfidToggle:(id)sender {
+    NSLog(@"toogle");
 }
 
 @end

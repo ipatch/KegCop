@@ -1,3 +1,59 @@
+// delete account
+
+Yes, it's very simple. Just as you found out if the account existed, when you compare the password and it matches, just delete the account variable. That will only delete that account. Example:
+
+// Make the CoreData account query by username, then
+
+Account *account = [resultArray objectAtIndex:0];
+if ([account.password isEqualToString:  the-password-text-field.text ]) {
+
+   [managedObjectContext deleteObject:account];
+
+}
+
+and you're done.
+
+
+
+
+
+
+
+
+
+
+
+
+
+// delete account
+
+[managedObjectContextVar deleteObject:theAccountVar];
+
+
+
+int positioninarray =-1;
+for(i=0;i<sizeofthearray;i++)
+{
+   if(array[i] == searchedvalue)
+   {
+     positioninarray = i;
+   }
+}
+if(positioninarray == -1)
+   //Didn't find the position of the searched value
+else
+{
+  //do whatever you want with that...
+}
+
+
+
+
+
+
+
+
+
 - (IBAction) next
 {
     for (int i=0; i<[fieldsArray count]; i++)

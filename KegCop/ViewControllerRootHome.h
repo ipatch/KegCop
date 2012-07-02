@@ -38,6 +38,15 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *switchRfid;
 
+@property (weak, nonatomic) IBOutlet UITextField *tfCreditUsername;
+
+@property (weak, nonatomic) IBOutlet UITextField *tfCredit;
+
+
+
+
+
+
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -59,5 +68,8 @@
 - (IBAction)saveMasterEmail;
 
 - (IBAction)rfidOnOff;
+
+- (IBAction)addCredit:(id)sender;
+
 
 @end

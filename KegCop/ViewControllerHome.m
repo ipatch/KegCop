@@ -16,6 +16,9 @@
 // Home screen / scene
 
 @synthesize homeScroller = _homeScroller;
+@synthesize tfUsername = _tfUsername;
+@synthesize tfCredit = _tfCredit;
+@synthesize btnTradeCredit = _btnTradeCredit;
 // @synthesize removeAccount = _removeAccount;
 
 
@@ -50,6 +53,9 @@
 - (void)viewDidUnload
 {
     [self setHomeScroller:nil];
+    [self setTfUsername:nil];
+    [self setTfCredit:nil];
+    [self setBtnTradeCredit:nil];
     [super viewDidUnload];
   
 }
@@ -84,5 +90,16 @@
     // TODO dele phone number
     
 }
+
+- (IBAction)dismissKeyboard:(id)sender {
+    // welcome
+    [_tfUsername resignFirstResponder];
+    [_tfCredit resignFirstResponder];
+}
+
+- (IBAction)tradeCredit:(id)sender {
+    NSLog(@"btnTradeCredit pressed.");
+}
+
 
 @end

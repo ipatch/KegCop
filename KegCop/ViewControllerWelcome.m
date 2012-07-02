@@ -106,8 +106,6 @@
     // welcome
     [_textFieldUsername resignFirstResponder];
     [_textFieldPin resignFirstResponder];
-    
-    
 }
 
 

@@ -22,6 +22,8 @@
 @synthesize lblArduinoGood = _lblArduinoGood;
 @synthesize lblArduinoBad = _lblArduinoBad;
 @synthesize switchRfid = _switchRfid;
+@synthesize tfCreditUsername = _tfCreditUsername;
+@synthesize tfCredit = _tfCredit;
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
@@ -109,6 +111,8 @@
     [self setLblArduinoGood:nil];
     [self setLblArduinoBad:nil];
     [self setBtnDisplayEmail:nil];
+    [self setTfCreditUsername:nil];
+    [self setTfCredit:nil];
     [super viewDidUnload];
     
 }
@@ -249,6 +253,8 @@
     
     [_tfDeleteAccount resignFirstResponder];
     [tfEmail resignFirstResponder];
+    [_tfCreditUsername resignFirstResponder];
+    [_tfCredit resignFirstResponder];
 }
 
 - (IBAction)testArduinoConnection:(id)sender {
@@ -284,6 +290,11 @@
 - (IBAction)rfidOnOff {
 //- (IBAction)rfidToggle:(id)sender {
     NSLog(@"toogle");
+}
+
+- (IBAction)addCredit:(id)sender {
+    
+    NSLog(@"Add credit button pressed");
 }
 
 @end

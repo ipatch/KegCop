@@ -1,3 +1,8 @@
+2012-07-08 Chris <chris.r.jones.1983@gmail.com
+
+   * Deletion of user accounts should now work
+   * Two or more user accounts can not share the same username.
+
 2012-07-02 Chris <chris.r.jones.1983@gmail.com
    
    * Added webview for paypal interface.

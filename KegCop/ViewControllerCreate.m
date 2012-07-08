@@ -186,11 +186,47 @@
     
     else {
         NSLog(@"Thanks for filling out the text fields.");
+        
+        
+        // query Core Data DB to see if username is already created
+        
+        // define table/entity to use
+        NSEntityDescription *entity =[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+        
+        // setup fetch request
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        
+        // sort the records
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:NO];
+        NSArray *records = [NSArray arrayWithObject:sort];
+        
+        [request setSortDescriptors:records];
+        
+        // fetch the records and handle an error
+        NSError *fetchError;
+        NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:&fetchError] mutableCopy];
+        
+        if (!mutableFetchResults) {
+            // handle error.
+            // serious error
+        }
+        
+        // compare tf with fetched results
+        if ([[mutableFetchResults valueForKey:@"username"] containsObject:_createUserTextField.text]) {
+            
+            // let user know username already taken
+            _createUNnotValid.text=@"Username taken.";
+            [_createUNnotValid setHidden:NO];
+            return;
+        }
+
         // Core Data - retrieve values from text fields and store in database.
         Account *newAccount;
         newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:_managedObjectContext];
         [newAccount setValue:_createUserTextField.text forKey:@"username"];
-        [newAccount setValue:_createEmailTextField.text forKey:@"email"];
+        
+                [newAccount setValue:_createEmailTextField.text forKey:@"email"];
         [newAccount setValue:_createPhoneNumber.text forKey:@"phoneNumber"];
         
         // TODO store pin in keychain
@@ -203,8 +239,10 @@
         _createPhoneNumber.text = @"";
         _createPinTextField.text = @"";
         _createPinReTextField.text = @"";
+        
         NSError *error;
         [_managedObjectContext save:&error];
+        
         [_createAccountSuccess setHidden:NO];
         NSLog(@"Succefully created account.");
         
@@ -212,6 +250,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
         [self presentModalViewController:home animated:YES];
+
     }
 }
 

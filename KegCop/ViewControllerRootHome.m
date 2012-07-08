@@ -24,6 +24,8 @@
 @synthesize switchRfid = _switchRfid;
 @synthesize tfCreditUsername = _tfCreditUsername;
 @synthesize tfCredit = _tfCredit;
+@synthesize btnAddCredit = _btnAddCredit;
+@synthesize btnLogout = _btnLogout;
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
@@ -113,6 +115,9 @@
     [self setBtnDisplayEmail:nil];
     [self setTfCreditUsername:nil];
     [self setTfCredit:nil];
+    [self setBtnAddCredit:nil];
+    [self setBtnLogout:nil];
+    [self setBtnLogout:nil];
     [super viewDidUnload];
     
 }
@@ -206,13 +211,6 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
     [request setEntity:entity];
     
-    // define how records are sorted
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:NO];
-    
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    
-    [request setSortDescriptors:sortDescriptors];
-    
     // Fetch the records and handle an error
     NSError *error;
     NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:& error] mutableCopy];
@@ -221,12 +219,6 @@
         // handle error.
         // should advise user to restart
     }
-    
-    // put text field text in a string
-    NSString *tfdelstr = [[NSString alloc] init];
-    tfdelstr = _tfDeleteAccount.text;
-    NSLog(@"text field text = %@",tfdelstr);
-    
     
     // compare text field text / string with results in an array
     for (Account *anAccount in mutableFetchResults) {
@@ -295,6 +287,15 @@
 - (IBAction)addCredit:(id)sender {
     
     NSLog(@"Add credit button pressed");
+}
+
+- (IBAction)logout:(id)sender {
+    NSLog(@"Logout button pressed");
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewControllerWelcome *welcome = (ViewControllerWelcome *)[storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
+    [self presentModalViewController:welcome animated:YES];
+    
 }
 
 @end

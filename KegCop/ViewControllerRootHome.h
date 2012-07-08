@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Account.h"
+#import "ViewControllerWelcome.h"
 
 @interface ViewControllerRootHome : UIViewController {
     
@@ -42,6 +43,11 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *tfCredit;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnAddCredit;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
+
+
 
 
 
@@ -70,6 +76,9 @@
 - (IBAction)rfidOnOff;
 
 - (IBAction)addCredit:(id)sender;
+
+- (IBAction)logout:(id)sender;
+
 
 
 @end

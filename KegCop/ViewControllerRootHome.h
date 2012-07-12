@@ -45,18 +45,15 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAddCredit;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblCredit;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblRootCredit;
+
 @property (weak, nonatomic) IBOutlet UIButton *btnLogout;
-
-
-
-
-
-
 
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
 
 
 // methods

@@ -7,11 +7,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Model : NSObject
+@interface ModelWelcome : NSObject {
+    
+    NSString *passedText;
+}
 
 // not sure how to implement the model, but it's here for when it
 // will be needed, if needed \o/
 
-// another stupid comment.
+@property (nonatomic, strong) NSString* passedText;
+
++ (ModelWelcome *) sharedModelWelcome;
+
 
 @end

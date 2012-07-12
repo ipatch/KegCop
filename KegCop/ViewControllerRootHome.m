@@ -25,6 +25,8 @@
 @synthesize tfCreditUsername = _tfCreditUsername;
 @synthesize tfCredit = _tfCredit;
 @synthesize btnAddCredit = _btnAddCredit;
+@synthesize lblCredit = _lblCredit;
+@synthesize lblRootCredit = _lblRootCredit;
 @synthesize btnLogout = _btnLogout;
 
 // Core Data
@@ -68,6 +70,9 @@
     // add nuke to the scrollview
     [self.rootHomeScroller addSubview:nuke];
     
+    // Core Data - load root credits
+    [self rootCreditAmount];
+    
     
     // declare / initialize tfEmail
     tfEmail = [[UITextField alloc] initWithFrame:CGRectMake(10, 500, 250, 30)];
@@ -101,7 +106,7 @@
     // add switch to the desired frame
     [self.rootHomeScroller addSubview:switchRfid];
     
-   
+    [self rootCreditAmount];
 }
 
 - (void)viewDidUnload
@@ -118,6 +123,8 @@
     [self setBtnAddCredit:nil];
     [self setBtnLogout:nil];
     [self setBtnLogout:nil];
+    [self setLblCredit:nil];
+    [self setLblRootCredit:nil];
     [super viewDidUnload];
     
 }
@@ -232,11 +239,8 @@
             [_managedObjectContext deleteObject:anAccount];
             
             // save the managed object context
-            NSError *error = nil;
-            if (![_managedObjectContext save:&error])
-            {
-                NSLog(@"error %@", error);
-            }
+            [_managedObjectContext save:&error];
+           
         }
     }
 }
@@ -287,6 +291,47 @@
 - (IBAction)addCredit:(id)sender {
     
     NSLog(@"Add credit button pressed");
+    
+    // get the value stored in the username tf
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    
+    // fetch records and handle error
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    
+    if (!mutableFetchResults) {
+        // handle error
+    }
+    for (Account *anAccount in mutableFetchResults) {
+        if ([anAccount.username isEqualToString:self.tfCreditUsername.text]) {
+            NSLog(@"username found.");
+            
+            // get value stored in credit tf
+            int credit = [_tfCredit.text integerValue];
+            
+            // get current credit amount in DB
+            int creditcurrent = [anAccount.credit intValue];
+            
+            // add tf with current credit
+            int newcredit = credit + creditcurrent;
+            NSLog(@"new credit amount = %i",newcredit);
+            
+            // save new value to anAccount.credit - convert int to NSNumber
+            NSNumber *creditnew = [NSNumber numberWithInt:newcredit];
+            anAccount.credit = creditnew;
+            NSLog(@"new credit amoutn = %@",creditnew); 
+
+            // save to DB
+            NSError *error = nil;
+            if (![_managedObjectContext save:&error]) {
+                NSLog(@"error %@", error);
+            }
+        }
+    }
 }
 
 - (IBAction)logout:(id)sender {
@@ -298,4 +343,31 @@
     
 }
 
+- (void)rootCreditAmount {
+    // Core Data - root credit amount
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define our table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    
+    // fetch records and handle error
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    
+    if (!mutableFetchResults) {
+        // handle error.
+        // should advise user to restart
+    }
+    
+    // refine to just root account
+    for (Account *anAccount in mutableFetchResults) {
+        if ([anAccount.username isEqualToString:@"root"]) {
+                        
+            NSLog(@"root credit = %@",anAccount.credit);
+            
+            _lblRootCredit.text = [NSString stringWithFormat:@"root has %@ credits.",anAccount.credit];
+        }
+    }
+}
 @end

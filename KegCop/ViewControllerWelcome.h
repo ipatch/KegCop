@@ -5,22 +5,20 @@
 //  Created by capin on 6/3/12.
 //
 
-
+#import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Account.h"
 #import "CoreDataHelper.h"
 #import "ViewControllerHome.h"
 #import "ViewControllerRootHome.h"
-#import <AudioToolbox/AudioToolbox.h>
-
+#import "ModelWelcome.h"
 
 @interface ViewControllerWelcome : UIViewController {
     
-    
     // toolbar
     IBOutlet UIToolbar *toolBar;
-    
+    NSString *username;
 }
 
 // Notes

@@ -714,7 +714,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H79-CO-8WS">
-                                        <rect key="frame" x="18" y="367" width="99" height="37"/>
+                                        <rect key="frame" x="18" y="387" width="99" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Logout">
@@ -740,6 +740,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eNw-nW-NbY">
+                                        <rect key="frame" x="28" y="358" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="root has X credits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="1Fk-0b-ufl">
+                                        <rect key="frame" x="152" y="358" width="140" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -751,6 +765,8 @@
                         <outlet property="btnDisplayEmail" destination="QtW-ga-pK2" id="Lbx-is-61i"/>
                         <outlet property="lblArduinoBad" destination="qPc-p2-6s9" id="s6P-Cr-nAw"/>
                         <outlet property="lblArduinoGood" destination="H2X-aD-1gK" id="cl8-Q0-92Q"/>
+                        <outlet property="lblCredit" destination="eNw-nW-NbY" id="LgU-Wb-tCD"/>
+                        <outlet property="lblRootCredit" destination="1Fk-0b-ufl" id="h50-Yz-AKW"/>
                         <outlet property="rootHomeScroller" destination="ydc-B7-xIE" id="laf-oV-6ZO"/>
                         <outlet property="tfCredit" destination="gW9-nu-mzq" id="jOX-WO-gpO"/>
                         <outlet property="tfCreditUsername" destination="B1Q-bB-1Yk" id="fWC-ik-Pf6"/>
@@ -919,6 +935,7 @@
                     <connections>
                         <outlet property="btnTradeCredit" destination="ThU-Sl-LXC" id="zc6-aw-v1U"/>
                         <outlet property="homeScroller" destination="H43-z3-WeW" id="diP-F1-h3R"/>
+                        <outlet property="lblUSERNAME" destination="iqj-Wa-WyT" id="t6j-hH-bpZ"/>
                         <outlet property="tfCredit" destination="iGj-aj-dva" id="WWz-dH-EZU"/>
                         <outlet property="tfUsername" destination="pSV-ZJ-XQy" id="URQ-k7-mSd"/>
                     </connections>
@@ -1210,6 +1227,7 @@
                 <relationship kind="action" name="tradeCredit:"/>
                 <relationship kind="outlet" name="btnTradeCredit" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="homeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="lblUSERNAME" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tfUsername" candidateClass="UITextField"/>
             </relationships>
@@ -1241,6 +1259,8 @@
                 <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="lblArduinoBad" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblArduinoGood" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblCredit" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblRootCredit" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="rootHomeScroller" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="switchRfid" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>

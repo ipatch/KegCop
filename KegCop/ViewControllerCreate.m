@@ -229,7 +229,7 @@
                 [newAccount setValue:_createEmailTextField.text forKey:@"email"];
         [newAccount setValue:_createPhoneNumber.text forKey:@"phoneNumber"];
         
-        // TODO store pin in keychain
+        // store pin in keychain
         [newAccount setPassword:_createPinTextField.text];
         NSLog(@"Pin saved is %@", [newAccount password]);
         

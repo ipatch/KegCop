@@ -5,22 +5,29 @@
 //  Created by capin on 6/10/12.
 //
 
-#import "ModelWelcome.h"
+#import "ModelWelcome.h"   
 
-// not sure how to implement the model, but it's here for when it
-// will be needed, if needed \o/
-
-@interface Model () {
-    
-    // put private variables and stuff (>.>) here.
+@interface ModelWelcome () {
     
 }
 
 @end
 
-@implementation Model
+@implementation ModelWelcome
 
-    // put Model methods here
+@synthesize passedText = _passedText;
+
+static ModelWelcome *sharedModelWelcome = nil;
+
++ (ModelWelcome *) sharedModelWelcome {
+    @synchronized(self){
+        if (sharedModelWelcome == nil){
+            sharedModelWelcome = [[self alloc] init];
+        }
+    }
+    return sharedModelWelcome;
+}
+
 
 
 @end

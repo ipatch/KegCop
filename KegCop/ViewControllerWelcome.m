@@ -8,8 +8,6 @@
 
 #import "ViewControllerWelcome.h"
 
-
-
 @interface ViewControllerWelcome ()
 
 // declare private methods here
@@ -181,6 +179,11 @@
                 else {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                     ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
+                    
+                    username = _textFieldUsername.text;
+                    
+                    [self passValues];
+                    
                     [self presentModalViewController:home animated:YES];
                 }
             }
@@ -196,7 +199,6 @@
             [_wrongUserPin setHidden:NO];
             }
         }
-    
 }
 
 // method keyboard behavior
@@ -262,8 +264,11 @@
     if([self.textFieldUsername isFirstResponder])[self.textFieldPin becomeFirstResponder];
     
     else if([self.textFieldPin isFirstResponder])[self.textFieldUsername becomeFirstResponder];
-       
-    
+}
+
+-(void) passValues {
+    ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
+    modelwelcome.passedText = username;
 }
 
 @end

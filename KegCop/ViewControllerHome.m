@@ -6,6 +6,7 @@
 //
 
 #import "ViewControllerHome.h"
+// #import "ViewControllerWelcome.h"
 
 @interface ViewControllerHome ()
 
@@ -16,9 +17,11 @@
 // Home screen / scene
 
 @synthesize homeScroller = _homeScroller;
+@synthesize lblUSERNAME = _lblUSERNAME;
 @synthesize tfUsername = _tfUsername;
 @synthesize tfCredit = _tfCredit;
 @synthesize btnTradeCredit = _btnTradeCredit;
+ // @synthesize username = _username;
 // @synthesize removeAccount = _removeAccount;
 
 
@@ -43,11 +46,10 @@
     // add the button to the scrollview
     [self.homeScroller addSubview:removeAccount];
     
-    
-    
+    // change USERNAME label
+    [self changeUSERNAME];
     
     [super viewDidLoad];
-
 }
 
 - (void)viewDidUnload
@@ -56,6 +58,7 @@
     [self setTfUsername:nil];
     [self setTfCredit:nil];
     [self setBtnTradeCredit:nil];
+    [self setLblUSERNAME:nil];
     [super viewDidUnload];
   
 }
@@ -100,6 +103,10 @@
 - (IBAction)tradeCredit:(id)sender {
     NSLog(@"btnTradeCredit pressed.");
 }
+
+- (void)changeUSERNAME {
+    _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;
+}    
 
 
 @end

@@ -202,7 +202,6 @@
 		EAEFEE99157B296B00C666D5 /* KegCop */ = {
 			isa = PBXGroup;
 			children = (
-				EA53154715AED060002F708C /* KegCop.entitlements */,
 				EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */,
 				EAEFEEA2157B296B00C666D5 /* AppDelegate.h */,
 				EAEFEEA3157B296B00C666D5 /* AppDelegate.m */,
@@ -240,6 +239,7 @@
 		EAEFEE9A157B296B00C666D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA53154715AED060002F708C /* KegCop.entitlements */,
 				EAA51B1515983E3100D0D777 /* Glass.aiff */,
 				EAA33D7E158EE6B000031D96 /* scratchpad.txt */,
 				EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */,
@@ -284,8 +284,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAEFEEAD157B296B00C666D5 /* Build configuration list for PBXNativeTarget "KegCop" */;
 			buildPhases = (
-				EA69930C15873920009E0397 /* ShellScript */,
-				EA12822215AEC8650000D606 /* ShellScript */,
+				EA69930C15873920009E0397 /* Run Script - Build Version Increment */,
+				EA12822215AEC8650000D606 /* Run Script - Debug On Device Script - Jailbreak */,
 				EAEFEE8B157B296B00C666D5 /* Sources */,
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
 				EAEFEE8D157B296B00C666D5 /* Resources */,
@@ -369,20 +369,21 @@
 			shellPath = /bin/sh;
 			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
 		};
-		EA12822215AEC8650000D606 /* ShellScript */ = {
+		EA12822215AEC8650000D606 /* Run Script - Debug On Device Script - Jailbreak */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script - Debug On Device Script - Jailbreak";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nexport CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n$PROJECT/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
 		};
-		EA69930C15873920009E0397 /* ShellScript */ = {
+		EA69930C15873920009E0397 /* Run Script - Build Version Increment */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -390,6 +391,7 @@
 			inputPaths = (
 				"",
 			);
+			name = "Run Script - Build Version Increment";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -249,6 +249,12 @@
         // Load ViewControllerHome
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
+        
+        // pass user tf text to home screen
+        username = _createUserTextField.text;
+        
+        [self passValues];
+        
         [self presentModalViewController:home animated:YES];
 
     }
@@ -422,6 +428,10 @@ if (i >= 1) return YES; else return NO;
     
 }
 
+-(void) passValues {
+    ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
+    modelwelcome.passedText = username;
+}
     
 
 @end

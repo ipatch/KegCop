@@ -161,7 +161,7 @@
             if ([anAccount.password isEqualToString:_textFieldPin.text]){
                 NSLog(@"Your pin is correct");
                 
-                // TODO - put this in proper place - play audio bell if user logs in correctly
+                // play audio bell if user logs in correctly
                 CFBundleRef mainBundle = CFBundleGetMainBundle();
                 CFURLRef soundFileURLRef;
                 soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"Glass", CFSTR("aiff"), NULL);
@@ -169,7 +169,7 @@
                 AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
                 AudioServicesPlaySystemSound(soundID);
                 
-                // TODO - put this in proper place - Load ViewController(Root)Home
+                // Load ViewController(Root)Home
                 if([anAccount.username isEqualToString:@"root"])
                 {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -180,6 +180,7 @@
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
                     ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
                     
+                    // pass username text to home screen
                     username = _textFieldUsername.text;
                     
                     [self passValues];

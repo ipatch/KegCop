@@ -741,7 +741,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eNw-nW-NbY">
-                                        <rect key="frame" x="28" y="358" width="42" height="21"/>
+                                        <rect key="frame" x="28" y="358" width="89" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -819,8 +819,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Sbf-VT-Dvh">
-                                        <rect key="frame" x="205" y="20" width="39" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="X" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Sbf-VT-Dvh">
+                                        <rect key="frame" x="205" y="20" width="29" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -852,6 +852,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="drinkBeer:" destination="uGc-YU-kQy" eventType="touchUpInside" id="FRQ-IP-weo"/>
                                             <segue destination="bh2-Aj-hbd" kind="modal" identifier="homeToPourBeer" id="0P9-eb-uzu"/>
                                         </connections>
                                     </button>
@@ -919,6 +920,13 @@
                                             <action selector="tradeCredit:" destination="uGc-YU-kQy" eventType="touchUpInside" id="RBS-LK-2uS"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="S9e-KG-bKL">
+                                        <rect key="frame" x="20" y="274" width="272" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="2wu-dh-xd6">
@@ -934,7 +942,10 @@
                     <navigationItem key="navigationItem" id="N9R-pL-Z0c"/>
                     <connections>
                         <outlet property="btnTradeCredit" destination="ThU-Sl-LXC" id="zc6-aw-v1U"/>
+                        <outlet property="btndrinkbeer" destination="zEX-W3-o2o" id="xG2-cy-tei"/>
+                        <outlet property="creditX" destination="Sbf-VT-Dvh" id="0Zp-bb-1zX"/>
                         <outlet property="homeScroller" destination="H43-z3-WeW" id="diP-F1-h3R"/>
+                        <outlet property="lblTradeCredit" destination="S9e-KG-bKL" id="Dxb-Eh-2jZ"/>
                         <outlet property="lblUSERNAME" destination="iqj-Wa-WyT" id="t6j-hH-bpZ"/>
                         <outlet property="tfCredit" destination="iGj-aj-dva" id="WWz-dH-EZU"/>
                         <outlet property="tfUsername" destination="pSV-ZJ-XQy" id="URQ-k7-mSd"/>
@@ -1223,10 +1234,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerHome.h"/>
             <relationships>
                 <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="drinkBeer:"/>
                 <relationship kind="action" name="removeAccount"/>
                 <relationship kind="action" name="tradeCredit:"/>
                 <relationship kind="outlet" name="btnTradeCredit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btndrinkbeer" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="creditX" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="homeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="lblTradeCredit" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblUSERNAME" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tfUsername" candidateClass="UITextField"/>

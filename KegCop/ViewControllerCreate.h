@@ -16,6 +16,7 @@
     UITextField *currentTextField;
     // keyboard toolbar
     IBOutlet UIToolbar *toolBar;
+    NSString *username;
 }
 
 // Create new account

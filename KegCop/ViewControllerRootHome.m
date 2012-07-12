@@ -292,7 +292,6 @@
     
     NSLog(@"Add credit button pressed");
     
-    // get the value stored in the username tf
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     // define table / entity to use
@@ -330,6 +329,8 @@
             if (![_managedObjectContext save:&error]) {
                 NSLog(@"error %@", error);
             }
+            // update credit label
+            _lblCredit.text = [NSString stringWithFormat:@"Credits added."];
         }
     }
 }

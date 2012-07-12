@@ -1,3 +1,7 @@
+2012-07-12 Chris <chris.r.jones.1983@gmail.com
+
+   * Login bug should be squashed - logging in on device successfully NOW!
+
 2012-07-08 Chris <chris.r.jones.1983@gmail.com
 
    * Deletion of user accounts should now work

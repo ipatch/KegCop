@@ -141,7 +141,7 @@
             int loggedusercurrentcredit = [loggeduser.credit intValue];
             if (loggedusercurrentcredit <= 0) {
                 // update credit trade label
-                _lblTradeCredit.text = [NSString stringWithFormat:@"Not enough trable credits."];
+                _lblTradeCredit.text = [NSString stringWithFormat:@"Not enough tradable credits."];
                 return;
             }
             
@@ -191,6 +191,47 @@
 }
 
 - (IBAction)drinkBeer:(id)sender {
+    NSLog(@"yes btn pressed");
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    
+    // fetch records and handle error
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    
+    if (!mutableFetchResults) {
+        // handle error
+    }
+    
+    int credit = 1;
+    
+    // SUBTRACT - GLOBAL - subtract credit from logged in user
+    for (Account *loggeduser in mutableFetchResults) {
+        if ([loggeduser.username isEqualToString:self.lblUSERNAME.text]) {
+            
+            // get current credit of logged in user
+            int loggedusercurrentcredit = [loggeduser.credit intValue];
+            if (loggedusercurrentcredit <= 0) {
+                // update credit trade label
+                _lblTradeCredit.text = [NSString stringWithFormat:@"Not enough credits to pour beer."];
+                return;
+            }
+            
+            // subtract current credit DB from text field
+            int loggedusernewcredit = loggedusercurrentcredit - credit;
+                        
+            // save new value in DB to loggeduser
+            NSNumber *loggedusercreditnew = [NSNumber numberWithInt:loggedusernewcredit];
+            loggeduser.credit = loggedusercreditnew;
+            
+            // update creditX label
+            _creditX.text = [NSString stringWithFormat:@"%@",loggeduser.credit];
+        }
+    }
 }
 
 - (void)changeUSERNAME {

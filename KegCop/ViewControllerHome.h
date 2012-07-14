@@ -18,13 +18,9 @@
     UILabel *lblUSERNAME;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
-
 @property (weak, nonatomic) IBOutlet UILabel *lblUSERNAME;
-
 @property (weak, nonatomic) IBOutlet UILabel *creditX;
-
 @property (weak, nonatomic) IBOutlet UIButton *btndrinkbeer;
-
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
 @property (weak, nonatomic) IBOutlet UITextField *tfCredit;
 @property (weak, nonatomic) IBOutlet UIButton *btnTradeCredit;

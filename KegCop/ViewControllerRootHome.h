@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "Account.h"
 #import "ViewControllerWelcome.h"
+#import "ViewControllerLogs.h"
+#import "ViewControllerCheckFlow.h"
 
 @interface ViewControllerRootHome : UIViewController {
     
@@ -52,6 +54,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *btnCheckFlow;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *btnLogs;
+
+
+
+
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
@@ -75,6 +85,11 @@
 - (IBAction)addCredit:(id)sender;
 
 - (IBAction)logout:(id)sender;
+
+- (IBAction)checkFlow:(id)sender;
+
+- (IBAction)showLogs:(id)sender;
+
 
 
 

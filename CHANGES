@@ -1,3 +1,8 @@
+2012-07-28 Chris
+
+   * Added clear button to some text fields.
+   * Working on intergrating serial communication.
+
 2012-07-12 Chris <chris.r.jones.1983@gmail.com
 
    * Login bug should be squashed - logging in on device successfully NOW!

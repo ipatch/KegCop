@@ -28,6 +28,9 @@
 @synthesize lblCredit = _lblCredit;
 @synthesize lblRootCredit = _lblRootCredit;
 @synthesize btnLogout = _btnLogout;
+@synthesize btnCheckFlow = _btnCheckFlow;
+@synthesize btnLogs = _btnLogs;
+// @synthesize btnLogs = _btnLogs;
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
@@ -125,6 +128,9 @@
     [self setBtnLogout:nil];
     [self setLblCredit:nil];
     [self setLblRootCredit:nil];
+    //[self setBtnLogs:nil];
+    [self setBtnLogs:nil];
+    [self setBtnCheckFlow:nil];
     [super viewDidUnload];
     
 }
@@ -343,6 +349,24 @@
     [self presentModalViewController:welcome animated:YES];
     
 }
+
+- (IBAction)checkFlow:(id)sender {
+    
+    // btnCheckFlow pressed
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewControllerCheckFlow *checkFlow = (ViewControllerCheckFlow *)[storyboard instantiateViewControllerWithIdentifier:@"Check Flow"];
+    [self presentModalViewController:checkFlow animated:YES];
+}
+
+- (IBAction)showLogs:(id)sender {
+    
+    // logs btn pressed
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewControllerLogs *logs = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"Logs"];
+    [self presentModalViewController:logs animated:YES];
+    
+}
+
 
 - (void)rootCreditAmount {
     // Core Data - root credit amount

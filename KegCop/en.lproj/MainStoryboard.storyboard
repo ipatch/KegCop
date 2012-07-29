@@ -740,15 +740,47 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hza-Dc-w7A">
+                                        <rect key="frame" x="212" y="387" width="72" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Logs">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showLogs:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="PfH-zQ-eoz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x4t-7T-pkp">
+                                        <rect key="frame" x="125" y="387" width="50" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="CF">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkFlow:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="dLV-eC-usr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="btnCheckFlow" destination="x4t-7T-pkp" id="hT0-k2-dUv"/>
                         <outlet property="btnDeleteAccount" destination="qDd-rC-HGs" id="NzX-Nz-hC1"/>
                         <outlet property="btnDisplayAccount" destination="qyS-MN-rfv" id="dWk-qZ-Yc5"/>
                         <outlet property="btnDisplayEmail" destination="QtW-ga-pK2" id="Lbx-is-61i"/>
+                        <outlet property="btnLogs" destination="hza-Dc-w7A" id="W5N-Qa-dA1"/>
                         <outlet property="lblArduinoBad" destination="qPc-p2-6s9" id="s6P-Cr-nAw"/>
                         <outlet property="lblArduinoGood" destination="H2X-aD-1gK" id="cl8-Q0-92Q"/>
                         <outlet property="lblCredit" destination="eNw-nW-NbY" id="LgU-Wb-tCD"/>
@@ -762,6 +794,92 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1061" y="-219"/>
+        </scene>
+        <!--Logs-->
+        <scene sceneID="3qr-DL-yCt">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIq-YK-o0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Logs" title="Logs" id="v7b-1q-AGm" userLabel="Logs" customClass="ViewControllerLogs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KRy-TP-JPG">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="opd-Br-s64">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Done" id="tqQ-eM-f9Z">
+                                        <connections>
+                                            <action selector="btnPressed:" destination="v7b-1q-AGm" id="RAk-Kh-pzS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="60" style="plain" systemItem="fixedSpace" id="2Hk-yI-uoC"/>
+                                    <barButtonItem enabled="NO" title="Logs" style="plain" id="cHV-45-Kuo"/>
+                                </items>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="AHY-Xf-LFs">
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnDone" destination="opd-Br-s64" id="toB-Dk-adv"/>
+                        <outlet property="logWindow" destination="AHY-Xf-LFs" id="Nkt-yL-T1W"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1415" y="-418"/>
+        </scene>
+        <!--View Controller Check Flow - Check Flow-->
+        <scene sceneID="jjl-H6-gHA">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGX-QW-M1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Check Flow" title="Check Flow" id="Uq0-gg-2vr" customClass="ViewControllerCheckFlow" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dzz-bs-IbK">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="NgO-s1-pag">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Done" id="6Kk-0w-xlh">
+                                        <connections>
+                                            <action selector="btnPressed:" destination="Uq0-gg-2vr" id="5jK-RQ-hwG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="dyv-qE-FLe"/>
+                                    <barButtonItem enabled="NO" title="Check Flow" style="plain" id="Khe-zF-ygA"/>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current flow rate:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pth-c3-d1I">
+                                <rect key="frame" x="20" y="44" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Flow:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="OLc-f8-Agj">
+                                <rect key="frame" x="20" y="73" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnDone" destination="NgO-s1-pag" id="F7Y-N6-BMb"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1759" y="-426"/>
         </scene>
         <!--Home-USER-->
         <scene sceneID="XWW-Vc-3Ow">
@@ -1184,6 +1302,13 @@
                 <relationship kind="outlet" name="createdaccounts" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="ViewControllerCheckFlow" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCheckFlow.h"/>
+            <relationships>
+                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
         <class className="ViewControllerCreate" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCreate.h"/>
             <relationships>
@@ -1233,6 +1358,14 @@
                 <relationship kind="outlet" name="tfUsername" candidateClass="UITextField"/>
             </relationships>
         </class>
+        <class className="ViewControllerLogs" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerLogs.h"/>
+            <relationships>
+                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="logWindow" candidateClass="UITextView"/>
+            </relationships>
+        </class>
         <class className="ViewControllerPurchase" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerPurchase.h"/>
             <relationships>
@@ -1245,6 +1378,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerRootHome.h"/>
             <relationships>
                 <relationship kind="action" name="addCredit:"/>
+                <relationship kind="action" name="checkFlow:"/>
                 <relationship kind="action" name="deleteAccount:"/>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="displayAccount:"/>
@@ -1252,12 +1386,15 @@
                 <relationship kind="action" name="logout:"/>
                 <relationship kind="action" name="rfidOnOff"/>
                 <relationship kind="action" name="saveMasterEmail"/>
+                <relationship kind="action" name="showLogs:"/>
                 <relationship kind="action" name="testArduinoConnection:"/>
                 <relationship kind="outlet" name="btnAddCredit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnCheckFlow" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnDeleteAccount" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnDisplayAccount" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnDisplayEmail" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogs" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="lblArduinoBad" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblArduinoGood" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblCredit" candidateClass="UILabel"/>

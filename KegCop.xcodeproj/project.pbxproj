@@ -11,6 +11,7 @@
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA1E87B5157C9A51002C945B /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */; };
+		EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */; };
 		EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283540159FC3910044B39C /* ViewControllerPurchase.m */; };
 		EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283544159FC4A20044B39C /* ViewControllerWebView.m */; };
 		EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */; };
@@ -22,6 +23,7 @@
 		EA64CC2F1591198D00517704 /* launch-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC2D1591198D00517704 /* launch-retina.png */; };
 		EA64CC301591199B00517704 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA1E87AF157C66B9002C945B /* Default@2x.png */; };
 		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
+		EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */; };
 		EAA33D711588612600826A02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAA33D721588612600826A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAA33D781588612600826A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D761588612600826A02 /* InfoPlist.strings */; };
@@ -67,6 +69,8 @@
 		EA1E87AF157C66B9002C945B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA1E87B4157C9A51002C945B /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
+		EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerLogs.h; sourceTree = "<group>"; };
+		EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLogs.m; sourceTree = "<group>"; };
 		EA28353F159FC3910044B39C /* ViewControllerPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPurchase.h; sourceTree = "<group>"; };
 		EA283540159FC3910044B39C /* ViewControllerPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerPurchase.m; sourceTree = "<group>"; };
 		EA283543159FC4A20044B39C /* ViewControllerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWebView.h; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		EA64CC2D1591198D00517704 /* launch-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-retina.png"; sourceTree = "<group>"; };
 		EA699308158721E8009E0397 /* ViewControllerForgot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerForgot.h; sourceTree = "<group>"; };
 		EA699309158721E8009E0397 /* ViewControllerForgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerForgot.m; sourceTree = "<group>"; };
+		EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerCheckFlow.h; sourceTree = "<group>"; };
+		EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerCheckFlow.m; sourceTree = "<group>"; };
 		EAA33D6E1588612600826A02 /* KegCopTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KegCopTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA33D751588612600826A02 /* KegCopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KegCopTests-Info.plist"; sourceTree = "<group>"; };
 		EAA33D771588612600826A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -222,6 +228,10 @@
 				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
 				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
 				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
+				EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */,
+				EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */,
+				EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */,
+				EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */,
 				EA28353F159FC3910044B39C /* ViewControllerPurchase.h */,
 				EA283540159FC3910044B39C /* ViewControllerPurchase.m */,
 				EA283543159FC4A20044B39C /* ViewControllerWebView.h */,
@@ -448,6 +458,8 @@
 				EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */,
 				EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */,
 				EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */,
+				EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */,
+				EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -61,6 +61,13 @@
     _createPinReTextField.delegate = self;
     _createPhoneNumber.delegate = self;
     
+    // enable clear button for text fields
+    _createUserTextField.clearButtonMode = YES;
+    _createPinTextField.clearButtonMode = YES;
+    _createPinReTextField.clearButtonMode = YES;
+    _createEmailTextField.clearButtonMode = YES;
+    _createPhoneNumber.clearButtonMode = YES;
+    
     // Core Data
     if (_managedObjectContext == nil)
     {

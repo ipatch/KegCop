@@ -63,6 +63,11 @@
     // hidden at load
     [_wrongUserPin setHidden:YES];
     
+    // enable clear button for text fields
+    _textFieldUsername.clearButtonMode=YES;
+    _textFieldPin.clearButtonMode = YES;
+    
+    
     // Core Data
     if (_managedObjectContext == nil)
     {

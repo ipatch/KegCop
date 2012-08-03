@@ -29,6 +29,7 @@
 @synthesize lblRootCredit = _lblRootCredit;
 @synthesize btnLogout = _btnLogout;
 @synthesize btnCheckFlow = _btnCheckFlow;
+@synthesize btnSerialConsole = _btnSerialConsole;
 @synthesize btnLogs = _btnLogs;
 // @synthesize btnLogs = _btnLogs;
 
@@ -131,6 +132,7 @@
     //[self setBtnLogs:nil];
     [self setBtnLogs:nil];
     [self setBtnCheckFlow:nil];
+    [self setBtnSerialConsole:nil];
     [super viewDidUnload];
     
 }
@@ -356,6 +358,15 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     ViewControllerCheckFlow *checkFlow = (ViewControllerCheckFlow *)[storyboard instantiateViewControllerWithIdentifier:@"Check Flow"];
     [self presentModalViewController:checkFlow animated:YES];
+}
+
+- (IBAction)showSerialConsole:(id)sender {
+    
+    //btnSerialConsole pressed
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewControllerSerialConsole *serialConsole = (ViewControllerSerialConsole *) [storyboard instantiateViewControllerWithIdentifier:@"Serial Console"];
+    [self presentModalViewController:serialConsole animated:YES];
+    
 }
 
 - (IBAction)showLogs:(id)sender {

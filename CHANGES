@@ -1,3 +1,7 @@
+2012-08-03 Chris <chris.r.jones.1983@gmail.com>
+   
+   * Added Serial.c and Serial.h for serial communication, it's going to be buggy at first.
+
 2012-07-28 Chris
 
    * Added clear button to some text fields.

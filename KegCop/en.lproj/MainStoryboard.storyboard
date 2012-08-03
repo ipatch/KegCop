@@ -35,7 +35,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" id="LHi-CK-bre">
-                                        <rect key="frame" x="20" y="42" width="259" height="31"/>
+                                        <rect key="frame" x="20" y="49" width="280" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -45,7 +45,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pin" minimumFontSize="17" id="ouS-iy-nbk">
-                                        <rect key="frame" x="20" y="110" width="259" height="31"/>
+                                        <rect key="frame" x="20" y="88" width="280" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
@@ -128,6 +128,13 @@
                                             <segue destination="Ckf-V2-ViC" kind="modal" identifier="toAbout" id="Gdh-aR-sL9"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Scan RFID badge or input name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6Y0-XT-buy">
+                                        <rect key="frame" x="32" y="20" width="257" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="fyO-NM-sut">
@@ -700,7 +707,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H79-CO-8WS">
-                                        <rect key="frame" x="18" y="387" width="99" height="37"/>
+                                        <rect key="frame" x="18" y="387" width="59" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Logout">
@@ -741,7 +748,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hza-Dc-w7A">
-                                        <rect key="frame" x="212" y="387" width="72" height="37"/>
+                                        <rect key="frame" x="225" y="387" width="44" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Logs">
@@ -770,6 +777,33 @@
                                             <action selector="checkFlow:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="dLV-eC-usr"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c3I-at-Mca">
+                                        <rect key="frame" x="177" y="387" width="45" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="SC">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showSerialConsole:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="gC5-Ux-ctF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RBf-u8-jBj">
+                                        <rect key="frame" x="79" y="387" width="44" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="RFID">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -781,6 +815,7 @@
                         <outlet property="btnDisplayAccount" destination="qyS-MN-rfv" id="dWk-qZ-Yc5"/>
                         <outlet property="btnDisplayEmail" destination="QtW-ga-pK2" id="Lbx-is-61i"/>
                         <outlet property="btnLogs" destination="hza-Dc-w7A" id="W5N-Qa-dA1"/>
+                        <outlet property="btnSerialConsole" destination="c3I-at-Mca" id="PUu-aL-jh9"/>
                         <outlet property="lblArduinoBad" destination="qPc-p2-6s9" id="s6P-Cr-nAw"/>
                         <outlet property="lblArduinoGood" destination="H2X-aD-1gK" id="cl8-Q0-92Q"/>
                         <outlet property="lblCredit" destination="eNw-nW-NbY" id="LgU-Wb-tCD"/>
@@ -795,6 +830,71 @@
             </objects>
             <point key="canvasLocation" x="1061" y="-219"/>
         </scene>
+        <!--View Controller Serial Console - Serial Console-->
+        <scene sceneID="Tjp-rI-B4o">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eV2-CE-7uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Serial Console" title="Serial Console" id="w8g-d6-Oge" customClass="ViewControllerSerialConsole" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x5I-91-gHb">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="yVF-2h-By2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Serial Console" id="i9u-YD-zOj">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="7kz-I5-Vkv">
+                                            <connections>
+                                                <action selector="btnPressed:" destination="w8g-d6-Oge" id="ALi-ve-qXK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="jZw-cu-BZk">
+                                <rect key="frame" x="20" y="56" width="215" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="sendString:" destination="w8g-d6-Oge" eventType="editingDidEndOnExit" id="NdA-zc-6aw"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="gZg-1r-Co4">
+                                <rect key="frame" x="0.0" y="92" width="320" height="368"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SNm-WJ-j0v">
+                                <rect key="frame" x="243" y="50" width="72" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendString:" destination="w8g-d6-Oge" eventType="touchUpInside" id="cZL-5f-FWO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnSend" destination="SNm-WJ-j0v" id="Iya-Xx-2MZ"/>
+                        <outlet property="serialView" destination="gZg-1r-Co4" id="EbB-9a-wJN"/>
+                        <outlet property="textEntry" destination="jZw-cu-BZk" id="zG5-ki-F2x"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1414" y="-428"/>
+        </scene>
         <!--Logs-->
         <scene sceneID="3qr-DL-yCt">
             <objects>
@@ -804,19 +904,6 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="opd-Br-s64">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Done" id="tqQ-eM-f9Z">
-                                        <connections>
-                                            <action selector="btnPressed:" destination="v7b-1q-AGm" id="RAk-Kh-pzS"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="60" style="plain" systemItem="fixedSpace" id="2Hk-yI-uoC"/>
-                                    <barButtonItem enabled="NO" title="Logs" style="plain" id="cHV-45-Kuo"/>
-                                </items>
-                            </toolbar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="AHY-Xf-LFs">
                                 <rect key="frame" x="0.0" y="44" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -824,16 +911,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="bUc-Ir-nqe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Logs" id="kGg-0A-JFt">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="ukd-zb-wfB">
+                                            <connections>
+                                                <action selector="btnPressed:" destination="v7b-1q-AGm" id="sxK-ru-Ie2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="btnDone" destination="opd-Br-s64" id="toB-Dk-adv"/>
                         <outlet property="logWindow" destination="AHY-Xf-LFs" id="Nkt-yL-T1W"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1415" y="-418"/>
+            <point key="canvasLocation" x="1761" y="-438"/>
         </scene>
         <!--View Controller Check Flow - Check Flow-->
         <scene sceneID="jjl-H6-gHA">
@@ -844,19 +943,6 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="NgO-s1-pag">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Done" id="6Kk-0w-xlh">
-                                        <connections>
-                                            <action selector="btnPressed:" destination="Uq0-gg-2vr" id="5jK-RQ-hwG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="dyv-qE-FLe"/>
-                                    <barButtonItem enabled="NO" title="Check Flow" style="plain" id="Khe-zF-ygA"/>
-                                </items>
-                            </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current flow rate:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pth-c3-d1I">
                                 <rect key="frame" x="20" y="44" width="132" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -871,15 +957,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="Yej-jF-vUl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Check Flow" id="tlr-bK-hBH">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="kHQ-c7-vab">
+                                            <connections>
+                                                <action selector="btnPressed:" destination="Uq0-gg-2vr" id="GvP-dQ-lcd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="btnDone" destination="NgO-s1-pag" id="F7Y-N6-BMb"/>
-                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1759" y="-426"/>
+            <point key="canvasLocation" x="2114" y="-438"/>
         </scene>
         <!--Home-USER-->
         <scene sceneID="XWW-Vc-3Ow">
@@ -1031,6 +1127,21 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hQn-YO-OmM">
+                                        <rect key="frame" x="20" y="274" width="93" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Add RFID">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addRFID:" destination="uGc-YU-kQy" eventType="touchUpInside" id="jdu-NU-2Bo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="2wu-dh-xd6">
@@ -1045,6 +1156,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="N9R-pL-Z0c"/>
                     <connections>
+                        <outlet property="btnAddRFID" destination="hQn-YO-OmM" id="U2K-nA-5ti"/>
                         <outlet property="btnTradeCredit" destination="ThU-Sl-LXC" id="zc6-aw-v1U"/>
                         <outlet property="btndrinkbeer" destination="zEX-W3-o2o" id="xG2-cy-tei"/>
                         <outlet property="creditX" destination="Sbf-VT-Dvh" id="0Zp-bb-1zX"/>
@@ -1344,10 +1456,12 @@
         <class className="ViewControllerHome" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerHome.h"/>
             <relationships>
+                <relationship kind="action" name="addRFID:"/>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="drinkBeer:"/>
                 <relationship kind="action" name="removeAccount"/>
                 <relationship kind="action" name="tradeCredit:"/>
+                <relationship kind="outlet" name="btnAddRFID" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnTradeCredit" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btndrinkbeer" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="creditX" candidateClass="UILabel"/>
@@ -1387,6 +1501,7 @@
                 <relationship kind="action" name="rfidOnOff"/>
                 <relationship kind="action" name="saveMasterEmail"/>
                 <relationship kind="action" name="showLogs:"/>
+                <relationship kind="action" name="showSerialConsole:"/>
                 <relationship kind="action" name="testArduinoConnection:"/>
                 <relationship kind="outlet" name="btnAddCredit" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnCheckFlow" candidateClass="UIButton"/>
@@ -1395,6 +1510,7 @@
                 <relationship kind="outlet" name="btnDisplayEmail" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnLogs" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnSerialConsole" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="lblArduinoBad" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblArduinoGood" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblCredit" candidateClass="UILabel"/>
@@ -1405,6 +1521,16 @@
                 <relationship kind="outlet" name="tfCreditUsername" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tfDeleteAccount" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tvDisplayAccount" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerSerialConsole" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerSerialConsole.h"/>
+            <relationships>
+                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="action" name="sendString:"/>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="serialView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textEntry" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="ViewControllerWebView" superclassName="UIViewController">

@@ -9,6 +9,7 @@
 #import "Account.h"
 #import "AppDelegate.h"
 #import "ViewControllerWelcome.h"
+#import "Serial.h"
 
 @interface ViewControllerHome : UIViewController
 {
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfCredit;
 @property (weak, nonatomic) IBOutlet UIButton *btnTradeCredit;
 @property (weak, nonatomic) IBOutlet UILabel *lblTradeCredit;
+@property (weak, nonatomic) IBOutlet UIButton *btnAddRFID;
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -37,5 +39,6 @@
 
 - (IBAction)drinkBeer:(id)sender;
 
+- (IBAction)addRFID:(id)sender;
 
 @end

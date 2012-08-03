@@ -1,3 +1,7 @@
+2012-08-03 Chris
+
+   * program is complaining about "Undefined symbols for architecture armv7:
+
 2012-07-12 Chris
 
    * fixed login bug -- i think.

@@ -20,4 +20,6 @@
 
 @dynamic credit;
 
+@dynamic rfid;
+
 @end

@@ -20,4 +20,6 @@
 
 @property (nonatomic, retain) NSNumber *credit;
 
+@property (nonatomic, retain) NSString *rfid;
+
 @end

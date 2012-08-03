@@ -22,11 +22,15 @@
 @synthesize tfCredit = _tfCredit;
 @synthesize btnTradeCredit = _btnTradeCredit;
 @synthesize lblTradeCredit = _lblTradeCredit;
+@synthesize btnAddRFID = _btnAddRFID;
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
 // @synthesize removeAccount = _removeAccount;
+
+// Serial Port
+static NSInteger gFileDescriptor;
 
 - (void)viewDidLoad
 {
@@ -74,6 +78,7 @@
     [self setCreditX:nil];
     [self setLblTradeCredit:nil];
     [self setBtndrinkbeer:nil];
+    [self setBtnAddRFID:nil];
     [super viewDidUnload];
   
 }
@@ -234,6 +239,25 @@
     }
 }
 
+- (IBAction)addRFID:(id)sender {
+    
+    // btnAddRFID pressed
+    
+    // probe serial RX port for data
+    
+    // open and listen for serial RX data stream
+
+    
+    if (gFileDescriptor <= 0) {
+    //    gFileDescriptor = openPort(SERIAL_PORT, BAUD_RATE);
+#if !TARGET_IPHONE_SIMULATOR
+        if (gFileDescriptor == -1) {
+            NSLog(@"Port failed to open");
+        }
+#endif
+    }
+}
+
 - (void)changeUSERNAME {
     _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;
 }
@@ -264,6 +288,12 @@
             _creditX.text = [NSString stringWithFormat:@"%@",anAccount.credit];
         }
     }
+}
+
+-(void)hidebtnAddRFID {
+    
+    // check if account has RFID badge
+    
 }
 
 

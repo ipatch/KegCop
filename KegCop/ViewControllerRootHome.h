@@ -11,6 +11,7 @@
 #import "ViewControllerWelcome.h"
 #import "ViewControllerLogs.h"
 #import "ViewControllerCheckFlow.h"
+#import "ViewControllerSerialConsole.h"
 
 @interface ViewControllerRootHome : UIViewController {
     
@@ -56,6 +57,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckFlow;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnSerialConsole;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLogs;
 
@@ -87,6 +89,8 @@
 - (IBAction)logout:(id)sender;
 
 - (IBAction)checkFlow:(id)sender;
+
+- (IBAction)showSerialConsole:(id)sender;
 
 - (IBAction)showLogs:(id)sender;
 

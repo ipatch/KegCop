@@ -4,9 +4,10 @@
         <attribute name="credit" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rfid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Account" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

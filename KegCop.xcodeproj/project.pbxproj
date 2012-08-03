@@ -38,6 +38,8 @@
 		EABE1D791581CBEC00FF9FA0 /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */; };
 		EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D821582E99200FF9FA0 /* AccountBase.m */; };
 		EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */; };
+		EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */; };
+		EAD97F0E15CB6F6D006C15A2 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0D15CB6F6D006C15A2 /* Serial.c */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */; };
@@ -108,6 +110,10 @@
 		EABE1D821582E99200FF9FA0 /* AccountBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBase.m; sourceTree = "<group>"; };
 		EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelWelcome.h; sourceTree = "<group>"; };
 		EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelWelcome.m; sourceTree = "<group>"; };
+		EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSerialConsole.h; sourceTree = "<group>"; };
+		EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSerialConsole.m; sourceTree = "<group>"; };
+		EAD97F0D15CB6F6D006C15A2 /* Serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Serial.c; sourceTree = "<group>"; };
+		EAD97F0F15CB7073006C15A2 /* Serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serial.h; sourceTree = "<group>"; };
 		EAEFEE8F157B296B00C666D5 /* KegCop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KegCop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEFEE93157B296B00C666D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EAEFEE95157B296B00C666D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -212,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */,
+				EAD97F0F15CB7073006C15A2 /* Serial.h */,
+				EAD97F0D15CB6F6D006C15A2 /* Serial.c */,
 				EAEFEEA2157B296B00C666D5 /* AppDelegate.h */,
 				EAEFEEA3157B296B00C666D5 /* AppDelegate.m */,
 				EAA33D85158F0A0000031D96 /* CoreDataHelper.h */,
@@ -228,6 +236,8 @@
 				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
 				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
 				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
+				EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */,
+				EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */,
 				EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */,
 				EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */,
 				EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */,
@@ -460,6 +470,8 @@
 				EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */,
 				EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */,
 				EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */,
+				EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */,
+				EAD97F0E15CB6F6D006C15A2 /* Serial.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

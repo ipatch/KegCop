@@ -35,8 +35,8 @@
     
 #if !TARGET_IPHONE_SIMULATOR    
     NSInteger serial = openPort();
-    NSLog(@"The serial data is %i",serial);
-    //_serialView.text = serial;
+    NSLog(@"The serial data is %d",serial);
+    _serialView.text = [NSString stringWithFormat:@"%i",serial];
 #endif
 }
 

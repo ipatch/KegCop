@@ -1,3 +1,8 @@
+2012-08-11
+
+   * Created Cydia repository for application distribution.
+   * The app can be found at chrisrjones.com/repo
+
 2012-08-03 Chris <chris.r.jones.1983@gmail.com>
    
    * Added Serial.c and Serial.h for serial communication, it's going to be buggy at first.

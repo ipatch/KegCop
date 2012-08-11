@@ -127,8 +127,26 @@
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Accounts.sqlite"];
+    // default sqlite file path
+    // NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Accounts.sqlite"];
     
+    
+    
+    // add conditional code for simulator and iDevice
+#if TARGET_IPHONE_SIMULATOR
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *docPath = [documentPaths objectAtIndex:0];
+    
+    NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponent:@"Accounts.sqlite"]];
+#else
+    // jailbroken path - /var/mobile/Library/Kegcop/
+    NSString *docPath = self.documentsDirectoryPath;
+    
+    NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponent:@"Accounts.sqlite"]];
+#endif
+    
+    // NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponent:@"Accounts.sqlite"]];
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -170,5 +188,29 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+// set path for documents in jailbreak environment
+-(NSString *)documentsDirectoryPath
+{
+#ifdef JAILBREAK
+    
+    NSString *documentPath =@"/var/mobile/Library/KegCop/";
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:documentPath])
+    {
+        [[NSFileManager defaultManager] createDirectoryAtPath:documentPath
+                                  withIntermediateDirectories:NO
+                                                   attributes:nil
+                                                        error:NULL];
+    }
+    
+    return documentPath;
+
+#else
+    
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [documentPaths objectAtIndex:0];
+
+#endif
+}
 
 @end

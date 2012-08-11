@@ -14,3 +14,5 @@
     #import <CoreData/CoreData.h>
     #import <Security/Security.h>
 #endif
+
+#define JAILBREAK

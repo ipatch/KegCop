@@ -1,3 +1,8 @@
+2012-08-11 Chris
+
+   * login bug is back - not sure why but when app is installed via cydia repository
+   * the user cannot login :-/
+
 2012-08-03 Chris
 
    * program is complaining about "Undefined symbols for architecture armv7:

@@ -19,5 +19,8 @@ I would love for someone to make a branch and start editing some code.  My Objec
 a lot to be desired.  So if you have a great idea, don't hesitate to download the code and
 contribute.
 
+## Installation
+A binary version of the app can be downloaded if your iDevice is jailbroken.  Add the following
+repo: chrisrjones.com/repo
 cheers
 - Chris

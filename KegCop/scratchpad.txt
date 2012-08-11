@@ -88,3 +88,13 @@ echo "Respringing…"
 Script - End
 ===========================================
 
+======================================
+Solenoid Wiring
+=====================================
+one more question how do i wire this into the kegboard shield? i mean i plug the AC 
+               adapter into the wall, then hook the red wire and black wire to the arduino, then 
+               run two wires from the arduino to solenoid
+20:00 < geoffc> that's close, but you'll want to have the + wire into and out of kegboard relay. ( 
+                one from the wall adapter and one to the valve).
+20:00 < geoffc> and then a negative wire (black)  from the valve to the ac adapter
+

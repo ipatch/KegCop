@@ -22,4 +22,6 @@
 
 @property (nonatomic, retain) NSString *rfid;
 
+@property (nonatomic, retain) NSString *pin;
+
 @end

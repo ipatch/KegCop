@@ -4,6 +4,7 @@
         <attribute name="credit" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rfid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>

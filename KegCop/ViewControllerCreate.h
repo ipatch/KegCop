@@ -9,6 +9,8 @@
 #import "Account.h"
 #import "AppDelegate.h"
 #import "ViewControllerHome.h"
+#import <CommonCrypto/CommonCryptor.h>
+
 
 @interface ViewControllerCreate : UIViewController <UITextFieldDelegate>
 {

@@ -13,6 +13,7 @@
 #import "ViewControllerHome.h"
 #import "ViewControllerRootHome.h"
 #import "ModelWelcome.h"
+#import "ViewControllerDev.h"
 
 @interface ViewControllerWelcome : UIViewController {
     
@@ -46,6 +47,9 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
+@property (weak, nonatomic) IBOutlet UIButton *dev;
+
+
 // keyboard toolbar
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
@@ -66,5 +70,6 @@
 - (IBAction) next:(id)sender;
 - (IBAction) prev:(id)sender;
 
+- (IBAction)processDev:(id)sender;
 
 @end

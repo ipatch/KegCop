@@ -98,3 +98,13 @@ one more question how do i wire this into the kegboard shield? i mean i plug the
                 one from the wall adapter and one to the valve).
 20:00 < geoffc> and then a negative wire (black)  from the valve to the ac adapter
 
+
+
+========================================
+Obsolete Code
+========================================
+   
+            // KEYCHAIN - OBSOLETE
+            //if ([anAccount.pin isEqualToString:_textFieldPin.text]){
+              //  NSLog(@"Your pin is correct");
+

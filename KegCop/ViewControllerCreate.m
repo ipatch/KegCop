@@ -6,6 +6,7 @@
 //
 
 #import "ViewControllerCreate.h"
+#import "NSData+AES256.h"
 
 
 @interface ViewControllerCreate()
@@ -157,13 +158,9 @@
     }
     
     // reg expression to validate phone number @"^\\+?[0-9]*$"
-    
-    
-   
 }
 
 // method to determine screen layout
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
@@ -179,8 +176,7 @@
 }
 
 
-// method to pull text from text fields and store in keychain and account database
-
+// method - CREATE - to pull text from text fields and store in keychain and account database
 - (IBAction)createAccount:(id)sender {
     
     [self checkTextFieldCharLength];
@@ -236,9 +232,31 @@
                 [newAccount setValue:_createEmailTextField.text forKey:@"email"];
         [newAccount setValue:_createPhoneNumber.text forKey:@"phoneNumber"];
         
-        // store pin in keychain
-        [newAccount setPassword:_createPinTextField.text];
-        NSLog(@"Pin saved is %@", [newAccount password]);
+        // store pin in keychain - OBSOLETE
+        // [newAccount setPassword:_createPinTextField.text];
+        
+        
+        // password - set key
+        NSString *key = @"donkey balls";
+        
+        // password - get text from pin textfield
+        NSString *secret;
+        secret = _createPinTextField.text;
+        
+        // password - convert string to NSData
+        NSData *plain = [secret dataUsingEncoding:NSUTF8StringEncoding];
+        
+        // password - encrypt string
+        NSData *cipher = [plain AES256EncryptWithKey:key];
+        printf("%s\n", [[cipher description] UTF8String]);
+        
+        // convert NSData to Base64 encoded NSString
+        NSString *cipherB64 = [self base64forData:cipher];
+        
+        [newAccount setValue:cipherB64 forKey:@"pin"];        
+        
+        
+        // NSLog(@"Pin saved is %@", [newAccount password]);
         
         
         _createUserTextField.text = @"";
@@ -439,6 +457,40 @@ if (i >= 1) return YES; else return NO;
     ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
     modelwelcome.passedText = username;
 }
+
+
+//from: http://www.cocoadev.com/index.pl?BaseSixtyFour
+- (NSString*)base64forData:(NSData*)theData {
     
+    const uint8_t* input = (const uint8_t*)[theData bytes];
+    NSInteger length = [theData length];
+    
+    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    
+    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+    uint8_t* output = (uint8_t*)data.mutableBytes;
+    
+    NSInteger i;
+    for (i=0; i < length; i += 3) {
+        NSInteger value = 0;
+        NSInteger j;
+        for (j = i; j < (i + 3); j++) {
+            value <<= 8;
+            
+            if (j < length) {
+                value |= (0xFF & input[j]);
+            }
+        }
+        
+        NSInteger theIndex = (i / 3) * 4;
+        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
+    }
+    
+    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+}
+
 
 @end

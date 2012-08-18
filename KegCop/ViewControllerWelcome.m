@@ -7,6 +7,7 @@
 
 
 #import "ViewControllerWelcome.h"
+#import "NSData+AES256.h"
 
 @interface ViewControllerWelcome ()
 
@@ -37,6 +38,7 @@
 @synthesize welcomeLogin = _welcomeLogin;
 @synthesize welcomeActivityIndicator = _welcomeActivityIndicator;
 @synthesize welcomeAbout = _welcomeAbout;
+@synthesize dev = _dev;
 
 
 // Core Data
@@ -75,6 +77,9 @@
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
 
     }    
+    
+    // dev button
+    _dev.hidden=TRUE;
 }
 
 - (void)viewDidUnload {
@@ -89,6 +94,7 @@
     
     [self setWelcomeScroller:nil];
     [self setWelcomeAbout:nil];
+    [self setDev:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -163,9 +169,47 @@
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_textFieldUsername.text]){
             NSLog(@"Your username exists");
-            if ([anAccount.password isEqualToString:_textFieldPin.text]){
-                NSLog(@"Your pin is correct");
-                
+            
+            // PASSWORD - PIN AUTHENTICATION
+            
+            /*
+             * 0) establish secret key
+             
+             * 1) get value stored in DB
+             
+             * 1.1) convert / decode base64 string to NSData
+             
+             * 2) decrypt NSData
+             
+             * 3) convert data to string
+             
+             * 4) compare inputted text to decrptyed value
+             */
+            
+            // password - set key
+            NSString *key = @"donkey balls";
+            
+            // password - get value stored in Core Data DB
+            NSString *secret = anAccount.pin;
+        
+            // password - print value of pin stored in DB
+            NSLog(@"DB pin = %@",secret);
+            
+            
+            // password - decode base64 NSData
+            NSData *cipher = [self base64DataFromString:secret];
+            
+            // password - decrypt data
+            NSData *plain = [cipher AES256DecryptWithKey:key];
+            
+            // password - convert data to string
+            NSString *strplain = [[NSString alloc] initWithData:plain encoding:NSUTF8StringEncoding];
+            
+            // password - display string
+            NSLog(@"%@",strplain);
+            
+            if ([strplain isEqualToString:_textFieldPin.text]){
+        
                 // play audio bell if user logs in correctly
                 CFBundleRef mainBundle = CFBundleGetMainBundle();
                 CFURLRef soundFileURLRef;
@@ -199,13 +243,15 @@
                 [_wrongUserPin setHidden:NO];
                 }
             }
+    
         else {
             NSLog(@"Your username was not found");
             [_welcomeActivityIndicator stopAnimating];
             [_wrongUserPin setHidden:NO];
             }
-        }
+    }
 }
+
 
 // method keyboard behavior
 
@@ -272,9 +318,137 @@
     else if([self.textFieldPin isFirstResponder])[self.textFieldUsername becomeFirstResponder];
 }
 
+- (IBAction)processDev:(id)sender {
+    
+    // dev btn pressed
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewControllerDev *dev = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"dev"];
+    [self presentModalViewController:dev animated:YES];
+    
+}
+
 -(void) passValues {
     ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
     modelwelcome.passedText = username;
 }
+
+
+- (NSData *)base64DataFromString: (NSString *)string
+{
+unsigned long ixtext, lentext;
+unsigned char ch, inbuf[4], outbuf[3];
+short i, ixinbuf;
+Boolean flignore, flendtext = false;
+const unsigned char *tempcstring;
+NSMutableData *theData;
+
+if (string == nil)
+{
+    return [NSData data];
+}
+
+ixtext = 0;
+
+tempcstring = (const unsigned char *)[string UTF8String];
+
+lentext = [string length];
+
+theData = [NSMutableData dataWithCapacity: lentext];
+
+ixinbuf = 0;
+
+while (true)
+{
+    if (ixtext >= lentext)
+    {
+        break;
+    }
+    
+    ch = tempcstring [ixtext++];
+    
+    flignore = false;
+    
+    if ((ch >= 'A') && (ch <= 'Z'))
+    {
+        ch = ch - 'A';
+    }
+    else if ((ch >= 'a') && (ch <= 'z'))
+    {
+        ch = ch - 'a' + 26;
+    }
+    else if ((ch >= '0') && (ch <= '9'))
+    {
+        ch = ch - '0' + 52;
+    }
+    else if (ch == '+')
+    {
+        ch = 62;
+    }
+    else if (ch == '=')
+    {
+        flendtext = true;
+    }
+    else if (ch == '/')
+    {
+        ch = 63;
+    }
+    else
+    {
+        flignore = true; 
+    }
+    
+    if (!flignore)
+    {
+        short ctcharsinbuf = 3;
+        Boolean flbreak = false;
+        
+        if (flendtext)
+        {
+            if (ixinbuf == 0)
+            {
+                break;
+            }
+            
+            if ((ixinbuf == 1) || (ixinbuf == 2))
+            {
+                ctcharsinbuf = 1;
+            }
+            else
+            {
+                ctcharsinbuf = 2;
+            }
+            
+            ixinbuf = 3;
+            
+            flbreak = true;
+        }
+        
+        inbuf [ixinbuf++] = ch;
+        
+        if (ixinbuf == 4)
+        {
+            ixinbuf = 0;
+            
+            outbuf[0] = (inbuf[0] << 2) | ((inbuf[1] & 0x30) >> 4);
+            outbuf[1] = ((inbuf[1] & 0x0F) << 4) | ((inbuf[2] & 0x3C) >> 2);
+            outbuf[2] = ((inbuf[2] & 0x03) << 6) | (inbuf[3] & 0x3F);
+            
+            for (i = 0; i < ctcharsinbuf; i++)
+            {
+                [theData appendBytes: &outbuf[i] length: 1];
+            }
+        }
+        
+        if (flbreak)
+        {
+            break;
+        }
+    }
+}
+
+return theData;
+}
+
+
 
 @end

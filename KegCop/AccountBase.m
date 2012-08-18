@@ -22,4 +22,6 @@
 
 @dynamic rfid;
 
+@dynamic pin;
+
 @end

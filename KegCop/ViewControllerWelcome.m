@@ -322,7 +322,7 @@
     
     // dev btn pressed
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    ViewControllerDev *dev = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"dev"];
+    ViewControllerDev *dev = (ViewControllerDev *)[storyboard instantiateViewControllerWithIdentifier:@"dev"];
     [self presentModalViewController:dev animated:YES];
     
 }

@@ -1,3 +1,7 @@
+2012-08-18
+
+   * implemented new login process using AES 256 bit encryption
+
 2012-08-11
 
    * Created Cydia repository for application distribution.

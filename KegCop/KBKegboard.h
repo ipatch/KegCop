@@ -41,13 +41,13 @@
 @end
 
 @interface KBKegboard : NSObject {
-  id<KBKegboardDelegate> _delegate;
+  id<KBKegboardDelegate> _AppDelegate;
   NSThread *_readLoopThread;
 }
 
-@property (assign, nonatomic) id<KBKegboardDelegate> delegate;
+@property (assign, nonatomic) id<KBKegboardDelegate> AppDelegate;
 
-- (id)initWithDelegate:(id<KBKegboardDelegate>)delegate;
+- (id)initWithDelegate:(id<KBKegboardDelegate>)AppDelegate;
 
 - (void)start;
 

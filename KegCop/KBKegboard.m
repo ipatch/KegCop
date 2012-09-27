@@ -24,7 +24,7 @@
 
 @implementation KBKegboard
 
-@synthesize delegate=_delegate;
+@synthesize AppDelegate = _delegate;
 
 static NSInteger gFileDescriptor;
 
@@ -59,37 +59,37 @@ static NSInteger gFileDescriptor;
 
 - (void)dealloc {
   close(gFileDescriptor);
-  [super dealloc];
+  // [super dealloc]; - not needed for ARC
 }
 
 - (void)notifyDelegate:(KBKegboardMessage *)message {
   NSUInteger messageId = [message messageId];
   switch (messageId) {
     case KB_MESSAGE_ID_HELLO:
-      [self.delegate kegboard:self didReceiveHello:(KBKegboardMessageHello *)message];
+      [self->_delegate kegboard:self didReceiveHello:(KBKegboardMessageHello *)message];
       break;
     case KB_MESSAGE_ID_BOARD_CONFIGURATION:
-      [self.delegate kegboard:self didReceiveBoardConfiguration:(KBKegboardMessageBoardConfiguration *)message];
+      [self->_delegate kegboard:self didReceiveBoardConfiguration:(KBKegboardMessageBoardConfiguration *)message];
       break;
     case KB_MESSAGE_ID_METER_STATUS:
-      [self.delegate kegboard:self didReceiveMeterStatus:(KBKegboardMessageMeterStatus *)message];
+      [self->_delegate kegboard:self didReceiveMeterStatus:(KBKegboardMessageMeterStatus *)message];
       break;
     case KB_MESSAGE_ID_TEMPERATURE_READING:
-      [self.delegate kegboard:self didReceiveTemperatureReading:(KBKegboardMessageTemperatureReading *)message];
+      [self->_delegate kegboard:self didReceiveTemperatureReading:(KBKegboardMessageTemperatureReading *)message];
       break;
     case KB_MESSAGE_ID_OUTPUT_STATUS:
-      [self.delegate kegboard:self didReceiveOutputStatus:(KBKegboardMessageOutputStatus *)message];
+      [self->_delegate kegboard:self didReceiveOutputStatus:(KBKegboardMessageOutputStatus *)message];
       break;
     case KB_MESSAGE_ID_AUTH_TOKEN:
-      [self.delegate kegboard:self didReceiveAuthToken:(KBKegboardMessageAuthToken *)message];
+      [self->_delegate kegboard:self didReceiveAuthToken:(KBKegboardMessageAuthToken *)message];
       break;
   }
 }
 
 - (void)readLoop {
-  KBDebug(@"Initializing Read Loop");
+  // KBDebug(@"Initializing Read Loop"); -- CAUSING ERROR
   // Pool is never released since it lasts the whole life of the app
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+ // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; - not needed for ARC
   // Directly ported from PyKeg to ObjectiveC
   char headerBytes[4];
   char payload[KBSP_PAYLOAD_MAXLEN];
@@ -112,20 +112,20 @@ static NSInteger gFileDescriptor;
         // CACurrentMediaTime will usually give more accurate relative timestamps than NSDate
         // Since we're mostly interested in relative timestamps (for flow rate), this is the
         // best option.
-        timeStamp = CACurrentMediaTime();
+        // timeStamp = CACurrentMediaTime(); -- CAUSING ERRORS
       }
       calculatedCRC = crc_update(calculatedCRC, (unsigned char *)&byte, 1);
       // Byte was expected
       if (byte == KBSP_PREFIX[headerPosition]) {
         headerPosition += 1;
         if (loggedFrameError) {
-          KBDebug(@"Packet framing fixed.");
+         // KBDebug(@"Packet framing fixed.");          -- CAUSING ERROR!!!
           loggedFrameError = NO;
         }
       // Byte wasn't expected
       } else {
         if (!loggedFrameError) {
-          KBDebug(@"Packet framing broken (found \"%X\", expected \"%X\"); reframing.", byte, KBSP_PREFIX[headerPosition]);
+         // KBDebug(@"Packet framing broken (found \"%X\", expected \"%X\"); reframing.", byte, KBSP_PREFIX[headerPosition]);       -- CAUSING ERROR!
           loggedFrameError = YES;
         }
         headerPosition = 0;
@@ -139,7 +139,7 @@ static NSInteger gFileDescriptor;
     NSInteger messageId = [KBKegboardMessage parseUInt16:headerBytes];
     NSInteger messageLength = [KBKegboardMessage parseUInt16:&headerBytes[2]];
     if (messageLength > KBSP_PAYLOAD_MAXLEN) {
-      KBDebug(@"Bogus message length (%d), skipping message", messageLength);
+      // KBDebug(@"Bogus message length (%d), skipping message", messageLength);        -- CAUSING ERROR !!!
       continue;
     }
     
@@ -156,18 +156,18 @@ static NSInteger gFileDescriptor;
     }
 
     if (trailer[0] != KBSP_TRAILER[0] || trailer[1] != KBSP_TRAILER[1]) {
-      KBDebug(@"Bad trailer characters 0x%X 0x%X (expected 0x%X 0x%X) skipping message", trailer[0], trailer[1], KBSP_TRAILER[0], KBSP_TRAILER[1]);
+    //  KBDebug(@"Bad trailer characters 0x%X 0x%X (expected 0x%X 0x%X) skipping message", trailer[0], trailer[1], KBSP_TRAILER[0], KBSP_TRAILER[1]); -- CAUSING ERROR !!!
       continue;
     }
 
     // Create KegboardMessage from id and payload
     KBKegboardMessage *kegboardMessage = [KBKegboardMessage messageWithId:messageId payload:payload length:messageLength timeStamp:timeStamp];
-    KBDebug(@"Got message %@", kegboardMessage);
+   // KBDebug(@"Got message %@", kegboardMessage); -- CAUSING ERROR !!!
     // Notify delegate of message
     [self performSelectorOnMainThread:@selector(notifyDelegate:) withObject:kegboardMessage waitUntilDone:NO];
   }
   // Putting this here for symmetry and to surpress warning message
-  [pool release];
+  // [pool release]; - not needed for ARC
 }
 
 @end

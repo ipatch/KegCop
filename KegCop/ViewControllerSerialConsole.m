@@ -61,7 +61,7 @@
     //char somechar[8];
     
     // print the serial data to the console
-    NSLog(@"The serial data is %d",serial);
+    //NSLog(@"The serial data is %d",serial);
     
     // read data coming across the serial port
     //read(serial,&somechar[0],1);

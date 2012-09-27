@@ -1,3 +1,8 @@
+2012-09-27
+
+   * commented out several lines of code in KBKegboard.h / .m files to get project to compile /
+   * build.
+
 2012-09-26
 
    * upgraded OS to (10.8.2) and upgraded Xcode to 4.5

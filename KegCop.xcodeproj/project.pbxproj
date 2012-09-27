@@ -43,7 +43,6 @@
 		EABE1D791581CBEC00FF9FA0 /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */; };
 		EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D821582E99200FF9FA0 /* AccountBase.m */; };
 		EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */; };
-		EAD90E3D1602467500A06843 /* libIOKit.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD90E3C1602467500A06843 /* libIOKit.dylib */; };
 		EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */; };
 		EAD97F0E15CB6F6D006C15A2 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0D15CB6F6D006C15A2 /* Serial.c */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
@@ -57,6 +56,7 @@
 		EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF27855159191C9009663A8 /* ViewControllerHome.m */; };
 		EAFC132E157B3883002F76FD /* icon57x57_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC132D157B3883002F76FD /* icon57x57_flat.png */; };
 		EAFC1330157B3890002F76FD /* icon114x114_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC132F157B3890002F76FD /* icon114x114_flat.png */; };
+		EAFCCB481614B56C00B55057 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFCCB471614B56C00B55057 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,7 +126,6 @@
 		EABE1D821582E99200FF9FA0 /* AccountBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBase.m; sourceTree = "<group>"; };
 		EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelWelcome.h; sourceTree = "<group>"; };
 		EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelWelcome.m; sourceTree = "<group>"; };
-		EAD90E3C1602467500A06843 /* libIOKit.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIOKit.dylib; path = usr/lib/libIOKit.dylib; sourceTree = SDKROOT; };
 		EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSerialConsole.h; sourceTree = "<group>"; };
 		EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSerialConsole.m; sourceTree = "<group>"; };
 		EAD97F0D15CB6F6D006C15A2 /* Serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Serial.c; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		EAFC132D157B3883002F76FD /* icon57x57_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57x57_flat.png; path = ../icon57x57_flat.png; sourceTree = "<group>"; };
 		EAFC132F157B3890002F76FD /* icon114x114_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114x114_flat.png; path = ../icon114x114_flat.png; sourceTree = "<group>"; };
 		EAFC1331157B396E002F76FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		EAFCCB471614B56C00B55057 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +165,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAD90E3D1602467500A06843 /* libIOKit.dylib in Frameworks */,
 				EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */,
 				EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */,
 				EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */,
@@ -221,7 +220,6 @@
 		EAEFEE92157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EAD90E3C1602467500A06843 /* libIOKit.dylib */,
 				EAA51B131598385B00D0D777 /* AudioToolbox.framework */,
 				EAA33D831588AA9100826A02 /* SenTestingKit.framework */,
 				EABE1D751581CB1E00FF9FA0 /* Security.framework */,
@@ -301,6 +299,7 @@
 				EA64CC291591192C00517704 /* launch.png */,
 				EA64CC2D1591198D00517704 /* launch-retina.png */,
 				EA1E87AF157C66B9002C945B /* Default@2x.png */,
+				EAFCCB471614B56C00B55057 /* Default-568h@2x.png */,
 				EAFC132F157B3890002F76FD /* icon114x114_flat.png */,
 				EAFC132D157B3883002F76FD /* icon57x57_flat.png */,
 				EA58163915980B6900920AAF /* KegCop-Info.plist */,
@@ -404,6 +403,7 @@
 				EA64CC2E1591198D00517704 /* launch-retina.png in Resources */,
 				EA64CC301591199B00517704 /* Default@2x.png in Resources */,
 				EAA51B1615983E3100D0D777 /* Glass.aiff in Resources */,
+				EAFCCB481614B56C00B55057 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,22 +25,22 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
   KBKegboardMessage *message = nil;
   switch (messageId) {
     case KB_MESSAGE_ID_HELLO:
-      message = [[[KBKegboardMessageHello alloc] initWithMessageId:messageId payload:payload length:length] autorelease];
+      message = [[KBKegboardMessageHello alloc] initWithMessageId:messageId payload:payload length:length]; //autorelease];
       break;
     case KB_MESSAGE_ID_BOARD_CONFIGURATION:
-      message = [[[KBKegboardMessageBoardConfiguration alloc] initWithMessageId:messageId payload:payload length:length] autorelease];
+          message = [[KBKegboardMessageBoardConfiguration alloc] initWithMessageId:messageId payload:payload length:length]; // autorelease];
       break;
     case KB_MESSAGE_ID_METER_STATUS:
-      message = [[[KBKegboardMessageMeterStatus alloc] initWithMessageId:messageId payload:payload length:length] autorelease];
+          message = [[KBKegboardMessageMeterStatus alloc] initWithMessageId:messageId payload:payload length:length]; // autorelease];
       break;
     case KB_MESSAGE_ID_TEMPERATURE_READING:
-      message = [[[KBKegboardMessageTemperatureReading alloc] initWithMessageId:messageId payload:payload length:length] autorelease];
+          message = [[KBKegboardMessageTemperatureReading alloc] initWithMessageId:messageId payload:payload length:length]; // autorelease];
       break;
     case KB_MESSAGE_ID_OUTPUT_STATUS:
-      message = [[[KBKegboardMessageOutputStatus alloc] initWithMessageId:messageId payload:payload length:length] autorelease];
+          message = [[KBKegboardMessageOutputStatus alloc] initWithMessageId:messageId payload:payload length:length]; // autorelease];
       break;
     case KB_MESSAGE_ID_AUTH_TOKEN:
-      message = [[[KBKegboardMessageAuthToken alloc] initWithMessageId:messageId payload:payload length:length] autorelease];
+          message = [[KBKegboardMessageAuthToken alloc] initWithMessageId:messageId payload:payload length:length]; // autorelease];
       break;
   }
   message.timeStamp = timeStamp;
@@ -81,7 +81,7 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
   // NOTE: Kegboard docs say strings are null terminated, but in the latest version (as of 7/29/2010), they are not.
   // To be safe, check for null termination
   if (!stringData[length - 1]) length -= 1;
-  return [[[NSString alloc] initWithBytes:stringData length:length encoding:NSASCIIStringEncoding] autorelease];
+    return [[NSString alloc] initWithBytes:stringData length:length encoding:NSASCIIStringEncoding]; // autorelease];
 }
 
 + (NSUInteger)parseUInt32:(char *)data length:(NSUInteger)length {
@@ -145,14 +145,14 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 @synthesize boardName=_boardName, baudRate=_baudRate, updateInterval=_updateInterval, watchdogTimeout=_watchdogTimeout;
 
 - (void)dealloc {
-  [_boardName dealloc];
-  [super dealloc];
+  //[_boardName dealloc];
+  //[super dealloc];
 }
 
 - (BOOL)parsePayload:(char *)data forTag:(NSUInteger)tag length:(NSUInteger)length {
   switch (tag) {
     case 0x01:
-      _boardName = [[KBKegboardMessage parseString:data length:length] retain];
+          _boardName = [KBKegboardMessage parseString:data length:length]; // retain];
       break;
     case 0x02:
       _baudRate = [KBKegboardMessage parseUInt16:data];
@@ -181,14 +181,14 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 @synthesize meterName=_meterName, meterReading=_meterReading;
 
 - (void)dealloc {
-  [_meterName dealloc];
-  [super dealloc];
+ /* [_meterName dealloc];
+  [super dealloc]; */
 }
 
 - (BOOL)parsePayload:(char *)data forTag:(NSUInteger)tag length:(NSUInteger)length {
   switch (tag) {
     case 0x01:
-      _meterName = [[KBKegboardMessage parseString:data length:length] retain];
+          _meterName = [KBKegboardMessage parseString:data length:length]; //retain];
       break;
     case 0x02:
       _meterReading = [KBKegboardMessage parseUInt32:data];
@@ -210,14 +210,16 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 @synthesize sensorName=_sensorName, sensorReading=_sensorReading;
 
 - (void)dealloc {
+    /*
   [_sensorName dealloc];
   [super dealloc];
+     */
 }
 
 - (BOOL)parsePayload:(char *)data forTag:(NSUInteger)tag length:(NSUInteger)length {
   switch (tag) {
     case 0x01:
-      _sensorName = [[KBKegboardMessage parseString:data length:length] retain];
+          _sensorName = [KBKegboardMessage parseString:data length:length]; //retain];
       break;
     case 0x02:
       _sensorReading = [KBKegboardMessage parseTemp:data];
@@ -239,14 +241,14 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 @synthesize outputName=_outputName, outputReading=_outputReading;
 
 - (void)dealloc {
-  [_outputName dealloc];
-  [super dealloc];
+  /*[_outputName dealloc];
+  [super dealloc];*/
 }
 
 - (BOOL)parsePayload:(char *)data forTag:(NSUInteger)tag length:(NSUInteger)length {
   switch (tag) {
     case 0x01:
-      _outputName = [[KBKegboardMessage parseString:data length:length] retain];
+          _outputName = [KBKegboardMessage parseString:data length:length]; // retain];
       break;
     case 0x02:
       _outputReading = [KBKegboardMessage parseBool:data];
@@ -267,18 +269,19 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 @implementation KBKegboardMessageAuthToken
 @synthesize deviceName=_deviceName, token=_token, status=_status;
 - (void)dealloc {
-  [_deviceName dealloc];
+  /*[_deviceName dealloc];
   [_token dealloc];
   [super dealloc];
+   */
 }
 
 - (BOOL)parsePayload:(char *)data forTag:(NSUInteger)tag length:(NSUInteger)length {
   switch (tag) {
     case 0x01:
-      _deviceName = [[KBKegboardMessage parseString:data length:length] retain];
+          _deviceName = [KBKegboardMessage parseString:data length:length]; //retain];
       break;
     case 0x02:
-      _token = [[KBKegboardMessage parseString:data length:length] retain];
+          _token = [KBKegboardMessage parseString:data length:length]; // retain];
       break;
     case 0x03:
       _status = [KBKegboardMessage parseBool:data];

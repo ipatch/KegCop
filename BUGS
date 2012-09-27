@@ -1,3 +1,14 @@
+2012-09-27 Chris
+
+   * commented out several lines of code to suppress warnings / errors
+
+2012-09-26 Chris
+
+   * Upgraded Xcode to 4.5 and OS to 10.8.2
+   * Added serial.c and serial.h to project along with several other files
+   * Project currently has 15 errors due to new files being added.
+
+
 2012-08-18 Chris
    
    * login process should work now *crosses fingers*

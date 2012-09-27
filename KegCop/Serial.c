@@ -13,42 +13,55 @@
 #include <fcntl.h>   /* File control definitions */
 #include <errno.h>   /* Error number definitions */
 #include <termios.h> /* POSIX terminal control definitions */
+#include <sys/ioctl.h>
 
-/*
- * 'open_port()' - Open serial port on dock connector pins 13RX / 12TX
- *
- * Returns the file descriptor on success or -1 on error.
+/*! openPort(portName, baudRate) - Open serial port
+ Example:
+ NSInteger fileDescriptor = openPort("/dev/tty.iap", 9600)
+ write(fileDescriptor, "hello world", 12)
  */
 
-int openPort(void)
-{
-    int fd = -1; /* File descriptor for the port */
-    
-    struct termios options; 
-    
-    fd = open("/dev/tty.iap", O_RDWR | O_NOCTTY | O_NDELAY); // O_NOCTTY - don't be controlling terminal, O_NODELAY don't care about DCD signal state
-    if ( fd == -1)
-    {
-        // couldn't open the port
-        
-        perror("open_port: Unable to open /dev/tty.iap - ");
+int openPort(char *portName, int baudRate) {
+    int fileDescriptor;
+    struct termios options;
+    printf("Trying to open port!\n");
+    fileDescriptor = open(portName, O_RDWR | O_NOCTTY | O_NONBLOCK);
+    if (fileDescriptor == -1) {
+        char *errorString = malloc(100);
+        sprintf(errorString, "Open_port: Unable to open port %s", portName);
+        perror(errorString);
+        free(errorString);
+    } else {
+        fcntl(fileDescriptor, F_SETFL, 0);
     }
-    else
-        fcntl(fd, F_SETFL, 0);
     
-    tcgetattr(fd, &options); // get current options for the port
+    // Get the current options for the port...
+    tcgetattr(fileDescriptor, &options);
     
-    // set the baud rate
-    cfsetispeed(&options, B2400);
-    cfsetospeed(&options, B2400);
+    // Set baud rate
+    cfsetispeed(&options, baudRate);
+    cfsetospeed(&options, baudRate);
     
-    // enable the receiver and set local mode
+    // Enable the receiver and set local mode...
     options.c_cflag |= (CLOCAL | CREAD);
     
-    // set the new options for the port
-    tcsetattr(fd, TCSANOW, &options);
+    // Set the new options for the port...
+    tcsetattr(fileDescriptor, TCSANOW, &options);
     
-    return (fd);
-
+    return (fileDescriptor);
 }
 
+// For non-blocking reads, collects data until [length] bytes are collected
+void sleeperRead(int fileDescriptor, char *data, int length) {
+    int index = 0;
+    while (index < length) {
+        int bytesRead = read(fileDescriptor, &data[index], length - index);
+        if (bytesRead == 0) usleep(10000); // Sleep 10ms
+        index += bytesRead;
+    }
+    /* Uncomment for debugging
+     for (int i = 0; i < length; i++) {
+     printf("%2X %c\n", data[i], data[i]);
+     }
+     */
+}

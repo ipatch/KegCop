@@ -174,15 +174,10 @@
             
             /*
              * 0) establish secret key
-             
              * 1) get value stored in DB
-             
              * 1.1) convert / decode base64 string to NSData
-             
              * 2) decrypt NSData
-             
              * 3) convert data to string
-             
              * 4) compare inputted text to decrptyed value
              */
             
@@ -206,7 +201,7 @@
             NSString *strplain = [[NSString alloc] initWithData:plain encoding:NSUTF8StringEncoding];
             
             // password - display string
-            NSLog(@"%@",strplain);
+            // NSLog(@"%@",strplain);
             
             if ([strplain isEqualToString:_textFieldPin.text]){
         

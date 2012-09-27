@@ -101,10 +101,163 @@ one more question how do i wire this into the kegboard shield? i mean i plug the
 
 
 ========================================
+Serial port programming
+========================================
+
+int
+read_port(void)
+{
+    int fd = open("/dev/ttyS0", O_RDONLY | O_NOCTTY);
+    if (fd == -1)
+    {
+        /* Could not open the port. */
+        perror("open_port: Unable to open /dev/ttyS0 - ");
+    }
+
+    char buffer[32];
+    int n = read(fd, buffer, sizeof(buffer));
+    if (n < 0)
+        fputs("read failed!\n", stderr);
+    return (fd);
+}
+
+
+
+
+
+
+
+========================================
 Obsolete Code
 ========================================
    
             // KEYCHAIN - OBSOLETE
             //if ([anAccount.pin isEqualToString:_textFieldPin.text]){
               //  NSLog(@"Your pin is correct");
+              
+              
+===========================================
+Serial Port Programming
+===========================================
+
+/*
+ * 'open_port()' - Open serial port on dock connector pins 13RX / 12TX
+ *
+ * Returns the file descriptor on success or -1 on error.
+ */
+
+int openPort(void)
+{
+    int fd = -1; /* File descriptor for the port */
+    
+    struct termios options; 
+    
+    printf("Trying to open port!\n");
+    
+    fd = open("/dev/tty.iap", O_RDWR | O_NOCTTY | O_NDELAY); // O_NOCTTY - don't be controlling terminal, O_NODELAY don't care about DCD signal state
+    if ( fd == -1)
+    {
+        // couldn't open the port
+        
+        perror("open_port: Unable to open /dev/tty.iap - ");
+    }
+    else
+        fcntl(fd, F_SETFL, 0);
+    
+    tcgetattr(fd, &options); // get current options for the port
+    
+    // set the baud rate
+    cfsetispeed(&options, B2400);
+    cfsetospeed(&options, B2400);
+    
+    // enable the receiver and set local mode
+    options.c_cflag |= (CLOCAL | CREAD);
+    
+    // set the new options for the port
+    tcsetattr(fd, TCSANOW, &options);
+    
+    return (fd);
+
+}
+
+=============================================
+Serial Port Programming
+=============================================
+
+char *portname = "/dev/tty.iap";
+char buf[256];
+
+int main(int argc, char *argv[])
+{
+
+    int fd;
+
+    // Open the file descriptor in non-blocking mode
+    fd = open(portname, O_RDWR | O_NOCTTY);
+
+    // set up the control structure
+    struct termios toptions;
+        
+    // get current set options for the tty
+    tcgetattr(fd, &toptions);
+
+    // set custom options
+    
+    // set baud rate
+    cfsetispeed(&toptions, B2400);
+    cfsetospeed(&toptions, B2400);
+    
+    // 8 bits, no parity no stop bits
+    toptions.c_cflag &= ~PARENB;
+    toptions.c_cflag &= ~CSTOPB;
+    toptions.c_cflag &= ~CSIZE;
+    toptions.c_cflag |= CS8;
+    
+    // no hardware flow control
+    toptions.c_cflag &= ~CRTSCTS;
+    
+    // enable receiver
+    toptions.c_cflag |= CREAD | CLOCAL;
+    	 
+    // disable input/output flow control, disable restart chars
+    toptions.c_iflag &= ~(IXON | IXOFF | IXANY);
+    	 
+    // disable canonical input, disable echo,
+    // disable visually erase chars,
+    // disable terminal-generated signals */
+    toptions.c_iflag &= ~(ICANON | ECHO | ECHOE | ISIG);
+    	 
+    // disable output processing
+    toptions.c_oflag &= ~OPOST;
+    	 
+    // wait for 24 characters to come in before read returns
+    toptions.c_cc[VMIN] = 12;
+    	 
+    // no minimum time to wait before read returns
+    toptions.c_cc[VTIME] = 0;
+    	 
+    // commit the options */
+    tcsetattr(fd, TCSANOW, &toptions);
+    	 
+    // Wait for the Arduino to reset */
+    usleep(1000*1000);
+    	 
+    // Flush anything already in the serial buffer */
+    tcflush(fd, TCIFLUSH);
+    	 
+    // read up to 128 bytes from the fd */
+    int n = read(fd, buf, 128);
+    	 
+    // print how many bytes read */
+    printf("%i bytes got read...\n", n);
+    	 
+    // print what's in the buffer */
+    printf("Buffer contains...\n%s\n", buf);
+    	 
+    return 0;
+}
+
+
+15SEP12
+- Added Serial.h, Serial.c, KBKegboard.h, KBKegboard.m, KBKegboardMessage.h, KBKegboardMessage.m, crc16ccitt.c, crc16ccitt.h
 

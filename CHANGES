@@ -1,3 +1,7 @@
+2012-09-26
+
+   * upgraded OS to (10.8.2) and upgraded Xcode to 4.5
+
 2012-08-18
 
    * implemented new login process using AES 256 bit encryption

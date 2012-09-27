@@ -32,24 +32,43 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    
-#if !TARGET_IPHONE_SIMULATOR  
-    
     // open the serial port - /dev/tty.ipa
-    NSInteger serial = openPort();
     
-    char somechar[8];
+    // open port
+    
+    // char = read 1 char
+    
+    // while ( char ! NL )
+     // {
+            // append char to end of string
+    
+            // read next character
+     // }
+    
+    // if string not valid
+    
+    
+    // -------------------------
+    
+    // while
+    
+    // read char
+    
+    // write to console / textview
+    
+    // end while
+       
+    //char somechar[8];
     
     // print the serial data to the console
     NSLog(@"The serial data is %d",serial);
     
     // read data coming across the serial port
-    read(serial,&somechar[0],1);
+    //read(serial,&somechar[0],1);
     
     // print the serial data in the textview
-    _serialView.text = [NSString stringWithFormat:@"%i",serial];
+    //_serialView.text = [NSString stringWithFormat:@"%i",serial];
          
-#endif
 }
 
 - (void)viewDidUnload

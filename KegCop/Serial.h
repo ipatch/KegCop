@@ -6,4 +6,8 @@
 //
 
 
-NSInteger openPort();
+NSInteger openPort(char *portName, NSInteger baudRate);
+
+void sleeperRead(int fileDescriptor, char *data, int length);
+
+// open port first, then call sleeperRead

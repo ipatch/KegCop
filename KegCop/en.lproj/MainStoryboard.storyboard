@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Welcome-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Welcome" title="Welcome to KegCop" id="2" userLabel="Welcome" customClass="ViewControllerWelcome" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iJe-0G-b0D">
@@ -175,6 +172,7 @@
                         <outlet property="wrongUserPin" destination="rtA-LP-7De" id="36M-pe-Lsk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="FaE-k4-3gd">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -203,10 +201,9 @@
         <!--About-->
         <scene sceneID="OSj-Km-3mn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TNQ-L0-iXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="About" id="Ckf-V2-ViC" userLabel="About" customClass="ViewControllerAbout" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QjF-6u-8om">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0EE-av-ZzV">
@@ -250,16 +247,16 @@
                         <outlet property="createdaccounts" destination="W5x-49-fAj" id="bnm-8O-fY7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNQ-L0-iXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8" y="743"/>
         </scene>
         <!--Forgot-->
         <scene sceneID="Qcb-Df-0IJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9zM-2u-8rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Forgot" title="Forgot Username / Pin" id="eXh-SP-s3V" userLabel="Forgot" customClass="ViewControllerForgot" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W1H-tO-PKE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a0H-Lp-BOU">
@@ -350,16 +347,16 @@
                         <outlet property="textFieldEmailReset" destination="0ZS-En-bzO" id="IO4-ZR-XYF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zM-2u-8rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="659" y="614"/>
         </scene>
         <!--Account Creation-->
         <scene sceneID="QhE-hZ-kO5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bdw-TY-3lV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Create" title="New Account" id="iDf-5q-CIv" userLabel="Account Creation" customClass="ViewControllerCreate" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="beU-xu-GPN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Dbl-or-BuX">
@@ -560,6 +557,7 @@
                         <outlet property="toolBar" destination="Ug8-pX-IHk" id="P7r-jt-RZq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdw-TY-3lV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="Ug8-pX-IHk">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -588,7 +586,6 @@
         <!--Home-root-->
         <scene sceneID="lAR-pw-YmG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rE5-Ao-jcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="rootHome" title="Home root" id="IDl-DH-I8Q" userLabel="Home-root" customClass="ViewControllerRootHome" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dUb-nU-Uwd">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -855,13 +852,13 @@
                         <outlet property="tvDisplayAccount" destination="m3v-Ii-gpJ" id="Dgz-6r-zaD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rE5-Ao-jcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1061" y="-219"/>
         </scene>
         <!--View Controller Dev-->
         <scene sceneID="xmr-cx-AQJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pcB-FN-iIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="dev" id="VHb-jM-E5J" customClass="ViewControllerDev" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hor-0J-CqU">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -923,13 +920,13 @@
                         <outlet property="tf" destination="cof-B0-9pE" id="eS8-Qa-aZt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pcB-FN-iIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1474" y="-998"/>
         </scene>
         <!--View Controller Serial Console - Serial Console-->
         <scene sceneID="Tjp-rI-B4o">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eV2-CE-7uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Serial Console" title="Serial Console" id="w8g-d6-Oge" customClass="ViewControllerSerialConsole" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x5I-91-gHb">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -988,13 +985,13 @@
                         <outlet property="textEntry" destination="jZw-cu-BZk" id="zG5-ki-F2x"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eV2-CE-7uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1414" y="-428"/>
         </scene>
         <!--Logs-->
         <scene sceneID="3qr-DL-yCt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CIq-YK-o0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Logs" title="Logs" id="v7b-1q-AGm" userLabel="Logs" customClass="ViewControllerLogs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KRy-TP-JPG">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1027,13 +1024,13 @@
                         <outlet property="logWindow" destination="AHY-Xf-LFs" id="Nkt-yL-T1W"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIq-YK-o0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1761" y="-438"/>
         </scene>
         <!--View Controller Check Flow - Check Flow-->
         <scene sceneID="jjl-H6-gHA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BGX-QW-M1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Check Flow" title="Check Flow" id="Uq0-gg-2vr" customClass="ViewControllerCheckFlow" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dzz-bs-IbK">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1070,16 +1067,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGX-QW-M1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2114" y="-438"/>
         </scene>
         <!--Home-USER-->
         <scene sceneID="XWW-Vc-3Ow">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fwc-5R-uVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Home" title="Home" id="uGc-YU-kQy" userLabel="Home-USER" customClass="ViewControllerHome" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXY-gI-YYg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="H43-z3-WeW">
@@ -1263,16 +1260,16 @@
                         <outlet property="tfUsername" destination="pSV-ZJ-XQy" id="URQ-k7-mSd"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fwc-5R-uVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1061" y="360"/>
         </scene>
         <!--View Controller Purchase - Thankyou-->
         <scene sceneID="nro-6f-cs2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uYG-Bh-4Wv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Thankyou" id="j4C-1I-1is" customClass="ViewControllerPurchase" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Etj-Ve-s0Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bdo-LK-SUm" userLabel="Button - Background">
@@ -1418,13 +1415,13 @@
                         <outlet property="tfCredit" destination="44X-zg-3uX" id="Pfp-5P-wyB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYG-Bh-4Wv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1576" y="145"/>
         </scene>
         <!--View Controller Web View - Web View-->
         <scene sceneID="xqO-5h-tsF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R27-Uy-QC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="webView" title="Web View" id="6so-vT-Am9" customClass="ViewControllerWebView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vw7-Zh-ecA">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1460,16 +1457,16 @@
                         <outlet property="webView" destination="Cds-a8-kPD" id="rml-qO-8fM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R27-Uy-QC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2021" y="120"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jwL-uu-of8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pJ1-Ej-gDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bh2-Aj-hbd" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0oz-Ph-wDl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pour your beer NOW!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2ET-kE-ER2">
@@ -1498,6 +1495,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pJ1-Ej-gDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1576" y="724"/>
         </scene>
@@ -1673,4 +1671,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="ykP-Vl-4X8"/>
+        <segue reference="VzB-8E-V0o"/>
+    </inferredMetricsTieBreakers>
 </document>

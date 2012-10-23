@@ -362,11 +362,12 @@
 
 - (IBAction)showSerialConsole:(id)sender {
     
+    NSLog(@"Serial Pressed Begin");
     //btnSerialConsole pressed
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     ViewControllerSerialConsole *serialConsole = (ViewControllerSerialConsole *) [storyboard instantiateViewControllerWithIdentifier:@"Serial Console"];
     [self presentModalViewController:serialConsole animated:YES];
-    
+    NSLog(@"Serial Pressed End");
 }
 
 - (IBAction)showLogs:(id)sender {

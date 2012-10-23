@@ -68,7 +68,49 @@
     
     // print the serial data in the textview
     //_serialView.text = [NSString stringWithFormat:@"%i",serial];
-         
+    
+    
+    // span a new thread for the while loop
+    
+    // reading off the serial port is an event
+    
+    FILE *serial_in;
+    
+    char line_buffer[1000];
+    
+    // int lineBufferUsed;
+    int portnum;
+    
+    NSLog(@"got to A");
+    
+    portnum = openPort("/dev/tty.iap",9600);
+    
+    NSLog(@"got to B");
+    
+    
+    serial_in = fdopen(portnum, "r"); // r = read
+    
+    NSLog(@"got to C");
+    
+    while (1) {
+        
+        NSLog(@"got to D");
+        
+         fgets (line_buffer, 1000, serial_in); // get up too 1000bytes but stop at \n
+        
+        NSLog(@"got to E %s",line_buffer);
+        
+        // print line to textview
+       // _serialView.text = [NSString stringWithFormat:@"%s",line_buffer];
+        
+        NSLog(@"got to F");
+    }
+    
+    
+    // main thread is trapped in while loop
+    
+    
+    
 }
 
 - (void)viewDidUnload

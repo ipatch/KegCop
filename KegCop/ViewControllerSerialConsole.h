@@ -7,10 +7,11 @@
 
 #import <UIKit/UIKit.h>
 // #import "Serial.c"
+#import "JailbrokenSerial.h"
 
 #define BUFFER_LEN 1024
 
-@interface ViewControllerSerialConsole : UIViewController {
+@interface ViewControllerSerialConsole : UIViewController <JailbrokenSerialDelegate> {
     
 
     UInt8 rxBuffer[BUFFER_LEN];

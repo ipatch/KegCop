@@ -41,6 +41,9 @@
 @synthesize dev = _dev;
 
 
+
+
+
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
@@ -134,7 +137,11 @@
     
     // First - make activity indicator visible, then start animating, then turn of wrong user / pin label
     _welcomeActivityIndicator.hidden = FALSE;
-    [_welcomeActivityIndicator startAnimating];
+    [_welcomeActivityIndicator startAnimating ];
+    // delay execution of my block for X seconds.
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+    
+    
     [_wrongUserPin setHidden:YES];
         
     // check if username and pin text fields are populated
@@ -245,6 +252,8 @@
             [_wrongUserPin setHidden:NO];
             }
     }
+    
+    });
 }
 
 
@@ -444,6 +453,9 @@ while (true)
 return theData;
 }
 
+-(void)onTick:(NSTimer *)timer {
+    // do something
+}
 
 
 @end

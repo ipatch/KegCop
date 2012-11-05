@@ -261,3 +261,191 @@ int main(int argc, char *argv[])
 15SEP12
 - Added Serial.h, Serial.c, KBKegboard.h, KBKegboard.m, KBKegboardMessage.h, KBKegboardMessage.m, crc16ccitt.c, crc16ccitt.h
 
+
+
+
+==============================================================
+
+KegPad Serial Com
+==============================================================
+------------------------
+Serial.c
+------------------------
+
+//
+//  Serial.c
+//  KegCop
+//
+//  This file was originally created for the KegPad project.
+//  Created by capin on 8/2/12.
+//
+
+#include <stdio.h>   /* Standard input/output definitions */
+#include <stdlib.h>
+#include <string.h>  /* String function definitions */
+#include <unistd.h>  /* UNIX standard function definitions */
+#include <fcntl.h>   /* File control definitions */
+#include <errno.h>   /* Error number definitions */
+#include <termios.h> /* POSIX terminal control definitions */
+#include <sys/ioctl.h>
+
+/*! openPort(portName, baudRate) - Open serial port
+ Example:
+ NSInteger fileDescriptor = openPort("/dev/tty.iap", 9600)
+ write(fileDescriptor, "hello world", 12)
+ */
+
+int openPort(char *portName, int baudRate) {
+    int fileDescriptor;
+    struct termios options;
+    printf("Trying to open port!\n");
+    fileDescriptor = open(portName, O_RDWR | O_NOCTTY | O_NONBLOCK);
+    if (fileDescriptor == -1) {
+        char *errorString = malloc(100);
+        sprintf(errorString, "Open_port: Unable to open port %s", portName);
+        perror(errorString);
+        free(errorString);
+    } else {
+        fcntl(fileDescriptor, F_SETFL, 0);
+    }
+    
+    // Get the current options for the port...
+    tcgetattr(fileDescriptor, &options);
+    
+    // Set baud rate
+    cfsetispeed(&options, baudRate);
+    cfsetospeed(&options, baudRate);
+    
+    // Enable the receiver and set local mode...
+    options.c_cflag |= (CLOCAL | CREAD);
+    
+    // Set the new options for the port...
+    tcsetattr(fileDescriptor, TCSANOW, &options);
+    
+    return (fileDescriptor);
+}
+
+// For non-blocking reads, collects data until [length] bytes are collected
+void sleeperRead(int fileDescriptor, char *data, int length) {
+    int index = 0;
+    while (index < length) {
+        int bytesRead = read(fileDescriptor, &data[index], length - index);
+        if (bytesRead == 0) usleep(10000); // Sleep 10ms
+        index += bytesRead;
+    }
+    /* Uncomment for debugging
+     for (int i = 0; i < length; i++) {
+     printf("%2X %c\n", data[i], data[i]);
+     }
+     */
+}
+
+------------------------------------
+Serial.h
+------------------------------------
+
+//
+//  Serial.h
+//  KegCop
+//
+//  Created by capin on 8/2/12.
+//
+
+
+NSInteger openPort(char *portName, NSInteger baudRate);
+
+void sleeperRead(int fileDescriptor, char *data, int length);
+
+// open port first, then call sleeperRead
+
+
+-----------------------------------------
+ViewControllerSerialConsole.m
+-----------------------------------------
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    // open the serial port - /dev/tty.ipa
+    
+    // open port
+    
+    // char = read 1 char
+    
+    // while ( char ! NL )
+     // {
+            // append char to end of string
+    
+            // read next character
+     // }
+    
+    // if string not valid
+    
+    
+    // -------------------------
+    
+    // while
+    
+    // read char
+    
+    // write to console / textview
+    
+    // end while
+       
+    //char somechar[8];
+    
+    // print the serial data to the console
+    //NSLog(@"The serial data is %d",serial);
+    
+    // read data coming across the serial port
+    //read(serial,&somechar[0],1);
+    
+    // print the serial data in the textview
+    //_serialView.text = [NSString stringWithFormat:@"%i",serial];
+    
+    
+    // span a new thread for the while loop
+    
+    // reading off the serial port is an event
+    
+    FILE *serial_in;
+    
+    char line_buffer[1000];
+    
+    // int lineBufferUsed;
+    int portnum;
+    
+    NSLog(@"got to A");
+    
+    portnum = openPort("/dev/tty.iap",9600);
+    
+    NSLog(@"got to B");
+    
+    
+    serial_in = fdopen(portnum, "r"); // r = read
+    
+    NSLog(@"got to C");
+    
+    while (1) {
+        
+        NSLog(@"got to D");
+        
+         fgets (line_buffer, 1000, serial_in); // get up too 1000bytes but stop at \n
+        
+        NSLog(@"got to E %s",line_buffer);
+        
+        // print line to textview
+       // _serialView.text = [NSString stringWithFormat:@"%s",line_buffer];
+        
+        NSLog(@"got to F");
+    }
+    
+    
+    // main thread is trapped in while loop
+    
+    
+    
+}
+

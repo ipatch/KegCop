@@ -6,10 +6,47 @@
 //
 
 #import "ViewControllerSerialConsole.h"
-#import "Serial.h"
+// #import "Serial.h"
+# include <stdio.h> /* Standard input/output definitions */
+# include <string.h> /* String function definition */
+# include <unistd.h> /* UNIX standard function definitions */
+# include <fcntl.h> /* File control definitions */
+# include <errno.h> /* Error number definitions */
+# include <termios.h> /* POSIX terminal control definitions */
+
+static struct termios gOriginalTTYAttrs;
 
 @interface ViewControllerSerialConsole ()
 
+/*
+static int OpenSerialPort()
+{
+    int fileDescriptor = -1;
+    int handshake;
+    struct termios options;
+
+    fileDescriptor = opne("dev/tty.iap", O_RDWR | O_NOCTTY  | O_NONBLOCK);
+    options = gOriginalTTYAttrs;
+    printf("Current input baud rate is %d\n", (int) cfgetispeed(&options));
+    printf("Current ouput baud rate is %d\n", (int) cfgetospeed(&options));
+    cfmakeraw(&options);
+    options.c_cc[VMIN] = 1;
+    options.c_cc[VTIME] = 10;
+    cfsetspeed(&options, B9600);
+    options.c_cflag |= (CS8);
+    printf("input baud rate changed to %d\n", (int) cfgetispeed(&options));
+    printf("Output baud rate changed to %d\n", (int) cfgetospeed(&options));
+       
+    if (tcsetattr(fileDescriptor, TCSANOW, &options) == -1)
+    {
+           printf("Error setting tty attributes %s - %s(%d).\n", "/dev/tty.iap", strerror(errno), errno);
+    }
+    // Success
+    return fileDescriptor;
+       
+    }
+
+*/
 @end
 
 @implementation ViewControllerSerialConsole
@@ -30,89 +67,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    // open the serial port - /dev/tty.ipa
+    JailbrokenSerial *serial = [[JailbrokenSerial alloc] init];
     
-    // open port
+    serial.debug = YES; // debug messaages will be printed out using NSLog() if the flag is set to YES
     
-    // char = read 1 char
+    [serial open:B9600];
+    NSLog(@"%c", [serial isOpened]);
     
-    // while ( char ! NL )
-     // {
-            // append char to end of string
+    serial.nonBlock = true;
     
-            // read next character
-     // }
+    serial.receiver = self;
     
-    // if string not valid
+    char buffer[12];
+    [serial read:buffer length:12]; // will be blocked until read 5 characters.
     
+    // print line to textview
+    _serialView.text = [NSString stringWithFormat:@"%s",buffer];
     
-    // -------------------------
-    
-    // while
-    
-    // read char
-    
-    // write to console / textview
-    
-    // end while
-       
-    //char somechar[8];
-    
-    // print the serial data to the console
-    //NSLog(@"The serial data is %d",serial);
-    
-    // read data coming across the serial port
-    //read(serial,&somechar[0],1);
-    
-    // print the serial data in the textview
-    //_serialView.text = [NSString stringWithFormat:@"%i",serial];
-    
-    
-    // span a new thread for the while loop
-    
-    // reading off the serial port is an event
-    
-    FILE *serial_in;
-    
-    char line_buffer[1000];
-    
-    // int lineBufferUsed;
-    int portnum;
-    
-    NSLog(@"got to A");
-    
-    portnum = openPort("/dev/tty.iap",9600);
-    
-    NSLog(@"got to B");
-    
-    
-    serial_in = fdopen(portnum, "r"); // r = read
-    
-    NSLog(@"got to C");
-    
-    while (1) {
-        
-        NSLog(@"got to D");
-        
-         fgets (line_buffer, 1000, serial_in); // get up too 1000bytes but stop at \n
-        
-        NSLog(@"got to E %s",line_buffer);
-        
-        // print line to textview
-       // _serialView.text = [NSString stringWithFormat:@"%s",line_buffer];
-        
-        NSLog(@"got to F");
-    }
-    
-    
-    // main thread is trapped in while loop
     
     
     
 }
-
+    
 - (void)viewDidUnload
 {
     [self setTextEntry:nil];
@@ -136,6 +113,22 @@
     // dismiss keyboard
     [self.textEntry resignFirstResponder];
 }
+
+- (IBAction)serial:(id)sender
+{
+    /*
+    int fd;
+    char somechar[8];
+    fd=OpenSerialPort();
+    if(fd>-1)
+    {
+        write(fd,"T",1);
+        
+    }
+     */
+}
+
+
 
 
 @end

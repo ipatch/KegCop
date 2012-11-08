@@ -18,41 +18,20 @@ static struct termios gOriginalTTYAttrs;
 
 @interface ViewControllerSerialConsole ()
 
-/*
-static int OpenSerialPort()
-{
-    int fileDescriptor = -1;
-    int handshake;
-    struct termios options;
 
-    fileDescriptor = opne("dev/tty.iap", O_RDWR | O_NOCTTY  | O_NONBLOCK);
-    options = gOriginalTTYAttrs;
-    printf("Current input baud rate is %d\n", (int) cfgetispeed(&options));
-    printf("Current ouput baud rate is %d\n", (int) cfgetospeed(&options));
-    cfmakeraw(&options);
-    options.c_cc[VMIN] = 1;
-    options.c_cc[VTIME] = 10;
-    cfsetspeed(&options, B9600);
-    options.c_cflag |= (CS8);
-    printf("input baud rate changed to %d\n", (int) cfgetispeed(&options));
-    printf("Output baud rate changed to %d\n", (int) cfgetospeed(&options));
-       
-    if (tcsetattr(fileDescriptor, TCSANOW, &options) == -1)
-    {
-           printf("Error setting tty attributes %s - %s(%d).\n", "/dev/tty.iap", strerror(errno), errno);
-    }
-    // Success
-    return fileDescriptor;
-       
-    }
-
-*/
 @end
 
 @implementation ViewControllerSerialConsole
 @synthesize textEntry = _textEntry;
 @synthesize btnSend = _btnSend;
 @synthesize serialView = _serialView;
+/*
+@synthesize btnOpen = _btnOpen;
+@synthesize btnClose = _btnClose;
+@synthesize btnDone = _btnDone;
+ */
+
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -68,22 +47,7 @@ static int OpenSerialPort()
 {
     [super viewDidLoad];
     
-    JailbrokenSerial *serial = [[JailbrokenSerial alloc] init];
     
-    serial.debug = YES; // debug messaages will be printed out using NSLog() if the flag is set to YES
-    
-    [serial open:B9600];
-    NSLog(@"%c", [serial isOpened]);
-    
-    serial.nonBlock = true;
-    
-    serial.receiver = self;
-    
-    char buffer[12];
-    [serial read:buffer length:12]; // will be blocked until read 5 characters.
-    
-    // print line to textview
-    _serialView.text = [NSString stringWithFormat:@"%s",buffer];
     
     
     
@@ -95,6 +59,11 @@ static int OpenSerialPort()
     [self setTextEntry:nil];
     [self setBtnSend:nil];
     [self setSerialView:nil];
+    /*
+    [self setBtnOpen:nil];
+    [self setBtnClose:nil];
+    [self setBtnDone:nil];
+     */
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -104,7 +73,7 @@ static int OpenSerialPort()
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)btnPressed:(id)sender 
+- (IBAction)donePressed:(id)sender
 {
     [self dismissModalViewControllerAnimated:YES];    
 }
@@ -128,6 +97,31 @@ static int OpenSerialPort()
      */
 }
 
+- (IBAction)openSerial:(id)sender
+{
+    
+    
+    serial.debug = YES; // debug messaages will be printed out using NSLog() if the flag is set to YES
+    
+    [serial open:B9600];
+    NSLog(@"%c", [serial isOpened]);
+    
+    serial.nonBlock = true;
+    
+    serial.receiver = self;
+    
+    char buffer[12];
+    [serial read:buffer length:12]; // will be blocked until read 5 characters.
+    
+    // print line to textview
+    _serialView.text = [NSString stringWithFormat:@"%s",buffer];
+    
+}
+
+- (IBAction)closeSerial:(id)sender
+{
+    [serial close];
+}
 
 
 

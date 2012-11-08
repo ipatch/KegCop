@@ -924,45 +924,44 @@
             </objects>
             <point key="canvasLocation" x="1474" y="-998"/>
         </scene>
-        <!--View Controller Serial Console - Serial Console-->
-        <scene sceneID="Tjp-rI-B4o">
+        <!--View Controller Serial Console-->
+        <scene sceneID="BJa-xT-q7Z">
             <objects>
-                <viewController storyboardIdentifier="Serial Console" title="Serial Console" id="w8g-d6-Oge" customClass="ViewControllerSerialConsole" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="x5I-91-gHb">
+                <viewController storyboardIdentifier="Serial Console" id="MRH-EO-6XD" userLabel="View Controller Serial Console" customClass="ViewControllerSerialConsole" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3R8-rb-DAK">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" id="yVF-2h-By2">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3cO-Nu-3cE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <navigationItem title="Serial Console" id="i9u-YD-zOj">
-                                        <barButtonItem key="leftBarButtonItem" title="Done" id="7kz-I5-Vkv">
-                                            <connections>
-                                                <action selector="btnPressed:" destination="w8g-d6-Oge" id="ALi-ve-qXK"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <barButtonItem title="Done" id="en5-vB-XPy">
+                                        <connections>
+                                            <action selector="donePressed:" destination="MRH-EO-6XD" id="WYW-on-x6w"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="131" style="plain" systemItem="fixedSpace" id="ufr-Sd-khO"/>
+                                    <barButtonItem title="Open" id="RjT-Sn-QXW">
+                                        <connections>
+                                            <action selector="openSerial:" destination="MRH-EO-6XD" id="pjU-zN-2V8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Close" id="92Z-mN-EzL">
+                                        <connections>
+                                            <action selector="closeSerial:" destination="MRH-EO-6XD" id="KA9-7J-hoa"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="jZw-cu-BZk">
-                                <rect key="frame" x="20" y="56" width="215" height="31"/>
+                            </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="0Ig-Z4-CRN">
+                                <rect key="frame" x="7" y="65" width="212" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="sendString:" destination="w8g-d6-Oge" eventType="editingDidEndOnExit" id="NdA-zc-6aw"/>
-                                </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="gZg-1r-Co4">
-                                <rect key="frame" x="0.0" y="92" width="320" height="368"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SNm-WJ-j0v">
-                                <rect key="frame" x="243" y="50" width="72" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mQh-DZ-SuI">
+                                <rect key="frame" x="227" y="52" width="73" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Send">
@@ -973,21 +972,28 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendString:" destination="w8g-d6-Oge" eventType="touchUpInside" id="cZL-5f-FWO"/>
+                                    <action selector="sendString:" destination="MRH-EO-6XD" eventType="touchUpInside" id="yvV-Fh-e5H"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Lch-on-a0N">
+                                <rect key="frame" x="7" y="103" width="306" height="345"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="btnSend" destination="SNm-WJ-j0v" id="Iya-Xx-2MZ"/>
-                        <outlet property="serialView" destination="gZg-1r-Co4" id="EbB-9a-wJN"/>
-                        <outlet property="textEntry" destination="jZw-cu-BZk" id="zG5-ki-F2x"/>
+                        <outlet property="btnSend" destination="mQh-DZ-SuI" id="g7g-S4-bd7"/>
+                        <outlet property="serialView" destination="Lch-on-a0N" id="4IA-WP-zs1"/>
+                        <outlet property="textEntry" destination="0Ig-Z4-CRN" id="jk3-9O-9DP"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eV2-CE-7uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GcQ-3J-b0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="-428"/>
+            <point key="canvasLocation" x="1411" y="-418"/>
         </scene>
         <!--Logs-->
         <scene sceneID="3qr-DL-yCt">
@@ -1499,6 +1505,19 @@
             </objects>
             <point key="canvasLocation" x="1576" y="724"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="0Ks-ux-L7M">
+            <objects>
+                <viewController id="Akd-XO-WzG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ik-Ku-Wev">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNE-Fp-zEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <classes>
         <class className="ViewControllerAbout" superclassName="UIViewController">
@@ -1629,8 +1648,11 @@
         <class className="ViewControllerSerialConsole" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerSerialConsole.h"/>
             <relationships>
-                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="action" name="closeSerial:"/>
+                <relationship kind="action" name="donePressed:"/>
+                <relationship kind="action" name="openSerial:"/>
                 <relationship kind="action" name="sendString:"/>
+                <relationship kind="action" name="serial:"/>
                 <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="serialView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="textEntry" candidateClass="UITextField"/>

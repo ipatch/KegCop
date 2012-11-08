@@ -449,3 +449,36 @@ ViewControllerSerialConsole.m
     
 }
 
+
+================================================
+Serial Example
+================================================
+/*
+static int OpenSerialPort()
+{
+    int fileDescriptor = -1;
+    int handshake;
+    struct termios options;
+
+    fileDescriptor = opne("dev/tty.iap", O_RDWR | O_NOCTTY  | O_NONBLOCK);
+    options = gOriginalTTYAttrs;
+    printf("Current input baud rate is %d\n", (int) cfgetispeed(&options));
+    printf("Current ouput baud rate is %d\n", (int) cfgetospeed(&options));
+    cfmakeraw(&options);
+    options.c_cc[VMIN] = 1;
+    options.c_cc[VTIME] = 10;
+    cfsetspeed(&options, B9600);
+    options.c_cflag |= (CS8);
+    printf("input baud rate changed to %d\n", (int) cfgetispeed(&options));
+    printf("Output baud rate changed to %d\n", (int) cfgetospeed(&options));
+       
+    if (tcsetattr(fileDescriptor, TCSANOW, &options) == -1)
+    {
+           printf("Error setting tty attributes %s - %s(%d).\n", "/dev/tty.iap", strerror(errno), errno);
+    }
+    // Success
+    return fileDescriptor;
+       
+    }
+
+*/

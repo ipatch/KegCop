@@ -77,7 +77,7 @@
             [self performSelectorOnMainThread:@selector(sendReadMessage) withObject:nil waitUntilDone:YES];
         }
         else if(buf_len == -1) {
-            [NSThread sleepForTimeInterval:0.1]; // set the wait time for the read loop - IMPORTANT
+            [NSThread sleepForTimeInterval:0.01]; // set the wait time for the read loop - IMPORTANT
         }
         [myRunLoop runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
     }

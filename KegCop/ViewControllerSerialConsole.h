@@ -6,30 +6,17 @@
 //
 
 #import <UIKit/UIKit.h>
-// #import "Serial.c"
 #import "JailbrokenSerial.h"
-
-#define BUFFER_LEN 1024
 
 @interface ViewControllerSerialConsole : UIViewController <JailbrokenSerialDelegate> {
     JailbrokenSerial *serial;
     
-
-    UInt8 rxBuffer[BUFFER_LEN];
-    UInt8 txBuffer[BUFFER_LEN];
+    NSMutableString *text;
     
 }
 @property (weak, nonatomic) IBOutlet UITextField *textEntry;
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
 @property (weak, nonatomic) IBOutlet UITextView *serialView;
-/*
-@property (weak, nonatomic) IBOutlet UIToolbar *btnOpen;
-@property (weak, nonatomic) IBOutlet UIToolbar *btnClose;
-@property (weak, nonatomic) IBOutlet UIToolbar *btnDone;
- */
-
-
-
 
 
 - (IBAction)donePressed:(id)sender;

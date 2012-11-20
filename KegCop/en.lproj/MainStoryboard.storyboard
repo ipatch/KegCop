@@ -196,7 +196,7 @@
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="231" y="135"/>
+            <point key="canvasLocation" x="90" y="120"/>
         </scene>
         <!--About-->
         <scene sceneID="OSj-Km-3mn">
@@ -1517,6 +1517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNE-Fp-zEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-395" y="-30"/>
         </scene>
     </scenes>
     <classes>
@@ -1652,7 +1653,6 @@
                 <relationship kind="action" name="donePressed:"/>
                 <relationship kind="action" name="openSerial:"/>
                 <relationship kind="action" name="sendString:"/>
-                <relationship kind="action" name="serial:"/>
                 <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="serialView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="textEntry" candidateClass="UITextField"/>

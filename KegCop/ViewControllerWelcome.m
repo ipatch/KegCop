@@ -267,6 +267,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
    
     NSLog(@"method was loaded at startup");
+    printf("the printf statement is read");
 }
 
 // method keyboard behavior

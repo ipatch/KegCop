@@ -55,7 +55,6 @@
 		EAEFEEA7157B296B00C666D5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */; };
 		EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */; };
 		EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF27855159191C9009663A8 /* ViewControllerHome.m */; };
-		EAFAAFB1164D90B8006B1D12 /* SerialCom.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFAAFB0164D90B8006B1D12 /* SerialCom.m */; };
 		EAFC132E157B3883002F76FD /* icon57x57_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC132D157B3883002F76FD /* icon57x57_flat.png */; };
 		EAFC1330157B3890002F76FD /* icon114x114_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC132F157B3890002F76FD /* icon114x114_flat.png */; };
 		EAFCCB481614B56C00B55057 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFCCB471614B56C00B55057 /* Default-568h@2x.png */; };
@@ -148,8 +147,6 @@
 		EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWelcome.m; sourceTree = "<group>"; };
 		EAF27854159191C8009663A8 /* ViewControllerHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerHome.h; sourceTree = "<group>"; };
 		EAF27855159191C9009663A8 /* ViewControllerHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerHome.m; sourceTree = "<group>"; };
-		EAFAAFAF164D90B8006B1D12 /* SerialCom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialCom.h; sourceTree = "<group>"; };
-		EAFAAFB0164D90B8006B1D12 /* SerialCom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialCom.m; sourceTree = "<group>"; };
 		EAFC132D157B3883002F76FD /* icon57x57_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57x57_flat.png; path = ../icon57x57_flat.png; sourceTree = "<group>"; };
 		EAFC132F157B3890002F76FD /* icon114x114_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114x114_flat.png; path = ../icon114x114_flat.png; sourceTree = "<group>"; };
 		EAFC1331157B396E002F76FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -243,8 +240,6 @@
 				EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */,
 				EA291BE4163B487500CE419E /* JailbrokenSerial.h */,
 				EA291BE5163B487500CE419E /* JailbrokenSerial.m */,
-				EAFAAFAF164D90B8006B1D12 /* SerialCom.h */,
-				EAFAAFB0164D90B8006B1D12 /* SerialCom.m */,
 				EAD97F0F15CB7073006C15A2 /* Serial.h */,
 				EAD97F0D15CB6F6D006C15A2 /* Serial.c */,
 				EA60FB0C16052DBC00BF7EE3 /* KBKegboard.h */,
@@ -517,7 +512,6 @@
 				EA60FB1116052E0700BF7EE3 /* KBKegboardMessage.m in Sources */,
 				EA60FB1416052E3800BF7EE3 /* crc16ccitt.c in Sources */,
 				EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */,
-				EAFAAFB1164D90B8006B1D12 /* SerialCom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

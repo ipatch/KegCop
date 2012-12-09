@@ -482,3 +482,15 @@ static int OpenSerialPort()
     }
 
 */
+
+
+
+----------------------------------------------------------
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+NSLog(@"Range: %@", NSStringFromRange(range));
+return ( range.location < 10 );
+
+}

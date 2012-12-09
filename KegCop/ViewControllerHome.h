@@ -9,14 +9,18 @@
 #import "Account.h"
 #import "AppDelegate.h"
 #import "ViewControllerWelcome.h"
-#import "Serial.h"
+#import "JailbrokenSerial.h"
 
-@interface ViewControllerHome : UIViewController
+@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate>
 {
     UIButton *removeAccount;
     UIAlertView *alert;
     NSString *username;
     UILabel *lblUSERNAME;
+    // serial
+    JailbrokenSerial *serial;
+    NSMutableString *rfidbadgenumber;
+    
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
 @property (weak, nonatomic) IBOutlet UILabel *lblUSERNAME;

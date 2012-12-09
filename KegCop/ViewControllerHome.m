@@ -24,13 +24,14 @@
 @synthesize lblTradeCredit = _lblTradeCredit;
 @synthesize btnAddRFID = _btnAddRFID;
 
+
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
 // @synthesize removeAccount = _removeAccount;
 
 // Serial Port
-static NSInteger gFileDescriptor;
+// static NSInteger gFileDescriptor;
 
 - (void)viewDidLoad
 {
@@ -66,6 +67,16 @@ static NSInteger gFileDescriptor;
     [self updateCredit];
     
     [super viewDidLoad];
+    
+    
+    // serial stuff
+    serial = [[JailbrokenSerial alloc] init];
+    serial.debug = true;
+    serial.nonBlock = true;
+    serial.receiver = self;
+    rfidbadgenumber = [[NSMutableString alloc] initWithString:@""];
+    
+    
 }
 
 - (void)viewDidUnload
@@ -239,24 +250,85 @@ static NSInteger gFileDescriptor;
     }
 }
 
+/* Begin RFID / Serial */
+
 - (IBAction)addRFID:(id)sender {
     
     // btnAddRFID pressed
     
-    // probe serial RX port for data
+    NSLog(@"rfid badge # is %@",rfidbadgenumber);
     
-    // open and listen for serial RX data stream
+    // launch an alert with text input
+    UIAlertView *alertrfid = [[UIAlertView alloc] initWithTitle:@"Scan RFID badge"
+                                                        message:@"Associate RFID badge with user account"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Dismiss"
+                                              otherButtonTitles:@"Save", nil];
+                                                                
+    
 
+    // set alert with a text input field
+    [alertrfid setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    // set text field input to max character length of 10
+    //[[alertrfid textFieldAtIndex:0].text substringWithRange:NSMakeRange(0,10)];
     
-    if (gFileDescriptor <= 0) {
-    //    gFileDescriptor = openPort(SERIAL_PORT, BAUD_RATE);
-#if !TARGET_IPHONE_SIMULATOR
-        if (gFileDescriptor == -1) {
-            NSLog(@"Port failed to open");
-        }
-#endif
-    }
+    
+    
+    [alertrfid show];
+    
+    
+    // set the delegate for the UIAlertView textfield
+    [alert textFieldAtIndex:0].delegate = self;
+    
+    
+    
+    //open serial port
+    [serial open:B2400];
+    
+    NSLog(@"rfid badge # is %@",rfidbadgenumber);
+    
+    // assign alert input text to RFID badge #
+    [alert textFieldAtIndex:0].text = rfidbadgenumber;
+    
+    
 }
+
+# pragma mark - JailbrokenSerialDelegate
+- (void) JailbrokenSerialReceived:(char) ch {
+    [rfidbadgenumber appendFormat:@"%c", ch];
+    
+    
+    
+}
+/*
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > 10) ? NO : YES;
+}
+*/
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSLog(@"Range: %@", NSStringFromRange(range));
+    return (textField.text.length - range.length + string.length < 10);
+    
+}
+
+// add method for cancel button
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        NSLog(@"The cancel button was clicked");
+        [serial close];
+    }
+    
+    // do stuff for additonal buttons
+}
+
+// close serial port
+
+
+/* End RFID / Serial */
 
 - (void)changeUSERNAME {
     _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;

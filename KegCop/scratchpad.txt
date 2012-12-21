@@ -494,3 +494,83 @@ NSLog(@"Range: %@", NSStringFromRange(range));
 return ( range.location < 10 );
 
 }
+
+
+=================================================
+waiting for user response
+=================================================
+
+bool happeningNow = false;
+
+while (!happeningNow)
+{
+   if(someConditionisMet)
+   {
+        happeningNow = true;
+
+    }
+
+   if(happeningNow)
+   {
+      // whatever
+    }
+
+}
+
+
+
+UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"title" message:@"szMsg" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"download"];
+        [alert show];
+        [alert release];
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        //Code for OK button
+    }
+    if (buttonIndex == 1)
+    {
+        //Code for download button
+    }
+}
+
+-(void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(actionSheet== alertLogout) {//alertLogout
+        if (buttonIndex == 0){
+
+        }else if(buttonIndex==1){
+
+        }
+    }else if (actionSheet==alertComment) {//alertComment
+        if (buttonIndex==0) {
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

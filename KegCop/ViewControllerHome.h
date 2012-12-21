@@ -20,6 +20,8 @@
     // serial
     JailbrokenSerial *serial;
     NSMutableString *rfidbadgenumber;
+    UIAlertView *alertrfid;
+    NSMutableString *newrfidtagid;
     
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;

@@ -25,6 +25,7 @@
 @synthesize btnAddRFID = _btnAddRFID;
 
 
+
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
@@ -77,6 +78,19 @@
     rfidbadgenumber = [[NSMutableString alloc] initWithString:@""];
     
     
+    // uialertview init
+    // declare an alert with text input
+    alertrfid = [[UIAlertView alloc] initWithTitle:@"Scan RFID badge"
+                                           message:@"Associate RFID badge with user account"
+                                          delegate:self
+                                 cancelButtonTitle:@"Dismiss"
+                                 otherButtonTitles:@"Save", nil];
+    
+    
+    // RFID stuff
+    newrfidtagid = [[NSMutableString alloc] init];
+    
+    
 }
 
 - (void)viewDidUnload
@@ -91,6 +105,7 @@
     [self setBtndrinkbeer:nil];
     [self setBtnAddRFID:nil];
     [super viewDidUnload];
+    [serial close];
   
 }
 
@@ -250,68 +265,61 @@
     }
 }
 
-/* Begin RFID / Serial */
+/* Begin addRFID - Serial Communication */
 
 - (IBAction)addRFID:(id)sender {
     
     // btnAddRFID pressed
     
-    NSLog(@"rfid badge # is %@",rfidbadgenumber);
-    
-    // launch an alert with text input
-    UIAlertView *alertrfid = [[UIAlertView alloc] initWithTitle:@"Scan RFID badge"
-                                                        message:@"Associate RFID badge with user account"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Dismiss"
-                                              otherButtonTitles:@"Save", nil];
-                                                                
-    
+    NSLog(@"rfid badge # is %@",newrfidtagid);
+
 
     // set alert with a text input field
     [alertrfid setAlertViewStyle:UIAlertViewStylePlainTextInput];
     // set text field input to max character length of 10
     //[[alertrfid textFieldAtIndex:0].text substringWithRange:NSMakeRange(0,10)];
     
-    
-    
     [alertrfid show];
     
-    
     // set the delegate for the UIAlertView textfield
-    [alert textFieldAtIndex:0].delegate = self;
-    
+    [alertrfid textFieldAtIndex:0].delegate = self;
     
     
     //open serial port
+    
     [serial open:B2400];
-    
-    NSLog(@"rfid badge # is %@",rfidbadgenumber);
-    
-    // assign alert input text to RFID badge #
-    [alert textFieldAtIndex:0].text = rfidbadgenumber;
-    
-    
+    if(serial.isOpened)
+    {
+        NSLog(@"Open");
+    }
+    else NSLog(@"closed dingo");
 }
+
 
 # pragma mark - JailbrokenSerialDelegate
 - (void) JailbrokenSerialReceived:(char) ch {
-    [rfidbadgenumber appendFormat:@"%c", ch];
+
+    NSLog(@"got it");
+
+    NSString *s = [NSString stringWithFormat:@"%c",ch];
+    NSLog(@"s = %@",s);
+
+    [newrfidtagid appendString:s];
+
+    NSLog(@"rfid char  = %@",newrfidtagid);
     
-    
-    
-}
-/*
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (newLength > 10) ? NO : YES;
-}
-*/
+    if (newrfidtagid.length == 10)
+    {
+        NSLog(@"new tagid = %@",newrfidtagid);
+        [alertrfid textFieldAtIndex:0].text = newrfidtagid;
+        //[serial open:B2400];
+    }
+ }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     NSLog(@"Range: %@", NSStringFromRange(range));
-    return (textField.text.length - range.length + string.length < 10);
-    
+    return (textField.text.length - range.length + string.length <= 10);
 }
 
 // add method for cancel button
@@ -319,7 +327,15 @@
     
     if (buttonIndex == 0) {
         NSLog(@"The cancel button was clicked");
+        
         [serial close];
+        
+        [alertrfid dismissWithClickedButtonIndex:0 animated:YES];
+        [newrfidtagid setString:@""];
+        [alertrfid textFieldAtIndex:0].text = @"";
+         
+        //alertrfid.hidden = TRUE;
+        
     }
     
     // do stuff for additonal buttons
@@ -328,7 +344,7 @@
 // close serial port
 
 
-/* End RFID / Serial */
+/* End addRFID - Serial Communication */
 
 - (void)changeUSERNAME {
     _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;

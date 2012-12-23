@@ -1,3 +1,7 @@
+2012-12-23
+  * RFID integration has begun using a Parallax RFID reader.
+  * textfield is populated with RFID tag ID when a user clicks the "Add RFID" button.
+
 2012-09-27
 
    * commented out several lines of code in KBKegboard.h / .m files to get project to compile /

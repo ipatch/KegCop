@@ -36,3 +36,5 @@
 - (void)write:(const char *)message length:(int)len;
 - (void)write:(NSString *)message;
 @end
+
+// test comment added after deleting Serial files

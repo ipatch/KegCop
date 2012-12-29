@@ -45,7 +45,6 @@
 		EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D821582E99200FF9FA0 /* AccountBase.m */; };
 		EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */; };
 		EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */; };
-		EAD97F0E15CB6F6D006C15A2 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0D15CB6F6D006C15A2 /* Serial.c */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */; };
@@ -131,8 +130,6 @@
 		EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelWelcome.m; sourceTree = "<group>"; };
 		EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSerialConsole.h; sourceTree = "<group>"; };
 		EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSerialConsole.m; sourceTree = "<group>"; };
-		EAD97F0D15CB6F6D006C15A2 /* Serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Serial.c; sourceTree = "<group>"; };
-		EAD97F0F15CB7073006C15A2 /* Serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serial.h; sourceTree = "<group>"; };
 		EAEFEE8F157B296B00C666D5 /* KegCop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KegCop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEFEE93157B296B00C666D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EAEFEE95157B296B00C666D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -240,8 +237,6 @@
 				EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */,
 				EA291BE4163B487500CE419E /* JailbrokenSerial.h */,
 				EA291BE5163B487500CE419E /* JailbrokenSerial.m */,
-				EAD97F0F15CB7073006C15A2 /* Serial.h */,
-				EAD97F0D15CB6F6D006C15A2 /* Serial.c */,
 				EA60FB0C16052DBC00BF7EE3 /* KBKegboard.h */,
 				EA60FB0D16052DBC00BF7EE3 /* KBKegboard.m */,
 				EA60FB0F16052E0700BF7EE3 /* KBKegboardMessage.h */,
@@ -505,7 +500,6 @@
 				EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */,
 				EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */,
 				EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */,
-				EAD97F0E15CB6F6D006C15A2 /* Serial.c in Sources */,
 				EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */,
 				EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */,
 				EA60FB0E16052DBC00BF7EE3 /* KBKegboard.m in Sources */,

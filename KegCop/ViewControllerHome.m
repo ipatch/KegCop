@@ -46,7 +46,7 @@
     // load Home Scrollview
     [_homeScroller setContentSize:CGSizeMake(320,750)];
     
-    // declare button
+    // declare rmv button
     removeAccount = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
     // set title for button
@@ -322,7 +322,7 @@
     return (textField.text.length - range.length + string.length <= 10);
 }
 
-// add method for cancel button
+// delegate method for UIAlertView - handles methods for button presses
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
@@ -333,12 +333,17 @@
         [alertrfid dismissWithClickedButtonIndex:0 animated:YES];
         [newrfidtagid setString:@""];
         [alertrfid textFieldAtIndex:0].text = @"";
-         
-        //alertrfid.hidden = TRUE;
         
     }
     
     // do stuff for additonal buttons
+    if (buttonIndex == 1) {
+        
+        NSLog(@"delegate method - save btn pressed");
+        [self saveTagIDtoAccount];
+        
+        
+    }
 }
 
 // close serial port
@@ -346,6 +351,7 @@
 
 /* End addRFID - Serial Communication */
 
+// method to change username label
 - (void)changeUSERNAME {
     _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;
 }
@@ -376,6 +382,92 @@
             _creditX.text = [NSString stringWithFormat:@"%@",anAccount.credit];
         }
     }
+}
+
+-(void)saveTagIDtoAccount {
+    
+    NSLog(@"inside saveTagIDtoAccount method");
+    
+    // check validity of tagID
+    if( [self tagIDCheck] == FALSE)
+    {
+    
+    // Core Data - query Core Data DB
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define our table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    
+    // fetch records and handle error
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    
+    if (!mutableFetchResults) {
+        // handle error.
+        // should advise user to restart
+    }
+    
+    // refine to just logged in user account
+    for (Account *anAccount in mutableFetchResults) {
+        if ([anAccount.username isEqualToString:_lblUSERNAME.text]) {
+            
+            //log the text of _lblUSERNAME.text
+            NSLog(@"_lblUSERNAME = %@",_lblUSERNAME.text);
+            
+            NSLog(@"%@ RFID tagID will = %@",_lblUSERNAME,newrfidtagid);
+            
+            // associate tagid to account
+            [anAccount setValue:newrfidtagid forKey:@"rfid"];
+        }
+    }
+    }
+}
+
+// method to check if account already has tagID, returns a TRUE / FALSE
+-(BOOL)tagIDCheck {
+    
+     NSLog(@"inside tagIDCheck method");
+    
+    // check if account already has tagID
+    
+    // query Core Data DB to see if username is already created
+    
+    // define table/entity to use
+    NSEntityDescription *entity =[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    
+    // setup fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    // sort the records
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"rfid" ascending:NO];
+    NSArray *records = [NSArray arrayWithObject:sort];
+    
+    [request setSortDescriptors:records];
+    
+    // fetch the records and handle an error
+    NSError *fetchError;
+    NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:&fetchError] mutableCopy];
+    
+    if (!mutableFetchResults) {
+        // handle error.
+        // serious error
+    }
+    
+    // compare tagid tf with fetched results
+    if ([[mutableFetchResults valueForKey:@"rfid"] containsObject:[alertrfid textFieldAtIndex:0].text]) {
+        
+        // log
+        NSLog(@"alert tf text = %@",[alertrfid textFieldAtIndex:0].text);
+        
+        // let user know tagid already taken
+        [alertrfid setMessage:@"RFID tag associated to other account."];
+        return TRUE;
+    }
+        else {
+            return FALSE;
+        }
 }
 
 -(void)hidebtnAddRFID {

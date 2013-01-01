@@ -12,6 +12,8 @@
 
 /* Notes
  It loads the view controller and puts it into the window.
+ 
+ 1JAN13 - review / try to implement CoreDataHelper class into project / application.
  */
 
 

@@ -19,9 +19,6 @@
 		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
 		EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */; };
 		EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */; };
-		EA60FB0E16052DBC00BF7EE3 /* KBKegboard.m in Sources */ = {isa = PBXBuildFile; fileRef = EA60FB0D16052DBC00BF7EE3 /* KBKegboard.m */; };
-		EA60FB1116052E0700BF7EE3 /* KBKegboardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EA60FB1016052E0700BF7EE3 /* KBKegboardMessage.m */; };
-		EA60FB1416052E3800BF7EE3 /* crc16ccitt.c in Sources */ = {isa = PBXBuildFile; fileRef = EA60FB1216052E3800BF7EE3 /* crc16ccitt.c */; };
 		EA64CC2A1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2B1591192C00517704 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA64CC291591192C00517704 /* launch.png */; };
 		EA64CC2C1591194300517704 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC1331157B396E002F76FD /* Default.png */; };
@@ -36,12 +33,10 @@
 		EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D7A1588612600826A02 /* KegCopTests.m */; };
 		EAA33D7F158EE6B000031D96 /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D7E158EE6B000031D96 /* scratchpad.txt */; };
 		EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA33D831588AA9100826A02 /* SenTestingKit.framework */; };
-		EAA33D87158F0A0000031D96 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D86158F0A0000031D96 /* CoreDataHelper.m */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAA51B1615983E3100D0D777 /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EAA51B1515983E3100D0D777 /* Glass.aiff */; };
 		EABE1D741581C9B700FF9FA0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D731581C9B700FF9FA0 /* Account.m */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
-		EABE1D791581CBEC00FF9FA0 /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */; };
 		EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D821582E99200FF9FA0 /* AccountBase.m */; };
 		EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */; };
 		EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */; };
@@ -95,12 +90,6 @@
 		EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev.m; sourceTree = "<group>"; };
 		EA5AAD2115DC84EB006EDCBF /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
 		EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
-		EA60FB0C16052DBC00BF7EE3 /* KBKegboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBKegboard.h; sourceTree = "<group>"; };
-		EA60FB0D16052DBC00BF7EE3 /* KBKegboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboard.m; sourceTree = "<group>"; };
-		EA60FB0F16052E0700BF7EE3 /* KBKegboardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBKegboardMessage.h; sourceTree = "<group>"; };
-		EA60FB1016052E0700BF7EE3 /* KBKegboardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardMessage.m; sourceTree = "<group>"; };
-		EA60FB1216052E3800BF7EE3 /* crc16ccitt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc16ccitt.c; sourceTree = "<group>"; };
-		EA60FB1316052E3800BF7EE3 /* crc16ccitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc16ccitt.h; sourceTree = "<group>"; };
 		EA64CC291591192C00517704 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		EA64CC2D1591198D00517704 /* launch-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-retina.png"; sourceTree = "<group>"; };
 		EA699308158721E8009E0397 /* ViewControllerForgot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerForgot.h; sourceTree = "<group>"; };
@@ -115,15 +104,11 @@
 		EAA33D7C1588612600826A02 /* KegCopTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCopTests-Prefix.pch"; sourceTree = "<group>"; };
 		EAA33D7E158EE6B000031D96 /* scratchpad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scratchpad.txt; sourceTree = "<group>"; };
 		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		EAA33D85158F0A0000031D96 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
-		EAA33D86158F0A0000031D96 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		EAA51B131598385B00D0D777 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EAA51B1515983E3100D0D777 /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = Glass.aiff; path = sounds/Glass.aiff; sourceTree = SOURCE_ROOT; };
 		EABE1D721581C9B700FF9FA0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		EABE1D731581C9B700FF9FA0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		EABE1D771581CBEC00FF9FA0 /* KeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainHelper.h; sourceTree = "<group>"; };
-		EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainHelper.m; sourceTree = "<group>"; };
 		EABE1D811582E97600FF9FA0 /* AccountBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountBase.h; sourceTree = "<group>"; };
 		EABE1D821582E99200FF9FA0 /* AccountBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBase.m; sourceTree = "<group>"; };
 		EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelWelcome.h; sourceTree = "<group>"; };
@@ -237,16 +222,8 @@
 				EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */,
 				EA291BE4163B487500CE419E /* JailbrokenSerial.h */,
 				EA291BE5163B487500CE419E /* JailbrokenSerial.m */,
-				EA60FB0C16052DBC00BF7EE3 /* KBKegboard.h */,
-				EA60FB0D16052DBC00BF7EE3 /* KBKegboard.m */,
-				EA60FB0F16052E0700BF7EE3 /* KBKegboardMessage.h */,
-				EA60FB1016052E0700BF7EE3 /* KBKegboardMessage.m */,
-				EA60FB1216052E3800BF7EE3 /* crc16ccitt.c */,
-				EA60FB1316052E3800BF7EE3 /* crc16ccitt.h */,
 				EAEFEEA2157B296B00C666D5 /* AppDelegate.h */,
 				EAEFEEA3157B296B00C666D5 /* AppDelegate.m */,
-				EAA33D85158F0A0000031D96 /* CoreDataHelper.h */,
-				EAA33D86158F0A0000031D96 /* CoreDataHelper.m */,
 				EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */,
 				EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */,
 				EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */,
@@ -281,8 +258,6 @@
 				EABE1D821582E99200FF9FA0 /* AccountBase.m */,
 				EABE1D721581C9B700FF9FA0 /* Account.h */,
 				EABE1D731581C9B700FF9FA0 /* Account.m */,
-				EABE1D771581CBEC00FF9FA0 /* KeychainHelper.h */,
-				EABE1D781581CBEC00FF9FA0 /* KeychainHelper.m */,
 				EAEFEE9A157B296B00C666D5 /* Supporting Files */,
 			);
 			path = KegCop;
@@ -485,13 +460,11 @@
 				EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */,
 				EA1E87B5157C9A51002C945B /* Accounts.xcdatamodeld in Sources */,
 				EABE1D741581C9B700FF9FA0 /* Account.m in Sources */,
-				EABE1D791581CBEC00FF9FA0 /* KeychainHelper.m in Sources */,
 				EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */,
 				EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */,
 				EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */,
 				EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */,
 				EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */,
-				EAA33D87158F0A0000031D96 /* CoreDataHelper.m in Sources */,
 				EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */,
 				EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */,
 				EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */,
@@ -502,9 +475,6 @@
 				EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */,
 				EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */,
 				EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */,
-				EA60FB0E16052DBC00BF7EE3 /* KBKegboard.m in Sources */,
-				EA60FB1116052E0700BF7EE3 /* KBKegboardMessage.m in Sources */,
-				EA60FB1416052E3800BF7EE3 /* crc16ccitt.c in Sources */,
 				EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

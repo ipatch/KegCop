@@ -8,11 +8,15 @@
 
 #import "ViewControllerWelcome.h"
 #import "NSData+AES256.h"
+#import <dispatch/dispatch.h> // Grand Central Dispatch
+
+// GCD doesn't require linking to any new frameworks! :)
 
 @interface ViewControllerWelcome ()
-
+{
 // declare private methods here
-
+    dispatch_queue_t scan_queue;
+}
 @end
 
 @implementation ViewControllerWelcome
@@ -83,6 +87,20 @@
     
     // dev button
     _dev.hidden=TRUE;
+    
+    
+    // threading stuff - GCD
+    scan_queue = dispatch_queue_create("com.chrisrjones.kegcop", NULL);
+    
+    // put blocks of code into curly braces to run on separate thread
+    dispatch_async(scan_queue, ^{
+        
+        [self openSerial];
+    
+    });
+    
+    // RFID stuff
+    scantagid = [[NSMutableString alloc] init];
 }
 
 - (void)viewDidUnload {
@@ -100,6 +118,9 @@
     [self setDev:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    
+    // close serial port
+    [serial close];
 }
 
 
@@ -456,6 +477,54 @@ return theData;
 
 -(void)onTick:(NSTimer *)timer {
     // do something
+}
+
+
+
+// create a method that spawns a new thread to listen for an RFID badge scan / swipe
+
+-(void)checkTagID {
+    
+    //scan_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(scan_queue, ^ { });
+}
+
+-(void)waitForTagScan {
+    
+}
+
+# pragma mark - JailbrokenSerialDelegate
+
+- (void) JailbrokenSerialReceived:(char) ch {
+    
+    NSLog(@"inside JailbrokenSerialReceived method");
+    
+    NSString *s = [NSString stringWithFormat:@"%c",ch];
+    
+    NSLog(@"s = %@",s);
+    
+    [scantagid appendString:s];
+    
+    NSLog(@"scantagid = %@", scantagid);
+}
+
+- (void) openSerial {
+    
+    // serial stuff
+    serial = [[JailbrokenSerial alloc] init];
+    serial.debug = true;
+    serial.nonBlock = true;
+    serial.receiver = self;
+    
+    // serial stuff contd...
+    [serial open:B2400];
+    if (serial.isOpened)
+    {
+        NSLog(@"Serial Port Opened");
+    }
+    else NSLog(@"Serial Port Closed");
+    
 }
 
 

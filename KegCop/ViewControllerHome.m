@@ -290,9 +290,9 @@
     [serial open:B2400];
     if(serial.isOpened)
     {
-        NSLog(@"Open");
+        NSLog(@"Serial Port Opened");
     }
-    else NSLog(@"closed dingo");
+    else NSLog(@"Serial Port Closed");
 }
 
 

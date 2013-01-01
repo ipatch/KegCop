@@ -13,11 +13,9 @@
 
 // nonatomic - don't worry about multithreading
 
-@property (nonatomic, assign) NSString *password;
+// @property (nonatomic, assign) NSString *password;
 
--(NSString *)getPasswordFromKeychain; 
-
-- (void)setPassword:(NSString*)aPassword;
+// - (void)setPassword:(NSString*)aPassword;
 
 
 

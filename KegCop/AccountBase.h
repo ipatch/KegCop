@@ -18,7 +18,7 @@
 
 @property (nonatomic, retain) NSString *phoneNumber;
 
-@property (nonatomic, retain) NSNumber *credit;
+@property (nonatomic, retain) NSNumber *credit;         // int
 
 @property (nonatomic, retain) NSString *rfid;
 

@@ -1,6 +1,7 @@
 //
 //  ViewControllerWelcome.h
 //  KegCop
+//  Login / Sign Screen - INITIAL VIEW THAT IS LOADED ON LAUNCH
 //
 //  Created by capin on 6/3/12.
 //
@@ -9,17 +10,25 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Account.h"
-#import "CoreDataHelper.h"
 #import "ViewControllerHome.h"
 #import "ViewControllerRootHome.h"
 #import "ModelWelcome.h"
 #import "ViewControllerDev.h"
+// serial stuff
+#import "JailbrokenSerial.h"
 
-@interface ViewControllerWelcome : UIViewController {
+@interface ViewControllerWelcome : UIViewController <JailbrokenSerialDelegate>
+{
     
     // toolbar
     IBOutlet UIToolbar *toolBar;
     NSString *username;
+    
+    // serial stuff
+    JailbrokenSerial *serial;
+    
+    // RFID stuff
+    NSMutableString *scantagid;
 }
 
 // Notes

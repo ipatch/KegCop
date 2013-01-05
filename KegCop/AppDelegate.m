@@ -30,20 +30,90 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
+    // ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
     
-    NSManagedObjectContext *context = (NSManagedObjectContext *) [self managedObjectContext];
-    if (!context) {
-        NSLog(@"\nCould not create *context for self");
-    }
+//    NSManagedObjectContext *context = (NSManagedObjectContext *) [self managedObjectContext];
+//    if (!context) {
+//        NSLog(@"\nCould not create *context for self");
+//    }
     
-    [viewControllerWelcome setManagedObjectContext:context];
+    //[viewControllerWelcome setManagedObjectContext:context];
     
     // Do I need to declare my view controllers here?
     
     // Pass the managed object context to the view controller.
 
+//    CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+//    
+//    if (iOSDeviceScreenSize.height == 480)
+//    {
+//        // Instantiate a new storyboard object using the storyboard file named iPhoneLegacy
+//        UIStoryboard *iPhoneLegacy = [UIStoryboard storyboardWithName:@"iPhoneLegacy" bundle:nil];
+//        
+//        // Instantiate the initial view controller object from the storyboard
+//        UIViewController *ViewControllerWelcome = [iPhoneLegacy instantiateInitialViewController];
+//        
+//        // Instantiate a UIWindow object and initialize it with the screen size of the iOS device
+//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        
+//        // Set the initial view controller to be the root view controller of the window object
+//        self.window.rootViewController = ViewControllerWelcome;
+//        
+//        // set the window object to be the key window and show it
+//        [self.window makeKeyAndVisible];
+//    }
+//    
+//    if (iOSDeviceScreenSize.height == 968)
+//    {
+//        // Instantiate a new storyboard object using the storyboard file named iPhone4
+//        UIStoryboard *iPhone4 = [UIStoryboard storyboardWithName:@"iPhone4" bundle:nil];
+//        
+//        UIViewController *ViewControllerWelcome = [iPhone4 instantiateInitialViewController];
+//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        self.window.rootViewController  = ViewControllerWelcome;
+//        [self.window makeKeyAndVisible];
+//    }
     
+    
+    
+    // iPad Legacy 1024 x 768
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        UIStoryboard *storyboard;
+    
+    CGSize result = [[UIScreen mainScreen] bounds].size;
+        
+        NSLog(@"The size of result is %@",NSStringFromCGSize(result));
+    
+        if(result.height == 1024) {
+            storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+            ViewControllerWelcome *ViewControllerWelcome = [storyboard instantiateInitialViewController];
+            
+            //–instantiateViewControllerWithIdentifier:
+            
+//            MyViewController *controller = (MyViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"<Controller ID>"];
+            
+            [self.window setRootViewController:ViewControllerWelcome];
+            NSLog(@"iPad storyboard file loaded");
+            
+        }
+    }
+    
+    
+    // iPhone 5 1136 x 640
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        UIStoryboard *storyboard;
+        
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        CGFloat scale = [UIScreen mainScreen].scale;
+        result = CGSizeMake(result.width * scale, result.height * scale);
+        
+        if(result.height == 1136){
+            storyboard = [UIStoryboard storyboardWithName:@"iPhone5" bundle:nil];
+            ViewControllerWelcome *ViewControllerWelcome = [storyboard instantiateInitialViewController];
+            [self.window setRootViewController:ViewControllerWelcome];
+            NSLog(@"iPhone5 storyboard file loaded");
+        }
+    }
     
     
     return YES;

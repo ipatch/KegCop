@@ -1,3 +1,8 @@
+2013-01-02
+
+   * Deleted classes that were not being used by the application.  Put legacy classes into scratchpad file.
+   * Created iPad storyboard file, to add support for iPad device family.
+
 2012-12-23
 
   * RFID integration has begun using a Parallax RFID reader.

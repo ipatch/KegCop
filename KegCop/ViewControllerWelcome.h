@@ -56,18 +56,16 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
+// this button is set to hidden by default - used for testing out new features
 @property (weak, nonatomic) IBOutlet UIButton *dev;
-
 
 // keyboard toolbar
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 // end Welcome
-
 
 - (IBAction)dismissKeyboard:(id)sender;
 

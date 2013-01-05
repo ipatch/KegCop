@@ -16,6 +16,7 @@
 		EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283544159FC4A20044B39C /* ViewControllerWebView.m */; };
 		EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EA291BE5163B487500CE419E /* JailbrokenSerial.m */; };
 		EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */; };
+		EA499A201694B7F9008D7B44 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA499A1E1694B7F9008D7B44 /* iPad.storyboard */; };
 		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
 		EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */; };
 		EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */; };
@@ -46,7 +47,7 @@
 		EAEFEE9E157B296B00C666D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */; };
 		EAEFEEA0157B296B00C666D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEE9F157B296B00C666D5 /* main.m */; };
 		EAEFEEA4157B296B00C666D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA3157B296B00C666D5 /* AppDelegate.m */; };
-		EAEFEEA7157B296B00C666D5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */; };
+		EAEFEEA7157B296B00C666D5 /* iPhoneLegacy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEFEEA5157B296B00C666D5 /* iPhoneLegacy.storyboard */; };
 		EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */; };
 		EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF27855159191C9009663A8 /* ViewControllerHome.m */; };
 		EAFC132E157B3883002F76FD /* icon57x57_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFC132D157B3883002F76FD /* icon57x57_flat.png */; };
@@ -82,6 +83,7 @@
 		EA291BE5163B487500CE419E /* JailbrokenSerial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JailbrokenSerial.m; sourceTree = "<group>"; };
 		EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPour.h; sourceTree = "<group>"; };
 		EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerPour.m; sourceTree = "<group>"; };
+		EA499A1F1694B7F9008D7B44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHome.h; sourceTree = "<group>"; };
 		EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHome.m; sourceTree = "<group>"; };
 		EA53154715AED060002F708C /* KegCop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
 		EAEFEEA2157B296B00C666D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EAEFEEA3157B296B00C666D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EAEFEEA6157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		EAEFEEA6157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhoneLegacy.storyboard; sourceTree = "<group>"; };
 		EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerWelcome.h; sourceTree = "<group>"; };
 		EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWelcome.m; sourceTree = "<group>"; };
 		EAF27854159191C8009663A8 /* ViewControllerHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerHome.h; sourceTree = "<group>"; };
@@ -219,45 +221,19 @@
 		EAEFEE99157B296B00C666D5 /* KegCop */ = {
 			isa = PBXGroup;
 			children = (
-				EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */,
 				EA291BE4163B487500CE419E /* JailbrokenSerial.h */,
 				EA291BE5163B487500CE419E /* JailbrokenSerial.m */,
 				EAEFEEA2157B296B00C666D5 /* AppDelegate.h */,
 				EAEFEEA3157B296B00C666D5 /* AppDelegate.m */,
-				EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */,
-				EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */,
-				EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */,
-				EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */,
-				EA1890391585F890003A64FC /* ViewControllerCreate.h */,
-				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
-				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
-				EAF27855159191C9009663A8 /* ViewControllerHome.m */,
-				EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */,
-				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
-				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
-				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
-				EA5AAD1815D9D92F006EDCBF /* ViewControllerDev.h */,
-				EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */,
 				EA5AAD2115DC84EB006EDCBF /* NSData+AES256.h */,
 				EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */,
-				EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */,
-				EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */,
-				EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */,
-				EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */,
-				EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */,
-				EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */,
-				EA28353F159FC3910044B39C /* ViewControllerPurchase.h */,
-				EA283540159FC3910044B39C /* ViewControllerPurchase.m */,
-				EA283543159FC4A20044B39C /* ViewControllerWebView.h */,
-				EA283544159FC4A20044B39C /* ViewControllerWebView.m */,
-				EA699308158721E8009E0397 /* ViewControllerForgot.h */,
-				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
-				EA1890351585F7E7003A64FC /* ViewControllerAbout.h */,
-				EA1890361585F7E7003A64FC /* ViewControllerAbout.m */,
 				EABE1D811582E97600FF9FA0 /* AccountBase.h */,
 				EABE1D821582E99200FF9FA0 /* AccountBase.m */,
 				EABE1D721581C9B700FF9FA0 /* Account.h */,
 				EABE1D731581C9B700FF9FA0 /* Account.m */,
+				EAFD9304169420B20043898C /* Models */,
+				EAFD930316941FFB0043898C /* Controllers */,
+				EAFD930216941FE10043898C /* Views */,
 				EAEFEE9A157B296B00C666D5 /* Supporting Files */,
 			);
 			path = KegCop;
@@ -283,6 +259,57 @@
 				EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAFD930216941FE10043898C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EAEFEEA5157B296B00C666D5 /* iPhoneLegacy.storyboard */,
+				EA499A1E1694B7F9008D7B44 /* iPad.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EAFD930316941FFB0043898C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */,
+				EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */,
+				EA1890391585F890003A64FC /* ViewControllerCreate.h */,
+				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
+				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
+				EAF27855159191C9009663A8 /* ViewControllerHome.m */,
+				EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */,
+				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
+				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
+				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
+				EA5AAD1815D9D92F006EDCBF /* ViewControllerDev.h */,
+				EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */,
+				EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */,
+				EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */,
+				EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */,
+				EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */,
+				EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */,
+				EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */,
+				EA28353F159FC3910044B39C /* ViewControllerPurchase.h */,
+				EA283540159FC3910044B39C /* ViewControllerPurchase.m */,
+				EA283543159FC4A20044B39C /* ViewControllerWebView.h */,
+				EA283544159FC4A20044B39C /* ViewControllerWebView.m */,
+				EA699308158721E8009E0397 /* ViewControllerForgot.h */,
+				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
+				EA1890351585F7E7003A64FC /* ViewControllerAbout.h */,
+				EA1890361585F7E7003A64FC /* ViewControllerAbout.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EAFD9304169420B20043898C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */,
+				EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAEFEE9E157B296B00C666D5 /* InfoPlist.strings in Resources */,
-				EAEFEEA7157B296B00C666D5 /* MainStoryboard.storyboard in Resources */,
+				EAEFEEA7157B296B00C666D5 /* iPhoneLegacy.storyboard in Resources */,
 				EAFC132E157B3883002F76FD /* icon57x57_flat.png in Resources */,
 				EAFC1330157B3890002F76FD /* icon114x114_flat.png in Resources */,
 				EAA33D7F158EE6B000031D96 /* scratchpad.txt in Resources */,
@@ -379,6 +406,7 @@
 				EA64CC301591199B00517704 /* Default@2x.png in Resources */,
 				EAA51B1615983E3100D0D777 /* Glass.aiff in Resources */,
 				EAFCCB481614B56C00B55057 /* Default-568h@2x.png in Resources */,
+				EA499A201694B7F9008D7B44 /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +518,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EA499A1E1694B7F9008D7B44 /* iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA499A1F1694B7F9008D7B44 /* en */,
+			);
+			name = iPad.storyboard;
+			sourceTree = "<group>";
+		};
 		EAA33D761588612600826A02 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -506,12 +542,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		EAEFEEA5157B296B00C666D5 /* MainStoryboard.storyboard */ = {
+		EAEFEEA5157B296B00C666D5 /* iPhoneLegacy.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EAEFEEA6157B296B00C666D5 /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = iPhoneLegacy.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -617,11 +653,13 @@
 				GCC_PREFIX_HEADER = "KegCop/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/capin/Code/Headers;
 				VALID_ARCHS = "armv7 armv6";
 				WRAPPER_EXTENSION = app;
@@ -644,11 +682,13 @@
 				GCC_PREFIX_HEADER = "KegCop/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/capin/Code/Headers;
 				VALID_ARCHS = "armv7 armv6";
 				WRAPPER_EXTENSION = app;

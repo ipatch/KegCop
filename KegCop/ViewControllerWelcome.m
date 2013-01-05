@@ -44,19 +44,13 @@
 @synthesize welcomeAbout = _welcomeAbout;
 @synthesize dev = _dev;
 
-
-
-
-
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
 // keyboard toolbar
 @synthesize doneButton = _doneButton;
 
-
 // end welcome
-
 
 //
 // ViewControllerWelcome Methods
@@ -65,6 +59,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"execution reached here");
     
     // load Welcome Scrollview
     [_welcomeScroller setContentSize:CGSizeMake(320,750)];
@@ -88,16 +83,21 @@
     // dev button
     _dev.hidden=TRUE;
     
-    
+    NSLog(@"execution reached before scan_queue");
     // threading stuff - GCD
     scan_queue = dispatch_queue_create("com.chrisrjones.kegcop", NULL);
+    NSLog(@"execution reached after scan_queue");
     
     // put blocks of code into curly braces to run on separate thread
     dispatch_async(scan_queue, ^{
         
-        [self openSerial];
+        NSLog(@"execution reached before serial handShake");
+        [serial handShake];
+        NSLog(@"execution reached after serial handShake");
     
     });
+    
+    NSLog(@"execution is at end of ViewDidLoad method");
     
     // RFID stuff
     scantagid = [[NSMutableString alloc] init];
@@ -509,23 +509,26 @@ return theData;
     NSLog(@"scantagid = %@", scantagid);
 }
 
-- (void) openSerial {
-    
-    // serial stuff
-    serial = [[JailbrokenSerial alloc] init];
-    serial.debug = true;
-    serial.nonBlock = true;
-    serial.receiver = self;
-    
-    // serial stuff contd...
-    [serial open:B2400];
-    if (serial.isOpened)
-    {
-        NSLog(@"Serial Port Opened");
-    }
-    else NSLog(@"Serial Port Closed");
-    
-}
+
+
+
+//- (void) openSerial {
+//    
+//    // serial stuff
+//    serial = [[JailbrokenSerial alloc] init];
+//    serial.debug = true;
+//    serial.nonBlock = true;
+//    serial.receiver = self;
+//    
+//    // serial stuff contd...
+//    [serial open:B2400];
+//    if (serial.isOpened)
+//    {
+//        NSLog(@"Serial Port Opened");
+//    }
+//    else NSLog(@"Serial Port Closed");
+//    
+//}
 
 
 @end

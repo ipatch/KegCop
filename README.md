@@ -1,6 +1,6 @@
 # KegCop
 
-![KegCop-splash](chrisrjones.com/pics/KegCop-git.png)
+![KegCop-splash](http://chrisrjones.com/pics/KegCop-git.png)
 
 ## Objective
 The purpose of this software is to create user accounts for a kegerator, and have a root account which recieves donations from the users for the beer they drink.

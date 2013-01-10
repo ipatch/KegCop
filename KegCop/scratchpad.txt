@@ -721,6 +721,140 @@ static const NSString *SERVICE_NAME = @"com.chrisrjones.kegcop";
 
 
 
+====================================================================================
+converting an app to universal binary
+====================================================================================
+
+http://developer.apple.com/library/ios/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW24
+
+
+=====================================================================================
+multiple storyboard files
+=====================================================================================
+
+/    CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+//    
+//    if (iOSDeviceScreenSize.height == 480)
+//    {
+//        // Instantiate a new storyboard object using the storyboard file named iPhoneLegacy
+//        UIStoryboard *iPhoneLegacy = [UIStoryboard storyboardWithName:@"iPhoneLegacy" bundle:nil];
+//        
+//        // Instantiate the initial view controller object from the storyboard
+//        UIViewController *ViewControllerWelcome = [iPhoneLegacy instantiateInitialViewController];
+//        
+//        // Instantiate a UIWindow object and initialize it with the screen size of the iOS device
+//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        
+//        // Set the initial view controller to be the root view controller of the window object
+//        self.window.rootViewController = ViewControllerWelcome;
+//        
+//        // set the window object to be the key window and show it
+//        [self.window makeKeyAndVisible];
+//    }
+//    
+//    if (iOSDeviceScreenSize.height == 968)
+//    {
+//        // Instantiate a new storyboard object using the storyboard file named iPhone4
+//        UIStoryboard *iPhone4 = [UIStoryboard storyboardWithName:@"iPhone4" bundle:nil];
+//        
+//        UIViewController *ViewControllerWelcome = [iPhone4 instantiateInitialViewController];
+//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        self.window.rootViewController  = ViewControllerWelcome;
+//        [self.window makeKeyAndVisible];
+//    }
+    
+// note from Apple Video
+    // window.rootViewController = <object>;
+    
+
+    //            ViewControllerWelcome *ViewControllerWelcome = [storyboard instantiateViewControllerWithIdentifier:Welcome;
+    //
+    //            //–instantiateViewControllerWithIdentifier:
+    //
+    ////            MyViewController *controller = (MyViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"<Controller ID>"];
+    //
+    //            [self.window setRootViewController:ViewControllerWelcome];
+    
+    //            ViewControllerWelcome *ViewControllerWelcome = [storyboard instantiateInitialViewController];
+    //            [self.window setRootViewController:ViewControllerWelcome];
+    
+    
+    //            UIStoryboard *storyboard = self.storyboard;
+    //            //ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
+    //            ViewControllerWelcome *vcwelcome = [storyboard instantiateInitialViewControllerWithIdentifier:@"Welcome"];
+    //
+    //            // configure the new view controller here.
+    //
+    //            [self presentViewController:vcwelcome animated:YES completion:nil];
+
+    
+    // use the prepareForSegue:sender method in the View Controller you are about to leave
+    
+//        
+//        UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        
+//        levelViewController = [[LevelViewController alloc] init];
+//        
+//        window.rootViewController = levelViewController;
+//        
+//        [window makeKeyAndVisible];
+//        
+//    }
+    
+    
+//    // iPad Legacy 1024 x 768
+//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//        UIStoryboard *storyboard;
+//        
+//        CGSize result = [[UIScreen mainScreen] bounds].size;
+//        
+//        NSLog(@"The size of result is %@",NSStringFromCGSize(result));
+//        
+//        if(result.height == 1024) {
+//            
+//            // load storyboard , load rootviewcontroller, show initial scene
+//            
+//            storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+//            
+//            ViewControllerWelcome *vcwelcome = (ViewControllerWelcome *)self.window.rootViewController;
+//            
+//            // configure vcwelcome.
+//            
+//            //[vcwelcome presentViewController:vcwelcome animated:YES completion:nil];
+//            
+//            NSLog(@"iPad storyboard file loaded");
+//            
+//        }
+//    }
+    
+    
+    
+    //            storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+    
+    //         ViewControllerWelcome *vcwelcome = (ViewControllerWelcome *)self.window.rootViewController;
+    
+    // configure vcwelcome.
+    
+    //[vcwelcome presentViewController:vcwelcome animated:YES completion:nil];
+
+
+ // iPhone 5 1136 x 640
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        UIStoryboard *storyboard;
+        
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        CGFloat scale = [UIScreen mainScreen].scale;
+        result = CGSizeMake(result.width * scale, result.height * scale);
+        
+        if(result.height == 1136){
+            storyboard = [UIStoryboard storyboardWithName:@"iPhoneLegacy" bundle:nil];
+            ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
+            
+            NSLog(@"iPhone5 storyboard file loaded");
+        }
+    }
+
+
 
 
 

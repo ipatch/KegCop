@@ -11,6 +11,9 @@
     
 }
 
+// the below property is important
+// http://developer.apple.com/library/ios/#releasenotes/Miscellaneous/RN-AdoptingStoryboards/_index.html
+
 @property (strong, nonatomic) UIWindow *window;
 
 

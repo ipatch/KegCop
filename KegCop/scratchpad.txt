@@ -862,7 +862,7 @@ multiple storyboard files
 
 9APR13
 - to update git repo
-# git commit -m 'commit name'
+# git commit -am 'commit name'
 # git merge KegCop-Chris
 # git push origin master
 

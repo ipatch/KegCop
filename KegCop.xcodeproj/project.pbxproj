@@ -16,7 +16,6 @@
 		EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283544159FC4A20044B39C /* ViewControllerWebView.m */; };
 		EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EA291BE5163B487500CE419E /* JailbrokenSerial.m */; };
 		EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */; };
-		EA499A201694B7F9008D7B44 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA499A1E1694B7F9008D7B44 /* iPad.storyboard */; };
 		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
 		EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */; };
 		EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */; };
@@ -42,6 +41,7 @@
 		EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */; };
 		EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */; };
 		EAEDE6A1169E393800653C1E /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEDE6A0169E393800653C1E /* Default-Landscape~ipad.png */; };
+		EAEDE6AB169E648900653C1E /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEDE6AA169E648900653C1E /* Default-Portrait~ipad.png */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */; };
@@ -84,7 +84,6 @@
 		EA291BE5163B487500CE419E /* JailbrokenSerial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JailbrokenSerial.m; sourceTree = "<group>"; };
 		EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPour.h; sourceTree = "<group>"; };
 		EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerPour.m; sourceTree = "<group>"; };
-		EA499A1F1694B7F9008D7B44 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHome.h; sourceTree = "<group>"; };
 		EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHome.m; sourceTree = "<group>"; };
 		EA53154715AED060002F708C /* KegCop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 		EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSerialConsole.h; sourceTree = "<group>"; };
 		EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSerialConsole.m; sourceTree = "<group>"; };
 		EAEDE6A0169E393800653C1E /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		EAEDE6AA169E648900653C1E /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		EAEFEE8F157B296B00C666D5 /* KegCop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KegCop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEFEE93157B296B00C666D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EAEFEE95157B296B00C666D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -256,6 +256,7 @@
 				EAFC132F157B3890002F76FD /* icon114x114_flat.png */,
 				EAFC132D157B3883002F76FD /* icon57x57_flat.png */,
 				EAEDE6A0169E393800653C1E /* Default-Landscape~ipad.png */,
+				EAEDE6AA169E648900653C1E /* Default-Portrait~ipad.png */,
 				EA58163915980B6900920AAF /* KegCop-Info.plist */,
 				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
 				EAEFEE9F157B296B00C666D5 /* main.m */,
@@ -268,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				EAEFEEA5157B296B00C666D5 /* iPhone.storyboard */,
-				EA499A1E1694B7F9008D7B44 /* iPad.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -409,8 +409,8 @@
 				EA64CC301591199B00517704 /* Default@2x.png in Resources */,
 				EAA51B1615983E3100D0D777 /* Glass.aiff in Resources */,
 				EAFCCB481614B56C00B55057 /* Default-568h@2x.png in Resources */,
-				EA499A201694B7F9008D7B44 /* iPad.storyboard in Resources */,
 				EAEDE6A1169E393800653C1E /* Default-Landscape~ipad.png in Resources */,
+				EAEDE6AB169E648900653C1E /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,14 +522,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EA499A1E1694B7F9008D7B44 /* iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA499A1F1694B7F9008D7B44 /* en */,
-			);
-			name = iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		EAA33D761588612600826A02 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

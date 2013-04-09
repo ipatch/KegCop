@@ -36,10 +36,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *tvDisplayAccount;
 
-@property (weak, nonatomic) IBOutlet UILabel *lblArduinoGood;
-
-@property (weak, nonatomic) IBOutlet UILabel *lblArduinoBad;
-
 @property (weak, nonatomic) IBOutlet UISwitch *switchRfid;
 
 @property (weak, nonatomic) IBOutlet UITextField *tfCreditUsername;
@@ -54,13 +50,13 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *btnCheckFlow;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSerialConsole;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLogs;
 
+@property (weak, nonatomic) IBOutlet UIButton *btndev;
 
 
 
@@ -94,6 +90,7 @@
 
 - (IBAction)showLogs:(id)sender;
 
+- (IBAction)showDev:(id)sender;
 
 
 

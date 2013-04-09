@@ -19,8 +19,7 @@
 @synthesize btnDisplayAccount = _btnDisplayAccount;
 @synthesize btnDisplayEmail = _btnDisplayEmail;
 @synthesize tvDisplayAccount = _tvDisplayAccount;
-@synthesize lblArduinoGood = _lblArduinoGood;
-@synthesize lblArduinoBad = _lblArduinoBad;
+
 @synthesize switchRfid = _switchRfid;
 @synthesize tfCreditUsername = _tfCreditUsername;
 @synthesize tfCredit = _tfCredit;
@@ -31,6 +30,7 @@
 @synthesize btnCheckFlow = _btnCheckFlow;
 @synthesize btnSerialConsole = _btnSerialConsole;
 @synthesize btnLogs = _btnLogs;
+@synthesize btndev = _btndev;
 // @synthesize btnLogs = _btnLogs;
 
 // Core Data
@@ -44,9 +44,7 @@
     // load Home Scrollview
     [_rootHomeScroller setContentSize:CGSizeMake(320,1000)];
     
-    // hide Arduino connection labels
-    [_lblArduinoGood setHidden:TRUE];
-    [_lblArduinoBad setHidden:TRUE];
+  
     
     // Core Data
     if (_managedObjectContext == nil)
@@ -119,8 +117,6 @@
     [self setBtnDeleteAccount:nil];
     [self setBtnDisplayAccount:nil];
     [self setTvDisplayAccount:nil];
-    [self setLblArduinoGood:nil];
-    [self setLblArduinoBad:nil];
     [self setBtnDisplayEmail:nil];
     [self setTfCreditUsername:nil];
     [self setTfCredit:nil];
@@ -133,6 +129,7 @@
     [self setBtnLogs:nil];
     [self setBtnCheckFlow:nil];
     [self setBtnSerialConsole:nil];
+    [self setBtndev:nil];
     [super viewDidUnload];
     
 }
@@ -261,10 +258,6 @@
     [_tfCredit resignFirstResponder];
 }
 
-- (IBAction)testArduinoConnection:(id)sender {
-    
-
-}
 
 - (void) deleteAllObjects: (NSString *) entityDescription  {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -377,7 +370,9 @@
     ViewControllerLogs *logs = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"Logs"];
     [self presentModalViewController:logs animated:YES];
     
+
 }
+
 
 
 - (void)rootCreditAmount {
@@ -407,4 +402,15 @@
         }
     }
 }
+
+- (IBAction)showDev:(id)sender {
+    
+    NSLog(@"dev button pressed");
+    //dev button pressed
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    ViewControllerDev *dev = (ViewControllerDev *) [storyboard instantiateViewControllerWithIdentifier:@"dev"];
+    [self presentModalViewController:dev animated:YES];
+    NSLog(@"dev button press End");
+}
+
 @end

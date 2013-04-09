@@ -860,16 +860,19 @@ multiple storyboard files
 9APR13
 - app crashes when trying to login with simulator
 
+==============================================================================================
+
+
 9APR13
 - to update git repo
 # git commit -am 'commit name'
+# git checkout master
 # git merge KegCop-Chris
 # git status
 # git push origin master
 
 
-
-
+==============================================================================================
 
 
 

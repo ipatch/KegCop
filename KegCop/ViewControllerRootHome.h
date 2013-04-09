@@ -74,8 +74,6 @@
 
 - (IBAction)dismissKeyboard:(id)sender;
 
-- (IBAction)testArduinoConnection:(id)sender;
-
 - (IBAction)saveMasterEmail;
 
 - (IBAction)rfidOnOff;

@@ -16,6 +16,8 @@
 @synthesize tf = _tf;
 @synthesize btn = _btn;
 @synthesize lbl = _lbl;
+@synthesize btnValve = _btnValve;
+@synthesize btnBlink = _btnBlink;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +39,8 @@
     [self setTf:nil];
     [self setBtn:nil];
     [self setLbl:nil];
+    [self setBtnValve:nil];
+    [self setBtnBlink:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -66,6 +70,8 @@
     // convert cipherstring to output label
     _lbl.text = cipherB64;
 }
+
+
 
 //from: http://www.cocoadev.com/index.pl?BaseSixtyFour
 - (NSString*)base64forData:(NSData*)theData {
@@ -98,6 +104,65 @@
     }
     
     return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+}
+
+
+
+- (IBAction)openValve:(id)sender {
+    
+    // method to open a solenoid cut off valve connected to Arduino using the kegboard-mini shield.
+    
+    NSLog(@"Open valve btn pressed");
+    
+    // open serial interface
+    
+    [serial open:B2400];
+    NSLog(@"%c", [serial isOpened]);
+    
+    // send serial data (tx)
+    
+    char buffer [11];
+    //NSString bufString = @"openvalve";
+    buffer[0] = '{';
+    buffer[1] = 'o';
+    buffer[2] = 'p';
+    buffer[3] = 'e';
+    buffer[4] = 'n';
+    buffer[5] = 'v';
+    buffer[6] = 'a';
+    buffer[7] = 'l';
+    buffer[8] = 'v';
+    buffer[9] = 'e';
+    buffer[10] = '}';
+    
+    [serial write:buffer length:11];
+    //[serial write:bufString length:9];
+}
+
+- (IBAction)blinkFlow_A_LED:(id)sender {
+    
+    // method to blink the Flow_A LED on the kegboard-mini Arduino sheild.
+    
+    NSLog(@"blink Flow_A btn pressed");
+    
+    // open serial port / interface
+    
+    [serial open:B2400];
+    NSLog(@"%c", [serial isOpened]);
+    
+    // send serial data (tx)
+    
+    char buffer [7];
+    
+    buffer[0] = '{';
+    buffer[1] = 'b';
+    buffer[2] = 'l';
+    buffer[3] = 'i';
+    buffer[4] = 'n';
+    buffer[5] = 'k';
+    buffer[6] = '}';
+    
+    [serial write:buffer length:7];
 }
 
 @end

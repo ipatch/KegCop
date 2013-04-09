@@ -41,74 +41,74 @@
     
     //[viewControllerWelcome setManagedObjectContext:context];
     
-    // Do I need to declare my view controllers here?
-    
     // Pass the managed object context to the view controller.
     
     
     // iPad Legacy 1024 x 768
-    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        // the iOS device is in the iPad family.
-        
-        
-        NSLog(@"the iOS device = %@",[UIDevice currentDevice]);
+//    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+//        // the iOS device is in the iPad family.
+//        
+//        
+//        NSLog(@"the iOS device = %@",[UIDevice currentDevice]);
+//    
+//        CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+//        
+//        NSLog(@"The size of screen is %f",iOSDeviceScreenSize.height);
+//        
+//            if (iOSDeviceScreenSize.height == 1024) {
+//                
+//                // load storyboard , load rootviewcontroller, show initial scene
+//            
+//                UIStoryboard *sbipad = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+//                
+//                ViewControllerWelcome *vcwelcome = [sbipad instantiateInitialViewController];
+//                
+//                self.window.rootViewController = vcwelcome;
+//                
+//                [self.window makeKeyAndVisible];
+//                
+//                NSLog(@"iPad storyboard file loaded");
+//            }
+//    }
+//    
+//    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+//
+//        CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+//        
+//            if (iOSDeviceScreenSize.height == 480) {
+//                
+//                // iphone 3GS, 4, 4S, and iPod Touch 3rd and 4th gen 3.5 inch screen diagnolly measured
+//                
+//                UIStoryboard *sbiphone = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+//                
+//                ViewControllerWelcome *vcwelcome = [sbiphone instantiateInitialViewController];
+//                
+//                self.window.rootViewController = vcwelcome;
+//                
+//                [self.window makeKeyAndVisible];
+//                
+//                NSLog(@"iPhone storyboard file loaded");
+//            }
+//        
+//            if (iOSDeviceScreenSize.height == 568) {
+//                
+//                // iphone 5 and ipod touch 5th gen: 4 inch screen diagnolly measured
+//                
+//                UIStoryboard *sbiphone = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+//                
+//                ViewControllerWelcome *vcwelcome = [sbiphone instantiateInitialViewController];
+//                
+//                self.window.rootViewController = vcwelcome;
+//                
+//                [self.window makeKeyAndVisible];
+//                
+//                NSLog(@"iPhone storyboard file loaded for iPhone 5 (4inch screen)");
+//            }
+  
     
-        CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-        
-        NSLog(@"The size of screen is %f",iOSDeviceScreenSize.height);
-        
-            if (iOSDeviceScreenSize.height == 1024) {
-                
-                // load storyboard , load rootviewcontroller, show initial scene
-            
-                UIStoryboard *sbipad = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
-                
-                ViewControllerWelcome *vcwelcome = [sbipad instantiateInitialViewController];
-                
-                self.window.rootViewController = vcwelcome;
-                
-                [self.window makeKeyAndVisible];
-                
-                NSLog(@"iPad storyboard file loaded");
-            }
-    }
+    //return YES;
+//}
     
-    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-    
-        CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-        
-            if (iOSDeviceScreenSize.height == 480) {
-                
-                // iphone 3GS, 4, 4S, and iPod Touch 3rd and 4th gen 3.5 inch screen diagnolly measured
-                
-                UIStoryboard *sbiphone = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-                
-                ViewControllerWelcome *vcwelcome = [sbiphone instantiateInitialViewController];
-                
-                self.window.rootViewController = vcwelcome;
-                
-                [self.window makeKeyAndVisible];
-                
-                NSLog(@"iPhoneLegacy storyboard file loaded");
-            }
-        
-            if (iOSDeviceScreenSize.height == 568) {
-                
-                // iphone 5 and ipod touch 5th gen: 4 inch screen diagnolly measured
-                
-                UIStoryboard *sbiphone = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-                
-                ViewControllerWelcome *vcwelcome = [sbiphone instantiateInitialViewController];
-                
-                self.window.rootViewController = vcwelcome;
-                
-                [self.window makeKeyAndVisible];
-                
-                NSLog(@"iPhoneLegacy storyboard file loaded for iPhone 5 (4inch screen)");
-            }
-    }
-    
-    return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

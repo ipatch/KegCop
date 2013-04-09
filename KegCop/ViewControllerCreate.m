@@ -395,6 +395,7 @@ if (i >= 1) return YES; else return NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     NSLog(@"method was loaded at startup");
+    NSLog(@"for the love of all that is free"); 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

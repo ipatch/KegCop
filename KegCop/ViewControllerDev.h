@@ -23,10 +23,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnValve;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnBlink;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnDone;
 
 - (IBAction)submit:(id)sender;
 
 - (IBAction)openValve:(id)sender;
 
 - (IBAction)blinkFlow_A_LED:(id)sender;
+
+- (IBAction)dimissScene:(id)sender;
 @end

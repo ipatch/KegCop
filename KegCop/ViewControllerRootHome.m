@@ -31,7 +31,12 @@
 @synthesize btnSerialConsole = _btnSerialConsole;
 @synthesize btnLogs = _btnLogs;
 @synthesize btndev = _btndev;
-// @synthesize btnLogs = _btnLogs;
+
+
+// added for debugging purposes
+@synthesize lblArduinoGood = _lblArduinoGood;
+@synthesize lblArduinoBad = _lblArduinoBad;
+
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
@@ -43,6 +48,12 @@
     
     // load Home Scrollview
     [_rootHomeScroller setContentSize:CGSizeMake(320,1000)];
+    
+    
+    
+    // hide Arduino connection labels
+    [_lblArduinoGood setHidden:TRUE];
+    [_lblArduinoBad setHidden:TRUE];
     
   
     
@@ -130,6 +141,14 @@
     [self setBtnCheckFlow:nil];
     [self setBtnSerialConsole:nil];
     [self setBtndev:nil];
+    
+    
+    // added for debugging purposes
+    
+    [self setLblArduinoGood:nil];
+    [self setLblArduinoBad:nil];
+    
+    
     [super viewDidUnload];
     
 }
@@ -339,7 +358,7 @@
 - (IBAction)logout:(id)sender {
     NSLog(@"Logout button pressed");
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerWelcome *welcome = (ViewControllerWelcome *)[storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
     [self presentModalViewController:welcome animated:YES];
     
@@ -348,7 +367,7 @@
 - (IBAction)checkFlow:(id)sender {
     
     // btnCheckFlow pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerCheckFlow *checkFlow = (ViewControllerCheckFlow *)[storyboard instantiateViewControllerWithIdentifier:@"Check Flow"];
     [self presentModalViewController:checkFlow animated:YES];
 }
@@ -357,7 +376,7 @@
     
     NSLog(@"Serial Pressed Begin");
     //btnSerialConsole pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerSerialConsole *serialConsole = (ViewControllerSerialConsole *) [storyboard instantiateViewControllerWithIdentifier:@"Serial Console"];
     [self presentModalViewController:serialConsole animated:YES];
     NSLog(@"Serial Pressed End");
@@ -366,7 +385,7 @@
 - (IBAction)showLogs:(id)sender {
     
     // logs btn pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerLogs *logs = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"Logs"];
     [self presentModalViewController:logs animated:YES];
     
@@ -407,10 +426,26 @@
     
     NSLog(@"dev button pressed");
     //dev button pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    ViewControllerDev *dev = (ViewControllerDev *) [storyboard instantiateViewControllerWithIdentifier:@"dev"];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//    ViewControllerDev *dev = (ViewControllerDev *) [storyboard instantiateViewControllerWithIdentifier:@"dev"];
+//    [self presentModalViewController:dev animated:YES];
+    
+    UIViewController *dev = [self.storyboard instantiateViewControllerWithIdentifier:@"dev"];
     [self presentModalViewController:dev animated:YES];
+    
+    
     NSLog(@"dev button press End");
 }
+
+
+// added for debugging purposes
+
+
+- (IBAction)testArduinoConnection:(id)sender {
+    
+    
+}
+
+
 
 @end

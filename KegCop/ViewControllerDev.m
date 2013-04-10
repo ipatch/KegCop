@@ -41,6 +41,7 @@
     [self setLbl:nil];
     [self setBtnValve:nil];
     [self setBtnBlink:nil];
+    [self setBtnDone:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -163,6 +164,11 @@
     buffer[6] = '}';
     
     [serial write:buffer length:7];
+}
+
+- (IBAction)dimissScene:(id)sender {
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

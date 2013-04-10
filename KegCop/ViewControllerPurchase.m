@@ -39,7 +39,7 @@
     
     NSLog(@"purchase button pressed");
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerWebView *webview = (ViewControllerWebView *)[storyboard instantiateViewControllerWithIdentifier:@"webView"];
     [self presentModalViewController:webview animated:YES];
     

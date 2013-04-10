@@ -58,6 +58,12 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btndev;
 
+// added for debugging purposes
+
+@property (weak, nonatomic) IBOutlet UILabel *lblArduinoGood;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblArduinoBad;
+
 
 
 // Core Data
@@ -89,6 +95,10 @@
 - (IBAction)showLogs:(id)sender;
 
 - (IBAction)showDev:(id)sender;
+
+// added for debugging purposes
+
+- (IBAction)testArduinoConnection:(id)sender;
 
 
 

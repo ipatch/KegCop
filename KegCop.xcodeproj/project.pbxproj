@@ -638,6 +638,7 @@
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -651,7 +652,7 @@
 				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -667,6 +668,7 @@
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -680,7 +682,7 @@
 				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

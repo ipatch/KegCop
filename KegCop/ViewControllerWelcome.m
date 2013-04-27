@@ -277,6 +277,19 @@
     });
 }
 
+- (IBAction)showAboutScreen:(id)sender {
+    
+//    // method to show the About Screen
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+//    ViewControllerAbout *about = (ViewControllerAbout *)[storyboard instantiateViewControllerWithIdentifier:@"About"];
+//    [self presentModalViewController:dev animated:YES];
+    
+    UIViewController *about = [self.storyboard instantiateViewControllerWithIdentifier:@"About"];
+    [self presentModalViewController:about animated:YES];
+    
+    
+}
+
 
 // method keyboard behavior
 

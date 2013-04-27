@@ -47,6 +47,7 @@
 
     [self setBuildnumber:nil];
     [self setCreatedaccounts:nil];
+    [self setDoneButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -71,4 +72,8 @@
 }
 
 
+- (IBAction)dismissAboutScene:(id)sender {
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end

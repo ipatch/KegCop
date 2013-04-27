@@ -32,6 +32,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // initialize serial class
+    serial = [[JailbrokenSerial alloc] init];
 }
 
 - (void)viewDidUnload
@@ -146,27 +149,61 @@
     
     NSLog(@"blink Flow_A btn pressed");
     
+    NSLog(@"hello kyle");
+    
     // open serial port / interface
     
     [serial open:B2400];
-    NSLog(@"%c", [serial isOpened]);
+    if(serial.isOpened)
+    {
+        NSLog(@"Serial Port Opened");
+    }
+    else NSLog(@"Serial Port Closed");
+    
+    // print serial debugging messages
+    serial.debug = true;
+    
     
     // send serial data (tx)
     
-    char buffer [7];
     
-    buffer[0] = '{';
-    buffer[1] = 'b';
-    buffer[2] = 'l';
-    buffer[3] = 'i';
-    buffer[4] = 'n';
-    buffer[5] = 'k';
-    buffer[6] = '}';
+//    char buffer [7];
+//    
+//    buffer[0] = '{';
+//    buffer[1] = 'b';
+//    buffer[2] = 'l';
+//    buffer[3] = 'i';
+//    buffer[4] = 'n';
+//    buffer[5] = 'k';
+//    buffer[6] = '}';
     
-    [serial write:buffer length:7];
+    
+//    char character;
+//    
+//    character = 'b';
+    
+    // delay sending serial data (tx) for a given time period
+    
+   // NSLog(@"start delay");
+    
+    // [NSThread sleepForTimeInterval:3.0];
+    
+   // NSLog(@"delay of 3 seconds ended");
+    
+    char blink;
+    blink = 'b';
+    
+    [serial write:&blink length:1];
+    
+    // print message sent
+    NSLog(@"the command sent was:%c",blink);
 }
 
 - (IBAction)dimissScene:(id)sender {
+    
+    // close the serial port
+    [serial close];
+    
     
     [self dismissModalViewControllerAnimated:YES];
 }

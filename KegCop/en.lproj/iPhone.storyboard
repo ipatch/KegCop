@@ -107,7 +107,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ckf-V2-ViC" kind="modal" identifier="toAbout" id="Gdh-aR-sL9"/>
+                                            <action selector="showAboutScreen:" destination="2" eventType="touchUpInside" id="b4I-c7-skG"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Scan RFID badge or input name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6Y0-XT-buy">
@@ -167,7 +167,7 @@
                         <outlet property="textFieldPin" destination="ouS-iy-nbk" id="qja-Jr-msZ"/>
                         <outlet property="textFieldUsername" destination="LHi-CK-bre" id="Z2O-2f-SK0"/>
                         <outlet property="toolBar" destination="FaE-k4-3gd" id="PEh-A2-n2U"/>
-                        <outlet property="welcomeAbout" destination="vvG-Yp-BGt" id="VON-j4-mHw"/>
+                        <outlet property="welcomeAbout" destination="vvG-Yp-BGt" id="sYS-x2-0z1"/>
                         <outlet property="welcomeActivityIndicator" destination="FHu-Dk-pjF" id="HmN-xN-VIJ"/>
                         <outlet property="welcomeLogin" destination="F81-yy-Ds4" id="a7c-Zc-zGX"/>
                         <outlet property="welcomeScroller" destination="iJe-0G-b0D" id="iyR-Au-2f9"/>
@@ -233,7 +233,7 @@
                                             <navigationItem title="KegCop - About" id="gps-OW-YcP">
                                                 <barButtonItem key="rightBarButtonItem" title="Done" id="AVq-RA-x4d">
                                                     <connections>
-                                                        <segue destination="2" kind="modal" identifier="toWelcome" id="7AF-Y7-gBi"/>
+                                                        <action selector="dismissAboutScene:" destination="Ckf-V2-ViC" id="nbp-Ff-kAo"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
@@ -247,11 +247,12 @@
                     <connections>
                         <outlet property="buildnumber" destination="O5X-BN-7Gc" id="fXU-1P-1d7"/>
                         <outlet property="createdaccounts" destination="W5x-49-fAj" id="bnm-8O-fY7"/>
+                        <outlet property="doneButton" destination="AVq-RA-x4d" id="7Lw-ND-22W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNQ-L0-iXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8" y="743"/>
+            <point key="canvasLocation" x="64" y="636"/>
         </scene>
         <!--Forgot-->
         <scene sceneID="Qcb-Df-0IJ">
@@ -914,7 +915,6 @@
                                 </state>
                                 <connections>
                                     <action selector="blinkFlow_A_LED:" destination="VHb-jM-E5J" eventType="touchUpInside" id="Vzl-aM-7vJ"/>
-                                    <action selector="openValve:" destination="VHb-jM-E5J" eventType="touchUpInside" id="RjO-Bc-cFh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The valve is closed." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2dV-Nz-Eg5">
@@ -1539,8 +1539,10 @@
         <class className="ViewControllerAbout" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
             <relationships>
+                <relationship kind="action" name="dismissAboutScene:"/>
                 <relationship kind="outlet" name="buildnumber" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createdaccounts" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="ViewControllerCheckFlow" superclassName="UIViewController">
@@ -1697,6 +1699,7 @@
                 <relationship kind="action" name="prev:"/>
                 <relationship kind="action" name="processDev:"/>
                 <relationship kind="action" name="processLogin:"/>
+                <relationship kind="action" name="showAboutScreen:"/>
                 <relationship kind="action" name="textFieldDoneEditing:"/>
                 <relationship kind="outlet" name="dev" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
@@ -1718,6 +1721,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="VzB-8E-V0o"/>
-        <segue reference="7AF-Y7-gBi"/>
+        <segue reference="ykP-Vl-4X8"/>
     </inferredMetricsTieBreakers>
 </document>

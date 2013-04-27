@@ -312,7 +312,6 @@
     {
         NSLog(@"new tagid = %@",newrfidtagid);
         [alertrfid textFieldAtIndex:0].text = newrfidtagid;
-        //[serial open:B2400];
     }
  }
 

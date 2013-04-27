@@ -54,6 +54,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *wrongUserPin;
 @property (weak, nonatomic) IBOutlet UIButton *welcomeLogin;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
+
+// info button - located lower right
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
 // this button is set to hidden by default - used for testing out new features
@@ -72,6 +74,7 @@
 - (IBAction)textFieldDoneEditing:(id)sender;
 
 - (IBAction)processLogin:(id)sender;
+- (IBAction)showAboutScreen:(id)sender;
 
 // keyboard toolbar
 - (IBAction) next:(id)sender;

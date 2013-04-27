@@ -116,6 +116,7 @@
     [self setWelcomeScroller:nil];
     [self setWelcomeAbout:nil];
     [self setDev:nil];
+    [self setBtnForgot:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
@@ -277,9 +278,16 @@
     });
 }
 
+- (IBAction)showForgotScene:(id)sender {
+    
+    UIViewController *forgot = [self.storyboard instantiateViewControllerWithIdentifier:@"Forgot"];
+    [self presentModalViewController:forgot animated:YES];
+}
+
 - (IBAction)showAboutScreen:(id)sender {
     
-//    // method to show the About Screen
+    // method to show the About Screen
+    
 //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
 //    ViewControllerAbout *about = (ViewControllerAbout *)[storyboard instantiateViewControllerWithIdentifier:@"About"];
 //    [self presentModalViewController:dev animated:YES];

@@ -871,29 +871,11 @@ multiple storyboard files
 # git status
 # git push origin master
 
+26APR13
+- to merge branch with master
+http://stackoverflow.com/questions/8965781/update-an-outdated-branch-against-master-in-a-git-repo
+
+In your case, check out the old branch, then 
+# git rebase master
 
 ==============================================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

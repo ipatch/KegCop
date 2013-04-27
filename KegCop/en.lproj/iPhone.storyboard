@@ -73,7 +73,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eXh-SP-s3V" kind="modal" identifier="toForgot" id="coK-XK-nQa"/>
+                                            <action selector="showForgotScene:" destination="2" eventType="touchUpInside" id="rH6-80-qfx"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DnI-wi-p7f">
@@ -162,6 +162,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="btnForgot" destination="Tj7-Wr-uRF" id="PvY-sP-pUJ"/>
                         <outlet property="dev" destination="HaU-qu-9XR" id="r0b-yh-9z6"/>
                         <outlet property="doneButton" destination="eev-bv-eyl" id="KjW-vJ-oKn"/>
                         <outlet property="textFieldPin" destination="ouS-iy-nbk" id="qja-Jr-msZ"/>
@@ -317,7 +318,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2" kind="modal" identifier="forgotToWelcome" id="k6G-9y-mst"/>
+                                    <action selector="dismissScene:" destination="eXh-SP-s3V" eventType="touchUpInside" id="rue-1g-qfZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email sent." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="T9N-Rr-lZD">
@@ -345,6 +346,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="btnCancel" destination="8vg-xH-auS" id="BEe-za-ipZ"/>
                         <outlet property="forgotEmailInvalid" destination="uuF-Yf-X1n" id="Yg8-YY-Haz"/>
                         <outlet property="forgotEmailSent" destination="T9N-Rr-lZD" id="pEt-3E-A0o"/>
                         <outlet property="textFieldEmailReset" destination="0ZS-En-bzO" id="IO4-ZR-XYF"/>
@@ -352,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zM-2u-8rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="659" y="614"/>
+            <point key="canvasLocation" x="483" y="598"/>
         </scene>
         <!--Account Creation-->
         <scene sceneID="QhE-hZ-kO5">
@@ -1594,6 +1596,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerForgot.h"/>
             <relationships>
                 <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissScene:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="forgotEmailInvalid" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="forgotEmailSent" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textFieldEmailReset" candidateClass="UITextField"/>
@@ -1700,7 +1704,9 @@
                 <relationship kind="action" name="processDev:"/>
                 <relationship kind="action" name="processLogin:"/>
                 <relationship kind="action" name="showAboutScreen:"/>
+                <relationship kind="action" name="showForgotScene:"/>
                 <relationship kind="action" name="textFieldDoneEditing:"/>
+                <relationship kind="outlet" name="btnForgot" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dev" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="textFieldPin" candidateClass="UITextField"/>

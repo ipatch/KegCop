@@ -45,6 +45,8 @@
     [self setForgotEmailSent:nil];
     [self setTextFieldEmailReset:nil];
     
+    
+    [self setBtnCancel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -59,4 +61,8 @@
 //[_textFieldEmailReset resignFirstResponder];
 }
 
+- (IBAction)dismissScene:(id)sender {
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end

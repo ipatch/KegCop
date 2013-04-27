@@ -55,6 +55,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *welcomeLogin;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
 
+// forgot username / pin button
+@property (weak, nonatomic) IBOutlet UIButton *btnForgot;
+
+
 // info button - located lower right
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
 
@@ -74,6 +78,10 @@
 - (IBAction)textFieldDoneEditing:(id)sender;
 
 - (IBAction)processLogin:(id)sender;
+
+- (IBAction)showForgotScene:(id)sender;
+
+
 - (IBAction)showAboutScreen:(id)sender;
 
 // keyboard toolbar

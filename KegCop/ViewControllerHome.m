@@ -104,6 +104,7 @@
     [self setLblTradeCredit:nil];
     [self setBtndrinkbeer:nil];
     [self setBtnAddRFID:nil];
+    [self setBtnLogout:nil];
     [super viewDidUnload];
     [serial close];
   
@@ -293,6 +294,11 @@
         NSLog(@"Serial Port Opened");
     }
     else NSLog(@"Serial Port Closed");
+}
+
+- (IBAction)logout:(id)sender {
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 

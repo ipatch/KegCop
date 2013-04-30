@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnTradeCredit;
 @property (weak, nonatomic) IBOutlet UILabel *lblTradeCredit;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRFID;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -46,5 +47,7 @@
 - (IBAction)drinkBeer:(id)sender;
 
 - (IBAction)addRFID:(id)sender;
+
+- (IBAction)logout:(id)sender;
 
 @end

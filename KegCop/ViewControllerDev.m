@@ -167,7 +167,7 @@
     
     // send serial data (tx)
     
-    [serial write:@"b"];
+    [serial write:@"{blink_Flow_A}"];
 }
 
 - (IBAction)dimissScene:(id)sender {

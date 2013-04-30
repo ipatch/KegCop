@@ -921,13 +921,6 @@
                                     <action selector="blinkFlow_A_LED:" destination="VHb-jM-E5J" eventType="touchUpInside" id="Vzl-aM-7vJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The valve is closed." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2dV-Nz-Eg5">
-                                <rect key="frame" x="130" y="295" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" id="c2N-k9-1a4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1197,10 +1190,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IcF-KU-2Nu">
-                                        <rect key="frame" x="27" y="357" width="265" height="37"/>
+                                        <rect key="frame" x="27" y="353" width="265" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="15"/>
-                                        <state key="normal" title="Signout">
+                                        <state key="normal" title="Logout">
                                             <color key="titleColor" red="0.91448709240000003" green="0.20855711560000001" blue="0.14378680769999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1208,7 +1201,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="2" kind="modal" identifier="homeToWelcome" id="0tp-Bx-eRt"/>
+                                            <action selector="logout:" destination="uGc-YU-kQy" eventType="touchUpInside" id="SFg-oa-RbN"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" id="pSV-ZJ-XQy">
@@ -1275,6 +1268,7 @@
                     <navigationItem key="navigationItem" id="N9R-pL-Z0c"/>
                     <connections>
                         <outlet property="btnAddRFID" destination="hQn-YO-OmM" id="U2K-nA-5ti"/>
+                        <outlet property="btnLogout" destination="IcF-KU-2Nu" id="wgi-Jt-imH"/>
                         <outlet property="btnTradeCredit" destination="ThU-Sl-LXC" id="zc6-aw-v1U"/>
                         <outlet property="btndrinkbeer" destination="zEX-W3-o2o" id="xG2-cy-tei"/>
                         <outlet property="creditX" destination="Sbf-VT-Dvh" id="0Zp-bb-1zX"/>
@@ -1613,9 +1607,11 @@
                 <relationship kind="action" name="addRFID:"/>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="drinkBeer:"/>
+                <relationship kind="action" name="logout:"/>
                 <relationship kind="action" name="removeAccount"/>
                 <relationship kind="action" name="tradeCredit:"/>
                 <relationship kind="outlet" name="btnAddRFID" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnTradeCredit" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btndrinkbeer" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="creditX" candidateClass="UILabel"/>

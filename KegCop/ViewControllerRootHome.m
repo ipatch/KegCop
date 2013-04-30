@@ -358,9 +358,11 @@
 - (IBAction)logout:(id)sender {
     NSLog(@"Logout button pressed");
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-    ViewControllerWelcome *welcome = (ViewControllerWelcome *)[storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
-    [self presentModalViewController:welcome animated:YES];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+//    ViewControllerWelcome *welcome = (ViewControllerWelcome *)[storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
+//    [self presentModalViewController:welcome animated:YES];
+    
+    [self dismissModalViewControllerAnimated:YES];
     
 }
 

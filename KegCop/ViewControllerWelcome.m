@@ -249,6 +249,12 @@
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
                     ViewControllerRootHome *roothome = (ViewControllerRootHome *)[storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
                     [self presentModalViewController:roothome animated:YES];
+                    
+                    // clear out / blank tfusername and tfpin
+                    _textFieldUsername.text = @"";
+                    _textFieldPin.text = @"";
+                    // stop activityIndicator from spinning once logged in
+                    [_welcomeActivityIndicator stopAnimating];
                 }
                 else {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
@@ -260,6 +266,12 @@
                     [self passValues];
                     
                     [self presentModalViewController:home animated:YES];
+                    
+                    // clear out / blank tfusername and tfpin
+                    _textFieldUsername.text = @"";
+                    _textFieldPin.text = @"";
+                    // stop activityIndicator from spinning once logged in
+                    [_welcomeActivityIndicator stopAnimating];
                 }
             }
             else {

@@ -117,6 +117,7 @@
     [self setWelcomeAbout:nil];
     [self setDev:nil];
     [self setBtnForgot:nil];
+    [self setBtnCreate:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
@@ -282,6 +283,12 @@
     
     UIViewController *forgot = [self.storyboard instantiateViewControllerWithIdentifier:@"Forgot"];
     [self presentModalViewController:forgot animated:YES];
+}
+
+- (IBAction)showCreateScene:(id)sender {
+    
+    UIViewController *create = [self.storyboard instantiateViewControllerWithIdentifier:@"Create"];
+    [self presentModalViewController:create animated:YES];    
 }
 
 - (IBAction)showAboutScreen:(id)sender {

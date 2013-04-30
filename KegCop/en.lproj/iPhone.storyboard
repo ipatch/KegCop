@@ -88,7 +88,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="iDf-5q-CIv" kind="modal" identifier="toCreate" id="kHc-6z-joi"/>
+                                            <action selector="showCreateScene:" destination="2" eventType="touchUpInside" id="Vq6-8n-fzf"/>
                                         </connections>
                                     </button>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="FHu-Dk-pjF">
@@ -162,6 +162,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="btnCreate" destination="DnI-wi-p7f" id="5dA-xJ-wZs"/>
                         <outlet property="btnForgot" destination="Tj7-Wr-uRF" id="PvY-sP-pUJ"/>
                         <outlet property="dev" destination="HaU-qu-9XR" id="r0b-yh-9z6"/>
                         <outlet property="doneButton" destination="eev-bv-eyl" id="KjW-vJ-oKn"/>
@@ -478,7 +479,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="2" kind="modal" identifier="cancelToWelcome" id="ykP-Vl-4X8"/>
+                                            <action selector="dismissCreateScene:" destination="iDf-5q-CIv" eventType="touchUpInside" id="Fe9-NF-vq9"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not valid." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fkj-Ah-GFF">
@@ -546,6 +547,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="btnCancel" destination="QUc-OR-mMT" id="50p-dV-pbn"/>
                         <outlet property="createAccountSuccess" destination="j2f-Ao-jgc" id="Dh3-DQ-3qt"/>
                         <outlet property="createEmailNotValid" destination="yy5-BN-7kh" id="yua-9C-2pG"/>
                         <outlet property="createEmailTextField" destination="mFA-BN-H5w" id="tIi-gF-qUz"/>
@@ -586,7 +588,7 @@
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="653" y="-229"/>
+            <point key="canvasLocation" x="477" y="-225"/>
         </scene>
         <!--Home-root-->
         <scene sceneID="lAR-pw-YmG">
@@ -1558,9 +1560,11 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCreate.h"/>
             <relationships>
                 <relationship kind="action" name="createAccount:"/>
+                <relationship kind="action" name="dismissCreateScene:"/>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="next:"/>
                 <relationship kind="action" name="prev:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="createAccountSuccess" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createEmailNotValid" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="createEmailTextField" candidateClass="UITextField"/>
@@ -1704,8 +1708,10 @@
                 <relationship kind="action" name="processDev:"/>
                 <relationship kind="action" name="processLogin:"/>
                 <relationship kind="action" name="showAboutScreen:"/>
+                <relationship kind="action" name="showCreateScene:"/>
                 <relationship kind="action" name="showForgotScene:"/>
                 <relationship kind="action" name="textFieldDoneEditing:"/>
+                <relationship kind="outlet" name="btnCreate" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="btnForgot" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dev" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
@@ -1727,6 +1733,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="VzB-8E-V0o"/>
-        <segue reference="ykP-Vl-4X8"/>
     </inferredMetricsTieBreakers>
 </document>

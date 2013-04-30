@@ -18,6 +18,7 @@
 @synthesize lbl = _lbl;
 @synthesize btnValve = _btnValve;
 @synthesize btnBlink = _btnBlink;
+//@synthesize blink = _blink;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +36,12 @@
     
     // initialize serial class
     serial = [[JailbrokenSerial alloc] init];
+    serial.nonBlock = true;
+    serial.receiver = self;
+    // print serial debugging messages
+    serial.debug = true;
+    blink_text = [[NSMutableString alloc] initWithString:@"b"];
+    blink_string_text = @"b";
 }
 
 - (void)viewDidUnload
@@ -47,6 +54,7 @@
     [self setBtnDone:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    //[serial nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -140,7 +148,6 @@
     buffer[10] = '}';
     
     [serial write:buffer length:11];
-    //[serial write:bufString length:9];
 }
 
 - (IBAction)blinkFlow_A_LED:(id)sender {
@@ -148,8 +155,6 @@
     // method to blink the Flow_A LED on the kegboard-mini Arduino sheild.
     
     NSLog(@"blink Flow_A btn pressed");
-    
-    NSLog(@"hello kyle");
     
     // open serial port / interface
     
@@ -160,43 +165,9 @@
     }
     else NSLog(@"Serial Port Closed");
     
-    // print serial debugging messages
-    serial.debug = true;
-    
-    
     // send serial data (tx)
     
-    
-//    char buffer [7];
-//    
-//    buffer[0] = '{';
-//    buffer[1] = 'b';
-//    buffer[2] = 'l';
-//    buffer[3] = 'i';
-//    buffer[4] = 'n';
-//    buffer[5] = 'k';
-//    buffer[6] = '}';
-    
-    
-//    char character;
-//    
-//    character = 'b';
-    
-    // delay sending serial data (tx) for a given time period
-    
-   // NSLog(@"start delay");
-    
-    // [NSThread sleepForTimeInterval:3.0];
-    
-   // NSLog(@"delay of 3 seconds ended");
-    
-    char blink;
-    blink = 'b';
-    
-    [serial write:&blink length:1];
-    
-    // print message sent
-    NSLog(@"the command sent was:%c",blink);
+    [serial write:@"b"];
 }
 
 - (IBAction)dimissScene:(id)sender {
@@ -208,4 +179,8 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+# pragma mark - JailbrokenSerialDelegate
+- (void) JailbrokenSerialReceived:(char)ch {
+    [blink_text appendFormat:@"%c", ch];
+}
 @end

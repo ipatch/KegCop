@@ -49,6 +49,9 @@
 - (IBAction)sendString:(id)sender {
     // dismiss keyboard
     [self.textEntry resignFirstResponder];
+    [serial write:[_textEntry text]];
+    _textEntry.text = @"";
+    
 }
 
 - (IBAction)openSerial:(id)sender

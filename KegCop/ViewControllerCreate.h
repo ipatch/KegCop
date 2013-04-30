@@ -28,6 +28,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *createEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *createPhoneNumber;
 @property (weak, nonatomic) IBOutlet UIButton *createSubmit;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
+
+
+
 @property (weak, nonatomic) IBOutlet UIScrollView *createScroller;
 @property (weak, nonatomic) IBOutlet UILabel *createUNnotValid;
 @property (weak, nonatomic) IBOutlet UILabel *createPinNotValid;
@@ -49,6 +54,7 @@
 
 // Create new account - methods
 - (IBAction)createAccount:(id)sender;
+- (IBAction)dismissCreateScene:(id)sender;
 
 - (IBAction)dismissKeyboard:(id)sender;
 

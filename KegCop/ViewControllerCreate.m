@@ -97,6 +97,7 @@
     [self setCreateAccountSuccess:nil];
     
     [self setCreatePinReTextField:nil];
+    [self setBtnCancel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -283,6 +284,10 @@
         [self presentModalViewController:home animated:YES];
 
     }
+}
+
+- (IBAction)dismissCreateScene:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)checkTextFieldCharLength

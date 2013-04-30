@@ -11,6 +11,8 @@
 @interface ViewControllerDev : UIViewController <JailbrokenSerialDelegate> {
     
     JailbrokenSerial *serial;
+    NSMutableString *blink_text;
+    NSString *blink_string_text;
     
 }
 

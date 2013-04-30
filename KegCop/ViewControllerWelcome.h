@@ -58,6 +58,7 @@
 // forgot username / pin button
 @property (weak, nonatomic) IBOutlet UIButton *btnForgot;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 
 // info button - located lower right
 @property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
@@ -81,6 +82,7 @@
 
 - (IBAction)showForgotScene:(id)sender;
 
+- (IBAction)showCreateScene:(id)sender;
 
 - (IBAction)showAboutScreen:(id)sender;
 

@@ -836,6 +836,86 @@
             </objects>
             <point key="canvasLocation" x="1061" y="-219"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="BSR-5w-hA6">
+            <objects>
+                <viewController id="dHp-T1-8JR" sceneMemberID="viewController"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="ntR-V5-BEM" customClass="KBFlowIndicator">
+                    <rect key="frame" x="0.0" y="0.0" width="402" height="350"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flow_background.png" id="fy1-wJ-dNb">
+                            <rect key="frame" x="55" y="33" width="285" height="285"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </imageView>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" id="hy5-zy-DYY">
+                            <rect key="frame" x="0.0" y="0.0" width="402" height="349"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flow_fill.png" id="fQQ-CF-JSk">
+                                    <rect key="frame" x="49" y="304" width="303" height="115"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flow_shadow.png" id="Nep-ub-aiM">
+                            <rect key="frame" x="57" y="34" width="282" height="282"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flow_foreground.png" id="qte-JL-UWI">
+                            <rect key="frame" x="0.0" y="0.0" width="402" height="350"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flow_needle.png" id="tv2-1n-uwG">
+                            <rect key="frame" x="195" y="105" width="11" height="142"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flow_at_symbol.png" id="yfn-5x-auJ">
+                            <rect key="frame" x="181" y="159" width="40" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00.0" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="32" id="mAF-5p-klo" userLabel="Volume">
+                            <rect key="frame" x="67" y="162" width="77" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="oz" lineBreakMode="tailTruncation" minimumFontSize="10" id="w5I-D2-1KR" userLabel="Volume Units">
+                            <rect key="frame" x="145" y="160" width="26" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="32" id="Bgx-Hq-VTl" userLabel="Flow">
+                            <rect key="frame" x="229" y="162" width="63" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="34"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="oz/s" lineBreakMode="tailTruncation" minimumFontSize="10" id="pCh-vi-Odz" userLabel="Flow Units">
+                            <rect key="frame" x="293" y="160" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="fillView" destination="fQQ-CF-JSk" id="NV9-zL-axv"/>
+                        <outlet property="flowLabel" destination="Bgx-Hq-VTl" id="h8p-dS-0Wl"/>
+                        <outlet property="needleView" destination="tv2-1n-uwG" id="0rc-aZ-2VX"/>
+                        <outlet property="volumeLabel" destination="mAF-5p-klo" id="vLM-8h-hvv"/>
+                    </connections>
+                </view>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="biV-tX-oEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1041" y="-805"/>
+        </scene>
         <!--View Controller Dev - dev-->
         <scene sceneID="xmr-cx-AQJ">
             <objects>
@@ -1533,6 +1613,14 @@
             <point key="canvasLocation" x="-395" y="-30"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flow_at_symbol.png" width="16" height="16"/>
+        <image name="flow_background.png" width="16" height="16"/>
+        <image name="flow_fill.png" width="16" height="16"/>
+        <image name="flow_foreground.png" width="16" height="16"/>
+        <image name="flow_needle.png" width="16" height="16"/>
+        <image name="flow_shadow.png" width="16" height="16"/>
+    </resources>
     <classes>
         <class className="ViewControllerAbout" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
@@ -1728,6 +1816,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VzB-8E-V0o"/>
+        <segue reference="3qk-yn-FTA"/>
     </inferredMetricsTieBreakers>
 </document>

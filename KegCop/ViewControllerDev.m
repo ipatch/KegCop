@@ -126,28 +126,19 @@
     
     NSLog(@"Open valve btn pressed");
     
-    // open serial interface
+    // open serial port / interface
     
     [serial open:B2400];
+    if(serial.isOpened)
+    {
+        NSLog(@"Serial Port Opened");
+    }
+    else NSLog(@"Serial Port Closed");
+    
     NSLog(@"%c", [serial isOpened]);
     
     // send serial data (tx)
-    
-    char buffer [11];
-    //NSString bufString = @"openvalve";
-    buffer[0] = '{';
-    buffer[1] = 'o';
-    buffer[2] = 'p';
-    buffer[3] = 'e';
-    buffer[4] = 'n';
-    buffer[5] = 'v';
-    buffer[6] = 'a';
-    buffer[7] = 'l';
-    buffer[8] = 'v';
-    buffer[9] = 'e';
-    buffer[10] = '}';
-    
-    [serial write:buffer length:11];
+    [serial write:@"{open_valve}"];
 }
 
 - (IBAction)blinkFlow_A_LED:(id)sender {

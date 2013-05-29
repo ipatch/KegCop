@@ -879,3 +879,30 @@ In your case, check out the old branch, then
 # git rebase master
 
 ==============================================================================================
+
+20MAY13
+- swiss flow sensor / meter has three wires, red, green, and black
+
+red - ground
+green - pulse
+black - 
+
+
+==============================================================================================
+
+22MAY13
+- took 15-16 seconds to pour an american pint glass
+
+==============================================================================================
+Arduino hardware buffer is 128 bytes
+
+==============================================================================================
+24MAY13
+- removed "\n" from command i.e. {blink_Flow_A} instead of {blink_Flow_A}\n in Arduino sketch seems to work with sending serial data via iPhone.
+
+
+
+
+
+
+

@@ -35,6 +35,12 @@
 		EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA33D831588AA9100826A02 /* SenTestingKit.framework */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAA51B1615983E3100D0D777 /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EAA51B1515983E3100D0D777 /* Glass.aiff */; };
+		EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB1205F175576B7003035C3 /* KBFlowIndicator.m */; };
+		EAB453AF1755528E00F6DA69 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453AE1755528E00F6DA69 /* Serial.c */; };
+		EAB453B2175553C800F6DA69 /* crc16ccitt.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B1175553C800F6DA69 /* crc16ccitt.c */; };
+		EAB453B5175554BF00F6DA69 /* KBKegProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B4175554BF00F6DA69 /* KBKegProcessing.m */; };
+		EAB453B81755552700F6DA69 /* KBKegboard.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B71755552700F6DA69 /* KBKegboard.m */; };
+		EAB453BB175555B700F6DA69 /* KBKegboardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */; };
 		EABE1D741581C9B700FF9FA0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D731581C9B700FF9FA0 /* Account.m */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D821582E99200FF9FA0 /* AccountBase.m */; };
@@ -108,6 +114,18 @@
 		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EAA51B131598385B00D0D777 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EAA51B1515983E3100D0D777 /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = Glass.aiff; path = sounds/Glass.aiff; sourceTree = SOURCE_ROOT; };
+		EAB1205E175576B7003035C3 /* KBFlowIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBFlowIndicator.h; sourceTree = "<group>"; };
+		EAB1205F175576B7003035C3 /* KBFlowIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBFlowIndicator.m; sourceTree = "<group>"; };
+		EAB453AD1755519C00F6DA69 /* Serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serial.h; sourceTree = "<group>"; };
+		EAB453AE1755528E00F6DA69 /* Serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Serial.c; sourceTree = "<group>"; };
+		EAB453B01755533500F6DA69 /* crc16ccitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc16ccitt.h; sourceTree = "<group>"; };
+		EAB453B1175553C800F6DA69 /* crc16ccitt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc16ccitt.c; sourceTree = "<group>"; };
+		EAB453B3175554BF00F6DA69 /* KBKegProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBKegProcessing.h; sourceTree = "<group>"; };
+		EAB453B4175554BF00F6DA69 /* KBKegProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegProcessing.m; sourceTree = "<group>"; };
+		EAB453B61755552700F6DA69 /* KBKegboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBKegboard.h; sourceTree = "<group>"; };
+		EAB453B71755552700F6DA69 /* KBKegboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboard.m; sourceTree = "<group>"; };
+		EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBKegboardMessage.h; sourceTree = "<group>"; };
+		EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardMessage.m; sourceTree = "<group>"; };
 		EABE1D721581C9B700FF9FA0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		EABE1D731581C9B700FF9FA0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -187,6 +205,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EAB1205D175575BA003035C3 /* FlowMeter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FlowMeter;
+			sourceTree = "<group>";
+		};
+		EAB453AB1755516000F6DA69 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				EAB453B61755552700F6DA69 /* KBKegboard.h */,
+				EAB453B71755552700F6DA69 /* KBKegboard.m */,
+				EAB453B3175554BF00F6DA69 /* KBKegProcessing.h */,
+				EAB453B4175554BF00F6DA69 /* KBKegProcessing.m */,
+				EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */,
+				EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */,
+				EAB453AD1755519C00F6DA69 /* Serial.h */,
+				EAB453AE1755528E00F6DA69 /* Serial.c */,
+				EAB453B01755533500F6DA69 /* crc16ccitt.h */,
+				EAB453B1175553C800F6DA69 /* crc16ccitt.c */,
+			);
+			name = Processing;
+			sourceTree = "<group>";
+		};
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +265,7 @@
 		EAEFEE99157B296B00C666D5 /* KegCop */ = {
 			isa = PBXGroup;
 			children = (
+				EAB453AB1755516000F6DA69 /* Processing */,
 				EA291BE4163B487500CE419E /* JailbrokenSerial.h */,
 				EA291BE5163B487500CE419E /* JailbrokenSerial.m */,
 				EAEFEEA2157B296B00C666D5 /* AppDelegate.h */,
@@ -244,6 +287,7 @@
 		EAEFEE9A157B296B00C666D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAB1205D175575BA003035C3 /* FlowMeter */,
 				EA53154715AED060002F708C /* KegCop.entitlements */,
 				EAA51B1515983E3100D0D777 /* Glass.aiff */,
 				EAA33D7E158EE6B000031D96 /* scratchpad.txt */,
@@ -269,6 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				EAEFEEA5157B296B00C666D5 /* iPhone.storyboard */,
+				EAB1205E175576B7003035C3 /* KBFlowIndicator.h */,
+				EAB1205F175576B7003035C3 /* KBFlowIndicator.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -508,6 +554,12 @@
 				EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */,
 				EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */,
 				EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */,
+				EAB453AF1755528E00F6DA69 /* Serial.c in Sources */,
+				EAB453B2175553C800F6DA69 /* crc16ccitt.c in Sources */,
+				EAB453B5175554BF00F6DA69 /* KBKegProcessing.m in Sources */,
+				EAB453B81755552700F6DA69 /* KBKegboard.m in Sources */,
+				EAB453BB175555B700F6DA69 /* KBKegboardMessage.m in Sources */,
+				EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1652,6 +1652,208 @@
         <image name="flow_needle.png" width="11" height="142"/>
         <image name="flow_shadow.png" width="282" height="282"/>
     </resources>
+    <classes>
+        <class className="KBFlowIndicator" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KBFlowIndicator.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissScene:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="fillView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="flowLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="needleView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="volumeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerAbout" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissAboutScene:"/>
+                <relationship kind="outlet" name="buildnumber" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createdaccounts" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerCheckFlow" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCheckFlow.h"/>
+            <relationships>
+                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerCreate" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCreate.h"/>
+            <relationships>
+                <relationship kind="action" name="createAccount:"/>
+                <relationship kind="action" name="dismissCreateScene:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="next:"/>
+                <relationship kind="action" name="prev:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="createAccountSuccess" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEmailNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEmailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPhoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPhoneNumberNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createPinNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createPinReTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPinTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="createSubmit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="createUNnotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createUserTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerDev" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerDev.h"/>
+            <relationships>
+                <relationship kind="action" name="blinkFlow_A_LED:"/>
+                <relationship kind="action" name="dimissScene:"/>
+                <relationship kind="action" name="openValve:"/>
+                <relationship kind="action" name="submit:"/>
+                <relationship kind="outlet" name="btn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnBlink" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnValve" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lbl" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tf" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerForgot" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerForgot.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissScene:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="forgotEmailInvalid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="forgotEmailSent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textFieldEmailReset" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerHome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerHome.h"/>
+            <relationships>
+                <relationship kind="action" name="addRFID:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="drinkBeer:"/>
+                <relationship kind="action" name="logout:"/>
+                <relationship kind="action" name="removeAccount"/>
+                <relationship kind="action" name="tradeCredit:"/>
+                <relationship kind="outlet" name="btnAddRFID" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnTradeCredit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btndrinkbeer" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="creditX" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="homeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="lblTradeCredit" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblUSERNAME" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tfUsername" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerLogs" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerLogs.h"/>
+            <relationships>
+                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="logWindow" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerPurchase" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerPurchase.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="purchase:"/>
+                <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerRootHome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerRootHome.h"/>
+            <relationships>
+                <relationship kind="action" name="addCredit:"/>
+                <relationship kind="action" name="checkFlow:"/>
+                <relationship kind="action" name="deleteAccount:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="displayAccount:"/>
+                <relationship kind="action" name="displayEmail:"/>
+                <relationship kind="action" name="logout:"/>
+                <relationship kind="action" name="rfidOnOff"/>
+                <relationship kind="action" name="saveMasterEmail"/>
+                <relationship kind="action" name="showDev:"/>
+                <relationship kind="action" name="showFlowIndicator:"/>
+                <relationship kind="action" name="showLogs:"/>
+                <relationship kind="action" name="showSerialConsole:"/>
+                <relationship kind="action" name="testArduinoConnection:"/>
+                <relationship kind="outlet" name="btnAddCredit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnCheckFlow" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDeleteAccount" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDisplayAccount" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDisplayEmail" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnFlowIndicator" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogs" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnSerialConsole" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btndev" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblArduinoBad" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblArduinoGood" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblCredit" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblRootCredit" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rootHomeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="switchRfid" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tfCreditUsername" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tfDeleteAccount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tvDisplayAccount" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerSerialConsole" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerSerialConsole.h"/>
+            <relationships>
+                <relationship kind="action" name="closeSerial:"/>
+                <relationship kind="action" name="donePressed:"/>
+                <relationship kind="action" name="openSerial:"/>
+                <relationship kind="action" name="sendString:"/>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="serialView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textEntry" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerWebView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerWebView.h"/>
+            <relationships>
+                <relationship kind="action" name="dimissWebView:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerWelcome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerWelcome.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="next:"/>
+                <relationship kind="action" name="prev:"/>
+                <relationship kind="action" name="processDev:"/>
+                <relationship kind="action" name="processLogin:"/>
+                <relationship kind="action" name="showAboutScreen:"/>
+                <relationship kind="action" name="showCreateScene:"/>
+                <relationship kind="action" name="showForgotScene:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
+                <relationship kind="outlet" name="btnCreate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnForgot" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dev" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="textFieldPin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldUsername" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="welcomeAbout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="welcomeActivityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="welcomeLogin" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="welcomeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wrongUserPin" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

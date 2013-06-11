@@ -92,7 +92,7 @@
     dispatch_async(scan_queue, ^{
         
         NSLog(@"execution reached before serial handShake");
-        [serial handShake];
+//        [serial handShake];
         NSLog(@"execution reached after serial handShake");
     
     });

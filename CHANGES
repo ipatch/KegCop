@@ -1,9 +1,11 @@
 2013-06-11
 
+    * program now has 2 warnings - related to code sigining and apple ID shit.
     * Cleaned up file organization within Xcode project.
     * Began removing warnings compliation of project.
     * 6 warnings to debug
     * introduced version 0.1.2 due to extreme file organization :)  Happy late birthday KegCop!
+    * removed 4 warnings by deleting an used viewcontroller, and commenting out the handshake method.
 
 2013-01-02
 

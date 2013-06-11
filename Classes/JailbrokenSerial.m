@@ -197,6 +197,7 @@
     [self write:[message UTF8String] length:[message length]];
 }
 
+/* commented handShake method to remove build warning 
 - (void) handShake {
     
     
@@ -229,7 +230,6 @@
             NSLog(@"Handshake failed");
         }
     }
-     
-}
-
+ }
+*/
 @end

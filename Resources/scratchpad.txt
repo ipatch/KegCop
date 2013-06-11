@@ -1052,7 +1052,8 @@ $PROJECT/gen_entitlements.py "my.company.${PROJECT_NAME}" "${BUILT_PRODUCTS_DIR}
 codesign -f -s "iPhone Developer" --entitlements "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/"
 fi
 
-
+==============================================================================================
+11JUN13 - tshoot FI button
 
 
 

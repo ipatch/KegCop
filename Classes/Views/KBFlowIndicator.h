@@ -23,8 +23,9 @@
 // changed UIView to UIViewController
 
 #import <UIKit/UIKit.h>
+#import <KBKegProcessing.h>
 
-@interface KBFlowIndicator : UIViewController {
+@interface KBFlowIndicator : UIViewController <KBKegProcessingDelegate> {
     UIImageView *needleView_;
     UIImageView *fillView_;
     UILabel *volumeLabel_;

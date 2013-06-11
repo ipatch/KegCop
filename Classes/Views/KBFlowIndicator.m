@@ -30,6 +30,10 @@
 //#import "KBTypes.h"
 //#import "KBDefines.h"
 
+//@interface KBFlowIndicator ()
+//
+//@end
+
 @implementation KBFlowIndicator
 
 @synthesize needleView=needleView_, fillView=fillView_, volumeLabel=volumeLabel_, flowLabel=flowLabel_;
@@ -160,6 +164,40 @@
     [self setVolume:0 animated:YES];
 }
 
+- (void) kegProcessing:(KBKegProcessing *)kegProcessing didChangeTemperature:(double)temperature    {
+    
+    double flowRate = [kegProcessing flowRate];
+    [self setFlowRate:flowRate animated:YES];
+    double amountPoured = [kegProcessing pourVolume];
+    [self setVolume: amountPoured animated:YES];
+
+    
+    
+    
+    
+}
+
+- (void) kegProcessing:(KBKegProcessing *)kegProcessing didEndPourWithAmount:(double)amount {
+    
+}
+
+- (void) kegProcessing:(KBKegProcessing *)kegProcessing didReceiveRFIDTagId:(NSString *)tagID {
+    
+}
+
+- (void) kegProcessing:(KBKegProcessing *)kegProcessing didUpdatePourWithAmount:(double)amount flowRate:(double)flowRate {
+    
+    NSLog(@"did update pour with amount:");
+    // double flowRate = [kegProcessing flowRate];
+    [self setFlowRate:flowRate animated:YES];
+//    double amountPoured = [kegProcessing pourVolume];
+    [self setVolume: amount animated:YES];
+    
+}
+
+- (void) kegProcessingDidStartPour:(KBKegProcessing *)kegProcessing {
+    
+}
 @end
 
 

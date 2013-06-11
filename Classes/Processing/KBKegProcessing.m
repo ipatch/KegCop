@@ -21,7 +21,8 @@
 // TODO
 // - clearly define class in what it does
 // - fix errors in class file, as of 28MAY13 there is one error :/
-//
+// - interpret code coming from Arduino, recieves messages from board
+
 
 #import "KBKegProcessing.h"
 

@@ -371,7 +371,7 @@
 		EAEFEE86157B296B00C666D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = EAEFEE89157B296B00C666D5 /* Build configuration list for PBXProject "KegCop" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -591,6 +591,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -619,6 +623,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -649,9 +657,9 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KegCop/KegCop-Prefix.pch";
+				GCC_PREFIX_HEADER = "Classes/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
+				INFOPLIST_FILE = "Classes/KegCop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
@@ -679,9 +687,9 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KegCop/KegCop-Prefix.pch";
+				GCC_PREFIX_HEADER = "Classes/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "KegCop/KegCop-Info.plist";
+				INFOPLIST_FILE = "Classes/KegCop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;

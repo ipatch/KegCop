@@ -8,6 +8,12 @@
 // TODO - capin
 // - clearly define what this class does
 
+// the below files are "C" style macros and the values cannot be changed
+
+// OBJ-c python code
+
+// a class to represent a message from the board
+
 #define BAUD_RATE 115200
 #define KBSP_PAYLOAD_MAXLEN 112
 #define KBSP_PREFIX_LENGTH 8

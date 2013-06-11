@@ -3,8 +3,8 @@
 //  KegCop
 //
 //  Created by capin on 8/15/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
+// This is the implementation file for the category NSData
 
 #import "NSData+AES256.h"
 

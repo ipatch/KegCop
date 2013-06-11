@@ -947,6 +947,104 @@ enum seatPreference bobSeatPreference = aisle;
 
 #endif
 
+- Strings
+
+- Classes
+Abrstraction
+Polymorphism
+Inheritance
+Encapsulation
+
+
+- methods that return results
+example,
+
+result = [myObject somemethod];
+
+result = [myObject somemethod:arg];
+
+- think parameters and arguments as the same thing
+
+- class methods are called on the class itself
+- instance methods are called on the object you create.
+
+- Creating your own classes
+- classes are written in the interface and implementation
+- the interface says what's available for a class
+- the implementation is the code of the class
+- instance variables are private to the class
+
+- Defining methods, example
+-(NSString *) createMessage: (NSString *) input;
+
+- the above line of code returns an object type
+- NSString is the parameter type
+- the above method returns a NSString
+
+- Defining properties
+
+- accessor methods allow access to the instance variables of a class.
+
+@property int score
+
+- the above line creates setter and getter methods for a class, in Obj-C 2.0
+
+- Defining initializers
+
+- every class in Obj-c has init method
+
+- the keyword "super" calls the base class
+
+- the keyword "id" refers to a return type of any possible object
+
+10 More Complex Classes
+
+- the superclass is the class an object / class inherits from
+
+- you can override "methods" of a superclass by adding code to a subclass of the superclass
+
+10.02 Extending classes with categories
+
+Example,
+
+@interface NSString (category)
+
+// no new instance variables
+
+// add methods
+@end
+
+10.03 Defining Protocols
+
+- a protocol is a list of methods an object you want to perform.
+
+- to conform to a protocol, example,
+
+@interface MyClass : NSObject <Cleaner>
+{
+ // instance variables
+}
+// properties and methods
+
+- (void) cleanFloors;
+- (void) vacuum;
+- (void) emptyTrash;
+
+@end
+
+10.04 Dynamic typing
+
+- "id" can return any type of object
+
+- static vs. dynamic typing
+
+11.01 - Common compile errors
+
+
+
+
+
+
 
 
 

@@ -24,13 +24,16 @@
 // from the keg.
 //
 // TODO - capin
-// - figure out why "KBKegboardMessage.h" import statment has an error
+// - figure out why "KBKegboardMessage.h" import statment has an error - COMPLETE
 // - #import "KBKegboardMessage.h" fixed :)
 
 #import "Serial.h"
 #import "KBKegboardMessage.h"
 
+
+// the below line of code is a "C" style macro and the value cannot be changed.
 #define SERIAL_PORT "/dev/tty.iap"
+
 //#define SERIAL_PORT "/Applications/SerialTest.app/TestData2NullTermination"
 
 @class KBKegboard;

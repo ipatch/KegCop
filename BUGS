@@ -1,3 +1,7 @@
+2013-06-11 Chris
+
+    * loading the FI (flow indicator) scene causes the app to crash at the moment.
+
 2012-01-06 Chris
 
   * the app is currently launching, but not loading the default scene.  So I would suggest sticking with the

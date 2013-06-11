@@ -1,3 +1,10 @@
+2013-06-11
+
+    * Cleaned up file organization within Xcode project.
+    * Began removing warnings compliation of project.
+    * 6 warnings to debug
+    * introduced version 0.1.2 due to extreme file organization :)  Happy late birthday KegCop!
+
 2013-01-02
 
    * Deleted classes that were not being used by the application.  Put legacy classes into scratchpad file.

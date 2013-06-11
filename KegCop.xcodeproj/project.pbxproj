@@ -22,7 +22,6 @@
 		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
 		EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */; };
 		EA9D25CF1766D12400B277ED /* KegCop.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25CE1766D12400B277ED /* KegCop.entitlements */; };
-		EA9D26101767A24E00B277ED /* KegCop.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E01767A24E00B277ED /* KegCop.entitlements */; };
 		EA9D26141767A24E00B277ED /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E51767A24E00B277ED /* Default.png */; };
 		EA9D26161767A24E00B277ED /* flow_at_symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E81767A24E00B277ED /* flow_at_symbol.png */; };
 		EA9D26171767A24E00B277ED /* flow_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E91767A24E00B277ED /* flow_background.png */; };
@@ -59,6 +58,7 @@
 		EA9D26381767A24E00B277ED /* retina4inch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260C1767A24E00B277ED /* retina4inch.png */; };
 		EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260D1767A24E00B277ED /* scratchpad.txt */; };
 		EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
+		EA9D26411767B5C900B277ED /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26401767B5C900B277ED /* Default@2x.png */; };
 		EAA33D711588612600826A02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAA33D721588612600826A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAA33D781588612600826A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D761588612600826A02 /* InfoPlist.strings */; };
@@ -127,12 +127,10 @@
 		EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerCheckFlow.h; path = Controllers/ViewControllerCheckFlow.h; sourceTree = "<group>"; };
 		EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerCheckFlow.m; path = Controllers/ViewControllerCheckFlow.m; sourceTree = "<group>"; };
 		EA9D25CE1766D12400B277ED /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
-		EA9D25E01767A24E00B277ED /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
 		EA9D25E21767A24E00B277ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EA9D25E31767A24E00B277ED /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		EA9D25E41767A24E00B277ED /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		EA9D25E51767A24E00B277ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EA9D25E61767A24E00B277ED /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EA9D25E81767A24E00B277ED /* flow_at_symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_at_symbol.png; sourceTree = "<group>"; };
 		EA9D25E91767A24E00B277ED /* flow_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_background.png; sourceTree = "<group>"; };
 		EA9D25EA1767A24E00B277ED /* flow_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_fill.png; sourceTree = "<group>"; };
@@ -169,6 +167,12 @@
 		EA9D260D1767A24E00B277ED /* scratchpad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scratchpad.txt; sourceTree = "<group>"; };
 		EA9D260F1767A24E00B277ED /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Glass.aiff; sourceTree = "<group>"; };
 		EA9D263B1767AA6600B277ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EA9D26401767B5C900B277ED /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		EA9D26421767B7F000B277ED /* BUGS */ = {isa = PBXFileReference; lastKnownFileType = text; path = BUGS; sourceTree = SOURCE_ROOT; };
+		EA9D26431767B7F000B277ED /* CHANGES */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES; sourceTree = SOURCE_ROOT; };
+		EA9D26441767B7F000B277ED /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = SOURCE_ROOT; };
+		EA9D26451767B7F000B277ED /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		EA9D26461767B7F000B277ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		EAA33D6E1588612600826A02 /* KegCopTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KegCopTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA33D751588612600826A02 /* KegCopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KegCopTests-Info.plist"; sourceTree = "<group>"; };
 		EAA33D771588612600826A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -246,9 +250,13 @@
 		EA9D25DF1767A24E00B277ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EA9D25E01767A24E00B277ED /* KegCop.entitlements */,
-				EA9D25E11767A24E00B277ED /* pics */,
+				EA9D26421767B7F000B277ED /* BUGS */,
+				EA9D26431767B7F000B277ED /* CHANGES */,
+				EA9D26441767B7F000B277ED /* CREDITS */,
+				EA9D26451767B7F000B277ED /* LICENSE.txt */,
+				EA9D26461767B7F000B277ED /* README.md */,
 				EA9D260D1767A24E00B277ED /* scratchpad.txt */,
+				EA9D25E11767A24E00B277ED /* pics */,
 				EA9D260E1767A24E00B277ED /* sounds */,
 			);
 			name = Resources;
@@ -263,7 +271,7 @@
 				EA9D25E41767A24E00B277ED /* Default-Portrait~ipad.png */,
 				EA9D25E51767A24E00B277ED /* Default.png */,
 				EA9D263B1767AA6600B277ED /* Default.png */,
-				EA9D25E61767A24E00B277ED /* Default@2x.png */,
+				EA9D26401767B5C900B277ED /* Default@2x.png */,
 				EA9D25E71767A24E00B277ED /* FlowMeter */,
 				EA9D25EE1767A24E00B277ED /* icon */,
 				EA9D26001767A24E00B277ED /* icon114x114_flat.png */,
@@ -560,7 +568,6 @@
 				EAEFEE9E157B296B00C666D5 /* InfoPlist.strings in Resources */,
 				EAEFEEA7157B296B00C666D5 /* iPhone.storyboard in Resources */,
 				EA9D25CF1766D12400B277ED /* KegCop.entitlements in Resources */,
-				EA9D26101767A24E00B277ED /* KegCop.entitlements in Resources */,
 				EA9D26141767A24E00B277ED /* Default.png in Resources */,
 				EA9D26161767A24E00B277ED /* flow_at_symbol.png in Resources */,
 				EA9D26171767A24E00B277ED /* flow_background.png in Resources */,
@@ -597,6 +604,7 @@
 				EA9D26381767A24E00B277ED /* retina4inch.png in Resources */,
 				EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */,
 				EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */,
+				EA9D26411767B5C900B277ED /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

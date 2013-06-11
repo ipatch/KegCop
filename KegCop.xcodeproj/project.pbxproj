@@ -22,11 +22,12 @@
 		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
 		EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */; };
 		EA9D25CF1766D12400B277ED /* KegCop.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25CE1766D12400B277ED /* KegCop.entitlements */; };
+		EA9D25DB1766DD4A00B277ED /* icon57x57_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25DA1766DD4A00B277ED /* icon57x57_flat.png */; };
+		EA9D25DE1766DE7300B277ED /* KegCop.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25DD1766DE7300B277ED /* KegCop.entitlements */; };
 		EAA33D711588612600826A02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAA33D721588612600826A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAA33D781588612600826A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D761588612600826A02 /* InfoPlist.strings */; };
 		EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D7A1588612600826A02 /* KegCopTests.m */; };
-		EAA33D7F158EE6B000031D96 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D7E158EE6B000031D96 /* Resources */; };
 		EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA33D831588AA9100826A02 /* SenTestingKit.framework */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB1205F175576B7003035C3 /* KBFlowIndicator.m */; };
@@ -91,13 +92,14 @@
 		EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerCheckFlow.h; path = Controllers/ViewControllerCheckFlow.h; sourceTree = "<group>"; };
 		EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerCheckFlow.m; path = Controllers/ViewControllerCheckFlow.m; sourceTree = "<group>"; };
 		EA9D25CE1766D12400B277ED /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
+		EA9D25DA1766DD4A00B277ED /* icon57x57_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57x57_flat.png; path = Resources/pics/icon57x57_flat.png; sourceTree = SOURCE_ROOT; };
+		EA9D25DD1766DE7300B277ED /* KegCop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = file; path = KegCop.entitlements; sourceTree = "<group>"; };
 		EAA33D6E1588612600826A02 /* KegCopTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KegCopTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA33D751588612600826A02 /* KegCopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KegCopTests-Info.plist"; sourceTree = "<group>"; };
 		EAA33D771588612600826A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAA33D791588612600826A02 /* KegCopTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KegCopTests.h; sourceTree = "<group>"; };
 		EAA33D7A1588612600826A02 /* KegCopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KegCopTests.m; sourceTree = "<group>"; };
 		EAA33D7C1588612600826A02 /* KegCopTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCopTests-Prefix.pch"; sourceTree = "<group>"; };
-		EAA33D7E158EE6B000031D96 /* Resources */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = Resources; path = ../Resources; sourceTree = "<group>"; };
 		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EAA51B131598385B00D0D777 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EAB1205E175576B7003035C3 /* KBFlowIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBFlowIndicator.h; path = Views/KBFlowIndicator.h; sourceTree = "<group>"; };
@@ -166,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA9D25DC1766DDAC00B277ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EA9D25DD1766DE7300B277ED /* KegCop.entitlements */,
+				EA9D25DA1766DD4A00B277ED /* icon57x57_flat.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EAA33D731588612600826A02 /* KegCopApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +218,9 @@
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
+				EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */,
 				EAEFEE99157B296B00C666D5 /* Classes */,
+				EA9D25DC1766DDAC00B277ED /* Resources */,
 				EAA33D731588612600826A02 /* KegCopApplicationTests */,
 				EAEFEE92157B296B00C666D5 /* Frameworks */,
 				EAEFEE90157B296B00C666D5 /* Products */,
@@ -252,26 +265,16 @@
 				EABE1D821582E99200FF9FA0 /* AccountBase.m */,
 				EABE1D721581C9B700FF9FA0 /* Account.h */,
 				EABE1D731581C9B700FF9FA0 /* Account.m */,
+				EAEFEE9F157B296B00C666D5 /* main.m */,
+				EA9D25CE1766D12400B277ED /* KegCop.entitlements */,
+				EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */,
+				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
+				EA58163915980B6900920AAF /* KegCop-Info.plist */,
 				EAFD9304169420B20043898C /* Models */,
 				EAFD930316941FFB0043898C /* Controllers */,
 				EAFD930216941FE10043898C /* Views */,
-				EAEFEE9A157B296B00C666D5 /* Supporting Files */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		EAEFEE9A157B296B00C666D5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EA9D25CE1766D12400B277ED /* KegCop.entitlements */,
-				EAA33D7E158EE6B000031D96 /* Resources */,
-				EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */,
-				EA58163915980B6900920AAF /* KegCop-Info.plist */,
-				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
-				EAEFEE9F157B296B00C666D5 /* main.m */,
-				EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		EAFD930216941FE10043898C /* Views */ = {
@@ -408,8 +411,9 @@
 			files = (
 				EAEFEE9E157B296B00C666D5 /* InfoPlist.strings in Resources */,
 				EAEFEEA7157B296B00C666D5 /* iPhone.storyboard in Resources */,
-				EAA33D7F158EE6B000031D96 /* Resources in Resources */,
 				EA9D25CF1766D12400B277ED /* KegCop.entitlements in Resources */,
+				EA9D25DB1766DD4A00B277ED /* icon57x57_flat.png in Resources */,
+				EA9D25DE1766DE7300B277ED /* KegCop.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

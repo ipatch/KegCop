@@ -49,8 +49,11 @@
 - (void)kegProcessing:(KBKegProcessing *)kegProcessing didUpdatePourWithAmount:(double)amount flowRate:(double)flowRate;
 @end
 
+/*!
+ Class that provides a layer between a direct communication with a Kegboard (KBKegboard) and the application. In this class it's appropriate to process the data coming from a Kegboard in a way that is more usable by the rest of the application.
+ */
 @interface KBKegProcessing : NSObject <KBKegboardDelegate> {
-    
+
     // capin - commented below line of code for ARC compliance
     // ref = http://stackoverflow.com/questions/8138902/existing-ivar-delegate-for-unsafe-unretained-property-delegate-must-be-un
     // id<KBKegProcessingDelegate> _delegate;
@@ -69,8 +72,12 @@
     BOOL _hasVolume;
 }
 
-@property (assign, nonatomic) id<KBKegProcessingDelegate> delegate;
+@property (weak, nonatomic) id<KBKegProcessingDelegate> delegate;
 @property (readonly, nonatomic) double flowRate;
 @property (readonly, nonatomic) double pourVolume;
+
+- (void)pingKegboard;
+
+- (void)setKegboardOutputId:(NSInteger)outputId enabled:(BOOL)enabled;
 
 @end

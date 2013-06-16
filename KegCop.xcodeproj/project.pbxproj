@@ -272,8 +272,7 @@
 				EA9D25E11767A24E00B277ED /* pics */,
 				EA9D260E1767A24E00B277ED /* sounds */,
 			);
-			name = Resources;
-			path = ../Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EA9D25E11767A24E00B277ED /* pics */ = {
@@ -395,6 +394,7 @@
 			children = (
 				EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */,
 				EAEFEE99157B296B00C666D5 /* Classes */,
+				EA9D25DF1767A24E00B277ED /* Resources */,
 				EAA33D731588612600826A02 /* KegCopApplicationTests */,
 				EAEFEE92157B296B00C666D5 /* Frameworks */,
 				EAEFEE90157B296B00C666D5 /* Products */,
@@ -447,7 +447,6 @@
 				EAFD9304169420B20043898C /* Models */,
 				EAFD930316941FFB0043898C /* Controllers */,
 				EAFD930216941FE10043898C /* Views */,
-				EA9D25DF1767A24E00B277ED /* Resources */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

@@ -18,11 +18,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
-
-// TODO(johnb): implement message sending. This will allow us to reset the flow count in software
-// when we install a new keg. This way we could maintain state even if the iPad is disconnected
-// from the keg.
-//
 // TODO - capin
 // - figure out why "KBKegboardMessage.h" import statment has an error - COMPLETE
 // - #import "KBKegboardMessage.h" fixed :)
@@ -47,6 +42,9 @@
 - (void)kegboard:(KBKegboard *)kegboard didReceiveAuthToken:(KBKegboardMessageAuthToken *)message;
 @end
 
+/*!
+ Handles communication to and from the Kegboard via a serial connection.
+ */
 @interface KBKegboard : NSObject {
     
     // capin - commented below line of code for ARC compliance
@@ -56,10 +54,14 @@
     NSThread *_readLoopThread;
 }
 
-@property (assign, nonatomic) id<KBKegboardDelegate> delegate;
+@property (weak, nonatomic) id<KBKegboardDelegate> delegate;
 
-- (id)initWithDelegate:(id<KBKegboardDelegate>)delegate;
+- (id)initWithDelegate:(__weak id<KBKegboardDelegate>)delegate;
 
 - (void)start;
+
+- (void)pingKegboard;
+
+- (void)setKegboardOutputId:(NSInteger)outputId enabled:(BOOL)enabled;
 
 @end

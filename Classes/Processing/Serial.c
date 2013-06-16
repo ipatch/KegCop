@@ -76,3 +76,7 @@ void sleeperRead(int fileDescriptor, char *data, int length) {
      }
      */
 }
+
+void sendMessage(int fileDescriptor, char *data, int length) {
+    write(fileDescriptor, data, length);
+}

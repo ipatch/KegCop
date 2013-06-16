@@ -25,12 +25,10 @@
 
 #import "KBKegboard.h"
 #import "crc16ccitt.h"
+#import "KBKegboardCommand.h"
+#import "KBKegboardUtils.h"
 
 @implementation KBKegboard
-
-// figure out why the below statement has an error
-
-@synthesize delegate=_delegate;
 
 static NSInteger gFileDescriptor;
 
@@ -65,10 +63,6 @@ static NSInteger gFileDescriptor;
 
 - (void)dealloc {
     close(gFileDescriptor);
-    
-    // commented the the statement below for ARC compliance
-    
-    //[super dealloc];
 }
 
 - (void)notifyDelegate:(KBKegboardMessage *)message {
@@ -97,14 +91,10 @@ static NSInteger gFileDescriptor;
 
 - (void)readLoop {
 //    KBDebug(@"Initializing Read Loop");
-    // Pool is never released since it lasts the whole life of the app
-    
-    // commented the the statement below for ARC compliance
-    //NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
+  @autoreleasepool {
     // Directly ported from PyKeg to ObjectiveC
     char headerBytes[4];
-    char payload[KBSP_PAYLOAD_MAXLEN];
+    char payload[KBSP_PAYLOAD_MAXLENGTH];
     char crc[2];
     char trailer[2];
     crc_t calculatedCRC;
@@ -115,7 +105,7 @@ static NSInteger gFileDescriptor;
         BOOL loggedFrameError = NO;
         NSInteger headerPosition = 0;
         calculatedCRC = crc_init();
-        while (headerPosition < KBSP_PREFIX_LENGTH) {
+        while (headerPosition < kKBSP_HEADER_PREFIX_SIZE) {
             char byte;
             sleeperRead(gFileDescriptor, &byte, 1);
             if (headerPosition == 0) {
@@ -148,9 +138,9 @@ static NSInteger gFileDescriptor;
         // Read message type and message length
         sleeperRead(gFileDescriptor, headerBytes, 4);
         calculatedCRC = crc_update(calculatedCRC, (unsigned char *)headerBytes, 4);
-        NSInteger messageId = [KBKegboardMessage parseUInt16:headerBytes];
-        NSInteger messageLength = [KBKegboardMessage parseUInt16:&headerBytes[2]];
-        if (messageLength > KBSP_PAYLOAD_MAXLEN) {
+        NSInteger messageId = [KBKegboardUtils parseUInt16:headerBytes];
+        NSInteger messageLength = [KBKegboardUtils parseUInt16:&headerBytes[2]];
+        if (messageLength > KBSP_PAYLOAD_MAXLENGTH) {
 //            KBDebug(@"Bogus message length (%d), skipping message", messageLength);
             continue;
         }
@@ -161,7 +151,7 @@ static NSInteger gFileDescriptor;
         sleeperRead(gFileDescriptor, crc, 2);
         sleeperRead(gFileDescriptor, trailer, 2);
         
-        crc_t sentCRC = [KBKegboardMessage parseUInt16:crc];
+        crc_t sentCRC = [KBKegboardUtils parseUInt16:crc];
         if (calculatedCRC != sentCRC) {
             NSLog(@"ERROR: Bad CRC: Calculated crc is %X while sent crc is %X", calculatedCRC, sentCRC);
             continue;
@@ -178,9 +168,17 @@ static NSInteger gFileDescriptor;
         // Notify delegate of message
         [self performSelectorOnMainThread:@selector(notifyDelegate:) withObject:kegboardMessage waitUntilDone:NO];
     }
-    // Putting this here for symmetry and to surpress warning message
-    // capin - commented the the statement below for ARC compliance
-    //[pool release];
+  }
+}
+
+- (void)pingKegboard {
+    KBKegboardCommandPing *kegboardCommandPing = [KBKegboardCommandPing kegboardCommandPing];
+    sendMessage(gFileDescriptor, [kegboardCommandPing bytes], [kegboardCommandPing length]);
+}
+
+- (void)setKegboardOutputId:(NSInteger)outputId enabled:(BOOL)enabled {
+    KBKegboardCommandSetOutput *kegboardCommandSetOutput = [KBKegboardCommandSetOutput kegboardCommandSetOutputWithOutputId:outputId outputMode:(enabled ? KBKegboardOutputTypeEnabled : KBKegboardOutputTypeDisabled)];
+    sendMessage(gFileDescriptor, [kegboardCommandSetOutput bytes], [kegboardCommandSetOutput length]);    
 }
 
 @end

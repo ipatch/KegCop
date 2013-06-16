@@ -19,6 +19,13 @@
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
 
+/*!
+ C-style utility methods for communicating through the serial port. Really this is just a wrapper for the normal POSIX serial port functions. It doesn't do a whole lot. In the future it'd make sense to blow away Serial.h and Serial.c and use a more appropriate Objective-C wrapper. Or just roll this into KBKegboard.
+ */
+
 NSInteger openPort(char *portName, NSInteger baudRate);
 
 void sleeperRead(int fileDescriptor, char *data, int length);
+
+//! Super simple method to send data out the serial port. Really it's just a wrapper for write(). Feel free to replace with something better.
+void sendMessage(int fileDescriptor, char *data, int length);

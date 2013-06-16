@@ -1,0 +1,19 @@
+KegCop.xcodeproj/project.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate
+
+# Exclude OS X folder attributes - recursively
+*.DS_Store
+
+# Exclude the .gitignore file from being uploaded to the trunk
+.gitignore
+
+# Exclude the build folder directory - Xcode 4.x
+DerivedData
+
+# Exclude the shortcut for the build folder
+app
+
+# Exclude repo update script
+repoupdate.sh
+
+# Exclude XCode breakpoint file
+KegCop.xcodeproj/xcuserdata/capin.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist

@@ -64,6 +64,14 @@
     return _lastVolume - _pourStartVolume;
 }
 
+- (void)pingKegboard {
+    [_kegboard pingKegboard];
+}
+
+- (void)setKegboardOutputId:(NSInteger)outputId enabled:(BOOL)enabled {
+    [_kegboard setKegboardOutputId:outputId enabled:enabled];
+}
+
 #pragma mark Delegates (KBKegboard)
 
 - (void)kegboard:(KBKegboard *)kegboard didReceiveHello:(KBKegboardMessageHello *)message {

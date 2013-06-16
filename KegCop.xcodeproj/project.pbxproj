@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		422CA689176B703A00C6C918 /* KBKegboardCommandTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */; };
+		422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */; };
+		422CA68D176B7D7800C6C918 /* KBKegboardCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */; };
+		422CA690176D807D00C6C918 /* KBKegboardMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */; };
+		422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
+		422CA694176D85CE00C6C918 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
+		422CA695176D8A2400C6C918 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
 		EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1890361585F7E7003A64FC /* ViewControllerAbout.m */; };
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
@@ -46,8 +53,6 @@
 		EA9D262A1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FD1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png */; };
 		EA9D262B1767A24E00B277ED /* launch320x480_ds.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FE1767A24E00B277ED /* launch320x480_ds.png */; };
 		EA9D262C1767A24E00B277ED /* launchRetina_ds.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FF1767A24E00B277ED /* launchRetina_ds.png */; };
-		EA9D262D1767A24E00B277ED /* icon114x114_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26001767A24E00B277ED /* icon114x114_flat.png */; };
-		EA9D262E1767A24E00B277ED /* icon57x57_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26011767A24E00B277ED /* icon57x57_flat.png */; };
 		EA9D262F1767A24E00B277ED /* kegcop-login.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26021767A24E00B277ED /* kegcop-login.png */; };
 		EA9D26301767A24E00B277ED /* kegcop-multiWelcome.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26031767A24E00B277ED /* kegcop-multiWelcome.png */; };
 		EA9D26311767A24E00B277ED /* launch-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26041767A24E00B277ED /* launch-retina.png */; };
@@ -100,6 +105,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardCommandTest.m; sourceTree = "<group>"; };
+		422CA68A176B7D7800C6C918 /* KBKegboardCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardCommand.h; path = Processing/KBKegboardCommand.h; sourceTree = "<group>"; };
+		422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardCommand.m; path = Processing/KBKegboardCommand.m; sourceTree = "<group>"; };
+		422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardMessageTest.m; sourceTree = "<group>"; };
+		422CA691176D85CD00C6C918 /* KBKegboardUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardUtils.h; path = Processing/KBKegboardUtils.h; sourceTree = "<group>"; };
+		422CA692176D85CE00C6C918 /* KBKegboardUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardUtils.m; path = Processing/KBKegboardUtils.m; sourceTree = "<group>"; };
 		EA1890351585F7E7003A64FC /* ViewControllerAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAbout.h; path = Controllers/ViewControllerAbout.h; sourceTree = "<group>"; };
 		EA1890361585F7E7003A64FC /* ViewControllerAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAbout.m; path = Controllers/ViewControllerAbout.m; sourceTree = "<group>"; };
 		EA1890391585F890003A64FC /* ViewControllerCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerCreate.h; path = Controllers/ViewControllerCreate.h; sourceTree = "<group>"; };
@@ -228,6 +239,7 @@
 				EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */,
 				EAA33D711588612600826A02 /* UIKit.framework in Frameworks */,
 				EAA33D721588612600826A02 /* Foundation.framework in Frameworks */,
+				422CA695176D8A2400C6C918 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +352,8 @@
 				EAA33D791588612600826A02 /* KegCopTests.h */,
 				EAA33D7A1588612600826A02 /* KegCopTests.m */,
 				EAA33D741588612600826A02 /* Supporting Files */,
+				422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */,
+				422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */,
 			);
 			name = KegCopApplicationTests;
 			path = KegCopTests;
@@ -368,6 +382,10 @@
 				EAB453AE1755528E00F6DA69 /* Serial.c */,
 				EAB453B01755533500F6DA69 /* crc16ccitt.h */,
 				EAB453B1175553C800F6DA69 /* crc16ccitt.c */,
+				422CA68A176B7D7800C6C918 /* KBKegboardCommand.h */,
+				422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */,
+				422CA691176D85CD00C6C918 /* KBKegboardUtils.h */,
+				422CA692176D85CE00C6C918 /* KBKegboardUtils.m */,
 			);
 			name = Processing;
 			sourceTree = "<group>";
@@ -593,8 +611,6 @@
 				EA9D262A1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png in Resources */,
 				EA9D262B1767A24E00B277ED /* launch320x480_ds.png in Resources */,
 				EA9D262C1767A24E00B277ED /* launchRetina_ds.png in Resources */,
-				EA9D262D1767A24E00B277ED /* icon114x114_flat.png in Resources */,
-				EA9D262E1767A24E00B277ED /* icon57x57_flat.png in Resources */,
 				EA9D262F1767A24E00B277ED /* kegcop-login.png in Resources */,
 				EA9D26301767A24E00B277ED /* kegcop-multiWelcome.png in Resources */,
 				EA9D26311767A24E00B277ED /* launch-retina.png in Resources */,
@@ -662,6 +678,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */,
+				422CA689176B703A00C6C918 /* KBKegboardCommandTest.m in Sources */,
+				422CA68D176B7D7800C6C918 /* KBKegboardCommand.m in Sources */,
+				422CA690176D807D00C6C918 /* KBKegboardMessageTest.m in Sources */,
+				422CA694176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +716,8 @@
 				EAB453B81755552700F6DA69 /* KBKegboard.m in Sources */,
 				EAB453BB175555B700F6DA69 /* KBKegboardMessage.m in Sources */,
 				EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */,
+				422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */,
+				422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

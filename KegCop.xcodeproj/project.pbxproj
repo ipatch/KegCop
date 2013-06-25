@@ -17,7 +17,6 @@
 		EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1890361585F7E7003A64FC /* ViewControllerAbout.m */; };
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
-		EA1E87B5157C9A51002C945B /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */; };
 		EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */; };
 		EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283540159FC3910044B39C /* ViewControllerPurchase.m */; };
 		EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283544159FC4A20044B39C /* ViewControllerWebView.m */; };
@@ -25,6 +24,7 @@
 		EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */; };
 		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
 		EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EA59145B177A08040063BE99 /* ViewControllerDev2.m */; };
+		EA591462177A220A0063BE99 /* ViewControllerUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = EA591461177A220A0063BE99 /* ViewControllerUsers.m */; };
 		EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */; };
 		EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */; };
 		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
@@ -83,6 +83,7 @@
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D821582E99200FF9FA0 /* AccountBase.m */; };
 		EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */; };
+		EACD704D177A4EE800A13B91 /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */; };
 		EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
@@ -117,7 +118,6 @@
 		EA1890391585F890003A64FC /* ViewControllerCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerCreate.h; path = Controllers/ViewControllerCreate.h; sourceTree = "<group>"; };
 		EA18903A1585F890003A64FC /* ViewControllerCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerCreate.m; path = Controllers/ViewControllerCreate.m; sourceTree = "<group>"; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		EA1E87B4157C9A51002C945B /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
 		EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerLogs.h; path = Controllers/ViewControllerLogs.h; sourceTree = "<group>"; };
 		EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerLogs.m; path = Controllers/ViewControllerLogs.m; sourceTree = "<group>"; };
 		EA28353F159FC3910044B39C /* ViewControllerPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerPurchase.h; path = Controllers/ViewControllerPurchase.h; sourceTree = "<group>"; };
@@ -133,6 +133,8 @@
 		EA58163915980B6900920AAF /* KegCop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KegCop-Info.plist"; sourceTree = "<group>"; };
 		EA59145A177A08040063BE99 /* ViewControllerDev2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev2.h; sourceTree = "<group>"; };
 		EA59145B177A08040063BE99 /* ViewControllerDev2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev2.m; sourceTree = "<group>"; };
+		EA591460177A220A0063BE99 /* ViewControllerUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerUsers.h; path = Controllers/ViewControllerUsers.h; sourceTree = "<group>"; };
+		EA591461177A220A0063BE99 /* ViewControllerUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerUsers.m; path = Controllers/ViewControllerUsers.m; sourceTree = "<group>"; };
 		EA5AAD1815D9D92F006EDCBF /* ViewControllerDev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerDev.h; path = Controllers/ViewControllerDev.h; sourceTree = "<group>"; };
 		EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerDev.m; path = Controllers/ViewControllerDev.m; sourceTree = "<group>"; };
 		EA5AAD2115DC84EB006EDCBF /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		EABE1D821582E99200FF9FA0 /* AccountBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountBase.m; sourceTree = "<group>"; };
 		EABE1D8D158498D800FF9FA0 /* ModelWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelWelcome.h; path = Models/ModelWelcome.h; sourceTree = "<group>"; };
 		EABE1D8E158498D800FF9FA0 /* ModelWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelWelcome.m; path = Models/ModelWelcome.m; sourceTree = "<group>"; };
+		EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
 		EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerSerialConsole.h; path = Controllers/ViewControllerSerialConsole.h; sourceTree = "<group>"; };
 		EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerSerialConsole.m; path = Controllers/ViewControllerSerialConsole.m; sourceTree = "<group>"; };
 		EAEFEE8F157B296B00C666D5 /* KegCop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KegCop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +269,7 @@
 		EA9D25DF1767A24E00B277ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */,
 				EA9D26421767B7F000B277ED /* BUGS */,
 				EA9D26431767B7F000B277ED /* CHANGES */,
 				EA9D26441767B7F000B277ED /* CREDITS */,
@@ -395,7 +399,6 @@
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
-				EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */,
 				EAEFEE99157B296B00C666D5 /* Classes */,
 				EA9D25DF1767A24E00B277ED /* Resources */,
 				EAA33D731588612600826A02 /* KegCopApplicationTests */,
@@ -477,6 +480,8 @@
 				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
 				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
 				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
+				EA591460177A220A0063BE99 /* ViewControllerUsers.h */,
+				EA591461177A220A0063BE99 /* ViewControllerUsers.m */,
 				EA5AAD1815D9D92F006EDCBF /* ViewControllerDev.h */,
 				EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */,
 				EA59145A177A08040063BE99 /* ViewControllerDev2.h */,
@@ -696,7 +701,6 @@
 				EAEFEEA0157B296B00C666D5 /* main.m in Sources */,
 				EAEFEEA4157B296B00C666D5 /* AppDelegate.m in Sources */,
 				EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */,
-				EA1E87B5157C9A51002C945B /* Accounts.xcdatamodeld in Sources */,
 				EABE1D741581C9B700FF9FA0 /* Account.m in Sources */,
 				EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */,
 				EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */,
@@ -723,6 +727,8 @@
 				422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */,
 				422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,
 				EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */,
+				EA591462177A220A0063BE99 /* ViewControllerUsers.m in Sources */,
+				EACD704D177A4EE800A13B91 /* Accounts.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,14 +955,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EA1E87B3157C9A51002C945B /* Accounts.xcdatamodeld */ = {
+		EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EA1E87B4157C9A51002C945B /* Accounts.xcdatamodel */,
+				EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */,
 			);
-			currentVersion = EA1E87B4157C9A51002C945B /* Accounts.xcdatamodel */;
-			name = Accounts.xcdatamodeld;
-			sourceTree = SOURCE_ROOT;
+			currentVersion = EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */;
+			path = Accounts.xcdatamodeld;
+			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

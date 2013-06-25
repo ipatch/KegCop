@@ -1,3 +1,8 @@
+2013-06-25
+
+    * Xcode doesn't show the xcdatamodel view when selecting Accounts.xcdatamodeld file in the project navigator
+    * Acccounts.xcdatamodel should now be displaying the project navigator :)
+
 2013-06-16
 
     * fixed flow indicator screen.

@@ -1,3 +1,9 @@
+2013-06-25
+
+    * added dev2 scene for more development functionality.
+    * must login as root to access dev2 scene.
+    * begin to add feature so users can change pin.
+
 2013-06-16
 
     * merged in John B changes to master branch for testing :)

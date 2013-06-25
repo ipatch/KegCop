@@ -598,25 +598,20 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <tabBar contentMode="scaleToFill" id="u68-rP-Trh">
+                                <rect key="frame" x="-1" y="408" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Accounts" id="Du3-3S-qNh"/>
+                                    <tabBarItem title="misc" id="PMh-AG-y7S"/>
+                                    <tabBarItem title="dev" id="b8s-ji-V2u"/>
+                                </items>
+                            </tabBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ydc-B7-xIE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0QR-Ru-RO5" userLabel="Button - Background">
-                                        <rect key="frame" x="0.0" y="1" width="321" height="460"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                        <state key="normal">
-                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="dismissKeyboard:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="pke-iZ-XpY"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome, root" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="sWg-p4-n4b">
                                         <rect key="frame" x="9" y="5" width="128" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -683,7 +678,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="O3f-5U-7Gk">
-                                        <rect key="frame" x="183" y="322" width="101" height="37"/>
+                                        <rect key="frame" x="183" y="294" width="101" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Add Credit">
@@ -698,7 +693,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H79-CO-8WS">
-                                        <rect key="frame" x="9" y="387" width="59" height="37"/>
+                                        <rect key="frame" x="9" y="359" width="59" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Logout">
@@ -713,33 +708,33 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" id="B1Q-bB-1Yk">
-                                        <rect key="frame" x="20" y="328" width="97" height="31"/>
+                                        <rect key="frame" x="20" y="300" width="97" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="credit" minimumFontSize="17" id="gW9-nu-mzq">
-                                        <rect key="frame" x="125" y="328" width="50" height="31"/>
+                                        <rect key="frame" x="125" y="300" width="50" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eNw-nW-NbY">
-                                        <rect key="frame" x="28" y="358" width="89" height="21"/>
+                                        <rect key="frame" x="28" y="330" width="89" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="root has X credits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="1Fk-0b-ufl">
-                                        <rect key="frame" x="152" y="358" width="140" height="21"/>
+                                        <rect key="frame" x="152" y="330" width="140" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hza-Dc-w7A">
-                                        <rect key="frame" x="216" y="387" width="44" height="37"/>
+                                        <rect key="frame" x="216" y="359" width="44" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Logs">
@@ -754,7 +749,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x4t-7T-pkp">
-                                        <rect key="frame" x="116" y="387" width="50" height="37"/>
+                                        <rect key="frame" x="116" y="359" width="50" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="CF">
@@ -769,7 +764,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c3I-at-Mca">
-                                        <rect key="frame" x="168" y="387" width="45" height="37"/>
+                                        <rect key="frame" x="168" y="359" width="45" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="SC">
@@ -784,7 +779,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RBf-u8-jBj">
-                                        <rect key="frame" x="70" y="387" width="44" height="37"/>
+                                        <rect key="frame" x="70" y="359" width="44" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="RFID">
@@ -796,7 +791,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="avR-R6-HQ9">
-                                        <rect key="frame" x="264" y="387" width="41" height="37"/>
+                                        <rect key="frame" x="264" y="359" width="41" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="dev">
@@ -811,7 +806,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JiD-Gv-PzG">
-                                        <rect key="frame" x="20" y="277" width="38" height="44"/>
+                                        <rect key="frame" x="20" y="249" width="38" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="FI">
@@ -1017,6 +1012,22 @@
                                     <action selector="openValve:" destination="VHb-jM-E5J" eventType="touchUpInside" id="UMM-Uq-K4K"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9Jy-vN-1wj">
+                                <rect key="frame" x="182" y="285" width="118" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="{open_valve}">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openValve:" destination="VHb-jM-E5J" eventType="touchUpInside" id="v12-b6-Pit"/>
+                                    <action selector="open_Valve:" destination="VHb-jM-E5J" eventType="touchUpInside" id="r4N-fa-iDS"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Avs-zY-rhz">
                                 <rect key="frame" x="16" y="336" width="106" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1042,6 +1053,11 @@
                                                 <action selector="dimissScene:" destination="VHb-jM-E5J" id="K60-PX-7uS"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="dev2" id="xRh-Xp-K6X">
+                                            <connections>
+                                                <action selector="showDev2scene:" destination="VHb-jM-E5J" id="lQ5-eo-qC5"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1053,6 +1069,8 @@
                         <outlet property="btnBlink" destination="Avs-zY-rhz" id="uQA-sM-W6t"/>
                         <outlet property="btnDone" destination="lRK-nK-ElI" id="104-Yk-HK6"/>
                         <outlet property="btnValve" destination="ark-i8-Zcr" id="lHM-sQ-ndO"/>
+                        <outlet property="btnValve2" destination="9Jy-vN-1wj" id="DfJ-hu-c9m"/>
+                        <outlet property="btndev2" destination="xRh-Xp-K6X" id="cNe-YB-Jyr"/>
                         <outlet property="lbl" destination="ISb-Me-Xpd" id="WLA-Bs-Hoi"/>
                         <outlet property="tf" destination="cof-B0-9pE" id="eS8-Qa-aZt"/>
                     </connections>
@@ -1060,6 +1078,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcB-FN-iIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1474" y="-998"/>
+        </scene>
+        <!--View Controller Dev2-->
+        <scene sceneID="dyw-ss-z1X">
+            <objects>
+                <viewController storyboardIdentifier="dev2" id="lV2-D8-flx" customClass="ViewControllerDev2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HLu-dv-a5d">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="nDR-6d-yPw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="dev2" id="S9t-44-5VS">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="kcd-PT-sov">
+                                            <connections>
+                                                <action selector="dismissScene:" destination="lV2-D8-flx" id="QDG-x0-0kw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnDone" destination="kcd-PT-sov" id="tYW-3a-hll"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tst-cL-4eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810" y="-1003"/>
         </scene>
         <!--View Controller Serial Console-->
         <scene sceneID="BJa-xT-q7Z">
@@ -1638,6 +1688,219 @@
         <image name="flow_needle.png" width="11" height="142"/>
         <image name="flow_shadow.png" width="282" height="282"/>
     </resources>
+    <classes>
+        <class className="KBFlowIndicator" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KBFlowIndicator.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissScene:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="fillView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="flowLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="needleView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="volumeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerAbout" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerAbout.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissAboutScene:"/>
+                <relationship kind="outlet" name="buildnumber" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createdaccounts" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerCheckFlow" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCheckFlow.h"/>
+            <relationships>
+                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerCreate" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerCreate.h"/>
+            <relationships>
+                <relationship kind="action" name="createAccount:"/>
+                <relationship kind="action" name="dismissCreateScene:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="next:"/>
+                <relationship kind="action" name="prev:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="createAccountSuccess" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEmailNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createEmailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPhoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPhoneNumberNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createPinNotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createPinReTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createPinTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="createScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="createSubmit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="createUNnotValid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="createUserTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerDev" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerDev.h"/>
+            <relationships>
+                <relationship kind="action" name="blinkFlow_A_LED:"/>
+                <relationship kind="action" name="dimissScene:"/>
+                <relationship kind="action" name="openValve:"/>
+                <relationship kind="action" name="open_Valve:"/>
+                <relationship kind="action" name="showDev2scene:"/>
+                <relationship kind="action" name="submit:"/>
+                <relationship kind="outlet" name="btn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnBlink" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnValve" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnValve2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btndev2" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="lbl" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tf" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerDev2" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerDev2.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissScene:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerForgot" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerForgot.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="dismissScene:"/>
+                <relationship kind="outlet" name="btnCancel" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="forgotEmailInvalid" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="forgotEmailSent" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textFieldEmailReset" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerHome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerHome.h"/>
+            <relationships>
+                <relationship kind="action" name="addRFID:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="drinkBeer:"/>
+                <relationship kind="action" name="logout:"/>
+                <relationship kind="action" name="removeAccount"/>
+                <relationship kind="action" name="tradeCredit:"/>
+                <relationship kind="outlet" name="btnAddRFID" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnTradeCredit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btndrinkbeer" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="creditX" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="homeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="lblTradeCredit" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblUSERNAME" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tfUsername" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerLogs" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerLogs.h"/>
+            <relationships>
+                <relationship kind="action" name="btnPressed:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="logWindow" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerPurchase" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerPurchase.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="purchase:"/>
+                <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerRootHome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerRootHome.h"/>
+            <relationships>
+                <relationship kind="action" name="addCredit:"/>
+                <relationship kind="action" name="checkFlow:"/>
+                <relationship kind="action" name="deleteAccount:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="displayAccount:"/>
+                <relationship kind="action" name="displayEmail:"/>
+                <relationship kind="action" name="logout:"/>
+                <relationship kind="action" name="rfidOnOff"/>
+                <relationship kind="action" name="saveMasterEmail"/>
+                <relationship kind="action" name="showDev:"/>
+                <relationship kind="action" name="showFlowIndicator:"/>
+                <relationship kind="action" name="showLogs:"/>
+                <relationship kind="action" name="showSerialConsole:"/>
+                <relationship kind="action" name="testArduinoConnection:"/>
+                <relationship kind="outlet" name="btnAddCredit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnCheckFlow" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDeleteAccount" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDisplayAccount" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnDisplayEmail" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnFlowIndicator" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnLogs" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnSerialConsole" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btndev" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblArduinoBad" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblArduinoGood" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblCredit" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblRootCredit" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rootHomeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="switchRfid" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="tfCredit" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tfCreditUsername" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tfDeleteAccount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tvDisplayAccount" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerSerialConsole" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerSerialConsole.h"/>
+            <relationships>
+                <relationship kind="action" name="closeSerial:"/>
+                <relationship kind="action" name="donePressed:"/>
+                <relationship kind="action" name="openSerial:"/>
+                <relationship kind="action" name="sendString:"/>
+                <relationship kind="outlet" name="btnSend" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="serialView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textEntry" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerWebView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerWebView.h"/>
+            <relationships>
+                <relationship kind="action" name="dimissWebView:"/>
+                <relationship kind="outlet" name="btnDone" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ViewControllerWelcome" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewControllerWelcome.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="next:"/>
+                <relationship kind="action" name="prev:"/>
+                <relationship kind="action" name="processDev:"/>
+                <relationship kind="action" name="processLogin:"/>
+                <relationship kind="action" name="showAboutScreen:"/>
+                <relationship kind="action" name="showCreateScene:"/>
+                <relationship kind="action" name="showForgotScene:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
+                <relationship kind="outlet" name="btnCreate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="btnForgot" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dev" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="textFieldPin" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldUsername" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="toolBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="welcomeAbout" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="welcomeActivityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="welcomeLogin" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="welcomeScroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="wrongUserPin" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

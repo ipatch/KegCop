@@ -24,6 +24,7 @@
 		EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EA291BE5163B487500CE419E /* JailbrokenSerial.m */; };
 		EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */; };
 		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
+		EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EA59145B177A08040063BE99 /* ViewControllerDev2.m */; };
 		EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */; };
 		EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */; };
 		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
@@ -130,6 +131,8 @@
 		EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerRootHome.h; path = Controllers/ViewControllerRootHome.h; sourceTree = "<group>"; };
 		EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerRootHome.m; path = Controllers/ViewControllerRootHome.m; sourceTree = "<group>"; };
 		EA58163915980B6900920AAF /* KegCop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KegCop-Info.plist"; sourceTree = "<group>"; };
+		EA59145A177A08040063BE99 /* ViewControllerDev2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev2.h; sourceTree = "<group>"; };
+		EA59145B177A08040063BE99 /* ViewControllerDev2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev2.m; sourceTree = "<group>"; };
 		EA5AAD1815D9D92F006EDCBF /* ViewControllerDev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerDev.h; path = Controllers/ViewControllerDev.h; sourceTree = "<group>"; };
 		EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerDev.m; path = Controllers/ViewControllerDev.m; sourceTree = "<group>"; };
 		EA5AAD2115DC84EB006EDCBF /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
@@ -476,6 +479,8 @@
 				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
 				EA5AAD1815D9D92F006EDCBF /* ViewControllerDev.h */,
 				EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */,
+				EA59145A177A08040063BE99 /* ViewControllerDev2.h */,
+				EA59145B177A08040063BE99 /* ViewControllerDev2.m */,
 				EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */,
 				EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */,
 				EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */,
@@ -717,6 +722,7 @@
 				EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */,
 				422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */,
 				422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,
+				EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

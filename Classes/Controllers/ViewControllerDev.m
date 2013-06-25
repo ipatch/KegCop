@@ -42,6 +42,10 @@
     serial.debug = true;
     blink_text = [[NSMutableString alloc] initWithString:@"b"];
     blink_string_text = @"b";
+    
+    // initialize kegProcessing
+    kegProcessing = [[KBKegProcessing alloc] init];
+    
 }
 
 - (void)viewDidUnload
@@ -52,6 +56,7 @@
     [self setBtnValve:nil];
     [self setBtnBlink:nil];
     [self setBtnDone:nil];
+    [self setBtnValve2:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     //[serial nil];
@@ -126,19 +131,44 @@
     
     NSLog(@"Open valve btn pressed");
     
-    // open serial port / interface
+//    // open serial port / interface
+//    
+//    [serial open:B2400];
+//    if(serial.isOpened)
+//    {
+//        NSLog(@"Serial Port Opened");
+//    }
+//    else NSLog(@"Serial Port Closed");
+//    
+//    NSLog(@"%c", [serial isOpened]);
+//    
+//    // send serial data (tx)
+//    [serial write:@"{open_valve}"];
     
-    [serial open:B2400];
-    if(serial.isOpened)
-    {
-        NSLog(@"Serial Port Opened");
-    }
-    else NSLog(@"Serial Port Closed");
     
-    NSLog(@"%c", [serial isOpened]);
+    [kegProcessing setKegboardOutputId:0 enabled:YES];
     
-    // send serial data (tx)
-    [serial write:@"{open_valve}"];
+    NSLog(@"End of open valve method");
+}
+
+- (IBAction)open_Valve:(id)sender {
+    
+    
+       // open serial port / interface
+    
+        [serial open:B2400];
+        if(serial.isOpened)
+        {
+            NSLog(@"Serial Port Opened");
+        }
+        else NSLog(@"Serial Port Closed");
+    
+        NSLog(@"%c", [serial isOpened]);
+    
+        // send serial data (tx)
+        [serial write:@"{open_valve}"];
+    
+    
 }
 
 - (IBAction)blinkFlow_A_LED:(id)sender {
@@ -169,6 +199,19 @@
     
     [self dismissModalViewControllerAnimated:YES];
 }
+
+
+- (IBAction)showDev2scene:(id)sender {
+    
+    NSLog(@"dev2 button pressed");
+    
+    UIViewController *dev2 = [self.storyboard instantiateViewControllerWithIdentifier:@"dev2"];
+    [self presentModalViewController:dev2 animated:YES];
+    
+    
+    NSLog(@"dev2 button press End");
+}
+
 
 # pragma mark - JailbrokenSerialDelegate
 - (void) JailbrokenSerialReceived:(char)ch {

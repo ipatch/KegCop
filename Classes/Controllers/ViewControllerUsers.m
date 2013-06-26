@@ -14,7 +14,12 @@
 
 @implementation ViewControllerUsers
 
+// Core Data
+@synthesize managedObjectContext = _managedObjectContext;
+
 @synthesize uiPickerViewUsers = _uiPickerViewUsers;
+
+@synthesize usernames = _usernames;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,44 +35,44 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // Core Data
+    if (_managedObjectContext == nil)
+    {
+        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+    }
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
     
-    NSString *root = [[NSBundle mainBundle] bundlePath];
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
-    NSArray *dirContents = [fileMgr contentsOfDirectoryAtPath:root error:nil];
-//    NSPredicate *userNames = [NSPredicate predicateWithFormat:]
-//    
-//    // CORE DATA
-//    // setup up the fetch request
-//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//    
-//    // define our table / entity to use
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
-//    [request setEntity:entity];
-//    
-//    // define how records are sorted
-//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"username" ascending:NO];
-//    
-//    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-//    
-//    [request setSortDescriptors:sortDescriptors];
-//    
-//    // Fetch the records and handle an error
-//    NSError *error;
-//    NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:& error] mutableCopy];
-//    
-//    if (!mutableFetchResults) {
-//        // handle error.
-//        // should advise user to restart
-//    }
-//    
-//    NSMutableString *string = [NSMutableString string];
-//    for ( Account *anAccount in mutableFetchResults) {
-//        [string appendString:[NSString stringWithFormat:@"%@\n",anAccount.username]];
-//    }
-[self.uiPickerViewUsers selectRow:1 inComponent:0 animated:NO];
-    
-    
-    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    request.resultType = NSDictionaryResultType;
+    request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"username"]];
+    request.returnsDistinctResults = YES;
+
+    _usernames = [_managedObjectContext executeFetchRequest:request error:nil];
+   
+    NSLog (@"names: %@",_usernames);
+}
+
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    // One column
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    // set number of rows
+    return _usernames.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    // set item per row
+    // changed statment below per this SO thread,
+    // http://stackoverflow.com/questions/17331293/populate-uipicker-view-with-results-from-core-data-db-using-an-nsarray
+    return _usernames[row][@"username"];
 }
 
 - (void)didReceiveMemoryWarning

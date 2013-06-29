@@ -299,18 +299,54 @@
 
 - (IBAction)showCreateScene:(id)sender {
     
-    UIViewController *create = [self.storyboard instantiateViewControllerWithIdentifier:@"Create"];
-    [self presentModalViewController:create animated:YES];    
+    // display a UIAlertView displaying legal disclaimer.
+    alertlegal = [[UIAlertView alloc] initWithTitle:@"Legal Disclaimer" message:@"By clicking agree you abide to the terms of this application.\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Agree", nil];
+    
+    // set the size of the UIAlertView
+    //alertlegal.frame = CGRectMake(0, 200, 200, 200);
+    
+    // create UITextView containing disclaimer for UIAlertView
+    UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(20, 100, 260, 160)];
+    
+    // start x, start y, width, height
+    
+    [textView setText:@"This iOS application is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nBy creating an account on this system you are NOT PAYING FOR BEER!  YOU ARE MAKING A DONATION TO THE PERSON WHO IS RESPONSIBLE FOR THE ADMIN / ROOT ACCOUNT ON THE SYSTEM  THE PERSON WHO GOVERNS THE ROOT ACCOUNT ON THE SYSTEM IS NOT RESPONSIBLE FOR YOUR DRIINKING OR THE RESULTS FROM THE BEHAVIOR OF YOUR DRINKING.\n\nThat being said, PLEASE DRINK RESPONSIBLY, AND TRY TO HAVE SOME FUN.\n\nBy clicking the agree button seen below this text I am stating that I have read this disclaimer, and that I will agree to the terms posted in this disclaimer."];
+    
+    textView.editable = NO;
+    
+    // testing
+    textView.keyboardAppearance = UIKeyboardAppearanceAlert;
+
+    
+    // add the textView to the alertview
+    [alertlegal addSubview:textView];
+    
+    [alertlegal show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    }
+    if (buttonIndex == 1) {
+        
+        // display ViewControllerCreate
+        UIViewController *create = [self.storyboard instantiateViewControllerWithIdentifier:@"Create"];
+        [self presentModalViewController:create animated:YES];
+        
+    }
+}
+
+// to set the alertView frame size.
+- (void)willPresentAlertView:(UIAlertView *)alertView {
+    
+    [alertView setFrame:CGRectMake(10, 100, 300, 320)];
 }
 
 - (IBAction)showAboutScreen:(id)sender {
     
     // method to show the About Screen
-    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-//    ViewControllerAbout *about = (ViewControllerAbout *)[storyboard instantiateViewControllerWithIdentifier:@"About"];
-//    [self presentModalViewController:dev animated:YES];
-    
     UIViewController *about = [self.storyboard instantiateViewControllerWithIdentifier:@"About"];
     [self presentModalViewController:about animated:YES];
     

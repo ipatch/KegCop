@@ -12,7 +12,8 @@
 @interface ViewControllerUsers : UIViewController <NSFetchedResultsControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
 
-NSArray *dictionaries;
+    NSArray *dictionaries;
+    UIAlertView *alertview;
 }
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 // Core Data

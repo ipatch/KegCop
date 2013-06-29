@@ -29,6 +29,9 @@
     
     // RFID stuff
     NSMutableString *scantagid;
+    
+    // legal disclaimer
+    UIAlertView *alertlegal;
 }
 
 // Notes

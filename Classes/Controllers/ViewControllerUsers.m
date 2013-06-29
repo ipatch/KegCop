@@ -75,6 +75,11 @@
     return _usernames[row][@"username"];
 }
 
+//-(NSInteger)selectedRowInComponent:(NSInteger)component
+//{
+//    NSLog(@"%d",[_uiPickerViewUsers selectedRowInComponent:0]);
+//}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -93,5 +98,62 @@
 }
 
 - (IBAction)changePin:(id)sender {
+    
+    // get currently selected username in pickerview and store it as a NSString variable
+    NSInteger row;
+    
+    row = [_uiPickerViewUsers selectedRowInComponent:0];
+    NSString *strSelectedUN = _usernames[row][@"username"];
+    NSLog(@"The currently selected row is %@",strSelectedUN);
+    
+    // create a compound string for title
+    NSString *title = [NSString stringWithFormat:@"Change pin for %@",strSelectedUN];
+    
+    // display a UIAlertBox with a textfield (change tf to just have numbers)
+    alertview = [[UIAlertView alloc] initWithTitle:title message:@"Input new pin" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
+    
+    [alertview setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+    
+    // set the delegate for the UIAlertView textfield
+    //[alertview textFieldAtIndex:0].delegate = self;
+    [[alertview textFieldAtIndex:0] setPlaceholder:@"New pin"];
+    [[alertview textFieldAtIndex:1] setPlaceholder:@"Confirm new pin"];
+    [[alertview textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+    [[alertview textFieldAtIndex:1] setKeyboardType:UIKeyboardTypeNumberPad];
+    [[alertview textFieldAtIndex:0] setSecureTextEntry:YES];
+    
+    // keep this line at the bottom
+    [alertview show];
+    
+    
+}
+
+- (void)saveNewPin{
+    
+    // get selected username from uiPickerView
+    NSInteger row;
+    
+    row = [_uiPickerViewUsers selectedRowInComponent:0];
+    NSString *strSelectedUN = _usernames[row][@"username"];
+    NSLog(@"The selected username is %@",strSelectedUN);
+    
+    // get text from textfield's in UIAlertView, compare them, then store them in DB.
+    NSString *pin = [alertview textFieldAtIndex:0].text;
+    NSString *repin = [alertview textFieldAtIndex:1].text;
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex ==0) {
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    }
+    if (buttonIndex == 1) {
+        
+        NSLog(@"btn 1 tapped");
+        
+        [self saveNewPin];
+    }
 }
 @end

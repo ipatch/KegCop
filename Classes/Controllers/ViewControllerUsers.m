@@ -167,34 +167,39 @@
         // convert NSData to Base64 encoded NSString
         NSString *cipherB64 = [self base64forData:cipher];
         
-        Account *pinAccount;
+        // Core Data - shit
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
         
-        pinAccount.username = strSelectedUN;
+        // define our table / entity to use
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+        [request setEntity:entity];
         
-        [pinAccount setValue:cipherB64 forKey:@"pin"];
+        // Fetch the records and handle an error
+        NSError *error;
+        NSMutableArray *mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:& error] mutableCopy];
         
-        
-        
-        
-        // save to DB
-        NSError *error = nil;
-        if (![_managedObjectContext save:&error]) {
-            NSLog(@"error %@", error);
+        if (!mutableFetchResults) {
+            // handle error.
+            // should advise user to restart
         }
-
         
-        
-        
-        
-        
+        // compare text field text / string with results in an array
+        for (Account *pinAccount in mutableFetchResults) {
+            if([pinAccount.username isEqualToString:strSelectedUN]) {
+                NSLog(@"username found.");
+                
+                NSLog(@"pinAccount = %@",pinAccount.username);
+                
+                [pinAccount setValue:cipherB64 forKey:@"pin"];
+                
+                // save the managed object context / save to DB
+                [_managedObjectContext save:&error];
+            }
+        }
     }
     else {
         NSLog(@"pins are not equal");
     }
-
-    
-    
-    
 }
 
 - (void)checkTextFieldCharLength

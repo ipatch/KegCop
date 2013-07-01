@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerUsers.h"
+#import "NSData+AES256.h"
 
 @interface ViewControllerUsers ()
 
@@ -103,7 +104,7 @@
     NSInteger row;
     
     row = [_uiPickerViewUsers selectedRowInComponent:0];
-    NSString *strSelectedUN = _usernames[row][@"username"];
+    strSelectedUN = _usernames[row][@"username"];
     NSLog(@"The currently selected row is %@",strSelectedUN);
     
     // create a compound string for title
@@ -130,18 +131,77 @@
 
 - (void)saveNewPin{
     
+    // check for empty tf's
+    [self checkTextFieldCharLength];
+    
     // get selected username from uiPickerView
     NSInteger row;
     
     row = [_uiPickerViewUsers selectedRowInComponent:0];
-    NSString *strSelectedUN = _usernames[row][@"username"];
+    strSelectedUN = _usernames[row][@"username"];
     NSLog(@"The selected username is %@",strSelectedUN);
     
     // get text from textfield's in UIAlertView, compare them, then store them in DB.
-    NSString *pin = [alertview textFieldAtIndex:0].text;
-    NSString *repin = [alertview textFieldAtIndex:1].text;
+    pin = [alertview textFieldAtIndex:0].text;
+    repin = [alertview textFieldAtIndex:1].text;
+    
+    // compare if pins are equal
+    if([pin isEqualToString: repin])
+    {
+        NSLog(@"pins are equal");
+        
+        
+        key = @"donkey balls";
+        
+        // need to set pin in tf to pin in DB for correct user
+        NSString *secret;
+        secret = [alertview textFieldAtIndex:0].text;
+        
+        // password - convert string to NSData
+        NSData *plain = [secret dataUsingEncoding:NSUTF8StringEncoding];
+        
+        // password - encrypt string
+        NSData *cipher = [plain AES256EncryptWithKey:key];
+        printf("%s\n", [[cipher description] UTF8String]);
+        
+        // convert NSData to Base64 encoded NSString
+        NSString *cipherB64 = [self base64forData:cipher];
+        
+        Account *pinAccount;
+        
+        pinAccount.username = strSelectedUN;
+        
+        [pinAccount setValue:cipherB64 forKey:@"pin"];
+        
+        
+        
+        
+        // save to DB
+        NSError *error = nil;
+        if (![_managedObjectContext save:&error]) {
+            NSLog(@"error %@", error);
+        }
+
+        
+        
+        
+        
+        
+    }
+    else {
+        NSLog(@"pins are not equal");
+    }
+
     
     
+    
+}
+
+- (void)checkTextFieldCharLength
+{
+    if([alertview textFieldAtIndex:0].text.length == 0) {
+        [alertview setMessage:@"No new pin was inputted."];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -156,4 +216,38 @@
         [self saveNewPin];
     }
 }
+
+//from: http://www.cocoadev.com/index.pl?BaseSixtyFour
+- (NSString*)base64forData:(NSData*)theData {
+    
+    const uint8_t* input = (const uint8_t*)[theData bytes];
+    NSInteger length = [theData length];
+    
+    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    
+    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+    uint8_t* output = (uint8_t*)data.mutableBytes;
+    
+    NSInteger i;
+    for (i=0; i < length; i += 3) {
+        NSInteger value = 0;
+        NSInteger j;
+        for (j = i; j < (i + 3); j++) {
+            value <<= 8;
+            
+            if (j < length) {
+                value |= (0xFF & input[j]);
+            }
+        }
+        
+        NSInteger theIndex = (i / 3) * 4;
+        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
+    }
+    
+    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+}
+
 @end

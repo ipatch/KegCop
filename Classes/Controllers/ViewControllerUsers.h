@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Account.h"
 #import "AppDelegate.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 @interface ViewControllerUsers : UIViewController <NSFetchedResultsControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
 
     NSArray *dictionaries;
     UIAlertView *alertview;
+    NSString *pin;
+    NSString *repin;
+    NSString *strSelectedUN;
+    NSString *key;
 }
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 // Core Data

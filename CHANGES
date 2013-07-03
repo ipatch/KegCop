@@ -19,7 +19,7 @@
     * Began removing warnings compliation of project.
     * 6 warnings to debug
     * introduced version 0.1.2 due to extreme file organization :)  Happy late birthday KegCop!
-    * removed 4 warnings by deleting an used viewcontroller, and commenting out the handshake method.
+    * removed 4 warnings by deleting an unsed viewcontroller, and commenting out the handshake method.
 
 2013-01-02
 

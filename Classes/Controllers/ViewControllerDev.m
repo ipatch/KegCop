@@ -57,9 +57,13 @@
     [self setBtnBlink:nil];
     [self setBtnDone:nil];
     [self setBtnValve2:nil];
+    [serial close];
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
     //[serial nil];
+    NSLog(@"dev view unloaded");
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -490,9 +490,9 @@
     
     
     if (item.tag==2) {
-        
-        // do nothing
         NSLog(@"dev btn tapped");
+        UIViewController *dev3 = [self.storyboard instantiateViewControllerWithIdentifier:@"dev3"];
+        [self presentModalViewController:dev3 animated:YES];
     }
 }
 

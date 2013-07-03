@@ -21,6 +21,7 @@
 		EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283540159FC3910044B39C /* ViewControllerPurchase.m */; };
 		EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283544159FC4A20044B39C /* ViewControllerWebView.m */; };
 		EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EA291BE5163B487500CE419E /* JailbrokenSerial.m */; };
+		EA2A192517838F8600560B95 /* ViewControllerDev3.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2A192417838F8600560B95 /* ViewControllerDev3.m */; };
 		EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */; };
 		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
 		EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EA59145B177A08040063BE99 /* ViewControllerDev2.m */; };
@@ -126,6 +127,8 @@
 		EA283544159FC4A20044B39C /* ViewControllerWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerWebView.m; path = Controllers/ViewControllerWebView.m; sourceTree = "<group>"; };
 		EA291BE4163B487500CE419E /* JailbrokenSerial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JailbrokenSerial.h; sourceTree = "<group>"; };
 		EA291BE5163B487500CE419E /* JailbrokenSerial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JailbrokenSerial.m; sourceTree = "<group>"; };
+		EA2A192317838F8600560B95 /* ViewControllerDev3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev3.h; sourceTree = "<group>"; };
+		EA2A192417838F8600560B95 /* ViewControllerDev3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev3.m; sourceTree = "<group>"; };
 		EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerPour.h; path = Controllers/ViewControllerPour.h; sourceTree = "<group>"; };
 		EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerPour.m; path = Controllers/ViewControllerPour.m; sourceTree = "<group>"; };
 		EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerRootHome.h; path = Controllers/ViewControllerRootHome.h; sourceTree = "<group>"; };
@@ -486,6 +489,8 @@
 				EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */,
 				EA59145A177A08040063BE99 /* ViewControllerDev2.h */,
 				EA59145B177A08040063BE99 /* ViewControllerDev2.m */,
+				EA2A192317838F8600560B95 /* ViewControllerDev3.h */,
+				EA2A192417838F8600560B95 /* ViewControllerDev3.m */,
 				EAD97F0315C76EF7006C15A2 /* ViewControllerSerialConsole.h */,
 				EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */,
 				EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */,
@@ -729,6 +734,7 @@
 				EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */,
 				EA591462177A220A0063BE99 /* ViewControllerUsers.m in Sources */,
 				EACD704D177A4EE800A13B91 /* Accounts.xcdatamodeld in Sources */,
+				EA2A192517838F8600560B95 /* ViewControllerDev3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

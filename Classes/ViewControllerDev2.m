@@ -31,6 +31,8 @@
     [self setBtnDone:nil];
     [self setBtnOpenValve:nil];
     [self setBtnOpenValveKBCommand:nil];
+    // close serial port - hopefully
+    [jbserial close];
     [super viewDidUnload];
 }
 - (IBAction)dismissScene:(id)sender {

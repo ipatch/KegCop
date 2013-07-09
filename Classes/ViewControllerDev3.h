@@ -31,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenValveRawHex;
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenValveKBProcessing;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnOpenValve;
+@property (weak, nonatomic) IBOutlet UIButton *btnCloseValve;
 
 
 - (IBAction)dismissScene:(id)sender;
@@ -48,4 +50,7 @@
 - (IBAction)openValveRawHex:(id)sender;
 
 - (IBAction)openValveKBProcessing:(id)sender;
+
+- (IBAction)openValve:(id)sender;
+- (IBAction)closeValve:(id)sender;
 @end

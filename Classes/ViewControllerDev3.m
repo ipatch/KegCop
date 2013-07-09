@@ -54,6 +54,8 @@
     [self setBtnOpenValveRawHex:nil];
     [self setBtnOpenValveRawHex:nil];
     [self setBtnOpenValveKBProcessing:nil];
+    [self setBtnOpenValve:nil];
+    [self setBtnCloseValve:nil];
     [super viewDidUnload];
 }
 - (IBAction)dismissScene:(id)sender {
@@ -130,6 +132,20 @@
 
     
     NSLog(@"openValveKBProcessing method end");
+}
+
+- (IBAction)openValve:(id)sender {
+    
+    NSLog(@"{open_valve} btn tapped.");
+    
+    [jbserial write:@"{open_valve}"];
+}
+
+- (IBAction)closeValve:(id)sender {
+    
+    NSLog(@"{close_valve} btn tapped.");
+    
+    [jbserial write:@"{close_valve}"];
 }
 
 # pragma mark - JailbrokenSerialDelegate

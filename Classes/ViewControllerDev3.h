@@ -18,6 +18,8 @@
     
     KBKegProcessing *kegProcessing;
     
+    NSMutableString *text;
+    
     
 }
 
@@ -33,7 +35,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenValve;
 @property (weak, nonatomic) IBOutlet UIButton *btnCloseValve;
+@property (weak, nonatomic) IBOutlet UIButton *btnOpenValve2;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblValveState;
 
 - (IBAction)dismissScene:(id)sender;
 
@@ -53,4 +57,5 @@
 
 - (IBAction)openValve:(id)sender;
 - (IBAction)closeValve:(id)sender;
+- (IBAction)openValve2:(id)sender;
 @end

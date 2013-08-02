@@ -21,6 +21,11 @@
 @synthesize btnKBSerialClose = _btnKBSErialClose;
 @synthesize btnOpenValveKBCommand = _btnOpenValveKBCommand;
 @synthesize btnOpenValveRawHex = _btnOpenValveRawHex;
+@synthesize btnOpenValve = _btnOpenValve;
+@synthesize btnOpenValve2 = _btnOpenValve2;
+
+@synthesize lblValveState = _lblValveState;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +41,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    text = [[NSMutableString alloc] initWithString:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +62,9 @@
     [self setBtnOpenValveKBProcessing:nil];
     [self setBtnOpenValve:nil];
     [self setBtnCloseValve:nil];
+    [self setLblValveState:nil];
+    [self setBtnOpenValve2:nil];
+    text = nil;
     [super viewDidUnload];
 }
 - (IBAction)dismissScene:(id)sender {
@@ -137,18 +146,45 @@
 - (IBAction)openValve:(id)sender {
     
     NSLog(@"{open_valve} btn tapped.");
+        
+    NSString *command = @"{open_valve}\n";
     
-    [jbserial write:@"{open_valve}"];
+    [jbserial write:command];
 }
 
 - (IBAction)closeValve:(id)sender {
     
     NSLog(@"{close_valve} btn tapped.");
     
-    [jbserial write:@"{close_valve}"];
+    NSString *command = @"{close_valve}\n";
+    
+    [jbserial write:command];
+}
+
+- (IBAction)openValve2:(id)sender {
+    
+    NSLog(@"{open_valve}\n btn tapped.");
+    
+    [jbserial write:@"{open_valve}\n"];
 }
 
 # pragma mark - JailbrokenSerialDelegate
 - (void) JailbrokenSerialReceived:(char)ch {
+    
+    NSLog(@"Received %c", ch);
+    [text appendFormat:@"%c", ch];
+    //[text stringByAppendingFormat:@"%c",ch];
+    NSLog(@"Received %@",text);
+    
+    if ([text isEqual: @"{valve_open}"]) {
+        _lblValveState.text = @"Valve Opened.";
+        [text setString:@""];
+    }
+    
+    if ([text isEqual: @"{valve_close}"]) {
+        _lblValveState.text =@"Valve Closed.";
+        [text setString:@""];
+    }
+    
 }
 @end

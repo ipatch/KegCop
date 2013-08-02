@@ -72,10 +72,19 @@
     
     // serial stuff
     serial = [[JailbrokenSerial alloc] init];
+    // print serial debugging messages
     serial.debug = true;
     serial.nonBlock = true;
     serial.receiver = self;
     rfidbadgenumber = [[NSMutableString alloc] initWithString:@""];
+    
+    // 2AUG13 - more serial stuff
+    [serial open:B115200];
+    if(serial.isOpened)
+    {
+        NSLog(@"Serial Port Opened");
+    }
+    else NSLog(@"Serial Port Closed");
     
     
     // uialertview init
@@ -223,7 +232,7 @@
 }
 
 - (IBAction)drinkBeer:(id)sender {
-    NSLog(@"yes btn pressed");
+    NSLog(@"pour beer btn pressed");
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -264,6 +273,15 @@
             _creditX.text = [NSString stringWithFormat:@"%@",loggeduser.credit];
         }
     }
+    
+    // stuff added 2AUG13
+    NSLog(@"{open_valve} btn tapped.");
+    
+    NSString *command = @"{open_valve}\n";
+    
+    [serial write:command];
+
+    
 }
 
 /* Begin addRFID - Serial Communication */
@@ -298,6 +316,8 @@
 
 - (IBAction)logout:(id)sender {
     
+    [serial close];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -305,20 +325,20 @@
 # pragma mark - JailbrokenSerialDelegate
 - (void) JailbrokenSerialReceived:(char) ch {
 
-    NSLog(@"got it");
-
-    NSString *s = [NSString stringWithFormat:@"%c",ch];
-    NSLog(@"s = %@",s);
-
-    [newrfidtagid appendString:s];
-
-    NSLog(@"rfid char  = %@",newrfidtagid);
-    
-    if (newrfidtagid.length == 10)
-    {
-        NSLog(@"new tagid = %@",newrfidtagid);
-        [alertrfid textFieldAtIndex:0].text = newrfidtagid;
-    }
+//    NSLog(@"got it");
+//
+//    NSString *s = [NSString stringWithFormat:@"%c",ch];
+//    NSLog(@"s = %@",s);
+//
+//    [newrfidtagid appendString:s];
+//
+//    NSLog(@"rfid char  = %@",newrfidtagid);
+//    
+//    if (newrfidtagid.length == 10)
+//    {
+//        NSLog(@"new tagid = %@",newrfidtagid);
+//        [alertrfid textFieldAtIndex:0].text = newrfidtagid;
+//    }
  }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

@@ -1055,8 +1055,23 @@ fi
 ==============================================================================================
 11JUN13 - tshoot FI button
 
+==============================================================================================
+9JUL13
 
+when sending serial commands {open_valve} and {close_valve} to the Arduino using the serial monitor, they must be formatted as such, "{open_valve}\n" "{close_valve}\n"
 
+==============================================================================================
+15JUL13
+
+figure out how to print serial message to the iPhone from the Arduino, i.e. when the valve is opened / closed
+
+15JUL13
+successfully opened / closed the valve using the iPhone
+
+==============================================================================================
+2AUG13
+
+- have a good / solid Arduino sketch to work with, going to try and finish final steps for iPhone app.
 
 
 

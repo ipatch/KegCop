@@ -8,14 +8,11 @@
 #import "ViewControllerCreate.h"
 #import "NSData+AES256.h"
 
-
 @interface ViewControllerCreate()
 
 @end
 
-
 @implementation ViewControllerCreate
-
 
 // create new account
 @synthesize createScroller = _createScroller;
@@ -33,8 +30,6 @@
 
 // keyboard toolbar
 @synthesize doneButton = _doneButton;
-
-// end create new account
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
@@ -78,6 +73,10 @@
     
     // keyboard behavior
     [self registerForKeyboardNotifications];
+    
+    
+    // Added 5AUG13 - trying to figure out how to dismiss view controller based upon view property / id
+    NSLog(@"The currently loaded view:%c",[self.view isKindOfClass:[ViewControllerCreate class]]);
 }
 
 
@@ -129,7 +128,7 @@
     
     NSString *pin = _createPinTextField.text;
     NSString *repin = _createPinReTextField.text;
-    // TODO - figure out how to check for equality after both pins are entered
+   
     if ([pin isEqualToString: repin])
     {
         NSLog(@"Pins are equal.");
@@ -177,7 +176,7 @@
 }
 
 
-// method - CREATE - to pull text from text fields and store in keychain and account database
+// method - CREATE - to pull text from text fields and store in account database
 - (IBAction)createAccount:(id)sender {
     
     [self checkTextFieldCharLength];
@@ -273,8 +272,11 @@
         NSLog(@"Succefully created account.");
         
         // Load ViewControllerHome
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-        ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
+       // UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+        //ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
+        
+        UIViewController *home = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
+        
         
         // pass user tf text to home screen
         username = _createUserTextField.text;

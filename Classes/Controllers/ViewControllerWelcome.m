@@ -162,7 +162,7 @@
     _welcomeActivityIndicator.hidden = FALSE;
     [_welcomeActivityIndicator startAnimating ];
     // delay execution of my block for X seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+    //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
     
     
     [_wrongUserPin setHidden:YES];
@@ -288,7 +288,7 @@
             }
     }
     
-    });
+   // }); // close curly brace for 2 second delay on login.
 }
 
 - (IBAction)showForgotScene:(id)sender {

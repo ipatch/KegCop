@@ -1,3 +1,7 @@
+2013-08-05
+
+    * when new user creates account, 1) can't login 2) app needs to be force quited.
+
 2013-06-25
 
     * Xcode doesn't show the xcdatamodel view when selecting Accounts.xcdatamodeld file in the project navigator

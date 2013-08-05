@@ -1073,5 +1073,23 @@ successfully opened / closed the valve using the iPhone
 
 - have a good / solid Arduino sketch to work with, going to try and finish final steps for iPhone app.
 
+==============================================================================================
+3AUG13
+
+5psi solenoid open, manual valve clsoed: seemingly less volume, also less foam
+Next test @ 20psi: test seemed to create more volume however density of beer was less.  Suspent some kind of CO2 integration
+resulting in higher volume of liuid due to gas integration into solution
+
+1:45AM - Test began at 5psi on regaulator.  Dispensed beer using keg app, 5psi registered on regualtor after dispense - 1:49am - 8/4/2013.
+@1:51AM beer is one half bar below 12oz. (10oz)
+@10:54 liquid seems to have stabilized at 10oz
+ 
+ 
+8/4/2013 - 20psi test - 2:00AM - Liquid ejected with noticibly more force.  Completely filled container with foam, lost a bit to over fill.
+8/4/2013 - 20psi - test - 2:13AM - 20oz of beer observed
+
+==============================================================================================
+5AUG13
+
 
 

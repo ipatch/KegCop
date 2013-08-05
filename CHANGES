@@ -1,3 +1,17 @@
+2013-08-05
+
+    * going to remove 2 second delay when user logs in.
+
+2013-08-05
+
+    * going to try and add a feature to auto logout users after a certain peroid of inactivity.
+
+2013-08-05
+
+    * changed Arduino sketch variable "numTicks" to 371 to account for under pours (pouring fluid 10oz)
+    * going to change text fields to remove auto-correct (correction) from certain (most if not all) text fields.
+    * changed "numTicks" to 391 to account for under pours @ ~ 5 PSI.
+
 2013-07-01
 
     * change pin feature complete :)

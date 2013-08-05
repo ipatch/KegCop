@@ -39,7 +39,7 @@
 @synthesize tbiDev = _tbiDev;
 
 
-// added for debugging purposes
+// added for debugging purposes - program crash when removed :/
 @synthesize lblArduinoGood = _lblArduinoGood;
 @synthesize lblArduinoBad = _lblArduinoBad;
 
@@ -497,7 +497,7 @@
 }
 
 
-// added for debugging purposes
+// added for debugging purposes - program was crashing when following method / action was removed :/
 
 
 - (IBAction)testArduinoConnection:(id)sender {

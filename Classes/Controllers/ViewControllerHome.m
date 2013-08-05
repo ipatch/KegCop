@@ -6,7 +6,8 @@
 //
 
 #import "ViewControllerHome.h"
-// #import "ViewControllerWelcome.h"
+// Added 5AUG13
+#import "ViewControllerCreate.h"
 
 @interface ViewControllerHome ()
 
@@ -98,6 +99,10 @@
     
     // RFID stuff
     newrfidtagid = [[NSMutableString alloc] init];
+    
+    
+    // 5AUG13
+    NSLog(@"presenting view controller:%@",[self presentingViewController]);
     
     
 }
@@ -318,7 +323,14 @@
     
     [serial close];
     
+    // this condition is satisfied when a new user creates an account then logs out
+    if([self.presentingViewController isKindOfClass:[ViewControllerCreate class]] ) {
+        
+        [self.presentingViewController.presentingViewController dismissModalViewControllerAnimated:YES];
+    }
+    // this is normally called when a user logs in then logs out
     [self dismissModalViewControllerAnimated:YES];
+    
 }
 
 

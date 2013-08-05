@@ -25,6 +25,6 @@ contribute.
 
 ## Installation
 A binary version of the app can be downloaded if your iDevice is jailbroken.  Add the following
-repo: chrisrjones.com/repo
+repo: chrisrjones.com/repo and load the following sketch on your Arduino http://pastie.org/8200804
 cheers
 - Chris

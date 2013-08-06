@@ -1,3 +1,7 @@
+2013-08-06
+
+    * added 60 second idle time timer for logging out users due to inactivity.
+
 2013-08-05
 
     * going to remove 2 second delay when user logs in.

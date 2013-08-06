@@ -1089,7 +1089,9 @@ resulting in higher volume of liuid due to gas integration into solution
 8/4/2013 - 20psi - test - 2:13AM - 20oz of beer observed
 
 ==============================================================================================
-5AUG13
+6AUG13
+
+The error message “unrecognized selector sent to instance XXX” means that the app is trying to call a method that doesn't exist.
 
 
 

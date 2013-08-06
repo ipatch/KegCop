@@ -8,6 +8,7 @@
 #import "ViewControllerHome.h"
 // Added 5AUG13
 #import "ViewControllerCreate.h"
+#import "math.h"
 
 @interface ViewControllerHome ()
 
@@ -24,16 +25,9 @@
 @synthesize btnTradeCredit = _btnTradeCredit;
 @synthesize lblTradeCredit = _lblTradeCredit;
 @synthesize btnAddRFID = _btnAddRFID;
-
-
-
+@synthesize idleTimerTime = _idleTimerTime;
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
-
-// @synthesize removeAccount = _removeAccount;
-
-// Serial Port
-// static NSInteger gFileDescriptor;
 
 - (void)viewDidLoad
 {
@@ -104,6 +98,9 @@
     // 5AUG13
     NSLog(@"presenting view controller:%@",[self presentingViewController]);
     
+    // 6AUG13 - idle time logout
+    _idleTimerTime.text = @"60 secs til";
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
     
 }
 
@@ -119,6 +116,7 @@
     [self setBtndrinkbeer:nil];
     [self setBtnAddRFID:nil];
     [self setBtnLogout:nil];
+    [self setIdleTimerTime:nil];
     [super viewDidUnload];
     [serial close];
   
@@ -152,7 +150,6 @@
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
-    // welcome
     [_tfUsername resignFirstResponder];
     [_tfCredit resignFirstResponder];
 }
@@ -312,8 +309,7 @@
     //open serial port
     
     [serial open:B2400];
-    if(serial.isOpened)
-    {
+    if(serial.isOpened) {
         NSLog(@"Serial Port Opened");
     }
     else NSLog(@"Serial Port Closed");
@@ -378,13 +374,8 @@
         
         NSLog(@"delegate method - save btn pressed");
         [self saveTagIDtoAccount];
-        
-        
     }
 }
-
-// close serial port
-
 
 /* End addRFID - Serial Communication */
 
@@ -513,5 +504,23 @@
     
 }
 
+#pragma mark -
+#pragma mark Handling idle timeout
+
+-(void)countDown:(NSTimer *) idleTimer2 {
+    _idleTimerTime.text = [NSString stringWithFormat:@"%d secs til",[_idleTimerTime.text intValue] -1];
+    if([_idleTimerTime.text isEqualToString:@"0 secs til"]) {
+        [idleTimer2 invalidate];
+        [self logout:nil];
+    }
+}
+
+
+
+// method is fired when user touches screen.
+- (UIResponder *)nextResponder {
+    _idleTimerTime.text = @"60 secs til";
+    return [super nextResponder];
+}
 
 @end

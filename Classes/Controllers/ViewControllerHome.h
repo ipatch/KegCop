@@ -22,7 +22,6 @@
     NSMutableString *rfidbadgenumber;
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;
-    
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
 @property (weak, nonatomic) IBOutlet UILabel *lblUSERNAME;
@@ -34,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTradeCredit;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRFID;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogout;
+@property (weak, nonatomic) IBOutlet UILabel *idleTimerTime;
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

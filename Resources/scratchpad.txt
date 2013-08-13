@@ -1094,4 +1094,43 @@ resulting in higher volume of liuid due to gas integration into solution
 The error message “unrecognized selector sent to instance XXX” means that the app is trying to call a method that doesn't exist.
 
 
+==============================================================================================
+6AUG13
+
+The long journey of getting the Core Data / SQLite database synced up with a MySQL database begins.
+
+- Added the following source to cydia, http://ios-webstack.tk/cydia
+- going to install, ios-lighttpd-php-mysql
+    - PHP 54 v5.4.16
+    - Lighttpd-atv v1.4.31
+    - MySQL-atv v5.1.70
+
+- backed up "Accounts.sqlite" "/var/mobile/Library/KegCop" file from 10.0.1.13 (iPhone-kegerator) to local computer "lucky"
+
+- the webroot directory is "/var/www"
+
+- change owner of "/var/www" to 'daemon:_www'
+
+- MySQL database files are located at /var/mysql
+
+- to test installation, load Safari, then goto http://localhost
+
+- Example config files are located
+
+    /etc/php.ini
+    /etc/php.d/load_all.ini
+    /etc/lighttpd/lighttpd-atv.conf
+    /etc/lighttpd/mod_fastcgi-atv.conf
+    
+- preference loader for a daemon launcher are installed. - http://was.fm/ios:mysql
+
+- the MySQL root password can be changed one of two ways
+    1) http://localhost/adminer.php
+    2) /usr/bin/mysql_secure_installation
+    
+- to reinitialize your MySQL database,
+    /usr/local/bin/mysql_install_db --user=daemon
+    
+
+
 

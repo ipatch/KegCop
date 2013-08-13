@@ -7,71 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		422CA689176B703A00C6C918 /* KBKegboardCommandTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */; };
 		422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */; };
-		422CA68D176B7D7800C6C918 /* KBKegboardCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */; };
-		422CA690176D807D00C6C918 /* KBKegboardMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */; };
 		422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
-		422CA694176D85CE00C6C918 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
-		422CA695176D8A2400C6C918 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
 		EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1890361585F7E7003A64FC /* ViewControllerAbout.m */; };
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */; };
+		EA2611D117BAD29000023814 /* KegCop-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA2611D017BAD29000023814 /* KegCop-Info.plist */; };
 		EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283540159FC3910044B39C /* ViewControllerPurchase.m */; };
 		EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283544159FC4A20044B39C /* ViewControllerWebView.m */; };
 		EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EA291BE5163B487500CE419E /* JailbrokenSerial.m */; };
 		EA2A192517838F8600560B95 /* ViewControllerDev3.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2A192417838F8600560B95 /* ViewControllerDev3.m */; };
 		EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */; };
 		EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */; };
+		EA56282917BAC39300E3725B /* KegCop.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EA56282817BAC39300E3725B /* KegCop.entitlements */; };
 		EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EA59145B177A08040063BE99 /* ViewControllerDev2.m */; };
 		EA591462177A220A0063BE99 /* ViewControllerUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = EA591461177A220A0063BE99 /* ViewControllerUsers.m */; };
 		EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */; };
 		EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */; };
 		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
 		EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */; };
-		EA9D25CF1766D12400B277ED /* KegCop.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25CE1766D12400B277ED /* KegCop.entitlements */; };
-		EA9D26141767A24E00B277ED /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E51767A24E00B277ED /* Default.png */; };
 		EA9D26161767A24E00B277ED /* flow_at_symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E81767A24E00B277ED /* flow_at_symbol.png */; };
 		EA9D26171767A24E00B277ED /* flow_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E91767A24E00B277ED /* flow_background.png */; };
 		EA9D26181767A24E00B277ED /* flow_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EA1767A24E00B277ED /* flow_fill.png */; };
 		EA9D26191767A24E00B277ED /* flow_foreground.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EB1767A24E00B277ED /* flow_foreground.png */; };
 		EA9D261A1767A24E00B277ED /* flow_needle.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EC1767A24E00B277ED /* flow_needle.png */; };
 		EA9D261B1767A24E00B277ED /* flow_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25ED1767A24E00B277ED /* flow_shadow.png */; };
-		EA9D261C1767A24E00B277ED /* Cornelius.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EF1767A24E00B277ED /* Cornelius.jpg */; };
-		EA9D261D1767A24E00B277ED /* Cornelius_Keg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F01767A24E00B277ED /* Cornelius_Keg.jpg */; };
-		EA9D261E1767A24E00B277ED /* corneliuskegs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F11767A24E00B277ED /* corneliuskegs.jpg */; };
-		EA9D261F1767A24E00B277ED /* FWPD.gif in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F21767A24E00B277ED /* FWPD.gif */; };
-		EA9D26201767A24E00B277ED /* icon114x114_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F31767A24E00B277ED /* icon114x114_flat.png */; };
-		EA9D26211767A24E00B277ED /* icon114x114_flat.xcf in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F41767A24E00B277ED /* icon114x114_flat.xcf */; };
-		EA9D26221767A24E00B277ED /* icon320x240_launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F51767A24E00B277ED /* icon320x240_launch.png */; };
-		EA9D26231767A24E00B277ED /* icon320x480launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F61767A24E00B277ED /* icon320x480launch.png */; };
-		EA9D26241767A24E00B277ED /* icon512x512.xcf in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F71767A24E00B277ED /* icon512x512.xcf */; };
-		EA9D26251767A24E00B277ED /* icon512x512_02.xcf in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F81767A24E00B277ED /* icon512x512_02.xcf */; };
-		EA9D26261767A24E00B277ED /* icon512x512_02flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25F91767A24E00B277ED /* icon512x512_02flat.png */; };
-		EA9D26271767A24E00B277ED /* icon512x512_02flat.xcf in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FA1767A24E00B277ED /* icon512x512_02flat.xcf */; };
-		EA9D26281767A24E00B277ED /* icon57x57_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FB1767A24E00B277ED /* icon57x57_flat.png */; };
-		EA9D26291767A24E00B277ED /* icon57x57_flat.xcf in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FC1767A24E00B277ED /* icon57x57_flat.xcf */; };
-		EA9D262A1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FD1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png */; };
-		EA9D262B1767A24E00B277ED /* launch320x480_ds.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FE1767A24E00B277ED /* launch320x480_ds.png */; };
-		EA9D262C1767A24E00B277ED /* launchRetina_ds.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25FF1767A24E00B277ED /* launchRetina_ds.png */; };
-		EA9D262F1767A24E00B277ED /* kegcop-login.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26021767A24E00B277ED /* kegcop-login.png */; };
-		EA9D26301767A24E00B277ED /* kegcop-multiWelcome.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26031767A24E00B277ED /* kegcop-multiWelcome.png */; };
-		EA9D26311767A24E00B277ED /* launch-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26041767A24E00B277ED /* launch-retina.png */; };
-		EA9D26321767A24E00B277ED /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26051767A24E00B277ED /* launch.png */; };
-		EA9D26331767A24E00B277ED /* launch320x480.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26061767A24E00B277ED /* launch320x480.png */; };
-		EA9D26341767A24E00B277ED /* launch960.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26071767A24E00B277ED /* launch960.png */; };
-		EA9D26371767A24E00B277ED /* photo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260B1767A24E00B277ED /* photo.PNG */; };
-		EA9D26381767A24E00B277ED /* retina4inch.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260C1767A24E00B277ED /* retina4inch.png */; };
 		EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260D1767A24E00B277ED /* scratchpad.txt */; };
 		EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
-		EA9D26411767B5C900B277ED /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26401767B5C900B277ED /* Default@2x.png */; };
-		EA9D26481767BB1500B277ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D26471767BB1400B277ED /* Default-568h@2x.png */; };
-		EAA33D711588612600826A02 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
-		EAA33D721588612600826A02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
-		EAA33D781588612600826A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAA33D761588612600826A02 /* InfoPlist.strings */; };
-		EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA33D7A1588612600826A02 /* KegCopTests.m */; };
-		EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA33D831588AA9100826A02 /* SenTestingKit.framework */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB1205F175576B7003035C3 /* KBFlowIndicator.m */; };
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
@@ -97,16 +60,6 @@
 		EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF27855159191C9009663A8 /* ViewControllerHome.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		EAA33D811588614D00826A02 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EAEFEE86157B296B00C666D5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EAEFEE8E157B296B00C666D5;
-			remoteInfo = KegCop;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardCommandTest.m; sourceTree = "<group>"; };
 		422CA68A176B7D7800C6C918 /* KBKegboardCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardCommand.h; path = Processing/KBKegboardCommand.h; sourceTree = "<group>"; };
@@ -121,6 +74,7 @@
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerLogs.h; path = Controllers/ViewControllerLogs.h; sourceTree = "<group>"; };
 		EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerLogs.m; path = Controllers/ViewControllerLogs.m; sourceTree = "<group>"; };
+		EA2611D017BAD29000023814 /* KegCop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KegCop-Info.plist"; path = "Resources/KegCop-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EA28353F159FC3910044B39C /* ViewControllerPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerPurchase.h; path = Controllers/ViewControllerPurchase.h; sourceTree = "<group>"; };
 		EA283540159FC3910044B39C /* ViewControllerPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerPurchase.m; path = Controllers/ViewControllerPurchase.m; sourceTree = "<group>"; };
 		EA283543159FC4A20044B39C /* ViewControllerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerWebView.h; path = Controllers/ViewControllerWebView.h; sourceTree = "<group>"; };
@@ -133,7 +87,8 @@
 		EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerPour.m; path = Controllers/ViewControllerPour.m; sourceTree = "<group>"; };
 		EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerRootHome.h; path = Controllers/ViewControllerRootHome.h; sourceTree = "<group>"; };
 		EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerRootHome.m; path = Controllers/ViewControllerRootHome.m; sourceTree = "<group>"; };
-		EA58163915980B6900920AAF /* KegCop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KegCop-Info.plist"; sourceTree = "<group>"; };
+		EA56282817BAC39300E3725B /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
+		EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
 		EA59145A177A08040063BE99 /* ViewControllerDev2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev2.h; sourceTree = "<group>"; };
 		EA59145B177A08040063BE99 /* ViewControllerDev2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev2.m; sourceTree = "<group>"; };
 		EA591460177A220A0063BE99 /* ViewControllerUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerUsers.h; path = Controllers/ViewControllerUsers.h; sourceTree = "<group>"; };
@@ -146,54 +101,22 @@
 		EA699309158721E8009E0397 /* ViewControllerForgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerForgot.m; path = Controllers/ViewControllerForgot.m; sourceTree = "<group>"; };
 		EA99952C15C5AB84001BC954 /* ViewControllerCheckFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerCheckFlow.h; path = Controllers/ViewControllerCheckFlow.h; sourceTree = "<group>"; };
 		EA99952D15C5AB84001BC954 /* ViewControllerCheckFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerCheckFlow.m; path = Controllers/ViewControllerCheckFlow.m; sourceTree = "<group>"; };
-		EA9D25CE1766D12400B277ED /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
-		EA9D25E31767A24E00B277ED /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		EA9D25E41767A24E00B277ED /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		EA9D25E51767A24E00B277ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EA9D25E81767A24E00B277ED /* flow_at_symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_at_symbol.png; sourceTree = "<group>"; };
 		EA9D25E91767A24E00B277ED /* flow_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_background.png; sourceTree = "<group>"; };
 		EA9D25EA1767A24E00B277ED /* flow_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_fill.png; sourceTree = "<group>"; };
 		EA9D25EB1767A24E00B277ED /* flow_foreground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_foreground.png; sourceTree = "<group>"; };
 		EA9D25EC1767A24E00B277ED /* flow_needle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_needle.png; sourceTree = "<group>"; };
 		EA9D25ED1767A24E00B277ED /* flow_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_shadow.png; sourceTree = "<group>"; };
-		EA9D25EF1767A24E00B277ED /* Cornelius.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cornelius.jpg; sourceTree = "<group>"; };
-		EA9D25F01767A24E00B277ED /* Cornelius_Keg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Cornelius_Keg.jpg; sourceTree = "<group>"; };
-		EA9D25F11767A24E00B277ED /* corneliuskegs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = corneliuskegs.jpg; sourceTree = "<group>"; };
-		EA9D25F21767A24E00B277ED /* FWPD.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = FWPD.gif; sourceTree = "<group>"; };
-		EA9D25F31767A24E00B277ED /* icon114x114_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114x114_flat.png; sourceTree = "<group>"; };
-		EA9D25F41767A24E00B277ED /* icon114x114_flat.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon114x114_flat.xcf; sourceTree = "<group>"; };
-		EA9D25F51767A24E00B277ED /* icon320x240_launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon320x240_launch.png; sourceTree = "<group>"; };
-		EA9D25F61767A24E00B277ED /* icon320x480launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon320x480launch.png; sourceTree = "<group>"; };
-		EA9D25F71767A24E00B277ED /* icon512x512.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon512x512.xcf; sourceTree = "<group>"; };
-		EA9D25F81767A24E00B277ED /* icon512x512_02.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon512x512_02.xcf; sourceTree = "<group>"; };
-		EA9D25F91767A24E00B277ED /* icon512x512_02flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon512x512_02flat.png; sourceTree = "<group>"; };
-		EA9D25FA1767A24E00B277ED /* icon512x512_02flat.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon512x512_02flat.xcf; sourceTree = "<group>"; };
-		EA9D25FB1767A24E00B277ED /* icon57x57_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57_flat.png; sourceTree = "<group>"; };
-		EA9D25FC1767A24E00B277ED /* icon57x57_flat.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon57x57_flat.xcf; sourceTree = "<group>"; };
-		EA9D25FD1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png"; sourceTree = "<group>"; };
-		EA9D25FE1767A24E00B277ED /* launch320x480_ds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch320x480_ds.png; sourceTree = "<group>"; };
-		EA9D25FF1767A24E00B277ED /* launchRetina_ds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchRetina_ds.png; sourceTree = "<group>"; };
 		EA9D26001767A24E00B277ED /* icon114x114_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114x114_flat.png; sourceTree = "<group>"; };
 		EA9D26011767A24E00B277ED /* icon57x57_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57_flat.png; sourceTree = "<group>"; };
-		EA9D26021767A24E00B277ED /* kegcop-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kegcop-login.png"; sourceTree = "<group>"; };
-		EA9D26031767A24E00B277ED /* kegcop-multiWelcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kegcop-multiWelcome.png"; sourceTree = "<group>"; };
-		EA9D26041767A24E00B277ED /* launch-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-retina.png"; sourceTree = "<group>"; };
-		EA9D26051767A24E00B277ED /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
-		EA9D26061767A24E00B277ED /* launch320x480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch320x480.png; sourceTree = "<group>"; };
-		EA9D26071767A24E00B277ED /* launch960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch960.png; sourceTree = "<group>"; };
-		EA9D260B1767A24E00B277ED /* photo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.PNG; sourceTree = "<group>"; };
-		EA9D260C1767A24E00B277ED /* retina4inch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retina4inch.png; sourceTree = "<group>"; };
 		EA9D260D1767A24E00B277ED /* scratchpad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scratchpad.txt; sourceTree = "<group>"; };
 		EA9D260F1767A24E00B277ED /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Glass.aiff; sourceTree = "<group>"; };
 		EA9D263B1767AA6600B277ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EA9D26401767B5C900B277ED /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EA9D26421767B7F000B277ED /* BUGS */ = {isa = PBXFileReference; lastKnownFileType = text; path = BUGS; sourceTree = SOURCE_ROOT; };
 		EA9D26431767B7F000B277ED /* CHANGES */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES; sourceTree = SOURCE_ROOT; };
 		EA9D26441767B7F000B277ED /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = SOURCE_ROOT; };
 		EA9D26451767B7F000B277ED /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
 		EA9D26461767B7F000B277ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
-		EA9D26471767BB1400B277ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		EAA33D6E1588612600826A02 /* KegCopTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KegCopTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAA33D751588612600826A02 /* KegCopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KegCopTests-Info.plist"; sourceTree = "<group>"; };
 		EAA33D771588612600826A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAA33D791588612600826A02 /* KegCopTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KegCopTests.h; sourceTree = "<group>"; };
@@ -230,7 +153,6 @@
 		EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EAEFEE9D157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAEFEE9F157B296B00C666D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
 		EAEFEEA2157B296B00C666D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EAEFEEA3157B296B00C666D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EAEFEEA6157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
@@ -241,17 +163,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EAA33D6A1588612600826A02 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAA33D841588AA9100826A02 /* SenTestingKit.framework in Frameworks */,
-				EAA33D711588612600826A02 /* UIKit.framework in Frameworks */,
-				EAA33D721588612600826A02 /* Foundation.framework in Frameworks */,
-				422CA695176D8A2400C6C918 /* QuartzCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EAEFEE8C157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +183,10 @@
 		EA9D25DF1767A24E00B277ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EA2611D017BAD29000023814 /* KegCop-Info.plist */,
+				EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */,
+				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
+				EA56282817BAC39300E3725B /* KegCop.entitlements */,
 				EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */,
 				EA9D26421767B7F000B277ED /* BUGS */,
 				EA9D26431767B7F000B277ED /* CHANGES */,
@@ -288,24 +203,10 @@
 		EA9D25E11767A24E00B277ED /* pics */ = {
 			isa = PBXGroup;
 			children = (
-				EA9D26471767BB1400B277ED /* Default-568h@2x.png */,
-				EA9D25E31767A24E00B277ED /* Default-Landscape~ipad.png */,
-				EA9D25E41767A24E00B277ED /* Default-Portrait~ipad.png */,
-				EA9D25E51767A24E00B277ED /* Default.png */,
 				EA9D263B1767AA6600B277ED /* Default.png */,
-				EA9D26401767B5C900B277ED /* Default@2x.png */,
 				EA9D25E71767A24E00B277ED /* FlowMeter */,
-				EA9D25EE1767A24E00B277ED /* icon */,
 				EA9D26001767A24E00B277ED /* icon114x114_flat.png */,
 				EA9D26011767A24E00B277ED /* icon57x57_flat.png */,
-				EA9D26021767A24E00B277ED /* kegcop-login.png */,
-				EA9D26031767A24E00B277ED /* kegcop-multiWelcome.png */,
-				EA9D26041767A24E00B277ED /* launch-retina.png */,
-				EA9D26051767A24E00B277ED /* launch.png */,
-				EA9D26061767A24E00B277ED /* launch320x480.png */,
-				EA9D26071767A24E00B277ED /* launch960.png */,
-				EA9D260B1767A24E00B277ED /* photo.PNG */,
-				EA9D260C1767A24E00B277ED /* retina4inch.png */,
 			);
 			path = pics;
 			sourceTree = "<group>";
@@ -321,30 +222,6 @@
 				EA9D25ED1767A24E00B277ED /* flow_shadow.png */,
 			);
 			path = FlowMeter;
-			sourceTree = "<group>";
-		};
-		EA9D25EE1767A24E00B277ED /* icon */ = {
-			isa = PBXGroup;
-			children = (
-				EA9D25EF1767A24E00B277ED /* Cornelius.jpg */,
-				EA9D25F01767A24E00B277ED /* Cornelius_Keg.jpg */,
-				EA9D25F11767A24E00B277ED /* corneliuskegs.jpg */,
-				EA9D25F21767A24E00B277ED /* FWPD.gif */,
-				EA9D25F31767A24E00B277ED /* icon114x114_flat.png */,
-				EA9D25F41767A24E00B277ED /* icon114x114_flat.xcf */,
-				EA9D25F51767A24E00B277ED /* icon320x240_launch.png */,
-				EA9D25F61767A24E00B277ED /* icon320x480launch.png */,
-				EA9D25F71767A24E00B277ED /* icon512x512.xcf */,
-				EA9D25F81767A24E00B277ED /* icon512x512_02.xcf */,
-				EA9D25F91767A24E00B277ED /* icon512x512_02flat.png */,
-				EA9D25FA1767A24E00B277ED /* icon512x512_02flat.xcf */,
-				EA9D25FB1767A24E00B277ED /* icon57x57_flat.png */,
-				EA9D25FC1767A24E00B277ED /* icon57x57_flat.xcf */,
-				EA9D25FD1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png */,
-				EA9D25FE1767A24E00B277ED /* launch320x480_ds.png */,
-				EA9D25FF1767A24E00B277ED /* launchRetina_ds.png */,
-			);
-			path = icon;
 			sourceTree = "<group>";
 		};
 		EA9D260E1767A24E00B277ED /* sounds */ = {
@@ -414,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				EAEFEE8F157B296B00C666D5 /* KegCop.app */,
-				EAA33D6E1588612600826A02 /* KegCopTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -449,10 +325,6 @@
 				EABE1D721581C9B700FF9FA0 /* Account.h */,
 				EABE1D731581C9B700FF9FA0 /* Account.m */,
 				EAEFEE9F157B296B00C666D5 /* main.m */,
-				EA9D25CE1766D12400B277ED /* KegCop.entitlements */,
-				EAEFEEA1157B296B00C666D5 /* KegCop-Prefix.pch */,
-				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
-				EA58163915980B6900920AAF /* KegCop-Info.plist */,
 				EAFD9304169420B20043898C /* Models */,
 				EAFD930316941FFB0043898C /* Controllers */,
 				EAFD930216941FE10043898C /* Views */,
@@ -521,31 +393,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EAA33D6D1588612600826A02 /* KegCopTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EAA33D7F1588612600826A02 /* Build configuration list for PBXNativeTarget "KegCopTests" */;
-			buildPhases = (
-				EAA33D691588612600826A02 /* Sources */,
-				EAA33D6A1588612600826A02 /* Frameworks */,
-				EAA33D6B1588612600826A02 /* Resources */,
-				EAA33D6C1588612600826A02 /* ShellScript */,
-				50524F424C454D533F /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EAA33D821588614D00826A02 /* PBXTargetDependency */,
-			);
-			name = KegCopTests;
-			productName = KegCopTests;
-			productReference = EAA33D6E1588612600826A02 /* KegCopTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		EAEFEE8E157B296B00C666D5 /* KegCop */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAEFEEAD157B296B00C666D5 /* Build configuration list for PBXNativeTarget "KegCop" */;
 			buildPhases = (
-				EA69930C15873920009E0397 /* Run Script - Build Version Increment */,
 				EAEFEE8B157B296B00C666D5 /* Sources */,
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
 				EAEFEE8D157B296B00C666D5 /* Resources */,
@@ -580,125 +431,33 @@
 			projectRoot = "";
 			targets = (
 				EAEFEE8E157B296B00C666D5 /* KegCop */,
-				EAA33D6D1588612600826A02 /* KegCopTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EAA33D6B1588612600826A02 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAA33D781588612600826A02 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EAEFEE8D157B296B00C666D5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EAEFEE9E157B296B00C666D5 /* InfoPlist.strings in Resources */,
 				EAEFEEA7157B296B00C666D5 /* iPhone.storyboard in Resources */,
-				EA9D25CF1766D12400B277ED /* KegCop.entitlements in Resources */,
-				EA9D26141767A24E00B277ED /* Default.png in Resources */,
 				EA9D26161767A24E00B277ED /* flow_at_symbol.png in Resources */,
 				EA9D26171767A24E00B277ED /* flow_background.png in Resources */,
 				EA9D26181767A24E00B277ED /* flow_fill.png in Resources */,
 				EA9D26191767A24E00B277ED /* flow_foreground.png in Resources */,
 				EA9D261A1767A24E00B277ED /* flow_needle.png in Resources */,
 				EA9D261B1767A24E00B277ED /* flow_shadow.png in Resources */,
-				EA9D261C1767A24E00B277ED /* Cornelius.jpg in Resources */,
-				EA9D261D1767A24E00B277ED /* Cornelius_Keg.jpg in Resources */,
-				EA9D261E1767A24E00B277ED /* corneliuskegs.jpg in Resources */,
-				EA9D261F1767A24E00B277ED /* FWPD.gif in Resources */,
-				EA9D26201767A24E00B277ED /* icon114x114_flat.png in Resources */,
-				EA9D26211767A24E00B277ED /* icon114x114_flat.xcf in Resources */,
-				EA9D26221767A24E00B277ED /* icon320x240_launch.png in Resources */,
-				EA9D26231767A24E00B277ED /* icon320x480launch.png in Resources */,
-				EA9D26241767A24E00B277ED /* icon512x512.xcf in Resources */,
-				EA9D26251767A24E00B277ED /* icon512x512_02.xcf in Resources */,
-				EA9D26261767A24E00B277ED /* icon512x512_02flat.png in Resources */,
-				EA9D26271767A24E00B277ED /* icon512x512_02flat.xcf in Resources */,
-				EA9D26281767A24E00B277ED /* icon57x57_flat.png in Resources */,
-				EA9D26291767A24E00B277ED /* icon57x57_flat.xcf in Resources */,
-				EA9D262A1767A24E00B277ED /* iOS Simulator Screen shot Jun 3, 2012 10.38.20 PM.png in Resources */,
-				EA9D262B1767A24E00B277ED /* launch320x480_ds.png in Resources */,
-				EA9D262C1767A24E00B277ED /* launchRetina_ds.png in Resources */,
-				EA9D262F1767A24E00B277ED /* kegcop-login.png in Resources */,
-				EA9D26301767A24E00B277ED /* kegcop-multiWelcome.png in Resources */,
-				EA9D26311767A24E00B277ED /* launch-retina.png in Resources */,
-				EA9D26321767A24E00B277ED /* launch.png in Resources */,
-				EA9D26331767A24E00B277ED /* launch320x480.png in Resources */,
-				EA9D26341767A24E00B277ED /* launch960.png in Resources */,
-				EA9D26371767A24E00B277ED /* photo.PNG in Resources */,
-				EA9D26381767A24E00B277ED /* retina4inch.png in Resources */,
 				EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */,
 				EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */,
-				EA9D26411767B5C900B277ED /* Default@2x.png in Resources */,
-				EA9D26481767BB1500B277ED /* Default-568h@2x.png in Resources */,
+				EA56282917BAC39300E3725B /* KegCop.entitlements in Resources */,
+				EA2611D117BAD29000023814 /* KegCop-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		50524F424C454D533F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
-		};
-		EA69930C15873920009E0397 /* Run Script - Build Version Increment */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"",
-			);
-			name = "Run Script - Build Version Increment";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildPlist=${PROJECT_DIR}/${INFOPLIST_FILE}\nCFBundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $buildPlist)\nCFBundleVersion=$(($CFBundleVersion + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBundleVersion\" $buildPlist";
-		};
-		EAA33D6C1588612600826A02 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		EAA33D691588612600826A02 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAA33D7B1588612600826A02 /* KegCopTests.m in Sources */,
-				422CA689176B703A00C6C918 /* KBKegboardCommandTest.m in Sources */,
-				422CA68D176B7D7800C6C918 /* KBKegboardCommand.m in Sources */,
-				422CA690176D807D00C6C918 /* KBKegboardMessageTest.m in Sources */,
-				422CA694176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EAEFEE8B157B296B00C666D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -740,14 +499,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		EAA33D821588614D00826A02 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EAEFEE8E157B296B00C666D5 /* KegCop */;
-			targetProxy = EAA33D811588614D00826A02 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		EAA33D761588612600826A02 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -763,6 +514,7 @@
 				EAEFEE9D157B296B00C666D5 /* en */,
 			);
 			name = InfoPlist.strings;
+			path = ../Classes;
 			sourceTree = "<group>";
 		};
 		EAEFEEA5157B296B00C666D5 /* iPhone.storyboard */ = {
@@ -776,40 +528,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EAA33D7D1588612600826A02 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KegCop.app/KegCop";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KegCopTests/KegCopTests-Prefix.pch";
-				INFOPLIST_FILE = "KegCopTests/KegCopTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		EAA33D7E1588612600826A02 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KegCop.app/KegCop";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KegCopTests/KegCopTests-Prefix.pch";
-				INFOPLIST_FILE = "KegCopTests/KegCopTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 		EAEFEEAB157B296B00C666D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -877,14 +595,15 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 102;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Classes/KegCop-Prefix.pch";
+				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "Classes/KegCop-Info.plist";
+				INFOPLIST_FILE = "Resources/KegCop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
@@ -894,6 +613,7 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/capin/Code/Headers;
 				VALID_ARCHS = "armv7 armv6";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -907,14 +627,15 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 102;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Classes/KegCop-Prefix.pch";
+				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "Classes/KegCop-Info.plist";
+				INFOPLIST_FILE = "Resources/KegCop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
@@ -924,6 +645,7 @@
 				TARGETED_DEVICE_FAMILY = 1;
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/capin/Code/Headers;
 				VALID_ARCHS = "armv7 armv6";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -931,15 +653,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EAA33D7F1588612600826A02 /* Build configuration list for PBXNativeTarget "KegCopTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EAA33D7D1588612600826A02 /* Debug */,
-				EAA33D7E1588612600826A02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		EAEFEE89157B296B00C666D5 /* Build configuration list for PBXProject "KegCop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

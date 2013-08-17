@@ -13,7 +13,8 @@
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */; };
-		EA2611D117BAD29000023814 /* KegCop-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA2611D017BAD29000023814 /* KegCop-Info.plist */; };
+		EA2611E217BAF46700023814 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E117BAF46700023814 /* Default.png */; };
+		EA2611E617BCA33100023814 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E517BCA33100023814 /* Icon.png */; };
 		EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283540159FC3910044B39C /* ViewControllerPurchase.m */; };
 		EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA283544159FC4A20044B39C /* ViewControllerWebView.m */; };
 		EA291BE6163B487500CE419E /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EA291BE5163B487500CE419E /* JailbrokenSerial.m */; };
@@ -74,7 +75,9 @@
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA22BC6115C4F2EE0084DB1C /* ViewControllerLogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerLogs.h; path = Controllers/ViewControllerLogs.h; sourceTree = "<group>"; };
 		EA22BC6215C4F2EE0084DB1C /* ViewControllerLogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerLogs.m; path = Controllers/ViewControllerLogs.m; sourceTree = "<group>"; };
-		EA2611D017BAD29000023814 /* KegCop-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KegCop-Info.plist"; path = "Resources/KegCop-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EA2611D017BAD29000023814 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		EA2611E117BAF46700023814 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		EA2611E517BCA33100023814 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EA28353F159FC3910044B39C /* ViewControllerPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerPurchase.h; path = Controllers/ViewControllerPurchase.h; sourceTree = "<group>"; };
 		EA283540159FC3910044B39C /* ViewControllerPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerPurchase.m; path = Controllers/ViewControllerPurchase.m; sourceTree = "<group>"; };
 		EA283543159FC4A20044B39C /* ViewControllerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerWebView.h; path = Controllers/ViewControllerWebView.h; sourceTree = "<group>"; };
@@ -111,7 +114,6 @@
 		EA9D26011767A24E00B277ED /* icon57x57_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57_flat.png; sourceTree = "<group>"; };
 		EA9D260D1767A24E00B277ED /* scratchpad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scratchpad.txt; sourceTree = "<group>"; };
 		EA9D260F1767A24E00B277ED /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Glass.aiff; sourceTree = "<group>"; };
-		EA9D263B1767AA6600B277ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EA9D26421767B7F000B277ED /* BUGS */ = {isa = PBXFileReference; lastKnownFileType = text; path = BUGS; sourceTree = SOURCE_ROOT; };
 		EA9D26431767B7F000B277ED /* CHANGES */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGES; sourceTree = SOURCE_ROOT; };
 		EA9D26441767B7F000B277ED /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = SOURCE_ROOT; };
@@ -183,7 +185,7 @@
 		EA9D25DF1767A24E00B277ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EA2611D017BAD29000023814 /* KegCop-Info.plist */,
+				EA2611D017BAD29000023814 /* Info.plist */,
 				EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */,
 				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
 				EA56282817BAC39300E3725B /* KegCop.entitlements */,
@@ -203,10 +205,11 @@
 		EA9D25E11767A24E00B277ED /* pics */ = {
 			isa = PBXGroup;
 			children = (
-				EA9D263B1767AA6600B277ED /* Default.png */,
-				EA9D25E71767A24E00B277ED /* FlowMeter */,
+				EA2611E117BAF46700023814 /* Default.png */,
+				EA2611E517BCA33100023814 /* Icon.png */,
 				EA9D26001767A24E00B277ED /* icon114x114_flat.png */,
 				EA9D26011767A24E00B277ED /* icon57x57_flat.png */,
+				EA9D25E71767A24E00B277ED /* FlowMeter */,
 			);
 			path = pics;
 			sourceTree = "<group>";
@@ -451,7 +454,8 @@
 				EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */,
 				EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */,
 				EA56282917BAC39300E3725B /* KegCop.entitlements in Resources */,
-				EA2611D117BAD29000023814 /* KegCop-Info.plist in Resources */,
+				EA2611E217BAF46700023814 /* Default.png in Resources */,
+				EA2611E617BCA33100023814 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +599,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 103;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
@@ -603,7 +607,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "Resources/KegCop-Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
@@ -627,7 +631,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 103;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
@@ -635,7 +639,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INFOPLIST_FILE = "Resources/KegCop-Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;

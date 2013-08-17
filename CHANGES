@@ -1,3 +1,8 @@
+2013-08-13
+
+    * removed erroneous pics from project.
+    * removed old build script, now going to increment build version # with "agvtool"
+
 2013-08-06
 
     * added 60 second idle time timer for logging out users due to inactivity.

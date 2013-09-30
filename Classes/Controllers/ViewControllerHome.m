@@ -276,6 +276,11 @@
         }
     }
     
+    // save the Core Data context to disk - prevents force quit bug found on 29SEP13
+    // save the managed object context / save to DB
+    [_managedObjectContext save:&error];
+
+    
     // stuff added 2AUG13
     NSLog(@"{open_valve} btn tapped.");
     

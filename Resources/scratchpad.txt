@@ -1132,5 +1132,15 @@ The long journey of getting the Core Data / SQLite database synced up with a MyS
     /usr/local/bin/mysql_install_db --user=daemon
     
 
+==============================================================================================
+17SEP13
+
+- updated to Xcode 4.6.3
+
+==============================================================================================
+29SEP13 - versioning - nsscreencast video 55
+
+- to bump to the build verion number
+$ agvtool bump -all
 
 

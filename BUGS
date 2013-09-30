@@ -1,3 +1,8 @@
+2013-09-29
+
+    * found flaw / bug where credits were being restored when app was being force quit or when the device loses power.
+
+
 2013-08-06
 
     * the pour beer button needs to be pressed twice when the iPhone wakes from sleep

@@ -11,7 +11,7 @@ An iDevice, i.e. iPhone will connect to an Arduino via serial communication / iP
 ## Build
 As of 30SEP13, this project will be built with Xcode 4.6.3 using OS X (10.8.5)
 
-This project was built with Xcode 4.6.2 and the target iOS is 5.1.1
+This project was built with Xcode 4.6.3 and the target iOS is 5.1.1
 
 ## License and Copyright
 All code is offered under the GPLv2 license, unless otherwise noted.  Please see LICENSE.txt for

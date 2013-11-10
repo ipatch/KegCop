@@ -21,13 +21,6 @@ Proof of Concept - Arduino - iDevice Communication
 iDevice has to send signal over serial com to Arduino that then sends signal to solenoid to open
 
 
-
-
-
-
-
-
-
 ==============================================
 END - Proof of Concept - Arduino - iDevice Com
 ==============================================
@@ -56,10 +49,6 @@ Notes
 - to interface to SQLite 3, see the package python-pysqlite1.1 - http://packages.debian.org/stable/python/python-pysqlite2
 
 - if using Python 2.5 and up, already have working version of pysqlite 2 bundled http://trac.edgewall.org/wiki/PySqlite
-
-
-
-
 
 
 ===============================================================================
@@ -120,10 +109,6 @@ read_port(void)
         fputs("read failed!\n", stderr);
     return (fd);
 }
-
-
-
-
 
 
 
@@ -1143,4 +1128,17 @@ The long journey of getting the Core Data / SQLite database synced up with a MyS
 - to bump to the build verion number
 $ agvtool bump -all
 
+==============================================================================================
+9OCT13
 
+- installed cocoapods
+$ gem install cocoapods
+
+- where to place podfile?
+the "Podfile" goes into to the project root directory
+
+[!] From now on use `KegCop.xcworkspace`. <-- to launch project
+
+- removed the below line from the header search path
+
+/Users/capin/Code/Headers

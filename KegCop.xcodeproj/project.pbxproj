@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */; };
 		422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
+		5D1D3CDD3A3E40E789538892 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC4EEE47EAB4A04A9448C12 /* libPods.a */; };
 		EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1890361585F7E7003A64FC /* ViewControllerAbout.m */; };
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
@@ -62,12 +63,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24B13917A4904525A1AD32C4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardCommandTest.m; sourceTree = "<group>"; };
 		422CA68A176B7D7800C6C918 /* KBKegboardCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardCommand.h; path = Processing/KBKegboardCommand.h; sourceTree = "<group>"; };
 		422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardCommand.m; path = Processing/KBKegboardCommand.m; sourceTree = "<group>"; };
 		422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardMessageTest.m; sourceTree = "<group>"; };
 		422CA691176D85CD00C6C918 /* KBKegboardUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardUtils.h; path = Processing/KBKegboardUtils.h; sourceTree = "<group>"; };
 		422CA692176D85CE00C6C918 /* KBKegboardUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardUtils.m; path = Processing/KBKegboardUtils.m; sourceTree = "<group>"; };
+		4CC4EEE47EAB4A04A9448C12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1890351585F7E7003A64FC /* ViewControllerAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAbout.h; path = Controllers/ViewControllerAbout.h; sourceTree = "<group>"; };
 		EA1890361585F7E7003A64FC /* ViewControllerAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAbout.m; path = Controllers/ViewControllerAbout.m; sourceTree = "<group>"; };
 		EA1890391585F890003A64FC /* ViewControllerCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerCreate.h; path = Controllers/ViewControllerCreate.h; sourceTree = "<group>"; };
@@ -176,6 +179,7 @@
 				EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */,
 				EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */,
 				EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */,
+				5D1D3CDD3A3E40E789538892 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +291,7 @@
 				EAA33D731588612600826A02 /* KegCopApplicationTests */,
 				EAEFEE92157B296B00C666D5 /* Frameworks */,
 				EAEFEE90157B296B00C666D5 /* Products */,
+				24B13917A4904525A1AD32C4 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -309,6 +314,7 @@
 				EAEFEE93157B296B00C666D5 /* UIKit.framework */,
 				EAEFEE95157B296B00C666D5 /* Foundation.framework */,
 				EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */,
+				4CC4EEE47EAB4A04A9448C12 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -400,9 +406,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAEFEEAD157B296B00C666D5 /* Build configuration list for PBXNativeTarget "KegCop" */;
 			buildPhases = (
+				40B5D04DABA44828BD0F8032 /* Check Pods Manifest.lock */,
 				EAEFEE8B157B296B00C666D5 /* Sources */,
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
 				EAEFEE8D157B296B00C666D5 /* Resources */,
+				06F2684553644706A2B3A865 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -460,6 +468,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06F2684553644706A2B3A865 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40B5D04DABA44828BD0F8032 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAEFEE8B157B296B00C666D5 /* Sources */ = {
@@ -592,9 +633,9 @@
 		};
 		EAEFEEAE157B296B00C666D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24B13917A4904525A1AD32C4 /* Pods.xcconfig */;
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -615,7 +656,8 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/capin/Code/Headers;
+				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
 				VALID_ARCHS = "armv7 armv6";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
@@ -624,9 +666,9 @@
 		};
 		EAEFEEAF157B296B00C666D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24B13917A4904525A1AD32C4 /* Pods.xcconfig */;
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
-				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -647,7 +689,8 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = /Users/capin/Code/Headers;
+				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				VALID_ARCHS = "armv7 armv6";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;

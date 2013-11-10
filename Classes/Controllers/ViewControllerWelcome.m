@@ -9,6 +9,7 @@
 #import "ViewControllerWelcome.h"
 #import "NSData+AES256.h"
 #import <dispatch/dispatch.h> // Grand Central Dispatch
+#import "AFNetworking.h" // added to test coacopods implementation
 
 // GCD doesn't require linking to any new frameworks! :)
 

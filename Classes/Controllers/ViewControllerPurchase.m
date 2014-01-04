@@ -41,7 +41,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerWebView *webview = (ViewControllerWebView *)[storyboard instantiateViewControllerWithIdentifier:@"webView"];
-    [self presentModalViewController:webview animated:YES];
+    [self presentViewController:webview animated:YES completion:nil];
     
 }
 

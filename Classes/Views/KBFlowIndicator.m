@@ -122,7 +122,7 @@
 
 - (IBAction)dismissScene:(id)sender {
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)simulateValues {

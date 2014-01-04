@@ -201,7 +201,7 @@
     [serial close];
     
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -210,7 +210,7 @@
     NSLog(@"dev2 button pressed");
     
     UIViewController *dev2 = [self.storyboard instantiateViewControllerWithIdentifier:@"dev2"];
-    [self presentModalViewController:dev2 animated:YES];
+    [self presentViewController:dev2 animated:YES completion:nil];
     
     
     NSLog(@"dev2 button press End");

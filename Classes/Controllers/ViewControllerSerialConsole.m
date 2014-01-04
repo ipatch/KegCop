@@ -43,7 +43,7 @@
 
 - (IBAction)donePressed:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)sendString:(id)sender {

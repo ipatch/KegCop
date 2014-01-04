@@ -283,13 +283,13 @@
         
         [self passValues];
         
-        [self presentModalViewController:home animated:YES];
+        [self presentViewController:home animated:YES completion:nil];
 
     }
 }
 
 - (IBAction)dismissCreateScene:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)checkTextFieldCharLength

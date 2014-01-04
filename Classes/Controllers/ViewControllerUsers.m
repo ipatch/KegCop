@@ -95,7 +95,7 @@
 }
 - (IBAction)dismissScene:(id)sender {
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)changePin:(id)sender {

@@ -327,10 +327,10 @@
     // this condition is satisfied when a new user creates an account then logs out
     if([self.presentingViewController isKindOfClass:[ViewControllerCreate class]] ) {
         
-        [self.presentingViewController.presentingViewController dismissModalViewControllerAnimated:YES];
+        [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion: nil];
     }
     // this is normally called when a user logs in then logs out
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

@@ -386,7 +386,7 @@
 //    ViewControllerWelcome *welcome = (ViewControllerWelcome *)[storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
 //    [self presentModalViewController:welcome animated:YES];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
@@ -395,7 +395,7 @@
     // btnCheckFlow pressed
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerCheckFlow *checkFlow = (ViewControllerCheckFlow *)[storyboard instantiateViewControllerWithIdentifier:@"Check Flow"];
-    [self presentModalViewController:checkFlow animated:YES];
+    [self presentViewController:checkFlow animated:YES completion:nil];
 }
 
 - (IBAction)showSerialConsole:(id)sender {
@@ -404,7 +404,7 @@
     //btnSerialConsole pressed
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerSerialConsole *serialConsole = (ViewControllerSerialConsole *) [storyboard instantiateViewControllerWithIdentifier:@"Serial Console"];
-    [self presentModalViewController:serialConsole animated:YES];
+    [self presentViewController:serialConsole animated:YES completion:nil];
     NSLog(@"Serial Pressed End");
 }
 
@@ -413,7 +413,7 @@
     // logs btn pressed
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerLogs *logs = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"Logs"];
-    [self presentModalViewController:logs animated:YES];
+    [self presentViewController:logs animated:YES completion:nil];
     
 
 }
@@ -457,7 +457,7 @@
 //    [self presentModalViewController:dev animated:YES];
     
     UIViewController *dev = [self.storyboard instantiateViewControllerWithIdentifier:@"dev"];
-    [self presentModalViewController:dev animated:YES];
+    [self presentViewController:dev animated:YES completion:nil];
     
     
     NSLog(@"dev button press End");
@@ -468,7 +468,7 @@
     NSLog(@"flow indicator btn pressed");
     
     UIViewController *flow = [self.storyboard instantiateViewControllerWithIdentifier:@"KBFlowIndicator"];
-    [self presentModalViewController:flow animated:YES];
+    [self presentViewController:flow animated:YES completion:nil];
     
     
 }
@@ -480,7 +480,7 @@
     // item is the selected tab item
     if (item.tag==0) {
         UIViewController *users = [self.storyboard instantiateViewControllerWithIdentifier:@"users"];
-        [self presentModalViewController:users animated:YES];
+        [self presentViewController:users animated:YES completion:nil];
     }
     
     if (item.tag==1) {
@@ -492,7 +492,7 @@
     if (item.tag==2) {
         NSLog(@"dev btn tapped");
         UIViewController *dev3 = [self.storyboard instantiateViewControllerWithIdentifier:@"dev3"];
-        [self presentModalViewController:dev3 animated:YES];
+        [self presentViewController:dev3 animated:YES completion:nil];
     }
 }
 

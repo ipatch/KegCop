@@ -249,7 +249,7 @@
                 {
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
                     ViewControllerRootHome *roothome = (ViewControllerRootHome *)[storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
-                    [self presentModalViewController:roothome animated:YES];
+                    [self presentViewController:roothome animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin
                     _textFieldUsername.text = @"";
@@ -266,7 +266,7 @@
                     
                     [self passValues];
                     
-                    [self presentModalViewController:home animated:YES];
+                    [self presentViewController:home animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin
                     _textFieldUsername.text = @"";
@@ -295,7 +295,7 @@
 - (IBAction)showForgotScene:(id)sender {
     
     UIViewController *forgot = [self.storyboard instantiateViewControllerWithIdentifier:@"Forgot"];
-    [self presentModalViewController:forgot animated:YES];
+    [self presentViewController:forgot animated:YES completion:nil];
 }
 
 - (IBAction)showCreateScene:(id)sender {
@@ -334,7 +334,7 @@
         
         // display ViewControllerCreate
         UIViewController *create = [self.storyboard instantiateViewControllerWithIdentifier:@"Create"];
-        [self presentModalViewController:create animated:YES];
+        [self presentViewController:create animated:YES completion:nil];
         
     }
 }
@@ -349,7 +349,7 @@
     
     // method to show the About Screen
     UIViewController *about = [self.storyboard instantiateViewControllerWithIdentifier:@"About"];
-    [self presentModalViewController:about animated:YES];
+    [self presentViewController:about animated:YES completion:nil];
     
     
 }
@@ -426,7 +426,7 @@
     // dev btn pressed
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerDev *dev = (ViewControllerDev *)[storyboard instantiateViewControllerWithIdentifier:@"dev"];
-    [self presentModalViewController:dev animated:YES];
+    [self presentViewController:dev animated:YES completion:nil];
     
 }
 

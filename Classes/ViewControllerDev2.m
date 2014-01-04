@@ -40,7 +40,7 @@
     // close the serial port
     [jbserial close];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

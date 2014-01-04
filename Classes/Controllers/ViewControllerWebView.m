@@ -56,7 +56,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
-    [self presentModalViewController:home animated:YES];
+    [self presentViewController:home animated:YES completion:nil];
     
     
 }

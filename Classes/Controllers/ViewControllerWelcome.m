@@ -10,6 +10,7 @@
 #import "NSData+AES256.h"
 #import <dispatch/dispatch.h> // Grand Central Dispatch
 #import "AFNetworking.h" // added to test coacopods implementation
+#import <QuartzCore/QuartzCore.h> // added to see if button outlines / borders would respond properly in iOS 7
 
 // GCD doesn't require linking to any new frameworks! :)
 
@@ -41,6 +42,8 @@
 @synthesize textFieldPin = _textFieldPin;
 @synthesize wrongUserPin = _wrongUserPin;
 @synthesize welcomeLogin = _welcomeLogin;
+@synthesize btnForgot = _btnForgot;
+@synthesize btnCreate = _btnCreate;
 @synthesize welcomeActivityIndicator = _welcomeActivityIndicator;
 @synthesize welcomeAbout = _welcomeAbout;
 @synthesize dev = _dev;
@@ -61,6 +64,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"execution reached here");
+    
+    
+    // add borders for buttons, iOS 7 fix - 5JAN14
+    _welcomeLogin.layer.borderWidth=1.0f;
+    _welcomeLogin.layer.borderColor=[[UIColor greenColor] CGColor];
+    
+    
+    _btnForgot.layer.borderWidth=1.0f;
+    _btnForgot.layer.borderColor=[[UIColor redColor] CGColor];
+    
+    
+    _btnCreate.layer.borderWidth=1.0f;
+    _btnCreate.layer.borderColor=[[UIColor blueColor] CGColor];
+    
+    
     
     // load Welcome Scrollview
     [_welcomeScroller setContentSize:CGSizeMake(320,750)];
@@ -301,7 +319,7 @@
 - (IBAction)showCreateScene:(id)sender {
     
     // display a UIAlertView displaying legal disclaimer.
-    alertlegal = [[UIAlertView alloc] initWithTitle:@"Legal Disclaimer" message:@"By clicking agree you abide to the terms of this application.\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Agree", nil];
+    alertlegal = [[UIAlertView alloc] initWithTitle:@"Terms of Service" message:@"By clicking agree you abide to the terms of this application.\n\n\n\n\n\n\n\n\n" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Agree", nil];
     
     // set the size of the UIAlertView
     //alertlegal.frame = CGRectMake(0, 200, 200, 200);

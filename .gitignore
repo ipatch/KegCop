@@ -17,3 +17,7 @@ repoupdate.sh
 
 # Exclude XCode breakpoint file
 KegCop.xcodeproj/xcuserdata/capin.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+
+# Exclude the following file
+# http://stackoverflow.com/questions/18039414/do-we-need-to-check-in-xcuserstate
+KegCop.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate

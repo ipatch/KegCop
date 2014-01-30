@@ -846,7 +846,7 @@ multiple storyboard files
 - app crashes when trying to login with simulator
 
 ==============================================================================================
-
+GIT FILE MANAGEMENT
 
 9APR13
 - to update git repo
@@ -1148,3 +1148,176 @@ the "Podfile" goes into to the project root directory
 30DEC13
 
 - received Bluno in the mail, and am now using Xcode 5.0
+
+==============================================================================================
+5JAN14
+
+- where is the sqlite DB stored on the 3GS?
+/var/mobile/Library/KegCop/
+
+==============================================================================================
+6JAN14
+
+- started working on bluetooth with BLuno microcontroller
+
+- according to LightBlue BLuno is in peripheral mode because when the app is in central mode it sees the microcontroller in peripheral mode.
+
+Local Name: DFBLEduinoV1.0
+
+/dev/tty.usbmodemfd121
+
+- successfully  put device in central mode.
+
+- figure out way to scan for central devices in iOS App
+
+CoreBluetooth[WARNING] <CBPeripheralManager is not powered on
+
+
+
+==============================================================================================
+10JAN14
+
+// this method can be used to determine if a device is BT4.0LE compliant
+//
+// http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
+//
+/*
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
+    switch (peripheral.state) {
+        case CBPeripheralManagerStatePoweredOn:
+            [self setupService]; // method defined using the following tut ^ <= check above link
+            break;
+        default:
+            NSLog(@"Peripheral Manager did change state");
+            break;
+    }
+}
+*/
+
+// this method is added via the following tut
+//
+// http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
+//
+/*
+- (void)setupService {
+    // Creates the characteristic UUID
+    CBUUID *characteristicUUID = [CBUUID UUIDWithString:kCharacteristicUUID];
+    
+    // Creates the characteristic
+    self.customCharacteristic = [[CBMutableCharacteristic alloc] initWithType:characteristicUUID properties:CBCharacteristicPropertyNotify value:nil permissions:CBAttributePermissionsReadable];
+    
+    // Creates the service UUID
+    CBUUID *serviceUUID = [CBUUID UUIDWithString:kServiceUUID];
+    
+    // Creates the service and adds the characteristic to it
+    self.customService = [[CBMutableService alloc] initWithType:serviceUUID primary:YES];
+    
+    // Sets the characteristics for this service
+    [self.customService setCharacteristics:@[self.customCharacteristic]];
+    
+    // Publishes the service
+    [self.peripheralManager addService:self.customService];
+}
+*/
+
+// this method is added via the following tut
+//
+// http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
+//
+
+/*
+- (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error {
+    if (error == nil) {
+        // Starts advertising the service
+        [self.peripheralManager startAdvertising:@{ CBAdvertisementDataLocalNameKey : @"ICServer", CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:kServiceUUID]] }];
+    }
+}
+*/
+
+
+/* - mobile.tuts tutorial method
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
+    if (peripheral.state != CBPeripheralManagerStatePoweredOn) {
+        return;
+    }
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
+        self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_UUID] properties:CBCharacteristicPropertyNotify value:nil permissions:CBAttributePermissionsReadable];
+        CBMutableService *transferService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID] primary:YES];
+        transferService.characteristics = @[_transferCharacteristic];
+        [_peripheralManager addService:transferService];
+    }
+}
+*/
+
+/*
+- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
+    _dataToSend = [_textView.text dataUsingEncoding:NSUTF8StringEncoding];
+    _sendDataIndex = 0;
+    [self sendData];
+}
+
+
+- (void)sendData {
+    static BOOL sendingEOM = NO;
+    // end of message?
+    if (sendingEOM) {
+        BOOL didSend = [self.peripheralManager updateValue:[@"EOM" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
+        if (didSend) {
+            // It did, so mark it as sent
+            sendingEOM = NO;
+        }
+        // didn't send, so we'll exit and wait for peripheralManagerIsReadyToUpdateSubscribers to call sendData again
+        return;
+    }
+    // We're sending data
+    // Is there any left to send?
+    if (self.sendDataIndex >= self.dataToSend.length) {
+        // No data left.  Do nothing
+        return;
+    }
+    // There's data left, so send until the callback fails, or we're done.
+    BOOL didSend = YES;
+    while (didSend) {
+        // Work out how big it should be
+        NSInteger amountToSend = self.dataToSend.length - self.sendDataIndex;
+        // Can't be longer than 20 bytes
+        if (amountToSend > NOTIFY_MTU) amountToSend = NOTIFY_MTU;
+        // Copy out the data we want
+        NSData *chunk = [NSData dataWithBytes:self.dataToSend.bytes+self.sendDataIndex length:amountToSend];
+        didSend = [self.peripheralManager updateValue:chunk forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
+        // If it didn't work, drop out and wait for the callback
+        if (!didSend) {
+            return;
+        }
+        NSString *stringFromData = [[NSString alloc] initWithData:chunk encoding:NSUTF8StringEncoding];
+        NSLog(@"Sent: %@", stringFromData);
+        // It did send, so update our index
+        self.sendDataIndex += amountToSend;
+        // Was it the last one?
+        if (self.sendDataIndex >= self.dataToSend.length) {
+            // Set this so if the send fails, we'll send it next time
+            sendingEOM = YES;
+            BOOL eomSent = [self.peripheralManager updateValue:[@"EOM" dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:self.transferCharacteristic onSubscribedCentrals:nil];
+            if (eomSent) {
+                // It sent, we're all done
+                sendingEOM = NO;
+                NSLog(@"Sent: EOM");
+            }
+            return;
+        }
+    }
+}
+
+- (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral {
+    [self sendData];
+}
+*/
+
+==============================================================================================
+26JAN14
+
+local IP address of iPod Touch 10.0.1.18
+
+
+CoreBluetooth[WARNING] <CBCentralManager: 0x16e77470> is disabling duplicate filtering, but is using the default queue (main thread) for delegate events
+

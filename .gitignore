@@ -1,4 +1,4 @@
-KegCop.xcodeproj/project.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate
+# .gitignore - file for ignoring files for a git repository
 
 # Exclude OS X folder attributes - recursively
 *.DS_Store
@@ -6,7 +6,7 @@ KegCop.xcodeproj/project.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceS
 # Exclude the .gitignore file from being uploaded to the trunk
 .gitignore
 
-# Exclude the build folder directory - Xcode 4.x
+# Exclude the build folder directory - Xcode 4.x - 5.x
 DerivedData
 
 # Exclude the shortcut for the build folder
@@ -21,3 +21,4 @@ KegCop.xcodeproj/xcuserdata/capin.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
 # Exclude the following file
 # http://stackoverflow.com/questions/18039414/do-we-need-to-check-in-xcuserstate
 KegCop.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate
+KegCop.xcodeproj/project.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate

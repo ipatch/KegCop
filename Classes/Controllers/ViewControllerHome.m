@@ -10,6 +10,7 @@
 #import "ViewControllerCreate.h"
 #import "math.h"
 
+
 @interface ViewControllerHome ()
 
 @end
@@ -31,6 +32,13 @@
 
 - (void)viewDidLoad
 {
+    // Core Bluetooth
+    
+    
+    
+    
+    
+    
     // Core Data
     if (_managedObjectContext == nil)
     {
@@ -126,6 +134,8 @@
 {
     return YES;
 }
+
+
 
 - (IBAction)removeAccount {
     NSLog(@"Button Pressed");

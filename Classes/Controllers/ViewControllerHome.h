@@ -10,8 +10,11 @@
 #import "AppDelegate.h"
 #import "ViewControllerWelcome.h"
 #import "JailbrokenSerial.h"
+// Added 6JAN14
+#import <CoreBluetooth/CoreBluetooth.h>
 
-@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate>
+// want to configure iPod Touch in peripheral mode, and have microcontroller in central mode.
+@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, CBPeripheralManagerDelegate>
 {
     UIButton *removeAccount;
     UIAlertView *alert;
@@ -34,6 +37,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRFID;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 @property (weak, nonatomic) IBOutlet UILabel *idleTimerTime;
+
+// Core Bluetooth
+@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+@property (strong, nonatomic) CBMutableCharacteristic *transferCharacteristic;
+@property (strong, nonatomic) NSData *dataToSend;
+@property (nonatomic, readwrite) NSInteger sendDataIndex;
+
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

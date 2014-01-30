@@ -1039,6 +1039,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQr-SK-qW2">
+                                <rect key="frame" x="0.0" y="44" width="320" height="68"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDR-6d-yPw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1052,24 +1059,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIm-9M-bgi">
-                                <rect key="frame" x="20" y="208" width="106" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywk-er-cDi">
+                                <rect key="frame" x="20" y="120" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Open Valve">
+                                <state key="normal" title="Send Data">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openValve:" destination="lV2-D8-flx" eventType="touchUpInside" id="isB-L9-E48"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLU-c0-0EU">
-                                <rect key="frame" x="20" y="259" width="215" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Open Valve - KBCommand">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openValveKBCommand:" destination="lV2-D8-flx" eventType="touchUpInside" id="KUe-F8-IyX"/>
+                                    <action selector="sendBTData:" destination="lV2-D8-flx" eventType="touchUpInside" id="rhP-cS-eRc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1077,8 +1074,8 @@
                     </view>
                     <connections>
                         <outlet property="btnDone" destination="kcd-PT-sov" id="tYW-3a-hll"/>
-                        <outlet property="btnOpenValve" destination="SIm-9M-bgi" id="Q4I-cU-WGp"/>
-                        <outlet property="btnOpenValveKBCommand" destination="dLU-c0-0EU" id="eG0-rX-TuI"/>
+                        <outlet property="btnSend" destination="Ywk-er-cDi" id="B8P-Sc-44u"/>
+                        <outlet property="textView" destination="TQr-SK-qW2" id="hpQ-ry-FL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tst-cL-4eq" userLabel="First Responder" sceneMemberID="firstResponder"/>

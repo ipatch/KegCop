@@ -10,35 +10,32 @@
 //  http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreBluetooth/CoreBluetooth.h>
-#import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
+#import "DFBlunoManager.h"
 
-#import "SERVICES.h"
-
-@interface ViewControllerDev2 : UIViewController <CBCentralManagerDelegate, CBPeripheralDelegate, UITextViewDelegate> {
+@interface ViewControllerDev2 : UIViewController <DFBlunoDelegate> {
     
     
 }
 
+// btn required to dismiss scene
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnDone;
-
-// Core Bluetooth Peripheral stuff
-@property (strong, nonatomic) CBCentralManager *centralManager;
-@property (strong, nonatomic) CBPeripheral *discoveredPeripheral;
-@property (strong, nonatomic) NSMutableData *data;
-
-
-
-@property (strong, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *btnSend;
-
-
-
-
+// method definition to dimiss scene
 - (IBAction)dismissScene:(id)sender;
 
-- (IBAction)sendBTData:(id)sender;
+
+// CoreBluetooth stuff
+@property(strong, nonatomic) DFBlunoManager *blunoManager;
+@property(strong, nonatomic) DFBlunoDevice *blunoDev;
+
+// interface elements for CoreBluetooth stuff
+@property (weak, nonatomic) IBOutlet UILabel *lbReceiveMsg;
+@property (weak, nonatomic) IBOutlet UITextField *txtSendMsg;
+@property (weak, nonatomic) IBOutlet UILabel *lbReady;
+
+- (IBAction)actionSend:(id)sender;
+
+
 
 
 @end

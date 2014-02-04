@@ -1,1 +1,0 @@
-DerivedData/KegCop/Build/Products/Release-iphoneos/

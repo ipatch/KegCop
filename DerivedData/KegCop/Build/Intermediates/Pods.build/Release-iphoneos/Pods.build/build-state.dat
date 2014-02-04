@@ -1,164 +1,0 @@
-TPods
-v6
-r1
-cCheck dependencies
-cCompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.o /Users/capin/Projects/KegCop/Pods/Pods-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.o /Users/capin/Projects/KegCop/Pods/Pods-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLibtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a normal armv7
-cLibtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a normal armv7s
-cCreateUniversalBinary /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a normal armv7\ armv7s
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk
-c00000000525642EE0000000000000110
-t1381384942
-s272
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/SDKSettings.plist
-c0000000052814CA1000000000000036B
-t1384205473
-s875
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/CoreServices/SystemVersion.plist
-c0000000052814CA100000000000001A0
-t1384205473
-s416
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c0000000052814CA40000000000A92BC0
-t1384205476
-s11086784
-
-N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/include/module.map
-c0000000052814D430000000000000AC9
-t1384205635
-s2761
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.o
-t1391284815
-s3476
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods.LinkFileList
-c0000000052ED524F000000000000008D
-t1391284815
-s141
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a
-t1391284815
-s3576248
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.o
-t1391284815
-s3476
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods.LinkFileList
-c0000000052ED524F000000000000008E
-t1391284815
-s142
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a
-t1391284815
-s3574488
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-AFNetworking.a
-c0000000052ED524B000000000016E398
-t1391284811
-s1500056
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-RestKit.a
-c0000000052ED524F00000000005119A8
-t1391284815
-s5314984
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-SOCKit.a
-c0000000052ED524A0000000000019308
-t1391284810
-s103176
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-TransitionKit.a
-c0000000052ED524B00000000000372E8
-t1391284811
-s226024
-
-N/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a
-t2
-s0
-
-N/Users/capin/Projects/KegCop/Pods/Pods-dummy.m
-c0000000052C865260000000000000070
-t1388864806
-s112
-
-CBuild AST from /Users/capin/Projects/KegCop/Pods/Pods-dummy.m
-r0
-
-CCheck dependencies
-r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies39426acf899db841^bc046bcf899db841^---0#1#1#--18"Check dependencies36"B83ED44C-2246-4A1B-9DC7-436E8C08CD57-
-
-CCompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.o /Users/capin/Projects/KegCop/Pods/Pods-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s412977615.418684
-e412977615.445038
-r1
-xCompileC
-x/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.o
-x/Users/capin/Projects/KegCop/Pods/Pods-dummy.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/capin/Projects/KegCop/Pods/Pods-dummy.m
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Compile /Users/capin/Projects/KegCop/Pods/Pods-dummy.m231"CompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.o Pods-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler26516bcf899db841^80f471cf899db841^---0#0#1#-19%DVTDocumentLocation2@53"file:///Users/capin/Projects/KegCop/Pods/Pods-dummy.m0000000000000000^3949"CompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.o Pods-dummy.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/capin/Projects/KegCop/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fmodules -fmodules-cache-path=/Users/capin/Projects/KegCop/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DCOCOAPODS=1 -DNS_BLOCK_ASSERTIONS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -iquote /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-generated-files.hmap -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-own-target-headers.hmap -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-all-target-headers.hmap -iquote /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-project-headers.hmap -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/include -I/Users/capin/Projects/KegCop/Pods/Pods/Headers -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/AFNetworking -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/CoreData -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/Network -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/ObjectMapping -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/Support -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/SOCKit -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/TransitionKit -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/DerivedSources/armv7 -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/DerivedSources -F/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 -MMD -MT dependencies -MF /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.d --serialize-diagnostics /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.dia -c /Users/capin/Projects/KegCop/Pods/Pods-dummy.m -o /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods-dummy.o36"0BCA4A72-8196-4B99-AECE-9F5899AB9CE5-
-b89F1CBDB-F54D-4807-BFD8-8014E7B8E2AD
-
-CCompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.o /Users/capin/Projects/KegCop/Pods/Pods-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s412977615.418947
-e412977615.445034
-r1
-xCompileC
-x/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.o
-x/Users/capin/Projects/KegCop/Pods/Pods-dummy.m
-xnormal
-xarmv7s
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/capin/Projects/KegCop/Pods/Pods-dummy.m
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Compile /Users/capin/Projects/KegCop/Pods/Pods-dummy.m233"CompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.o Pods-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler39606bcf899db841^feee71cf899db841^---0#0#1#-19%DVTDocumentLocation2@53"file:///Users/capin/Projects/KegCop/Pods/Pods-dummy.m0000000000000000^3956"CompileC /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.o Pods-dummy.m normal armv7s objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/capin/Projects/KegCop/Pods    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch armv7s -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu99 -fmodules -fmodules-cache-path=/Users/capin/Projects/KegCop/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Wno-implicit-atomic-properties -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wundeclared-selector -Wno-deprecated-implementations -DCOCOAPODS=1 -DNS_BLOCK_ASSERTIONS=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -miphoneos-version-min=5.0 -iquote /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-generated-files.hmap -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-own-target-headers.hmap -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-all-target-headers.hmap -iquote /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Pods-project-headers.hmap -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/include -I/Users/capin/Projects/KegCop/Pods/Pods/Headers -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/AFNetworking -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/CoreData -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/Network -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/ObjectMapping -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/RestKit/RestKit/Support -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/SOCKit -I/Users/capin/Projects/KegCop/Pods/Pods/Headers/TransitionKit -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/DerivedSources/armv7s -I/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/DerivedSources -F/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos -DNS_BLOCK_ASSERTIONS=1 -MMD -MT dependencies -MF /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.d --serialize-diagnostics /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.dia -c /Users/capin/Projects/KegCop/Pods/Pods-dummy.m -o /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods-dummy.o36"AB86B0F9-1738-46C3-BEA1-FAD6637F668A-
-b89F1CBDB-F54D-4807-BFD8-8014E7B8E2AD
-
-CCreateUniversalBinary /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a normal armv7\ armv7s
-s412977615.509744
-e412977615.607552
-r1
-xCreateUniversalBinary
-x/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a
-xnormal
-xarmv7 armv7s
-o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: for architecture: armv7 file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a(LCLNSLog_RK.o) has no symbols
-o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: for architecture: armv7s file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a(LCLNSLog_RK.o) has no symbols
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"Create universal binary /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a132"CreateUniversalBinary /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a normal armv7\ armv7sc58e82cf899db841^158b9bcf899db841^-590"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: for architecture: armv7 file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a(LCLNSLog_RK.o) has no symbols/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: for architecture: armv7s file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a(LCLNSLog_RK.o) has no symbols-0#0#1#-19%DVTDocumentLocation2@96"file:///Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a00342433dcffdf42^752"CreateUniversalBinary /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a normal armv7\ armv7s    cd /Users/capin/Projects/KegCop/Pods    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    libtool -static /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a -o /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods.a36"045D467B-8F7E-4FC9-B60F-CCC1B2BC9EED-
-b89F1CBDB-F54D-4807-BFD8-8014E7B8E2AD
-
-CLibtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a normal armv7
-s412977615.445803
-e412977615.509188
-r1
-xLibtool
-x/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a
-xnormal
-xarmv7
-o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-RestKit.a(LCLNSLog_RK.o) has no symbols
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection158"Libtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a normal armv7158"Libtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a normal armv7723172cf899db841^916082cf899db841^-230"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-RestKit.a(LCLNSLog_RK.o) has no symbols-0#0#1#--1139"Libtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a normal armv7    cd /Users/capin/Projects/KegCop/Pods    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos -filelist /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/Pods.LinkFileList -framework Foundation -lPods-AFNetworking -lPods-RestKit -lPods-SOCKit -lPods-TransitionKit -o /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7/libPods.a36"5B001695-2466-4BE9-8F24-1D7D0B5033A8-
-b89F1CBDB-F54D-4807-BFD8-8014E7B8E2AD
-
-CLibtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a normal armv7s
-s412977615.446152
-e412977615.509190
-r1
-xLibtool
-x/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a
-xnormal
-xarmv7s
-o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-RestKit.a(LCLNSLog_RK.o) has no symbols
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection160"Libtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a normal armv7s160"Libtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a normal armv7sb34572cf899db841^666682cf899db841^-230"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: file: /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos/libPods-RestKit.a(LCLNSLog_RK.o) has no symbols-0#0#1#--1144"Libtool /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a normal armv7s    cd /Users/capin/Projects/KegCop/Pods    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7s -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Products/Release-iphoneos -filelist /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/Pods.LinkFileList -framework Foundation -lPods-AFNetworking -lPods-RestKit -lPods-SOCKit -lPods-TransitionKit -o /Users/capin/Projects/KegCop/DerivedData/KegCop/Build/Intermediates/Pods.build/Release-iphoneos/Pods.build/Objects-normal/armv7s/libPods.a36"A1DCE738-9F58-43ED-AE08-EE357012242E-
-b89F1CBDB-F54D-4807-BFD8-8014E7B8E2AD
-

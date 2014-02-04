@@ -12,3 +12,6 @@ app
 
 # ignore the .gitignore file
 .gitignore
+
+# ignore the build directory
+DerivedData/*

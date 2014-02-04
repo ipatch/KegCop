@@ -1,0 +1,8 @@
+# Global ignore file for KegCop app hosted on Github.
+# Maintainer: Chris Jones
+
+# ignore Mac OS X Finder layout settings
+.DS_Store
+
+# ignore repoupdate script
+repoupdate.sh

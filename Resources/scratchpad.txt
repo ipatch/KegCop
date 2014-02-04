@@ -1,6 +1,4 @@
 ==============================================
-blahblah
-
 iDevice Serial Communication
 
 iDevice 30 pin connector Communication

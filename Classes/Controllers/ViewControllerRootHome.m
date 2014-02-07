@@ -43,6 +43,9 @@
 @synthesize lblArduinoGood = _lblArduinoGood;
 @synthesize lblArduinoBad = _lblArduinoBad;
 
+// added dev3 btn for CoreBluetooth testing.
+@synthesize btnDev4 = _btnDev4;
+
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
@@ -461,6 +464,12 @@
     
     
     NSLog(@"dev button press End");
+}
+
+- (IBAction)showDev4:(id)sender {
+    
+    UIViewController *dev4 = [self.storyboard instantiateViewControllerWithIdentifier:@"dev4"];
+    [self presentViewController:dev4 animated:YES completion:nil];
 }
 
 - (IBAction)showFlowIndicator:(id)sender {

@@ -618,6 +618,21 @@
                                 <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrh-bu-SSQ" userLabel="Button - Background">
+                                        <rect key="frame" x="0.0" y="-41" width="320" height="543"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissKeyboard:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="WWK-LP-AVT"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Welcome, root" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sWg-p4-n4b">
                                         <rect key="frame" x="9" y="5" width="128" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -771,6 +786,16 @@
                                             <action selector="showFlowIndicator:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="g2Z-Nu-vOd"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrt-6v-Soq">
+                                        <rect key="frame" x="233" y="249" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="dev4">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showDev4:" destination="IDl-DH-I8Q" eventType="touchUpInside" id="dyX-vv-YIg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u68-rP-Trh">
@@ -789,6 +814,7 @@
                     <connections>
                         <outlet property="btnCheckFlow" destination="x4t-7T-pkp" id="hT0-k2-dUv"/>
                         <outlet property="btnDeleteAccount" destination="qDd-rC-HGs" id="NzX-Nz-hC1"/>
+                        <outlet property="btnDev4" destination="Wrt-6v-Soq" id="0sl-ai-9Nq"/>
                         <outlet property="btnDisplayAccount" destination="qyS-MN-rfv" id="dWk-qZ-Yc5"/>
                         <outlet property="btnDisplayEmail" destination="QtW-ga-pK2" id="Lbx-is-61i"/>
                         <outlet property="btnFlowIndicator" destination="JiD-Gv-PzG" id="lhn-Y9-vXV"/>
@@ -810,7 +836,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rE5-Ao-jcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="-219"/>
+            <point key="canvasLocation" x="925" y="-330"/>
         </scene>
         <!--Flow Indicator-->
         <scene sceneID="BSR-5w-hA6">
@@ -909,7 +935,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biV-tX-oEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="-805"/>
+            <point key="canvasLocation" x="493" y="-977"/>
+        </scene>
+        <!--View Controller Dev4-->
+        <scene sceneID="nTJ-4c-S3g">
+            <objects>
+                <viewController storyboardIdentifier="dev4" id="eh2-Sm-OH4" customClass="ViewControllerDev4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ghD-hx-gAr"/>
+                        <viewControllerLayoutGuide type="bottom" id="ilW-gM-Qum"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8AY-hF-ifh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pg-4I-uWx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="dev4" id="aAY-fq-BFq">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="Bn4-eZ-9Gn">
+                                            <connections>
+                                                <action selector="dismissScene:" destination="eh2-Sm-OH4" id="hAU-xs-YbT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnDone" destination="Bn4-eZ-9Gn" id="ZQB-hz-8LK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZO2-5X-mnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032" y="-996"/>
         </scene>
         <!--View Controller Dev - dev-->
         <scene sceneID="xmr-cx-AQJ">
@@ -1069,14 +1131,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="State" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Bb-n6-zeH">
-                                <rect key="frame" x="20" y="98" width="41" height="21"/>
+                                <rect key="frame" x="20" y="98" width="119" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Received Message:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTP-Oz-aac">
-                                <rect key="frame" x="20" y="191" width="151" height="21"/>
+                                <rect key="frame" x="20" y="191" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -1606,7 +1668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R27-Uy-QC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767" y="316"/>
+            <point key="canvasLocation" x="1767" y="404"/>
         </scene>
         <!--View Controller Users-->
         <scene sceneID="5V7-4x-RDJ">

@@ -11,6 +11,7 @@
 #import "math.h"
 
 
+
 @interface ViewControllerHome ()
 
 @end
@@ -32,12 +33,8 @@
 
 - (void)viewDidLoad
 {
-    // Core Bluetooth
     
-    
-    
-    
-    
+     [super viewDidLoad];
     
     // Core Data
     if (_managedObjectContext == nil)
@@ -70,7 +67,7 @@
     // update credit
     [self updateCredit];
     
-    [super viewDidLoad];
+   
     
     
     // serial stuff
@@ -109,6 +106,14 @@
     // 6AUG13 - idle time logout
     _idleTimerTime.text = @"60 secs til";
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
+    
+    
+    
+    // Core Bluetooth - added 6FEB14
+    self.blunoManager = [DFBlunoManager sharedInstance];
+    self.blunoManager.delegate = self;
+    NSLog(@"view did load method called");
+    [self.blunoManager scan];
     
 }
 
@@ -297,6 +302,15 @@
     NSString *command = @"{open_valve}\n";
     
     [serial write:command];
+    
+    // 6FEB14 - CoreBluetooth - write message to Arduino
+    if (self.blunoDev.bReadyToWrite)
+    {
+        NSString *pourBeer = @"{open_valve}";
+        NSData *data = [pourBeer dataUsingEncoding:NSUTF8StringEncoding];
+        [self.blunoManager writeDataToDevice:data Device:self.blunoDev];
+        NSLog(@"data written = %@",data);
+    }
 
     
 }
@@ -331,7 +345,7 @@
 }
 
 - (IBAction)logout:(id)sender {
-    
+    NSLog(@"logout method called");
     [serial close];
     
     // this condition is satisfied when a new user creates an account then logs out
@@ -340,8 +354,12 @@
         [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion: nil];
     }
     // this is normally called when a user logs in then logs out
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.blunoManager stop];
     
+    [self.blunoManager disconnectToDevice:self.blunoDev];
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+    NSLog(@"code execution reached here");
 }
 
 
@@ -519,8 +537,7 @@
     
 }
 
-#pragma mark -
-#pragma mark Handling idle timeout
+#pragma mark - Handling idle timeout
 
 -(void)countDown:(NSTimer *) idleTimer2 {
     _idleTimerTime.text = [NSString stringWithFormat:@"%d secs til",[_idleTimerTime.text intValue] -1];
@@ -530,12 +547,48 @@
     }
 }
 
-
-
 // method is fired when user touches screen.
 - (UIResponder *)nextResponder {
     _idleTimerTime.text = @"60 secs til";
     return [super nextResponder];
+}
+
+#pragma mark - DFBlunoDelegate
+
+- (void)bleDidUpdateState:(BOOL)bleSupported
+{
+    if(bleSupported)
+    {
+        [self.blunoManager scan];
+    }
+}
+
+- (void)didDiscoverDevice:(DFBlunoDevice *)dev
+{
+    [self.blunoManager connectToDevice:dev];
+    NSLog(@"Connected to %@",dev);
+    self.blunoDev = dev;
+}
+
+- (void)readyToCommunicate:(DFBlunoDevice *)dev
+{
+//    self.lbReady.text = @"Ready";
+}
+
+- (void)didDisconnectDevice:(DFBlunoDevice *)dev
+{
+//    self.lbReady.text = @"Not Ready!";
+    [self.blunoManager scan];
+}
+
+- (void)didWriteData:(DFBlunoDevice *)dev
+{
+    
+}
+
+- (void)didReceiveData:(NSData *)data Device:(DFBlunoDevice *)dev
+{
+//    self.lbReceiveMsg.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
 @end

@@ -14,7 +14,7 @@
 #import "ViewControllerSerialConsole.h"
 #import "KBFlowIndicator.h"
 
-@interface ViewControllerRootHome : UIViewController <UITabBarDelegate> {
+@interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate> {
     
     UIButton *nuke;
     UITextField *tfEmail;
@@ -71,11 +71,14 @@
 @property (weak, nonatomic) IBOutlet UITabBarItem *tbiDev;
 
 
-// added for debugging purposes
+// added for debugging purposes (make work)
 
 @property (weak, nonatomic) IBOutlet UILabel *lblArduinoGood;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblArduinoBad;
+
+// added dev3 btn for CoreBluetooth testing.
+@property (weak, nonatomic) IBOutlet UIButton *btnDev4;
 
 
 
@@ -91,6 +94,7 @@
 
 - (IBAction)deleteAccount:(id)sender;
 
+//dismiss keyboard
 - (IBAction)dismissKeyboard:(id)sender;
 
 - (IBAction)saveMasterEmail;
@@ -109,11 +113,14 @@
 
 - (IBAction)showDev:(id)sender;
 
+- (IBAction)showDev4:(id)sender;
+
 - (IBAction)showFlowIndicator:(id)sender;
 
 // added for debugging purposes
 
 - (IBAction)testArduinoConnection:(id)sender;
+
 
 
 

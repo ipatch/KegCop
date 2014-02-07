@@ -10,11 +10,11 @@
 #import "AppDelegate.h"
 #import "ViewControllerWelcome.h"
 #import "JailbrokenSerial.h"
-// Added 6JAN14
-#import <CoreBluetooth/CoreBluetooth.h>
+// added for CoreBluetooth functionality
+#import "DFBlunoManager.h"
 
 // want to configure iPod Touch in peripheral mode, and have microcontroller in central mode.
-@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, CBPeripheralManagerDelegate>
+@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, DFBlunoDelegate>
 {
     UIButton *removeAccount;
     UIAlertView *alert;
@@ -39,11 +39,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *idleTimerTime;
 
 // Core Bluetooth
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-@property (strong, nonatomic) CBMutableCharacteristic *transferCharacteristic;
-@property (strong, nonatomic) NSData *dataToSend;
-@property (nonatomic, readwrite) NSInteger sendDataIndex;
-
+@property(strong, nonatomic) DFBlunoManager *blunoManager;
+@property(strong, nonatomic) DFBlunoDevice *blunoDev;
 
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

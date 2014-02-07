@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/Network/RKHTTPRequestOperation.m \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/Network/RKHTTPRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFNetworking.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFHTTPRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFJSONRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFXMLRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFPropertyListRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFHTTPClient.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFImageRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/AFNetworkActivityIndicatorManager.h \
+  /Users/capin/Projects/KegCop/Pods/AFNetworking/AFNetworking/UIImageView+AFNetworking.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/Support/RKLog.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Vendor/LibComponentLogging/Core/lcl_RK.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/Support/lcl_config_components_RK.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/Support/lcl_config_logger_RK.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Vendor/LibComponentLogging/NSLog/LCLNSLog_RK.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/Support/lcl_config_extensions_RK.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/ObjectMapping/RKHTTPUtilities.h \
+  /Users/capin/Projects/KegCop/Pods/RestKit/Code/Support/RKMIMETypes.h

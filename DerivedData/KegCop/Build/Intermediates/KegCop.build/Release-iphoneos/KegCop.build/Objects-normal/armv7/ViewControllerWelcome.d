@@ -1,0 +1,34 @@
+dependencies: \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerWelcome.m \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerWelcome.h \
+  /Users/capin/Projects/KegCop/Classes/AppDelegate.h \
+  /Users/capin/Projects/KegCop/Classes/Account.h \
+  /Users/capin/Projects/KegCop/Classes/AccountBase.h \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerHome.h \
+  /Users/capin/Projects/KegCop/Classes/JailbrokenSerial.h \
+  /Users/capin/Projects/KegCop/Classes/DFBlunoManager.h \
+  /Users/capin/Projects/KegCop/Classes/BLEUtility.h \
+  /Users/capin/Projects/KegCop/Classes/BLEDevice.h \
+  /Users/capin/Projects/KegCop/Classes/DFBlunoDevice.h \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerRootHome.h \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerLogs.h \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerCheckFlow.h \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerSerialConsole.h \
+  /Users/capin/Projects/KegCop/Classes/Views/KBFlowIndicator.h \
+  /Users/capin/Projects/KegCop/Classes/Processing/KBKegProcessing.h \
+  /Users/capin/Projects/KegCop/Classes/Processing/KBKegboard.h \
+  /Users/capin/Projects/KegCop/Classes/Processing/Serial.h \
+  /Users/capin/Projects/KegCop/Classes/Processing/KBKegboardMessage.h \
+  /Users/capin/Projects/KegCop/Classes/Models/ModelWelcome.h \
+  /Users/capin/Projects/KegCop/Classes/Controllers/ViewControllerDev.h \
+  /Users/capin/Projects/KegCop/Classes/NSData+AES256.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFNetworking.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFURLConnectionOperation.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFHTTPRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFJSONRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFXMLRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFPropertyListRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFHTTPClient.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFImageRequestOperation.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/AFNetworkActivityIndicatorManager.h \
+  /Users/capin/Projects/KegCop/Pods/Headers/AFNetworking/UIImageView+AFNetworking.h

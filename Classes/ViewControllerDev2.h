@@ -20,9 +20,6 @@
 
 // btn required to dismiss scene
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnDone;
-// method definition to dimiss scene
-- (IBAction)dismissScene:(id)sender;
-
 
 // CoreBluetooth stuff
 @property(strong, nonatomic) DFBlunoManager *blunoManager;
@@ -34,6 +31,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbReady;
 
 - (IBAction)actionSend:(id)sender;
+// method definition to dimiss scene
+- (IBAction)dismissScene:(id)sender;
+
 
 
 

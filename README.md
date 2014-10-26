@@ -7,8 +7,8 @@
 ## Objective
 The purpose of this software is to create user accounts for a kegerator, and have a root account which recieves donations from the users for the beer they drink.  To find out more information about the project check out the [wiki](https://github.com/ipatch/KegCop/wiki)
 
-## How will it work?
-An iDevice, i.e. iPhone will connect to an Arduino via serial communication / iPhone connector cable sending serial information to the Arduino which will communicate with flow sensor(s) and a solenoid cut off valve.  The iDevice will be the user interface for the entire operation, storing account information along with how many credits a particular user will have.
+## How does it work?
+An iOS device, i.e. iPhone / iPod Touch will connect to a Bluno via Bluetooth 4.0 Low Energy sending serial information to the microcontroller which will communicate with flow sensor(s) and a solenoid cut off valve.  The iOS device will be the user interface for the entire operation, storing account information along with how many credits a particular user will have.
 
 ## Build
 As of 30SEP13, this project will be built with Xcode 4.6.3 using OS X (10.8.5)

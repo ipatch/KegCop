@@ -2,7 +2,7 @@
 
 [![Wilson demos KegCop](http://img.youtube.com/vi/1a6hxUb3zfU/0.jpg)](http://www.youtube.com/watch?v=1a6hxUb3zfU)
 
-![KegCop-splash](http://chrisrjones.com/pics/KegCop-git.png)
+<!-- ![KegCop-splash](http://chrisrjones.com/pics/KegCop-git.png) -->
 
 ## Objective
 The purpose of this software is to create user accounts for a kegerator, and have a root account which recieves donations from the users for the beer they drink.

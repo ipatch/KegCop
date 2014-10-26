@@ -1,5 +1,7 @@
 # KegCop
 
+[![Wilson demos KegCop](http://img.youtube.com/vi/1a6hxUb3zfU/0.jpg)](http://www.youtube.com/watch?v=1a6hxUb3zfU)
+
 ![KegCop-splash](http://chrisrjones.com/pics/KegCop-git.png)
 
 ## Objective

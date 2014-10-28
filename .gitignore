@@ -1,0 +1,54 @@
+###########################
+# .gitignore file for Xcode4 and Xcode5 Source projects
+#
+#
+##########################
+
+###
+# OS X temporary files that should never be committed
+#
+.DS_Store
+
+*.swp
+
+# Don't ignore Podfile.lock - all workspaces should have same version!
+
+.Trashes
+
+*~.nib
+
+####
+# Xcode build files -
+# 
+
+DerivedData/
+
+build/
+
+####
+# Xcode private settings
+#
+
+*.pbxuser
+
+*.mode1v3
+
+*.mode2v3
+
+*.perspective3
+
+# NB: also whitelist the default ones, some projects need to use these
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspective3
+
+####
+# Xcode 4 - semi personal settings
+#
+
+xcuserdata
+
+*.moved-aside
+
+

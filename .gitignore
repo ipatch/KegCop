@@ -48,7 +48,9 @@ build/
 #
 
 xcuserdata
-
+*.xccheckout
 *.moved-aside
-
+*.hmap
+*.ipa
+*.xcuserstate
 

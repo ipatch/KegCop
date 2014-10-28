@@ -31,6 +31,8 @@
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
+
+
 - (void)viewDidLoad
 {
     
@@ -360,6 +362,13 @@
     
     [self dismissViewControllerAnimated:NO completion:nil];
     NSLog(@"code execution reached here");
+}
+
+- (IBAction)addAvatar:(id)sender {
+    
+    UIViewController *avatar = [self.storyboard instantiateViewControllerWithIdentifier:@"avatar"];
+    [self presentViewController:avatar animated:YES completion:nil];
+    
 }
 
 

@@ -10,8 +10,10 @@
 #import "AppDelegate.h"
 #import "ViewControllerWelcome.h"
 #import "JailbrokenSerial.h"
-// added for CoreBluetooth functionality
+// add for CoreBluetooth functionality
 #import "DFBlunoManager.h"
+
+
 
 // want to configure iPod Touch in peripheral mode, and have microcontroller in central mode.
 @interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, DFBlunoDelegate>
@@ -25,7 +27,10 @@
     NSMutableString *rfidbadgenumber;
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;
-}
+    
+    }
+
+
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
 @property (weak, nonatomic) IBOutlet UILabel *lblUSERNAME;
 @property (weak, nonatomic) IBOutlet UILabel *creditX;
@@ -37,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRFID;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 @property (weak, nonatomic) IBOutlet UILabel *idleTimerTime;
+@property (weak, nonatomic) IBOutlet UIButton *captureAvatar;
 
 // Core Bluetooth
 @property(strong, nonatomic) DFBlunoManager *blunoManager;
@@ -56,5 +62,7 @@
 - (IBAction)addRFID:(id)sender;
 
 - (IBAction)logout:(id)sender;
+
+- (IBAction)addAvatar:(id)sender;
 
 @end

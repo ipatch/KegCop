@@ -54,3 +54,7 @@ xcuserdata
 *.ipa
 *.xcuserstate
 
+#####
+# Custom files
+#
+repoupdate.sh

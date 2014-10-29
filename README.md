@@ -27,6 +27,6 @@ contribute.
 
 ## Installation
 A binary version of the app can be downloaded if your iDevice is jailbroken.  Add the following
-repo: chrisrjones.com/repo and load the following sketch on your Arduino https://gist.github.com/ipatch/8078083
+repo: chrisrjones.com/repo and load the following sketch on your Bluno https://gist.github.com/ipatch/8078083
 cheers
 - Chris

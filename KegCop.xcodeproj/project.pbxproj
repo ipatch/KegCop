@@ -43,6 +43,9 @@
 		EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260D1767A24E00B277ED /* scratchpad.txt */; };
 		EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
 		EA9FF1291A001A1F00B7897A /* ViewControllerAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9FF1281A001A1F00B7897A /* ViewControllerAvatar.m */; };
+		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
+		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
+		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB1205F175576B7003035C3 /* KBFlowIndicator.m */; };
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
@@ -64,8 +67,6 @@
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */; };
 		EAEFEE9E157B296B00C666D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */; };
-		EAEFEEA0157B296B00C666D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEE9F157B296B00C666D5 /* main.m */; };
-		EAEFEEA4157B296B00C666D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA3157B296B00C666D5 /* AppDelegate.m */; };
 		EAEFEEA7157B296B00C666D5 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEFEEA5157B296B00C666D5 /* iPhone.storyboard */; };
 		EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */; };
 		EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF27855159191C9009663A8 /* ViewControllerHome.m */; };
@@ -142,6 +143,10 @@
 		EA9D26461767B7F000B277ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		EA9FF1271A001A1F00B7897A /* ViewControllerAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAvatar.h; path = Controllers/ViewControllerAvatar.h; sourceTree = "<group>"; };
 		EA9FF1281A001A1F00B7897A /* ViewControllerAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAvatar.m; path = Controllers/ViewControllerAvatar.m; sourceTree = "<group>"; };
+		EA9FF12B1A00B08A00B7897A /* ViewControllerAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAvatar.m; path = Classes/Controllers/ViewControllerAvatar.m; sourceTree = "<group>"; };
+		EA9FF12C1A00B15800B7897A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EA9FF12E1A00B19200B7897A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		EA9FF1301A00B19D00B7897A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		EAA33D751588612600826A02 /* KegCopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KegCopTests-Info.plist"; sourceTree = "<group>"; };
 		EAA33D771588612600826A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAA33D791588612600826A02 /* KegCopTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KegCopTests.h; sourceTree = "<group>"; };
@@ -197,14 +202,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */,
-				EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */,
 				EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */,
+				EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */,
+				EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */,
+				EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */,
+				EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */,
+				EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */,
+				EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */,
+				EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */,
+				EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */,
 				EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */,
 				EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */,
-				EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */,
-				EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */,
-				EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */,
 				5D1D3CDD3A3E40E789538892 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +352,7 @@
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
+				EA9FF12B1A00B08A00B7897A /* ViewControllerAvatar.m */,
 				EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */,
 				EAEFEE99157B296B00C666D5 /* Classes */,
 				EA9D25DF1767A24E00B277ED /* Resources */,
@@ -365,6 +374,9 @@
 		EAEFEE92157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA9FF1301A00B19D00B7897A /* CoreVideo.framework */,
+				EA9FF12E1A00B19200B7897A /* CoreMedia.framework */,
+				EA9FF12C1A00B15800B7897A /* AVFoundation.framework */,
 				EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */,
 				EAB120761756E709003035C3 /* QuartzCore.framework */,
 				EAA51B131598385B00D0D777 /* AudioToolbox.framework */,
@@ -575,8 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAEFEEA0157B296B00C666D5 /* main.m in Sources */,
-				EAEFEEA4157B296B00C666D5 /* AppDelegate.m in Sources */,
+				EA9FF1291A001A1F00B7897A /* ViewControllerAvatar.m in Sources */,
 				EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */,
 				EABE1D741581C9B700FF9FA0 /* Account.m in Sources */,
 				EA96020A189C577400068808 /* DFBlunoManager.m in Sources */,
@@ -602,7 +613,6 @@
 				EAB453B81755552700F6DA69 /* KBKegboard.m in Sources */,
 				EAB453BB175555B700F6DA69 /* KBKegboardMessage.m in Sources */,
 				EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */,
-				EA9FF1291A001A1F00B7897A /* ViewControllerAvatar.m in Sources */,
 				422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */,
 				EA960201189C48BF00068808 /* BLEDevice.m in Sources */,
 				422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,

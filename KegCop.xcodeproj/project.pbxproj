@@ -46,6 +46,8 @@
 		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
 		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
+		EA9FF1321A00C50900B7897A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEE9F157B296B00C666D5 /* main.m */; };
+		EA9FF1331A00C59800B7897A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEFEEA3157B296B00C666D5 /* AppDelegate.m */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB1205F175576B7003035C3 /* KBFlowIndicator.m */; };
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
@@ -587,6 +589,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA9FF1331A00C59800B7897A /* AppDelegate.m in Sources */,
+				EA9FF1321A00C50900B7897A /* main.m in Sources */,
 				EA9FF1291A001A1F00B7897A /* ViewControllerAvatar.m in Sources */,
 				EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */,
 				EABE1D741581C9B700FF9FA0 /* Account.m in Sources */,

@@ -98,7 +98,7 @@
         // lock the image buffer
         CVPixelBufferLockBaseAddress(imageBuffer,0);
         // get information about the image
-        uint8_t *baseAddress = (uint8_t *)CVPixelGetBaseAddress(imageBuffer);
+        uint8_t *baseAddress = (uint8_t *)CVPixelBufferGetBaseAddress(imageBuffer);
         size_t bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer);
         size_t width = CVPixelBufferGetWidth(imageBuffer);
         size_t height = CVPixelBufferGetHeight(imageBuffer);

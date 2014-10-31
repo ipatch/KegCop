@@ -11,9 +11,7 @@ The purpose of this software is to create user accounts for a kegerator, and hav
 An iOS device, i.e. iPhone / iPod Touch will connect to a Bluno via Bluetooth 4.0 Low Energy sending serial information to the microcontroller which will communicate with flow sensor(s) and a solenoid cut off valve.  The iOS device will be the user interface for the entire operation, storing account information along with how many credits a particular user will have.
 
 ## Build
-As of 30SEP13, this project will be built with Xcode 4.6.3 using OS X (10.8.5)
-
-This project was built with Xcode 4.6.3 and the target iOS is 5.1.1
+As of 31OCT14, this project is built with Xcode 6.1 using OS X (10.9.5) with a target for iOS 7.x and greater.
 
 ## License and Copyright
 All code is offered under the GPLv2 license, unless otherwise noted.  Please see LICENSE.txt for

@@ -1,15 +1,15 @@
-Please view the TODO list at the following link:
-https://docs.google.com/document/d/1TWgH_dFLjevFWCzROeEIH8tCI0IXZCu09iOIia5V5bM/
+TODO - KegCop
 
 The fields are: feature (F), completed (C), (N) note
+
+This file reads from top to bottom, i.e. new notes / features are added at the top, then marked completed.
 
 Thanks,
 
                Chris
 
 --------------
-
-N: May require an account with google to view the TODO document.
+C: Add "place holder" text for textfield in alertrfid.
 
 N: Going to expierment with adding TODO items in this plain text file.
 

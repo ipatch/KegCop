@@ -9,11 +9,13 @@ Thanks,
                Chris
 
 --------------
+F: Begin to move Core Data logic out of AppDelegate.m and into separate class file.
+
 C: Add "place holder" text for textfield in alertrfid.
 
 N: Going to expierment with adding TODO items in this plain text file.
 
-F: Add picture to README file.
+C: Add picture to README file.
 
 F: Add "place holder" text for textfield in alertrfid.
 

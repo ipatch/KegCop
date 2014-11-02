@@ -9,6 +9,8 @@ Thanks,
                Chris
 
 --------------
+F: redesign home screen for normal users, incorporate a hamburger flyout menu.
+
 F: add support for frequent flyers to login screen, i.e. the last 5 logged in users.
 
 F: figure out why scroll views stopped working in iOS 7.x and greater.
@@ -21,11 +23,9 @@ F: Add support for Facebook integeration, i.e. sync KegCop account with Facebook
 
 F: Begin to move Core Data logic out of AppDelegate.m and into separate class file.
 
-C: Add "place holder" text for textfield in alertrfid.
-
-N: Going to expierment with adding TODO items in this plain text file.
+C: Going to expierment with adding TODO items in this plain text file.
 
 C: Add picture to README file.
 
-F: Add "place holder" text for textfield in alertrfid.
+C: Add "place holder" text for textfield in alertrfid.
 

@@ -16,8 +16,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EAA33D6D1588612600826A02"
-               BuildableName = "KegCopTests.octest"
+               BlueprintIdentifier = "EA34633D1A0AB3AC00588DC5"
+               BuildableName = "KegCopTests.xctest"
                BlueprintName = "KegCopTests"
                ReferencedContainer = "container:KegCop.xcodeproj">
             </BuildableReference>

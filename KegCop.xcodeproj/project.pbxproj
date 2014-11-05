@@ -145,7 +145,6 @@
 		EA9D26461767B7F000B277ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		EA9FF1271A001A1F00B7897A /* ViewControllerAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAvatar.h; path = Controllers/ViewControllerAvatar.h; sourceTree = "<group>"; };
 		EA9FF1281A001A1F00B7897A /* ViewControllerAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAvatar.m; path = Controllers/ViewControllerAvatar.m; sourceTree = "<group>"; };
-		EA9FF12B1A00B08A00B7897A /* ViewControllerAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAvatar.m; path = Classes/Controllers/ViewControllerAvatar.m; sourceTree = "<group>"; };
 		EA9FF12C1A00B15800B7897A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EA9FF12E1A00B19200B7897A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		EA9FF1301A00B19D00B7897A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -231,6 +230,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EA4570351A046E78004DEEC4 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 		EA9601FD189C484D00068808 /* Bluno */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +268,6 @@
 				EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */,
 				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
 				EA56282817BAC39300E3725B /* KegCop.entitlements */,
-				EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */,
 				EA9D26421767B7F000B277ED /* BUGS */,
 				EA9D26431767B7F000B277ED /* CHANGES */,
 				EA9D26441767B7F000B277ED /* CREDITS */,
@@ -354,7 +360,7 @@
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
-				EA9FF12B1A00B08A00B7897A /* ViewControllerAvatar.m */,
+				EA4570351A046E78004DEEC4 /* DataModel */,
 				EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */,
 				EAEFEE99157B296B00C666D5 /* Classes */,
 				EA9D25DF1767A24E00B277ED /* Resources */,
@@ -735,6 +741,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"DEBUG=1",
+					"COCOAPODS=1",
+					"ROOT_URL='@\"10.0.1.21:3000/v1/\"'",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -768,6 +779,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"ROOT_URL='@\"http://kegcop.chrisrjones.com/v1/'\" COCOAPODS=1",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -815,7 +830,8 @@
 				EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */,
 			);
 			currentVersion = EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */;
-			path = Accounts.xcdatamodeld;
+			name = Accounts.xcdatamodeld;
+			path = Resources/Accounts.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

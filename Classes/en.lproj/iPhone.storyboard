@@ -858,7 +858,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biV-tX-oEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="-977"/>
+            <point key="canvasLocation" x="477" y="-1531"/>
         </scene>
         <!--View Controller Dev4-->
         <scene sceneID="nTJ-4c-S3g">
@@ -1562,6 +1562,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R27-Uy-QC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1767" y="404"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Mfy-vA-6W7">
+            <objects>
+                <viewController storyboardIdentifier="mapView" id="v4U-RN-HIq" customClass="HUMMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OPg-On-XBN"/>
+                        <viewControllerLayoutGuide type="bottom" id="XRj-8F-CHm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VrZ-69-Xdm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeB-0G-2Kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="509" y="-905"/>
         </scene>
         <!--View Controller Users-->
         <scene sceneID="5V7-4x-RDJ">

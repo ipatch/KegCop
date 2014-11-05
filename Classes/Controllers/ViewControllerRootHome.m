@@ -495,6 +495,8 @@
     if (item.tag==1) {
         
         NSLog(@"misc btn tapped");
+        UIViewController *mapview = [self.storyboard instantiateViewControllerWithIdentifier:@"mapView"];
+        [self presentViewController:mapview animated:YES completion:nil];
     }
     
     

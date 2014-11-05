@@ -1,19 +1,31 @@
-Please view the TODO list at the following link:
-https://docs.google.com/document/d/1TWgH_dFLjevFWCzROeEIH8tCI0IXZCu09iOIia5V5bM/
+TODO - KegCop
 
 The fields are: feature (F), completed (C), (N) note
+
+This file reads from top to bottom, i.e. new notes / features are added at the top, then marked completed.
 
 Thanks,
 
                Chris
 
 --------------
+F: redesign home screen for normal users, incorporate a hamburger flyout menu.
 
-N: May require an account with google to view the TODO document.
+F: add support for frequent flyers to login screen, i.e. the last 5 logged in users.
 
-N: Going to expierment with adding TODO items in this plain text file.
+F: figure out why scroll views stopped working in iOS 7.x and greater.
 
-F: Add picture to README file.
+F: add support for taking pictures / avatars with front facing camera.
 
-F: Add "place holder" text for textfield in alertrfid.
+F: make login screen buttons solid colors, i.e. like twitter bootstrap.
+
+F: Add support for Facebook integeration, i.e. sync KegCop account with Facebook account.
+
+F: Begin to move Core Data logic out of AppDelegate.m and into separate class file.
+
+C: Going to expierment with adding TODO items in this plain text file.
+
+C: Add picture to README file.
+
+C: Add "place holder" text for textfield in alertrfid.
 

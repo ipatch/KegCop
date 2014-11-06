@@ -17,7 +17,7 @@ F: figure out why scroll views stopped working in iOS 7.x and greater.
 
 F: add support for taking pictures / avatars with front facing camera.
 
-F: make login screen buttons solid colors, i.e. like twitter bootstrap.
+C: make login screen buttons solid colors, i.e. like twitter bootstrap.
 
 F: Add support for Facebook integeration, i.e. sync KegCop account with Facebook account.
 

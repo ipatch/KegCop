@@ -14,6 +14,8 @@
 		EA022CDD1A0ABAE900CE6B3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */; };
 		EA022CE01A0ABC1B00CE6B3C /* HUMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA022CDF1A0ABC1B00CE6B3C /* HUMMapViewController.m */; };
 		EA022CE31A0AC30900CE6B3C /* HUMAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA022CE21A0AC30900CE6B3C /* HUMAddEventViewController.m */; };
+		EA022CE61A0AE57900CE6B3C /* HUMConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA022CE51A0AE57900CE6B3C /* HUMConfirmationViewController.m */; };
+		EA022CE91A0B2A2800CE6B3C /* ViewControllerAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA022CE81A0B2A2800CE6B3C /* ViewControllerAvatar.swift */; };
 		EA1890371585F7E7003A64FC /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1890361585F7E7003A64FC /* ViewControllerAbout.m */; };
 		EA18903B1585F890003A64FC /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA18903A1585F890003A64FC /* ViewControllerCreate.m */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
@@ -105,6 +107,10 @@
 		EA022CDF1A0ABC1B00CE6B3C /* HUMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUMMapViewController.m; path = Controllers/HUMMapViewController.m; sourceTree = "<group>"; };
 		EA022CE11A0AC30900CE6B3C /* HUMAddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUMAddEventViewController.h; path = Controllers/HUMAddEventViewController.h; sourceTree = "<group>"; };
 		EA022CE21A0AC30900CE6B3C /* HUMAddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUMAddEventViewController.m; path = Controllers/HUMAddEventViewController.m; sourceTree = "<group>"; };
+		EA022CE41A0AE57900CE6B3C /* HUMConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUMConfirmationViewController.h; path = Controllers/HUMConfirmationViewController.h; sourceTree = "<group>"; };
+		EA022CE51A0AE57900CE6B3C /* HUMConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUMConfirmationViewController.m; path = Controllers/HUMConfirmationViewController.m; sourceTree = "<group>"; };
+		EA022CE71A0B2A2700CE6B3C /* KegCop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KegCop-Bridging-Header.h"; sourceTree = "<group>"; };
+		EA022CE81A0B2A2800CE6B3C /* ViewControllerAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerAvatar.swift; path = Controllers/ViewControllerAvatar.swift; sourceTree = "<group>"; };
 		EA1890351585F7E7003A64FC /* ViewControllerAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAbout.h; path = Controllers/ViewControllerAbout.h; sourceTree = "<group>"; };
 		EA1890361585F7E7003A64FC /* ViewControllerAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAbout.m; path = Controllers/ViewControllerAbout.m; sourceTree = "<group>"; };
 		EA1890391585F890003A64FC /* ViewControllerCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerCreate.h; path = Controllers/ViewControllerCreate.h; sourceTree = "<group>"; };
@@ -494,6 +500,8 @@
 		EAFD930316941FFB0043898C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA022CE41A0AE57900CE6B3C /* HUMConfirmationViewController.h */,
+				EA022CE51A0AE57900CE6B3C /* HUMConfirmationViewController.m */,
 				EA022CE11A0AC30900CE6B3C /* HUMAddEventViewController.h */,
 				EA022CE21A0AC30900CE6B3C /* HUMAddEventViewController.m */,
 				EA022CDE1A0ABC1B00CE6B3C /* HUMMapViewController.h */,
@@ -504,6 +512,7 @@
 				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
 				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
 				EAF27855159191C9009663A8 /* ViewControllerHome.m */,
+				EA022CE81A0B2A2800CE6B3C /* ViewControllerAvatar.swift */,
 				EA9FF1271A001A1F00B7897A /* ViewControllerAvatar.h */,
 				EA9FF1281A001A1F00B7897A /* ViewControllerAvatar.m */,
 				EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */,
@@ -534,6 +543,7 @@
 				EA699309158721E8009E0397 /* ViewControllerForgot.m */,
 				EA1890351585F7E7003A64FC /* ViewControllerAbout.h */,
 				EA1890361585F7E7003A64FC /* ViewControllerAbout.m */,
+				EA022CE71A0B2A2700CE6B3C /* KegCop-Bridging-Header.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -734,6 +744,7 @@
 				EA9FF1291A001A1F00B7897A /* ViewControllerAvatar.m in Sources */,
 				EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */,
 				EABE1D741581C9B700FF9FA0 /* Account.m in Sources */,
+				EA022CE91A0B2A2800CE6B3C /* ViewControllerAvatar.swift in Sources */,
 				EA96020A189C577400068808 /* DFBlunoManager.m in Sources */,
 				EABE1D831582E99200FF9FA0 /* AccountBase.m in Sources */,
 				EABE1D8F158498D800FF9FA0 /* ModelWelcome.m in Sources */,
@@ -765,6 +776,7 @@
 				EA960207189C563100068808 /* DFBlunoDevice.m in Sources */,
 				EA5206B618A2A99D000FCD54 /* ViewControllerDev4.m in Sources */,
 				EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */,
+				EA022CE61A0AE57900CE6B3C /* HUMConfirmationViewController.m in Sources */,
 				EA591462177A220A0063BE99 /* ViewControllerUsers.m in Sources */,
 				EACD704D177A4EE800A13B91 /* Accounts.xcdatamodeld in Sources */,
 				EA960204189C4A3500068808 /* BLEUtility.m in Sources */,
@@ -945,6 +957,7 @@
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -963,11 +976,14 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KegCop-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
@@ -983,6 +999,7 @@
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1000,11 +1017,13 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KegCop-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";

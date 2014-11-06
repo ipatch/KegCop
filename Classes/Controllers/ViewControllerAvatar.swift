@@ -18,6 +18,7 @@ class ViewControllerAvatar: UIViewController {
     var captureDevice : AVCaptureDevice?
     
     override func viewDidLoad() {
+        println("begin viewDidLoad in ViewControllerAvatar.swift")
         super.viewDidLoad()
         // Do any additional setup after loading the new, typically from a nib.
         captureSession.sessionPreset = AVCaptureSessionPresetLow

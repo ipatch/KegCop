@@ -15,7 +15,7 @@ class ViewControllerAvatar: UIViewController {
     var previewLayer : AVCaptureVideoPreviewLayer?
     
     // if we find a device we'll store it here for later use
-    var captureDevice : AVCAptureDevice?
+    var captureDevice : AVCaptureDevice?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ViewControllerAvatar: UIViewController {
                 // finally check the position and confirm we've got the front camera
                 if(device.position == AVCaptureDevicePosition.Front) {
                     captureDevice = device as? AVCaptureDevice
-                    if captureDEvice != nil {
+                    if captureDevice != nil {
                         println("Capture device found")
                         beginSession()
                     }
@@ -74,10 +74,10 @@ class ViewControllerAvatar: UIViewController {
     
     func beginSession() {
         
-        configureDEvice()
+        configureDevice()
         
         var err : NSError? = nil
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDEvice, error: &err))
+        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
         
         if err != nil {
             println("error: \(err?.localizedDescription)")

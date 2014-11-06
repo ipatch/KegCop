@@ -49,7 +49,6 @@
 		EA9D261B1767A24E00B277ED /* flow_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25ED1767A24E00B277ED /* flow_shadow.png */; };
 		EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260D1767A24E00B277ED /* scratchpad.txt */; };
 		EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
-		EA9FF1291A001A1F00B7897A /* ViewControllerAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9FF1281A001A1F00B7897A /* ViewControllerAvatar.m */; };
 		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
 		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
@@ -173,8 +172,6 @@
 		EA9D26441767B7F000B277ED /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = SOURCE_ROOT; };
 		EA9D26451767B7F000B277ED /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
 		EA9D26461767B7F000B277ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
-		EA9FF1271A001A1F00B7897A /* ViewControllerAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAvatar.h; path = Controllers/ViewControllerAvatar.h; sourceTree = "<group>"; };
-		EA9FF1281A001A1F00B7897A /* ViewControllerAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAvatar.m; path = Controllers/ViewControllerAvatar.m; sourceTree = "<group>"; };
 		EA9FF12C1A00B15800B7897A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EA9FF12E1A00B19200B7897A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		EA9FF1301A00B19D00B7897A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -513,8 +510,6 @@
 				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
 				EAF27855159191C9009663A8 /* ViewControllerHome.m */,
 				EA022CE81A0B2A2800CE6B3C /* ViewControllerAvatar.swift */,
-				EA9FF1271A001A1F00B7897A /* ViewControllerAvatar.h */,
-				EA9FF1281A001A1F00B7897A /* ViewControllerAvatar.m */,
 				EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */,
 				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
 				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
@@ -741,7 +736,6 @@
 			files = (
 				EA9FF1331A00C59800B7897A /* AppDelegate.m in Sources */,
 				EA9FF1321A00C50900B7897A /* main.m in Sources */,
-				EA9FF1291A001A1F00B7897A /* ViewControllerAvatar.m in Sources */,
 				EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */,
 				EABE1D741581C9B700FF9FA0 /* Account.m in Sources */,
 				EA022CE91A0B2A2800CE6B3C /* ViewControllerAvatar.swift in Sources */,

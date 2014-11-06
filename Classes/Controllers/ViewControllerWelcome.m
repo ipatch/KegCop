@@ -67,16 +67,64 @@
     
     
     // add borders for buttons, iOS 7 fix - 5JAN14
+    
+    // use tbs color scheme
+    
+    // www.javascripter.net/faq/hextorgb.htm
+    
     _welcomeLogin.layer.borderWidth=1.0f;
-    _welcomeLogin.layer.borderColor=[[UIColor greenColor] CGColor];
+    _welcomeLogin.layer.borderColor=[[UIColor colorWithRed: 57.0f/255.0f
+                                                  green: 132.0f/255.0f
+                                                   blue: 57.0f/255.0f
+                                                  alpha:1.0f] CGColor];
+    [_welcomeLogin setBackgroundColor:[UIColor colorWithRed:68.0f/255.0f
+                                                   green:157.0f/255.0f
+                                                    blue:68.0f/255.0f
+                                                   alpha:1.0f]];
+    // set btn font color
+    [_welcomeLogin setTitleColor:[UIColor colorWithRed:255/255.0
+                                              green:255/255.0
+                                               blue:255/255.0
+                                              alpha:1.0f] forState:UIControlStateNormal];
+    // end welcome btn
     
     
     _btnForgot.layer.borderWidth=1.0f;
-    _btnForgot.layer.borderColor=[[UIColor redColor] CGColor];
+    _btnForgot.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
+                                                  green: 41/255.0f
+                                                   blue: 37/255.0f
+                                                  alpha:1.0f] CGColor];
+    [_btnForgot setBackgroundColor:[UIColor colorWithRed:201.0f/255.0f
+                                                   green:48.0f/255.0f
+                                                    blue:44.0f/255.0f
+                                                   alpha:1.0f]];
+    
+    
+    // set btn font color
+    [_btnForgot setTitleColor:[UIColor colorWithRed:255/255.0
+                                              green:255/255.0
+                                               blue:255/255.0
+                                              alpha:1.0f] forState:UIControlStateNormal];
+    // end forgot btn
     
     
     _btnCreate.layer.borderWidth=1.0f;
-    _btnCreate.layer.borderColor=[[UIColor blueColor] CGColor];
+    _btnCreate.layer.borderColor=[[UIColor colorWithRed: 53.0f/255.0f
+                                                  green: 126.0f/255.0f
+                                                   blue: 189.0f/255.0f
+                                                  alpha:1.0f] CGColor];
+    
+    [_btnCreate setBackgroundColor:[UIColor colorWithRed:66.0f/255.0f
+                                                   green:139.0f/255.0f
+                                                    blue:202.0f/255.0f
+                                                   alpha:1.0f]];
+    
+    
+    // set btn font color
+    [_btnCreate setTitleColor:[UIColor colorWithRed:255/255.0
+                                              green:255/255.0
+                                               blue:255/255.0
+                                              alpha:1.0f] forState:UIControlStateNormal];
     
     
     

@@ -11,82 +11,51 @@ import AVFoundation
 
 class ViewControllerAvatar: UIViewController {
     
-    let captureSession = AVCaptureSession()
-    var previewLayer : AVCaptureVideoPreviewLayer?
+    @IBOutlet weak var frameForCapture: UIView!
+    @IBOutlet weak var imageView: UIImageView!
     
-    // if we find a device we'll store it here for later use
-    var captureDevice : AVCaptureDevice?
+    
+    var session = AVCaptureSession()
     
     override func viewDidLoad() {
-        println("begin viewDidLoad in ViewControllerAvatar.swift")
         super.viewDidLoad()
-        // Do any additional setup after loading the new, typically from a nib.
-        captureSession.sessionPreset = AVCaptureSessionPresetLow
+        println("begin viewDidLoad in ViewControllerAvatar.swift")
         
-        let devices = AVCaptureDevice.devices()
+        session.sessionPreset = AVCaptureSessionPresetPhoto
         
-        // loop thrugh all the capture devices on this phone
+        var inputDevice : AVCaptureDeviceInput! = nil
+        var err : NSError?
+        
+        var devices : [AVCaptureDevice] = AVCaptureDevice.devices() as [AVCaptureDevice]
+        
         for device in devices {
-            // make sure this particular device supports video
-            if (device.hasMediaType(AVMediaTypeVideo)) {
-                // finally check the position and confirm we've got the front camera
-                if(device.position == AVCaptureDevicePosition.Front) {
-                    captureDevice = device as? AVCaptureDevice
-                    if captureDevice != nil {
-                        println("Capture device found")
-                        beginSession()
-                    }
+            if device.hasMediaType(AVMediaTypeVideo) && device.supportsAVCaptureSessionPreset(AVCaptureSessionPresetPhoto) {
+                
+                inputDevice = AVCaptureDeviceInput.deviceInputWithDevice(device as AVCaptureDevice, error: &err) as AVCaptureDeviceInput
+                
+                if session.canAddInput(inputDevice) {
+                    session.addInput(inputDevice)
+                    break
                 }
             }
         }
-    }
-    
-    func focusTo(value : Float) {
-        if let device = captureDevice {
-            if(device.lockForConfiguration(nil)) {
-                device.setFocusModeLockedWithLensPosition(value, completionHandler: { (time) -> Void in //
-                })
-                device.unlockForConfiguration()
-                
-            }
-        }
-    }
-    
-    let screenWidth = UIScreen.mainScreen().bounds.size.width
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        var anyTouch = touches.anyObject() as UITouch
-        var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
-        focusTo(Float(touchPercent))
-    }
-    
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        var anyTouch = touches.anyObject() as UITouch
-        var touchPercent = anyTouch.locationInView(self.view).x / screenWidth
-        focusTo(Float(touchPercent))
-    }
-    
-    func configureDevice() {
-        if let device = captureDevice {
-            device.lockForConfiguration(nil)
-            device.focusMode = .Locked
-            device.unlockForConfiguration()
-        }
-    }
-    
-    func beginSession() {
         
-        configureDevice()
+        var output = AVCaptureVideoDataOutput()
+
+        output.alwaysDiscardsLateVideoFrames = true
         
-        var err : NSError? = nil
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
-        
-        if err != nil {
-            println("error: \(err?.localizedDescription)")
+        if session.canAddOutput(output) {
+            session.addOutput(output)
         }
         
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.view.layer.addSublayer(previewLayer)
-        previewLayer?.frame = self.view.layer.frame
-        captureSession.startRunning()
+        var captureLayer = AVCaptureVideoPreviewLayer(session: session)
+        captureLayer.frame = frameForCapture.bounds
+        frameForCapture.layer.addSublayer(captureLayer)
+    } // viewDidLoad
+    
+    
+    
+    @IBAction func takePhoto(sender: AnyObject) {
+        
     }
 }

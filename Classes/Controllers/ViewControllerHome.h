@@ -44,6 +44,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *idleTimerTime;
 @property (weak, nonatomic) IBOutlet UIButton *captureAvatar;
 
+
+//test
+@property (weak, nonatomic) IBOutlet UIButton *btnTest;
+
+
 // Core Bluetooth
 @property(strong, nonatomic) DFBlunoManager *blunoManager;
 @property(strong, nonatomic) DFBlunoDevice *blunoDev;
@@ -65,4 +70,5 @@
 
 - (IBAction)addAvatar:(id)sender;
 
+- (IBAction)showTestScene:(id)sender;
 @end

@@ -36,6 +36,7 @@
 		EA5AAD1A15D9D92F006EDCBF /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD1915D9D92F006EDCBF /* ViewControllerDev.m */; };
 		EA5AAD2315DC84EC006EDCBF /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */; };
 		EA69930A158721E8009E0397 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EA699309158721E8009E0397 /* ViewControllerForgot.m */; };
+		EA6C2D371A0D32770071A89D /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6C2D361A0D32770071A89D /* ViewControllerTest.swift */; };
 		EA960201189C48BF00068808 /* BLEDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960200189C48BF00068808 /* BLEDevice.m */; };
 		EA960204189C4A3500068808 /* BLEUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960203189C4A3500068808 /* BLEUtility.m */; };
 		EA960207189C563100068808 /* DFBlunoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960206189C563100068808 /* DFBlunoDevice.m */; };
@@ -149,6 +150,7 @@
 		EA5AAD2215DC84EC006EDCBF /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
 		EA699308158721E8009E0397 /* ViewControllerForgot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerForgot.h; path = Controllers/ViewControllerForgot.h; sourceTree = "<group>"; };
 		EA699309158721E8009E0397 /* ViewControllerForgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerForgot.m; path = Controllers/ViewControllerForgot.m; sourceTree = "<group>"; };
+		EA6C2D361A0D32770071A89D /* ViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerTest.swift; path = Controllers/ViewControllerTest.swift; sourceTree = "<group>"; };
 		EA9601FF189C48BF00068808 /* BLEDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEDevice.h; sourceTree = "<group>"; };
 		EA960200189C48BF00068808 /* BLEDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEDevice.m; sourceTree = "<group>"; };
 		EA960202189C4A3500068808 /* BLEUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEUtility.h; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
 				EAF27855159191C9009663A8 /* ViewControllerHome.m */,
 				EA022CE81A0B2A2800CE6B3C /* ViewControllerAvatar.swift */,
+				EA6C2D361A0D32770071A89D /* ViewControllerTest.swift */,
 				EA321BA115AF8E5B00A65E63 /* ViewControllerPour.h */,
 				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
 				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
@@ -736,6 +739,7 @@
 			files = (
 				EA9FF1331A00C59800B7897A /* AppDelegate.m in Sources */,
 				EA9FF1321A00C50900B7897A /* main.m in Sources */,
+				EA6C2D371A0D32770071A89D /* ViewControllerTest.swift in Sources */,
 				EAEFEEAA157B296B00C666D5 /* ViewControllerWelcome.m in Sources */,
 				EABE1D741581C9B700FF9FA0 /* Account.m in Sources */,
 				EA022CE91A0B2A2800CE6B3C /* ViewControllerAvatar.swift in Sources */,

@@ -1348,6 +1348,15 @@
                                             <action selector="addAvatar:" destination="uGc-YU-kQy" eventType="touchUpInside" id="sIa-Qr-ZzG"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQF-QV-uHG">
+                                        <rect key="frame" x="246" y="186" width="30" height="30"/>
+                                        <state key="normal" title="test">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showTestScene:" destination="uGc-YU-kQy" eventType="touchUpInside" id="uVv-EX-kz2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-dh-xd6">
@@ -1363,6 +1372,7 @@
                     <connections>
                         <outlet property="btnAddRFID" destination="hQn-YO-OmM" id="U2K-nA-5ti"/>
                         <outlet property="btnLogout" destination="IcF-KU-2Nu" id="wgi-Jt-imH"/>
+                        <outlet property="btnTest" destination="YQF-QV-uHG" id="Q4g-9G-iTK"/>
                         <outlet property="btnTradeCredit" destination="ThU-Sl-LXC" id="zc6-aw-v1U"/>
                         <outlet property="btndrinkbeer" destination="zEX-W3-o2o" id="xG2-cy-tei"/>
                         <outlet property="captureAvatar" destination="MOq-p7-k8g" id="iHL-PI-7p6"/>
@@ -1382,7 +1392,7 @@
         <!--View Controller Avatar-->
         <scene sceneID="TXC-Xx-SfH">
             <objects>
-                <viewController storyboardIdentifier="avatar" id="b9J-5B-e5w" customClass="ViewControllerAvatar" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="avatar" id="b9J-5B-e5w" customClass="ViewControllerAvatar" customModule="KegCop" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FzC-kO-C1g"/>
                         <viewControllerLayoutGuide type="bottom" id="NlX-aK-GsK"/>
@@ -1390,12 +1400,65 @@
                     <view key="view" contentMode="scaleToFill" id="Xyp-Ta-N8s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wjQ-rh-Dme">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhP-dH-JOL">
+                                        <rect key="frame" x="-160" y="-154" width="320" height="309"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="b9J-5B-e5w" eventType="touchUpInside" id="Jlf-tM-aMI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSW-lJ-rHB"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="frameForCapture" destination="wjQ-rh-Dme" id="Qs5-JE-I55"/>
+                        <outlet property="imageView" destination="TSW-lJ-rHB" id="h8R-4V-HWe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlF-Br-dgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="1017"/>
+            <point key="canvasLocation" x="975" y="1021"/>
+        </scene>
+        <!--View Controller Test-->
+        <scene sceneID="FIf-TZ-8BB">
+            <objects>
+                <viewController storyboardIdentifier="test" id="eZS-h6-1P4" customClass="ViewControllerTest" customModule="KegCop" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EbT-da-nTm"/>
+                        <viewControllerLayoutGuide type="bottom" id="DVC-At-1N9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MKe-qg-YaO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8J-La-egi">
+                                <rect key="frame" x="16" y="28" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissScene:" destination="eZS-h6-1P4" eventType="touchUpInside" id="T0W-Zx-apI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnDone" destination="E8J-La-egi" id="uNu-8F-5Ev"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8I-0W-Qjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1329" y="1019"/>
         </scene>
         <!--Thankyou-->
         <scene sceneID="nro-6f-cs2">

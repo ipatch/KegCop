@@ -371,6 +371,11 @@
     
 }
 
+- (IBAction)showTestScene:(id)sender {
+    UIViewController *test = [self.storyboard instantiateViewControllerWithIdentifier:@"test"];
+    [self presentViewController:test animated:YES completion:nil];
+}
+
 
 # pragma mark - JailbrokenSerialDelegate
 - (void) JailbrokenSerialReceived:(char) ch {

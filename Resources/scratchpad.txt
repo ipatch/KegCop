@@ -1,4 +1,28 @@
 =====================================================
+swift notes
+=====================================================
+// all variables are declared using var
+
+// variables cannot be changed from one data type
+// to another data type, unlike Javascript
+
+// i.e. var firstName = "Chris"
+// var firstName = "99"
+
+// the above two lines will throw a compile error
+
+Creating constants in Swift
+
+let daysInWeek = 7
+
+
+
+
+
+
+
+
+=====================================================
 sample swift code for AVCaptureSession
 =====================================================
 

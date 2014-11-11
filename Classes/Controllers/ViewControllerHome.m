@@ -28,6 +28,7 @@
 @synthesize lblTradeCredit = _lblTradeCredit;
 @synthesize btnAddRFID = _btnAddRFID;
 @synthesize idleTimerTime = _idleTimerTime;
+@synthesize btnLogout = _btnLogout;
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
@@ -108,6 +109,61 @@
     // 6AUG13 - idle time logout
     _idleTimerTime.text = @"60 secs til";
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
+    
+    
+    // idleTimerTime = UILabel - set colors for idleTimerTime label
+    
+//    _idleTimerTime.layer.borderWidth=1.0f;
+//    _idleTimerTime.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
+//                                                  green: 41/255.0f
+//                                                   blue: 37/255.0f
+//                                                  alpha:1.0f] CGColor];
+//    [_idleTimerTime setBackgroundColor:[UIColor colorWithRed:201.0f/255.0f
+//                                                   green:48.0f/255.0f
+//                                                    blue:44.0f/255.0f
+//                                                   alpha:1.0f]];
+//    [_idleTimerTime setTitleColor:[UIColor colorWithRed:255/255.0
+//                                              green:255/255.0
+//                                               blue:255/255.0
+//                                              alpha:1.0f] forState:UIControlStateNormal];
+    
+    // change color of font for UILable - _idleTimeTime
+    self.idleTimerTime.textColor = [UIColor colorWithRed:255/255.0
+                                                   green:255/255.0
+                                                    blue:255/255.0
+                                                   alpha:1.0f];
+
+    // btnLogout - set colors
+    _btnLogout.layer.borderWidth=1.0f;
+    _btnLogout.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
+                                                      green: 41/255.0f
+                                                       blue: 37/255.0f
+                                                      alpha:1.0f] CGColor];
+    [_btnLogout setBackgroundColor:[UIColor colorWithRed:201.0f/255.0f
+                                                       green:48.0f/255.0f
+                                                        blue:44.0f/255.0f
+                                                       alpha:1.0f]];
+    
+    [_btnLogout setTitleColor:[UIColor colorWithRed:255/255.0
+                                              green:255/255.0
+                                               blue:255/255.0
+                                              alpha:1.0f] forState:UIControlStateNormal];
+    
+    // btndrinkbeer - set colors
+    _btndrinkbeer.layer.borderWidth=1.0f;
+    _btndrinkbeer.layer.borderColor=[[UIColor colorWithRed: 57.0f/255.0f
+                                                     green: 132.0f/255.0f
+                                                      blue: 57.0f/255.0f
+                                                     alpha:1.0f] CGColor];
+    [_btndrinkbeer setBackgroundColor:[UIColor colorWithRed:68.0f/255.0f
+                                                      green:157.0f/255.0f
+                                                       blue:68.0f/255.0f
+                                                      alpha:1.0f]];
+    // set btn font color
+    [_btndrinkbeer setTitleColor:[UIColor colorWithRed:255/255.0
+                                                 green:255/255.0
+                                                  blue:255/255.0
+                                                 alpha:1.0f] forState:UIControlStateNormal];
     
     
     

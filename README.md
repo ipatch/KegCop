@@ -24,7 +24,7 @@ a lot to be desired.  So if you have a great idea, don't hesitate to download th
 contribute.
 
 ## Installation
-A binary version of the app can be downloaded if your iDevice is jailbroken.  Add the following
+A binary version of the app can be downloaded if your iOS device is jailbroken.  Add the following
 repo: chrisrjones.com/repo and load the following sketch on your Bluno https://gist.github.com/ipatch/8078083
 cheers
 - Chris

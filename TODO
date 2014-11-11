@@ -9,7 +9,11 @@ Thanks,
                Chris
 
 --------------
-B: figure out why TOS is not appearing in the UIAlertView
+F: change color of logout timer text
+
+F: make pour beer button along with logout button solid colors.
+
+C: figure out why TOS is not appearing in the UIAlertView
 
 F: redesign home screen for normal users, incorporate a hamburger flyout menu.
 

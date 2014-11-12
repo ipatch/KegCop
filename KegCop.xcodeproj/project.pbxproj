@@ -50,6 +50,7 @@
 		EA9D261B1767A24E00B277ED /* flow_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25ED1767A24E00B277ED /* flow_shadow.png */; };
 		EA9D26391767A24E00B277ED /* scratchpad.txt in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260D1767A24E00B277ED /* scratchpad.txt */; };
 		EA9D263A1767A24E00B277ED /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
+		EA9DCAD51A13D5E1008E7983 /* ViewControllerAvatar2.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9DCAD41A13D5E1008E7983 /* ViewControllerAvatar2.m */; };
 		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
 		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
@@ -174,6 +175,8 @@
 		EA9D26441767B7F000B277ED /* CREDITS */ = {isa = PBXFileReference; lastKnownFileType = text; path = CREDITS; sourceTree = SOURCE_ROOT; };
 		EA9D26451767B7F000B277ED /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
 		EA9D26461767B7F000B277ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		EA9DCAD31A13D5E1008E7983 /* ViewControllerAvatar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAvatar2.h; path = Controllers/ViewControllerAvatar2.h; sourceTree = "<group>"; };
+		EA9DCAD41A13D5E1008E7983 /* ViewControllerAvatar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAvatar2.m; path = Controllers/ViewControllerAvatar2.m; sourceTree = "<group>"; };
 		EA9FF12C1A00B15800B7897A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EA9FF12E1A00B19200B7897A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		EA9FF1301A00B19D00B7897A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -507,6 +510,8 @@
 				EA022CDF1A0ABC1B00CE6B3C /* HUMMapViewController.m */,
 				EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */,
 				EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */,
+				EA9DCAD31A13D5E1008E7983 /* ViewControllerAvatar2.h */,
+				EA9DCAD41A13D5E1008E7983 /* ViewControllerAvatar2.m */,
 				EA1890391585F890003A64FC /* ViewControllerCreate.h */,
 				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
 				EAF27854159191C8009663A8 /* ViewControllerHome.h */,
@@ -769,6 +774,7 @@
 				EAB453BB175555B700F6DA69 /* KBKegboardMessage.m in Sources */,
 				EAB12060175576B7003035C3 /* KBFlowIndicator.m in Sources */,
 				422CA68C176B7D7800C6C918 /* KBKegboardCommand.m in Sources */,
+				EA9DCAD51A13D5E1008E7983 /* ViewControllerAvatar2.m in Sources */,
 				EA960201189C48BF00068808 /* BLEDevice.m in Sources */,
 				422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,
 				EA960207189C563100068808 /* DFBlunoDevice.m in Sources */,

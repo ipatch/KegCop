@@ -1389,10 +1389,10 @@
             </objects>
             <point key="canvasLocation" x="925" y="364"/>
         </scene>
-        <!--View Controller Avatar-->
+        <!--View Controller Avatar2-->
         <scene sceneID="TXC-Xx-SfH">
             <objects>
-                <viewController storyboardIdentifier="avatar" id="b9J-5B-e5w" customClass="ViewControllerAvatar" customModule="KegCop" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="avatar" id="b9J-5B-e5w" customClass="ViewControllerAvatar2" customModule="KegCop" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FzC-kO-C1g"/>
                         <viewControllerLayoutGuide type="bottom" id="NlX-aK-GsK"/>
@@ -1409,19 +1409,19 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="takePhoto:" destination="b9J-5B-e5w" eventType="touchUpInside" id="Jlf-tM-aMI"/>
+                                            <action selector="takePhoto:" destination="b9J-5B-e5w" eventType="touchUpInside" id="jGp-N1-QcI"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSW-lJ-rHB"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="frameForCapture" destination="wjQ-rh-Dme" id="Qs5-JE-I55"/>
-                        <outlet property="imageView" destination="TSW-lJ-rHB" id="h8R-4V-HWe"/>
+                        <outlet property="frameForCapture" destination="wjQ-rh-Dme" id="8pd-iX-viM"/>
+                        <outlet property="imageView" destination="TSW-lJ-rHB" id="sEq-Uw-tYF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlF-Br-dgT" userLabel="First Responder" sceneMemberID="firstResponder"/>

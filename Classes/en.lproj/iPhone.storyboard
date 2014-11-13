@@ -1390,22 +1390,22 @@
             <point key="canvasLocation" x="925" y="364"/>
         </scene>
         <!--View Controller Avatar3-->
-        <scene sceneID="bBD-Xe-toA">
+        <scene sceneID="eBE-to-ale">
             <objects>
-                <viewController storyboardIdentifier="avatar" id="DPB-I3-VXn" customClass="ViewControllerAvatar3" customModule="KegCop" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="avatar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pKS-ig-tlv" customClass="ViewControllerAvatar3" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="b1k-0a-aVu"/>
-                        <viewControllerLayoutGuide type="bottom" id="y7B-7F-DxB"/>
+                        <viewControllerLayoutGuide type="top" id="391-WJ-0YQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="S7I-5M-gW8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HhR-tG-EJ1">
+                    <view key="view" contentMode="scaleToFill" id="z5c-WI-qKT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NSi-HQ-qj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtp-ks-Wja" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968" y="1026"/>
+            <point key="canvasLocation" x="958" y="1019"/>
         </scene>
         <!--View Controller Test-->
         <scene sceneID="FIf-TZ-8BB">

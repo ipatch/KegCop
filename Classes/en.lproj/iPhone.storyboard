@@ -1389,10 +1389,10 @@
             </objects>
             <point key="canvasLocation" x="925" y="364"/>
         </scene>
-        <!--View Controller Avatar2-->
+        <!--View Controller Avatar3-->
         <scene sceneID="bBD-Xe-toA">
             <objects>
-                <viewController storyboardIdentifier="avatar" id="DPB-I3-VXn" customClass="ViewControllerAvatar2" customModule="KegCop" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="avatar" id="DPB-I3-VXn" customClass="ViewControllerAvatar3" customModule="KegCop" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b1k-0a-aVu"/>
                         <viewControllerLayoutGuide type="bottom" id="y7B-7F-DxB"/>
@@ -1400,24 +1400,8 @@
                     <view key="view" contentMode="scaleToFill" id="HhR-tG-EJ1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fE-4V-PFq">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVi-Fs-RAB"/>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmY-ph-HnM">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="frameForCapture" destination="5fE-4V-PFq" id="NM5-MI-p28"/>
-                        <outlet property="imageView" destination="vVi-Fs-RAB" id="lej-LB-dZB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSi-HQ-qj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

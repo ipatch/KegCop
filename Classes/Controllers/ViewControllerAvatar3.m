@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"reach ViewControllerAvatar3 viewDidLoad method");
     
     self.session = [[AVCaptureSession alloc] init];
     

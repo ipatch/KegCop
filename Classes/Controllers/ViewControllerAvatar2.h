@@ -10,9 +10,9 @@
 
 @interface ViewControllerAvatar2 : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *frameForCapture;
+@property (strong, nonatomic) IBOutlet UIView *frameForCapture;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 - (IBAction)takePhoto:(id)sender;
 

@@ -11,6 +11,7 @@
 		422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
 		5D1D3CDD3A3E40E789538892 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC4EEE47EAB4A04A9448C12 /* libPods.a */; };
 		E52E849B1C392B67330A801F /* libPods-KegCopTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */; };
+		EA0138541A1552FA00F584BE /* ViewControllerAvatar3.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0138531A1552FA00F584BE /* ViewControllerAvatar3.m */; };
 		EA022CDD1A0ABAE900CE6B3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */; };
 		EA022CE01A0ABC1B00CE6B3C /* HUMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA022CDF1A0ABC1B00CE6B3C /* HUMMapViewController.m */; };
 		EA022CE31A0AC30900CE6B3C /* HUMAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA022CE21A0AC30900CE6B3C /* HUMAddEventViewController.m */; };
@@ -103,6 +104,8 @@
 		4CC4EEE47EAB4A04A9448C12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0138521A1552FA00F584BE /* ViewControllerAvatar3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAvatar3.h; path = Controllers/ViewControllerAvatar3.h; sourceTree = "<group>"; };
+		EA0138531A1552FA00F584BE /* ViewControllerAvatar3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerAvatar3.m; path = Controllers/ViewControllerAvatar3.m; sourceTree = "<group>"; };
 		EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EA022CDE1A0ABC1B00CE6B3C /* HUMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUMMapViewController.h; path = Controllers/HUMMapViewController.h; sourceTree = "<group>"; };
 		EA022CDF1A0ABC1B00CE6B3C /* HUMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HUMMapViewController.m; path = Controllers/HUMMapViewController.m; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 				EAEFEEA8157B296B00C666D5 /* ViewControllerWelcome.h */,
 				EAEFEEA9157B296B00C666D5 /* ViewControllerWelcome.m */,
 				EA9DCAD31A13D5E1008E7983 /* ViewControllerAvatar2.h */,
+				EA0138521A1552FA00F584BE /* ViewControllerAvatar3.h */,
+				EA0138531A1552FA00F584BE /* ViewControllerAvatar3.m */,
 				EA9DCAD41A13D5E1008E7983 /* ViewControllerAvatar2.m */,
 				EA1890391585F890003A64FC /* ViewControllerCreate.h */,
 				EA18903A1585F890003A64FC /* ViewControllerCreate.m */,
@@ -757,6 +762,7 @@
 				EAF27856159191C9009663A8 /* ViewControllerHome.m in Sources */,
 				EA4C46E1159990B90050E2AC /* ViewControllerRootHome.m in Sources */,
 				EA283541159FC3910044B39C /* ViewControllerPurchase.m in Sources */,
+				EA0138541A1552FA00F584BE /* ViewControllerAvatar3.m in Sources */,
 				EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */,
 				EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */,
 				EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */,

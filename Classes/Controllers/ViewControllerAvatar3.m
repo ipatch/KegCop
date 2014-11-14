@@ -10,10 +10,12 @@
 @import AVFoundation;
 
 @interface ViewControllerAvatar3 () <AVCaptureAudioDataOutputSampleBufferDelegate>
+@property (strong, nonatomic) IBOutlet UIView *frameForCapture;
 
 @property (nonatomic, strong) AVCaptureSession *session;
 @property (nonatomic, strong) dispatch_queue_t sampleQueue;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
+- (IBAction)dismissScene:(id)sender;
 
 @end
 
@@ -46,10 +48,14 @@
         [self.session addOutput:output];
         
         self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
-        self.previewLayer.frame = self.view.layer.bounds;
-        self.view.layer.masksToBounds = YES;
-        self.view.layer.backgroundColor = [[UIColor blackColor] CGColor];
-        [self.view.layer addSublayer:self.previewLayer];
+//        self.previewLayer.frame = self.view.layer.bounds;
+    
+        // replaced view with frameForCapture
+        
+        self.previewLayer.frame = self.frameForCapture.layer.bounds;
+        self.frameForCapture.layer.masksToBounds = YES;
+        self.frameForCapture.layer.backgroundColor = [[UIColor blackColor] CGColor];
+        [self.frameForCapture.layer addSublayer:self.previewLayer];
         
         [self.session startRunning];
     } else {
@@ -76,4 +82,8 @@
     
 }
 
+- (IBAction)dismissScene:(id)sender {
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 @end

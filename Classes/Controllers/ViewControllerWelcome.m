@@ -168,6 +168,38 @@
     
     // RFID stuff
     scantagid = [[NSMutableString alloc] init];
+    
+    // navBar
+    navBar = [[UINavigationBar alloc] init];
+    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
+    
+    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"KegCop"];
+    
+//    [navBar setBarStyle:UIStatusBarStyleLightContent];
+    
+    navBar.items = @[titleItem];
+    
+    navBar.barTintColor = [UIColor blackColor];
+//    navBar.tintColor = [UIColor whiteColor];
+//    navBar.titleTextAttributes = [[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    navBar.translucent = YES;
+    
+    [self.view addSubview:navBar];
+    
+    
+    // get the status bar back
+    // see SO thread - stackoverflow.com/questions/17678881/
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+    // change textfield outline / border color
+    _textFieldUsername.layer.borderColor = [UIColor whiteColor].CGColor;
+//    _textFieldUsername.layer.cornerRadius = 5;
+    _textFieldUsername.layer.masksToBounds = true;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)viewDidUnload {

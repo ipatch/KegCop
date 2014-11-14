@@ -80,6 +80,8 @@
 // added dev3 btn for CoreBluetooth testing.
 @property (weak, nonatomic) IBOutlet UIButton *btnDev4;
 
+// added navigation bar - 14NOV14
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
 
 // Core Data

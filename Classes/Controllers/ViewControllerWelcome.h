@@ -8,6 +8,7 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h> 
 #import "AppDelegate.h"
 #import "Account.h"
 #import "ViewControllerHome.h"
@@ -32,6 +33,9 @@
     
     // legal disclaimer
     UIAlertView *alertlegal;
+    
+    // Navigation bar
+    UINavigationBar *navBar;
 }
 
 // Notes

@@ -50,6 +50,11 @@
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
 
+// it is no longer necessary to synthesize properties in the .m file,
+// Xcode / Obj-C auto synthesizes properties with the "_" i.e.,
+// _mybutton
+
+
 
 - (void)viewDidLoad
 {
@@ -137,9 +142,24 @@
     _tbiMisc.tag = 1;
     _tbiDev.tag = 2;
     
+    // add barButtonItem to navBar
+    UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
     
+    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"KegCop - Admin"];
     
+    navItem.leftBarButtonItem = menu;
+    navItem.hidesBackButton = YES;
     
+    [_navBar setTintColor:[UIColor whiteColor]];
+//    [_navBar setBackgroundColor:[UIColor blackColor]];
+    [_navBar setBarTintColor:[UIColor blackColor]];
+    [_navBar setTranslucent:YES];
+    [_navBar pushNavigationItem:navItem animated:NO];
+}
+
+//- (IBAction)showMenu:(id)sender {
+- (IBAction)showMenu {
+
 }
 
 - (void)viewDidUnload

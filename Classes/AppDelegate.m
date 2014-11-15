@@ -33,6 +33,10 @@
     
     [viewControllerWelcome setManagedObjectContext:context];
     
+    // see this SO thread - stackoverflow.com/questions/1768881
+    [application setStatusBarHidden:NO];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 							

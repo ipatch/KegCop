@@ -686,12 +686,6 @@
                                     <tabBarItem title="dev" id="b8s-ji-V2u"/>
                                 </items>
                             </tabBar>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrX-eZ-5Ua">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="KegCop - Admin" id="cTn-c2-d7W"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
@@ -707,7 +701,6 @@
                         <outlet property="btndev" destination="avR-R6-HQ9" id="fxQ-dn-QGL"/>
                         <outlet property="lblCredit" destination="eNw-nW-NbY" id="LgU-Wb-tCD"/>
                         <outlet property="lblRootCredit" destination="1Fk-0b-ufl" id="h50-Yz-AKW"/>
-                        <outlet property="navBar" destination="rrX-eZ-5Ua" id="CdQ-JW-hXs"/>
                         <outlet property="rootHomeScroller" destination="ydc-B7-xIE" id="laf-oV-6ZO"/>
                         <outlet property="tbRoot" destination="u68-rP-Trh" id="13z-hM-pYu"/>
                         <outlet property="tbiDev" destination="b8s-ji-V2u" id="OZ9-iR-Dkt"/>

@@ -20,6 +20,7 @@
     UITextField *tfEmail;
     UIButton *btnEmailSave;
     UITabBar *tbRoot;
+    UINavigationBar *navBar;
     
     
 }

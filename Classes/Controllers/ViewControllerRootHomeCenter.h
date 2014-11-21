@@ -20,10 +20,13 @@
 
 @end
 
-@interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeLeftPanelDelegate>
+@interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeLeftPanelDelegate> {
+}
 
 @property (nonatomic, assign) id<ViewControllerRootHomeCenterDelegate> delegate;
 
 @property (nonatomic, weak) IBOutlet UIButton *leftButton;
+@property (nonatomic, strong) IBOutlet UINavigationBar *navBar;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *hamMenu;
 
 @end

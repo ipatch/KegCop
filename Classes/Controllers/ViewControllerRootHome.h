@@ -14,18 +14,14 @@
 #import "ViewControllerSerialConsole.h"
 #import "KBFlowIndicator.h"
 
+
 @interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate> {
     
     UIButton *nuke;
     UITextField *tfEmail;
     UIButton *btnEmailSave;
     UITabBar *tbRoot;
-    UINavigationBar *navBar;
-    
-    
 }
-
-// root Home View Controller - display elements
 
 @property (weak, nonatomic) IBOutlet UIScrollView *rootHomeScroller;
 

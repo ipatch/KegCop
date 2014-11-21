@@ -72,6 +72,10 @@
 		EACD704D177A4EE800A13B91 /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */; };
 		EAD97F0515C76EF7006C15A2 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
+		EAE27A8B1A1C70670085C3B5 /* CenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE27A8A1A1C70670085C3B5 /* CenterViewController.xib */; };
+		EAE27A8D1A1C70CC0085C3B5 /* LeftPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE27A8C1A1C70CC0085C3B5 /* LeftPanelViewController.xib */; };
+		EAE27A901A1C71350085C3B5 /* ViewControllerRootHomeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE27A8F1A1C71350085C3B5 /* ViewControllerRootHomeCenter.m */; };
+		EAE27A931A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE27A921A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.m */; };
 		EAE2C0D918788D2200DC3F02 /* icon_V2_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */; };
 		EAE2C0DA18788D2200DC3F02 /* icon_V2_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */; };
 		EAEEBF961A17CFE100E9C489 /* hamburger-menu-42x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */; };
@@ -216,6 +220,12 @@
 		EAD97F0415C76EF7006C15A2 /* ViewControllerSerialConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerSerialConsole.m; path = Controllers/ViewControllerSerialConsole.m; sourceTree = "<group>"; };
 		EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		EADB6DAB187B365100A0A8D2 /* SERVICES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERVICES.h; sourceTree = "<group>"; };
+		EAE27A8A1A1C70670085C3B5 /* CenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CenterViewController.xib; path = Views/CenterViewController.xib; sourceTree = "<group>"; };
+		EAE27A8C1A1C70CC0085C3B5 /* LeftPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftPanelViewController.xib; path = Views/LeftPanelViewController.xib; sourceTree = "<group>"; };
+		EAE27A8E1A1C71350085C3B5 /* ViewControllerRootHomeCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerRootHomeCenter.h; path = Controllers/ViewControllerRootHomeCenter.h; sourceTree = "<group>"; };
+		EAE27A8F1A1C71350085C3B5 /* ViewControllerRootHomeCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerRootHomeCenter.m; path = Controllers/ViewControllerRootHomeCenter.m; sourceTree = "<group>"; };
+		EAE27A911A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerRootHomeLeftPanel.h; path = Controllers/ViewControllerRootHomeLeftPanel.h; sourceTree = "<group>"; };
+		EAE27A921A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewControllerRootHomeLeftPanel.m; path = Controllers/ViewControllerRootHomeLeftPanel.m; sourceTree = "<group>"; };
 		EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568@2x.png"; path = "Resources/pics/Default-568@2x.png"; sourceTree = "<group>"; };
 		EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_V2_60x60.png; sourceTree = "<group>"; };
 		EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_V2_120x120.png; sourceTree = "<group>"; };
@@ -498,6 +508,8 @@
 		EAFD930216941FE10043898C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAE27A8A1A1C70670085C3B5 /* CenterViewController.xib */,
+				EAE27A8C1A1C70CC0085C3B5 /* LeftPanelViewController.xib */,
 				EAEFEEA5157B296B00C666D5 /* iPhone.storyboard */,
 				EAB1205E175576B7003035C3 /* KBFlowIndicator.h */,
 				EAB1205F175576B7003035C3 /* KBFlowIndicator.m */,
@@ -530,6 +542,10 @@
 				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
 				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
 				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
+				EAE27A8E1A1C71350085C3B5 /* ViewControllerRootHomeCenter.h */,
+				EAE27A8F1A1C71350085C3B5 /* ViewControllerRootHomeCenter.m */,
+				EAE27A911A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.h */,
+				EAE27A921A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.m */,
 				EA591460177A220A0063BE99 /* ViewControllerUsers.h */,
 				EA591461177A220A0063BE99 /* ViewControllerUsers.m */,
 				EA5AAD1815D9D92F006EDCBF /* ViewControllerDev.h */,
@@ -654,10 +670,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE27A8D1A1C70CC0085C3B5 /* LeftPanelViewController.xib in Resources */,
 				EAEFEE9E157B296B00C666D5 /* InfoPlist.strings in Resources */,
 				EAE2C0DA18788D2200DC3F02 /* icon_V2_120x120.png in Resources */,
 				EAEFEEA7157B296B00C666D5 /* iPhone.storyboard in Resources */,
 				EAEEBF961A17CFE100E9C489 /* hamburger-menu-42x.png in Resources */,
+				EAE27A8B1A1C70670085C3B5 /* CenterViewController.xib in Resources */,
 				EA9D26161767A24E00B277ED /* flow_at_symbol.png in Resources */,
 				EA9D26171767A24E00B277ED /* flow_background.png in Resources */,
 				EA9D26181767A24E00B277ED /* flow_fill.png in Resources */,
@@ -770,6 +788,7 @@
 				EA283545159FC4A20044B39C /* ViewControllerWebView.m in Sources */,
 				EA321BA315AF8E5B00A65E63 /* ViewControllerPour.m in Sources */,
 				EA22BC6315C4F2EE0084DB1C /* ViewControllerLogs.m in Sources */,
+				EAE27A901A1C71350085C3B5 /* ViewControllerRootHomeCenter.m in Sources */,
 				EA022CE01A0ABC1B00CE6B3C /* HUMMapViewController.m in Sources */,
 				EA022CE31A0AC30900CE6B3C /* HUMAddEventViewController.m in Sources */,
 				EA99952E15C5AB84001BC954 /* ViewControllerCheckFlow.m in Sources */,
@@ -789,6 +808,7 @@
 				422CA693176D85CE00C6C918 /* KBKegboardUtils.m in Sources */,
 				EA960207189C563100068808 /* DFBlunoDevice.m in Sources */,
 				EA5206B618A2A99D000FCD54 /* ViewControllerDev4.m in Sources */,
+				EAE27A931A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.m in Sources */,
 				EA59145C177A08040063BE99 /* ViewControllerDev2.m in Sources */,
 				EA022CE61A0AE57900CE6B3C /* HUMConfirmationViewController.m in Sources */,
 				EA591462177A220A0063BE99 /* ViewControllerUsers.m in Sources */,

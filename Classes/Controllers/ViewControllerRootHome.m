@@ -5,9 +5,30 @@
 //  Created by capin on 6/26/12.
 //
 
-#import "ViewControllerRootHome.h"
+// this ViewController (ViewControllerRootHome) is equivalent of the MainViewController
+// see www.raywenderlich.com/32054
 
-@interface ViewControllerRootHome ()
+#import "ViewControllerRootHome.h"
+#import "ViewControllerRootHomeCenter.h"
+#import "ViewControllerRootHomeLeftPanel.h"
+#import <QuartzCore/QuartzCore.h>
+
+#define CENTER_TAG 1
+#define LEFT_PANEL_TAG 2
+
+#define CORNER_RADIUS 4
+
+#define SLIDE_TIMING .25
+#define PANEL_WIDTH 60
+
+
+@interface ViewControllerRootHome () <ViewControllerRootHomeCenterDelegate>
+
+@property (nonatomic, strong) ViewControllerRootHomeCenter *viewControllerRootHomeCenter;
+@property (nonatomic, strong) ViewControllerRootHomeLeftPanel *viewControllerRootHomeLeftPanel;
+@property (nonatomic, assign) BOOL showingLeftPanel;
+
+@property (nonatomic, assign) BOOL showPanel;
 
 @end
 
@@ -54,11 +75,152 @@
 // Xcode / Obj-C auto synthesizes properties with the "_" i.e.,
 // _mybutton
 
+#pragma mark -
+#pragma mark View Will/Did Appear
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+#pragma mark -
+#pragma mark View Will/Did Disappear
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
+- (UIView *)getLeftView {
+    // init view if it doesn't already exist
+    if (_viewControllerRootHomeLeftPanel == nil) {
+        
+        // this is where you define the view for the left panel
+        self.viewControllerRootHomeLeftPanel = [[ViewControllerRootHomeLeftPanel alloc] initWithNibName:@"LeftPanelViewController" bundle:nil];
+        self.viewControllerRootHomeLeftPanel.view.tag = LEFT_PANEL_TAG;
+        self.viewControllerRootHomeLeftPanel.delegate = _viewControllerRootHomeCenter;
+        
+        [self.view addSubview:self.viewControllerRootHomeLeftPanel.view];
+        
+        [self addChildViewController:_viewControllerRootHomeLeftPanel];
+        [_viewControllerRootHomeLeftPanel didMoveToParentViewController:self];
+        
+        _viewControllerRootHomeLeftPanel.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+    }
+    
+    self.showingLeftPanel = YES;
+    
+    // set up view shadows
+    [self showCenterViewWithShadow:YES withOffset:-2];
+    
+    UIView *view = self.viewControllerRootHomeLeftPanel.view;
+    return view;
+    
+}
+
+
+-(void)showCenterViewWithShadow:(BOOL)value withOffset:(double)offset {
+    
+    if(value)
+    {
+        [_viewControllerRootHomeCenter.view.layer setCornerRadius:CORNER_RADIUS];
+        [_viewControllerRootHomeCenter.view.layer setShadowColor:[UIColor blackColor].CGColor
+         ];
+        [_viewControllerRootHomeCenter.view.layer setShadowOffset:CGSizeMake(offset, offset)];
+    }
+    else
+    {
+        [_viewControllerRootHomeCenter.view.layer setCornerRadius:0.0f];
+        [_viewControllerRootHomeCenter.view.layer setShadowOffset:CGSizeMake(offset, offset)];
+    }
+
+}
+
+#pragma mark -
+#pragma mark Delegate Actions
+
+-(void)movePanelRight {
+    
+    NSLog(@"inside movePanelRight method");
+    
+    UIView *childView = [self getLeftView];
+    [self.view sendSubviewToBack:childView];
+    
+    [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        _viewControllerRootHomeCenter.view.frame = CGRectMake(self.view.frame.size.width - PANEL_WIDTH, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                             _viewControllerRootHomeCenter.leftButton.tag = 0;
+                         }
+                     }];
+}
+
+-(void)movePanelToOriginalPosition {
+    [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        _viewControllerRootHomeCenter.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                             [self resetMainView];
+                         }
+                     }];
+}
+
+-(void)resetMainView {
+    // remove left and right views, and reset variables, if needed
+    if (_viewControllerRootHomeLeftPanel != nil) {
+        [self.viewControllerRootHomeLeftPanel.view removeFromSuperview];
+        self.viewControllerRootHomeLeftPanel = nil;
+        _viewControllerRootHomeCenter.leftButton.tag = 1;
+        self.showingLeftPanel = NO;
+    }
+    
+    // NO RIGHT PANEL IMPLEMENTED
+    
+//    if (_rightPanelViewController != nil) {
+//        [self.rightPanelViewController.view removeFromSuperview];
+//        self.rightPanelViewController = nil;
+//        _centerViewController.rightButton.tag = 1;
+//        self.showingRightPanel = NO;
+//    }
+    // remove view shadows
+    [self showCenterViewWithShadow:NO withOffset:0];
+}
+
+
+#pragma mark -
+#pragma mark Setup View
+
+- (void)setupView {
+    self.viewControllerRootHomeCenter = [[ViewControllerRootHomeCenter alloc] initWithNibName:@"CenterViewController" bundle:nil];
+    self.viewControllerRootHomeCenter.view.tag = CENTER_TAG;
+    self.viewControllerRootHomeCenter.delegate = self;
+    
+    [self.view addSubview:self.viewControllerRootHomeCenter.view];
+    [self addChildViewController:_viewControllerRootHomeCenter];
+    
+    [_viewControllerRootHomeCenter didMoveToParentViewController:self];
+    
+}
+
+#pragma mark -
+#pragma mark View Did Load/Unload
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupView];
     
     // load Home Scrollview
     [_rootHomeScroller setContentSize:CGSizeMake(320,1000)];

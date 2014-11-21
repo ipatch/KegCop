@@ -225,13 +225,13 @@
     [self setupView];
     
     // load Home Scrollview
-    [_rootHomeScroller setContentSize:CGSizeMake(320,1000)];
+//    [_rootHomeScroller setContentSize:CGSizeMake(320,1000)];
     
     
     
     // hide Arduino connection labels
-    [_lblArduinoGood setHidden:TRUE];
-    [_lblArduinoBad setHidden:TRUE];
+//    [_lblArduinoGood setHidden:TRUE];
+//    [_lblArduinoBad setHidden:TRUE];
     
   
     
@@ -243,68 +243,68 @@
     }
     
     // text view stuff
-    [_tvDisplayAccount setScrollEnabled:TRUE];
-    [_tvDisplayAccount setUserInteractionEnabled:YES];
+//    [_tvDisplayAccount setScrollEnabled:TRUE];
+//    [_tvDisplayAccount setUserInteractionEnabled:YES];
     
     // declare nuke button
-    nuke = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    nuke = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     
     // set title for button
-    [nuke setTitle:@"Nuke DB" forState:UIControlStateNormal];
+//    [nuke setTitle:@"Nuke DB" forState:UIControlStateNormal];
     
     // set position (X, Y, bsizeW, bsizeH)
-    nuke.frame = CGRectMake(100, 460, 150, 30);
+//    nuke.frame = CGRectMake(100, 460, 150, 30);
     
     // listen for clicks
-    [nuke addTarget:self action:@selector(deleteAllObjects)forControlEvents:UIControlEventTouchUpInside];
+//    [nuke addTarget:self action:@selector(deleteAllObjects)forControlEvents:UIControlEventTouchUpInside];
     
     // add nuke to the scrollview
-    [self.rootHomeScroller addSubview:nuke];
+//    [self.rootHomeScroller addSubview:nuke];
     
     // Core Data - load root credits
     [self rootCreditAmount];
     
     
     // declare / initialize tfEmail
-    tfEmail = [[UITextField alloc] initWithFrame:CGRectMake(10, 500, 250, 30)];
+//    tfEmail = [[UITextField alloc] initWithFrame:CGRectMake(10, 500, 250, 30)];
+//    
+//    tfEmail.borderStyle = UITextBorderStyleRoundedRect;
+//    tfEmail.textColor = [UIColor blackColor];
+//    tfEmail.font = [UIFont systemFontOfSize:17.0];
+//    tfEmail.placeholder = @"Enter Master Paypal Address.";
+//    tfEmail.backgroundColor = [UIColor whiteColor];
+//    tfEmail.autocorrectionType = UITextAutocorrectionTypeNo;
+//    tfEmail.keyboardType = UIKeyboardTypeDefault;
+//    tfEmail.returnKeyType = UIReturnKeyDone;
+//    
+//    [self.rootHomeScroller addSubview:tfEmail];
     
-    tfEmail.borderStyle = UITextBorderStyleRoundedRect;
-    tfEmail.textColor = [UIColor blackColor];
-    tfEmail.font = [UIFont systemFontOfSize:17.0];
-    tfEmail.placeholder = @"Enter Master Paypal Address.";
-    tfEmail.backgroundColor = [UIColor whiteColor];
-    tfEmail.autocorrectionType = UITextAutocorrectionTypeNo;
-    tfEmail.keyboardType = UIKeyboardTypeDefault;
-    tfEmail.returnKeyType = UIReturnKeyDone;
-    
-    [self.rootHomeScroller addSubview:tfEmail];
-         
-    // declare / initialize btnEmailSave
-    btnEmailSave = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    
-    [btnEmailSave setTitle:@"SaveMasterEmail" forState:UIControlStateNormal];
-    
-    btnEmailSave.frame = CGRectMake(100, 550, 150, 30);
-    
-    [btnEmailSave addTarget:self action:@selector(saveMasterEmail)forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.rootHomeScroller addSubview:btnEmailSave];
+//    // declare / initialize btnEmailSave
+//    btnEmailSave = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    
+//    [btnEmailSave setTitle:@"SaveMasterEmail" forState:UIControlStateNormal];
+//    
+//    btnEmailSave.frame = CGRectMake(100, 550, 150, 30);
+//    
+//    [btnEmailSave addTarget:self action:@selector(saveMasterEmail)forControlEvents:UIControlEventTouchUpInside];
+//    
+//    [self.rootHomeScroller addSubview:btnEmailSave];
     
     
-    // RFID switch
-    UISwitch *switchRfid = [[UISwitch alloc] initWithFrame: CGRectMake(20, 550, 50, 50)];
-    [switchRfid addTarget: self action: @selector(rfidOnOff) forControlEvents:UIControlEventValueChanged];
-    // add switch to the desired frame
-    [self.rootHomeScroller addSubview:switchRfid];
+//    // RFID switch
+//    UISwitch *switchRfid = [[UISwitch alloc] initWithFrame: CGRectMake(20, 550, 50, 50)];
+//    [switchRfid addTarget: self action: @selector(rfidOnOff) forControlEvents:UIControlEventValueChanged];
+//    // add switch to the desired frame
+//    [self.rootHomeScroller addSubview:switchRfid];
+//    
+//    [self rootCreditAmount];
     
-    [self rootCreditAmount];
-    
-    //tabbar crap
-    //[self.tbRoot setItems: _tbiUsers animated:TRUE];
-    self.tbRoot.delegate = self;
-    _tbiUsers.tag = 0;
-    _tbiMisc.tag = 1;
-    _tbiDev.tag = 2;
+//    //tabbar crap
+//    //[self.tbRoot setItems: _tbiUsers animated:TRUE];
+//    self.tbRoot.delegate = self;
+//    _tbiUsers.tag = 0;
+//    _tbiMisc.tag = 1;
+//    _tbiDev.tag = 2;
 
 }
 
@@ -550,10 +550,6 @@
 
 - (IBAction)logout:(id)sender {
     NSLog(@"Logout button pressed");
-    
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-//    ViewControllerWelcome *welcome = (ViewControllerWelcome *)[storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
-//    [self presentModalViewController:welcome animated:YES];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

@@ -21,6 +21,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // navBar crap
+    _navBar = [[UINavigationBar alloc] init];
+    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),80)];
+    
+    _hamMenu = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"hamburger-menu-42x.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(btnMovePanelRight:)];
+    
+    // set hamMenu tag to == 1
+    _hamMenu.tag = 1;
+    
+    
+    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"KegCop - Admin"];
+    
+    navItem.hidesBackButton = YES;
+    navItem.leftBarButtonItem = _hamMenu;
+    
+    [_navBar setBarTintColor:[UIColor blackColor]];
+    [_navBar setTranslucent:YES];
+    
+    _navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    
+    _navBar.items = @[navItem];
+    
+    [self.view addSubview:_navBar];
 }
 
 - (void)viewDidUnload
@@ -54,8 +78,6 @@
     [super viewDidDisappear:animated];
 }
 
-
-
 #pragma mark -
 #pragma mark Button Actions
 
@@ -82,8 +104,6 @@
             break;
     }
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

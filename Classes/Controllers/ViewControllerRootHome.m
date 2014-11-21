@@ -162,6 +162,7 @@
                      completion:^(BOOL finished) {
                          if (finished) {
                              _viewControllerRootHomeCenter.leftButton.tag = 0;
+                             _viewControllerRootHomeCenter.hamMenu.tag = 0;
                          }
                      }];
 }
@@ -183,6 +184,7 @@
         [self.viewControllerRootHomeLeftPanel.view removeFromSuperview];
         self.viewControllerRootHomeLeftPanel = nil;
         _viewControllerRootHomeCenter.leftButton.tag = 1;
+        _viewControllerRootHomeCenter.hamMenu.tag = 1;
         self.showingLeftPanel = NO;
     }
     
@@ -303,65 +305,7 @@
     _tbiUsers.tag = 0;
     _tbiMisc.tag = 1;
     _tbiDev.tag = 2;
-    
-    
-    // navBar crap
-    _navBar = [[UINavigationBar alloc] init];
-    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),80)];
-    
-    // add barButtonItem to navBar
-    
-//    UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"hamburger-menu-42x.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
-//
-    
-//    UIImage *image = [UIImage imageNamed:@"hamburger-menu-42x.png"];
-//    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [menuBtn setImage:image forState:UIControlStateNormal];
-//    [menuBtn addTarget:self action:@selector(showMenu:) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
-    
-    
-    
-//    self.navigationItem.leftBarButtonItem = menu;
-    
-    // the below code adds a btn to the _navBar
-    
-//    UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu:)];
-    
-    UIBarButtonItem *hamMenu = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"hamburger-menu-42x.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(showMenu:)];
-    
-    
-    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"KegCop - Admin"];
-    
-//    navItem.leftBarButtonItem = menu;
-    navItem.hidesBackButton = YES;
-    navItem.leftBarButtonItem = hamMenu;
-    
-    
-//    [_navBar setTintColor:[UIColor whiteColor]];
-//    [_navBar setBackgroundColor:[UIColor blackColor]];
-    [_navBar setBarTintColor:[UIColor blackColor]];
-    [_navBar setTranslucent:YES];
-//    [_navBar pushNavigationItem:navItem animated:NO];
-    
-    // set navItem "KegCop - Admin" text to white
-    _navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    
-    
-    _navBar.items = @[navItem];
-//    [_navBar setItems:[NSArray arrayWithObjects:menu, nil]];
-    
-    
-//    self.navigationItem.leftBarButtonItem = menu;
-    
-    
-    [self.view addSubview:_navBar];
 
-}
-
-//- (IBAction)showMenu:(id)sender {
-- (IBAction)showMenu:(id)sender {
-    NSLog(@"yay \\o/");
 }
 
 - (void)viewDidUnload

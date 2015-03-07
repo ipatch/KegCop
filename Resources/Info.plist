@@ -13,7 +13,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>icon_V2_60x60</string>
-		<string>icon_V3.1-120x</string>
+		<string>icon_V5-120x</string>
 		<string>Icon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>

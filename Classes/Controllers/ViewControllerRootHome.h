@@ -14,6 +14,11 @@
 #import "ViewControllerSerialConsole.h"
 #import "KBFlowIndicator.h"
 
+@class ViewControllerRootHome;
+@protocol MovePanelToOriginalPositionDelegate <NSObject>
+    // put delegate method within this code block.
+-(void)movePanelToOriginalPosition: (ViewControllerRootHome *) sender;
+@end // end protocol
 
 @interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate> {
     
@@ -22,6 +27,9 @@
     UIButton *btnEmailSave;
     UITabBar *tbRoot;
 }
+
+@property (nonatomic, weak) id<MovePanelToOriginalPositionDelegate>delegate;
+
 
 @property (weak, nonatomic) IBOutlet UIScrollView *rootHomeScroller;
 @property (weak, nonatomic) IBOutlet UITextField *tfDeleteAccount;

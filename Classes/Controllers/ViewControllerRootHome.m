@@ -34,6 +34,9 @@
 
 @implementation ViewControllerRootHome
 
+// synthesize the delegate
+@synthesize delegate; // synthesize ViewControllerRootHome delegate
+
 @synthesize rootHomeScroller = _rootHomeScroller;
 @synthesize tfDeleteAccount = _tfDeleteAccount;
 @synthesize btnDeleteAccount = _btnDeleteAccount;
@@ -168,6 +171,7 @@
 }
 
 -(void)movePanelToOriginalPosition {
+//    [self.delegate movePanelToOriginalPosition:self];
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         _viewControllerRootHomeCenter.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }

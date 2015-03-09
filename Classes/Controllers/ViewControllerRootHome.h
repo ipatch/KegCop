@@ -13,12 +13,9 @@
 #import "ViewControllerCheckFlow.h"
 #import "ViewControllerSerialConsole.h"
 #import "KBFlowIndicator.h"
+#import "ViewControllerRootHomeLeftPanel.h"
 
-@class ViewControllerRootHome;
-@protocol MovePanelToOriginalPositionDelegate <NSObject>
-    // put delegate method within this code block.
--(void)movePanelToOriginalPosition: (ViewControllerRootHome *) sender;
-@end // end protocol
+@protocol ViewControllerRootHomeProtocol;
 
 @interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate> {
     
@@ -28,8 +25,7 @@
     UITabBar *tbRoot;
 }
 
-@property (nonatomic, weak) id<MovePanelToOriginalPositionDelegate>delegate;
-
+@property (nonatomic, weak) id<ViewControllerRootHomeProtocol> delegate;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *rootHomeScroller;
 @property (weak, nonatomic) IBOutlet UITextField *tfDeleteAccount;
@@ -72,6 +68,8 @@
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+
+
 - (IBAction)displayAccount:(id)sender;
 - (IBAction)displayEmail:(id)sender;
 - (IBAction)deleteAccount:(id)sender;
@@ -94,3 +92,8 @@
 - (IBAction)testArduinoConnection:(id)sender;
 
 @end
+
+@protocol ViewControllerRootHomeProtocol <NSObject>
+@optional
+-(void)movePanelToOriginalPosition;
+@end // end of delegate protocol

@@ -16,13 +16,11 @@
 
 @property (nonatomic, weak) IBOutlet UITableViewCell *cellMain;
 
-@property (nonatomic, strong) ViewControllerRootHome *vcrh;
-
-//@property (nonatomic, weak) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation ViewControllerRootHomeLeftPanel;
+
+@synthesize delegate;
 
 
 - (UITableView *)makeTableView {
@@ -62,9 +60,6 @@
     self.tableView = [self makeTableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Options"];
     [self.view addSubview:self.tableView];
-    
-    
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,41 +92,7 @@
 
 - (void)showViewControllerRootHomeCenter {
     
-    
-    
-//    [self.tableView registerNib:[UINib nibWithNibName:@"LeftPanelViewController" bundle:nil]  forCellReuseIdentifier:@"Manage Accounts"];
-    
-//    [self setContentViewController:vcrhc animated:YES completion:nil];
-//    [self.ViewControllerRootHomeLeftPanel.view removeFromSuperView];
-//    self.ViewControllerRootHomeLeftPanel = nil;
-
-    //    static NSString *cellMainNibID = @"LeftPanelViewController";
-    
-//    _cellMain = [_tableView dequeueReusableCellWithIdentifier:cellMainNibID];
-   }
-
-//- (void) movePanelToOriginalPosition: (ViewControllerRootHome *) sender {
-//    NSLog(@"Delegates are great!");
-//    [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-//        _viewControllerRootHomeCenter.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-//    }
-//                     completion:^(BOOL finished) {
-//                         if (finished) {
-//                             [self resetMainView];
-//                         }
-//                     }];
-//}
-
-
-//-(void)resetMainView {
-//    // remove left and right views, and reset variables, if needed
-//    if (_viewControllerRootHomeLeftPanel != nil) {
-//        [self.viewControllerRootHomeLeftPanel.view removeFromSuperview];
-//        self.viewControllerRootHomeLeftPanel = nil;
-//        _viewControllerRootHomeCenter.leftButton.tag = 1;
-//        _viewControllerRootHomeCenter.hamMenu.tag = 1;
-//        self.showingLeftPanel = NO;
-//    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
@@ -147,43 +108,13 @@
         
         // do any additional checks / loads for managing accounts.
         
+        // What is the current view controller? i.e. print current vc
+        NSLog(@"The current vc is %@",self);
         
-//        [[self presentingViewController] dismissViewControllerAnimated:NO completion:nil];
+        NSLog(@"The parent vc is %@",self.parentViewController);
         
-        
-        
-        
-        
-//        [tableView dequeueReusableCellWithIdentifier:@"Manage Accounts"];
-        
-        
-        
-        
-        
-        
-        
-        //        static NSString *CellIdentifier = @"Cell";
-        
-        
-        
-        
-//        [_delegate movePanelToOriginalPosition];
-        
-//        static NSString *centerNib = @"CenterViewController";
-        
-//        _parentViewController = [tableView dequeueReusableCellWithIdentifier:centerNib];
-//        if (_cellMain == nil) {
-//            [[NSBundle mainBundle] loadNibNamed:@"CenterViewController" owner:self options:nil];
-
-        
-        // the below code was presenting a new view controller not hiding the left pane :(
-//        UIViewController *vcrhc = [[UIViewController alloc] initWithNibName:@"CenterViewController" bundle:nil];
-//        
-//        [self presentViewController:vcrhc animated:YES completion:nil];
-        
+//        [self movePanelToOriginalPosition];
     }
-//    return cell;
-
 }
 
 /*

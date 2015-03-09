@@ -14,7 +14,7 @@ An iOS device, i.e. iPhone / iPod Touch will connect to a Bluno via Bluetooth 4.
 As of 31OCT14, this project is built with Xcode 6.1 using OS X (10.9.5) with a target for iOS 7.x and greater.
 
 ## License and Copyright
-All code is offered under the GPLv2 license, unless otherwise noted.  Please see LICENSE.txt for
+All code is offered under the MIT license, unless otherwise noted.  Please see LICENSE.txt for
 the full license.  All code and documentation are Copyright 2012 Chris Jones, unless otherwise
 noted.
 

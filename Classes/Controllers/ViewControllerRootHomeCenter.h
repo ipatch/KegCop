@@ -8,6 +8,7 @@
 
 #import "ViewControllerRootHomeLeftPanel.h"
 
+@protocol ViewControllerRootHomeCenterDelegate;
 @protocol ViewControllerRootHomeCenterDelegate <NSObject>
 
 @optional
@@ -20,10 +21,10 @@
 
 @end
 
-@interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeLeftPanelDelegate> {
+@interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeCenterDelegate> {
 }
 
-@property (nonatomic, assign) id<ViewControllerRootHomeCenterDelegate> delegate;
+@property (nonatomic, weak) id<ViewControllerRootHomeCenterDelegate> delegate;
 
 @property (nonatomic, weak) IBOutlet UIButton *leftButton;
 @property (nonatomic, strong) IBOutlet UINavigationBar *navBar;

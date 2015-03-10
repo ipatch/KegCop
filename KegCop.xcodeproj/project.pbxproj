@@ -107,6 +107,7 @@
 		422CA691176D85CD00C6C918 /* KBKegboardUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardUtils.h; path = Processing/KBKegboardUtils.h; sourceTree = "<group>"; };
 		422CA692176D85CE00C6C918 /* KBKegboardUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardUtils.m; path = Processing/KBKegboardUtils.m; sourceTree = "<group>"; };
 		4CC4EEE47EAB4A04A9448C12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B6E0DBB1AAE72CB00A24E30 /* returnToRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = returnToRootHome.h; path = Controllers/returnToRootHome.h; sourceTree = "<group>"; };
 		C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0138521A1552FA00F584BE /* ViewControllerAvatar3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewControllerAvatar3.h; path = Controllers/ViewControllerAvatar3.h; sourceTree = "<group>"; };
@@ -542,6 +543,7 @@
 				EA321BA215AF8E5B00A65E63 /* ViewControllerPour.m */,
 				EA4C46DF159990B90050E2AC /* ViewControllerRootHome.h */,
 				EA4C46E0159990B90050E2AC /* ViewControllerRootHome.m */,
+				6B6E0DBB1AAE72CB00A24E30 /* returnToRootHome.h */,
 				EAE27A8E1A1C71350085C3B5 /* ViewControllerRootHomeCenter.h */,
 				EAE27A8F1A1C71350085C3B5 /* ViewControllerRootHomeCenter.m */,
 				EAE27A911A1C71A50085C3B5 /* ViewControllerRootHomeLeftPanel.h */,

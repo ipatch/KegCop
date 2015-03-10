@@ -20,7 +20,7 @@
 
 @implementation ViewControllerRootHomeLeftPanel;
 
-@synthesize delegate;
+@synthesize myDelegate;
 
 
 - (UITableView *)makeTableView {
@@ -92,6 +92,10 @@
 
 - (void)showViewControllerRootHomeCenter {
     
+    if (self.myDelegate)
+    {
+        [myDelegate loadVCRH];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {

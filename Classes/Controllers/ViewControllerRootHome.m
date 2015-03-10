@@ -78,6 +78,13 @@
 // Xcode / Obj-C auto synthesizes properties with the "_" i.e.,
 // _mybutton
 
+
+#pragma mark NEW STUFF
+-(void)loadVCRH
+{
+    // Load your RootMenu view here! (Check the .m file for LeftPanel where I updated the method that calls this if you're wondering how it gets called).
+}
+
 #pragma mark -
 #pragma mark View Will/Did Appear
 
@@ -111,7 +118,7 @@
         // this is where you define the view for the left panel
         self.viewControllerRootHomeLeftPanel = [[ViewControllerRootHomeLeftPanel alloc] initWithNibName:@"LeftPanelViewController" bundle:nil];
         self.viewControllerRootHomeLeftPanel.view.tag = LEFT_PANEL_TAG;
-        self.viewControllerRootHomeLeftPanel.delegate = _viewControllerRootHomeCenter;
+        // self.viewControllerRootHomeLeftPanel.delegate = _viewControllerRootHomeCenter; WTF is this
         
         [self.view addSubview:self.viewControllerRootHomeLeftPanel.view];
         

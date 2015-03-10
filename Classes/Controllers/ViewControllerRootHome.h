@@ -14,10 +14,10 @@
 #import "ViewControllerSerialConsole.h"
 #import "KBFlowIndicator.h"
 #import "ViewControllerRootHomeLeftPanel.h"
-
+#import "returnToRootHome.h"
 @protocol ViewControllerRootHomeProtocol;
 
-@interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate> {
+@interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate, returnToRootHome> {
     
     UIButton *nuke;
     UITextField *tfEmail;

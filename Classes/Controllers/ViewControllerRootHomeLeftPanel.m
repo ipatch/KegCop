@@ -118,6 +118,8 @@
         NSLog(@"The parent vc is %@",self.parentViewController);
         
 //        [self movePanelToOriginalPosition];
+        [myDelegate loadVCRH];
+        
     }
 }
 

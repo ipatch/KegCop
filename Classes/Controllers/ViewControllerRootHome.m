@@ -83,6 +83,7 @@
 -(void)loadVCRH
 {
     // Load your RootMenu view here! (Check the .m file for LeftPanel where I updated the method that calls this if you're wondering how it gets called).
+    [self movePanelToOriginalPosition];
 }
 
 #pragma mark -
@@ -119,6 +120,9 @@
         self.viewControllerRootHomeLeftPanel = [[ViewControllerRootHomeLeftPanel alloc] initWithNibName:@"LeftPanelViewController" bundle:nil];
         self.viewControllerRootHomeLeftPanel.view.tag = LEFT_PANEL_TAG;
         // self.viewControllerRootHomeLeftPanel.delegate = _viewControllerRootHomeCenter; WTF is this
+        
+        // add via Owatch
+        [self.viewControllerRootHomeLeftPanel setMyDelegate:self];
         
         [self.view addSubview:self.viewControllerRootHomeLeftPanel.view];
         

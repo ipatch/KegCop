@@ -21,7 +21,7 @@ noted.
 ## Contributing
 I would love for someone to make a branch and start editing some code.  My Objective-C skills leave
 a lot to be desired.  So if you have a great idea, don't hesitate to download the code and
-contribute.
+contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
 ## Installation
 A binary version of the app can be downloaded if your iOS device is jailbroken.  Add the following

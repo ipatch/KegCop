@@ -28,28 +28,10 @@
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
-		EAB453B2175553C800F6DA69 /* crc16ccitt.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B1175553C800F6DA69 /* crc16ccitt.c */; };
-		EAB453B81755552700F6DA69 /* KBKegboard.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B71755552700F6DA69 /* KBKegboard.m */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
-		EAC2D9431AAFB86D0075EAB0 /* HUMConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E61AAFB86D0075EAB0 /* HUMConfirmationViewController.m */; };
-		EAC2D94A1AAFB86D0075EAB0 /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */; };
-		EAC2D94B1AAFB86D0075EAB0 /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F61AAFB86D0075EAB0 /* ViewControllerDev.m */; };
-		EAC2D94E1AAFB86D0075EAB0 /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FC1AAFB86D0075EAB0 /* ViewControllerLogs.m */; };
-		EAC2D94F1AAFB86D0075EAB0 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */; };
-		EAC2D9521AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9041AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m */; };
-		EAC2D9531AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */; };
-		EAC2D9541AAFB86D0075EAB0 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9081AAFB86D0075EAB0 /* ViewControllerSerialConsole.m */; };
-		EAC2D9561AAFB86D0075EAB0 /* ViewControllerUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */; };
-		EAC2D9581AAFB86D0075EAB0 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */; };
 		EAC2D95C1AAFB86D0075EAB0 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9161AAFB86D0075EAB0 /* iPhone.storyboard */; };
 		EAC2D95D1AAFB86D0075EAB0 /* gen_entitlements.py in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9181AAFB86D0075EAB0 /* gen_entitlements.py */; };
-		EAC2D9611AAFB86D0075EAB0 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9211AAFB86D0075EAB0 /* NSData+AES256.m */; };
-		EAC2D9691AAFB86D0075EAB0 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */; };
-		EAC2D96A1AAFB86D0075EAB0 /* ViewControllerDev3.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9351AAFB86D0075EAB0 /* ViewControllerDev3.m */; };
-		EAC2D96B1AAFB86D0075EAB0 /* ViewControllerDev4.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */; };
 		EAC2D96C1AAFB86D0075EAB0 /* CenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */; };
-		EAC2D96D1AAFB86D0075EAB0 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D93B1AAFB86D0075EAB0 /* KBFlowIndicator.m */; };
-		EACD704D177A4EE800A13B91 /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
 		EAE2C0D918788D2200DC3F02 /* icon_V2_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */; };
 		EAE2C0DA18788D2200DC3F02 /* icon_V2_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */; };
@@ -577,7 +559,6 @@
 			buildConfigurationList = EAEFEEAD157B296B00C666D5 /* Build configuration list for PBXNativeTarget "KegCop" */;
 			buildPhases = (
 				40B5D04DABA44828BD0F8032 /* Check Pods Manifest.lock */,
-				EAEFEE8B157B296B00C666D5 /* Sources */,
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
 				EAEFEE8D157B296B00C666D5 /* Resources */,
 				06F2684553644706A2B3A865 /* Copy Pods Resources */,
@@ -727,31 +708,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3463431A0AB3AC00588DC5 /* KegCopTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAEFEE8B157B296B00C666D5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EAC2D94A1AAFB86D0075EAB0 /* ViewControllerCreate.m in Sources */,
-				EAC2D9581AAFB86D0075EAB0 /* ViewControllerWelcome.m in Sources */,
-				EAC2D94E1AAFB86D0075EAB0 /* ViewControllerLogs.m in Sources */,
-				EAC2D9611AAFB86D0075EAB0 /* NSData+AES256.m in Sources */,
-				EAC2D94B1AAFB86D0075EAB0 /* ViewControllerDev.m in Sources */,
-				EAC2D94F1AAFB86D0075EAB0 /* ViewControllerPour.m in Sources */,
-				EAC2D9561AAFB86D0075EAB0 /* ViewControllerUsers.m in Sources */,
-				EAC2D9541AAFB86D0075EAB0 /* ViewControllerSerialConsole.m in Sources */,
-				EAC2D9531AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m in Sources */,
-				EAC2D9521AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m in Sources */,
-				EAC2D96D1AAFB86D0075EAB0 /* KBFlowIndicator.m in Sources */,
-				EAC2D9691AAFB86D0075EAB0 /* ViewControllerDev2.m in Sources */,
-				EAB453B2175553C800F6DA69 /* crc16ccitt.c in Sources */,
-				EAB453B81755552700F6DA69 /* KBKegboard.m in Sources */,
-				EAC2D96B1AAFB86D0075EAB0 /* ViewControllerDev4.m in Sources */,
-				EAC2D96A1AAFB86D0075EAB0 /* ViewControllerDev3.m in Sources */,
-				EAC2D9431AAFB86D0075EAB0 /* HUMConfirmationViewController.m in Sources */,
-				EACD704D177A4EE800A13B91 /* Accounts.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

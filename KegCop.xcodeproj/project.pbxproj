@@ -19,6 +19,90 @@
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
+		EAEC80391AB3A41B004EFD58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91C1AAFB86D0075EAB0 /* main.m */; };
+		EAEC803A1AB3A442004EFD58 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DC1AAFB86D0075EAB0 /* AppDelegate.h */; };
+		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
+		EAEC803C1AB3A49A004EFD58 /* ViewControllerWelcome.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90E1AAFB86D0075EAB0 /* ViewControllerWelcome.h */; };
+		EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */; };
+		EAEC803E1AB3A4C7004EFD58 /* ModelWelcome.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91E1AAFB86D0075EAB0 /* ModelWelcome.h */; };
+		EAEC803F1AB3A4C7004EFD58 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91F1AAFB86D0075EAB0 /* ModelWelcome.m */; };
+		EAEC80401AB3A52D004EFD58 /* ViewControllerDev2.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9321AAFB86D0075EAB0 /* ViewControllerDev2.h */; };
+		EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */; };
+		EAEC80421AB3A52D004EFD58 /* ViewControllerDev3.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9341AAFB86D0075EAB0 /* ViewControllerDev3.h */; };
+		EAEC80431AB3A52D004EFD58 /* ViewControllerDev3.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9351AAFB86D0075EAB0 /* ViewControllerDev3.m */; };
+		EAEC80441AB3A52D004EFD58 /* ViewControllerDev4.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9361AAFB86D0075EAB0 /* ViewControllerDev4.h */; };
+		EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */; };
+		EAEC80461AB3A52D004EFD58 /* KBFlowIndicator.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D93A1AAFB86D0075EAB0 /* KBFlowIndicator.h */; };
+		EAEC80471AB3A52D004EFD58 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D93B1AAFB86D0075EAB0 /* KBFlowIndicator.m */; };
+		EAEC80481AB3A52D004EFD58 /* HUMAddEventViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E31AAFB86D0075EAB0 /* HUMAddEventViewController.h */; };
+		EAEC80491AB3A52D004EFD58 /* HUMAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E41AAFB86D0075EAB0 /* HUMAddEventViewController.m */; };
+		EAEC804A1AB3A52D004EFD58 /* HUMConfirmationViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E51AAFB86D0075EAB0 /* HUMConfirmationViewController.h */; };
+		EAEC804B1AB3A52D004EFD58 /* HUMConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E61AAFB86D0075EAB0 /* HUMConfirmationViewController.m */; };
+		EAEC804C1AB3A52D004EFD58 /* HUMMapViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E71AAFB86D0075EAB0 /* HUMMapViewController.h */; };
+		EAEC804D1AB3A52D004EFD58 /* HUMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E81AAFB86D0075EAB0 /* HUMMapViewController.m */; };
+		EAEC804E1AB3A52D004EFD58 /* returnToRootHome.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E91AAFB86D0075EAB0 /* returnToRootHome.h */; };
+		EAEC804F1AB3A52D004EFD58 /* ViewControllerAbout.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8EA1AAFB86D0075EAB0 /* ViewControllerAbout.h */; };
+		EAEC80501AB3A52D004EFD58 /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8EB1AAFB86D0075EAB0 /* ViewControllerAbout.m */; };
+		EAEC80511AB3A52D004EFD58 /* ViewControllerAvatar2.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8ED1AAFB86D0075EAB0 /* ViewControllerAvatar2.h */; };
+		EAEC80521AB3A52D004EFD58 /* ViewControllerAvatar2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8EE1AAFB86D0075EAB0 /* ViewControllerAvatar2.m */; };
+		EAEC80531AB3A52D004EFD58 /* ViewControllerAvatar3.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8EF1AAFB86D0075EAB0 /* ViewControllerAvatar3.h */; };
+		EAEC80541AB3A52D004EFD58 /* ViewControllerAvatar3.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */; };
+		EAEC80551AB3A52D004EFD58 /* ViewControllerCheckFlow.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F11AAFB86D0075EAB0 /* ViewControllerCheckFlow.h */; };
+		EAEC80561AB3A52D004EFD58 /* ViewControllerCheckFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */; };
+		EAEC80571AB3A52D004EFD58 /* ViewControllerCreate.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F31AAFB86D0075EAB0 /* ViewControllerCreate.h */; };
+		EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */; };
+		EAEC80591AB3A52D004EFD58 /* ViewControllerDev.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F51AAFB86D0075EAB0 /* ViewControllerDev.h */; };
+		EAEC805A1AB3A52D004EFD58 /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F61AAFB86D0075EAB0 /* ViewControllerDev.m */; };
+		EAEC805B1AB3A52D004EFD58 /* ViewControllerForgot.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */; };
+		EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */; };
+		EAEC805D1AB3A52D004EFD58 /* ViewControllerHome.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F91AAFB86D0075EAB0 /* ViewControllerHome.h */; };
+		EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */; };
+		EAEC805F1AB3A52D004EFD58 /* ViewControllerLogs.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FB1AAFB86D0075EAB0 /* ViewControllerLogs.h */; };
+		EAEC80601AB3A52D004EFD58 /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FC1AAFB86D0075EAB0 /* ViewControllerLogs.m */; };
+		EAEC80611AB3A52D004EFD58 /* ViewControllerPour.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FD1AAFB86D0075EAB0 /* ViewControllerPour.h */; };
+		EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */; };
+		EAEC80631AB3A52D004EFD58 /* ViewControllerPurchase.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FF1AAFB86D0075EAB0 /* ViewControllerPurchase.h */; };
+		EAEC80641AB3A52D004EFD58 /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9001AAFB86D0075EAB0 /* ViewControllerPurchase.m */; };
+		EAEC80651AB3A52D004EFD58 /* ViewControllerRootHome.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9011AAFB86D0075EAB0 /* ViewControllerRootHome.h */; };
+		EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */; };
+		EAEC80671AB3A52D004EFD58 /* ViewControllerRootHomeCenter.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9031AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.h */; };
+		EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9041AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m */; };
+		EAEC80691AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9051AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.h */; };
+		EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */; };
+		EAEC806B1AB3A52D004EFD58 /* ViewControllerSerialConsole.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9071AAFB86D0075EAB0 /* ViewControllerSerialConsole.h */; };
+		EAEC806C1AB3A52D004EFD58 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9081AAFB86D0075EAB0 /* ViewControllerSerialConsole.m */; };
+		EAEC806D1AB3A52D004EFD58 /* ViewControllerUsers.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90A1AAFB86D0075EAB0 /* ViewControllerUsers.h */; };
+		EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */; };
+		EAEC806F1AB3A52D004EFD58 /* ViewControllerWebView.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90C1AAFB86D0075EAB0 /* ViewControllerWebView.h */; };
+		EAEC80701AB3A52D004EFD58 /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90D1AAFB86D0075EAB0 /* ViewControllerWebView.m */; };
+		EAEC80711AB3A55A004EFD58 /* SERVICES.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9311AAFB86D0075EAB0 /* SERVICES.h */; };
+		EAEC80721AB3A55A004EFD58 /* DFBlunoDevice.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9101AAFB86D0075EAB0 /* DFBlunoDevice.h */; };
+		EAEC80731AB3A55A004EFD58 /* DFBlunoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9111AAFB86D0075EAB0 /* DFBlunoDevice.m */; };
+		EAEC80741AB3A55A004EFD58 /* DFBlunoManager.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9121AAFB86D0075EAB0 /* DFBlunoManager.h */; };
+		EAEC80751AB3A55A004EFD58 /* DFBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9131AAFB86D0075EAB0 /* DFBlunoManager.m */; };
+		EAEC80761AB3A55A004EFD58 /* BLEDevice.h in Sources */ = {isa = PBXBuildFile; fileRef = EA9601FF189C48BF00068808 /* BLEDevice.h */; };
+		EAEC80771AB3A55A004EFD58 /* BLEDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960200189C48BF00068808 /* BLEDevice.m */; };
+		EAEC80781AB3A55A004EFD58 /* BLEUtility.h in Sources */ = {isa = PBXBuildFile; fileRef = EA960202189C4A3500068808 /* BLEUtility.h */; };
+		EAEC80791AB3A55A004EFD58 /* BLEUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960203189C4A3500068808 /* BLEUtility.m */; };
+		EAEC807A1AB3A586004EFD58 /* NSData+AES256.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9201AAFB86D0075EAB0 /* NSData+AES256.h */; };
+		EAEC807B1AB3A586004EFD58 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9211AAFB86D0075EAB0 /* NSData+AES256.m */; };
+		EAEC807C1AB3A586004EFD58 /* KegCop-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91B1AAFB86D0075EAB0 /* KegCop-Bridging-Header.h */; };
+		EAEC807D1AB3A5C8004EFD58 /* JailbrokenSerial.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9191AAFB86D0075EAB0 /* JailbrokenSerial.h */; };
+		EAEC807E1AB3A5C8004EFD58 /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91A1AAFB86D0075EAB0 /* JailbrokenSerial.m */; };
+		EAEC807F1AB3A610004EFD58 /* KBKegProcessing.h in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B3175554BF00F6DA69 /* KBKegProcessing.h */; };
+		EAEC80801AB3A610004EFD58 /* KBKegProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B4175554BF00F6DA69 /* KBKegProcessing.m */; };
+		EAEC80811AB3A610004EFD58 /* KBKegboardCommand.h in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68A176B7D7800C6C918 /* KBKegboardCommand.h */; };
+		EAEC80821AB3A610004EFD58 /* KBKegboardCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */; };
+		EAEC80831AB3A65B004EFD58 /* KBKegboard.h in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B61755552700F6DA69 /* KBKegboard.h */; };
+		EAEC80841AB3A65B004EFD58 /* KBKegboard.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B71755552700F6DA69 /* KBKegboard.m */; };
+		EAEC80851AB3A65B004EFD58 /* KBKegboardMessage.h in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */; };
+		EAEC80861AB3A65B004EFD58 /* KBKegboardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */; };
+		EAEC80871AB3A65B004EFD58 /* KBKegboardUtils.h in Sources */ = {isa = PBXBuildFile; fileRef = 422CA691176D85CD00C6C918 /* KBKegboardUtils.h */; };
+		EAEC80881AB3A65B004EFD58 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
+		EAEC80891AB3A6A7004EFD58 /* Serial.h in Sources */ = {isa = PBXBuildFile; fileRef = EAB453AD1755519C00F6DA69 /* Serial.h */; };
+		EAEC808A1AB3A6A7004EFD58 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453AE1755528E00F6DA69 /* Serial.c */; };
+		EAEC808B1AB3A6A7004EFD58 /* crc16ccitt.h in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B01755533500F6DA69 /* crc16ccitt.h */; };
+		EAEC808C1AB3A6A7004EFD58 /* crc16ccitt.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B1175553C800F6DA69 /* crc16ccitt.c */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */; };
@@ -543,6 +627,7 @@
 				40B5D04DABA44828BD0F8032 /* Check Pods Manifest.lock */,
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
 				06F2684553644706A2B3A865 /* Copy Pods Resources */,
+				EAEC80031AB3A2D6004EFD58 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -664,6 +749,97 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3463431A0AB3AC00588DC5 /* KegCopTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAEC80031AB3A2D6004EFD58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAEC80891AB3A6A7004EFD58 /* Serial.h in Sources */,
+				EAEC808A1AB3A6A7004EFD58 /* Serial.c in Sources */,
+				EAEC808B1AB3A6A7004EFD58 /* crc16ccitt.h in Sources */,
+				EAEC808C1AB3A6A7004EFD58 /* crc16ccitt.c in Sources */,
+				EAEC80831AB3A65B004EFD58 /* KBKegboard.h in Sources */,
+				EAEC80841AB3A65B004EFD58 /* KBKegboard.m in Sources */,
+				EAEC80851AB3A65B004EFD58 /* KBKegboardMessage.h in Sources */,
+				EAEC80861AB3A65B004EFD58 /* KBKegboardMessage.m in Sources */,
+				EAEC80871AB3A65B004EFD58 /* KBKegboardUtils.h in Sources */,
+				EAEC80881AB3A65B004EFD58 /* KBKegboardUtils.m in Sources */,
+				EAEC807F1AB3A610004EFD58 /* KBKegProcessing.h in Sources */,
+				EAEC80801AB3A610004EFD58 /* KBKegProcessing.m in Sources */,
+				EAEC80811AB3A610004EFD58 /* KBKegboardCommand.h in Sources */,
+				EAEC80821AB3A610004EFD58 /* KBKegboardCommand.m in Sources */,
+				EAEC807D1AB3A5C8004EFD58 /* JailbrokenSerial.h in Sources */,
+				EAEC807E1AB3A5C8004EFD58 /* JailbrokenSerial.m in Sources */,
+				EAEC807A1AB3A586004EFD58 /* NSData+AES256.h in Sources */,
+				EAEC807B1AB3A586004EFD58 /* NSData+AES256.m in Sources */,
+				EAEC807C1AB3A586004EFD58 /* KegCop-Bridging-Header.h in Sources */,
+				EAEC80711AB3A55A004EFD58 /* SERVICES.h in Sources */,
+				EAEC80721AB3A55A004EFD58 /* DFBlunoDevice.h in Sources */,
+				EAEC80731AB3A55A004EFD58 /* DFBlunoDevice.m in Sources */,
+				EAEC80741AB3A55A004EFD58 /* DFBlunoManager.h in Sources */,
+				EAEC80751AB3A55A004EFD58 /* DFBlunoManager.m in Sources */,
+				EAEC80761AB3A55A004EFD58 /* BLEDevice.h in Sources */,
+				EAEC80771AB3A55A004EFD58 /* BLEDevice.m in Sources */,
+				EAEC80781AB3A55A004EFD58 /* BLEUtility.h in Sources */,
+				EAEC80791AB3A55A004EFD58 /* BLEUtility.m in Sources */,
+				EAEC80401AB3A52D004EFD58 /* ViewControllerDev2.h in Sources */,
+				EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */,
+				EAEC80421AB3A52D004EFD58 /* ViewControllerDev3.h in Sources */,
+				EAEC80431AB3A52D004EFD58 /* ViewControllerDev3.m in Sources */,
+				EAEC80441AB3A52D004EFD58 /* ViewControllerDev4.h in Sources */,
+				EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */,
+				EAEC80461AB3A52D004EFD58 /* KBFlowIndicator.h in Sources */,
+				EAEC80471AB3A52D004EFD58 /* KBFlowIndicator.m in Sources */,
+				EAEC80481AB3A52D004EFD58 /* HUMAddEventViewController.h in Sources */,
+				EAEC80491AB3A52D004EFD58 /* HUMAddEventViewController.m in Sources */,
+				EAEC804A1AB3A52D004EFD58 /* HUMConfirmationViewController.h in Sources */,
+				EAEC804B1AB3A52D004EFD58 /* HUMConfirmationViewController.m in Sources */,
+				EAEC804C1AB3A52D004EFD58 /* HUMMapViewController.h in Sources */,
+				EAEC804D1AB3A52D004EFD58 /* HUMMapViewController.m in Sources */,
+				EAEC804E1AB3A52D004EFD58 /* returnToRootHome.h in Sources */,
+				EAEC804F1AB3A52D004EFD58 /* ViewControllerAbout.h in Sources */,
+				EAEC80501AB3A52D004EFD58 /* ViewControllerAbout.m in Sources */,
+				EAEC80511AB3A52D004EFD58 /* ViewControllerAvatar2.h in Sources */,
+				EAEC80521AB3A52D004EFD58 /* ViewControllerAvatar2.m in Sources */,
+				EAEC80531AB3A52D004EFD58 /* ViewControllerAvatar3.h in Sources */,
+				EAEC80541AB3A52D004EFD58 /* ViewControllerAvatar3.m in Sources */,
+				EAEC80551AB3A52D004EFD58 /* ViewControllerCheckFlow.h in Sources */,
+				EAEC80561AB3A52D004EFD58 /* ViewControllerCheckFlow.m in Sources */,
+				EAEC80571AB3A52D004EFD58 /* ViewControllerCreate.h in Sources */,
+				EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */,
+				EAEC80591AB3A52D004EFD58 /* ViewControllerDev.h in Sources */,
+				EAEC805A1AB3A52D004EFD58 /* ViewControllerDev.m in Sources */,
+				EAEC805B1AB3A52D004EFD58 /* ViewControllerForgot.h in Sources */,
+				EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */,
+				EAEC805D1AB3A52D004EFD58 /* ViewControllerHome.h in Sources */,
+				EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */,
+				EAEC805F1AB3A52D004EFD58 /* ViewControllerLogs.h in Sources */,
+				EAEC80601AB3A52D004EFD58 /* ViewControllerLogs.m in Sources */,
+				EAEC80611AB3A52D004EFD58 /* ViewControllerPour.h in Sources */,
+				EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */,
+				EAEC80631AB3A52D004EFD58 /* ViewControllerPurchase.h in Sources */,
+				EAEC80641AB3A52D004EFD58 /* ViewControllerPurchase.m in Sources */,
+				EAEC80651AB3A52D004EFD58 /* ViewControllerRootHome.h in Sources */,
+				EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */,
+				EAEC80671AB3A52D004EFD58 /* ViewControllerRootHomeCenter.h in Sources */,
+				EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */,
+				EAEC80691AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.h in Sources */,
+				EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */,
+				EAEC806B1AB3A52D004EFD58 /* ViewControllerSerialConsole.h in Sources */,
+				EAEC806C1AB3A52D004EFD58 /* ViewControllerSerialConsole.m in Sources */,
+				EAEC806D1AB3A52D004EFD58 /* ViewControllerUsers.h in Sources */,
+				EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */,
+				EAEC806F1AB3A52D004EFD58 /* ViewControllerWebView.h in Sources */,
+				EAEC80701AB3A52D004EFD58 /* ViewControllerWebView.m in Sources */,
+				EAEC80391AB3A41B004EFD58 /* main.m in Sources */,
+				EAEC803A1AB3A442004EFD58 /* AppDelegate.h in Sources */,
+				EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */,
+				EAEC803C1AB3A49A004EFD58 /* ViewControllerWelcome.h in Sources */,
+				EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */,
+				EAEC803E1AB3A4C7004EFD58 /* ModelWelcome.h in Sources */,
+				EAEC803F1AB3A4C7004EFD58 /* ModelWelcome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,7 +987,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos8.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
@@ -855,7 +1031,7 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 107;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -896,7 +1072,7 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 107;
 				FRAMEWORK_SEARCH_PATHS = (

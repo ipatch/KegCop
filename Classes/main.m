@@ -20,17 +20,17 @@ int main(int argc, char *argv[])
         
         
         // creates ns.log file in Documents directory - NOT COMPLETE
-//        NSArray *paths =
-//        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//        NSString *log = [[paths objectAtIndex:0] stringByAppendingPathComponent: @"ns.log"];
-//        
-//        NSFileManager *fileMgr = [NSFileManager defaultManager];
-//        [fileMgr removeItemAtPath:log error:nil];
-//        
-//        freopen([log fileSystemRepresentation], "a", stderr);
-//        
-//        int retVal = UIApplicationMain(argc, argv, nil, nil);
-//        return retVal;
-//        
+        NSArray *paths =
+        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *log = [[paths objectAtIndex:0] stringByAppendingPathComponent: @"ns.log"];
+        
+        NSFileManager *fileMgr = [NSFileManager defaultManager];
+        [fileMgr removeItemAtPath:log error:nil];
+        
+        freopen([log fileSystemRepresentation], "a", stderr);
+        
+        int retVal = UIApplicationMain(argc, argv, nil, nil);
+       return retVal;
+        
     }
 }

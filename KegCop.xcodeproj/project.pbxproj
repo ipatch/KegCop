@@ -103,6 +103,27 @@
 		EAEC808A1AB3A6A7004EFD58 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453AE1755528E00F6DA69 /* Serial.c */; };
 		EAEC808B1AB3A6A7004EFD58 /* crc16ccitt.h in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B01755533500F6DA69 /* crc16ccitt.h */; };
 		EAEC808C1AB3A6A7004EFD58 /* crc16ccitt.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B1175553C800F6DA69 /* crc16ccitt.c */; };
+		EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9161AAFB86D0075EAB0 /* iPhone.storyboard */; };
+		EAEC808F1AB3A928004EFD58 /* CenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */; };
+		EAEC80901AB3A928004EFD58 /* LeftPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */; };
+		EAEC80911AB3AA1C004EFD58 /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */; };
+		EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */; };
+		EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */; };
+		EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */; };
+		EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E117BAF46700023814 /* Default.png */; };
+		EAEC80961AB3AA1C004EFD58 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E517BCA33100023814 /* Icon.png */; };
+		EAEC80971AB3AA34004EFD58 /* flow_at_symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E81767A24E00B277ED /* flow_at_symbol.png */; };
+		EAEC80981AB3AA34004EFD58 /* flow_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E91767A24E00B277ED /* flow_background.png */; };
+		EAEC80991AB3AA34004EFD58 /* flow_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EA1767A24E00B277ED /* flow_fill.png */; };
+		EAEC809A1AB3AA34004EFD58 /* flow_foreground.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EB1767A24E00B277ED /* flow_foreground.png */; };
+		EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EC1767A24E00B277ED /* flow_needle.png */; };
+		EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25ED1767A24E00B277ED /* flow_shadow.png */; };
+		EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
+		EAEC809E1AB3AA89004EFD58 /* Account.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8D81AAFB86D0075EAB0 /* Account.h */; };
+		EAEC809F1AB3AA89004EFD58 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8D91AAFB86D0075EAB0 /* Account.m */; };
+		EAEC80A01AB3AA89004EFD58 /* AccountBase.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DA1AAFB86D0075EAB0 /* AccountBase.h */; };
+		EAEC80A11AB3AA89004EFD58 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DB1AAFB86D0075EAB0 /* AccountBase.m */; };
+		EAEC80A21AB3AA89004EFD58 /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */; };
@@ -628,6 +649,7 @@
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
 				06F2684553644706A2B3A865 /* Copy Pods Resources */,
 				EAEC80031AB3A2D6004EFD58 /* Sources */,
+				EAEC808D1AB3A918004EFD58 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -675,6 +697,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAEC808D1AB3A918004EFD58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */,
+				EAEC80971AB3AA34004EFD58 /* flow_at_symbol.png in Resources */,
+				EAEC80981AB3AA34004EFD58 /* flow_background.png in Resources */,
+				EAEC80991AB3AA34004EFD58 /* flow_fill.png in Resources */,
+				EAEC809A1AB3AA34004EFD58 /* flow_foreground.png in Resources */,
+				EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */,
+				EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */,
+				EAEC80911AB3AA1C004EFD58 /* Default-568@2x.png in Resources */,
+				EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */,
+				EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */,
+				EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */,
+				EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */,
+				EAEC80961AB3AA1C004EFD58 /* Icon.png in Resources */,
+				EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */,
+				EAEC808F1AB3A928004EFD58 /* CenterViewController.xib in Resources */,
+				EAEC80901AB3A928004EFD58 /* LeftPanelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +801,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAEC809E1AB3AA89004EFD58 /* Account.h in Sources */,
+				EAEC809F1AB3AA89004EFD58 /* Account.m in Sources */,
+				EAEC80A01AB3AA89004EFD58 /* AccountBase.h in Sources */,
+				EAEC80A11AB3AA89004EFD58 /* AccountBase.m in Sources */,
+				EAEC80A21AB3AA89004EFD58 /* Accounts.xcdatamodeld in Sources */,
 				EAEC80891AB3A6A7004EFD58 /* Serial.h in Sources */,
 				EAEC808A1AB3A6A7004EFD58 /* Serial.c in Sources */,
 				EAEC808B1AB3A6A7004EFD58 /* crc16ccitt.h in Sources */,

@@ -63,9 +63,32 @@
 }
 
 - (void)onCancel:(id)sender {
+    self.callbackBlock(NO);
+    [self dismissPicker];
 }
 
 - (void)onDone:(id)sender {
+    self.callbackBlock(YES);
+    [self dismissPicker];
+}
+
+- (void)dismissPicker {
+    [UIView animateWithDuration:0.25 delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         CGRect newFrame = _panel.frame;
+                         newFrame.origin.y += _panel.frame.size.height;
+                         _panel.frame = newFrame;
+                        // _backdropView.alpha = 0;
+                     } completion:^(BOOL finished) {
+                         [_panel removeFromSuperview];
+                         _panel = nil;
+                         
+                         //[//_backdropView removeFromSuperview];
+                         //_backdropView = nil;
+                         
+                         [self removeFromSuperview];
+                     }];
 }
 
 - (UIPickerView *)picker {
@@ -112,6 +135,20 @@
     
     [self addSubview:_panel];
     [view addSubview:self];
+    
+    CGRect oldFrame = _panel.frame;
+    CGRect newFrame = _panel.frame;
+    newFrame.origin.y += newFrame.size.height;
+    _panel.frame = newFrame;
+    
+    [UIView animateWithDuration:0.25 delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         _panel.frame = oldFrame;
+                        // _backdropView.alpha = 1;
+                     } completion:^(BOOL finished) {
+                         
+                     }];
 }
 
 - (void)presentInWindowWithBlock:(KCModalPickerViewCallback)callback {

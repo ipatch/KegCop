@@ -25,6 +25,6 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 
 ## Installation
 A binary version of the app can be downloaded if your iOS device is jailbroken.  Add the following
-repo: chrisrjones.com/repo and load the following sketch on your Bluno https://gist.github.com/ipatch/8078083
+repo: chrisrjones.com/repo and load the following sketch on your Bluno <br />https://gist.github.com/ipatch/8078083<br />
 cheers
 - Chris

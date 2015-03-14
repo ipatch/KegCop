@@ -124,6 +124,7 @@
 		EAEC80A01AB3AA89004EFD58 /* AccountBase.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DA1AAFB86D0075EAB0 /* AccountBase.h */; };
 		EAEC80A11AB3AA89004EFD58 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DB1AAFB86D0075EAB0 /* AccountBase.m */; };
 		EAEC80A21AB3AA89004EFD58 /* Accounts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */; };
+		EAEC80A51AB4B052004EFD58 /* KCModalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEC80A41AB4B051004EFD58 /* KCModalPickerView.m */; };
 		EAEFEE94157B296B00C666D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE93157B296B00C666D5 /* UIKit.framework */; };
 		EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE95157B296B00C666D5 /* Foundation.framework */; };
 		EAEFEE98157B296B00C666D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */; };
@@ -278,6 +279,8 @@
 		EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
 		EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_V2_60x60.png; sourceTree = "<group>"; };
 		EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_V2_120x120.png; sourceTree = "<group>"; };
+		EAEC80A41AB4B051004EFD58 /* KCModalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCModalPickerView.m; sourceTree = "<group>"; };
+		EAEC80A61AB4B0D4004EFD58 /* KCModalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCModalPickerView.h; sourceTree = "<group>"; };
 		EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamburger-menu-42x.png"; sourceTree = "<group>"; };
 		EAEFEE8F157B296B00C666D5 /* KegCop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KegCop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEFEE93157B296B00C666D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -481,6 +484,8 @@
 		EAC2D8D71AAFB86D0075EAB0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EAEC80A61AB4B0D4004EFD58 /* KCModalPickerView.h */,
+				EAEC80A41AB4B051004EFD58 /* KCModalPickerView.m */,
 				EA4570351A046E78004DEEC4 /* DataModel */,
 				EAC2D8DC1AAFB86D0075EAB0 /* AppDelegate.h */,
 				EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */,
@@ -843,6 +848,7 @@
 				EAEC80461AB3A52D004EFD58 /* KBFlowIndicator.h in Sources */,
 				EAEC80471AB3A52D004EFD58 /* KBFlowIndicator.m in Sources */,
 				EAEC80481AB3A52D004EFD58 /* HUMAddEventViewController.h in Sources */,
+				EAEC80A51AB4B052004EFD58 /* KCModalPickerView.m in Sources */,
 				EAEC80491AB3A52D004EFD58 /* HUMAddEventViewController.m in Sources */,
 				EAEC804A1AB3A52D004EFD58 /* HUMConfirmationViewController.h in Sources */,
 				EAEC804B1AB3A52D004EFD58 /* HUMConfirmationViewController.m in Sources */,

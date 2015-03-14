@@ -27,13 +27,23 @@
 @synthesize values = _values;
 @synthesize callbackBlock = _callbackBlock;
 
-- (id)initWithValue:(NSArray *)values {
+- (id)initWithValues:(NSArray *)values {
     self = [super init];
     if (self) {
         self.values = values;
     }
     
     return self;
+}
+
+- (void)setValues:(NSArray *)values {
+    _values = values;
+    
+    if (values) {
+        if (_picker) {
+            [_picker reloadAllComponents];
+        }
+    }
 }
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
@@ -50,6 +60,22 @@
 
 - (NSString *)selectedValue {
     return [self.values objectAtIndex:self.selectedIndex];
+}
+
+- (void)onCancel:(id)sender {
+}
+
+- (void)onDone:(id)sender {
+}
+
+- (UIPickerView *)picker {
+    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, KCMODALPICKER_TOOLBAR_HEIGHT, self.bounds.size.width, KCMODALPICKER_PANEL_HEIGHT - KCMODALPICKER_TOOLBAR_HEIGHT)];
+    picker.dataSource = self;
+    picker.delegate = self;
+    picker.showsSelectionIndicator = YES;
+    [picker selectRow:self.selectedIndex inComponent:0 animated:NO];
+    
+    return picker;
 }
 
 - (UIToolbar *)toolbar {
@@ -71,16 +97,6 @@
     return toolbar;
 }
 
-- (UIPickerView *)picker {
-    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, KCMODALPICKER_TOOLBAR_HEIGHT, self.bounds.size.width, KCMODALPICKER_PANEL_HEIGHT - KCMODALPICKER_TOOLBAR_HEIGHT)];
-    picker.dataSource = self;
-    picker.delegate = self;
-    picker.showsSelectionIndicator = YES;
-    [picker selectRow:self.selectedIndex inComponent:0 animated:NO];
-    
-    return picker;
-}
-
 - (void)presentInView:(UIView *)view withBlock:(KCModalPickerViewCallback)callback {
     self.frame = view.bounds;
     self.callbackBlock = callback;
@@ -88,15 +104,14 @@
     [_panel removeFromSuperview];
     
     _panel = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - KCMODALPICKER_PANEL_HEIGHT, self.bounds.size.width, KCMODALPICKER_PANEL_HEIGHT)];
-    
     _picker = [self picker];
     _toolbar = [self toolbar];
     
     [_panel addSubview:_picker];
     [_panel addSubview:_toolbar];
     
-    [view addSubview:_panel];
-    
+    [self addSubview:_panel];
+    [view addSubview:self];
 }
 
 - (void)presentInWindowWithBlock:(KCModalPickerViewCallback)callback {
@@ -105,7 +120,8 @@
         UIWindow *window = [appDelegate window];
         [self presentInView:window withBlock:callback];
     } else {
-        [NSException exceptionWithName:@"Can't find a window property on App Delegate.  Please use the presentInView:withBlock: method" reason:@"The app delegate does not contain a window method" userInfo:nil];
+        [NSException exceptionWithName:@"Can't find a window property on App Delegate.  Please use the presentInView:withBlock: method" reason:@"The app delegate does not contain a window method"
+                              userInfo:nil];
     }
 }
 

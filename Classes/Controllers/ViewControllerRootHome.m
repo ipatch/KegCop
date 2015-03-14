@@ -12,6 +12,7 @@
 #import "ViewControllerRootHomeCenter.h"
 #import "ViewControllerRootHomeLeftPanel.h"
 #import <QuartzCore/QuartzCore.h>
+#import "KCModalPickerView.h"
 
 #define CENTER_TAG 1
 #define LEFT_PANEL_TAG 2
@@ -30,12 +31,18 @@
 
 @property (nonatomic, assign) BOOL showPanel;
 
+@property (strong, nonatomic) NSArray *items;
+@property (strong, nonatomic) UIPickerView *pickerView;
+
 @end
 
 @implementation ViewControllerRootHome
 
 // synthesize the delegate
 @synthesize delegate; // synthesize ViewControllerRootHome delegate
+
+@synthesize items = _items;
+@synthesize pickerView = _pickerView;
 
 @synthesize rootHomeScroller = _rootHomeScroller;
 @synthesize tfDeleteAccount = _tfDeleteAccount;
@@ -320,7 +327,25 @@
 //    _tbiUsers.tag = 0;
 //    _tbiMisc.tag = 1;
 //    _tbiDev.tag = 2;
+    
+    // load array items - TEMP ITEMS TO LOAD IN UIPICKERVIEW
+    self.items = [NSArray arrayWithObjects:@"Red",@"Green",@"Blue", nil];
+//    [self loadPickerView];
+    
+    
+    
 
+}
+
+- (void)loadPickerView {
+    
+    // load picker
+    KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:self.items];
+    [pickerView presentInView:self.view withBlock:^(BOOL madeChoice) {
+        NSLog(@"Made choice? %d", madeChoice);
+    }];
+
+    
 }
 
 - (void)viewDidUnload

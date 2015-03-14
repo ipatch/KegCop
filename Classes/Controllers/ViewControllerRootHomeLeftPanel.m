@@ -9,18 +9,21 @@
 #import "ViewControllerRootHomeLeftPanel.h"
 #import "ViewControllerRootHome.h"
 #import "ViewControllerRootHomeCenter.h"
+#import "KCModalPickerView.h"
 
 #define SLIDE_TIMING .25
 
 @interface ViewControllerRootHomeLeftPanel ()
 
 @property (nonatomic, weak) IBOutlet UITableViewCell *cellMain;
+@property (strong, nonatomic) NSArray *items;
 
 @end
 
 @implementation ViewControllerRootHomeLeftPanel;
 
 @synthesize myDelegate;
+@synthesize items = _items;
 
 
 - (UITableView *)makeTableView {
@@ -54,12 +57,15 @@
     
     
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Logoff", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Logoff", nil];
     
     
     self.tableView = [self makeTableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Options"];
     [self.view addSubview:self.tableView];
+    
+    // load array items - TEMP ITEMS TO LOAD IN UIPICKERVIEW
+    self.items = [NSArray arrayWithObjects:@"Red",@"Green",@"Blue", nil];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,9 +123,27 @@
         
         NSLog(@"The parent vc is %@",self.parentViewController);
         
-//        [self movePanelToOriginalPosition];
         [myDelegate loadVCRH];
+    }
+    
+    if ([currentString isEqualToString:@"Add Credits"]) {
+        NSLog(@"Add Credits field / button tapped");
         
+        NSLog(@"The current vc is %@",self);
+        
+        NSLog(@"The parent vc is %@",self.parentViewController);
+        
+        if (self.parentViewController.isViewLoaded)
+        {
+            NSLog(@"load UIPickerView here :)");
+            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:self.items];
+            [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
+                NSLog(@"Made choice? %d", madeChoice);
+            }];
+        
+        
+        [myDelegate loadVCRH];
+        }
     }
 }
 

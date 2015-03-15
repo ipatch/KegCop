@@ -13,6 +13,7 @@
 #import "ViewControllerRootHomeLeftPanel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "KCModalPickerView.h"
+#import "AccountsDataModel.h"
 
 #define CENTER_TAG 1
 #define LEFT_PANEL_TAG 2
@@ -260,7 +261,7 @@
     // Core Data
     if (_managedObjectContext == nil)
     {
-//        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
     

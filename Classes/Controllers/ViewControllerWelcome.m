@@ -446,10 +446,7 @@
     // method to show the About Screen
     UIViewController *about = [self.storyboard instantiateViewControllerWithIdentifier:@"About"];
     [self presentViewController:about animated:YES completion:nil];
-    
-    
 }
-
 
 // method keyboard behavior
 

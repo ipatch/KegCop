@@ -35,6 +35,31 @@
     // display created user accounts
     _createdaccounts.text = [NSString stringWithFormat:@"%d accounts have been created.", [self countUsernames]];
     
+    
+    // add logic to present UIButton that loads / displays a youtube video
+    UIButton *demoVideo = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    // set button title
+    [demoVideo setTitle:@"Watch Demo Video" forState:UIControlStateNormal];
+    
+    // change color of demoVideo button text to blue
+    [demoVideo setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    // draw / render button to screen
+    demoVideo.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+    
+     // add action to button
+    [demoVideo addTarget:self action:@selector(loadDemoVideo)
+forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    // add demoVideo button to view
+    [self.view addSubview:demoVideo];
+    
+}
+
+- (void)loadDemoVideo {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.youtube.com/watch?v=1a6hxUb3zfU"]];
 }
 
 - (void)viewDidUnload {

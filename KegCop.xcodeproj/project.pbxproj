@@ -13,6 +13,7 @@
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA3463431A0AB3AC00588DC5 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3463421A0AB3AC00588DC5 /* KegCopTests.m */; };
 		EA3AE8251AB5007B0083D0F0 /* AccountsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */; };
+		EA3AE8271AB620090083D0F0 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EA3AE8261AB620090083D0F0 /* TODO */; };
 		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
 		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
@@ -162,6 +163,7 @@
 		EA3463421A0AB3AC00588DC5 /* KegCopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KegCopTests.m; sourceTree = "<group>"; };
 		EA3AE8231AB5007B0083D0F0 /* AccountsDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountsDataModel.h; path = Classes/DataModel/AccountsDataModel.h; sourceTree = "<group>"; };
 		EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountsDataModel.m; path = Classes/DataModel/AccountsDataModel.m; sourceTree = "<group>"; };
+		EA3AE8261AB620090083D0F0 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = SOURCE_ROOT; };
 		EA56282817BAC39300E3725B /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
 		EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
 		EA9601FF189C48BF00068808 /* BLEDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEDevice.h; path = Bluno/BLEDevice.h; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				EA9D26441767B7F000B277ED /* CREDITS */,
 				EA9D26451767B7F000B277ED /* LICENSE.txt */,
 				EA9D26461767B7F000B277ED /* README.md */,
+				EA3AE8261AB620090083D0F0 /* TODO */,
 				EA9D260D1767A24E00B277ED /* scratchpad.txt */,
 				EA9D25E11767A24E00B277ED /* pics */,
 				EA9D260E1767A24E00B277ED /* sounds */,
@@ -714,6 +717,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA3AE8271AB620090083D0F0 /* TODO in Resources */,
 				EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */,
 				EAEC80971AB3AA34004EFD58 /* flow_at_symbol.png in Resources */,
 				EAEC80981AB3AA34004EFD58 /* flow_background.png in Resources */,

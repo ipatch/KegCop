@@ -10,6 +10,7 @@
 #import "ViewControllerRootHome.h"
 #import "ViewControllerRootHomeCenter.h"
 #import "KCModalPickerView.h"
+#import "ViewControllerUsers.h"
 
 #define SLIDE_TIMING .25
 
@@ -57,7 +58,7 @@
     
     
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Logoff", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Change Pin", @"Logoff", nil];
     
     
     self.tableView = [self makeTableView];
@@ -144,6 +145,16 @@
         
         [myDelegate loadVCRH];
         }
+    }
+    
+    if ([currentString isEqualToString:@"Change Pin"]) {
+        NSLog(@"Change Pin field / cell tapped");
+        
+        // load ViewControllerUsers vc.
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+
+        UIViewController *changePin = [storyboard instantiateViewControllerWithIdentifier:@"users"];
+        [self presentViewController:changePin animated:YES completion:nil];
     }
 }
 

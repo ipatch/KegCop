@@ -8,6 +8,7 @@
 
 #import "ViewControllerUsers.h"
 #import "NSData+AES256.h"
+#import "AccountsDataModel.h"
 
 @interface ViewControllerUsers ()
 
@@ -40,6 +41,7 @@
     if (_managedObjectContext == nil)
     {
 //        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
 

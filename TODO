@@ -2,16 +2,22 @@ TODO - KegCop
 
 The fields are: feature (F), completed (C), (N) note, bug (B)
 
-This file reads from top to bottom, i.e. new notes / features are added at the top, then marked completed.
+This file reads from top to bottom, i.e. new notes / features are atodded at the top, then marked completed.
 
 Thanks,
 
                Chris
 
 --------------
-F: change color of logout timer text
+N: Fix UINavigationBar in vcAbout, i.e. make it programatic
 
-F: make pour beer button along with logout button solid colors.
+F: Add "link" to wilson demos KegCop youtube video in info pane / screen."
+
+B: Account creation causes app to crash, but account is still created in DB.
+
+C: change color of logout timer text
+
+C: make pour beer button along with logout button solid colors.
 
 C: figure out why TOS is not appearing in the UIAlertView
 
@@ -27,11 +33,10 @@ C: make login screen buttons solid colors, i.e. like twitter bootstrap.
 
 F: Add support for Facebook integeration, i.e. sync KegCop account with Facebook account.
 
-F: Begin to move Core Data logic out of AppDelegate.m and into separate class file.
+C: Begin to move Core Data logic out of AppDelegate.m and into separate class file.
 
 C: Going to expierment with adding TODO items in this plain text file.
 
 C: Add picture to README file.
 
 C: Add "place holder" text for textfield in alertrfid.
-

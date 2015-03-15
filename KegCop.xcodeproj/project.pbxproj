@@ -12,6 +12,7 @@
 		EA022CDD1A0ABAE900CE6B3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA3463431A0AB3AC00588DC5 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3463421A0AB3AC00588DC5 /* KegCopTests.m */; };
+		EA3AE8251AB5007B0083D0F0 /* AccountsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */; };
 		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
 		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
@@ -159,6 +160,8 @@
 		EA34633E1A0AB3AC00588DC5 /* KegCopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KegCopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3463411A0AB3AC00588DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA3463421A0AB3AC00588DC5 /* KegCopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KegCopTests.m; sourceTree = "<group>"; };
+		EA3AE8231AB5007B0083D0F0 /* AccountsDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountsDataModel.h; path = Classes/DataModel/AccountsDataModel.h; sourceTree = "<group>"; };
+		EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountsDataModel.m; path = Classes/DataModel/AccountsDataModel.m; sourceTree = "<group>"; };
 		EA56282817BAC39300E3725B /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
 		EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
 		EA9601FF189C48BF00068808 /* BLEDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEDevice.h; path = Bluno/BLEDevice.h; sourceTree = "<group>"; };
@@ -359,6 +362,8 @@
 				EAC2D8DA1AAFB86D0075EAB0 /* AccountBase.h */,
 				EAC2D8DB1AAFB86D0075EAB0 /* AccountBase.m */,
 				EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */,
+				EA3AE8231AB5007B0083D0F0 /* AccountsDataModel.h */,
+				EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */,
 			);
 			name = DataModel;
 			path = ..;
@@ -807,6 +812,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAEC809E1AB3AA89004EFD58 /* Account.h in Sources */,
+				EA3AE8251AB5007B0083D0F0 /* AccountsDataModel.m in Sources */,
 				EAEC809F1AB3AA89004EFD58 /* Account.m in Sources */,
 				EAEC80A01AB3AA89004EFD58 /* AccountBase.h in Sources */,
 				EAEC80A11AB3AA89004EFD58 /* AccountBase.m in Sources */,

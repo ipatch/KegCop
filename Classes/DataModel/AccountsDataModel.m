@@ -7,6 +7,7 @@
 //
 
 #import "AccountsDataModel.h"
+#import "Account.h"
 
 @interface AccountsDataModel ()
 

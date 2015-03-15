@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "AccountsDataModel.h"
 
 @interface ViewControllerAbout : UIViewController 
 {

@@ -20,7 +20,7 @@
 //@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel; // collection of entity descriptions
 //@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-- (void)saveContext;
+//- (void)saveContext;
 
 // how the managedObjectModel finds where to save the sqlite database.
 //- (NSURL *)applicationDocumentsDirectory;

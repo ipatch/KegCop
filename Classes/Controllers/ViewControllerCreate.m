@@ -68,7 +68,7 @@
     // Core Data
     if (_managedObjectContext == nil)
     {
-//        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
         NSLog(@"After _managedObjectContext: %@", _managedObjectContext);
     }
     

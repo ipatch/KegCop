@@ -9,10 +9,9 @@
 #import "ViewControllerWelcome.h"
 #import "NSData+AES256.h"
 #import <dispatch/dispatch.h> // Grand Central Dispatch
-#import "AFNetworking.h" // added to test coacopods implementation
-#import <QuartzCore/QuartzCore.h> // added to see if button outlines / borders would respond properly in iOS 7
-
-// GCD doesn't require linking to any new frameworks! :)
+#import "AFNetworking.h"
+#import <QuartzCore/QuartzCore.h>
+#import "AccountsDataModel.h"
 
 @interface ViewControllerWelcome ()
 {
@@ -142,9 +141,8 @@
     // Core Data
     if (_managedObjectContext == nil)
     {
-//        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-        NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
-
+        _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+    NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }    
     
     // dev button
@@ -683,27 +681,5 @@ return theData;
     
     NSLog(@"scantagid = %@", scantagid);
 }
-
-
-
-
-//- (void) openSerial {
-//    
-//    // serial stuff
-//    serial = [[JailbrokenSerial alloc] init];
-//    serial.debug = true;
-//    serial.nonBlock = true;
-//    serial.receiver = self;
-//    
-//    // serial stuff contd...
-//    [serial open:B2400];
-//    if (serial.isOpened)
-//    {
-//        NSLog(@"Serial Port Opened");
-//    }
-//    else NSLog(@"Serial Port Closed");
-//    
-//}
-
 
 @end

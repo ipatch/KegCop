@@ -91,6 +91,8 @@
                                                      userInfo:userInfo];
             @throw exc;
         }
+        
+        _persistentStoreCoordinator = psc;
     }
     
     return _persistentStoreCoordinator;

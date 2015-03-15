@@ -14,8 +14,7 @@
 #import "DFBlunoManager.h"
 
 @interface ViewControllerDev2 : UIViewController <DFBlunoDelegate> {
-    
-    
+
 }
 
 // btn required to dismiss scene

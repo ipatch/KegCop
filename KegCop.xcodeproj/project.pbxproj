@@ -361,9 +361,9 @@
 				EAC2D8D91AAFB86D0075EAB0 /* Account.m */,
 				EAC2D8DA1AAFB86D0075EAB0 /* AccountBase.h */,
 				EAC2D8DB1AAFB86D0075EAB0 /* AccountBase.m */,
-				EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */,
 				EA3AE8231AB5007B0083D0F0 /* AccountsDataModel.h */,
 				EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */,
+				EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */,
 			);
 			name = DataModel;
 			path = ..;
@@ -510,6 +510,12 @@
 		EAC2D8E21AAFB86D0075EAB0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EAC2D90E1AAFB86D0075EAB0 /* ViewControllerWelcome.h */,
+				EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */,
+				EAC2D8EA1AAFB86D0075EAB0 /* ViewControllerAbout.h */,
+				EAC2D8EB1AAFB86D0075EAB0 /* ViewControllerAbout.m */,
+				EAC2D8F31AAFB86D0075EAB0 /* ViewControllerCreate.h */,
+				EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */,
 				EAC2D9321AAFB86D0075EAB0 /* ViewControllerDev2.h */,
 				EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */,
 				EAC2D9341AAFB86D0075EAB0 /* ViewControllerDev3.h */,
@@ -524,16 +530,12 @@
 				EAC2D8E61AAFB86D0075EAB0 /* HUMConfirmationViewController.m */,
 				EAC2D8E71AAFB86D0075EAB0 /* HUMMapViewController.h */,
 				EAC2D8E81AAFB86D0075EAB0 /* HUMMapViewController.m */,
-				EAC2D8EA1AAFB86D0075EAB0 /* ViewControllerAbout.h */,
-				EAC2D8EB1AAFB86D0075EAB0 /* ViewControllerAbout.m */,
 				EAC2D8ED1AAFB86D0075EAB0 /* ViewControllerAvatar2.h */,
 				EAC2D8EE1AAFB86D0075EAB0 /* ViewControllerAvatar2.m */,
 				EAC2D8EF1AAFB86D0075EAB0 /* ViewControllerAvatar3.h */,
 				EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */,
 				EAC2D8F11AAFB86D0075EAB0 /* ViewControllerCheckFlow.h */,
 				EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */,
-				EAC2D8F31AAFB86D0075EAB0 /* ViewControllerCreate.h */,
-				EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */,
 				EAC2D8F51AAFB86D0075EAB0 /* ViewControllerDev.h */,
 				EAC2D8F61AAFB86D0075EAB0 /* ViewControllerDev.m */,
 				EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */,
@@ -559,8 +561,6 @@
 				EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */,
 				EAC2D90C1AAFB86D0075EAB0 /* ViewControllerWebView.h */,
 				EAC2D90D1AAFB86D0075EAB0 /* ViewControllerWebView.m */,
-				EAC2D90E1AAFB86D0075EAB0 /* ViewControllerWelcome.h */,
-				EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

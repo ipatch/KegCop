@@ -12,8 +12,6 @@
 
 @end
 
-//NSManagedObjectContext *context = [[AccountsDataModel sharedDataModel] mainContext];
-
 @implementation ViewControllerAbout
 
 @synthesize buildnumber = _buildnumber;
@@ -22,20 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-   
-    // Core Data
-//    if (_context == nil)
-//    {
+
     _context = [[AccountsDataModel sharedDataModel]mainContext];
-//        _context = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-                if (_context) {
-            NSLog(@"Context is ready!");
-        } else {
-            NSLog(@"Context was nil :(");
-        }
-        NSLog(@"After _managedObjectContext: %@", _context);
-//    }
+    NSLog(@"context is %@",_context);
     
     // set version and build numbers
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
@@ -73,7 +60,7 @@
     if(count == NSNotFound) {
         //Handle error
     }
-    return count;     
+    return count;
 }
 
 - (IBAction)dismissAboutScene:(id)sender {

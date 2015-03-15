@@ -1,4 +1,57 @@
 =====================================================
+clean-up of Core Data
+=====================================================
+
+// add conditional code for simulator and iDevice
+#if TARGET_IPHONE_SIMULATOR
+NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+NSString *docPath = [documentPaths objectAtIndex:0];
+
+NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponent:@"Accounts.sqlite"]];
+#else
+// jailbroken path - /var/mobile/Library/Kegcop/
+NSString *docPath = self.documentsDirectoryPath;
+
+NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponent:@"Accounts.sqlite"]];
+#endif
+
+
+#pragma mark - Application's Documents directory
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+// set path for documents in jailbreak environment
+-(NSString *)documentsDirectoryPath
+{
+#ifdef JAILBREAK
+
+NSString *documentPath =@"/var/mobile/Library/KegCop/";
+
+if (![[NSFileManager defaultManager] fileExistsAtPath:documentPath])
+{
+[[NSFileManager defaultManager] createDirectoryAtPath:documentPath
+withIntermediateDirectories:NO
+attributes:nil
+error:NULL];
+}
+
+return documentPath;
+
+#else
+
+NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+return [documentPaths objectAtIndex:0];
+
+#endif
+}
+
+
+=====================================================
 swift notes
 =====================================================
 // all variables are declared using var
@@ -14,13 +67,6 @@ swift notes
 Creating constants in Swift
 
 let daysInWeek = 7
-
-
-
-
-
-
-
 
 =====================================================
 sample swift code for AVCaptureSession

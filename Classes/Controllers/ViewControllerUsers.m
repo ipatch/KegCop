@@ -39,7 +39,7 @@
     // Core Data
     if (_managedObjectContext == nil)
     {
-        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+//        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
 

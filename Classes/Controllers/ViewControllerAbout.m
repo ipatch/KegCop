@@ -6,6 +6,7 @@
 //
 
 #import "ViewControllerAbout.h"
+#import "AccountsDataModel.h"
 
 @interface ViewControllerAbout ()
 
@@ -26,7 +27,7 @@
     // Core Data
     if (_context == nil)
     {
-        _context = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+//        _context = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
         NSLog(@"After _managedObjectContext: %@", _context);
     }
     

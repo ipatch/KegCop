@@ -7,6 +7,7 @@
 
 #import "ViewControllerCreate.h"
 #import "NSData+AES256.h"
+#import "AccountsDataModel.h"
 
 @interface ViewControllerCreate()
 
@@ -67,7 +68,7 @@
     // Core Data
     if (_managedObjectContext == nil)
     {
-        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+//        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
         NSLog(@"After _managedObjectContext: %@", _managedObjectContext);
     }
     

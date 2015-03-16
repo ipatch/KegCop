@@ -9,9 +9,11 @@ Thanks,
                Chris
 
 --------------
+F: download some default avatars and add them to resources.
+
 N: Fix UINavigationBar in vcAbout, i.e. make it programatic
 
-F: Add "link" to wilson demos KegCop youtube video in info pane / screen."
+C: Add "link" to wilson demos KegCop youtube video in info pane / screen."
 
 B: Account creation causes app to crash, but account is still created in DB.
 

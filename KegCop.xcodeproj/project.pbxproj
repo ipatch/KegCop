@@ -14,6 +14,7 @@
 		EA3463431A0AB3AC00588DC5 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3463421A0AB3AC00588DC5 /* KegCopTests.m */; };
 		EA3AE8251AB5007B0083D0F0 /* AccountsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */; };
 		EA3AE8271AB620090083D0F0 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EA3AE8261AB620090083D0F0 /* TODO */; };
+		EA3AE82A1AB63E610083D0F0 /* HomeBrewPoster1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA3AE8291AB63E610083D0F0 /* HomeBrewPoster1.jpg */; };
 		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
 		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
@@ -164,6 +165,7 @@
 		EA3AE8231AB5007B0083D0F0 /* AccountsDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountsDataModel.h; path = Classes/DataModel/AccountsDataModel.h; sourceTree = "<group>"; };
 		EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountsDataModel.m; path = Classes/DataModel/AccountsDataModel.m; sourceTree = "<group>"; };
 		EA3AE8261AB620090083D0F0 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = SOURCE_ROOT; };
+		EA3AE8291AB63E610083D0F0 /* HomeBrewPoster1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeBrewPoster1.jpg; sourceTree = "<group>"; };
 		EA56282817BAC39300E3725B /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
 		EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
 		EA9601FF189C48BF00068808 /* BLEDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEDevice.h; path = Bluno/BLEDevice.h; sourceTree = "<group>"; };
@@ -356,6 +358,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EA3AE8281AB63E610083D0F0 /* avatars */ = {
+			isa = PBXGroup;
+			children = (
+				EA3AE8291AB63E610083D0F0 /* HomeBrewPoster1.jpg */,
+			);
+			path = avatars;
+			sourceTree = "<group>";
+		};
 		EA4570351A046E78004DEEC4 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +421,7 @@
 		EA9D25E11767A24E00B277ED /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				EA3AE8281AB63E610083D0F0 /* avatars */,
 				EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */,
 				EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */,
 				EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */,
@@ -726,6 +737,7 @@
 				EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */,
 				EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */,
 				EAEC80911AB3AA1C004EFD58 /* Default-568@2x.png in Resources */,
+				EA3AE82A1AB63E610083D0F0 /* HomeBrewPoster1.jpg in Resources */,
 				EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */,
 				EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */,
 				EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */,

@@ -5,12 +5,11 @@
 //  Created by capin on 6/3/12.
 //
 
-
 #import "ViewControllerWelcome.h"
 #import "NSData+AES256.h"
 #import <dispatch/dispatch.h> // Grand Central Dispatch
 #import "AFNetworking.h"
-#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h> // makes round buttons :)
 #import "AccountsDataModel.h"
 
 @interface ViewControllerWelcome ()
@@ -53,21 +52,14 @@
 // keyboard toolbar
 @synthesize doneButton = _doneButton;
 
-// end welcome
-
-//
-// ViewControllerWelcome Methods
-//
+#pragma mark viewDidLoad
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"execution reached here");
-    
     
     // add borders for buttons, iOS 7 fix - 5JAN14
     
-    // use tbs color scheme
+    // use twitterbootstrap color scheme
     
     // www.javascripter.net/faq/hextorgb.htm
     
@@ -194,6 +186,37 @@
     _textFieldUsername.layer.borderColor = [UIColor whiteColor].CGColor;
 //    _textFieldUsername.layer.cornerRadius = 5;
     _textFieldUsername.layer.masksToBounds = true;
+    
+    
+    // create a subview for avatar buttons
+    UIView *avatarView = [[UIView alloc] init];
+    avatarView.frame = CGRectMake(20, 125, 280, 100); // don't mess with these values.
+//    avatarView.layer.borderColor = [UIColor redColor].CGColor;
+//    avatarView.layer.borderWidth = 3.0f;
+    [self.view addSubview:avatarView];
+    
+    UIScrollView *avatarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    avatarScroll.contentSize = CGSizeMake(500, 500);
+    avatarScroll.scrollEnabled = YES;
+    [avatarView addSubview:avatarScroll];
+    
+    
+    
+    
+    // do additional loading for avatars
+    UIButton *avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    // the last two values control the size of the button
+    avatarButton.frame = CGRectMake(0, 0, 80, 80);
+    // make corners round
+    avatarButton.layer.cornerRadius = 35; // value varies -- // 35 yields a pretty good circle.
+    avatarButton.clipsToBounds = YES;
+    UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
+    if (btnImage == nil) {
+        NSLog(@"can't find HomeBrewPoster1.jpg");
+    } else {
+        [avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
+    }
+    [avatarScroll addSubview:avatarButton];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{

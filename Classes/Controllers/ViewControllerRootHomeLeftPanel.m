@@ -20,6 +20,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableViewCell *cellMain;
 @property (strong, nonatomic) NSArray *items;
+@property (strong, nonatomic) NSArray *userNames;
 
 @end
 
@@ -29,6 +30,7 @@
 @synthesize items = _items;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize usernames = _usernames;
+@synthesize userNames = _userNames;
 
 
 - (UITableView *)makeTableView {
@@ -158,11 +160,11 @@
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
             [fetchRequest setEntity:entity];
             NSError *error = nil;
-            NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-            NSLog(@"fetchedObjects = %@",fetchedObjects);
+            _userNames = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            NSLog(@"fetchedObjects = %@",_userNames);
  
             NSLog(@"load UIPickerView here :)");
-            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:fetchedObjects];
+            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:_userNames];
             [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
                 NSLog(@"Made choice? %d", madeChoice);
             }];
@@ -183,11 +185,10 @@
     }
 }
 
-//- (id)copyWithZone:(NSZone *)zone {
-//    Account *copy = [super copy];
-//    [copy setAccountName:[self accountName]];
-//    return copy;
-//}
+- (id)copyWithZone:(NSZone *)zone {
+//    return [[[self class] allocWithZone:zone] initWithSessionConfiguration:self.session.configuration];
+//
+}
 
 /*
 #pragma mark - Navigation

@@ -1,3 +1,11 @@
+====================================================
+removed the following from controllers
+====================================================
+//        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+
+
+
+
 =====================================================
 clean-up of Core Data
 =====================================================

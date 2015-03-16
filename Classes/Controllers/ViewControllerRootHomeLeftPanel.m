@@ -11,6 +11,8 @@
 #import "ViewControllerRootHomeCenter.h"
 #import "KCModalPickerView.h"
 #import "ViewControllerUsers.h"
+#import "AccountsDataModel.h"
+#import "Account.h"
 
 #define SLIDE_TIMING .25
 
@@ -25,6 +27,8 @@
 
 @synthesize myDelegate;
 @synthesize items = _items;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize usernames = _usernames;
 
 
 - (UITableView *)makeTableView {
@@ -48,15 +52,17 @@
     tableView.dataSource = self;
     
     return tableView;
-    
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    
+
+    // Core Data
+    if (_managedObjectContext == nil)
+    {
+        _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+        NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+    }
     // tableView cell options
     _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Change Pin", @"Logoff", nil];
     
@@ -136,8 +142,27 @@
         
         if (self.parentViewController.isViewLoaded)
         {
+            
+//            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
+//            
+//            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+//            request.resultType = NSDictionaryResultType;
+//            request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"username"]];
+//            request.returnsDistinctResults = YES;
+//            
+//            self.usernames = [_managedObjectContext executeFetchRequest:request error:nil];
+//            
+//            NSLog (@"names: %@",self.usernames);
+            
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
+            [fetchRequest setEntity:entity];
+            NSError *error = nil;
+            NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            NSLog(@"fetchedObjects = %@",fetchedObjects);
+ 
             NSLog(@"load UIPickerView here :)");
-            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:self.items];
+            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:fetchedObjects];
             [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
                 NSLog(@"Made choice? %d", madeChoice);
             }];
@@ -157,6 +182,12 @@
         [self presentViewController:changePin animated:YES completion:nil];
     }
 }
+
+//- (id)copyWithZone:(NSZone *)zone {
+//    Account *copy = [super copy];
+//    [copy setAccountName:[self accountName]];
+//    return copy;
+//}
 
 /*
 #pragma mark - Navigation

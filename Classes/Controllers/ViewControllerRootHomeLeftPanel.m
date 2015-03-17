@@ -144,30 +144,7 @@
         
         if (self.parentViewController.isViewLoaded)
         {
-            
-//            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
-//            
-//            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
-//            [request setSortDescriptors:nil];
-//            request.resultType = NSDictionaryResultType;
 
-//            request.returnsDistinctResults = YES;
-//            [request setPredicate:[NSPredicate predicateWithFormat:@"username"]];
-//            NSError *error = nil;
-//            NSArray *fetchedResults = [_managedObjectContext executeFetchRequest:request error:&error];
-//            
-            
-//            NSArray *fetchedUNs = [_managedObjectContext executeFetchRequest:request error:nil];
-            
-//            NSLog (@"names: %@",fetchedResults);
-            
-//            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
-//            [fetchRequest setEntity:entity];
-//            NSError *error = nil;
-//            _userNames = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-//            NSLog(@"fetchedObjects = %@",_userNames);
-            
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
             
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
@@ -185,14 +162,17 @@
                 NSLog(@"%@", result);
             }
             
-            NSArray *myArray = [NSArray arrayWithObjects:@"Red",@"Green",@"Blue", nil];
-  
+            NSMutableArray *names = [NSMutableArray arrayWithCapacity:[result count]];
+            for (Account *account in result) {
+                NSString *accountName = account.username;
+                if (!accountName) {
+                    accountName = @"<Unknown Account>";
+                }
+                [names addObject:accountName];
+            }
+            
             NSLog(@"load UIPickerView here :)");
-            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:result];
-            
-//            self.pickerView.delegate = self;
-//            self.pickerView.dataSource = self;
-            
+            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:names];
             
             [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
                 NSLog(@"Made choice? %d", madeChoice);

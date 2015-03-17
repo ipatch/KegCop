@@ -10,6 +10,7 @@
 #define KCMODALPICKER_TOOLBAR_HEIGHT 40
 
 #import "KCModalPickerView.h"
+#import "Account.h"
 
 @interface KCModalPickerView () {
     UIPickerView *_picker;
@@ -172,8 +173,13 @@
     return self.values.count;
 }
 
+// edit this method
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [self.values objectAtIndex:row];
+//    Account *anAccount = self.values[row];
+//    return anAccount.username;
+//    return _userNames[row][@"username"];
+//    return anAccount.username[row]//[@"username"];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {

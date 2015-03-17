@@ -148,23 +148,52 @@
 //            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
 //            
 //            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+//            [request setSortDescriptors:nil];
 //            request.resultType = NSDictionaryResultType;
-//            request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"username"]];
+
 //            request.returnsDistinctResults = YES;
+//            [request setPredicate:[NSPredicate predicateWithFormat:@"username"]];
+//            NSError *error = nil;
+//            NSArray *fetchedResults = [_managedObjectContext executeFetchRequest:request error:&error];
 //            
-//            self.usernames = [_managedObjectContext executeFetchRequest:request error:nil];
-//            
-//            NSLog (@"names: %@",self.usernames);
+            
+//            NSArray *fetchedUNs = [_managedObjectContext executeFetchRequest:request error:nil];
+            
+//            NSLog (@"names: %@",fetchedResults);
+            
+//            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
+//            [fetchRequest setEntity:entity];
+//            NSError *error = nil;
+//            _userNames = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//            NSLog(@"fetchedObjects = %@",_userNames);
             
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
+            
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
             [fetchRequest setEntity:entity];
+            
+            fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"username"]];
+            
             NSError *error = nil;
-            _userNames = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-            NSLog(@"fetchedObjects = %@",_userNames);
- 
+            NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            
+            if (error) {
+                NSLog(@"Unable to execute fetch request.");
+                NSLog(@"%@, %@", error, error.localizedDescription);
+            } else {
+                NSLog(@"%@", result);
+            }
+            
+            NSArray *myArray = [NSArray arrayWithObjects:@"Red",@"Green",@"Blue", nil];
+  
             NSLog(@"load UIPickerView here :)");
-            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:_userNames];
+            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:result];
+            
+//            self.pickerView.delegate = self;
+//            self.pickerView.dataSource = self;
+            
+            
             [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
                 NSLog(@"Made choice? %d", madeChoice);
             }];
@@ -185,11 +214,13 @@
     }
 }
 
-- (id)copyWithZone:(NSZone *)zone {
-//    return [[[self class] allocWithZone:zone] initWithSessionConfiguration:self.session.configuration];
-//
-}
-
+//-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    // set item per row
+//    // changed statment below per this SO thread,
+//    // http://stackoverflow.com/questions/17331293/populate-uipicker-view-with-results-from-core-data-db-using-an-nsarray
+//    return _userNames[row][@"username"];
+//}
 /*
 #pragma mark - Navigation
 

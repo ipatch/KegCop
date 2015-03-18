@@ -9,6 +9,7 @@
 // Added 5AUG13
 #import "ViewControllerCreate.h"
 #import "math.h"
+#import "AccountsDataModel.h"
 
 
 
@@ -42,7 +43,7 @@
     // Core Data
     if (_managedObjectContext == nil)
     {
-//        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        _managedObjectContext = [[AccountsDataModel sharedDataModel] mainContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
 

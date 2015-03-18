@@ -144,7 +144,6 @@
         
         if (self.parentViewController.isViewLoaded)
         {
-
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
             
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];

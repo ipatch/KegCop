@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ViewControllerAvatar3 : UIViewController
+@interface ViewControllerAvatar3 : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @end

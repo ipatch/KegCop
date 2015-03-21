@@ -1,4 +1,16 @@
 ====================================================
+19MAR15 - is the Bluno the peripheral or the central?
+====================================================
+Answer: reviewing the source code it appears the
+iOS device is the CBCentralManager.  Going to try
+and confirm with a SO questoin.
+
+Confirmed the iOS device is the CBCentralManager,
+stackoverflow.com/questions/21466245
+
+
+
+====================================================
 removed the following code from main.m
 ====================================================
 // creates ns.log file in Documents directory - NOT COMPLETE

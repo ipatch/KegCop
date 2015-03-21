@@ -112,6 +112,7 @@
 		4CC4EEE47EAB4A04A9448C12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0167371ABE16C500A98B2F /* Accounts 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Accounts 2.xcdatamodel"; sourceTree = "<group>"; };
 		EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA2611D017BAD29000023814 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -1134,9 +1135,10 @@
 		EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				EA0167371ABE16C500A98B2F /* Accounts 2.xcdatamodel */,
 				EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */,
 			);
-			currentVersion = EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */;
+			currentVersion = EA0167371ABE16C500A98B2F /* Accounts 2.xcdatamodel */;
 			name = Accounts.xcdatamodeld;
 			path = Resources/Accounts.xcdatamodeld;
 			sourceTree = "<group>";

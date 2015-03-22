@@ -9,7 +9,7 @@
 #import "ViewControllerAvatar3.h"
 @import AVFoundation;
 
-@interface ViewControllerAvatar3 () <AVCaptureAudioDataOutputSampleBufferDelegate>
+@interface ViewControllerAvatar3 () <AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (strong, nonatomic) IBOutlet UIView *frameForCapture;
 
 @property (nonatomic, strong) AVCaptureSession *session;

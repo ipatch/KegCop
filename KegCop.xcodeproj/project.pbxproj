@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5D1D3CDD3A3E40E789538892 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC4EEE47EAB4A04A9448C12 /* libPods.a */; };
 		E52E849B1C392B67330A801F /* libPods-KegCopTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */; };
+		EA01673A1ABE30ED00A98B2F /* ViewControllerAvatar4.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0167391ABE30ED00A98B2F /* ViewControllerAvatar4.m */; };
+		EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA01673B1ABE31FE00A98B2F /* avatar.xib */; };
 		EA022CDD1A0ABAE900CE6B3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */; };
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA3463431A0AB3AC00588DC5 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3463421A0AB3AC00588DC5 /* KegCopTests.m */; };
@@ -113,6 +115,9 @@
 		C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0167371ABE16C500A98B2F /* Accounts 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Accounts 2.xcdatamodel"; sourceTree = "<group>"; };
+		EA0167381ABE30ED00A98B2F /* ViewControllerAvatar4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAvatar4.h; sourceTree = "<group>"; };
+		EA0167391ABE30ED00A98B2F /* ViewControllerAvatar4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAvatar4.m; sourceTree = "<group>"; };
+		EA01673B1ABE31FE00A98B2F /* avatar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = avatar.xib; sourceTree = "<group>"; };
 		EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA2611D017BAD29000023814 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -511,6 +516,8 @@
 				EAC2D8EE1AAFB86D0075EAB0 /* ViewControllerAvatar2.m */,
 				EAC2D8EF1AAFB86D0075EAB0 /* ViewControllerAvatar3.h */,
 				EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */,
+				EA0167381ABE30ED00A98B2F /* ViewControllerAvatar4.h */,
+				EA0167391ABE30ED00A98B2F /* ViewControllerAvatar4.m */,
 				EAC2D8F11AAFB86D0075EAB0 /* ViewControllerCheckFlow.h */,
 				EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */,
 				EAC2D8F51AAFB86D0075EAB0 /* ViewControllerDev.h */,
@@ -552,6 +559,7 @@
 		EAC2D9381AAFB86D0075EAB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EA01673B1ABE31FE00A98B2F /* avatar.xib */,
 				EAC2D9161AAFB86D0075EAB0 /* iPhone.storyboard */,
 				EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */,
 				EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */,
@@ -657,6 +665,9 @@
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = EAEFEE8E157B296B00C666D5;
 					};
+					EAEFEE8E157B296B00C666D5 = {
+						DevelopmentTeam = DHF8B8Q5J4;
+					};
 				};
 			};
 			buildConfigurationList = EAEFEE89157B296B00C666D5 /* Build configuration list for PBXProject "KegCop" */;
@@ -695,6 +706,7 @@
 				EAEC80981AB3AA34004EFD58 /* flow_background.png in Resources */,
 				EAEC80991AB3AA34004EFD58 /* flow_fill.png in Resources */,
 				EAEC809A1AB3AA34004EFD58 /* flow_foreground.png in Resources */,
+				EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */,
 				EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */,
 				EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */,
 				EAEC80911AB3AA1C004EFD58 /* Default-568@2x.png in Resources */,
@@ -801,6 +813,7 @@
 				EAEC80801AB3A610004EFD58 /* KBKegProcessing.m in Sources */,
 				EAEC80821AB3A610004EFD58 /* KBKegboardCommand.m in Sources */,
 				EAEC807E1AB3A5C8004EFD58 /* JailbrokenSerial.m in Sources */,
+				EA01673A1ABE30ED00A98B2F /* ViewControllerAvatar4.m in Sources */,
 				EAEC807B1AB3A586004EFD58 /* NSData+AES256.m in Sources */,
 				EAEC807C1AB3A586004EFD58 /* KegCop-Bridging-Header.h in Sources */,
 				EAEC80711AB3A55A004EFD58 /* SERVICES.h in Sources */,
@@ -962,8 +975,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1001,8 +1014,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1028,8 +1041,8 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CURRENT_PROJECT_VERSION = 107;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1069,8 +1082,8 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CURRENT_PROJECT_VERSION = 107;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

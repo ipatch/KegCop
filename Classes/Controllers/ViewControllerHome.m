@@ -10,6 +10,7 @@
 #import "ViewControllerCreate.h"
 #import "math.h"
 #import "AccountsDataModel.h"
+#import "ViewControllerAvatar4.h"
 
 
 
@@ -421,10 +422,18 @@
     NSLog(@"code execution reached here");
 }
 
+# pragma mark - addAvatar
+
 - (IBAction)addAvatar:(id)sender {
     
-    UIViewController *avatar = [self.storyboard instantiateViewControllerWithIdentifier:@"avatar"];
-    [self presentViewController:avatar animated:YES completion:nil];
+//    UIViewController *avatar = [self.storyboard instantiateViewControllerWithIdentifier:@"avatar"];
+//    [self presentViewController:avatar animated:YES completion:nil];
+//
+    
+    // need to figure out way to load viewcontroller w/ accompanying NIB
+    ViewControllerAvatar4 *avatarVC = [[ViewControllerAvatar4 alloc] initWithNibName:@"avatar" bundle:nil];
+    [self presentViewController:avatarVC animated:YES completion:nil];
+    
     
 }
 

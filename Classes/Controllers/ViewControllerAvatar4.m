@@ -61,15 +61,17 @@
     // add UIToolbar to imageView
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     toolbar.frame = CGRectMake(0, 0, self.vImage.frame.size.width, 44);
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                      style:UIBarButtonItemStylePlain
-                                                     target:self
-                                                     action:@selector(done)]];
-    [toolbar setItems:items animated:NO];
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                             style:UIBarButtonItemStyleDone
+                                                            target:self
+                                                            action:@selector(done)];
+    [toolbar setItems:[[NSArray alloc] initWithObjects:done, nil]];
+    
     [self.vImage addSubview:toolbar];
     // the below line will hopefully make the toolbar selectable
     [self.vImage bringSubviewToFront:toolbar];
+    // more tshooting
+    toolbar.userInteractionEnabled = YES;
     
 }
 

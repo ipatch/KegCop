@@ -425,16 +425,21 @@
 # pragma mark - addAvatar
 
 - (IBAction)addAvatar:(id)sender {
-    
-//    UIViewController *avatar = [self.storyboard instantiateViewControllerWithIdentifier:@"avatar"];
-//    [self presentViewController:avatar animated:YES completion:nil];
-//
-    
-    // need to figure out way to load viewcontroller w/ accompanying NIB
     ViewControllerAvatar4 *avatarVC = [[ViewControllerAvatar4 alloc] initWithNibName:@"avatar" bundle:nil];
+    // set the delegate before launching vc
+    avatarVC.delegate = self;
     [self presentViewController:avatarVC animated:YES completion:nil];
+}
+
+# pragma mark - delegate method
+
+- (NSDictionary *) giveMeData {
+    NSMutableDictionary *dataToReturn = [[NSMutableDictionary alloc] init];
     
+    // how to add lblUSERNAME(.text) to mutable dictionary ?
+    [dataToReturn setObject:self.lblUSERNAME.text forKey:@"username"];
     
+    return dataToReturn;
 }
 
 - (IBAction)showTestScene:(id)sender {

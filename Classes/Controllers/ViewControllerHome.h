@@ -12,11 +12,12 @@
 #import "JailbrokenSerial.h"
 // add for CoreBluetooth functionality
 #import "DFBlunoManager.h"
+#import "ViewControllerAvatar4.h" // add this line to make delegation work :/
 
 
 
 // want to configure iPod Touch in peripheral mode, and have microcontroller in central mode.
-@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, DFBlunoDelegate>
+@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, DFBlunoDelegate, ViewControllerAvatar4Delegate>
 {
     UIButton *removeAccount;
     UIAlertView *alert;

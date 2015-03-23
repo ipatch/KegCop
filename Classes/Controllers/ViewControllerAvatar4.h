@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ViewControllerAvatar4 : UIViewController
+@class ViewControllerAvatar4;
+
+@protocol ViewControllerAvatar4Delegate
+
+- (NSDictionary *) giveMeData;
+
+@end
+
+@interface ViewControllerAvatar4 : UIViewController {
+    
+}
+@property (assign, nonatomic) id<ViewControllerAvatar4Delegate>delegate;
 
 @end

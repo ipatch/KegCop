@@ -24,6 +24,7 @@
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
+		EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABEFA3F1ABF4B570045D478 /* ImageIO.framework */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
 		EAEC80391AB3A41B004EFD58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91C1AAFB86D0075EAB0 /* main.m */; };
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
@@ -172,6 +173,7 @@
 		EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardMessage.h; path = Processing/KBKegboardMessage.h; sourceTree = "<group>"; };
 		EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardMessage.m; path = Processing/KBKegboardMessage.m; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EABEFA3F1ABF4B570045D478 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EAC2D8D81AAFB86D0075EAB0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Classes/DataModel/Account.h; sourceTree = "<group>"; };
 		EAC2D8D91AAFB86D0075EAB0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = Classes/DataModel/Account.m; sourceTree = "<group>"; };
 		EAC2D8DA1AAFB86D0075EAB0 /* AccountBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountBase.h; path = Classes/DataModel/AccountBase.h; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */,
 				EA022CDD1A0ABAE900CE6B3C /* MapKit.framework in Frameworks */,
 				EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */,
 				EAEFEE96157B296B00C666D5 /* Foundation.framework in Frameworks */,
@@ -592,6 +595,7 @@
 		EAEFEE92157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EABEFA3F1ABF4B570045D478 /* ImageIO.framework */,
 				EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */,
 				EA9FF1301A00B19D00B7897A /* CoreVideo.framework */,
 				EA9FF12E1A00B19200B7897A /* CoreMedia.framework */,

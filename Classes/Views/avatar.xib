@@ -7,7 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewControllerAvatar4">
             <connections>
-                <outlet property="vImagePreview" destination="ivR-Kc-FYX" id="zxi-6E-HbV"/>
+                <outlet property="vImage" destination="vHS-1r-t3D" id="Tmy-XA-8C8"/>
+                <outlet property="vImagePreview" destination="3cd-0W-wmy" id="GmX-c4-vaY"/>
                 <outlet property="view" destination="ivR-Kc-FYX" id="VdJ-I9-GXE"/>
             </connections>
         </placeholder>
@@ -15,6 +16,26 @@
         <view contentMode="scaleToFill" id="ivR-Kc-FYX">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vHS-1r-t3D">
+                    <rect key="frame" x="0.0" y="276" width="320" height="292"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-0W-wmy" userLabel="CameraPreview">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6B-vh-ADO">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="captureNow" destination="-1" eventType="touchUpInside" id="9LH-Tt-Q4f"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="580" y="493"/>
         </view>

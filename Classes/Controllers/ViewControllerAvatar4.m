@@ -7,12 +7,14 @@
 //
 
 #import "ViewControllerAvatar4.h"
+#import <ImageIO/CGImageProperties.h>
 @import AVFoundation;
 
 @interface ViewControllerAvatar4 ()
 
 @property(nonatomic, retain) IBOutlet UIView *vImagePreview;
 @property(nonatomic, retain) AVCaptureStillImageOutput *stillImageOutput;
+@property(nonatomic, retain) IBOutlet UIImageView *vImage;
 
 @end
     
@@ -55,6 +57,20 @@
     
     [session startRunning];
     
+    
+    // add UIToolbar to imageView
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    toolbar.frame = CGRectMake(0, 0, self.vImage.frame.size.width, 44);
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    [items addObject:[[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                      style:UIBarButtonItemStylePlain
+                                                     target:self
+                                                     action:@selector(done)]];
+    [toolbar setItems:items animated:NO];
+    [self.vImage addSubview:toolbar];
+    // the below line will hopefully make the toolbar selectable
+    [self.vImage bringSubviewToFront:toolbar];
+    
 }
 
 - (AVCaptureDevice *)frontCamera {
@@ -67,4 +83,46 @@
     return [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 }
 
+-(IBAction)captureNow {
+    AVCaptureConnection *videoConnection = nil;
+    for (AVCaptureConnection *connection in _stillImageOutput.connections)
+    {
+        for (AVCaptureInputPort *port in [connection inputPorts])
+        {
+            if ([[port mediaType] isEqual:AVMediaTypeVideo])
+            {
+                videoConnection = connection;
+                break;
+            }
+        }
+        if (videoConnection)
+        {
+            break;
+        }
+    }
+    
+    NSLog(@"about to request a capture from %@", _stillImageOutput);
+    [_stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageSampleBuffer, NSError *error)
+     {
+         CFDictionaryRef exifAttachments = CMGetAttachment( imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
+         if (exifAttachments)
+         {
+             // do something with the attachments.
+             NSLog(@"attachments: %@", exifAttachments);
+         } else {
+             NSLog(@"no attachments");
+         }
+         
+         NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+         UIImage *image = [[UIImage alloc] initWithData:imageData];
+         
+         self.vImage.image = image;
+         
+         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+     }];
+}
+
+-(void)done {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

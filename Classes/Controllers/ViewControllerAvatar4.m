@@ -69,6 +69,9 @@
     
     [self.vImage addSubview:toolbar];
     // the below line will hopefully make the toolbar selectable
+    
+    // the below line should make the "done" button selectable
+    self.vImage.userInteractionEnabled = YES;
     [self.vImage bringSubviewToFront:toolbar];
     // more tshooting
     toolbar.userInteractionEnabled = YES;

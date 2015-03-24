@@ -213,28 +213,51 @@
     NSError *error;
     NSArray *results = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    for (Account *anAccount in results)
-    {
-        
-    }
+    // sort results array by lastLogin
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastLogin" ascending:NO];
+    NSArray *sortedArray = [NSArray arrayWithObject:sort ];
+    NSArray *sortedArray2 = [results sortedArrayUsingDescriptors:sortedArray];
+//    NSLog(@"sortedArray2 = %@",sortedArray2);
     
+    CGFloat staticX = 0;
+    CGFloat staticWidth = 80;
+    CGFloat staticHeight = 80;
+    CGFloat staticPadding = 5;
     
-    
-    
-    // do additional loading for avatars
-    UIButton *avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    // the last two values control the size of the button
-    avatarButton.frame = CGRectMake(0, 0, 80, 80);
-    // make corners round
-    avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
-    avatarButton.clipsToBounds = YES;
-    UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
-    if (btnImage == nil) {
-        NSLog(@"can't find HomeBrewPoster1.jpg");
-    } else {
-        [avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
-    }
+    // need to put the avatars stored in sortedArray2 in the scrollView
+    for ( int i = 0; i < 5; i++) {
+        // do additional loading for avatars
+        UIButton *avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        // the last two values control the size of the button
+//        avatarButton.frame = CGRectMake(0, 0, 80, 80);
+        [avatarButton setFrame:CGRectMake((staticX + (i * (staticHeight + staticPadding))),5,staticWidth,staticHeight)];
+        // make corners round
+        avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
+        avatarButton.clipsToBounds = YES;
+        // create a stock image
+        UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
+        for(Account *anAccount in results) {
+            // how to compare an NSDate to a value in a sorted array
+            
+            // pseudo - if ( a.lastLogin < sortedArray.value.6)
+                // pseduo - then add avatar img to btn
+            
+            if([anAccount lastLogin] < [sortedArray2 valueForKey:@"lastLogin"]) {
+                NSLog(@"inside if");
+                UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
+                // apply avImg to btn
+                [avatarButton setBackgroundImage:avatarImg forState:UIControlStateNormal];
+            }
+        }
+        if (btnImage == nil) {
+            NSLog(@"can't find HomeBrewPoster1.jpg");
+        } else {
+            // apply stock image to button(s)
+//            [avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
+        }
+    // this should add 5x buttons
     [avatarScroll addSubview:avatarButton];
+    }
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -414,7 +437,12 @@
                     
                     anAccount.lastLogin = localDate;
                     NSLog(@"login time = %@",anAccount.lastLogin);
-                    
+                    // save anAccount.lastLogin attribute to Core Data DB
+                    NSError *error = nil;
+                    if (![_managedObjectContext save:&error]) {
+                        NSLog(@"error %@", error);
+                    }
+
                     [self presentViewController:home animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin

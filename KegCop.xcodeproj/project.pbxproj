@@ -261,6 +261,7 @@
 		EAEFEE95157B296B00C666D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EAEFEE9D157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EAF85AD41AC1344600E8705C /* Accounts 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Accounts 3.xcdatamodel"; sourceTree = "<group>"; };
 		F85637C58D0B30CD1F406793 /* Pods-KegCopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KegCopTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KegCopTests/Pods-KegCopTests.release.xcconfig"; sourceTree = "<group>"; };
 		FEAF2D287464FFFCA939CFE1 /* Pods-KegCopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KegCopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KegCopTests/Pods-KegCopTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1152,10 +1153,11 @@
 		EACD704B177A4EE800A13B91 /* Accounts.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				EAF85AD41AC1344600E8705C /* Accounts 3.xcdatamodel */,
 				EA0167371ABE16C500A98B2F /* Accounts 2.xcdatamodel */,
 				EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */,
 			);
-			currentVersion = EA0167371ABE16C500A98B2F /* Accounts 2.xcdatamodel */;
+			currentVersion = EAF85AD41AC1344600E8705C /* Accounts 3.xcdatamodel */;
 			name = Accounts.xcdatamodeld;
 			path = Resources/Accounts.xcdatamodeld;
 			sourceTree = "<group>";

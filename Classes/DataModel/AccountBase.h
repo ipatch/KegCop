@@ -26,4 +26,6 @@
 
 @property (nonatomic, retain) NSData *avatar;
 
+@property (nonatomic, retain) NSDate *lastLogin;
+
 @end

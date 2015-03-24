@@ -12,11 +12,14 @@
 #import <QuartzCore/QuartzCore.h> // makes round buttons :)
 #import "AccountsDataModel.h"
 
+#define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
+
 @interface ViewControllerWelcome ()
 {
 // declare private methods here
     dispatch_queue_t scan_queue;
 }
+@property(nonatomic, retain) NSDate *loginTime;
 @end
 
 @implementation ViewControllerWelcome
@@ -201,6 +204,21 @@
     [avatarView addSubview:avatarScroll];
     
     
+    // fetch Data from Core Data
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (Account *anAccount in results)
+    {
+        
+    }
+    
+    
     
     
     // do additional loading for avatars
@@ -208,7 +226,7 @@
     // the last two values control the size of the button
     avatarButton.frame = CGRectMake(0, 0, 80, 80);
     // make corners round
-    avatarButton.layer.cornerRadius = 35; // value varies -- // 35 yields a pretty good circle.
+    avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
     avatarButton.clipsToBounds = YES;
     UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
     if (btnImage == nil) {
@@ -384,6 +402,18 @@
                     username = _textFieldUsername.text;
                     
                     [self passValues];
+                    
+                    // get current time
+                    NSString *timestamp = TimeStamp;
+                    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+                    _loginTime = [[NSDate alloc] init];
+                    
+                    // adjust timezone
+                    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
+                    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
+                    
+                    anAccount.lastLogin = localDate;
+                    NSLog(@"login time = %@",anAccount.lastLogin);
                     
                     [self presentViewController:home animated:YES completion:nil];
                     

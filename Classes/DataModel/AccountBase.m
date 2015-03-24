@@ -26,4 +26,6 @@
 
 @dynamic avatar;
 
+@dynamic lastLogin;
+
 @end

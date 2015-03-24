@@ -24,4 +24,6 @@
 
 @dynamic pin;
 
+@dynamic avatar;
+
 @end

@@ -24,4 +24,6 @@
 
 @property (nonatomic, retain) NSString *pin;
 
+@property (nonatomic, retain) NSData *avatar;
+
 @end

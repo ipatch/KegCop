@@ -188,11 +188,9 @@
         if ([anAccount.username isEqualToString:userName]) {
             NSLog(@"username found.");
             
-            
             // save picture
-            [_managedObjectContext setValue:self.dataImage forKey:@"Account"];
+            [anAccount setValue:self.dataImage forKey:@"avatar"];
 
-            
             // save to DB
             NSError *error = nil;
             if (![_managedObjectContext save:&error]) {

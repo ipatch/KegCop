@@ -6,16 +6,14 @@
 //
 
 #import "ViewControllerHome.h"
-// Added 5AUG13
 #import "ViewControllerCreate.h"
 #import "math.h"
 #import "AccountsDataModel.h"
 #import "ViewControllerAvatar4.h"
-
-
+#import "Account.h"
 
 @interface ViewControllerHome ()
-
+@property (nonatomic, retain) UIImage *avatar;
 @end
 
 @implementation ViewControllerHome
@@ -33,6 +31,8 @@
 @synthesize btnLogout = _btnLogout;
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
+// avatar
+
 
 
 
@@ -47,6 +47,9 @@
         _managedObjectContext = [[AccountsDataModel sharedDataModel] mainContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
+    // Core Data END
+
+    
 
     // load Home Scrollview
     [_homeScroller setContentSize:CGSizeMake(320,750)];
@@ -175,6 +178,64 @@
     NSLog(@"view did load method called");
     [self.blunoManager scan];
     
+    
+    // setup code to draw / display avatar
+    UIView *avatarView = [[UIView alloc] init];
+    avatarView.frame = CGRectMake(20, 50, 280, 100);
+    avatarView.layer.borderColor = [UIColor redColor].CGColor;
+    avatarView.layer.borderWidth = 3.0f;
+    [self.view addSubview:avatarView];
+    
+    // do additional loading for avatars
+    UIButton *avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    // the last two values control the size of the button
+    avatarButton.frame = CGRectMake(0, 0, 80, 80);
+    // make corners round
+    avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
+    avatarButton.clipsToBounds = YES;
+    
+    
+    // retrieve image from Core Data and place on UIButton
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+//    [request setResultType:NSDictionaryResultType];
+//    [request setReturnsDistinctResults:YES];
+//    [request setPropertiesToFetch:@[@"avatar",@"username"]];
+    
+    // fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+    }
+    NSLog(@"results = %@",results);
+    // find specific value in array
+    
+    // convert UILabel.text to NSString for searching
+    NSLog(@"_lblUSERNAME.text = %@",_lblUSERNAME.text);
+    
+    
+    NSString *search = _lblUSERNAME.text;
+    NSLog(@"un = %@",search);
+    
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:search]) {
+            NSLog(@"username found.");
+            _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
+            NSLog(@"avatar = %@",_avatar);
+        }
+    }
+    if (_avatar == nil) {
+        NSLog(@"couldn't find avatar");
+    } else {
+        [avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
+    }
+    // add button to subview
+    [avatarView addSubview:avatarButton];
 }
 
 - (void)viewDidUnload
@@ -500,6 +561,8 @@
 // method to change username label
 - (void)changeUSERNAME {
     _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;
+    NSString *userNameStr = [[NSString alloc] init];
+    userNameStr = _lblUSERNAME;
 }
 
 -(void)updateCredit {

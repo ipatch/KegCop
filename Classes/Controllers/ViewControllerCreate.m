@@ -38,9 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    
+	
     // create new account
     [_createUNnotValid setHidden:YES];
     [_createPinNotValid setHidden:YES];
@@ -233,10 +231,6 @@
                 [newAccount setValue:_createEmailTextField.text forKey:@"email"];
         [newAccount setValue:_createPhoneNumber.text forKey:@"phoneNumber"];
         
-        // store pin in keychain - OBSOLETE
-        // [newAccount setPassword:_createPinTextField.text];
-        
-        
         // password - set key
         NSString *key = @"donkey balls";
         
@@ -256,9 +250,7 @@
         
         [newAccount setValue:cipherB64 forKey:@"pin"];        
         
-        
         // NSLog(@"Pin saved is %@", [newAccount password]);
-        
         
         _createUserTextField.text = @"";
         _createEmailTextField.text = @"";
@@ -273,11 +265,7 @@
         NSLog(@"Succefully created account.");
         
         // Load ViewControllerHome
-       // UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-        //ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
-        
         UIViewController *home = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
-        
         
         // pass user tf text to home screen
         username = _createUserTextField.text;
@@ -285,7 +273,6 @@
         [self passValues];
         
         [self presentViewController:home animated:YES completion:nil];
-
     }
 }
 
@@ -303,12 +290,12 @@
     if ([_createPinTextField.text length] == 4) {
         [_createPinNotValid setHidden:YES];
     }
-    if ([_createEmailTextField.text length] >= 4 ) {
-        [_createEmailNotValid setHidden:YES];
-    }
-    if ([_createPhoneNumber.text length] == 10) {
-        [_createPhoneNumberNotValid setHidden:YES];
-    }
+//    if ([_createEmailTextField.text length] >= 4 ) {
+//        [_createEmailNotValid setHidden:YES];
+//    }
+//    if ([_createPhoneNumber.text length] == 10) {
+//        [_createPhoneNumberNotValid setHidden:YES];
+//    }
     NSLog(@"Passed text field char length.");
 
 }
@@ -329,14 +316,14 @@
     {
         [_createPinNotValid setHidden:NO]; i++;
     }
-    if (_createEmailTextField.text.length == 0)
-    {
-        [_createEmailNotValid setHidden:NO]; i++;
-    }
-    if (_createPhoneNumber.text.length == 0)
-    {
-        [_createPhoneNumberNotValid setHidden:NO]; i++;
-    }
+//    if (_createEmailTextField.text.length == 0)
+//    {
+//        [_createEmailNotValid setHidden:NO]; i++;
+//    }
+//    if (_createPhoneNumber.text.length == 0)
+//    {
+//        [_createPhoneNumberNotValid setHidden:NO]; i++;
+//    }
 if (i >= 1) return YES; else return NO;
 }
 

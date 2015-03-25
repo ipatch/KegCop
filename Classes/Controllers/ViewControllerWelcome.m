@@ -251,6 +251,8 @@
         // make corners round
         _avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
         _avatarButton.clipsToBounds = YES;
+        // assign method / action to button
+        [_avatarButton addTarget:self action:@selector(fillUserName) forControlEvents:UIControlEventTouchDown];
         // create a stock image
         UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
         
@@ -261,6 +263,13 @@
     }
     
     [self addAvatarsToButtons];
+    
+}
+
+-(void)fillUserName {
+    NSLog(@"avatar button press works :)");
+    
+    // need to get NSMutableArray *avatars from addAvatarsToButtons method
     
 }
 

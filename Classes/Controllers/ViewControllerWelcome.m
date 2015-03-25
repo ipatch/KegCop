@@ -20,6 +20,9 @@
     dispatch_queue_t scan_queue;
 }
 @property(nonatomic, retain) NSDate *loginTime;
+@property(nonatomic, retain) UIButton *avatarButton;
+@property(nonatomic, retain) NSArray *results;
+@property(nonatomic, retain) NSMutableArray *last5LoginArray;
 @end
 
 @implementation ViewControllerWelcome
@@ -211,12 +214,26 @@
     
     // fetch records and handle error
     NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    _results = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     // sort results array by lastLogin
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastLogin" ascending:NO];
-    NSArray *sortedArray = [NSArray arrayWithObject:sort ];
-    NSArray *sortedArray2 = [results sortedArrayUsingDescriptors:sortedArray];
+    NSArray *sortedArray = [NSArray arrayWithObject:sort];
+    NSArray *sortedArray2 = [_results sortedArrayUsingDescriptors:sortedArray];
+    // how to remove values from NSArray
+    NSArray *lastLoginArray = [sortedArray2 valueForKey:@"lastLogin"];
+//    NSLog(@"lastLoginArray = %@",lastLoginArray);
+    // make an array that only hold 5 values
+//    NSArray *last5LoginArray;
+//    for (int i=5; i<[lastLoginArray count]; i++) {
+//        [last5LoginArray addObject:[lastLoginArray objectAtIndex:i]];
+//    }
+//    NSLog(@"last5LoginArray = %@",last5LoginArray);
+//    NSArray *last5LoginArray = [NSArray arrayWithObjects:lastLoginArray count:4];
+//    NSArray *last5LoginArray = [NSArray arrayByAddingObjectsFromArray:lastLoginArray count:4];
+    _last5LoginArray = [[NSMutableArray alloc] initWithArray:[lastLoginArray subarrayWithRange:NSMakeRange(0, 5)] ];
+    NSLog(@"last5LoginArray = %@",_last5LoginArray);
+    
 //    NSLog(@"sortedArray2 = %@",sortedArray2);
     
     CGFloat staticX = 0;
@@ -227,36 +244,57 @@
     // need to put the avatars stored in sortedArray2 in the scrollView
     for ( int i = 0; i < 5; i++) {
         // do additional loading for avatars
-        UIButton *avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         // the last two values control the size of the button
 //        avatarButton.frame = CGRectMake(0, 0, 80, 80);
-        [avatarButton setFrame:CGRectMake((staticX + (i * (staticHeight + staticPadding))),5,staticWidth,staticHeight)];
+        [_avatarButton setFrame:CGRectMake((staticX + (i * (staticHeight + staticPadding))),5,staticWidth,staticHeight)];
         // make corners round
-        avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
-        avatarButton.clipsToBounds = YES;
+        _avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
+        _avatarButton.clipsToBounds = YES;
         // create a stock image
         UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
-        for(Account *anAccount in results) {
-            // how to compare an NSDate to a value in a sorted array
-            
-            // pseudo - if ( a.lastLogin < sortedArray.value.6)
-                // pseduo - then add avatar img to btn
-            
-            if([anAccount lastLogin] < [sortedArray2 valueForKey:@"lastLogin"]) {
-                NSLog(@"inside if");
-                UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
-                // apply avImg to btn
-                [avatarButton setBackgroundImage:avatarImg forState:UIControlStateNormal];
+        
+        [_avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
+    
+        // this should add 5x buttons
+        [avatarScroll addSubview:_avatarButton];
+    }
+    
+    [self addAvatarsToButtons];
+    
+}
+
+-(void)addAvatarsToButtons {
+    NSMutableArray *avatars = [NSMutableArray arrayWithCapacity:5];
+    Account *anAccount;
+    for ( anAccount in _results) {
+        if( anAccount.avatar == nil) {
+            UIImage *avtarImg = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
+            // convert UIImage to NSData
+            NSData *imageData = UIImageJPEGRepresentation(avtarImg, 1.0);
+            // save data to account
+            anAccount.avatar = imageData;
+            NSError *error = nil;
+            if (![_managedObjectContext save:&error]) {
+                NSLog(@"error %@", error);
             }
+        }else if([_last5LoginArray containsObject:anAccount.lastLogin]) { // the following line could be trouble
+            NSLog(@"anAccount.lastLogin = %@",anAccount.lastLogin);
+            UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
+            // apply avImg to btn
+            [avatars addObject:avatarImg];
         }
-        if (btnImage == nil) {
-            NSLog(@"can't find HomeBrewPoster1.jpg");
-        } else {
-            // apply stock image to button(s)
-//            [avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
+    }
+    NSLog(@"avatars = %@",avatars);
+NSAssert(
+         avatars.count == last5LoginArray.count
+,@"The loop is expected to find as many avatars as there are items in last5LoginArray"
+);
+    for ( int i = 0; i<5; i++) {
+        // check that we have enough logins
+        if ( i < _last5LoginArray.count) {
+            [_avatarButton setBackgroundImage:avatars[i] forState:UIControlStateNormal];
         }
-    // this should add 5x buttons
-    [avatarScroll addSubview:avatarButton];
     }
 }
 

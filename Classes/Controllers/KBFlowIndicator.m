@@ -24,15 +24,9 @@
 #import "KBFlowIndicator.h"
 #import "KBKegProcessing.h"
 
-// capin - commented below lines of code
+@interface KBFlowIndicator ()
 
-//#import "KBNotifications.h"
-//#import "KBTypes.h"
-//#import "KBDefines.h"
-
-//@interface KBFlowIndicator ()
-//
-//@end
+@end
 
 @implementation KBFlowIndicator
 
@@ -170,19 +164,12 @@
     [self setFlowRate:flowRate animated:YES];
     double amountPoured = [kegProcessing pourVolume];
     [self setVolume: amountPoured animated:YES];
-
-    
-    
-    
-    
 }
 
 - (void) kegProcessing:(KBKegProcessing *)kegProcessing didEndPourWithAmount:(double)amount {
-    
 }
 
 - (void) kegProcessing:(KBKegProcessing *)kegProcessing didReceiveRFIDTagId:(NSString *)tagID {
-    
 }
 
 - (void) kegProcessing:(KBKegProcessing *)kegProcessing didUpdatePourWithAmount:(double)amount flowRate:(double)flowRate {
@@ -199,5 +186,3 @@
     
 }
 @end
-
-

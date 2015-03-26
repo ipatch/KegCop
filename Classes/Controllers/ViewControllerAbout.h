@@ -5,7 +5,6 @@
 //  Created by capin on 6/11/12.
 //
 
-#import "AppDelegate.h"
 #import "AccountsDataModel.h"
 
 @interface ViewControllerAbout : UIViewController 

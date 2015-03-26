@@ -261,8 +261,6 @@
     return YES;
 }
 
-
-
 - (IBAction)removeAccount {
     NSLog(@"Button Pressed");
     
@@ -416,8 +414,6 @@
     // save the managed object context / save to DB
     [_managedObjectContext save:&error];
 
-    
-    // stuff added 2AUG13
     NSLog(@"{open_valve} btn tapped.");
     
     NSString *command = @"{open_valve}\n";
@@ -436,14 +432,14 @@
     
 }
 
-/* Begin addRFID - Serial Communication */
-
+/* 
+ * Begin addRFID - Serial Communication
+ */
 - (IBAction)addRFID:(id)sender {
     
     // btnAddRFID pressed
     
     NSLog(@"rfid badge # is %@",newrfidtagid);
-
 
     // set alert with a text input field
     [alertrfid setAlertViewStyle:UIAlertViewStylePlainTextInput];
@@ -454,7 +450,6 @@
     
     // set the delegate for the UIAlertView textfield
     [alertrfid textFieldAtIndex:0].delegate = self;
-    
     
     //open serial port
     
@@ -510,22 +505,9 @@
 
 
 # pragma mark - JailbrokenSerialDelegate
+
 - (void) JailbrokenSerialReceived:(char) ch {
 
-//    NSLog(@"got it");
-//
-//    NSString *s = [NSString stringWithFormat:@"%c",ch];
-//    NSLog(@"s = %@",s);
-//
-//    [newrfidtagid appendString:s];
-//
-//    NSLog(@"rfid char  = %@",newrfidtagid);
-//    
-//    if (newrfidtagid.length == 10)
-//    {
-//        NSLog(@"new tagid = %@",newrfidtagid);
-//        [alertrfid textFieldAtIndex:0].text = newrfidtagid;
-//    }
  }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -534,7 +516,9 @@
     return (textField.text.length - range.length + string.length <= 10);
 }
 
-// delegate method for UIAlertView - handles methods for button presses
+/*
+ * delegate method for UIAlertView - handles methods for button presses
+ */
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
@@ -556,13 +540,11 @@
     }
 }
 
-/* End addRFID - Serial Communication */
-
-// method to change username label
+/*
+ * method to change username label
+ */
 - (void)changeUSERNAME {
     _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;
-    NSString *userNameStr = [[NSString alloc] init];
-    userNameStr = _lblUSERNAME;
 }
 
 -(void)updateCredit {

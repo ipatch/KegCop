@@ -5,7 +5,6 @@
 //  Created by capin on 8/13/12.
 //
 
-#import <UIKit/UIKit.h>
 #import "JailbrokenSerial.h"
 #import "KBKegProcessing.h"
 

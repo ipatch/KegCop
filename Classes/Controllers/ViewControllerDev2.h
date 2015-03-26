@@ -10,7 +10,6 @@
 //  http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
 //
 
-#import <UIKit/UIKit.h>
 #import "DFBlunoManager.h"
 
 @interface ViewControllerDev2 : UIViewController <DFBlunoDelegate> {
@@ -32,9 +31,5 @@
 - (IBAction)actionSend:(id)sender;
 // method definition to dimiss scene
 - (IBAction)dismissScene:(id)sender;
-
-
-
-
 
 @end

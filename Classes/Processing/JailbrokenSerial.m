@@ -197,39 +197,4 @@
     [self write:[message UTF8String] length:[message length]];
 }
 
-/* commented handShake method to remove build warning 
-- (void) handShake {
-    
-    
-    // open serial port
-    [self open:B2400];
-    
-    int i = 0;
-    while(i < 1) {
-    
-        NSString *str = @"Hello Arduino";
-        
-        [self write:str];
-        
-        char buffer[12];
-        
-        [self read:buffer length:12];
-        
-        NSString *s = [NSString stringWithFormat:@"%s",buffer] ;
-        
-        NSLog(@"String s = %@",s);
-        
-        if(s == @"Hello iPhone")
-        {
-            i++;
-            NSLog(@"Handshake successful");
-            break;
-        }
-        else
-        {
-            NSLog(@"Handshake failed");
-        }
-    }
- }
-*/
 @end

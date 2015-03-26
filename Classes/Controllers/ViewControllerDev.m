@@ -13,12 +13,6 @@
 @end
 
 @implementation ViewControllerDev
-@synthesize tf = _tf;
-@synthesize btn = _btn;
-@synthesize lbl = _lbl;
-@synthesize btnValve = _btnValve;
-@synthesize btnBlink = _btnBlink;
-//@synthesize blink = _blink;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

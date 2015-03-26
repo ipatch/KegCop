@@ -18,17 +18,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
-// TODO
-// - clearly define what each class in the "Processing" group does
 //
 
 #import "KBKegboard.h"
-
-// capin - commented below line of code because "KBTypes.h" seems to deal with rating the beer.
-
-//#import "KBTypes.h"
-
-// capin - Added below two lines of code from "KBTypes.h" to make class file complete
 
 #define kLitersToOunces 33.8140227
 #define kOuncesToLiter 0.0295735296

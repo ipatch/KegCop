@@ -6,7 +6,6 @@
 //
 //
 
-#import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #define BLUNO_TRANSFER_SERVICE_UUID         @"dfb0"
@@ -21,7 +20,5 @@
 @property (strong, nonatomic) CBPeripheral *discoveredPeripheral;
 @property (strong, nonatomic) NSMutableData *data;
 
-
 - (IBAction) dismissScene:(id)sender;
-
 @end

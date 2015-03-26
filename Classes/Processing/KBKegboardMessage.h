@@ -18,13 +18,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
-// TODO - capin
-// - clearly define what this class does
-
-// the below files are "C" style macros and the values cannot be changed
-
-// OBJ-c python code
-
 // a class to represent a message from the board
 
 #define BAUD_RATE 115200
@@ -111,4 +104,3 @@ extern char *const KBSP_TRAILER;
 @property (readonly, retain, nonatomic) NSString *token;
 @property (readonly, assign, nonatomic) BOOL status; // YES if present, NO if removed
 @end
-

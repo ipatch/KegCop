@@ -17,7 +17,8 @@
 - (NSData *)AES256EncryptWithKey:(NSString *)key;
 - (NSData *)AES256DecryptWithKey:(NSString *)key;
 
-// add the below method signature to modularize func - decode base64 NSData
+// add the below method signature(s) to modularize func - decode base64 NSData
 - (NSData *)base64DataFromString: (NSString *)string;
+- (NSString*)base64forData:(NSData*)theData;
 
 @end

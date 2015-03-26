@@ -18,18 +18,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
-// TODO - capin
-// - figure out why "KBKegboardMessage.h" import statment has an error - COMPLETE
-// - #import "KBKegboardMessage.h" fixed :)
 
 #import "Serial.h"
 #import "KBKegboardMessage.h"
-
-
-// the below line of code is a "C" style macro and the value cannot be changed.
 #define SERIAL_PORT "/dev/tty.iap"
-
-//#define SERIAL_PORT "/Applications/SerialTest.app/TestData2NullTermination"
 
 @class KBKegboard;
 
@@ -47,7 +39,7 @@
  */
 @interface KBKegboard : NSObject {
     
-    // capin - commented below line of code for ARC compliance
+    // commented below line of code for ARC compliance
     // ref = http://stackoverflow.com/questions/8138902/existing-ivar-delegate-for-unsafe-unretained-property-delegate-must-be-un
     
     // id<KBKegboardDelegate> _delegate;

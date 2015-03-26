@@ -6,8 +6,6 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-
 @class ViewControllerAvatar4;
 
 @protocol ViewControllerAvatar4Delegate

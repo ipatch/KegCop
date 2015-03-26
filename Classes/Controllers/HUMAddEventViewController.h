@@ -6,8 +6,6 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-
 @interface HUMAddEventViewController : UITableViewController
 
 @end

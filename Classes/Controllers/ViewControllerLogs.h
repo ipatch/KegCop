@@ -5,15 +5,9 @@
 //  Created by capin on 7/28/12.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface ViewControllerLogs : UIViewController {
-    
     BOOL firstOpen;
 }
-
-    
-
 
 @property (weak, nonatomic) IBOutlet UIToolbar *btnDone;
 @property (weak, nonatomic) IBOutlet UITextView *logWindow;

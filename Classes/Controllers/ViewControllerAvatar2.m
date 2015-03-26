@@ -4,7 +4,6 @@
 //
 //  Created by capin on 11/12/14.
 //
-//
 
 #import "ViewControllerAvatar2.h"
 #import <AVFoundation/AVFoundation.h>
@@ -12,7 +11,6 @@
 @interface ViewControllerAvatar2 ()
 
 @end
-
 
 @implementation ViewControllerAvatar2
 
@@ -22,8 +20,6 @@ AVCaptureStillImageOutput *stillImageOutput;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // do any additional setup after loading the view, typically from a nib.
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -83,7 +79,5 @@ AVCaptureStillImageOutput *stillImageOutput;
                 self.imageView.image = image;
             }
                                      }];
-    
-    
 }
 @end

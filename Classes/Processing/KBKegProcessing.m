@@ -18,20 +18,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
-// TODO
-// - clearly define class in what it does
-// - fix errors in class file, as of 28MAY13 there is one error :/
-// - interpret code coming from Arduino, recieves messages from board
-
 
 #import "KBKegProcessing.h"
 
-
 @implementation KBKegProcessing
-
-// figure out why below statement is causing an ARC error
-
-@synthesize delegate=_delegate, flowRate=_flowRate;
 
 - (id)init {
     if ((self = [super init])) {

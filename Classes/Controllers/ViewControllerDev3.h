@@ -6,21 +6,14 @@
 //
 //
 
-#import <UIKit/UIKit.h>
 #import "JailbrokenSerial.h"
 #import "KBKegboardCommand.h"
 #import "KBKegProcessing.h"
 
 @interface ViewControllerDev3 : UIViewController <JailbrokenSerialDelegate> {
-    
-    
     JailbrokenSerial *jbserial;
-    
     KBKegProcessing *kegProcessing;
-    
     NSMutableString *text;
-    
-    
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnDone;

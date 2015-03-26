@@ -22,7 +22,6 @@
 
 // changed UIView to UIViewController
 
-#import <UIKit/UIKit.h>
 #import "KBKegProcessing.h"
 
 @interface KBFlowIndicator : UIViewController <KBKegProcessingDelegate> {

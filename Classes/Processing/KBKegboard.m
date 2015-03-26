@@ -18,10 +18,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
-//
-// TODO - capin
-// - clearly define what this class file does
-// - fix error on "@synthesize delegate=_delegate"
 
 #import "KBKegboard.h"
 #import "crc16ccitt.h"

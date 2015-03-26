@@ -14,9 +14,6 @@
 
 @implementation ViewControllerLogs
 
-@synthesize btnDone = _btnDone;
-@synthesize logWindow = _logWindow; 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,7 +39,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -50,7 +46,6 @@
     [self setBtnDone:nil];
     [self setLogWindow:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -58,14 +53,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)btnPressed:(id)sender 
-{
+- (IBAction)btnPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-- (void)viewDidAppear:(BOOL)animated 
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
@@ -106,7 +98,5 @@ txtOutputRange.location = [[_logWindow text] length]; txtOutputRange.length = 0;
 _logWindow.editable = TRUE;
 [_logWindow scrollRangeToVisible:txtOutputRange]; [_logWindow setSelectedRange:txtOutputRange]; _logWindow.editable = FALSE;
 }
-
-
 
 @end

@@ -4,20 +4,19 @@
 //
 //  Created by capin on 6/10/12.
 //
+//  this class is soon to be obsolete.
+//
 
 #import <Foundation/Foundation.h>
 
 @interface ModelWelcome : NSObject {
     
+    // remove this object or the property below
     NSString *passedText;
 }
 
-// not sure how to implement the model, but it's here for when it
-// will be needed, if needed \o/
-
-@property (nonatomic, strong) NSString* passedText;
+@property (nonatomic, strong) NSString *passedText;
 
 + (ModelWelcome *) sharedModelWelcome;
-
 
 @end

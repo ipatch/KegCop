@@ -43,13 +43,11 @@ typedef enum {
 
 @end
 
-
 @interface KBKegboardCommandPing : KBKegboardCommand {}
 
 + (KBKegboardCommandPing *)kegboardCommandPing;
 
 @end
-
 
 @interface KBKegboardCommandSetOutput : KBKegboardCommand {}
 @property (readonly, assign, nonatomic) NSUInteger outputId;

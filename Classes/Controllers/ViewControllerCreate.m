@@ -4,37 +4,19 @@
 //
 //  Created by capin on 6/11/12.
 //
+// implement method to validate - createUserTextField, creatPinTextField, createEmailTextField, createPhoneTextField
 
 #import "ViewControllerCreate.h"
 #import "NSData+AES256.h"
-#import "AccountsDataModel.h"
 
-@interface ViewControllerCreate()
-
+@interface ViewControllerCreate() {
+    
+}
 @end
 
-@implementation ViewControllerCreate
-
-// create new account
-@synthesize createScroller = _createScroller;
-@synthesize createUserTextField = _createUserTextField;
-@synthesize createPinTextField = _createPinTextField;
-@synthesize createPinReTextField = _createPinReTextField;
-@synthesize createEmailTextField = _createEmailTextField;
-@synthesize createPhoneNumber = _createPhoneNumber;
-@synthesize createSubmit = _createSubmit;
-@synthesize createUNnotValid = _createUNnotValid;
-@synthesize createPinNotValid = _createPinNotValid;
-@synthesize createEmailNotValid = _createEmailNotValid;
-@synthesize createPhoneNumberNotValid = _createPhoneNumberNotValid;
-@synthesize createAccountSuccess = _createAccountSuccess;
-
-// keyboard toolbar
-@synthesize doneButton = _doneButton;
-
-// Core Data
-@synthesize managedObjectContext = _managedObjectContext;
-
+@implementation ViewControllerCreate {
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,7 +60,6 @@
     NSLog(@"The currently loaded view:%c",[self.view isKindOfClass:[ViewControllerCreate class]]);
 }
 
-
 - (void)viewDidUnload
 {
     [self setCreateScroller:nil];
@@ -100,8 +81,9 @@
     // Release any retained subviews of the main view.
 }
 
-// method to limit character input in text fields
-
+/*
+ * method to limit character input in text fields
+ */
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if(textField == _createUserTextField) return (_createUserTextField.text.length + string.length <=16);
@@ -115,12 +97,11 @@
 {
     currentTextField = textFieldView;
     [currentTextField setInputAccessoryView:toolBar];
-    
 }
 
-// method to determine values in text fields - compare pins, 
-// implement method to validate - createUserTextField, creatPinTextField, createEmailTextField, createPhoneTextField
-
+/*
+ * method to determine values in text fields - compare pins,
+ */
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     currentTextField = nil;
@@ -136,16 +117,6 @@
     else {
         [_createPinNotValid setHidden:NO];
     }
-    
-    // check _createUserTextField against regular expression
-    //NSString *user = _createUserTextField.text;
-    
-    
-    // var regexp = /^[a-zA-Z0-9-_]+$/;
-
-    
-    // ?:[a-z][a-z]*[0-9]+[a-z0-9]*
-    
     // check _createEmailTextField
     if([self validateEmail:[_createEmailTextField text]] ==1)
 	{
@@ -155,11 +126,11 @@
     else {
         [_createEmailNotValid setHidden:NO];
     }
-    
-    // reg expression to validate phone number @"^\\+?[0-9]*$"
 }
 
-// method to determine screen layout
+/*
+ * method to determine screen layout
+ */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
@@ -174,8 +145,9 @@
 
 }
 
-
-// method - CREATE - to pull text from text fields and store in account database
+/*
+ * CREATE - to pull text from text fields and store in account database
+ */
 - (IBAction)createAccount:(id)sender {
     
     [self checkTextFieldCharLength];
@@ -246,7 +218,7 @@
         printf("%s\n", [[cipher description] UTF8String]);
         
         // convert NSData to Base64 encoded NSString
-        NSString *cipherB64 = [self base64forData:cipher];
+        NSString *cipherB64 = [[NSData alloc] base64forData:cipher];
         
         [newAccount setValue:cipherB64 forKey:@"pin"];        
         
@@ -328,8 +300,9 @@ if (i >= 1) return YES; else return NO;
 }
 
 
-// method - validate email
-
+/*
+ * method - validate email
+ */
 - (BOOL) validateEmail: (NSString *) candidate 
 {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
@@ -338,8 +311,9 @@ if (i >= 1) return YES; else return NO;
     return [emailTest evaluateWithObject:candidate];
 }
 
-// method - keyboard behavior
-
+/*
+ * method - keyboard behavior
+ */
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self 
@@ -380,8 +354,9 @@ if (i >= 1) return YES; else return NO;
     
 }
 
-// methods - keyboard behavior
-
+/*
+ * methods - keyboard behavior
+ */
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -453,40 +428,4 @@ if (i >= 1) return YES; else return NO;
     ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
     modelwelcome.passedText = username;
 }
-
-
-//from: http://www.cocoadev.com/index.pl?BaseSixtyFour
-- (NSString*)base64forData:(NSData*)theData {
-    
-    const uint8_t* input = (const uint8_t*)[theData bytes];
-    NSInteger length = [theData length];
-    
-    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-    
-    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
-    uint8_t* output = (uint8_t*)data.mutableBytes;
-    
-    NSInteger i;
-    for (i=0; i < length; i += 3) {
-        NSInteger value = 0;
-        NSInteger j;
-        for (j = i; j < (i + 3); j++) {
-            value <<= 8;
-            
-            if (j < length) {
-                value |= (0xFF & input[j]);
-            }
-        }
-        
-        NSInteger theIndex = (i / 3) * 4;
-        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
-        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
-        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
-        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
-    }
-    
-    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-}
-
-
 @end

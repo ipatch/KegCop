@@ -8,21 +8,9 @@
 #import "ViewControllerForgot.h"
 
 @interface ViewControllerForgot ()
-
-
-
 @end
 
-
-
 @implementation ViewControllerForgot
-
-
-// forgot email screen
-@synthesize forgotEmailInvalid = _forgotEmailInvalid;
-@synthesize forgotEmailSent = _forgotEmailSent;
-@synthesize textFieldEmailReset = _textFieldEmailReset;
-// end forgot email
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,12 +45,10 @@
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
-// forgot
-//[_textFieldEmailReset resignFirstResponder];
+
 }
 
 - (IBAction)dismissScene:(id)sender {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

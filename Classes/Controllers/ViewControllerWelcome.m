@@ -6,10 +6,6 @@
 //
 
 #import "ViewControllerWelcome.h"
-#import "NSData+AES256.h"
-#import <dispatch/dispatch.h> // Grand Central Dispatch
-#import "AFNetworking.h"
-#import "AccountsDataModel.h"
 
 #define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
 

@@ -5,18 +5,12 @@
 //  Created by capin on 6/20/12.
 //
 
-#import <UIKit/UIKit.h>
 #import "Account.h"
-#import "AppDelegate.h"
 #import "ViewControllerWelcome.h"
 #import "JailbrokenSerial.h"
-// add for CoreBluetooth functionality
 #import "DFBlunoManager.h"
-#import "ViewControllerAvatar4.h" // add this line to make delegation work :/
+#import "ViewControllerAvatar4.h"
 
-
-
-// want to configure iPod Touch in peripheral mode, and have microcontroller in central mode.
 @interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, DFBlunoDelegate, ViewControllerAvatar4Delegate>
 {
     UIButton *removeAccount;
@@ -28,10 +22,7 @@
     NSMutableString *rfidbadgenumber;
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;
-    
-    }
-
-
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
 @property (weak, nonatomic) IBOutlet UILabel *lblUSERNAME;
 @property (weak, nonatomic) IBOutlet UILabel *creditX;
@@ -45,15 +36,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *idleTimerTime;
 @property (weak, nonatomic) IBOutlet UIButton *captureAvatar;
 
-
-//test
 @property (weak, nonatomic) IBOutlet UIButton *btnTest;
-
 
 // Core Bluetooth
 @property(strong, nonatomic) DFBlunoManager *blunoManager;
 @property(strong, nonatomic) DFBlunoDevice *blunoDev;
-
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

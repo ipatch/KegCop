@@ -36,7 +36,4 @@
 - (void)write:(const char *)message length:(int)len;
 - (void)write:(NSString *)message;
 
-// - (void)handShake;
 @end
-
-// test comment added after deleting Serial files

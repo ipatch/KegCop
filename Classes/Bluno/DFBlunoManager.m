@@ -121,7 +121,6 @@
             DFBlunoDevice* blunoDev = [self.dicBlunoDevices objectForKey:strKey];
             blunoDev->_bReadyToWrite = NO;
         }
-        
     }
     else
     {

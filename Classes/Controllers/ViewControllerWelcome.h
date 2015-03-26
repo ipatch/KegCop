@@ -15,6 +15,10 @@
 #import "ModelWelcome.h"
 #import "ViewControllerDev.h"
 #import "JailbrokenSerial.h"
+#import "NSData+AES256.h"
+#import <dispatch/dispatch.h> // Grand Central Dispatch
+#import "AFNetworking.h"
+#import "AccountsDataModel.h"
 
 @interface ViewControllerWelcome : UIViewController <JailbrokenSerialDelegate>
 

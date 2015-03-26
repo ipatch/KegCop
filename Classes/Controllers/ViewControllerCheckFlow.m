@@ -13,7 +13,6 @@
 @end
 
 @implementation ViewControllerCheckFlow
-@synthesize btnDone = _btnDone;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +45,4 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 @end

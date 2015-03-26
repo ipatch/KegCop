@@ -18,8 +18,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <http://www.gnu.org/licenses/>.
 //
-// Made ARC compliant *crosses fingers* for use with KegCop on 28MAY13
-//
 
 #import "KBKegboardMessage.h"
 #import "KBKegboardUtils.h"
@@ -104,9 +102,7 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 
 @end
 
-
 @implementation KBKegboardMessageHello
-@synthesize protocolVersion=_protocolVersion;
 
 + (NSUInteger)messageId {
     return KB_MESSAGE_ID_HELLO;
@@ -191,7 +187,6 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 
 @end
 
-
 @implementation KBKegboardMessageTemperatureReading
 @synthesize sensorName=_sensorName, sensorReading=_sensorReading;
 
@@ -219,7 +214,6 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 
 @end
 
-
 @implementation KBKegboardMessageOutputStatus
 @synthesize outputName=_outputName, outputReading=_outputReading;
 
@@ -246,7 +240,6 @@ char *const KBSP_TRAILER = kKBSP_TRAILER;
 }
 
 @end
-
 
 @implementation KBKegboardMessageAuthToken
 @synthesize deviceName=_deviceName, token=_token, status=_status;

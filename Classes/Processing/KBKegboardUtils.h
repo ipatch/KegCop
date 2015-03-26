@@ -41,5 +41,3 @@
 + (void)writeCRCFromData:(char *)data length:(NSUInteger)length;
 
 @end
-
-

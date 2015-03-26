@@ -5,8 +5,6 @@
 //  Created by capin on 6/12/12.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface ViewControllerForgot : UIViewController
 
 // Forgot Email
@@ -18,7 +16,6 @@
 // end Forgot
 
 - (IBAction)dismissKeyboard:(id)sender;
-
 - (IBAction)dismissScene:(id)sender;
 @end
 

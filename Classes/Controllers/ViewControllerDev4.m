@@ -14,11 +14,6 @@
 
 @implementation ViewControllerDev4
 
-@synthesize centralManager = _centralManager;
-@synthesize discoveredPeripheral = _discoveredPeripheral;
-@synthesize data = _data;
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,9 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    
     // initialize central manager object
     _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     
@@ -74,22 +66,6 @@
         NSLog(@"Connecting to peripheral %@", _discoveredPeripheral);
         [_centralManager connectPeripheral:peripheral options:nil];
     }
-    
-    
-    
-    
-//    if (_discoveredPeripheral != peripheral) {
-//        // Save a local copy of the peripheral, so CoreBluetooth doesn't get rid of it
-//        // _discoveredPeripheral = peripheral;
-//        peripheral = _discoveredPeripheral;
-//        // And connect
-//        NSLog(@"Connecting to peripheral %@", _discoveredPeripheral);
-//        [_centralManager connectPeripheral:_discoveredPeripheral options:nil];
-//        
-//        // then stop scanning for peripherals
-//        [_centralManager stopScan];
-//        NSLog(@"Scanning stopped");
-//    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -181,9 +157,6 @@
 }
 
 - (IBAction)dismissScene:(id)sender {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 @end

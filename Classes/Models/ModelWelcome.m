@@ -10,12 +10,10 @@
 @interface ModelWelcome () {
     
 }
-
 @end
 
 @implementation ModelWelcome
-
-@synthesize passedText = _passedText;
+@synthesize passedText =_passedText;
 
 static ModelWelcome *sharedModelWelcome = nil;
 
@@ -27,7 +25,4 @@ static ModelWelcome *sharedModelWelcome = nil;
     }
     return sharedModelWelcome;
 }
-
-
-
 @end

@@ -275,7 +275,7 @@
     }
     NSLog(@"avatars = %@",avatars);
 NSAssert(
-         avatars.count == last5LoginArray.count
+         avatars.count == _last5LoginArray.count
 ,@"The loop is expected to find as many avatars as there are items in last5LoginArray"
 );
     for ( int i = 0; i<5; i++) {

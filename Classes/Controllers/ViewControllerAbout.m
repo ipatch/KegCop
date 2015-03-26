@@ -6,17 +6,15 @@
 //
 
 #import "ViewControllerAbout.h"
-#import "AccountsDataModel.h"
 
-@interface ViewControllerAbout ()
-
+@interface ViewControllerAbout () {
+    
+}
 @end
 
-@implementation ViewControllerAbout
-
-@synthesize buildnumber = _buildnumber;
-@synthesize createdaccounts = _createdaccounts;
-@synthesize managedObjectContext = _context;
+@implementation ViewControllerAbout {
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

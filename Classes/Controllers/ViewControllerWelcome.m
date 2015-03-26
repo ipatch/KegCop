@@ -312,8 +312,6 @@ NSAssert(
     [serial close];
 }
 
-
-
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {  
     return YES; 
 }
@@ -323,20 +321,16 @@ NSAssert(
     [textField setInputAccessoryView:toolBar];
 }
 
-
 - (IBAction)dismissKeyboard:(id)sender {
     // welcome
     [_textFieldUsername resignFirstResponder];
     [_textFieldPin resignFirstResponder];
 }
 
-
 // method to dismiss keyboard - return button
 - (IBAction) textFieldDoneEditing : (id) sender {
     [sender resignFirstResponder];
 }
-
-
 
 - (IBAction)processLogin:(id)sender {
     
@@ -348,9 +342,6 @@ NSAssert(
     // First - make activity indicator visible, then start animating, then turn of wrong user / pin label
     _welcomeActivityIndicator.hidden = FALSE;
     [_welcomeActivityIndicator startAnimating ];
-    // delay execution of my block for X seconds.
-    //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
-    
     
     [_wrongUserPin setHidden:YES];
         
@@ -381,7 +372,6 @@ NSAssert(
     
     NSLog(@"The returned results are %@",results);
     
-    
     // check text field against results stored in DB
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_textFieldUsername.text]){
@@ -407,9 +397,8 @@ NSAssert(
             // password - print value of pin stored in DB
             NSLog(@"DB pin = %@",secret);
             
-            
             // password - decode base64 NSData
-            NSData *cipher = [self base64DataFromString:secret];
+            NSData *cipher = [[NSData alloc ]base64DataFromString:secret];
             
             // password - decrypt data
             NSData *plain = [cipher AES256DecryptWithKey:key];
@@ -433,8 +422,7 @@ NSAssert(
                 // Load ViewController(Root)Home
                 if([anAccount.username isEqualToString:@"root"])
                 {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-                    ViewControllerRootHome *roothome = (ViewControllerRootHome *)[storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
+                    ViewControllerRootHome *roothome = (ViewControllerRootHome *)[self.storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
                     [self presentViewController:roothome animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin
@@ -444,8 +432,7 @@ NSAssert(
                     [_welcomeActivityIndicator stopAnimating];
                 }
                 else {
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-                    ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
+                    ViewControllerHome *home = (ViewControllerHome *)[self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
                     
                     // pass username text to home screen
                     username = _textFieldUsername.text;
@@ -491,8 +478,6 @@ NSAssert(
             [_wrongUserPin setHidden:NO];
             }
     }
-    
-   // }); // close curly brace for 2 second delay on login.
 }
 
 - (IBAction)showForgotScene:(id)sender {
@@ -630,123 +615,6 @@ NSAssert(
 -(void) passValues {
     ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
     modelwelcome.passedText = username;
-}
-
-// need to do something with the following method -
-- (NSData *)base64DataFromString: (NSString *)string
-{
-unsigned long ixtext, lentext;
-unsigned char ch, inbuf[4], outbuf[3];
-short i, ixinbuf;
-Boolean flignore, flendtext = false;
-const unsigned char *tempcstring;
-NSMutableData *theData;
-
-if (string == nil)
-{
-    return [NSData data];
-}
-
-ixtext = 0;
-
-tempcstring = (const unsigned char *)[string UTF8String];
-
-lentext = [string length];
-
-theData = [NSMutableData dataWithCapacity: lentext];
-
-ixinbuf = 0;
-
-while (true)
-{
-    if (ixtext >= lentext)
-    {
-        break;
-    }
-    
-    ch = tempcstring [ixtext++];
-    
-    flignore = false;
-    
-    if ((ch >= 'A') && (ch <= 'Z'))
-    {
-        ch = ch - 'A';
-    }
-    else if ((ch >= 'a') && (ch <= 'z'))
-    {
-        ch = ch - 'a' + 26;
-    }
-    else if ((ch >= '0') && (ch <= '9'))
-    {
-        ch = ch - '0' + 52;
-    }
-    else if (ch == '+')
-    {
-        ch = 62;
-    }
-    else if (ch == '=')
-    {
-        flendtext = true;
-    }
-    else if (ch == '/')
-    {
-        ch = 63;
-    }
-    else
-    {
-        flignore = true; 
-    }
-    
-    if (!flignore)
-    {
-        short ctcharsinbuf = 3;
-        Boolean flbreak = false;
-        
-        if (flendtext)
-        {
-            if (ixinbuf == 0)
-            {
-                break;
-            }
-            
-            if ((ixinbuf == 1) || (ixinbuf == 2))
-            {
-                ctcharsinbuf = 1;
-            }
-            else
-            {
-                ctcharsinbuf = 2;
-            }
-            
-            ixinbuf = 3;
-            
-            flbreak = true;
-        }
-        
-        inbuf [ixinbuf++] = ch;
-        
-        if (ixinbuf == 4)
-        {
-            ixinbuf = 0;
-            
-            outbuf[0] = (inbuf[0] << 2) | ((inbuf[1] & 0x30) >> 4);
-            outbuf[1] = ((inbuf[1] & 0x0F) << 4) | ((inbuf[2] & 0x3C) >> 2);
-            outbuf[2] = ((inbuf[2] & 0x03) << 6) | (inbuf[3] & 0x3F);
-            
-            for (i = 0; i < ctcharsinbuf; i++)
-            {
-                [theData appendBytes: &outbuf[i] length: 1];
-            }
-        }
-        
-        if (flbreak)
-        {
-            break;
-        }
-    }
-}
-
-return theData;
 }
 
 -(void)onTick:(NSTimer *)timer {

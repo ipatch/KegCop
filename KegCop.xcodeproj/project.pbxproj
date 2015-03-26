@@ -1046,7 +1046,7 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CURRENT_PROJECT_VERSION = 107;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1087,7 +1087,7 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CURRENT_PROJECT_VERSION = 107;
 				FRAMEWORK_SEARCH_PATHS = (

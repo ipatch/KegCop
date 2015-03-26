@@ -77,19 +77,6 @@
         
         NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
         
-        
-        // added the below lines following a tutorial about making
-        // lightweight migrations to Core Data
-//        NSDictionary *options = @{
-//                                  NSMigratePersistentStoresAutomaticallyOption : @YES,
-//                                  NSInferMappingModelAutomaticallyOption : @YES
-//                                  };
-        
-        
-        
-        
-        
-        
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                                  [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
         

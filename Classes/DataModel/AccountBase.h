@@ -7,9 +7,8 @@
 
 #import <CoreData/CoreData.h>
 
-@interface AccountBase : NSManagedObject
-{
-    
+@interface AccountBase : NSManagedObject {
+
 }
 
 @property (nonatomic, retain) NSString *username;

@@ -15,6 +15,10 @@
 #define BLUNO_TRANSFER_SERVICE_UUID         @"0xDFB0"
 #define BLUNO_TRANSFER_CHARACTERISTIC_UUID  @"0xDFB2"
 
-#define NOTIFY_MTU 20
+// the below value could be paramount to getting secure com working
+// with the Bluno.
+
+//#define NOTIFY_MTU 20
+#define NOTIFY_MTU 175
 
 #endif

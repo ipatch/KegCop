@@ -9,16 +9,7 @@
 #import "ViewControllerWelcome.h"
 #import "AccountsDataModel.h"
 
-// It loads the view controller and puts it into the window.
-
 @implementation AppDelegate
-
-
-@synthesize window = _window;
-
-//@synthesize managedObjectContext = __managedObjectContext; // gateway into saving objects, NOT thread safe
-//@synthesize managedObjectModel = __managedObjectModel;
-//@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -206,5 +197,4 @@
 //
 //#endif
 //}
-
 @end

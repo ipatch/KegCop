@@ -9,7 +9,6 @@
 #import "NSData+AES256.h"
 #import <dispatch/dispatch.h> // Grand Central Dispatch
 #import "AFNetworking.h"
-#import <QuartzCore/QuartzCore.h> // makes round buttons :)
 #import "AccountsDataModel.h"
 
 #define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
@@ -25,41 +24,24 @@
 @property(nonatomic, retain) NSMutableArray *last5LoginArray;
 @end
 
-@implementation ViewControllerWelcome
-
-//
-// Notes
-//
-// it's bad not to use the "= _" SO USE IT! (-.-)
-// synthesize allocates room for the pointer (o.O)
-// synthesize creates the setter and the getter
-// use the "getter" whenever we want to talk to a UI element.
-// all synthesize does is make the instance variable for the pointer
-// think of the controller as a way your model is presented to the user
-// "id" is a pointer to ANY type of object.
-//
-//
-
-// Welcome screen
-@synthesize welcomeScroller = _welcomeScroller;
-@synthesize textFieldUsername = _textFieldUsername;
-@synthesize textFieldPin = _textFieldPin;
-@synthesize wrongUserPin = _wrongUserPin;
-@synthesize welcomeLogin = _welcomeLogin;
-@synthesize btnForgot = _btnForgot;
-@synthesize btnCreate = _btnCreate;
-@synthesize welcomeActivityIndicator = _welcomeActivityIndicator;
-@synthesize welcomeAbout = _welcomeAbout;
-@synthesize dev = _dev;
-
-// Core Data
-@synthesize managedObjectContext = _managedObjectContext;
-
-// keyboard toolbar
-@synthesize doneButton = _doneButton;
-
+@implementation ViewControllerWelcome {
+        // toolbar
+        IBOutlet UIToolbar *toolBar;
+        NSString *username;
+        
+        // serial stuff
+        JailbrokenSerial *serial;
+        
+        // RFID stuff
+        NSMutableString *scantagid;
+        
+        // legal disclaimer
+        UIAlertView *alertlegal;
+        
+        // Navigation bar
+        UINavigationBar *navBar;
+}
 #pragma mark viewDidLoad
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -261,16 +243,13 @@
         // this should add 5x buttons
         [avatarScroll addSubview:_avatarButton];
     }
-    
     [self addAvatarsToButtons];
-    
 }
 
 -(void)fillUserName {
     NSLog(@"avatar button press works :)");
     
     // need to get NSMutableArray *avatars from addAvatarsToButtons method
-    
 }
 
 -(void)addAvatarsToButtons {
@@ -525,7 +504,7 @@ NSAssert(
 - (IBAction)showCreateScene:(id)sender {
     
     // display a UIAlertView displaying legal disclaimer.
-    alertlegal = [[UIAlertView alloc] initWithTitle:@"Terms of Service" message:@"By clicking agree you abide to the terms of this application.\n\nThis iOS application is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nBy creating an account on this system you are NOT PAYING FOR BEER!  YOU ARE MAKING A DONATION TO THE PERSON WHO IS RESPONSIBLE FOR THE ADMIN / ROOT ACCOUNT ON THE SYSTEM  THE PERSON WHO GOVERNS THE ROOT ACCOUNT ON THE SYSTEM IS NOT RESPONSIBLE FOR YOUR DRIINKING OR THE RESULTS FROM THE BEHAVIOR OF YOUR DRINKING.\n\nThat being said, PLEASE DRINK RESPONSIBLY, AND TRY TO HAVE SOME FUN." delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Agree", nil];
+    alertlegal = [[UIAlertView alloc] initWithTitle:@"Terms of Service" message:@"By clicking agree you abide to the terms of this application.\n\nThis iOS application is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the MIT License for more details.\n\nBy creating an account on this system you are NOT PAYING FOR BEER!  YOU ARE MAKING A DONATION TO THE PERSON WHO IS RESPONSIBLE FOR THE ADMIN / ROOT ACCOUNT ON THE SYSTEM  THE PERSON WHO GOVERNS THE ROOT ACCOUNT ON THE SYSTEM IS NOT RESPONSIBLE FOR YOUR DRIINKING OR THE RESULTS FROM THE BEHAVIOR OF YOUR DRINKING.\n\nThat being said, PLEASE DRINK RESPONSIBLY, AND TRY TO HAVE SOME FUN." delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Agree", nil];
     
     // set the size of the UIAlertView
     //alertlegal.frame = CGRectMake(0, 200, 200, 200);
@@ -535,7 +514,7 @@ NSAssert(
     
     // start x, start y, width, height
     
-    [textView setText:@"This iOS application is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.\n\nBy creating an account on this system you are NOT PAYING FOR BEER!  YOU ARE MAKING A DONATION TO THE PERSON WHO IS RESPONSIBLE FOR THE ADMIN / ROOT ACCOUNT ON THE SYSTEM  THE PERSON WHO GOVERNS THE ROOT ACCOUNT ON THE SYSTEM IS NOT RESPONSIBLE FOR YOUR DRIINKING OR THE RESULTS FROM THE BEHAVIOR OF YOUR DRINKING.\n\nThat being said, PLEASE DRINK RESPONSIBLY, AND TRY TO HAVE SOME FUN.\n\nBy clicking the agree button seen below this text I am stating that I have read this disclaimer, and that I will agree to the terms posted in this disclaimer."];
+    [textView setText:@"This iOS application is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the MIT License for more details.\n\nBy creating an account on this system you are NOT PAYING FOR BEER!  YOU ARE MAKING A DONATION TO THE PERSON WHO IS RESPONSIBLE FOR THE ADMIN / ROOT ACCOUNT ON THE SYSTEM  THE PERSON WHO GOVERNS THE ROOT ACCOUNT ON THE SYSTEM IS NOT RESPONSIBLE FOR YOUR DRIINKING OR THE RESULTS FROM THE BEHAVIOR OF YOUR DRINKING.\n\nThat being said, PLEASE DRINK RESPONSIBLY, AND TRY TO HAVE SOME FUN.\n\nBy clicking the agree button seen below this text I am stating that I have read this disclaimer, and that I will agree to the terms posted in this disclaimer."];
     
     textView.editable = NO;
     
@@ -584,9 +563,6 @@ NSAssert(
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-   
-    NSLog(@"method was loaded at startup");
-    printf("the printf statement is read");
 }
 
 // method keyboard behavior
@@ -656,7 +632,7 @@ NSAssert(
     modelwelcome.passedText = username;
 }
 
-
+// need to do something with the following method -
 - (NSData *)base64DataFromString: (NSString *)string
 {
 unsigned long ixtext, lentext;

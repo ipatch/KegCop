@@ -7,12 +7,9 @@
 
 #import "ViewControllerSerialConsole.h"
 
-@implementation ViewControllerSerialConsole
-
-@synthesize textEntry = _textEntry;
-@synthesize btnSend = _btnSend;
-@synthesize serialView = _serialView;
-
+@implementation ViewControllerSerialConsole {
+    
+}
 
 #pragma mark - View lifecycle
 
@@ -74,5 +71,4 @@
     [text appendFormat:@"%c", ch];
     _serialView.text = text;
 }
-
 @end

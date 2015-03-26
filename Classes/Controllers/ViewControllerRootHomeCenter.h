@@ -15,10 +15,8 @@
 - (void)movePanelLeft;
 - (void)movePanelRight;
 
-
 @required
 - (void)movePanelToOriginalPosition;
-
 @end
 
 @interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeCenterDelegate> {
@@ -29,5 +27,4 @@
 @property (nonatomic, weak) IBOutlet UIButton *leftButton;
 @property (nonatomic, strong) IBOutlet UINavigationBar *navBar;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *hamMenu;
-
 @end

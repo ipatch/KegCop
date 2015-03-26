@@ -11,17 +11,14 @@
 
 @end
 
-@implementation ViewControllerWebView
-@synthesize webView = _webView;
-@synthesize btnDone = _btnDone;
-
+@implementation ViewControllerWebView {
+    
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    
+	
     NSString *urlAddress = @"http://www.paypal.com";
     
     // Create a URL object
@@ -32,11 +29,6 @@
     
     // Load the the request in the webview
     [_webView loadRequest:request];
-    
-    
-    
-    
-    
 }
 
 - (void)viewDidUnload
@@ -53,11 +45,6 @@
 }
 
 - (IBAction)dimissWebView:(id)sender {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-    ViewControllerHome *home = (ViewControllerHome *)[storyboard instantiateViewControllerWithIdentifier:@"Home"];
-    [self presentViewController:home animated:YES completion:nil];
-    
-    
+[self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

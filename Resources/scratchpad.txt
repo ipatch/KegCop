@@ -1,3 +1,11 @@
+
+====================================================
+26MAR15
+it is no longer necessary to synthesize properties in the .m file,
+Xcode / Obj-C auto synthesizes properties with the "_" i.e.,
+_mybutton
+
+
 ====================================================
 19MAR15 - is the Bluno the peripheral or the central?
 ====================================================

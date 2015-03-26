@@ -13,7 +13,6 @@
 #import "ViewControllerRootHomeLeftPanel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "KCModalPickerView.h"
-#import "AccountsDataModel.h"
 
 #define CENTER_TAG 1
 #define LEFT_PANEL_TAG 2
@@ -37,65 +36,24 @@
 
 @end
 
-@implementation ViewControllerRootHome
+@implementation ViewControllerRootHome {
+    
+}
 
 // synthesize the delegate
 @synthesize delegate; // synthesize ViewControllerRootHome delegate
 
-@synthesize items = _items;
-@synthesize pickerView = _pickerView;
-
-@synthesize rootHomeScroller = _rootHomeScroller;
-@synthesize tfDeleteAccount = _tfDeleteAccount;
-@synthesize btnDeleteAccount = _btnDeleteAccount;
-@synthesize btnDisplayAccount = _btnDisplayAccount;
-@synthesize btnDisplayEmail = _btnDisplayEmail;
-@synthesize tvDisplayAccount = _tvDisplayAccount;
-
-@synthesize switchRfid = _switchRfid;
-@synthesize tfCreditUsername = _tfCreditUsername;
-@synthesize tfCredit = _tfCredit;
-@synthesize btnAddCredit = _btnAddCredit;
-@synthesize lblCredit = _lblCredit;
-@synthesize lblRootCredit = _lblRootCredit;
-@synthesize btnLogout = _btnLogout;
-@synthesize btnCheckFlow = _btnCheckFlow;
-@synthesize btnSerialConsole = _btnSerialConsole;
-@synthesize btnLogs = _btnLogs;
-@synthesize btndev = _btndev;
-
-//tabbar crap
-@synthesize tbRoot = _tbRoot;
-@synthesize tbiUsers = _tbiUsers;
-@synthesize tbiMisc = _tbiMisc;
-@synthesize tbiDev = _tbiDev;
 
 
-// added for debugging purposes - program crash when removed :/
-@synthesize lblArduinoGood = _lblArduinoGood;
-@synthesize lblArduinoBad = _lblArduinoBad;
 
-// added dev3 btn for CoreBluetooth testing.
-@synthesize btnDev4 = _btnDev4;
-
-
-// Core Data
-@synthesize managedObjectContext = _managedObjectContext;
-
-// it is no longer necessary to synthesize properties in the .m file,
-// Xcode / Obj-C auto synthesizes properties with the "_" i.e.,
-// _mybutton
-
-
-#pragma mark NEW STUFF
+#pragma mark - load VC Root Home
 -(void)loadVCRH
 {
     // Load your RootMenu view here! (Check the .m file for LeftPanel where I updated the method that calls this if you're wondering how it gets called).
     [self movePanelToOriginalPosition];
 }
 
-#pragma mark -
-#pragma mark View Will/Did Appear
+#pragma mark - View Will/Did Appear
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -107,8 +65,7 @@
     [super viewDidAppear:animated];
 }
 
-#pragma mark -
-#pragma mark View Will/Did Disappear
+#pragma mark - View Will/Did Disappear
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -165,7 +122,6 @@
         [_viewControllerRootHomeCenter.view.layer setCornerRadius:0.0f];
         [_viewControllerRootHomeCenter.view.layer setShadowOffset:CGSizeMake(offset, offset)];
     }
-
 }
 
 #pragma mark -
@@ -223,9 +179,7 @@
     [self showCenterViewWithShadow:NO withOffset:0];
 }
 
-
-#pragma mark -
-#pragma mark Setup View
+#pragma mark - Setup View
 
 - (void)setupView {
     self.viewControllerRootHomeCenter = [[ViewControllerRootHomeCenter alloc] initWithNibName:@"CenterViewController" bundle:nil];
@@ -239,8 +193,7 @@
     
 }
 
-#pragma mark -
-#pragma mark View Did Load/Unload
+#pragma mark - View Did Load/Unload
 
 - (void)viewDidLoad
 {
@@ -339,14 +292,11 @@
 }
 
 - (void)loadPickerView {
-    
     // load picker
     KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:self.items];
     [pickerView presentInView:self.view withBlock:^(BOOL madeChoice) {
         NSLog(@"Made choice? %d", madeChoice);
     }];
-
-    
 }
 
 - (void)viewDidUnload
@@ -620,11 +570,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     ViewControllerLogs *logs = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"Logs"];
     [self presentViewController:logs animated:YES completion:nil];
-    
-
 }
-
-
 
 - (void)rootCreditAmount {
     // Core Data - root credit amount
@@ -657,15 +603,8 @@
 - (IBAction)showDev:(id)sender {
     
     NSLog(@"dev button pressed");
-    //dev button pressed
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-//    ViewControllerDev *dev = (ViewControllerDev *) [storyboard instantiateViewControllerWithIdentifier:@"dev"];
-//    [self presentModalViewController:dev animated:YES];
-    
     UIViewController *dev = [self.storyboard instantiateViewControllerWithIdentifier:@"dev"];
     [self presentViewController:dev animated:YES completion:nil];
-    
-    
     NSLog(@"dev button press End");
 }
 
@@ -678,11 +617,8 @@
 - (IBAction)showFlowIndicator:(id)sender {
     
     NSLog(@"flow indicator btn pressed");
-    
     UIViewController *flow = [self.storyboard instantiateViewControllerWithIdentifier:@"KBFlowIndicator"];
     [self presentViewController:flow animated:YES completion:nil];
-    
-    
 }
 
 
@@ -710,15 +646,7 @@
     }
 }
 
-
 // added for debugging purposes - program was crashing when following method / action was removed :/
-
-
 - (IBAction)testArduinoConnection:(id)sender {
-    
-    
 }
-
-
-
 @end

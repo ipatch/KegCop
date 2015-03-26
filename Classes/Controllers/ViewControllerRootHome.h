@@ -5,8 +5,6 @@
 //  Created by capin on 6/26/12.
 //
 
-#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 #import "Account.h"
 #import "ViewControllerWelcome.h"
 #import "ViewControllerLogs.h"
@@ -62,13 +60,7 @@
 // added dev3 btn for CoreBluetooth testing.
 @property (weak, nonatomic) IBOutlet UIButton *btnDev4;
 
-// added navigation bar - 14NOV14
-//@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
-
-// Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-
 
 - (IBAction)displayAccount:(id)sender;
 - (IBAction)displayEmail:(id)sender;
@@ -86,8 +78,6 @@
 - (IBAction)showDev:(id)sender;
 - (IBAction)showDev4:(id)sender;
 - (IBAction)showFlowIndicator:(id)sender;
-
-// added for debugging purposes
 
 - (IBAction)testArduinoConnection:(id)sender;
 

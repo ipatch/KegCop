@@ -13,10 +13,11 @@
 
 @end
 
-@implementation ViewControllerRootHomeCenter
+@implementation ViewControllerRootHomeCenter {
+    
+}
 
-#pragma mark -
-#pragma mark View Did Load/Unload
+#pragma mark - View Did Load/Unload
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,8 +53,7 @@
     [super viewDidUnload];
 }
 
-#pragma mark -
-#pragma mark View Will/Did Appear
+#pragma mark - View Will/Did Appear
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -65,8 +65,7 @@
     [super viewDidAppear:animated];
 }
 
-#pragma mark -
-#pragma mark View Will/Did Disappear
+#pragma mark - View Will/Did Disappear
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -78,8 +77,7 @@
     [super viewDidDisappear:animated];
 }
 
-#pragma mark -
-#pragma mark Button Actions
+#pragma mark - Button Actions
 
 -(IBAction)btnMovePanelRight:(id)sender {
     
@@ -109,15 +107,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

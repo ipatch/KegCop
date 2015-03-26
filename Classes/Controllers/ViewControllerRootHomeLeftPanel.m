@@ -11,7 +11,6 @@
 #import "ViewControllerRootHomeCenter.h"
 #import "KCModalPickerView.h"
 #import "ViewControllerUsers.h"
-#import "AccountsDataModel.h"
 #import "Account.h"
 
 #define SLIDE_TIMING .25
@@ -24,14 +23,10 @@
 
 @end
 
-@implementation ViewControllerRootHomeLeftPanel;
-
+@implementation ViewControllerRootHomeLeftPanel {
+    
+}
 @synthesize myDelegate;
-@synthesize items = _items;
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize usernames = _usernames;
-@synthesize userNames = _userNames;
-
 
 - (UITableView *)makeTableView {
     CGFloat x = 0;
@@ -186,28 +181,8 @@
         NSLog(@"Change Pin field / cell tapped");
         
         // load ViewControllerUsers vc.
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-
-        UIViewController *changePin = [storyboard instantiateViewControllerWithIdentifier:@"users"];
+        UIViewController *changePin = [self.storyboard instantiateViewControllerWithIdentifier:@"users"];
         [self presentViewController:changePin animated:YES completion:nil];
     }
 }
-
-//-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-//{
-//    // set item per row
-//    // changed statment below per this SO thread,
-//    // http://stackoverflow.com/questions/17331293/populate-uipicker-view-with-results-from-core-data-db-using-an-nsarray
-//    return _userNames[row][@"username"];
-//}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

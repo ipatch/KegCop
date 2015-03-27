@@ -23,6 +23,8 @@
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
+		EABC3B791AC5DEDD0086691E /* ViewControllerWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */; };
+		EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABEFA3F1ABF4B570045D478 /* ImageIO.framework */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
@@ -173,6 +175,9 @@
 		EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardMessage.h; path = Processing/KBKegboardMessage.h; sourceTree = "<group>"; };
 		EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardMessage.m; path = Processing/KBKegboardMessage.m; sourceTree = "<group>"; };
 		EABC3B741AC4E0F70086691E /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
+		EABC3B761AC5DEDD0086691E /* ViewControllerWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWebService.h; sourceTree = "<group>"; };
+		EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWebService.m; sourceTree = "<group>"; };
+		EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerWebService.xib; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EABEFA3F1ABF4B570045D478 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EAC2D8D81AAFB86D0075EAB0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Classes/DataModel/Account.h; sourceTree = "<group>"; };
@@ -496,6 +501,8 @@
 		EAC2D8E21AAFB86D0075EAB0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EABC3B761AC5DEDD0086691E /* ViewControllerWebService.h */,
+				EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */,
 				EAC2D90E1AAFB86D0075EAB0 /* ViewControllerWelcome.h */,
 				EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */,
 				EAC2D8EA1AAFB86D0075EAB0 /* ViewControllerAbout.h */,
@@ -565,10 +572,11 @@
 		EAC2D9381AAFB86D0075EAB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */,
 				EA01673B1ABE31FE00A98B2F /* avatar.xib */,
-				EAC2D9161AAFB86D0075EAB0 /* iPhone.storyboard */,
 				EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */,
 				EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */,
+				EAC2D9161AAFB86D0075EAB0 /* iPhone.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -722,6 +730,7 @@
 				EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */,
 				EA986A021AB9FDEF00025B0D /* Default-568h@2x.png in Resources */,
 				EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */,
+				EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */,
 				EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */,
 				EAEC80961AB3AA1C004EFD58 /* Icon.png in Resources */,
 				EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */,
@@ -817,6 +826,7 @@
 				EAEC80841AB3A65B004EFD58 /* KBKegboard.m in Sources */,
 				EAEC80861AB3A65B004EFD58 /* KBKegboardMessage.m in Sources */,
 				EAEC80881AB3A65B004EFD58 /* KBKegboardUtils.m in Sources */,
+				EABC3B791AC5DEDD0086691E /* ViewControllerWebService.m in Sources */,
 				EAEC80801AB3A610004EFD58 /* KBKegProcessing.m in Sources */,
 				EAEC80821AB3A610004EFD58 /* KBKegboardCommand.m in Sources */,
 				EAEC807E1AB3A5C8004EFD58 /* JailbrokenSerial.m in Sources */,

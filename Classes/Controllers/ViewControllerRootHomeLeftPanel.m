@@ -12,6 +12,7 @@
 #import "KCModalPickerView.h"
 #import "ViewControllerUsers.h"
 #import "Account.h"
+#import "ViewControllerWebService.h"
 
 #define SLIDE_TIMING .25
 
@@ -61,7 +62,7 @@
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Change Pin", @"Logoff", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Change Pin", @"Logoff",@"Create Web Service", nil];
     
     
     self.tableView = [self makeTableView];
@@ -92,7 +93,6 @@
     return [_options count];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -101,9 +101,7 @@
 #pragma mark - table view delegate
 
 - (void)showViewControllerRootHomeCenter {
-    
-    if (self.myDelegate)
-    {
+    if (self.myDelegate){
         [myDelegate loadVCRH];
     }
 }
@@ -184,6 +182,11 @@
         UIStoryboard *storyboard = appDelegate.storyboard;
         UIViewController *changePin = [storyboard instantiateViewControllerWithIdentifier:@"users"];
         [self presentViewController:changePin animated:YES completion:nil];
+    }
+    
+    if ([currentString isEqualToString:@"Create Web Service"]) {
+        ViewControllerWebService *webServiceVC = [[ViewControllerWebService alloc] initWithNibName:@"ViewControllerWebService" bundle:nil];
+        [self presentViewController:webServiceVC animated:YES completion:nil];
     }
 }
 @end

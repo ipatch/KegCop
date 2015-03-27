@@ -9,6 +9,7 @@
 #import "ViewControllerRootHome.h"
 #import "ViewControllerRootHomeCenter.h"
 #import "returnToRootHome.h"
+#import "GlobalData.h"
 
 @interface ViewControllerRootHomeLeftPanel : UIViewController < UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 

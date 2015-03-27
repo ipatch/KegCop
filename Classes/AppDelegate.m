@@ -9,12 +9,22 @@
 #import "ViewControllerWelcome.h"
 #import "AccountsDataModel.h"
 
-@implementation AppDelegate
+@interface AppDelegate () {
+
+}
+
+@end
+@implementation AppDelegate {
+
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-     ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
+    _storyboard = [UIStoryboard storyboardWithName:@"iPhone"  bundle:[NSBundle mainBundle]];
+    UIViewController *vcWelcome = [_storyboard instantiateInitialViewController];
+    self.window.rootViewController = vcWelcome;
     
     NSManagedObjectContext *context = [[AccountsDataModel sharedDataModel] mainContext];
     if (context) {
@@ -22,8 +32,6 @@
     } else {
         NSLog(@"Context was nil :(");
     }
-    
-    [viewControllerWelcome setManagedObjectContext:context];
     
     // see this SO thread - stackoverflow.com/questions/1768881
     [application setStatusBarHidden:NO];

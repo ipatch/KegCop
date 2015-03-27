@@ -45,7 +45,6 @@
 
 // added button to get to flow indicator scene
 @property (weak, nonatomic) IBOutlet UIButton *btnFlowIndicator;
-@property (weak, nonatomic) IBOutlet UITabBar *tbRoot;
 
 // added first tabbaritem
 @property (weak, nonatomic) IBOutlet UITabBarItem *tbiUsers;

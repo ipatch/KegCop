@@ -330,7 +330,6 @@
     //[self setShowFlowIndicator:nil];
     [self setTbiUsers:nil];
     [self setTbiUsers:nil];
-    [self setTbRoot:nil];
     [self setTbiMisc:nil];
     [self setTbiDev:nil];
     [super viewDidUnload];

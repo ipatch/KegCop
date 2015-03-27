@@ -179,9 +179,10 @@
     
     if ([currentString isEqualToString:@"Change Pin"]) {
         NSLog(@"Change Pin field / cell tapped");
-        
         // load ViewControllerUsers vc.
-        UIViewController *changePin = [self.storyboard instantiateViewControllerWithIdentifier:@"users"];
+        AppDelegate *appDelegate = APPDELEGATE;
+        UIStoryboard *storyboard = appDelegate.storyboard;
+        UIViewController *changePin = [storyboard instantiateViewControllerWithIdentifier:@"users"];
         [self presentViewController:changePin animated:YES completion:nil];
     }
 }

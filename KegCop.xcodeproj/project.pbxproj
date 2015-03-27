@@ -172,6 +172,7 @@
 		EAB453B71755552700F6DA69 /* KBKegboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboard.m; path = Processing/KBKegboard.m; sourceTree = "<group>"; };
 		EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardMessage.h; path = Processing/KBKegboardMessage.h; sourceTree = "<group>"; };
 		EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardMessage.m; path = Processing/KBKegboardMessage.m; sourceTree = "<group>"; };
+		EABC3B741AC4E0F70086691E /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EABEFA3F1ABF4B570045D478 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EAC2D8D81AAFB86D0075EAB0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Classes/DataModel/Account.h; sourceTree = "<group>"; };
@@ -473,6 +474,7 @@
 		EAC2D8D71AAFB86D0075EAB0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EABC3B741AC4E0F70086691E /* GlobalData.h */,
 				EAEC80A61AB4B0D4004EFD58 /* KCModalPickerView.h */,
 				EAEC80A41AB4B051004EFD58 /* KCModalPickerView.m */,
 				EA4570351A046E78004DEEC4 /* DataModel */,

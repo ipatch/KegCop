@@ -6,6 +6,8 @@
 //
 //
 
+#import <CoreData/CoreData.h>
+
 @interface ViewControllerUsers : UIViewController <NSFetchedResultsControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
 

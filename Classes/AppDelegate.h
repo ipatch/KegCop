@@ -13,9 +13,6 @@
 // http://developer.apple.com/library/ios/#releasenotes/Miscellaneous/RN-AdoptingStoryboards/_index.html
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UIStoryboard *storyboard;
 
-//- (void)saveContext;
-
-// how the managedObjectModel finds where to save the sqlite database.
-//- (NSURL *)applicationDocumentsDirectory;
 @end

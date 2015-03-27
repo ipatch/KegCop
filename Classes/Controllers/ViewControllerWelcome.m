@@ -13,6 +13,7 @@
 {
 // declare private methods here
     dispatch_queue_t scan_queue;
+    UIScrollView *avatarScroll;
 }
 @property(nonatomic, retain) NSDate *loginTime;
 @property(nonatomic, retain) UIButton *avatarButton;
@@ -124,21 +125,15 @@
     // dev button
     _dev.hidden=TRUE;
     
-    NSLog(@"execution reached before scan_queue");
     // threading stuff - GCD
     scan_queue = dispatch_queue_create("com.chrisrjones.kegcop", NULL);
-    NSLog(@"execution reached after scan_queue");
     
     // put blocks of code into curly braces to run on separate thread
     dispatch_async(scan_queue, ^{
         
-        NSLog(@"execution reached before serial handShake");
-//        [serial handShake];
-        NSLog(@"execution reached after serial handShake");
-    
+        // execute on separate thread (non main)
+        
     });
-    
-    NSLog(@"execution is at end of ViewDidLoad method");
     
     // RFID stuff
     scantagid = [[NSMutableString alloc] init];
@@ -149,13 +144,9 @@
     
     UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"KegCop"];
     
-//    [navBar setBarStyle:UIStatusBarStyleLightContent];
-    
     navBar.items = @[titleItem];
     
     navBar.barTintColor = [UIColor blackColor];
-//    navBar.tintColor = [UIColor whiteColor];
-//    navBar.titleTextAttributes = [[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil];
     navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     navBar.translucent = YES;
     
@@ -171,7 +162,6 @@
 //    _textFieldUsername.layer.cornerRadius = 5;
     _textFieldUsername.layer.masksToBounds = true;
     
-    
     // create a subview for avatar buttons
     UIView *avatarView = [[UIView alloc] init];
     avatarView.frame = CGRectMake(20, 125, 280, 100); // don't mess with these values.
@@ -179,12 +169,22 @@
 //    avatarView.layer.borderWidth = 3.0f;
     [self.view addSubview:avatarView];
     
-    UIScrollView *avatarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    avatarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
     avatarScroll.contentSize = CGSizeMake(500, 500);
     avatarScroll.scrollEnabled = YES;
     [avatarView addSubview:avatarScroll];
     
     
+//    [self addAvatarsToButtons];
+}
+
+-(void)fillUserName {
+    NSLog(@"avatar button press works :)");
+    
+    // need to get NSMutableArray *avatars from addAvatarsToButtons method
+}
+
+-(void)fetchAvatarLoginsAndCreateAvatarButtons {
     // fetch Data from Core Data
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
@@ -200,19 +200,9 @@
     NSArray *sortedArray2 = [_results sortedArrayUsingDescriptors:sortedArray];
     // how to remove values from NSArray
     NSArray *lastLoginArray = [sortedArray2 valueForKey:@"lastLogin"];
-//    NSLog(@"lastLoginArray = %@",lastLoginArray);
-    // make an array that only hold 5 values
-//    NSArray *last5LoginArray;
-//    for (int i=5; i<[lastLoginArray count]; i++) {
-//        [last5LoginArray addObject:[lastLoginArray objectAtIndex:i]];
-//    }
-//    NSLog(@"last5LoginArray = %@",last5LoginArray);
-//    NSArray *last5LoginArray = [NSArray arrayWithObjects:lastLoginArray count:4];
-//    NSArray *last5LoginArray = [NSArray arrayByAddingObjectsFromArray:lastLoginArray count:4];
+    
     _last5LoginArray = [[NSMutableArray alloc] initWithArray:[lastLoginArray subarrayWithRange:NSMakeRange(0, 5)] ];
     NSLog(@"last5LoginArray = %@",_last5LoginArray);
-    
-//    NSLog(@"sortedArray2 = %@",sortedArray2);
     
     CGFloat staticX = 0;
     CGFloat staticWidth = 80;
@@ -224,7 +214,7 @@
         // do additional loading for avatars
         _avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         // the last two values control the size of the button
-//        avatarButton.frame = CGRectMake(0, 0, 80, 80);
+        _avatarButton.frame = CGRectMake(0, 0, 80, 80);
         [_avatarButton setFrame:CGRectMake((staticX + (i * (staticHeight + staticPadding))),5,staticWidth,staticHeight)];
         // make corners round
         _avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
@@ -235,17 +225,10 @@
         UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
         
         [_avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
-    
+        
         // this should add 5x buttons
         [avatarScroll addSubview:_avatarButton];
     }
-    [self addAvatarsToButtons];
-}
-
--(void)fillUserName {
-    NSLog(@"avatar button press works :)");
-    
-    // need to get NSMutableArray *avatars from addAvatarsToButtons method
 }
 
 -(void)addAvatarsToButtons {
@@ -302,8 +285,6 @@ NSAssert(
     [self setBtnForgot:nil];
     [self setBtnCreate:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    
     // close serial port
     [serial close];
 }

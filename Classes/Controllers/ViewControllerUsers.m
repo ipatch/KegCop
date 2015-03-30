@@ -78,11 +78,6 @@
     return _usernames[row][@"username"];
 }
 
-//-(NSInteger)selectedRowInComponent:(NSInteger)component
-//{
-//    NSLog(@"%d",[_uiPickerViewUsers selectedRowInComponent:0]);
-//}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -150,7 +145,6 @@
     {
         NSLog(@"pins are equal");
         
-        
         key = @"donkey balls";
         
         // need to set pin in tf to pin in DB for correct user
@@ -211,7 +205,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex ==0) {
+    if (buttonIndex == 0) {
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
     }
     if (buttonIndex == 1) {

@@ -15,7 +15,9 @@
 @end
 
 @implementation ViewControllerWebService {
-    
+
+    UIAlertView *alertview;
+    NSString *uniqueName;
 }
 
 - (void)viewDidLoad {
@@ -55,11 +57,47 @@
     navBar.items = @[titleItem];
     
     [self.view addSubview:navBar];
+    
 }
 
 - (void)establishWebService {
     NSLog(@"Create Web Service btn pressed");
+    
+    // create a UIAlertBox with a textfield
+    alertview = [[UIAlertView alloc] initWithTitle:@"Enter a unique name" message:@"Your unique name will be appended to your unique webaddress, i.e. http://kegcop.<myName>.chrisrjones.com" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
+    
+    [alertview setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    // display alertview
+    // keep this line at the bottom
+    [alertview show];
+    
+    
+    
 }
+
+- (void)meetAndPotatoes {
+    NSString *kegcop = @"kegcop.";
+    NSString *crj = @".chrisrjones.com";
+    NSString *uniqueURL = [NSString stringWithFormat:@"http://%@%@%@",kegcop,uniqueName,crj ];
+    NSLog(@"your unique URL = %@",uniqueURL);
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+        NSLog(@"alertView dismissed");
+    }
+    if (buttonIndex == 1) {
+        // get "name" inputted in alertview
+        uniqueName = [[NSString alloc] initWithString:[alertview textFieldAtIndex:0].text];
+        NSLog(@"Your unique name is: %@",uniqueName);
+        [self meetAndPotatoes];
+    }
+}
+
 
 - (void)dismissWebServiceVC {
     [self dismissViewControllerAnimated:YES completion:nil];

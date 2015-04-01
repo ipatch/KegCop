@@ -22,21 +22,24 @@
 @end
 
 @implementation ViewControllerWelcome {
-        // toolbar
-        IBOutlet UIToolbar *toolBar;
-        NSString *username;
+    // toolbar
+    IBOutlet UIToolbar *toolBar;
+    NSString *username;
         
-        // serial stuff
-        JailbrokenSerial *serial;
+    // serial stuff
+    JailbrokenSerial *serial;
         
-        // RFID stuff
-        NSMutableString *scantagid;
+    // RFID stuff
+    NSMutableString *scantagid;
         
-        // legal disclaimer
-        UIAlertView *alertlegal;
+    // legal disclaimer
+    UIAlertView *alertlegal;
         
-        // Navigation bar
-        UINavigationBar *navBar;
+    // Navigation bar
+    UINavigationBar *navBar;
+    
+    AppDelegate *appDelegate;
+    UIStoryboard *storyboard;
 }
 #pragma mark viewDidLoad
 - (void)viewDidLoad {
@@ -399,8 +402,10 @@ NSAssert(
                 // Load ViewController(Root)Home
                 if([anAccount.username isEqualToString:@"root"])
                 {
-                    ViewControllerRootHome *roothome = (ViewControllerRootHome *)[self.storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
-                    [self presentViewController:roothome animated:YES completion:nil];
+                    appDelegate = APPDELEGATE;
+                    storyboard = appDelegate.storyboard;
+                    ViewControllerRootHome *rootHome = [storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
+                    [self presentViewController:rootHome animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin
                     _textFieldUsername.text = @"";
@@ -409,7 +414,10 @@ NSAssert(
                     [_welcomeActivityIndicator stopAnimating];
                 }
                 else {
-                    ViewControllerHome *home = (ViewControllerHome *)[self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
+                    appDelegate = APPDELEGATE;
+                    storyboard = appDelegate.storyboard;
+                    ViewControllerHome *home = [storyboard instantiateViewControllerWithIdentifier:@"Home"];
+                   
                     
                     // pass username text to home screen
                     username = _textFieldUsername.text;

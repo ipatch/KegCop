@@ -19,6 +19,7 @@
 #import <dispatch/dispatch.h> // Grand Central Dispatch
 #import "AFNetworking.h"
 #import "AccountsDataModel.h"
+#import "GlobalData.h"
 
 @interface ViewControllerWelcome : UIViewController <JailbrokenSerialDelegate>
 

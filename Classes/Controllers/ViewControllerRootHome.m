@@ -299,43 +299,6 @@
     }];
 }
 
-- (void)viewDidUnload
-{
-    [self setTfDeleteAccount:nil];
-    [self setBtnDeleteAccount:nil];
-    [self setBtnDisplayAccount:nil];
-    [self setTvDisplayAccount:nil];
-    [self setBtnDisplayEmail:nil];
-    [self setTfCreditUsername:nil];
-    [self setTfCredit:nil];
-    [self setBtnAddCredit:nil];
-    [self setBtnLogout:nil];
-    [self setBtnLogout:nil];
-    [self setLblCredit:nil];
-    [self setLblRootCredit:nil];
-    //[self setBtnLogs:nil];
-    [self setBtnLogs:nil];
-    [self setBtnCheckFlow:nil];
-    [self setBtnSerialConsole:nil];
-    [self setBtndev:nil];
-    
-    
-    // added for debugging purposes
-    
-    [self setLblArduinoGood:nil];
-    [self setLblArduinoBad:nil];
-    
-    
-    [self setBtnFlowIndicator:nil];
-    //[self setShowFlowIndicator:nil];
-    [self setTbiUsers:nil];
-    [self setTbiUsers:nil];
-    [self setTbiMisc:nil];
-    [self setTbiDev:nil];
-    [super viewDidUnload];
-    
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;

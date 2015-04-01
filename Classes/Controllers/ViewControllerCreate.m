@@ -60,27 +60,6 @@
     NSLog(@"The currently loaded view:%c",[self.view isKindOfClass:[ViewControllerCreate class]]);
 }
 
-- (void)viewDidUnload
-{
-    [self setCreateScroller:nil];
-    [self setCreateUserTextField:nil];
-    [self setCreatePinTextField:nil];
-    [self setCreateEmailTextField:nil];
-    [self setCreatePhoneNumber:nil];
-    [self setCreateSubmit:nil];
-    
-    [self setCreateUNnotValid:nil];
-    [self setCreatePinNotValid:nil];
-    [self setCreateEmailNotValid:nil];
-    [self setCreatePhoneNumberNotValid:nil];
-    [self setCreateAccountSuccess:nil];
-    
-    [self setCreatePinReTextField:nil];
-    [self setBtnCancel:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
 /*
  * method to limit character input in text fields
  */

@@ -12,21 +12,9 @@
 
 @end
 
-@implementation ViewControllerDev3
-
-@synthesize btnDone = _btnDone;
-@synthesize btnJBSerialOpen = _btnJBSerialOpen;
-@synthesize btnJBSerialClose = _btnJBSerialClose;
-@synthesize btnKBSerialOpen = _btnKBSerialOpen;
-@synthesize btnKBSerialClose = _btnKBSErialClose;
-@synthesize btnOpenValveKBCommand = _btnOpenValveKBCommand;
-@synthesize btnOpenValveRawHex = _btnOpenValveRawHex;
-@synthesize btnOpenValve = _btnOpenValve;
-@synthesize btnOpenValve2 = _btnOpenValve2;
-
-@synthesize lblValveState = _lblValveState;
-
-
+@implementation ViewControllerDev3 {
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,23 +38,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    [self setBtnDone:nil];
-    [self setBtnJBSerialOpen:nil];
-    [self setBtnJBSerialClose:nil];
-    [self setBtnKBSerialOpen:nil];
-    [self setBtnKBSerialClose:nil];
-    [self setBtnOpenValveKBCommand:nil];
-    [self setBtnOpenValveRawHex:nil];
-    [self setBtnOpenValveRawHex:nil];
-    [self setBtnOpenValveKBProcessing:nil];
-    [self setBtnOpenValve:nil];
-    [self setBtnCloseValve:nil];
-    [self setLblValveState:nil];
-    [self setBtnOpenValve2:nil];
-    text = nil;
-    [super viewDidUnload];
-}
 - (IBAction)dismissScene:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -100,14 +71,11 @@
 - (IBAction)kbSerialOpen:(id)sender {
     
     NSLog(@"kbSerialOpen method began");
-    
 }
 
 - (IBAction)kbSerialClose:(id)sender {
     
     NSLog(@"kbSerialClose method began");
-
-    
 }
 
 - (IBAction)openValveKBCommand:(id)sender {

@@ -31,14 +31,6 @@
     [_webView loadRequest:request];
 }
 
-- (void)viewDidUnload
-{
-    [self setWebView:nil];
-    [self setBtnDone:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (YES);

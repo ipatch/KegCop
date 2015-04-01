@@ -48,11 +48,6 @@
     [self.view addSubview:_navBar];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
 #pragma mark - View Will/Did Appear
 
 - (void)viewWillAppear:(BOOL)animated

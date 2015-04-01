@@ -272,26 +272,6 @@ NSAssert(
     return UIStatusBarStyleLightContent;
 }
 
-- (void)viewDidUnload {
-    [self setTextFieldUsername:nil];
-    [self setTextFieldPin:nil];
-    
-    [self setWrongUserPin:nil];
-    [self setWelcomeLogin:nil];
-    [self setWelcomeActivityIndicator:nil];
-    
-    
-    
-    [self setWelcomeScroller:nil];
-    [self setWelcomeAbout:nil];
-    [self setDev:nil];
-    [self setBtnForgot:nil];
-    [self setBtnCreate:nil];
-    [super viewDidUnload];
-    // close serial port
-    [serial close];
-}
-
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {  
     return YES; 
 }

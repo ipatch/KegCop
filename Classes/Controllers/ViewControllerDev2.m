@@ -24,22 +24,6 @@
     [self.blunoManager scan];
 }
 
-- (void)viewDidUnload {
-    
-    // this method is never called for whatever reason :/
-    
-    NSLog(@"viewDidUnload method called");
-    [super viewDidUnload];
-    [self setBtnDone:nil]; // dismiss the done btn when the scene is closed
-    //[self setblunoManager:nil];
-    self.blunoManager.delegate = self;
-    self.lbReady.text = @"Not Ready!";
-    // release the Bluno objects when the view is dismissed.
-    self.blunoManager = nil;
-    self.blunoDev = nil;
-  
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

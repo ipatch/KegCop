@@ -42,24 +42,6 @@
     
 }
 
-- (void)viewDidUnload
-{
-    [self setTf:nil];
-    [self setBtn:nil];
-    [self setLbl:nil];
-    [self setBtnValve:nil];
-    [self setBtnBlink:nil];
-    [self setBtnDone:nil];
-    [self setBtnValve2:nil];
-    [serial close];
-    [super viewDidUnload];
-    
-    // Release any retained subviews of the main view.
-    //[serial nil];
-    NSLog(@"dev view unloaded");
-    
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -202,14 +184,10 @@
 - (IBAction)showDev2scene:(id)sender {
     
     NSLog(@"dev2 button pressed");
-    
     UIViewController *dev2 = [self.storyboard instantiateViewControllerWithIdentifier:@"dev2"];
     [self presentViewController:dev2 animated:YES completion:nil];
-    
-    
     NSLog(@"dev2 button press End");
 }
-
 
 # pragma mark - JailbrokenSerialDelegate
 - (void) JailbrokenSerialReceived:(char)ch {

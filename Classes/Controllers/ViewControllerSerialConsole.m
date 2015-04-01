@@ -22,15 +22,6 @@
     serial.receiver = self;
     text = [[NSMutableString alloc] initWithString:@""];
 }
-    
-- (void)viewDidUnload
-{
-    [self setTextEntry:nil];
-    [self setBtnSend:nil];
-    [self setSerialView:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

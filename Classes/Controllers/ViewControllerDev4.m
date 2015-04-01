@@ -12,7 +12,9 @@
 
 @end
 
-@implementation ViewControllerDev4
+@implementation ViewControllerDev4 {
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

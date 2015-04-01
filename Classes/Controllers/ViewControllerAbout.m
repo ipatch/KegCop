@@ -60,15 +60,6 @@ forControlEvents:UIControlEventTouchUpInside];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.youtube.com/watch?v=1a6hxUb3zfU"]];
 }
 
-- (void)viewDidUnload {
-
-    [self setBuildnumber:nil];
-    [self setCreatedaccounts:nil];
-    [self setDoneButton:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {  
     return YES; 
 }

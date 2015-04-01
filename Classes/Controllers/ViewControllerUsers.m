@@ -84,12 +84,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    [self setBtnDone:nil];
-    [self setUiPickerViewUsers:nil];
-    [self setBtnChangePin:nil];
-    [super viewDidUnload];
-}
 - (IBAction)dismissScene:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -223,23 +223,6 @@
     [avatarView addSubview:avatarButton];
 }
 
-- (void)viewDidUnload
-{
-    [self setHomeScroller:nil];
-    [self setTfUsername:nil];
-    [self setTfCredit:nil];
-    [self setBtnTradeCredit:nil];
-    [self setLblUSERNAME:nil];
-    [self setCreditX:nil];
-    [self setLblTradeCredit:nil];
-    [self setBtndrinkbeer:nil];
-    [self setBtnAddRFID:nil];
-    [self setBtnLogout:nil];
-    [self setIdleTimerTime:nil];
-    [super viewDidUnload];
-    [serial close];
-  
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -678,32 +661,26 @@
     }
 }
 
-- (void)didDiscoverDevice:(DFBlunoDevice *)dev
-{
+- (void)didDiscoverDevice:(DFBlunoDevice *)dev {
     [self.blunoManager connectToDevice:dev];
     NSLog(@"Connected to %@",dev);
     self.blunoDev = dev;
 }
 
-- (void)readyToCommunicate:(DFBlunoDevice *)dev
-{
+- (void)readyToCommunicate:(DFBlunoDevice *)dev {
 //    self.lbReady.text = @"Ready";
 }
 
-- (void)didDisconnectDevice:(DFBlunoDevice *)dev
-{
+- (void)didDisconnectDevice:(DFBlunoDevice *)dev {
 //    self.lbReady.text = @"Not Ready!";
     [self.blunoManager scan];
 }
 
-- (void)didWriteData:(DFBlunoDevice *)dev
-{
+- (void)didWriteData:(DFBlunoDevice *)dev {
     
 }
 
-- (void)didReceiveData:(NSData *)data Device:(DFBlunoDevice *)dev
-{
-//    self.lbReceiveMsg.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+- (void)didReceiveData:(NSData *)data Device:(DFBlunoDevice *)dev {
 }
 
 @end

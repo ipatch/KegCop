@@ -41,13 +41,6 @@
     [super viewDidLoad];
 }
 
-- (void)viewDidUnload
-{
-    [self setBtnDone:nil];
-    [self setLogWindow:nil];
-    [super viewDidUnload];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

@@ -12,29 +12,16 @@
 #import "ViewControllerAvatar4.h"
 #import "Account.h"
 
-@interface ViewControllerHome ()
+@interface ViewControllerHome () {
+    
+}
 @property (nonatomic, retain) UIImage *avatar;
 @end
 
 @implementation ViewControllerHome
-
-@synthesize homeScroller = _homeScroller;
-@synthesize lblUSERNAME = _lblUSERNAME;
-@synthesize creditX = _creditX;
-@synthesize btndrinkbeer = _btndrinkbeer;
-@synthesize tfUsername = _tfUsername;
-@synthesize tfCredit = _tfCredit;
-@synthesize btnTradeCredit = _btnTradeCredit;
-@synthesize lblTradeCredit = _lblTradeCredit;
-@synthesize btnAddRFID = _btnAddRFID;
-@synthesize idleTimerTime = _idleTimerTime;
-@synthesize btnLogout = _btnLogout;
-// Core Data
-@synthesize managedObjectContext = _managedObjectContext;
-// avatar
-
-
-
+{
+    
+}
 
 - (void)viewDidLoad
 {
@@ -75,38 +62,36 @@
     // update credit
     [self updateCredit];
     
-   
-    
-    
-    // serial stuff
-    serial = [[JailbrokenSerial alloc] init];
-    // print serial debugging messages
-    serial.debug = true;
-    serial.nonBlock = true;
-    serial.receiver = self;
-    rfidbadgenumber = [[NSMutableString alloc] initWithString:@""];
-    
+//    
+//    // serial stuff
+//    serial = [[JailbrokenSerial alloc] init];
+//    // print serial debugging messages
+//    serial.debug = true;
+//    serial.nonBlock = true;
+//    serial.receiver = self;
+//    rfidbadgenumber = [[NSMutableString alloc] initWithString:@""];
+//    
     // 2AUG13 - more serial stuff
-    [serial open:B115200];
-    if(serial.isOpened)
-    {
-        NSLog(@"Serial Port Opened");
-    }
-    else NSLog(@"Serial Port Closed");
-    
+//    [serial open:B115200];
+//    if(serial.isOpened)
+//    {
+//        NSLog(@"Serial Port Opened");
+//    }
+//    else NSLog(@"Serial Port Closed");
+//    
     
     // uialertview init
     // declare an alert with text input
-    alertrfid = [[UIAlertView alloc] initWithTitle:@"Scan RFID badge"
-                                           message:@"Associate RFID badge with user account"
-                                          delegate:self
-                                 cancelButtonTitle:@"Dismiss"
-                                 otherButtonTitles:@"Save", nil];
+//    alertrfid = [[UIAlertView alloc] initWithTitle:@"Scan RFID badge"
+//                                           message:@"Associate RFID badge with user account"
+//                                          delegate:self
+//                                 cancelButtonTitle:@"Dismiss"
+//                                 otherButtonTitles:@"Save", nil];
+//    
     
-    
-    // RFID stuff
-    newrfidtagid = [[NSMutableString alloc] init];
-    
+//    // RFID stuff
+//    newrfidtagid = [[NSMutableString alloc] init];
+//    
     
     // 5AUG13
     NSLog(@"presenting view controller:%@",[self presentingViewController]);
@@ -195,25 +180,25 @@
     avatarButton.clipsToBounds = YES;
     
     
-    // retrieve image from Core Data and place on UIButton
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    // define table / entity to use
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
-    [request setEntity:entity];
-//    [request setResultType:NSDictionaryResultType];
+//    // retrieve image from Core Data and place on UIButton
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    
+//    // define table / entity to use
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+//    [request setEntity:entity];
+////    [request setResultType:NSDictionaryResultType];
 //    [request setReturnsDistinctResults:YES];
 //    [request setPropertiesToFetch:@[@"avatar",@"username"]];
     
     // fetch records and handle error
-    NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (!results) {
-        // handle error
-    }
-    NSLog(@"results = %@",results);
-    // find specific value in array
+//    NSError *error;
+//    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+//    
+//    if (!results) {
+//        // handle error
+//    }
+//    NSLog(@"results = %@",results);
+//    // find specific value in array
     
     // convert UILabel.text to NSString for searching
     NSLog(@"_lblUSERNAME.text = %@",_lblUSERNAME.text);
@@ -222,13 +207,13 @@
     NSString *search = _lblUSERNAME.text;
     NSLog(@"un = %@",search);
     
-    for (Account *anAccount in results) {
-        if ([anAccount.username isEqualToString:search]) {
-            NSLog(@"username found.");
-            _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
-            NSLog(@"avatar = %@",_avatar);
-        }
-    }
+//    for (Account *anAccount in results) {
+//        if ([anAccount.username isEqualToString:search]) {
+//            NSLog(@"username found.");
+//            _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
+//            NSLog(@"avatar = %@",_avatar);
+//        }
+//    }
     if (_avatar == nil) {
         NSLog(@"couldn't find avatar");
     } else {
@@ -499,8 +484,8 @@
 }
 
 - (IBAction)showTestScene:(id)sender {
-    UIViewController *test = [self.storyboard instantiateViewControllerWithIdentifier:@"test"];
-    [self presentViewController:test animated:YES completion:nil];
+//    UIViewController *test = [self.storyboard instantiateViewControllerWithIdentifier:@"test"];
+//    [self presentViewController:test animated:YES completion:nil];
 }
 
 

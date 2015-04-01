@@ -424,22 +424,22 @@ NSAssert(
                     
                     [self passValues];
                     
-                    // get current time
-                    NSString *timestamp = TimeStamp;
-                    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
-                    _loginTime = [[NSDate alloc] init];
-                    
-                    // adjust timezone
-                    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
-                    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
-                    
-                    anAccount.lastLogin = localDate;
-                    NSLog(@"login time = %@",anAccount.lastLogin);
-                    // save anAccount.lastLogin attribute to Core Data DB
-                    NSError *error = nil;
-                    if (![_managedObjectContext save:&error]) {
-                        NSLog(@"error %@", error);
-                    }
+//                    // get current time
+//                    NSString *timestamp = TimeStamp;
+//                    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+//                    _loginTime = [[NSDate alloc] init];
+//                    
+//                    // adjust timezone
+//                    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
+//                    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
+//                    
+//                    anAccount.lastLogin = localDate;
+//                    NSLog(@"login time = %@",anAccount.lastLogin);
+//                    // save anAccount.lastLogin attribute to Core Data DB
+//                    NSError *error = nil;
+//                    if (![_managedObjectContext save:&error]) {
+//                        NSLog(@"error %@", error);
+//                    }
 
                     [self presentViewController:home animated:YES completion:nil];
                     
@@ -466,9 +466,10 @@ NSAssert(
 }
 
 - (IBAction)showForgotScene:(id)sender {
-    
+    NSLog(@"show Forgot Scene - begin");
     UIViewController *forgot = [self.storyboard instantiateViewControllerWithIdentifier:@"Forgot"];
     [self presentViewController:forgot animated:YES completion:nil];
+    NSLog(@"show Forgot Scene - end");
 }
 
 - (IBAction)showCreateScene:(id)sender {

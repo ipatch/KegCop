@@ -81,6 +81,8 @@
     NSString *crj = @".chrisrjones.com";
     NSString *uniqueURL = [NSString stringWithFormat:@"http://%@%@%@",kegcop,uniqueName,crj ];
     NSLog(@"your unique URL = %@",uniqueURL);
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSLog(@"UUID = %@",idfv);
     
 }
 

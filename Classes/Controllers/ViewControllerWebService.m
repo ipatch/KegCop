@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerWebService.h"
+#import <RestKit/RestKit.h>
 
 @interface ViewControllerWebService () {
     
@@ -30,7 +31,7 @@
     [createWebServiceButton addTarget:self
                                action:@selector(establishWebService)
                      forControlEvents:UIControlEventTouchUpInside];
-    [createWebServiceButton setTitle:@"Create Web Service"  forState:UIControlStateNormal ];
+    [createWebServiceButton setTitle:@"Connect"  forState:UIControlStateNormal ];
     createWebServiceButton.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     [self.view addSubview:createWebServiceButton];
     
@@ -41,7 +42,9 @@
     navBar = [[UINavigationBar alloc] init];
     [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
     
-    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Create Web Service"];
+    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Connect to Web Service"];
+    
+    // figure out new line terminator
     
     
     
@@ -64,7 +67,7 @@
     NSLog(@"Create Web Service btn pressed");
     
     // create a UIAlertBox with a textfield
-    alertview = [[UIAlertView alloc] initWithTitle:@"Enter a unique name" message:@"Your unique name will be appended to your unique webaddress, i.e. http://kegcop.<myName>.chrisrjones.com" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
+    alertview = [[UIAlertView alloc] initWithTitle:@"Enter a unique name" message:@"Your unique name will be the name of your kegerator." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
     
     [alertview setAlertViewStyle:UIAlertViewStylePlainTextInput];
     
@@ -77,12 +80,15 @@
 }
 
 - (void)meetAndPotatoes {
-    NSString *kegcop = @"kegcop.";
-    NSString *crj = @".chrisrjones.com";
-    NSString *uniqueURL = [NSString stringWithFormat:@"http://%@%@%@",kegcop,uniqueName,crj ];
-    NSLog(@"your unique URL = %@",uniqueURL);
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSLog(@"UUID = %@",idfv);
+    
+    // establish connection with remote API
+    
+    AFHTTPRequestOperation *manager = [AFHTTPRequestOperation manager];
+    
+    
+    
     
 }
 

@@ -79,15 +79,21 @@
     
 }
 
+//- (void)application:didRegisterForRemoteNotificationsWithDeviceToken:(NSData*) {
+//    deviceToken
+//}
+
 - (void)meetAndPotatoes {
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSLog(@"UUID = %@",idfv);
     
     // establish connection with remote API
     
-    AFHTTPRequestOperation *manager = [AFHTTPRequestOperation manager];
+    NSLog(@"I am your RKClient singleton : %@", [RKObjectManager sharedManager]);
     
+    // get unique token from iOS device
     
+//    [UIApplication sharedApplication] registerForRemoteNotificationTypes (UIRemoteNotificationTypeBadge UIRemoteNotificationTypeSoundUIRemoteNotificationTypeAlert)];
     
     
 }

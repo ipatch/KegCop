@@ -27,6 +27,7 @@
 		EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABEFA3F1ABF4B570045D478 /* ImageIO.framework */; };
+		EAC19E321AD9A1AD00F6131C /* KegCop_Development.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = EAC19E311AD9A1AD00F6131C /* KegCop_Development.mobileprovision */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
 		EAEC80391AB3A41B004EFD58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91C1AAFB86D0075EAB0 /* main.m */; };
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
@@ -180,6 +181,8 @@
 		EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerWebService.xib; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EABEFA3F1ABF4B570045D478 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		EAC19E301AD8923D00F6131C /* secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secrets.h; sourceTree = "<group>"; };
+		EAC19E311AD9A1AD00F6131C /* KegCop_Development.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = KegCop_Development.mobileprovision; sourceTree = "<group>"; };
 		EAC2D8D81AAFB86D0075EAB0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Classes/DataModel/Account.h; sourceTree = "<group>"; };
 		EAC2D8D91AAFB86D0075EAB0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = Classes/DataModel/Account.m; sourceTree = "<group>"; };
 		EAC2D8DA1AAFB86D0075EAB0 /* AccountBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountBase.h; path = Classes/DataModel/AccountBase.h; sourceTree = "<group>"; };
@@ -375,6 +378,7 @@
 		EA9D25DF1767A24E00B277ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EAC19E311AD9A1AD00F6131C /* KegCop_Development.mobileprovision */,
 				EAC2D9181AAFB86D0075EAB0 /* gen_entitlements.py */,
 				EA2611D017BAD29000023814 /* Info.plist */,
 				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
@@ -584,6 +588,7 @@
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
+				EAC19E301AD8923D00F6131C /* secrets.h */,
 				EAC2D8D71AAFB86D0075EAB0 /* Classes */,
 				EA9D25DF1767A24E00B277ED /* Resources */,
 				EAA33D731588612600826A02 /* KegCopApplicationTests */,
@@ -721,6 +726,7 @@
 				EAEC80981AB3AA34004EFD58 /* flow_background.png in Resources */,
 				EAEC80991AB3AA34004EFD58 /* flow_fill.png in Resources */,
 				EAEC809A1AB3AA34004EFD58 /* flow_foreground.png in Resources */,
+				EAC19E321AD9A1AD00F6131C /* KegCop_Development.mobileprovision in Resources */,
 				EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */,
 				EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */,
 				EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */,

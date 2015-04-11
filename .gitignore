@@ -1,5 +1,5 @@
 ###########################
-# .gitignore file for Xcode4 and Xcode5 Source projects
+# .gitignore file for Xcode4, Xcode5, Xcode6 Source projects
 #
 #
 ##########################
@@ -60,3 +60,5 @@ KegCop.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate
 #
 repoupdate.sh
 secrets.h
+*.mobileprovision
+**.mobileprovision

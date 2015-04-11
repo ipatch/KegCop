@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "ViewControllerWelcome.h"
 #import "AccountsDataModel.h"
+#import <RestKit/RestKit.h>
 
 @interface AppDelegate () {
 
@@ -19,8 +20,24 @@
 }
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //-- Set Notification
+    if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
+        // iOS 8 Notifications
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        
+        [application registerForRemoteNotifications];
+    }
+    else {
+        // iOS < 8 Notifications
+        [application registerForRemoteNotificationTypes:
+            (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
+    }
+    
+    // add RestKit singleton class for setting up base URI for app.
+    RKObjectManager *rkom = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://kegcop.chrisrjones.com"]];
+    
     // Override point for customization after application launch.
     _storyboard = [UIStoryboard storyboardWithName:@"iPhone"  bundle:[NSBundle mainBundle]];
     UIViewController *vcWelcome = [_storyboard instantiateInitialViewController];

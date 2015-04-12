@@ -10,9 +10,7 @@
 #import <RestKit/RestKit.h>
 
 
-@interface ViewControllerWebService () {
-    
-}
+@interface ViewControllerWebService () { }
 
 @end
 
@@ -45,10 +43,6 @@
     [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
     
     UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Connect to Web Service"];
-    
-    // figure out new line terminator
-    
-    
     
     navBar.barTintColor = [UIColor blackColor];
     navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
@@ -91,6 +85,8 @@
     
     
     // get deviceToken
+    NSString *tokenString = [[NSUserDefaults standardUserDefaults] objectForKey:@"uniqueTokenString"];
+    NSLog(@"tokenString = %@",tokenString);
     
     
 //    NSString *host = @"http://kegcop.chrisrjones.com";

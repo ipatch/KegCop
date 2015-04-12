@@ -13,8 +13,8 @@
 @interface AppDelegate () {
 
 }
-
 @end
+
 @implementation AppDelegate {
 
 }
@@ -50,6 +50,7 @@
         [application registerForRemoteNotificationTypes:
             (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
     }
+    // could not access deviceToken from this method :'(
     
     // add RestKit singleton class for setting up base URI for app.
     RKObjectManager *rkom = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://kegcop.chrisrjones.com"]];
@@ -79,6 +80,13 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"Did Register for Remote Notifications with Device Token (%@)", deviceToken);
+    
+    // save deviceToken to string
+    _tokenString = [[[NSString stringWithFormat:@"%@", deviceToken] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>" ]] stringByReplacingOccurrencesOfString:@" " withString:@"" ];
+    NSLog(@"_tokenString = %@",_tokenString);
+    
+    // save string to NSUserDefaults
+    [[NSUserDefaults standardUserDefaults] setObject:_tokenString forKey:@"uniqueTokenString"];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {

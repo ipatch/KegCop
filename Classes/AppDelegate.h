@@ -25,6 +25,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, retain) UIStoryboard *storyboard;
 @property (nonatomic, retain) NSData *deviceToken;
+@property (nonatomic, retain) NSString *tokenString;
 @property (assign, nonatomic) id<AppDelegateDelegate> delegate;
 
 @end

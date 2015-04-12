@@ -12,7 +12,8 @@
 -(NSString *) receiveUserName;
 
 @end
-
+// put protocol declaration def above imports
+// see this SO thread, stackoverflow.com/questions/6447573
 #import "Account.h"
 #import "ViewControllerWelcome.h"
 #import "JailbrokenSerial.h"

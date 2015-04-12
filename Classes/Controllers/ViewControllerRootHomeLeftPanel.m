@@ -186,6 +186,8 @@
     
     if ([currentString isEqualToString:@"Create Web Service"]) {
         ViewControllerWebService *webServiceVC = [[ViewControllerWebService alloc] initWithNibName:@"ViewControllerWebService" bundle:nil];
+        // establish delegate for vc
+        webServiceVC.delegate = self;
         [self presentViewController:webServiceVC animated:YES completion:nil];
     }
 }

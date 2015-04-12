@@ -9,6 +9,7 @@
 #import "ViewControllerWebService.h"
 #import <RestKit/RestKit.h>
 
+
 @interface ViewControllerWebService () {
     
 }
@@ -24,7 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"inside viewDidLoad of webServiceVC");
-//    NSLog(@"self.view = %@",self.view);
+    
+    // establish delegate in calling method that launches vc
     
     // create uibutton
     UIButton *createWebServiceButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -79,10 +81,6 @@
     
 }
 
-//- (void)application:didRegisterForRemoteNotificationsWithDeviceToken:(NSData*) {
-//    deviceToken
-//}
-
 - (void)meetAndPotatoes {
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSLog(@"UUID = %@",idfv);
@@ -91,9 +89,29 @@
     
     NSLog(@"I am your RKClient singleton : %@", [RKObjectManager sharedManager]);
     
-    // get unique token from iOS device
     
-//    [UIApplication sharedApplication] registerForRemoteNotificationTypes (UIRemoteNotificationTypeBadge UIRemoteNotificationTypeSoundUIRemoteNotificationTypeAlert)];
+    // get deviceToken
+    
+    
+//    NSString *host = @"http://kegcop.chrisrjones.com";
+//    NSString *URLString = @"";
+////    URLString = [URLString stringByAppendingString:id];
+//    URLString = [URLString stringByAppendingString:@"&amp;amp;amp;amp;amp;devicetoken="];
+//    
+////    NSString *dt = [[_deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
+////    dt = [dt stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    
+//    URLString = [URLString stringByAppendingString:dt];
+//    URLString = [URLString stringByAppendingString:@"&amp;amp;amp;amp;amp;devicename="];
+//    URLString = [URLString stringByAppendingString:[[UIDevice alloc] name]];
+//    
+//    NSURL *url = [[NSURL alloc] initWithScheme:@"http" host:host path:URLString];
+//    NSLog(@"FullURL=%@", url);
+//    
+//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+//    
+//    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+//    
     
     
 }

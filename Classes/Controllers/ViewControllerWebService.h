@@ -6,6 +6,14 @@
 //
 //
 
-@interface ViewControllerWebService : UIViewController
+#import "AppDelegate.h"
 
+@class ViewControllerWebService;
+@protocol ViewControllerWebServiceDelegate <NSObject>
+-(NSData *)obtainDeviceToken;
+@end
+
+@interface ViewControllerWebService : UIViewController <AppDelegateDelegate>
+
+@property (assign, nonatomic) id<ViewControllerWebServiceDelegate> delegate;
 @end

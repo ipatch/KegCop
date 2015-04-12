@@ -41,6 +41,13 @@
     AppDelegate *appDelegate;
     UIStoryboard *storyboard;
 }
+
+- (NSString *)receiveUserName {
+    
+    return _textFieldUsername.text;
+    NSLog(@"textfiled username = %@",_textFieldUsername.text);
+}
+
 #pragma mark viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -396,13 +403,17 @@ NSAssert(
                 else {
                     appDelegate = APPDELEGATE;
                     storyboard = appDelegate.storyboard;
+                    
+                    
                     ViewControllerHome *home = [storyboard instantiateViewControllerWithIdentifier:@"Home"];
                    
+                    // declare delegate property
+                    home.delegate = self;
                     
                     // pass username text to home screen
                     username = _textFieldUsername.text;
                     
-                    [self passValues];
+//                    [self passValues];
                     
 //                    // get current time
 //                    NSString *timestamp = TimeStamp;
@@ -578,16 +589,9 @@ NSAssert(
     
 }
 
--(void) passValues {
-    ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
-    modelwelcome.passedText = username;
-}
-
 -(void)onTick:(NSTimer *)timer {
     // do something
 }
-
-
 
 // create a method that spawns a new thread to listen for an RFID badge scan / swipe
 

@@ -14,10 +14,13 @@
 -(NSData *)passDeviceToken;
 @end
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, ViewControllerWebServiceDelegate> { }
+@interface AppDelegate : UIResponder <UIApplicationDelegate> { }
 
 // the below property is important
 // http://developer.apple.com/library/ios/#releasenotes/Miscellaneous/RN-AdoptingStoryboards/_index.html
+
+
++ (id)sharedManager;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, retain) UIStoryboard *storyboard;

@@ -18,26 +18,16 @@
 @property (nonatomic, retain) UIImage *avatar;
 @end
 
-@implementation ViewControllerHome
-{
-    
-}
+@implementation ViewControllerHome { }
 
-- (void)viewDidLoad
-{
-    
+- (void)viewDidLoad {
      [super viewDidLoad];
-    
-    // Core Data
-    if (_managedObjectContext == nil)
-    {
+
+    if (_managedObjectContext == nil) {
         _managedObjectContext = [[AccountsDataModel sharedDataModel] mainContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
-    // Core Data END
-
     
-
     // load Home Scrollview
     [_homeScroller setContentSize:CGSizeMake(320,750)];
     
@@ -57,7 +47,8 @@
     [self.homeScroller addSubview:removeAccount];
     
     // change USERNAME label
-    [self changeUSERNAME];
+    NSLog(@" username = %@",[self.delegate receiveUserName]);
+    _lblUSERNAME.text = [self.delegate receiveUserName];
     
     // update credit
     [self updateCredit];
@@ -461,7 +452,7 @@
     NSMutableDictionary *dataToReturn = [[NSMutableDictionary alloc] init];
     
     // how to add lblUSERNAME(.text) to mutable dictionary ?
-    [dataToReturn setObject:self.lblUSERNAME.text forKey:@"username"];
+    [dataToReturn setObject:_lblUSERNAME.text  forKey:@"username"];
     
     return dataToReturn;
 }
@@ -506,13 +497,6 @@
         NSLog(@"delegate method - save btn pressed");
         [self saveTagIDtoAccount];
     }
-}
-
-/*
- * method to change username label
- */
-- (void)changeUSERNAME {
-    _lblUSERNAME.text = [ModelWelcome sharedModelWelcome].passedText;
 }
 
 -(void)updateCredit {

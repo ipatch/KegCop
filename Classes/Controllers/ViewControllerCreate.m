@@ -221,8 +221,6 @@
         // pass user tf text to home screen
         username = _createUserTextField.text;
         
-        [self passValues];
-        
         [self presentViewController:home animated:YES completion:nil];
     }
 }
@@ -401,10 +399,5 @@ if (i >= 1) return YES; else return NO;
     
     else if ([_createPhoneNumber isFirstResponder]) [self.createEmailTextField becomeFirstResponder];
     
-}
-
--(void) passValues {
-    ModelWelcome *modelwelcome = [ModelWelcome sharedModelWelcome];
-    modelwelcome.passedText = username;
 }
 @end

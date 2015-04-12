@@ -10,9 +10,7 @@
 #import <QuartzCore/QuartzCore.h>  // makes round buttons :)
 #import "AppDelegate.h"
 #import "Account.h"
-#import "ViewControllerHome.h"
 #import "ViewControllerRootHome.h"
-#import "ModelWelcome.h"
 #import "ViewControllerDev.h"
 #import "JailbrokenSerial.h"
 #import "NSData+AES256.h"
@@ -20,8 +18,11 @@
 #import "AFNetworking.h"
 #import "AccountsDataModel.h"
 #import "GlobalData.h"
+#import "ViewControllerHome.h"
 
-@interface ViewControllerWelcome : UIViewController <JailbrokenSerialDelegate>
+@class ViewControllerWelcome;
+
+@interface ViewControllerWelcome : UIViewController <JailbrokenSerialDelegate, ViewControllerHomeDelegate>
 
 
 // Welcome screen

@@ -19,6 +19,22 @@
 
 }
 
++ (id)sharedManager {
+    static AppDelegate *sharedAppDelegate = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedAppDelegate = [[self alloc] init];
+    });
+    return sharedAppDelegate;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        NSLog(@"device token = %@",_deviceToken);
+    }
+    return self;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     

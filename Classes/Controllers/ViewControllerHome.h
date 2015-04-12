@@ -5,11 +5,20 @@
 //  Created by capin on 6/20/12.
 //
 
+@class ViewControllerHome;
+
+@protocol ViewControllerHomeDelegate
+
+-(NSString *) receiveUserName;
+
+@end
+
 #import "Account.h"
 #import "ViewControllerWelcome.h"
 #import "JailbrokenSerial.h"
 #import "DFBlunoManager.h"
 #import "ViewControllerAvatar4.h"
+#import "ViewControllerWelcome.h"
 
 @interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, DFBlunoDelegate, ViewControllerAvatar4Delegate>
 {
@@ -23,6 +32,7 @@
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;
 }
+@property (strong, nonatomic) id<ViewControllerHomeDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
 @property (weak, nonatomic) IBOutlet UILabel *lblUSERNAME;
 @property (weak, nonatomic) IBOutlet UILabel *creditX;

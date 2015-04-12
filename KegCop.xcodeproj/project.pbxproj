@@ -32,7 +32,6 @@
 		EAEC80391AB3A41B004EFD58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91C1AAFB86D0075EAB0 /* main.m */; };
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
 		EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */; };
-		EAEC803F1AB3A4C7004EFD58 /* ModelWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91F1AAFB86D0075EAB0 /* ModelWelcome.m */; };
 		EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */; };
 		EAEC80431AB3A52D004EFD58 /* ViewControllerDev3.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9351AAFB86D0075EAB0 /* ViewControllerDev3.m */; };
 		EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */; };
@@ -242,8 +241,6 @@
 		EAC2D91A1AAFB86D0075EAB0 /* JailbrokenSerial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JailbrokenSerial.m; path = Processing/JailbrokenSerial.m; sourceTree = "<group>"; };
 		EAC2D91B1AAFB86D0075EAB0 /* KegCop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Bridging-Header.h"; sourceTree = "<group>"; };
 		EAC2D91C1AAFB86D0075EAB0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EAC2D91E1AAFB86D0075EAB0 /* ModelWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelWelcome.h; sourceTree = "<group>"; };
-		EAC2D91F1AAFB86D0075EAB0 /* ModelWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelWelcome.m; sourceTree = "<group>"; };
 		EAC2D9201AAFB86D0075EAB0 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
 		EAC2D9211AAFB86D0075EAB0 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
 		EAC2D9311AAFB86D0075EAB0 /* SERVICES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SERVICES.h; path = Bluno/SERVICES.h; sourceTree = "<group>"; };
@@ -509,12 +506,14 @@
 				EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */,
 				EAC2D90E1AAFB86D0075EAB0 /* ViewControllerWelcome.h */,
 				EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */,
+				EAC2D8F91AAFB86D0075EAB0 /* ViewControllerHome.h */,
+				EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */,
+				EA0167381ABE30ED00A98B2F /* ViewControllerAvatar4.h */,
+				EA0167391ABE30ED00A98B2F /* ViewControllerAvatar4.m */,
 				EAC2D8EA1AAFB86D0075EAB0 /* ViewControllerAbout.h */,
 				EAC2D8EB1AAFB86D0075EAB0 /* ViewControllerAbout.m */,
 				EAC2D8F31AAFB86D0075EAB0 /* ViewControllerCreate.h */,
 				EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */,
-				EAC2D8F91AAFB86D0075EAB0 /* ViewControllerHome.h */,
-				EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */,
 				EAC2D9321AAFB86D0075EAB0 /* ViewControllerDev2.h */,
 				EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */,
 				EAC2D9341AAFB86D0075EAB0 /* ViewControllerDev3.h */,
@@ -533,8 +532,6 @@
 				EAC2D8EE1AAFB86D0075EAB0 /* ViewControllerAvatar2.m */,
 				EAC2D8EF1AAFB86D0075EAB0 /* ViewControllerAvatar3.h */,
 				EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */,
-				EA0167381ABE30ED00A98B2F /* ViewControllerAvatar4.h */,
-				EA0167391ABE30ED00A98B2F /* ViewControllerAvatar4.m */,
 				EAC2D8F11AAFB86D0075EAB0 /* ViewControllerCheckFlow.h */,
 				EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */,
 				EAC2D8F51AAFB86D0075EAB0 /* ViewControllerDev.h */,
@@ -567,8 +564,6 @@
 		EAC2D91D1AAFB86D0075EAB0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EAC2D91E1AAFB86D0075EAB0 /* ModelWelcome.h */,
-				EAC2D91F1AAFB86D0075EAB0 /* ModelWelcome.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -872,7 +867,6 @@
 				EAEC80391AB3A41B004EFD58 /* main.m in Sources */,
 				EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */,
 				EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */,
-				EAEC803F1AB3A4C7004EFD58 /* ModelWelcome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

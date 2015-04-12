@@ -13,7 +13,7 @@
 -(NSData *)obtainDeviceToken;
 @end
 
-@interface ViewControllerWebService : UIViewController <AppDelegateDelegate>
+@interface ViewControllerWebService : UIViewController
 
 @property (assign, nonatomic) id<ViewControllerWebServiceDelegate> delegate;
 @end

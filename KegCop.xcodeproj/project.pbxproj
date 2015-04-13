@@ -398,8 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				EABC3B741AC4E0F70086691E /* GlobalData.h */,
-				EAEC80A61AB4B0D4004EFD58 /* KCModalPickerView.h */,
 				EAEC80A41AB4B051004EFD58 /* KCModalPickerView.m */,
+				EAEC80A61AB4B0D4004EFD58 /* KCModalPickerView.h */,
 				EA4570351A046E78004DEEC4 /* DataModel */,
 				EAC2D8DC1AAFB86D0075EAB0 /* AppDelegate.h */,
 				EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */,

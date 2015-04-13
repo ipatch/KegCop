@@ -7,7 +7,6 @@
 
 #import "Account.h"
 #import "ViewControllerWelcome.h"
-#import "ViewControllerLogs.h"
 #import "ViewControllerRootHomeLeftPanel.h"
 #import "returnToRootHome.h"
 @protocol ViewControllerRootHomeProtocol;

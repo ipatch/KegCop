@@ -14,8 +14,7 @@
 
 @implementation ViewControllerDev2
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.blunoManager = [DFBlunoManager sharedInstance];
     self.blunoManager.delegate = self;
@@ -24,8 +23,7 @@
     [self.blunoManager scan];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // dispose of any resources that can be recreated.
 }

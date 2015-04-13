@@ -13,6 +13,7 @@
 #import "ViewControllerUsers.h"
 #import "Account.h"
 #import "ViewControllerWebService.h"
+#import "ViewControllerDev2.h"
 
 #define SLIDE_TIMING .25
 
@@ -62,7 +63,7 @@
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Change Pin", @"Logoff",@"Create Web Service", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Change Pin", @"Logoff",@"Create Web Service",@"Test Bluno Connection", nil];
     
     
     self.tableView = [self makeTableView];
@@ -189,6 +190,13 @@
         // establish delegate for vc
         webServiceVC.delegate = self;
         [self presentViewController:webServiceVC animated:YES completion:nil];
+    }
+    
+    if ([currentString isEqualToString:@"Test Bluno Connection"]) {
+        AppDelegate *appDelegate = APPDELEGATE;
+        UIStoryboard *storyboard = appDelegate.storyboard;
+        ViewControllerDev2 *blunoTestVC = [storyboard instantiateViewControllerWithIdentifier:@"dev2"];
+        [self presentViewController:blunoTestVC animated:YES completion:nil];
     }
 }
 @end

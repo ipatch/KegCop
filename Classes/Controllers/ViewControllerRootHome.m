@@ -508,16 +508,6 @@
     
 }
 
-
-
-- (IBAction)showLogs:(id)sender {
-    
-    // logs btn pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-    ViewControllerLogs *logs = (ViewControllerLogs *)[storyboard instantiateViewControllerWithIdentifier:@"Logs"];
-    [self presentViewController:logs animated:YES completion:nil];
-}
-
 - (void)rootCreditAmount {
     // Core Data - root credit amount
     NSFetchRequest *request = [[NSFetchRequest alloc] init];

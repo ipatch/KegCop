@@ -33,12 +33,10 @@
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
 		EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */; };
 		EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */; };
-		EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */; };
 		EAEC80501AB3A52D004EFD58 /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8EB1AAFB86D0075EAB0 /* ViewControllerAbout.m */; };
 		EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */; };
 		EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */; };
 		EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */; };
-		EAEC80601AB3A52D004EFD58 /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FC1AAFB86D0075EAB0 /* ViewControllerLogs.m */; };
 		EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */; };
 		EAEC80641AB3A52D004EFD58 /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9001AAFB86D0075EAB0 /* ViewControllerPurchase.m */; };
 		EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */; };
@@ -165,8 +163,6 @@
 		EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerForgot.m; sourceTree = "<group>"; };
 		EAC2D8F91AAFB86D0075EAB0 /* ViewControllerHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerHome.h; sourceTree = "<group>"; };
 		EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerHome.m; sourceTree = "<group>"; };
-		EAC2D8FB1AAFB86D0075EAB0 /* ViewControllerLogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerLogs.h; sourceTree = "<group>"; };
-		EAC2D8FC1AAFB86D0075EAB0 /* ViewControllerLogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLogs.m; sourceTree = "<group>"; };
 		EAC2D8FD1AAFB86D0075EAB0 /* ViewControllerPour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPour.h; sourceTree = "<group>"; };
 		EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerPour.m; sourceTree = "<group>"; };
 		EAC2D8FF1AAFB86D0075EAB0 /* ViewControllerPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPurchase.h; sourceTree = "<group>"; };
@@ -196,8 +192,6 @@
 		EAC2D9311AAFB86D0075EAB0 /* SERVICES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SERVICES.h; path = Bluno/SERVICES.h; sourceTree = "<group>"; };
 		EAC2D9321AAFB86D0075EAB0 /* ViewControllerDev2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev2.h; sourceTree = "<group>"; };
 		EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev2.m; sourceTree = "<group>"; };
-		EAC2D9361AAFB86D0075EAB0 /* ViewControllerDev4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev4.h; sourceTree = "<group>"; };
-		EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev4.m; sourceTree = "<group>"; };
 		EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CenterViewController.xib; sourceTree = "<group>"; };
 		EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftPanelViewController.xib; sourceTree = "<group>"; };
 		EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
@@ -438,12 +432,8 @@
 				EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */,
 				EAC2D9321AAFB86D0075EAB0 /* ViewControllerDev2.h */,
 				EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */,
-				EAC2D9361AAFB86D0075EAB0 /* ViewControllerDev4.h */,
-				EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */,
 				EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */,
 				EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */,
-				EAC2D8FB1AAFB86D0075EAB0 /* ViewControllerLogs.h */,
-				EAC2D8FC1AAFB86D0075EAB0 /* ViewControllerLogs.m */,
 				EAC2D8FD1AAFB86D0075EAB0 /* ViewControllerPour.h */,
 				EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */,
 				EAC2D8FF1AAFB86D0075EAB0 /* ViewControllerPurchase.h */,
@@ -734,13 +724,11 @@
 				EAEC80771AB3A55A004EFD58 /* BLEDevice.m in Sources */,
 				EAEC80791AB3A55A004EFD58 /* BLEUtility.m in Sources */,
 				EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */,
-				EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */,
 				EAEC80A51AB4B052004EFD58 /* KCModalPickerView.m in Sources */,
 				EAEC80501AB3A52D004EFD58 /* ViewControllerAbout.m in Sources */,
 				EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */,
 				EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */,
 				EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */,
-				EAEC80601AB3A52D004EFD58 /* ViewControllerLogs.m in Sources */,
 				EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */,
 				EAEC80641AB3A52D004EFD58 /* ViewControllerPurchase.m in Sources */,
 				EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */,
@@ -944,7 +932,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
-				CURRENT_PROJECT_VERSION = 108;
+				CURRENT_PROJECT_VERSION = 109;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
@@ -985,7 +973,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
-				CURRENT_PROJECT_VERSION = 108;
+				CURRENT_PROJECT_VERSION = 109;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",

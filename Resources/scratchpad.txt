@@ -3,6 +3,13 @@
 
 cleaned up scratchpad.txt
 
+Notes
+- to bump build
+agvtool bump -all
+
+- to bump marketing version
+-agvtool new-marketing-version <0.1.4>
+
 ====================================================
 26MAR15
 it is no longer necessary to synthesize properties in the .m file,

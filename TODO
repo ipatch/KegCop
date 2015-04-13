@@ -14,7 +14,7 @@ N: Remove VCs not being used, i.e. a lot of them :l
 
 N: Remove unnecessary processing class files from project.
 
-N: Organize scratchpad.txt, i.e. remove / refractor old notes.
+C: Organize scratchpad.txt, i.e. remove / refractor old notes.
 
 C: download some default avatars and add them to resources.
 

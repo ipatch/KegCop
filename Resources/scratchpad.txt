@@ -1,3 +1,8 @@
+==============================================
+13APR15
+
+cleaned up scratchpad.txt
+
 ====================================================
 26MAR15
 it is no longer necessary to synthesize properties in the .m file,

@@ -7,6 +7,7 @@
 //
 
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <UIKit/UIKit.h>
 
 #define BLUNO_TRANSFER_SERVICE_UUID         @"dfb0"
 #define BLUNO_TRANSFER_CHARACTERISTIC_UUID  @"dfb1"

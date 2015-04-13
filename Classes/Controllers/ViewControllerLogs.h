@@ -5,6 +5,8 @@
 //  Created by capin on 7/28/12.
 //
 
+#import <UIKit/UiKit.h>
+
 @interface ViewControllerLogs : UIViewController {
     BOOL firstOpen;
 }

@@ -508,13 +508,7 @@
     
 }
 
-- (IBAction)checkFlow:(id)sender {
-    
-    // btnCheckFlow pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-    ViewControllerCheckFlow *checkFlow = (ViewControllerCheckFlow *)[storyboard instantiateViewControllerWithIdentifier:@"Check Flow"];
-    [self presentViewController:checkFlow animated:YES completion:nil];
-}
+
 
 - (IBAction)showLogs:(id)sender {
     

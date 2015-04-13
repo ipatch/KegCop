@@ -6,6 +6,7 @@
 //
 
 #import "AccountsDataModel.h"
+#import <UIKit/UIKit.h>
 
 @interface ViewControllerAbout : UIViewController 
 {

@@ -8,6 +8,8 @@ Thanks,
 - Chris
 
 --------------
+B: Fix 18 compile time errors.
+
 C: Remove eronnous comments from AppDelegate.m
 
 N: Remove VCs not being used, i.e. a lot of them :l

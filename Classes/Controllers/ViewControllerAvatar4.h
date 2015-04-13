@@ -6,6 +6,8 @@
 //
 //
 
+
+
 @class ViewControllerAvatar4;
 
 @protocol ViewControllerAvatar4Delegate
@@ -13,6 +15,9 @@
 - (NSDictionary *) giveMeData;
 
 @end
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ViewControllerAvatar4 : UIViewController {
     

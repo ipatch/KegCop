@@ -34,13 +34,7 @@
 		EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */; };
 		EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */; };
 		EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */; };
-		EAEC80491AB3A52D004EFD58 /* HUMAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E41AAFB86D0075EAB0 /* HUMAddEventViewController.m */; };
-		EAEC804B1AB3A52D004EFD58 /* HUMConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E61AAFB86D0075EAB0 /* HUMConfirmationViewController.m */; };
-		EAEC804D1AB3A52D004EFD58 /* HUMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E81AAFB86D0075EAB0 /* HUMMapViewController.m */; };
 		EAEC80501AB3A52D004EFD58 /* ViewControllerAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8EB1AAFB86D0075EAB0 /* ViewControllerAbout.m */; };
-		EAEC80521AB3A52D004EFD58 /* ViewControllerAvatar2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8EE1AAFB86D0075EAB0 /* ViewControllerAvatar2.m */; };
-		EAEC80541AB3A52D004EFD58 /* ViewControllerAvatar3.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */; };
-		EAEC80561AB3A52D004EFD58 /* ViewControllerCheckFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */; };
 		EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */; };
 		EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */; };
 		EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */; };
@@ -162,21 +156,9 @@
 		EAC2D8DB1AAFB86D0075EAB0 /* AccountBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountBase.m; path = Classes/DataModel/AccountBase.m; sourceTree = "<group>"; };
 		EAC2D8DC1AAFB86D0075EAB0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EAC2D8E31AAFB86D0075EAB0 /* HUMAddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUMAddEventViewController.h; sourceTree = "<group>"; };
-		EAC2D8E41AAFB86D0075EAB0 /* HUMAddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUMAddEventViewController.m; sourceTree = "<group>"; };
-		EAC2D8E51AAFB86D0075EAB0 /* HUMConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUMConfirmationViewController.h; sourceTree = "<group>"; };
-		EAC2D8E61AAFB86D0075EAB0 /* HUMConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUMConfirmationViewController.m; sourceTree = "<group>"; };
-		EAC2D8E71AAFB86D0075EAB0 /* HUMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUMMapViewController.h; sourceTree = "<group>"; };
-		EAC2D8E81AAFB86D0075EAB0 /* HUMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUMMapViewController.m; sourceTree = "<group>"; };
 		EAC2D8E91AAFB86D0075EAB0 /* returnToRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = returnToRootHome.h; sourceTree = "<group>"; };
 		EAC2D8EA1AAFB86D0075EAB0 /* ViewControllerAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAbout.h; sourceTree = "<group>"; };
 		EAC2D8EB1AAFB86D0075EAB0 /* ViewControllerAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAbout.m; sourceTree = "<group>"; };
-		EAC2D8ED1AAFB86D0075EAB0 /* ViewControllerAvatar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAvatar2.h; sourceTree = "<group>"; };
-		EAC2D8EE1AAFB86D0075EAB0 /* ViewControllerAvatar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAvatar2.m; sourceTree = "<group>"; };
-		EAC2D8EF1AAFB86D0075EAB0 /* ViewControllerAvatar3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAvatar3.h; sourceTree = "<group>"; };
-		EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAvatar3.m; sourceTree = "<group>"; };
-		EAC2D8F11AAFB86D0075EAB0 /* ViewControllerCheckFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerCheckFlow.h; sourceTree = "<group>"; };
-		EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerCheckFlow.m; sourceTree = "<group>"; };
 		EAC2D8F31AAFB86D0075EAB0 /* ViewControllerCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerCreate.h; sourceTree = "<group>"; };
 		EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerCreate.m; sourceTree = "<group>"; };
 		EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerForgot.h; sourceTree = "<group>"; };
@@ -458,18 +440,6 @@
 				EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */,
 				EAC2D9361AAFB86D0075EAB0 /* ViewControllerDev4.h */,
 				EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */,
-				EAC2D8E31AAFB86D0075EAB0 /* HUMAddEventViewController.h */,
-				EAC2D8E41AAFB86D0075EAB0 /* HUMAddEventViewController.m */,
-				EAC2D8E51AAFB86D0075EAB0 /* HUMConfirmationViewController.h */,
-				EAC2D8E61AAFB86D0075EAB0 /* HUMConfirmationViewController.m */,
-				EAC2D8E71AAFB86D0075EAB0 /* HUMMapViewController.h */,
-				EAC2D8E81AAFB86D0075EAB0 /* HUMMapViewController.m */,
-				EAC2D8ED1AAFB86D0075EAB0 /* ViewControllerAvatar2.h */,
-				EAC2D8EE1AAFB86D0075EAB0 /* ViewControllerAvatar2.m */,
-				EAC2D8EF1AAFB86D0075EAB0 /* ViewControllerAvatar3.h */,
-				EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */,
-				EAC2D8F11AAFB86D0075EAB0 /* ViewControllerCheckFlow.h */,
-				EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */,
 				EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */,
 				EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */,
 				EAC2D8FB1AAFB86D0075EAB0 /* ViewControllerLogs.h */,
@@ -766,13 +736,7 @@
 				EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */,
 				EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */,
 				EAEC80A51AB4B052004EFD58 /* KCModalPickerView.m in Sources */,
-				EAEC80491AB3A52D004EFD58 /* HUMAddEventViewController.m in Sources */,
-				EAEC804B1AB3A52D004EFD58 /* HUMConfirmationViewController.m in Sources */,
-				EAEC804D1AB3A52D004EFD58 /* HUMMapViewController.m in Sources */,
 				EAEC80501AB3A52D004EFD58 /* ViewControllerAbout.m in Sources */,
-				EAEC80521AB3A52D004EFD58 /* ViewControllerAvatar2.m in Sources */,
-				EAEC80541AB3A52D004EFD58 /* ViewControllerAvatar3.m in Sources */,
-				EAEC80561AB3A52D004EFD58 /* ViewControllerCheckFlow.m in Sources */,
 				EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */,
 				EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */,
 				EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */,

@@ -8,7 +8,9 @@ Thanks,
 - Chris
 
 --------------
-B: Fix 18 compile time errors.
+N: Bump to version 0.1.4 build 100
+
+C: Fix 18 compile time errors.
 
 C: Remove eronnous comments from AppDelegate.m
 

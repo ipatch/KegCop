@@ -1,10 +1,8 @@
-
 ====================================================
 26MAR15
 it is no longer necessary to synthesize properties in the .m file,
 Xcode / Obj-C auto synthesizes properties with the "_" i.e.,
 _mybutton
-
 
 ====================================================
 19MAR15 - is the Bluno the peripheral or the central?
@@ -15,8 +13,6 @@ and confirm with a SO questoin.
 
 Confirmed the iOS device is the CBCentralManager,
 stackoverflow.com/questions/21466245
-
-
 
 ====================================================
 removed the following code from main.m
@@ -34,16 +30,10 @@ removed the following code from main.m
 //        int retVal = UIApplicationMain(argc, argv, nil, nil);
 //       return retVal;
 
-
-
-
 ====================================================
 removed the following from controllers
 ====================================================
 //        _managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-
-
-
 
 =====================================================
 clean-up of Core Data
@@ -57,7 +47,7 @@ NSString *docPath = [documentPaths objectAtIndex:0];
 
 NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponent:@"Accounts.sqlite"]];
 #else
-// jailbroken path - /var/mobile/Library/Kegcop/
+// jb path - /var/mobile/Library/Kegcop/
 NSString *docPath = self.documentsDirectoryPath;
 
 NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponent:@"Accounts.sqlite"]];
@@ -72,10 +62,10 @@ NSURL *storeURL = [NSURL fileURLWithPath: [docPath stringByAppendingPathComponen
 return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-// set path for documents in jailbreak environment
+// set path for documents in jb environment
 -(NSString *)documentsDirectoryPath
 {
-#ifdef JAILBREAK
+#ifdef JB
 
 NSString *documentPath =@"/var/mobile/Library/KegCop/";
 
@@ -101,15 +91,15 @@ return [documentPaths objectAtIndex:0];
 =====================================================
 swift notes
 =====================================================
-// all variables are declared using var
+all variables are declared using var
 
-// variables cannot be changed from one data type
-// to another data type, unlike Javascript
+variables cannot be changed from one data type
+to another data type, unlike Javascript
 
-// i.e. var firstName = "Chris"
-// var firstName = "99"
+i.e. var firstName = "Chris"
+var firstName = "99"
 
-// the above two lines will throw a compile error
+the above two lines will throw a compile error
 
 Creating constants in Swift
 
@@ -228,479 +218,7 @@ previewLayer?.frame = self.view.layer.frame
 captureSession.startRunning()
 }
 
-
-
-
-
-
-==============================================
-iDevice Serial Communication
-
-iDevice 30 pin connector Communication
-12 - Tx (transmit over serial) (dots on cable means TX)
-13 - Rx (read over serial) (solid line on cable means RX)
-1,11, 15 - Ground
-23 - 5V Power
-18 - 3.3V Power
-
-External Accessory framework
-
-Use a 1K resistor to step the 5V down to 3.3V for serial communication
-
-==============================================
-
-==============================================
-Proof of Concept - Arduino - iDevice Communication
-==============================================
-iDevice has to send signal over serial com to Arduino that then sends signal to solenoid to open
-
-
-==============================================
-END - Proof of Concept - Arduino - iDevice Com
-==============================================
-
-==============================================
-Building KegBot on iDevice (3GS)
-==============================================
-
-Dependices
-- Python 2.7
-- Django 1.4
-- MySQL, Postgres, or SQLite
-- Python-Imaging 1.7
-
------
-Instructions
------
-- Install the python-sqlite package
-
-
-------
-Notes
-------
-- python-sqlite - interfaces with an SQLite 2.x database - http://packages.debian.org/stable/python/python-sqlite
-
-- to interface to SQLite 3, see the package python-pysqlite1.1 - http://packages.debian.org/stable/python/python-pysqlite2
-
-- if using Python 2.5 and up, already have working version of pysqlite 2 bundled http://trac.edgewall.org/wiki/PySqlite
-
-
-===============================================================================
-Script - Copy app out of sandbox into /private/var/stash to get serial communication
-===============================================================================
-
-The script will first delete the old app, copy across the new one, then finally respiring so the new app can be used.
-
-#———————-
-# sandbox directory - /var/mobile/Applications/
-echo "Product Name: ${PRODUCT_NAME}"
-echo "Target Build Dir: ${TARGET_BUILD_DIR}"
-#
-ssh -T root@10.0.1.11 rm -rf /Applications/${WRAPPER_NAME}
-echo "${WRAPPER_NAME} Removed"
-#
-echo "PWD: ${PWD}"
-scp -r "${TARGET_BUILD_DIR}/${WRAPPER_NAME}" root@10.0.1.11:/Applications/
-echo “Copy Complete”
-#
-ssh -T root@10.0.1.11 killall -HUP SpringBoard
-echo "Respringing…"
-#———————-
-
-===========================================
-Script - End
-===========================================
-
-======================================
-Solenoid Wiring
-=====================================
-one more question how do i wire this into the kegboard shield? i mean i plug the AC 
-               adapter into the wall, then hook the red wire and black wire to the arduino, then 
-               run two wires from the arduino to solenoid
-20:00 < geoffc> that's close, but you'll want to have the + wire into and out of kegboard relay. ( 
-                one from the wall adapter and one to the valve).
-20:00 < geoffc> and then a negative wire (black)  from the valve to the ac adapter
-
-
-
-========================================
-Serial port programming
-========================================
-
-int
-read_port(void)
-{
-    int fd = open("/dev/ttyS0", O_RDONLY | O_NOCTTY);
-    if (fd == -1)
-    {
-        /* Could not open the port. */
-        perror("open_port: Unable to open /dev/ttyS0 - ");
-    }
-
-    char buffer[32];
-    int n = read(fd, buffer, sizeof(buffer));
-    if (n < 0)
-        fputs("read failed!\n", stderr);
-    return (fd);
-}
-
-
-
-========================================
-Obsolete Code
-========================================
-   
-            // KEYCHAIN - OBSOLETE
-            //if ([anAccount.pin isEqualToString:_textFieldPin.text]){
-              //  NSLog(@"Your pin is correct");
               
-              
-===========================================
-Serial Port Programming
-===========================================
-
-/*
- * 'open_port()' - Open serial port on dock connector pins 13RX / 12TX
- *
- * Returns the file descriptor on success or -1 on error.
- */
-
-int openPort(void)
-{
-    int fd = -1; /* File descriptor for the port */
-    
-    struct termios options; 
-    
-    printf("Trying to open port!\n");
-    
-    fd = open("/dev/tty.iap", O_RDWR | O_NOCTTY | O_NDELAY); // O_NOCTTY - don't be controlling terminal, O_NODELAY don't care about DCD signal state
-    if ( fd == -1)
-    {
-        // couldn't open the port
-        
-        perror("open_port: Unable to open /dev/tty.iap - ");
-    }
-    else
-        fcntl(fd, F_SETFL, 0);
-    
-    tcgetattr(fd, &options); // get current options for the port
-    
-    // set the baud rate
-    cfsetispeed(&options, B2400);
-    cfsetospeed(&options, B2400);
-    
-    // enable the receiver and set local mode
-    options.c_cflag |= (CLOCAL | CREAD);
-    
-    // set the new options for the port
-    tcsetattr(fd, TCSANOW, &options);
-    
-    return (fd);
-
-}
-
-=============================================
-Serial Port Programming
-=============================================
-
-char *portname = "/dev/tty.iap";
-char buf[256];
-
-int main(int argc, char *argv[])
-{
-
-    int fd;
-
-    // Open the file descriptor in non-blocking mode
-    fd = open(portname, O_RDWR | O_NOCTTY);
-
-    // set up the control structure
-    struct termios toptions;
-        
-    // get current set options for the tty
-    tcgetattr(fd, &toptions);
-
-    // set custom options
-    
-    // set baud rate
-    cfsetispeed(&toptions, B2400);
-    cfsetospeed(&toptions, B2400);
-    
-    // 8 bits, no parity no stop bits
-    toptions.c_cflag &= ~PARENB;
-    toptions.c_cflag &= ~CSTOPB;
-    toptions.c_cflag &= ~CSIZE;
-    toptions.c_cflag |= CS8;
-    
-    // no hardware flow control
-    toptions.c_cflag &= ~CRTSCTS;
-    
-    // enable receiver
-    toptions.c_cflag |= CREAD | CLOCAL;
-    	 
-    // disable input/output flow control, disable restart chars
-    toptions.c_iflag &= ~(IXON | IXOFF | IXANY);
-    	 
-    // disable canonical input, disable echo,
-    // disable visually erase chars,
-    // disable terminal-generated signals */
-    toptions.c_iflag &= ~(ICANON | ECHO | ECHOE | ISIG);
-    	 
-    // disable output processing
-    toptions.c_oflag &= ~OPOST;
-    	 
-    // wait for 24 characters to come in before read returns
-    toptions.c_cc[VMIN] = 12;
-    	 
-    // no minimum time to wait before read returns
-    toptions.c_cc[VTIME] = 0;
-    	 
-    // commit the options */
-    tcsetattr(fd, TCSANOW, &toptions);
-    	 
-    // Wait for the Arduino to reset */
-    usleep(1000*1000);
-    	 
-    // Flush anything already in the serial buffer */
-    tcflush(fd, TCIFLUSH);
-    	 
-    // read up to 128 bytes from the fd */
-    int n = read(fd, buf, 128);
-    	 
-    // print how many bytes read */
-    printf("%i bytes got read...\n", n);
-    	 
-    // print what's in the buffer */
-    printf("Buffer contains...\n%s\n", buf);
-    	 
-    return 0;
-}
-
-
-15SEP12
-- Added Serial.h, Serial.c, KBKegboard.h, KBKegboard.m, KBKegboardMessage.h, KBKegboardMessage.m, crc16ccitt.c, crc16ccitt.h
-
-
-
-
-==============================================================
-
-KegPad Serial Com
-==============================================================
-------------------------
-Serial.c
-------------------------
-
-//
-//  Serial.c
-//  KegCop
-//
-//  This file was originally created for the KegPad project.
-//  Created by capin on 8/2/12.
-//
-
-#include <stdio.h>   /* Standard input/output definitions */
-#include <stdlib.h>
-#include <string.h>  /* String function definitions */
-#include <unistd.h>  /* UNIX standard function definitions */
-#include <fcntl.h>   /* File control definitions */
-#include <errno.h>   /* Error number definitions */
-#include <termios.h> /* POSIX terminal control definitions */
-#include <sys/ioctl.h>
-
-/*! openPort(portName, baudRate) - Open serial port
- Example:
- NSInteger fileDescriptor = openPort("/dev/tty.iap", 9600)
- write(fileDescriptor, "hello world", 12)
- */
-
-int openPort(char *portName, int baudRate) {
-    int fileDescriptor;
-    struct termios options;
-    printf("Trying to open port!\n");
-    fileDescriptor = open(portName, O_RDWR | O_NOCTTY | O_NONBLOCK);
-    if (fileDescriptor == -1) {
-        char *errorString = malloc(100);
-        sprintf(errorString, "Open_port: Unable to open port %s", portName);
-        perror(errorString);
-        free(errorString);
-    } else {
-        fcntl(fileDescriptor, F_SETFL, 0);
-    }
-    
-    // Get the current options for the port...
-    tcgetattr(fileDescriptor, &options);
-    
-    // Set baud rate
-    cfsetispeed(&options, baudRate);
-    cfsetospeed(&options, baudRate);
-    
-    // Enable the receiver and set local mode...
-    options.c_cflag |= (CLOCAL | CREAD);
-    
-    // Set the new options for the port...
-    tcsetattr(fileDescriptor, TCSANOW, &options);
-    
-    return (fileDescriptor);
-}
-
-// For non-blocking reads, collects data until [length] bytes are collected
-void sleeperRead(int fileDescriptor, char *data, int length) {
-    int index = 0;
-    while (index < length) {
-        int bytesRead = read(fileDescriptor, &data[index], length - index);
-        if (bytesRead == 0) usleep(10000); // Sleep 10ms
-        index += bytesRead;
-    }
-    /* Uncomment for debugging
-     for (int i = 0; i < length; i++) {
-     printf("%2X %c\n", data[i], data[i]);
-     }
-     */
-}
-
-------------------------------------
-Serial.h
-------------------------------------
-
-//
-//  Serial.h
-//  KegCop
-//
-//  Created by capin on 8/2/12.
-//
-
-
-NSInteger openPort(char *portName, NSInteger baudRate);
-
-void sleeperRead(int fileDescriptor, char *data, int length);
-
-// open port first, then call sleeperRead
-
-
------------------------------------------
-ViewControllerSerialConsole.m
------------------------------------------
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    // open the serial port - /dev/tty.ipa
-    
-    // open port
-    
-    // char = read 1 char
-    
-    // while ( char ! NL )
-     // {
-            // append char to end of string
-    
-            // read next character
-     // }
-    
-    // if string not valid
-    
-    
-    // -------------------------
-    
-    // while
-    
-    // read char
-    
-    // write to console / textview
-    
-    // end while
-       
-    //char somechar[8];
-    
-    // print the serial data to the console
-    //NSLog(@"The serial data is %d",serial);
-    
-    // read data coming across the serial port
-    //read(serial,&somechar[0],1);
-    
-    // print the serial data in the textview
-    //_serialView.text = [NSString stringWithFormat:@"%i",serial];
-    
-    
-    // span a new thread for the while loop
-    
-    // reading off the serial port is an event
-    
-    FILE *serial_in;
-    
-    char line_buffer[1000];
-    
-    // int lineBufferUsed;
-    int portnum;
-    
-    NSLog(@"got to A");
-    
-    portnum = openPort("/dev/tty.iap",9600);
-    
-    NSLog(@"got to B");
-    
-    
-    serial_in = fdopen(portnum, "r"); // r = read
-    
-    NSLog(@"got to C");
-    
-    while (1) {
-        
-        NSLog(@"got to D");
-        
-         fgets (line_buffer, 1000, serial_in); // get up too 1000bytes but stop at \n
-        
-        NSLog(@"got to E %s",line_buffer);
-        
-        // print line to textview
-       // _serialView.text = [NSString stringWithFormat:@"%s",line_buffer];
-        
-        NSLog(@"got to F");
-    }
-    
-    
-    // main thread is trapped in while loop
-    
-    
-    
-}
-
-
-================================================
-Serial Example
-================================================
-/*
-static int OpenSerialPort()
-{
-    int fileDescriptor = -1;
-    int handshake;
-    struct termios options;
-
-    fileDescriptor = opne("dev/tty.iap", O_RDWR | O_NOCTTY  | O_NONBLOCK);
-    options = gOriginalTTYAttrs;
-    printf("Current input baud rate is %d\n", (int) cfgetispeed(&options));
-    printf("Current ouput baud rate is %d\n", (int) cfgetospeed(&options));
-    cfmakeraw(&options);
-    options.c_cc[VMIN] = 1;
-    options.c_cc[VTIME] = 10;
-    cfsetspeed(&options, B9600);
-    options.c_cflag |= (CS8);
-    printf("input baud rate changed to %d\n", (int) cfgetispeed(&options));
-    printf("Output baud rate changed to %d\n", (int) cfgetospeed(&options));
-       
-    if (tcsetattr(fileDescriptor, TCSANOW, &options) == -1)
-    {
-           printf("Error setting tty attributes %s - %s(%d).\n", "/dev/tty.iap", strerror(errno), errno);
-    }
-    // Success
-    return fileDescriptor;
-       
-    }
-
-*/
 
 
 
@@ -713,62 +231,6 @@ NSLog(@"Range: %@", NSStringFromRange(range));
 return ( range.location < 10 );
 
 }
-
-
-=================================================
-waiting for user response
-=================================================
-
-bool happeningNow = false;
-
-while (!happeningNow)
-{
-   if(someConditionisMet)
-   {
-        happeningNow = true;
-
-    }
-
-   if(happeningNow)
-   {
-      // whatever
-    }
-
-}
-
-
-
-UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"title" message:@"szMsg" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"download"];
-        [alert show];
-        [alert release];
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0)
-    {
-        //Code for OK button
-    }
-    if (buttonIndex == 1)
-    {
-        //Code for download button
-    }
-}
-
--(void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(actionSheet== alertLogout) {//alertLogout
-        if (buttonIndex == 0){
-
-        }else if(buttonIndex==1){
-
-        }
-    }else if (actionSheet==alertComment) {//alertComment
-        if (buttonIndex==0) {
-
-        }
-    }
-}
-
-
 
 ========================================================
 Using GCD in an Application
@@ -790,113 +252,7 @@ dispatch_async(myQueue, ^{ [self longRunningOperation]; } );  // this is the cod
 Note: UI updates should only happen on the main thread.
 
 
-========================================================================
-KeychainHelper - Class - .h
-========================================================================
 
-//
-//  KeychainHelper.h
-//  KegCop
-//
-//  Created by capin on 6/8/12.
-//
-
-
-@interface KeychainHelper : NSObject
-
-+ (NSString*)getPasswordForKey:(NSString*)aKey;
-+ (void)setPassword:(NSString*)aPassword forKey:(NSString*)aKey;
-+ (void)removePasswordForKey:(NSString*)aKey;
-
-@end
-
-========================================================================
-
-KeychainHelper - Class - .m
-========================================================================
-
-//
-//  KeychainHelper.m
-//  KegCop
-//
-//  Created by capin on 6/8/12.
-//
-
-#import "KeychainHelper.h"
-#import <Security/Security.h>
-
-@interface KeychainHelper ()
-+ (NSMutableDictionary*)dictionaryForKey:(NSString*)aKey;
-@end
-
-@implementation KeychainHelper
-
-static const NSString *SERVICE_NAME = @"com.chrisrjones.kegcop";
-
-+ (NSMutableDictionary*)dictionaryForKey:(NSString*)aKey
-{
-    NSData *encodedKey = [aKey dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSMutableDictionary *searchDictionary = [NSMutableDictionary dictionary];
-    
-    [searchDictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-    [searchDictionary setObject:encodedKey forKey:(__bridge id)kSecAttrGeneric];
-    [searchDictionary setObject:encodedKey forKey:(__bridge id)kSecAttrAccount];
-    [searchDictionary setObject:SERVICE_NAME forKey:(__bridge id)kSecAttrService];
-    
-    return searchDictionary;
-}
-
-+ (NSString*)getPasswordForKey:(NSString*)aKey
-{
-    NSString *password = nil;
-    
-    NSMutableDictionary *searchDictionary = [self dictionaryForKey:aKey];
-    
-    [searchDictionary setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
-    [searchDictionary setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
-    
-    /*
-    NSData *result = nil;
-    SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, (CFTypeRef *)&result);
-    
-    if (result)
-    {
-        password = [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding];
-        
-    }
-    */
-    
-    CFTypeRef result = NULL;
-    BOOL statusCode = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &result);
-    if (statusCode == errSecSuccess) {
-        NSData *resultData = CFBridgingRelease(result);
-        password = [[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding];
-
-    }
-    
-    return password;
-}
-
-+ (void)removePasswordForKey:(NSString*)aKey
-{
-    NSMutableDictionary *keyDictionary = [self dictionaryForKey:aKey];
-    SecItemDelete((__bridge CFDictionaryRef)keyDictionary);
-}
-
-+ (void)setPassword:(NSString*)aPassword forKey:(NSString*)aKey
-{
-    [KeychainHelper removePasswordForKey:aKey];
-    
-    NSData *encodedPassword = [aPassword dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSMutableDictionary *keyDictionary = [self dictionaryForKey:aKey];
-    [keyDictionary setObject:encodedPassword forKey:(__bridge id)kSecValueData];
-    SecItemAdd((__bridge CFDictionaryRef)keyDictionary, nil);
-}
-@end
-
-========================================================================
 
 
 //
@@ -938,148 +294,7 @@ static const NSString *SERVICE_NAME = @"com.chrisrjones.kegcop";
 }
 @end
 
-
-
-====================================================================================
-converting an app to universal binary
-====================================================================================
-
-http://developer.apple.com/library/ios/#documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW24
-
-
-=====================================================================================
-multiple storyboard files
-=====================================================================================
-
-/    CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-//    
-//    if (iOSDeviceScreenSize.height == 480)
-//    {
-//        // Instantiate a new storyboard object using the storyboard file named iPhoneLegacy
-//        UIStoryboard *iPhoneLegacy = [UIStoryboard storyboardWithName:@"iPhoneLegacy" bundle:nil];
-//        
-//        // Instantiate the initial view controller object from the storyboard
-//        UIViewController *ViewControllerWelcome = [iPhoneLegacy instantiateInitialViewController];
-//        
-//        // Instantiate a UIWindow object and initialize it with the screen size of the iOS device
-//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//        
-//        // Set the initial view controller to be the root view controller of the window object
-//        self.window.rootViewController = ViewControllerWelcome;
-//        
-//        // set the window object to be the key window and show it
-//        [self.window makeKeyAndVisible];
-//    }
-//    
-//    if (iOSDeviceScreenSize.height == 968)
-//    {
-//        // Instantiate a new storyboard object using the storyboard file named iPhone4
-//        UIStoryboard *iPhone4 = [UIStoryboard storyboardWithName:@"iPhone4" bundle:nil];
-//        
-//        UIViewController *ViewControllerWelcome = [iPhone4 instantiateInitialViewController];
-//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//        self.window.rootViewController  = ViewControllerWelcome;
-//        [self.window makeKeyAndVisible];
-//    }
-    
-// note from Apple Video
-    // window.rootViewController = <object>;
-    
-
-    //            ViewControllerWelcome *ViewControllerWelcome = [storyboard instantiateViewControllerWithIdentifier:Welcome;
-    //
-    //            //–instantiateViewControllerWithIdentifier:
-    //
-    ////            MyViewController *controller = (MyViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"<Controller ID>"];
-    //
-    //            [self.window setRootViewController:ViewControllerWelcome];
-    
-    //            ViewControllerWelcome *ViewControllerWelcome = [storyboard instantiateInitialViewController];
-    //            [self.window setRootViewController:ViewControllerWelcome];
-    
-    
-    //            UIStoryboard *storyboard = self.storyboard;
-    //            //ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
-    //            ViewControllerWelcome *vcwelcome = [storyboard instantiateInitialViewControllerWithIdentifier:@"Welcome"];
-    //
-    //            // configure the new view controller here.
-    //
-    //            [self presentViewController:vcwelcome animated:YES completion:nil];
-
-    
-    // use the prepareForSegue:sender method in the View Controller you are about to leave
-    
-//        
-//        UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//        
-//        levelViewController = [[LevelViewController alloc] init];
-//        
-//        window.rootViewController = levelViewController;
-//        
-//        [window makeKeyAndVisible];
-//        
-//    }
-    
-    
-//    // iPad Legacy 1024 x 768
-//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-//        UIStoryboard *storyboard;
-//        
-//        CGSize result = [[UIScreen mainScreen] bounds].size;
-//        
-//        NSLog(@"The size of result is %@",NSStringFromCGSize(result));
-//        
-//        if(result.height == 1024) {
-//            
-//            // load storyboard , load rootviewcontroller, show initial scene
-//            
-//            storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
-//            
-//            ViewControllerWelcome *vcwelcome = (ViewControllerWelcome *)self.window.rootViewController;
-//            
-//            // configure vcwelcome.
-//            
-//            //[vcwelcome presentViewController:vcwelcome animated:YES completion:nil];
-//            
-//            NSLog(@"iPad storyboard file loaded");
-//            
-//        }
-//    }
-    
-    
-    
-    //            storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
-    
-    //         ViewControllerWelcome *vcwelcome = (ViewControllerWelcome *)self.window.rootViewController;
-    
-    // configure vcwelcome.
-    
-    //[vcwelcome presentViewController:vcwelcome animated:YES completion:nil];
-
-
- // iPhone 5 1136 x 640
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        UIStoryboard *storyboard;
-        
-        CGSize result = [[UIScreen mainScreen] bounds].size;
-        CGFloat scale = [UIScreen mainScreen].scale;
-        result = CGSizeMake(result.width * scale, result.height * scale);
-        
-        if(result.height == 1136){
-            storyboard = [UIStoryboard storyboardWithName:@"iPhoneLegacy" bundle:nil];
-            ViewControllerWelcome *viewControllerWelcome = (ViewControllerWelcome *)[[ViewControllerWelcome alloc]init];
-            
-            NSLog(@"iPhone5 storyboard file loaded");
-        }
-    }
-
-- to show iphone log messages
-# tail -f /var/log/syslog
-
-9APR13
-- app crashes when trying to login with simulator
-
-==============================================================================================
+====================
 GIT FILE MANAGEMENT
 
 9APR13
@@ -1097,272 +312,18 @@ http://stackoverflow.com/questions/8965781/update-an-outdated-branch-against-mas
 In your case, check out the old branch, then 
 # git rebase master
 
-==============================================================================================
-
-20MAY13
-- swiss flow sensor / meter has three wires, red, green, and black
-
-red - ground
-green - pulse
-black - 
-
-
-==============================================================================================
-
-22MAY13
-- took 15-16 seconds to pour beer into an american pint glass
-
-==============================================================================================
-Arduino hardware buffer is 128 bytes
-
-==============================================================================================
-24MAY13
-- removed "\n" from command i.e. {blink_Flow_A} instead of {blink_Flow_A}\n in Arduino sketch seems to work with sending serial data via iPhone.
-
-
-==============================================================================================
-29MAY13
-- added QuartzCore to project.
-
-
-==============================================================================================
-6JUN13
-- Lynda.com Objective-C Essential Training
-
-- 1972 C programming language
-
-- the "@" symbol denotes obj-c
-
-- "place holders" always begin witn a "%"
-
-- a single "=" (equal sign) sets a value does not check a value
-
-- reindent - fix the formatting of a code block
-
-- result = a + b; take the sum of a + b and put it into the value on the left (result)
-
-- modulus "%" only work on integers
-
-- long long int = highScore is a 64-bit
-
-- Enumerations - example, 
-
-enum seatPreference bobSeatPreference = aisle;
-
-
-- Using typedef
-
-- preprocessor directories
-
-- #define - creates a macro, the value of the macro CANNOT be changed.
-
-- there are a bunch of built-in predefined macros.
-
-- example,
-
-#if DEDBUG
-
-// some line of code
-
-#endif
-
-- Strings
-
-- Classes
-Abrstraction
-Polymorphism
-Inheritance
-Encapsulation
-
-
-- methods that return results
-example,
-
-result = [myObject somemethod];
-
-result = [myObject somemethod:arg];
-
-- think parameters and arguments as the same thing
-
-- class methods are called on the class itself
-- instance methods are called on the object you create.
-
-- Creating your own classes
-- classes are written in the interface and implementation
-- the interface says what's available for a class
-- the implementation is the code of the class
-- instance variables are private to the class
-
-- Defining methods, example
--(NSString *) createMessage: (NSString *) input;
-
-- the above line of code returns an object type
-- NSString is the parameter type
-- the above method returns a NSString
-
-- Defining properties
-
-- accessor methods allow access to the instance variables of a class.
-
-@property int score
-
-- the above line creates setter and getter methods for a class, in Obj-C 2.0
-
-- Defining initializers
-
-- every class in Obj-c has init method
-
-- the keyword "super" calls the base class
-
-- the keyword "id" refers to a return type of any possible object
-
-10 More Complex Classes
-
-- the superclass is the class an object / class inherits from
-
-- you can override "methods" of a superclass by adding code to a subclass of the superclass
-
-10.02 Extending classes with categories
-
-Example,
-
-@interface NSString (category)
-
-// no new instance variables
-
-// add methods
-@end
-
-10.03 Defining Protocols
-
-- a protocol is a list of methods an object you want to perform.
-
-- to conform to a protocol, example,
-
-@interface MyClass : NSObject <Cleaner>
-{
- // instance variables
-}
-// properties and methods
-
-- (void) cleanFloors;
-- (void) vacuum;
-- (void) emptyTrash;
-
-@end
-
-10.04 Dynamic typing
-
-- "id" can return any type of object
-
-- static vs. dynamic typing
-
-11.01 - Common compile errors
-
-
-
-==============================================================================================
-10JUN13 - removed script from build rules
-
-#!/bin/bash
-export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate
-if [ "${PLATFORM_NAME}" == "iphoneos" ]; then
-$PROJECT/gen_entitlements.py "my.company.${PROJECT_NAME}" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent";
-codesign -f -s "iPhone Developer" --entitlements "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent" "${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/"
-fi
-
-==============================================================================================
-11JUN13 - tshoot FI button
-
-==============================================================================================
-9JUL13
-
-when sending serial commands {open_valve} and {close_valve} to the Arduino using the serial monitor, they must be formatted as such, "{open_valve}\n" "{close_valve}\n"
-
-==============================================================================================
-15JUL13
-
-figure out how to print serial message to the iPhone from the Arduino, i.e. when the valve is opened / closed
-
-15JUL13
-successfully opened / closed the valve using the iPhone
-
-==============================================================================================
-2AUG13
-
-- have a good / solid Arduino sketch to work with, going to try and finish final steps for iPhone app.
-
-==============================================================================================
-3AUG13
-
-5psi solenoid open, manual valve clsoed: seemingly less volume, also less foam
-Next test @ 20psi: test seemed to create more volume however density of beer was less.  Suspent some kind of CO2 integration
-resulting in higher volume of liuid due to gas integration into solution
-
-1:45AM - Test began at 5psi on regaulator.  Dispensed beer using keg app, 5psi registered on regualtor after dispense - 1:49am - 8/4/2013.
-@1:51AM beer is one half bar below 12oz. (10oz)
-@10:54 liquid seems to have stabilized at 10oz
- 
- 
-8/4/2013 - 20psi test - 2:00AM - Liquid ejected with noticibly more force.  Completely filled container with foam, lost a bit to over fill.
-8/4/2013 - 20psi - test - 2:13AM - 20oz of beer observed
-
-==============================================================================================
+=================================================================
 6AUG13
 
 The error message “unrecognized selector sent to instance XXX” means that the app is trying to call a method that doesn't exist.
 
-
-==============================================================================================
-6AUG13
-
-The long journey of getting the Core Data / SQLite database synced up with a MySQL database begins.
-
-- Added the following source to cydia, http://ios-webstack.tk/cydia
-- going to install, ios-lighttpd-php-mysql
-    - PHP 54 v5.4.16
-    - Lighttpd-atv v1.4.31
-    - MySQL-atv v5.1.70
-
-- backed up "Accounts.sqlite" "/var/mobile/Library/KegCop" file from 10.0.1.13 (iPhone-kegerator) to local computer "lucky"
-
-- the webroot directory is "/var/www"
-
-- change owner of "/var/www" to 'daemon:_www'
-
-- MySQL database files are located at /var/mysql
-
-- to test installation, load Safari, then goto http://localhost
-
-- Example config files are located
-
-    /etc/php.ini
-    /etc/php.d/load_all.ini
-    /etc/lighttpd/lighttpd-atv.conf
-    /etc/lighttpd/mod_fastcgi-atv.conf
-    
-- preference loader for a daemon launcher are installed. - http://was.fm/ios:mysql
-
-- the MySQL root password can be changed one of two ways
-    1) http://localhost/adminer.php
-    2) /usr/bin/mysql_secure_installation
-    
-- to reinitialize your MySQL database,
-    /usr/local/bin/mysql_install_db --user=daemon
-    
-
-==============================================================================================
-17SEP13
-
-- updated to Xcode 4.6.3
-
-==============================================================================================
+=================================================================
 29SEP13 - versioning - nsscreencast video 55
 
 - to bump to the build verion number
 $ agvtool bump -all
 
-==============================================================================================
+==================================================================
 9OCT13
 
 - installed cocoapods
@@ -1373,23 +334,13 @@ the "Podfile" goes into to the project root directory
 
 [!] From now on use `KegCop.xcworkspace`. <-- to launch project
 
-- removed the below line from the header search path
 
-/Users/capin/Code/Headers
-
-
-==============================================================================================
+==================================================
 30DEC13
 
 - received Bluno in the mail, and am now using Xcode 5.0
 
-==============================================================================================
-5JAN14
-
-- where is the sqlite DB stored on the 3GS?
-/var/mobile/Library/KegCop/
-
-==============================================================================================
+===================================================
 6JAN14
 
 - started working on bluetooth with BLuno microcontroller
@@ -1406,15 +357,12 @@ Local Name: DFBLEduinoV1.0
 
 CoreBluetooth[WARNING] <CBPeripheralManager is not powered on
 
-
-
-==============================================================================================
+====================================================
 10JAN14
 
-// this method can be used to determine if a device is BT4.0LE compliant
-//
-// http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
-//
+this method can be used to determine if a device is BT4.0LE compliant
+
+http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
 /*
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     switch (peripheral.state) {
@@ -1428,10 +376,8 @@ CoreBluetooth[WARNING] <CBPeripheralManager is not powered on
 }
 */
 
-// this method is added via the following tut
-//
-// http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
-//
+this method is added via the following tut
+http://weblog.invasivecode.com/post/39707371281/core-bluetooth-for-ios-6-core-bluetooth-was
 /*
 - (void)setupService {
     // Creates the characteristic UUID
@@ -1547,15 +493,12 @@ CoreBluetooth[WARNING] <CBPeripheralManager is not powered on
 }
 */
 
-==============================================================================================
+====================================================
 26JAN14
-
-local IP address of iPod Touch 10.0.1.18
-
 
 CoreBluetooth[WARNING] <CBCentralManager: 0x16e77470> is disabling duplicate filtering, but is using the default queue (main thread) for delegate events
 
-==============================================================================================
+====================================================
 1FEB14
 
 
@@ -1652,7 +595,7 @@ CoreBluetooth[WARNING] <CBCentralManager: 0x16e77470> is disabling duplicate fil
     [_centralManager cancelPeripheralConnection:_discoveredPeripheral];
 }
 
-==============================================================================================
+======================================================
 1FEB14 - VERSIONING using agvtool
 
 commands
@@ -1660,14 +603,3 @@ agvtool what-version
 
 - to update the version number of the build
 agvtool bump -all
-
-
-==============================================================================================
-blahbhah blahbhabh
-
-
-
-==============================================================================================
-10OCT14 - checked out KegCop master in OS X VM.
-
-

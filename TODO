@@ -2,20 +2,27 @@ TODO - KegCop
 
 The fields are: feature (F), completed (C), (N) note, bug (B)
 
-This file reads from top to bottom, i.e. new notes / features are atodded at the top, then marked completed.
+This file reads from top to bottom, i.e. new notes / features are added at the top, then marked completed.
 
 Thanks,
-
-               Chris
+- Chris
 
 --------------
-F: download some default avatars and add them to resources.
+N: Remove eronnous comments from AppDelegate.m
+
+N: Remove VCs not being used, i.e. a lot of them :l
+
+N: Remove unnecessary processing class files from project.
+
+N: Organize scratchpad.txt, i.e. remove / refractor old notes.
+
+C: download some default avatars and add them to resources.
 
 N: Fix UINavigationBar in vcAbout, i.e. make it programatic
 
 C: Add "link" to wilson demos KegCop youtube video in info pane / screen."
 
-B: Account creation causes app to crash, but account is still created in DB.
+C: Account creation causes app to crash, but account is still created in DB.
 
 C: change color of logout timer text
 

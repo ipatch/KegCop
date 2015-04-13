@@ -53,23 +53,7 @@
     // update credit
     [self updateCredit];
     
-//    
-//    // serial stuff
-//    serial = [[JailbrokenSerial alloc] init];
-//    // print serial debugging messages
-//    serial.debug = true;
-//    serial.nonBlock = true;
-//    serial.receiver = self;
-//    rfidbadgenumber = [[NSMutableString alloc] initWithString:@""];
-//    
-    // 2AUG13 - more serial stuff
-//    [serial open:B115200];
-//    if(serial.isOpened)
-//    {
-//        NSLog(@"Serial Port Opened");
-//    }
-//    else NSLog(@"Serial Port Closed");
-//    
+   
     
     // uialertview init
     // declare an alert with text input
@@ -447,13 +431,6 @@
 //    UIViewController *test = [self.storyboard instantiateViewControllerWithIdentifier:@"test"];
 //    [self presentViewController:test animated:YES completion:nil];
 }
-
-
-# pragma mark - JailbrokenSerialDelegate
-
-- (void) JailbrokenSerialReceived:(char) ch {
-
- }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     

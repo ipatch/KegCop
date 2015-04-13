@@ -594,19 +594,4 @@ NSAssert(
     
 }
 
-# pragma mark - JailbrokenSerialDelegate
-
-- (void) JailbrokenSerialReceived:(char) ch {
-    
-    NSLog(@"inside JailbrokenSerialReceived method");
-    
-    NSString *s = [NSString stringWithFormat:@"%c",ch];
-    
-    NSLog(@"s = %@",s);
-    
-    [scantagid appendString:s];
-    
-    NSLog(@"scantagid = %@", scantagid);
-}
-
 @end

@@ -10,7 +10,11 @@
         <attribute name="rfid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="API_Key" syncable="YES">
+        <attribute name="access_token" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Account" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="API_Key" positionX="162" positionY="252" width="128" height="60"/>
     </elements>
 </model>

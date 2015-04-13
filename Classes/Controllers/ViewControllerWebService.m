@@ -87,28 +87,42 @@
     // get deviceToken
     NSString *tokenString = [[NSUserDefaults standardUserDefaults] objectForKey:@"uniqueTokenString"];
     NSLog(@"tokenString = %@",tokenString);
+    // get length of tokenString
+    NSUInteger tokenStringLen = [tokenString length];
+    NSLog(@"tokenStringLen = %d",tokenStringLen);
     
+    // get length of string in standard int
+    NSString *tokenLen = [NSString stringWithFormat:@"%d",[tokenString length]];
     
-//    NSString *host = @"http://kegcop.chrisrjones.com";
-//    NSString *URLString = @"";
-////    URLString = [URLString stringByAppendingString:id];
-//    URLString = [URLString stringByAppendingString:@"&amp;amp;amp;amp;amp;devicetoken="];
-//    
-////    NSString *dt = [[_deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
-////    dt = [dt stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    
-//    URLString = [URLString stringByAppendingString:dt];
-//    URLString = [URLString stringByAppendingString:@"&amp;amp;amp;amp;amp;devicename="];
-//    URLString = [URLString stringByAppendingString:[[UIDevice alloc] name]];
-//    
-//    NSURL *url = [[NSURL alloc] initWithScheme:@"http" host:host path:URLString];
-//    NSLog(@"FullURL=%@", url);
-//    
-//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-//    
-//    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
+    [request setURL:[NSURL URLWithString:@"kegcop.chrisrjones.com/api/register"]];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    [request setValue:tokenLen forHTTPHeaderField:@"Content-Length"];
+    
+    [request setValue:tokenString forHTTPHeaderField:@"token"];
+    
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if(conn) {
+        NSLog(@"Connection Successful");
+    } else {
+        NSLog(@"Connection could not be made");
+    }
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
 }
 

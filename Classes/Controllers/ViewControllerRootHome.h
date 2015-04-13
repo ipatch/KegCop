@@ -9,8 +9,6 @@
 #import "ViewControllerWelcome.h"
 #import "ViewControllerLogs.h"
 #import "ViewControllerCheckFlow.h"
-#import "ViewControllerSerialConsole.h"
-#import "KBFlowIndicator.h"
 #import "ViewControllerRootHomeLeftPanel.h"
 #import "returnToRootHome.h"
 @protocol ViewControllerRootHomeProtocol;

@@ -8,7 +8,7 @@ Thanks,
 - Chris
 
 --------------
-N: Remove eronnous comments from AppDelegate.m
+C: Remove eronnous comments from AppDelegate.m
 
 N: Remove VCs not being used, i.e. a lot of them :l
 
@@ -36,7 +36,7 @@ F: add support for frequent flyers to login screen, i.e. the last 5 logged in us
 
 F: figure out why scroll views stopped working in iOS 7.x and greater.
 
-F: add support for taking pictures / avatars with front facing camera.
+C: add support for taking pictures / avatars with front facing camera.
 
 C: make login screen buttons solid colors, i.e. like twitter bootstrap.
 

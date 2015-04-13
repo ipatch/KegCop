@@ -11,8 +11,6 @@
 #import "AppDelegate.h"
 #import "Account.h"
 #import "ViewControllerRootHome.h"
-#import "ViewControllerDev.h"
-#import "JailbrokenSerial.h"
 #import "NSData+AES256.h"
 #import <dispatch/dispatch.h> // Grand Central Dispatch
 #import "AFNetworking.h"
@@ -22,7 +20,7 @@
 
 @class ViewControllerWelcome;
 
-@interface ViewControllerWelcome : UIViewController <JailbrokenSerialDelegate, ViewControllerHomeDelegate>
+@interface ViewControllerWelcome : UIViewController <ViewControllerHomeDelegate>
 
 
 // Welcome screen

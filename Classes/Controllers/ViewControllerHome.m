@@ -375,10 +375,6 @@
 
     NSLog(@"{open_valve} btn tapped.");
     
-    NSString *command = @"{open_valve}\n";
-    
-    [serial write:command];
-    
     // 6FEB14 - CoreBluetooth - write message to Arduino
     if (self.blunoDev.bReadyToWrite)
     {
@@ -409,20 +405,10 @@
     
     // set the delegate for the UIAlertView textfield
     [alertrfid textFieldAtIndex:0].delegate = self;
-    
-    //open serial port
-    
-    [serial open:B2400];
-    if(serial.isOpened) {
-        NSLog(@"Serial Port Opened");
-    }
-    else NSLog(@"Serial Port Closed");
 }
 
 - (IBAction)logout:(id)sender {
     NSLog(@"logout method called");
-    [serial close];
-    
     // this condition is satisfied when a new user creates an account then logs out
     if([self.presentingViewController isKindOfClass:[ViewControllerCreate class]] ) {
         
@@ -482,8 +468,6 @@
     
     if (buttonIndex == 0) {
         NSLog(@"The cancel button was clicked");
-        
-        [serial close];
         
         [alertrfid dismissWithClickedButtonIndex:0 animated:YES];
         [newrfidtagid setString:@""];

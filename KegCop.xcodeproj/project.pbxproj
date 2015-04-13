@@ -33,9 +33,7 @@
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
 		EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */; };
 		EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */; };
-		EAEC80431AB3A52D004EFD58 /* ViewControllerDev3.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9351AAFB86D0075EAB0 /* ViewControllerDev3.m */; };
 		EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */; };
-		EAEC80471AB3A52D004EFD58 /* KBFlowIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D93B1AAFB86D0075EAB0 /* KBFlowIndicator.m */; };
 		EAEC80491AB3A52D004EFD58 /* HUMAddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E41AAFB86D0075EAB0 /* HUMAddEventViewController.m */; };
 		EAEC804B1AB3A52D004EFD58 /* HUMConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E61AAFB86D0075EAB0 /* HUMConfirmationViewController.m */; };
 		EAEC804D1AB3A52D004EFD58 /* HUMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8E81AAFB86D0075EAB0 /* HUMMapViewController.m */; };
@@ -44,7 +42,6 @@
 		EAEC80541AB3A52D004EFD58 /* ViewControllerAvatar3.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */; };
 		EAEC80561AB3A52D004EFD58 /* ViewControllerCheckFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */; };
 		EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */; };
-		EAEC805A1AB3A52D004EFD58 /* ViewControllerDev.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F61AAFB86D0075EAB0 /* ViewControllerDev.m */; };
 		EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */; };
 		EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */; };
 		EAEC80601AB3A52D004EFD58 /* ViewControllerLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FC1AAFB86D0075EAB0 /* ViewControllerLogs.m */; };
@@ -53,7 +50,6 @@
 		EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */; };
 		EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9041AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m */; };
 		EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */; };
-		EAEC806C1AB3A52D004EFD58 /* ViewControllerSerialConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9081AAFB86D0075EAB0 /* ViewControllerSerialConsole.m */; };
 		EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */; };
 		EAEC80701AB3A52D004EFD58 /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90D1AAFB86D0075EAB0 /* ViewControllerWebView.m */; };
 		EAEC80711AB3A55A004EFD58 /* SERVICES.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9311AAFB86D0075EAB0 /* SERVICES.h */; };
@@ -63,14 +59,6 @@
 		EAEC80791AB3A55A004EFD58 /* BLEUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960203189C4A3500068808 /* BLEUtility.m */; };
 		EAEC807B1AB3A586004EFD58 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9211AAFB86D0075EAB0 /* NSData+AES256.m */; };
 		EAEC807C1AB3A586004EFD58 /* KegCop-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91B1AAFB86D0075EAB0 /* KegCop-Bridging-Header.h */; };
-		EAEC807E1AB3A5C8004EFD58 /* JailbrokenSerial.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91A1AAFB86D0075EAB0 /* JailbrokenSerial.m */; };
-		EAEC80801AB3A610004EFD58 /* KBKegProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B4175554BF00F6DA69 /* KBKegProcessing.m */; };
-		EAEC80821AB3A610004EFD58 /* KBKegboardCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */; };
-		EAEC80841AB3A65B004EFD58 /* KBKegboard.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B71755552700F6DA69 /* KBKegboard.m */; };
-		EAEC80861AB3A65B004EFD58 /* KBKegboardMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */; };
-		EAEC80881AB3A65B004EFD58 /* KBKegboardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CA692176D85CE00C6C918 /* KBKegboardUtils.m */; };
-		EAEC808A1AB3A6A7004EFD58 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453AE1755528E00F6DA69 /* Serial.c */; };
-		EAEC808C1AB3A6A7004EFD58 /* crc16ccitt.c in Sources */ = {isa = PBXBuildFile; fileRef = EAB453B1175553C800F6DA69 /* crc16ccitt.c */; };
 		EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9161AAFB86D0075EAB0 /* iPhone.storyboard */; };
 		EAEC808F1AB3A928004EFD58 /* CenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */; };
 		EAEC80901AB3A928004EFD58 /* LeftPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */; };
@@ -109,11 +97,7 @@
 /* Begin PBXFileReference section */
 		16C5175EAEC3CBA524390977 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardCommandTest.m; sourceTree = "<group>"; };
-		422CA68A176B7D7800C6C918 /* KBKegboardCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardCommand.h; path = Processing/KBKegboardCommand.h; sourceTree = "<group>"; };
-		422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardCommand.m; path = Processing/KBKegboardCommand.m; sourceTree = "<group>"; };
 		422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardMessageTest.m; sourceTree = "<group>"; };
-		422CA691176D85CD00C6C918 /* KBKegboardUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardUtils.h; path = Processing/KBKegboardUtils.h; sourceTree = "<group>"; };
-		422CA692176D85CE00C6C918 /* KBKegboardUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardUtils.m; path = Processing/KBKegboardUtils.m; sourceTree = "<group>"; };
 		4CC4EEE47EAB4A04A9448C12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,16 +148,6 @@
 		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EAA51B131598385B00D0D777 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EAB120761756E709003035C3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		EAB453AD1755519C00F6DA69 /* Serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serial.h; path = Processing/Serial.h; sourceTree = "<group>"; };
-		EAB453AE1755528E00F6DA69 /* Serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Serial.c; path = Processing/Serial.c; sourceTree = "<group>"; };
-		EAB453B01755533500F6DA69 /* crc16ccitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crc16ccitt.h; path = Processing/crc16ccitt.h; sourceTree = "<group>"; };
-		EAB453B1175553C800F6DA69 /* crc16ccitt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc16ccitt.c; path = Processing/crc16ccitt.c; sourceTree = "<group>"; };
-		EAB453B3175554BF00F6DA69 /* KBKegProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegProcessing.h; path = Processing/KBKegProcessing.h; sourceTree = "<group>"; };
-		EAB453B4175554BF00F6DA69 /* KBKegProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegProcessing.m; path = Processing/KBKegProcessing.m; sourceTree = "<group>"; };
-		EAB453B61755552700F6DA69 /* KBKegboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboard.h; path = Processing/KBKegboard.h; sourceTree = "<group>"; };
-		EAB453B71755552700F6DA69 /* KBKegboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboard.m; path = Processing/KBKegboard.m; sourceTree = "<group>"; };
-		EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KBKegboardMessage.h; path = Processing/KBKegboardMessage.h; sourceTree = "<group>"; };
-		EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KBKegboardMessage.m; path = Processing/KBKegboardMessage.m; sourceTree = "<group>"; };
 		EABC3B741AC4E0F70086691E /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		EABC3B761AC5DEDD0086691E /* ViewControllerWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWebService.h; sourceTree = "<group>"; };
 		EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWebService.m; sourceTree = "<group>"; };
@@ -205,8 +179,6 @@
 		EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerCheckFlow.m; sourceTree = "<group>"; };
 		EAC2D8F31AAFB86D0075EAB0 /* ViewControllerCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerCreate.h; sourceTree = "<group>"; };
 		EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerCreate.m; sourceTree = "<group>"; };
-		EAC2D8F51AAFB86D0075EAB0 /* ViewControllerDev.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev.h; sourceTree = "<group>"; };
-		EAC2D8F61AAFB86D0075EAB0 /* ViewControllerDev.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev.m; sourceTree = "<group>"; };
 		EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerForgot.h; sourceTree = "<group>"; };
 		EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerForgot.m; sourceTree = "<group>"; };
 		EAC2D8F91AAFB86D0075EAB0 /* ViewControllerHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerHome.h; sourceTree = "<group>"; };
@@ -223,8 +195,6 @@
 		EAC2D9041AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHomeCenter.m; sourceTree = "<group>"; };
 		EAC2D9051AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHomeLeftPanel.h; sourceTree = "<group>"; };
 		EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHomeLeftPanel.m; sourceTree = "<group>"; };
-		EAC2D9071AAFB86D0075EAB0 /* ViewControllerSerialConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSerialConsole.h; sourceTree = "<group>"; };
-		EAC2D9081AAFB86D0075EAB0 /* ViewControllerSerialConsole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSerialConsole.m; sourceTree = "<group>"; };
 		EAC2D90A1AAFB86D0075EAB0 /* ViewControllerUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerUsers.h; sourceTree = "<group>"; };
 		EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerUsers.m; sourceTree = "<group>"; };
 		EAC2D90C1AAFB86D0075EAB0 /* ViewControllerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWebView.h; sourceTree = "<group>"; };
@@ -237,8 +207,6 @@
 		EAC2D9131AAFB86D0075EAB0 /* DFBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DFBlunoManager.m; path = Bluno/DFBlunoManager.m; sourceTree = "<group>"; };
 		EAC2D9171AAFB86D0075EAB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		EAC2D9181AAFB86D0075EAB0 /* gen_entitlements.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = gen_entitlements.py; sourceTree = "<group>"; };
-		EAC2D9191AAFB86D0075EAB0 /* JailbrokenSerial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JailbrokenSerial.h; path = Processing/JailbrokenSerial.h; sourceTree = "<group>"; };
-		EAC2D91A1AAFB86D0075EAB0 /* JailbrokenSerial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JailbrokenSerial.m; path = Processing/JailbrokenSerial.m; sourceTree = "<group>"; };
 		EAC2D91B1AAFB86D0075EAB0 /* KegCop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Bridging-Header.h"; sourceTree = "<group>"; };
 		EAC2D91C1AAFB86D0075EAB0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EAC2D9201AAFB86D0075EAB0 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
@@ -246,13 +214,9 @@
 		EAC2D9311AAFB86D0075EAB0 /* SERVICES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SERVICES.h; path = Bluno/SERVICES.h; sourceTree = "<group>"; };
 		EAC2D9321AAFB86D0075EAB0 /* ViewControllerDev2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev2.h; sourceTree = "<group>"; };
 		EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev2.m; sourceTree = "<group>"; };
-		EAC2D9341AAFB86D0075EAB0 /* ViewControllerDev3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev3.h; sourceTree = "<group>"; };
-		EAC2D9351AAFB86D0075EAB0 /* ViewControllerDev3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev3.m; sourceTree = "<group>"; };
 		EAC2D9361AAFB86D0075EAB0 /* ViewControllerDev4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDev4.h; sourceTree = "<group>"; };
 		EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDev4.m; sourceTree = "<group>"; };
 		EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CenterViewController.xib; sourceTree = "<group>"; };
-		EAC2D93A1AAFB86D0075EAB0 /* KBFlowIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBFlowIndicator.h; sourceTree = "<group>"; };
-		EAC2D93B1AAFB86D0075EAB0 /* KBFlowIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBFlowIndicator.m; sourceTree = "<group>"; };
 		EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftPanelViewController.xib; sourceTree = "<group>"; };
 		EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
 		EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -454,29 +418,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EAB453AB1755516000F6DA69 /* Processing */ = {
-			isa = PBXGroup;
-			children = (
-				EAC2D9191AAFB86D0075EAB0 /* JailbrokenSerial.h */,
-				EAC2D91A1AAFB86D0075EAB0 /* JailbrokenSerial.m */,
-				EAB453B61755552700F6DA69 /* KBKegboard.h */,
-				EAB453B71755552700F6DA69 /* KBKegboard.m */,
-				EAB453B3175554BF00F6DA69 /* KBKegProcessing.h */,
-				EAB453B4175554BF00F6DA69 /* KBKegProcessing.m */,
-				EAB453B9175555B600F6DA69 /* KBKegboardMessage.h */,
-				EAB453BA175555B600F6DA69 /* KBKegboardMessage.m */,
-				EAB453AD1755519C00F6DA69 /* Serial.h */,
-				EAB453AE1755528E00F6DA69 /* Serial.c */,
-				EAB453B01755533500F6DA69 /* crc16ccitt.h */,
-				EAB453B1175553C800F6DA69 /* crc16ccitt.c */,
-				422CA68A176B7D7800C6C918 /* KBKegboardCommand.h */,
-				422CA68B176B7D7800C6C918 /* KBKegboardCommand.m */,
-				422CA691176D85CD00C6C918 /* KBKegboardUtils.h */,
-				422CA692176D85CE00C6C918 /* KBKegboardUtils.m */,
-			);
-			name = Processing;
-			sourceTree = "<group>";
-		};
 		EAC2D8D71AAFB86D0075EAB0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,7 +432,6 @@
 				EAC2D91B1AAFB86D0075EAB0 /* KegCop-Bridging-Header.h */,
 				EAC2D91C1AAFB86D0075EAB0 /* main.m */,
 				EA9601FD189C484D00068808 /* Bluno */,
-				EAB453AB1755516000F6DA69 /* Processing */,
 				EAC2D8E21AAFB86D0075EAB0 /* Controllers */,
 				EAC2D91D1AAFB86D0075EAB0 /* Models */,
 				EAC2D9381AAFB86D0075EAB0 /* Views */,
@@ -516,12 +456,8 @@
 				EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */,
 				EAC2D9321AAFB86D0075EAB0 /* ViewControllerDev2.h */,
 				EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */,
-				EAC2D9341AAFB86D0075EAB0 /* ViewControllerDev3.h */,
-				EAC2D9351AAFB86D0075EAB0 /* ViewControllerDev3.m */,
 				EAC2D9361AAFB86D0075EAB0 /* ViewControllerDev4.h */,
 				EAC2D9371AAFB86D0075EAB0 /* ViewControllerDev4.m */,
-				EAC2D93A1AAFB86D0075EAB0 /* KBFlowIndicator.h */,
-				EAC2D93B1AAFB86D0075EAB0 /* KBFlowIndicator.m */,
 				EAC2D8E31AAFB86D0075EAB0 /* HUMAddEventViewController.h */,
 				EAC2D8E41AAFB86D0075EAB0 /* HUMAddEventViewController.m */,
 				EAC2D8E51AAFB86D0075EAB0 /* HUMConfirmationViewController.h */,
@@ -534,8 +470,6 @@
 				EAC2D8F01AAFB86D0075EAB0 /* ViewControllerAvatar3.m */,
 				EAC2D8F11AAFB86D0075EAB0 /* ViewControllerCheckFlow.h */,
 				EAC2D8F21AAFB86D0075EAB0 /* ViewControllerCheckFlow.m */,
-				EAC2D8F51AAFB86D0075EAB0 /* ViewControllerDev.h */,
-				EAC2D8F61AAFB86D0075EAB0 /* ViewControllerDev.m */,
 				EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */,
 				EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */,
 				EAC2D8FB1AAFB86D0075EAB0 /* ViewControllerLogs.h */,
@@ -551,8 +485,6 @@
 				EAC2D9051AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.h */,
 				EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */,
 				EAC2D8E91AAFB86D0075EAB0 /* returnToRootHome.h */,
-				EAC2D9071AAFB86D0075EAB0 /* ViewControllerSerialConsole.h */,
-				EAC2D9081AAFB86D0075EAB0 /* ViewControllerSerialConsole.m */,
 				EAC2D90A1AAFB86D0075EAB0 /* ViewControllerUsers.h */,
 				EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */,
 				EAC2D90C1AAFB86D0075EAB0 /* ViewControllerWebView.h */,
@@ -822,15 +754,7 @@
 				EAEC809F1AB3AA89004EFD58 /* Account.m in Sources */,
 				EAEC80A11AB3AA89004EFD58 /* AccountBase.m in Sources */,
 				EAEC80A21AB3AA89004EFD58 /* Accounts.xcdatamodeld in Sources */,
-				EAEC808A1AB3A6A7004EFD58 /* Serial.c in Sources */,
-				EAEC808C1AB3A6A7004EFD58 /* crc16ccitt.c in Sources */,
-				EAEC80841AB3A65B004EFD58 /* KBKegboard.m in Sources */,
-				EAEC80861AB3A65B004EFD58 /* KBKegboardMessage.m in Sources */,
-				EAEC80881AB3A65B004EFD58 /* KBKegboardUtils.m in Sources */,
 				EABC3B791AC5DEDD0086691E /* ViewControllerWebService.m in Sources */,
-				EAEC80801AB3A610004EFD58 /* KBKegProcessing.m in Sources */,
-				EAEC80821AB3A610004EFD58 /* KBKegboardCommand.m in Sources */,
-				EAEC807E1AB3A5C8004EFD58 /* JailbrokenSerial.m in Sources */,
 				EA01673A1ABE30ED00A98B2F /* ViewControllerAvatar4.m in Sources */,
 				EAEC807B1AB3A586004EFD58 /* NSData+AES256.m in Sources */,
 				EAEC807C1AB3A586004EFD58 /* KegCop-Bridging-Header.h in Sources */,
@@ -840,9 +764,7 @@
 				EAEC80771AB3A55A004EFD58 /* BLEDevice.m in Sources */,
 				EAEC80791AB3A55A004EFD58 /* BLEUtility.m in Sources */,
 				EAEC80411AB3A52D004EFD58 /* ViewControllerDev2.m in Sources */,
-				EAEC80431AB3A52D004EFD58 /* ViewControllerDev3.m in Sources */,
 				EAEC80451AB3A52D004EFD58 /* ViewControllerDev4.m in Sources */,
-				EAEC80471AB3A52D004EFD58 /* KBFlowIndicator.m in Sources */,
 				EAEC80A51AB4B052004EFD58 /* KCModalPickerView.m in Sources */,
 				EAEC80491AB3A52D004EFD58 /* HUMAddEventViewController.m in Sources */,
 				EAEC804B1AB3A52D004EFD58 /* HUMConfirmationViewController.m in Sources */,
@@ -852,7 +774,6 @@
 				EAEC80541AB3A52D004EFD58 /* ViewControllerAvatar3.m in Sources */,
 				EAEC80561AB3A52D004EFD58 /* ViewControllerCheckFlow.m in Sources */,
 				EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */,
-				EAEC805A1AB3A52D004EFD58 /* ViewControllerDev.m in Sources */,
 				EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */,
 				EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */,
 				EAEC80601AB3A52D004EFD58 /* ViewControllerLogs.m in Sources */,
@@ -861,7 +782,6 @@
 				EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */,
 				EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */,
 				EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */,
-				EAEC806C1AB3A52D004EFD58 /* ViewControllerSerialConsole.m in Sources */,
 				EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */,
 				EAEC80701AB3A52D004EFD58 /* ViewControllerWebView.m in Sources */,
 				EAEC80391AB3A41B004EFD58 /* main.m in Sources */,

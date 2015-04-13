@@ -516,16 +516,6 @@
     [self presentViewController:checkFlow animated:YES completion:nil];
 }
 
-- (IBAction)showSerialConsole:(id)sender {
-    
-    NSLog(@"Serial Pressed Begin");
-    //btnSerialConsole pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-    ViewControllerSerialConsole *serialConsole = (ViewControllerSerialConsole *) [storyboard instantiateViewControllerWithIdentifier:@"Serial Console"];
-    [self presentViewController:serialConsole animated:YES completion:nil];
-    NSLog(@"Serial Pressed End");
-}
-
 - (IBAction)showLogs:(id)sender {
     
     // logs btn pressed

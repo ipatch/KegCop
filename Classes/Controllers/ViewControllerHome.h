@@ -16,19 +16,16 @@
 // see this SO thread, stackoverflow.com/questions/6447573
 #import "Account.h"
 #import "ViewControllerWelcome.h"
-#import "JailbrokenSerial.h"
 #import "DFBlunoManager.h"
 #import "ViewControllerAvatar4.h"
 #import "ViewControllerWelcome.h"
 
-@interface ViewControllerHome : UIViewController <JailbrokenSerialDelegate, UITextFieldDelegate, DFBlunoDelegate, ViewControllerAvatar4Delegate>
+@interface ViewControllerHome : UIViewController <UITextFieldDelegate, DFBlunoDelegate, ViewControllerAvatar4Delegate>
 {
     UIButton *removeAccount;
     UIAlertView *alert;
     NSString *username;
     UILabel *lblUSERNAME;
-    // serial
-    JailbrokenSerial *serial;
     NSMutableString *rfidbadgenumber;
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;

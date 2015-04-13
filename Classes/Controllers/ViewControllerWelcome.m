@@ -26,9 +26,6 @@
     IBOutlet UIToolbar *toolBar;
     NSString *username;
         
-    // serial stuff
-    JailbrokenSerial *serial;
-        
     // RFID stuff
     NSMutableString *scantagid;
         
@@ -578,15 +575,6 @@ NSAssert(
     if([self.textFieldUsername isFirstResponder])[self.textFieldPin becomeFirstResponder];
     
     else if([self.textFieldPin isFirstResponder])[self.textFieldUsername becomeFirstResponder];
-}
-
-- (IBAction)processDev:(id)sender {
-    
-    // dev btn pressed
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-    ViewControllerDev *dev = (ViewControllerDev *)[storyboard instantiateViewControllerWithIdentifier:@"dev"];
-    [self presentViewController:dev animated:YES completion:nil];
-    
 }
 
 -(void)onTick:(NSTimer *)timer {

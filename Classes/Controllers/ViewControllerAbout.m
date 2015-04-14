@@ -18,6 +18,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // create navbar
+    UINavigationBar *navBar;
+    
+    navBar = [[UINavigationBar alloc] init];
+    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
+    
+    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"KegCop - About"];
+    
+    navBar.barTintColor = [UIColor blackColor];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    navBar.translucent = YES;
+    
+    // add navbar btn
+    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(dismissAboutScene:)];
+    // add doneBtn / item to navBar
+    titleItem.rightBarButtonItem = doneBtn;
+    
+    navBar.items = @[titleItem];
+    
+    [self.view addSubview:navBar];
+    
 
     _context = [[AccountsDataModel sharedDataModel]mainContext];
     NSLog(@"context is %@",_context);

@@ -190,30 +190,18 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0EE-av-ZzV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="KegCop V 0.1.1 Build 001" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O5X-BN-7Gc">
-                                        <rect key="frame" x="20" y="58" width="280" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="X accounts have been created." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="W5x-49-fAj">
-                                        <rect key="frame" x="20" y="87" width="235" height="21"/>
+                                        <rect key="frame" x="20" y="123" width="235" height="21"/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="R1N-xq-AiI">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <items>
-                                            <navigationItem title="KegCop - About" id="gps-OW-YcP">
-                                                <barButtonItem key="rightBarButtonItem" title="Done" id="AVq-RA-x4d">
-                                                    <connections>
-                                                        <action selector="dismissAboutScene:" destination="Ckf-V2-ViC" id="nbp-Ff-kAo"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="KegCop V 0.1.1 Build 001" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O5X-BN-7Gc">
+                                        <rect key="frame" x="20" y="94" width="280" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -222,7 +210,6 @@
                     <connections>
                         <outlet property="buildnumber" destination="O5X-BN-7Gc" id="fXU-1P-1d7"/>
                         <outlet property="createdaccounts" destination="W5x-49-fAj" id="bnm-8O-fY7"/>
-                        <outlet property="doneButton" destination="AVq-RA-x4d" id="7Lw-ND-22W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNQ-L0-iXy" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,6 +8,8 @@ Thanks,
 - Chris
 
 --------------
+F: Complete the add credit feature for admin / root user, and resolve github issue.
+
 C: Bump to version 0.1.4 build 100
 
 C: Fix 18 compile time errors.
@@ -22,7 +24,7 @@ C: Organize scratchpad.txt, i.e. remove / refractor old notes.
 
 C: download some default avatars and add them to resources.
 
-N: Fix UINavigationBar in vcAbout, i.e. make it programatic
+C: Fix UINavigationBar in vcAbout, i.e. make it programatic
 
 C: Add "link" to wilson demos KegCop youtube video in info pane / screen."
 

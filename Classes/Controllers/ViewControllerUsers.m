@@ -19,9 +19,7 @@
 
 // Core Data
 @synthesize managedObjectContext = _managedObjectContext;
-
 @synthesize uiPickerViewUsers = _uiPickerViewUsers;
-
 @synthesize usernames = _usernames;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,10 +31,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
     // Core Data
     if (_managedObjectContext == nil)
@@ -74,7 +70,7 @@
 {
     // set item per row
     // changed statment below per this SO thread,
-    // http://stackoverflow.com/questions/17331293/populate-uipicker-view-with-results-from-core-data-db-using-an-nsarray
+    // http://stackoverflow.com/questions/17331293/
     return _usernames[row][@"username"];
 }
 

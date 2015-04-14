@@ -11,7 +11,7 @@
 #import "returnToRootHome.h"
 #import "GlobalData.h"
 
-@interface ViewControllerRootHomeLeftPanel : UIViewController < UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@interface ViewControllerRootHomeLeftPanel : UIViewController < UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UIPickerViewDelegate>
 
 @property (nonatomic, weak) id<returnToRootHome> myDelegate;
 

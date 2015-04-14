@@ -165,11 +165,18 @@
             }
             
             NSLog(@"load UIPickerView here :)");
-            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:names];
+            UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 200)];
+            pickerView.delegate = self;
+            pickerView.showsSelectionIndicator = YES;
             
-            [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
-                NSLog(@"Made choice? %d", madeChoice);
-            }];
+            [self.parentViewController.view addSubview:pickerView];
+            
+            
+            //            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:names];
+//            
+//            [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
+//                NSLog(@"Made choice? %d", madeChoice);
+//            }];
         
         
         [myDelegate loadVCRH];
@@ -199,4 +206,42 @@
         [self presentViewController:blunoTestVC animated:YES completion:nil];
     }
 }
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
+    // handle selection
+    
+}
+
+/*
+ * tell the picker how many rows are available for a given component
+ */
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    NSUInteger numRows = 2;
+    return numRows;
+}
+
+/*
+ * the picker how many components it will have
+ */
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 2;
+}
+
+/*
+ * tell the picker the title for a given component
+ */
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *title;
+    title = [@"" stringByAppendingFormat:@"%d",row];
+    return title;
+}
+
+/*
+ * tell the picker the width of each row for a given component
+ */
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    int sectionWidth = 300;
+    
+    return sectionWidth;
+}
+
 @end

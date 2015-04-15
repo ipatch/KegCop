@@ -15,8 +15,7 @@
     
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	
     NSString *urlAddress = @"http://www.paypal.com";

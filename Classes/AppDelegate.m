@@ -9,6 +9,7 @@
 #import "ViewControllerWelcome.h"
 #import "AccountsDataModel.h"
 #import <RestKit/RestKit.h>
+#import "ViewControllerIntro.h"
 
 @interface AppDelegate () {
 
@@ -56,9 +57,10 @@
     RKObjectManager *rkom = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://kegcop.chrisrjones.com"]];
     
     // Override point for customization after application launch.
-    _storyboard = [UIStoryboard storyboardWithName:@"iPhone"  bundle:[NSBundle mainBundle]];
-    UIViewController *vcWelcome = [_storyboard instantiateInitialViewController];
-    self.window.rootViewController = vcWelcome;
+//    _storyboard = [UIStoryboard storyboardWithName:@"iPhone"  bundle:[NSBundle mainBundle]];
+//    UIViewController *vcWelcome = [_storyboard instantiateInitialViewController];
+    ViewControllerIntro *vcIntro = [[ViewControllerIntro alloc] initWithNibName:@"ViewControllerIntro" bundle:nil];
+    self.window.rootViewController = vcIntro;
     
     NSManagedObjectContext *context = [[AccountsDataModel sharedDataModel] mainContext];
     if (context) {

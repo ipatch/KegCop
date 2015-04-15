@@ -1,3 +1,13 @@
+----------------------------------------------
+15APR15
+
+NSInteger zeroToFifty[50];
+for (NSInteger i = 0; i < 50; i++) {
+zeroToFifty[i] = i;
+}
+return zeroToFifty[49];
+
+
 ==============================================
 13APR15
 

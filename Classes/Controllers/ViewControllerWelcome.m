@@ -49,6 +49,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"inside welcomeVC viewDidLoad");
+    
     // add borders for buttons, iOS 7 fix - 5JAN14
     
     // use twitterbootstrap color scheme
@@ -70,7 +72,6 @@
                                                blue:255/255.0
                                               alpha:1.0f] forState:UIControlStateNormal];
     // end welcome btn
-    
     
     _btnForgot.layer.borderWidth=1.0f;
     _btnForgot.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
@@ -386,9 +387,10 @@ NSAssert(
                 // Load ViewController(Root)Home
                 if([anAccount.username isEqualToString:@"root"])
                 {
-                    appDelegate = APPDELEGATE;
-                    storyboard = appDelegate.storyboard;
-                    ViewControllerRootHome *rootHome = [storyboard instantiateViewControllerWithIdentifier:@"rootHome"];
+//                    appDelegate = APPDELEGATE;
+//                    storyboard = appDelegate.storyboard;
+                    UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+                    ViewControllerRootHome *rootHome = [storyboardLocal instantiateViewControllerWithIdentifier:@"rootHome"];
                     [self presentViewController:rootHome animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin
@@ -398,11 +400,11 @@ NSAssert(
                     [_welcomeActivityIndicator stopAnimating];
                 }
                 else {
-                    appDelegate = APPDELEGATE;
-                    storyboard = appDelegate.storyboard;
+//                    appDelegate = APPDELEGATE;
+//                    storyboard = appDelegate.storyboard;
+                    UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
                     
-                    
-                    ViewControllerHome *home = [storyboard instantiateViewControllerWithIdentifier:@"Home"];
+                    ViewControllerHome *home = [storyboardLocal instantiateViewControllerWithIdentifier:@"Home"];
                    
                     // declare delegate property
                     home.delegate = self;

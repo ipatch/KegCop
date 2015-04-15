@@ -17,7 +17,8 @@
 		EA3AE8251AB5007B0083D0F0 /* AccountsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */; };
 		EA3AE8271AB620090083D0F0 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EA3AE8261AB620090083D0F0 /* TODO */; };
 		EA3AE82A1AB63E610083D0F0 /* HomeBrewPoster1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA3AE8291AB63E610083D0F0 /* HomeBrewPoster1.jpg */; };
-		EA986A021AB9FDEF00025B0D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA986A011AB9FDEF00025B0D /* Default-568h@2x.png */; };
+		EA54D6221ADDD58200E062D2 /* ViewControllerIntro.m in Sources */ = {isa = PBXBuildFile; fileRef = EA54D6201ADDD58200E062D2 /* ViewControllerIntro.m */; };
+		EA54D6231ADDD58200E062D2 /* ViewControllerIntro.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA54D6211ADDD58200E062D2 /* ViewControllerIntro.xib */; };
 		EA9FF12D1A00B15800B7897A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12C1A00B15800B7897A /* AVFoundation.framework */; };
 		EA9FF12F1A00B19200B7897A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF12E1A00B19200B7897A /* CoreMedia.framework */; };
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
@@ -109,13 +110,15 @@
 		EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountsDataModel.m; path = Classes/DataModel/AccountsDataModel.m; sourceTree = "<group>"; };
 		EA3AE8261AB620090083D0F0 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = SOURCE_ROOT; };
 		EA3AE8291AB63E610083D0F0 /* HomeBrewPoster1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeBrewPoster1.jpg; sourceTree = "<group>"; };
+		EA54D61F1ADDD58200E062D2 /* ViewControllerIntro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerIntro.h; sourceTree = "<group>"; };
+		EA54D6201ADDD58200E062D2 /* ViewControllerIntro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerIntro.m; sourceTree = "<group>"; };
+		EA54D6211ADDD58200E062D2 /* ViewControllerIntro.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerIntro.xib; sourceTree = "<group>"; };
 		EA56282817BAC39300E3725B /* KegCop.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KegCop.entitlements; sourceTree = "<group>"; };
 		EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Prefix.pch"; sourceTree = "<group>"; };
 		EA9601FF189C48BF00068808 /* BLEDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEDevice.h; path = Bluno/BLEDevice.h; sourceTree = "<group>"; };
 		EA960200189C48BF00068808 /* BLEDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLEDevice.m; path = Bluno/BLEDevice.m; sourceTree = "<group>"; };
 		EA960202189C4A3500068808 /* BLEUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEUtility.h; path = Bluno/BLEUtility.h; sourceTree = "<group>"; };
 		EA960203189C4A3500068808 /* BLEUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLEUtility.m; path = Bluno/BLEUtility.m; sourceTree = "<group>"; };
-		EA986A011AB9FDEF00025B0D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EA9D25E81767A24E00B277ED /* flow_at_symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_at_symbol.png; sourceTree = "<group>"; };
 		EA9D25E91767A24E00B277ED /* flow_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_background.png; sourceTree = "<group>"; };
 		EA9D25EA1767A24E00B277ED /* flow_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_fill.png; sourceTree = "<group>"; };
@@ -339,7 +342,6 @@
 			children = (
 				EA3AE8281AB63E610083D0F0 /* avatars */,
 				EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */,
-				EA986A011AB9FDEF00025B0D /* Default-568h@2x.png */,
 				EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */,
 				EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */,
 				EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */,
@@ -418,6 +420,8 @@
 		EAC2D8E21AAFB86D0075EAB0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA54D61F1ADDD58200E062D2 /* ViewControllerIntro.h */,
+				EA54D6201ADDD58200E062D2 /* ViewControllerIntro.m */,
 				EABC3B761AC5DEDD0086691E /* ViewControllerWebService.h */,
 				EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */,
 				EAC2D90E1AAFB86D0075EAB0 /* ViewControllerWelcome.h */,
@@ -463,6 +467,7 @@
 		EAC2D9381AAFB86D0075EAB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EA54D6211ADDD58200E062D2 /* ViewControllerIntro.xib */,
 				EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */,
 				EA01673B1ABE31FE00A98B2F /* avatar.xib */,
 				EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */,
@@ -614,6 +619,7 @@
 				EAEC80991AB3AA34004EFD58 /* flow_fill.png in Resources */,
 				EAEC809A1AB3AA34004EFD58 /* flow_foreground.png in Resources */,
 				EAC19E321AD9A1AD00F6131C /* KegCop_Development.mobileprovision in Resources */,
+				EA54D6231ADDD58200E062D2 /* ViewControllerIntro.xib in Resources */,
 				EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */,
 				EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */,
 				EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */,
@@ -621,7 +627,6 @@
 				EA3AE82A1AB63E610083D0F0 /* HomeBrewPoster1.jpg in Resources */,
 				EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */,
 				EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */,
-				EA986A021AB9FDEF00025B0D /* Default-568h@2x.png in Resources */,
 				EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */,
 				EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */,
 				EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */,
@@ -737,6 +742,7 @@
 				EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */,
 				EAEC80701AB3A52D004EFD58 /* ViewControllerWebView.m in Sources */,
 				EAEC80391AB3A41B004EFD58 /* main.m in Sources */,
+				EA54D6221ADDD58200E062D2 /* ViewControllerIntro.m in Sources */,
 				EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */,
 				EAEC803D1AB3A49A004EFD58 /* ViewControllerWelcome.m in Sources */,
 			);

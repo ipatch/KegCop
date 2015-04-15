@@ -22,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UITableViewCell *cellMain;
 @property (strong, nonatomic) NSArray *items;
 @property (strong, nonatomic) NSArray *userNames;
+@property (strong, nonatomic) NSMutableArray *names;
 
 @end
 
@@ -155,13 +156,13 @@
                 NSLog(@"%@", result);
             }
             
-            NSMutableArray *names = [NSMutableArray arrayWithCapacity:[result count]];
+            _names = [NSMutableArray arrayWithCapacity:[result count]];
             for (Account *account in result) {
                 NSString *accountName = account.username;
                 if (!accountName) {
                     accountName = @"<Unknown Account>";
                 }
-                [names addObject:accountName];
+                [_names addObject:accountName];
             }
             
             NSLog(@"load UIPickerView here :)");
@@ -210,13 +211,33 @@
     // handle selection
     
 }
-
 /*
  * tell the picker how many rows are available for a given component
  */
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    NSUInteger numRows = 2;
-    return numRows;
+//    NSUInteger numRows = 2;
+//    return numRows;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    request.resultType = NSDictionaryResultType;
+    request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"username"]];
+    request.returnsDistinctResults = YES;
+    
+    _userNames = [_managedObjectContext executeFetchRequest:request error:nil];
+    
+    if(component == 0) {
+        return _userNames.count;
+    }
+    else {
+    
+        NSMutableArray *zeroToFifty = [NSMutableArray arrayWithCapacity:50];
+        for (int j=0; j < 50; j++) {
+            [zeroToFifty addObject:[NSString stringWithFormat:@"%d",j]];
+        }
+        return zeroToFifty.count;
+    }
 }
 
 /*
@@ -230,16 +251,19 @@
  * tell the picker the title for a given component
  */
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *title;
-    title = [@"" stringByAppendingFormat:@"%d",row];
-    return title;
+//    NSString *title;
+//    title = [@"" stringByAppendingFormat:@"%d",row];
+//    return title;
+    
+    return _userNames[row][@"username"];
+    
 }
 
 /*
  * tell the picker the width of each row for a given component
  */
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    int sectionWidth = 300;
+    int sectionWidth = 75;
     
     return sectionWidth;
 }

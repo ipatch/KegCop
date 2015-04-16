@@ -27,5 +27,5 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 A binary version of the app can be downloaded.  Add the following
 repo: chrisrjones.com/repo and load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)<br />
 <br />
-cheers
+cheers<br />
 Chris

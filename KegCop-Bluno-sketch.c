@@ -1,5 +1,5 @@
 /*
- * kegboard-clone-4-KegCop
+ * KegCop-Bluno-sketch
  * This code is public domain
  *
  * This sketch sends a receives a multibyte String from the iPhone
@@ -8,7 +8,7 @@
  * This Arduino sketch is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
+ * MIT Public License for more details.
  *
  * You should have received a copy of the MIT Public License
  * along with this sketch.

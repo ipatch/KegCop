@@ -41,9 +41,9 @@
     kegCop.text = @"KegCop";
     kegCop.font = [UIFont fontWithName:@"Helvetica" size:50];
     
-    [kegCop setTextColor: [UIColor colorWithRed:(174/255.0)
-                                        green:(127/255.0)
-                                        blue:(120/255.0)
+    [kegCop setTextColor: [UIColor colorWithRed:(100/255.0)
+                                        green:(83/255.0)
+                                        blue:(0/255.0)
                                         alpha:(1.0f)]];
     
     UIButton *signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -53,14 +53,14 @@
     [signInButton setTitle:@"SIGN IN"  forState:UIControlStateNormal ];
     signInButton.frame = CGRectMake(10, 500.0, 130.0, 60.0); // x, y, width, height
     
-    [signInButton setBackgroundColor: [UIColor colorWithRed:(77/255.0)
-                                          green:(33/255.0)
-                                           blue:(28/255.0)
-                                          alpha:(1.0f)]];
+    [signInButton setBackgroundColor: [UIColor colorWithRed:(221/255.0)
+                                                      green:(183/255.0)
+                                                       blue:(0/255.0)
+                                                      alpha:(1.0f)]];
     
-    [signInButton setTitleColor:[UIColor colorWithRed:174/255.0
-                                                 green:127/255.0
-                                                  blue:120/255.0
+    [signInButton setTitleColor:[UIColor colorWithRed:255/255.0
+                                                 green:239/255.0
+                                                  blue:160/255.0
                                                  alpha:1.0f] forState:UIControlStateNormal];
     
     // round corners of signInButton
@@ -76,14 +76,14 @@
     
     // change background color of register button
     
-    [registerButton setBackgroundColor: [UIColor colorWithRed:(55/255.0)
-                                                      green:(16/255.0)
-                                                       blue:(11/255.0)
+    [registerButton setBackgroundColor: [UIColor colorWithRed:(100/255.0)
+                                                      green:(83/255.0)
+                                                       blue:(0/255.0)
                                                       alpha:(1.0f)]];
     
-    [registerButton setTitleColor:[UIColor colorWithRed:174/255.0
-                                                green:127/255.0
-                                                 blue:120/255.0
+    [registerButton setTitleColor:[UIColor colorWithRed:255/255.0
+                                                green:239/255.0
+                                                 blue:160/255.0
                                                 alpha:1.0f] forState:UIControlStateNormal];
 
     // round corners of registerButton

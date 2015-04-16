@@ -25,9 +25,7 @@
     // Create a URL object
     NSURL *kegcopURL = [NSURL URLWithString:urlAddress];
     
-    // URL request object
-//    NSURLRequest *request = [NSURLRequest requestWithURL:urlAddress];
-    
+    // URL request object    
     NSURLRequest *request = [NSURLRequest requestWithURL:kegcopURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
     
     [webView loadRequest:request];

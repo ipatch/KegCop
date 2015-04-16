@@ -143,6 +143,7 @@
 		EAA33D831588AA9100826A02 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EAA51B131598385B00D0D777 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EAB120761756E709003035C3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EAB1B95D1AE03B0A00E158B5 /* KegCop-Bluno-sketch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "KegCop-Bluno-sketch.c"; sourceTree = "<group>"; };
 		EABC3B741AC4E0F70086691E /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		EABC3B761AC5DEDD0086691E /* ViewControllerWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWebService.h; sourceTree = "<group>"; };
 		EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWebService.m; sourceTree = "<group>"; };
@@ -480,6 +481,7 @@
 		EAEFEE84157B296B00C666D5 = {
 			isa = PBXGroup;
 			children = (
+				EAB1B95D1AE03B0A00E158B5 /* KegCop-Bluno-sketch.c */,
 				EAC19E301AD8923D00F6131C /* secrets.h */,
 				EAC2D8D71AAFB86D0075EAB0 /* Classes */,
 				EA9D25DF1767A24E00B277ED /* Resources */,

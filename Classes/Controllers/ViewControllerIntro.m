@@ -17,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // set delegate for vc
+//    self.ViewControllerIntro.delegate = self;
+    
     // create a webview that fills the bounds of the screen programmatically
     UIWebView *webView = [[UIWebView alloc] initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height ))];
     
@@ -102,6 +106,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
     UIViewController *welcomeVC = [storyboard instantiateViewControllerWithIdentifier:@"Welcome"];
+    welcomeVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:welcomeVC animated:YES completion:nil];
     
 }

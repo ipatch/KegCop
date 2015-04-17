@@ -3,6 +3,7 @@ PODS:
   - ISO8601DateFormatterValueTransformer (0.6.0):
     - RKValueTransformers (~> 1.1.0)
   - Kiwi (2.3.0)
+  - Reachability (3.2)
   - RestKit (0.24.1):
     - RestKit/Core (= 0.24.1)
   - RestKit/Core (0.24.1):
@@ -28,12 +29,14 @@ PODS:
 
 DEPENDENCIES:
   - Kiwi (~> 2.2)
+  - Reachability (~> 3.2)
   - RestKit (~> 0.24.1)
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
   ISO8601DateFormatterValueTransformer: 3ac3a721381697cab4e792d8049ce2f2e9ad3036
   Kiwi: 4c3988bd551f80f6ca0009f302f7c1a2e3777bf2
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   RestKit: 1987b5efef289c6b27bd980714d6ca48d3871b78
   RKValueTransformers: 66ac5e4f077fdbe3496e792d89eeff4c3eb67701
   SOCKit: c7376ac262bea9115b8f749358f762522a47d392

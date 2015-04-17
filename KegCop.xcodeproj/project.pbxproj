@@ -794,6 +794,7 @@
 /* Begin XCBuildConfiguration section */
 		EA3463461A0AB3AD00588DC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEAF2D287464FFFCA939CFE1 /* Pods-KegCopTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -830,6 +831,7 @@
 		};
 		EA3463471A0AB3AD00588DC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F85637C58D0B30CD1F406793 /* Pods-KegCopTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -933,6 +935,7 @@
 		};
 		EAEFEEAE157B296B00C666D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
@@ -973,6 +976,7 @@
 		};
 		EAEFEEAF157B296B00C666D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16C5175EAEC3CBA524390977 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;

@@ -8,6 +8,9 @@ Thanks,
 - Chris
 
 --------------
+N: programmatically create navbar for forgot vc
+N: programmatically create navbar for home vc
+
 C: change color of welcome vc navbar text
 
 C: change color of navbar / text for about vc

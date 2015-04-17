@@ -59,12 +59,6 @@
 		EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */; };
 		EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E117BAF46700023814 /* Default.png */; };
 		EAEC80961AB3AA1C004EFD58 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E517BCA33100023814 /* Icon.png */; };
-		EAEC80971AB3AA34004EFD58 /* flow_at_symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E81767A24E00B277ED /* flow_at_symbol.png */; };
-		EAEC80981AB3AA34004EFD58 /* flow_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25E91767A24E00B277ED /* flow_background.png */; };
-		EAEC80991AB3AA34004EFD58 /* flow_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EA1767A24E00B277ED /* flow_fill.png */; };
-		EAEC809A1AB3AA34004EFD58 /* flow_foreground.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EB1767A24E00B277ED /* flow_foreground.png */; };
-		EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25EC1767A24E00B277ED /* flow_needle.png */; };
-		EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9D25ED1767A24E00B277ED /* flow_shadow.png */; };
 		EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
 		EAEC809F1AB3AA89004EFD58 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8D91AAFB86D0075EAB0 /* Account.m */; };
 		EAEC80A11AB3AA89004EFD58 /* AccountBase.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DB1AAFB86D0075EAB0 /* AccountBase.m */; };
@@ -117,12 +111,6 @@
 		EA960200189C48BF00068808 /* BLEDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLEDevice.m; path = Bluno/BLEDevice.m; sourceTree = "<group>"; };
 		EA960202189C4A3500068808 /* BLEUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLEUtility.h; path = Bluno/BLEUtility.h; sourceTree = "<group>"; };
 		EA960203189C4A3500068808 /* BLEUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLEUtility.m; path = Bluno/BLEUtility.m; sourceTree = "<group>"; };
-		EA9D25E81767A24E00B277ED /* flow_at_symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_at_symbol.png; sourceTree = "<group>"; };
-		EA9D25E91767A24E00B277ED /* flow_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_background.png; sourceTree = "<group>"; };
-		EA9D25EA1767A24E00B277ED /* flow_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_fill.png; sourceTree = "<group>"; };
-		EA9D25EB1767A24E00B277ED /* flow_foreground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_foreground.png; sourceTree = "<group>"; };
-		EA9D25EC1767A24E00B277ED /* flow_needle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_needle.png; sourceTree = "<group>"; };
-		EA9D25ED1767A24E00B277ED /* flow_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flow_shadow.png; sourceTree = "<group>"; };
 		EA9D260D1767A24E00B277ED /* scratchpad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scratchpad.txt; sourceTree = "<group>"; };
 		EA9D260F1767A24E00B277ED /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Glass.aiff; sourceTree = "<group>"; };
 		EA9D26421767B7F000B277ED /* BUGS */ = {isa = PBXFileReference; lastKnownFileType = text; path = BUGS; sourceTree = SOURCE_ROOT; };
@@ -346,22 +334,8 @@
 				EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */,
 				EA2611E117BAF46700023814 /* Default.png */,
 				EA2611E517BCA33100023814 /* Icon.png */,
-				EA9D25E71767A24E00B277ED /* FlowMeter */,
 			);
 			path = pics;
-			sourceTree = "<group>";
-		};
-		EA9D25E71767A24E00B277ED /* FlowMeter */ = {
-			isa = PBXGroup;
-			children = (
-				EA9D25E81767A24E00B277ED /* flow_at_symbol.png */,
-				EA9D25E91767A24E00B277ED /* flow_background.png */,
-				EA9D25EA1767A24E00B277ED /* flow_fill.png */,
-				EA9D25EB1767A24E00B277ED /* flow_foreground.png */,
-				EA9D25EC1767A24E00B277ED /* flow_needle.png */,
-				EA9D25ED1767A24E00B277ED /* flow_shadow.png */,
-			);
-			path = FlowMeter;
 			sourceTree = "<group>";
 		};
 		EA9D260E1767A24E00B277ED /* sounds */ = {
@@ -616,14 +590,8 @@
 			files = (
 				EA3AE8271AB620090083D0F0 /* TODO in Resources */,
 				EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */,
-				EAEC80971AB3AA34004EFD58 /* flow_at_symbol.png in Resources */,
-				EAEC80981AB3AA34004EFD58 /* flow_background.png in Resources */,
-				EAEC80991AB3AA34004EFD58 /* flow_fill.png in Resources */,
-				EAEC809A1AB3AA34004EFD58 /* flow_foreground.png in Resources */,
 				EA54D6231ADDD58200E062D2 /* ViewControllerIntro.xib in Resources */,
 				EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */,
-				EAEC809B1AB3AA34004EFD58 /* flow_needle.png in Resources */,
-				EAEC809C1AB3AA34004EFD58 /* flow_shadow.png in Resources */,
 				EAEC80911AB3AA1C004EFD58 /* Default-568@2x.png in Resources */,
 				EA3AE82A1AB63E610083D0F0 /* HomeBrewPoster1.jpg in Resources */,
 				EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */,

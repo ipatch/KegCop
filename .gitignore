@@ -1,6 +1,6 @@
 ###########################
-# .gitignore file for Xcode4, Xcode5, Xcode6 Source projects
 #
+# .gitignore file for Xcode4, Xcode5, Xcode6 Source projects
 #
 ##########################
 ###
@@ -47,3 +47,6 @@ secrets.h
 **.mobileprovision
 scripts/certs/*
 scripts/profile/*
+#####
+# Whitelist necessary files 
+##

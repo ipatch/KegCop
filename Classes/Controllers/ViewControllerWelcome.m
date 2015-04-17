@@ -42,19 +42,13 @@
 - (NSString *)receiveUserName {
     
     return _textFieldUsername.text;
-    NSLog(@"textfiled username = %@",_textFieldUsername.text);
 }
 
 #pragma mark viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"inside welcomeVC viewDidLoad");
-    
     // add borders for buttons, iOS 7 fix - 5JAN14
-    
     // use twitterbootstrap color scheme
-    
     // www.javascripter.net/faq/hextorgb.htm
     
     _welcomeLogin.layer.borderWidth=1.0f;
@@ -71,6 +65,8 @@
                                               green:255/255.0
                                                blue:255/255.0
                                               alpha:1.0f] forState:UIControlStateNormal];
+    _welcomeLogin.layer.cornerRadius = 5;
+    
     // end welcome btn
     
     _btnForgot.layer.borderWidth=1.0f;
@@ -89,6 +85,7 @@
                                               green:255/255.0
                                                blue:255/255.0
                                               alpha:1.0f] forState:UIControlStateNormal];
+    _btnForgot.layer.cornerRadius = 5;
     // end forgot btn
     
     
@@ -110,7 +107,8 @@
                                                blue:255/255.0
                                               alpha:1.0f] forState:UIControlStateNormal];
     
-    
+    _btnCreate.layer.cornerRadius = 5;
+    // end _btnCreate
     
     // load Welcome Scrollview
     [_welcomeScroller setContentSize:CGSizeMake(320,750)];
@@ -154,8 +152,14 @@
     
     navBar.items = @[titleItem];
     
-    navBar.barTintColor = [UIColor blackColor];
-    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
+                                          green:83.0f/255.0f
+                                           blue:0.0f/255.0f
+                                          alpha:1.0f];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
+                green:239.0f/255.0f
+                blue:160.0f/255.0f
+                alpha:1.0f]};
     navBar.translucent = YES;
     
     [self.view addSubview:navBar];

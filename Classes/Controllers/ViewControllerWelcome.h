@@ -66,6 +66,4 @@
 - (IBAction) next:(id)sender;
 - (IBAction) prev:(id)sender;
 
-- (IBAction)processDev:(id)sender;
-
 @end

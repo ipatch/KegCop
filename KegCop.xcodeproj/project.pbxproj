@@ -39,12 +39,10 @@
 		EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */; };
 		EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */; };
 		EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */; };
-		EAEC80641AB3A52D004EFD58 /* ViewControllerPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9001AAFB86D0075EAB0 /* ViewControllerPurchase.m */; };
 		EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */; };
 		EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9041AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m */; };
 		EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */; };
 		EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */; };
-		EAEC80701AB3A52D004EFD58 /* ViewControllerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90D1AAFB86D0075EAB0 /* ViewControllerWebView.m */; };
 		EAEC80711AB3A55A004EFD58 /* SERVICES.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9311AAFB86D0075EAB0 /* SERVICES.h */; };
 		EAEC80731AB3A55A004EFD58 /* DFBlunoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9111AAFB86D0075EAB0 /* DFBlunoDevice.m */; };
 		EAEC80751AB3A55A004EFD58 /* DFBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9131AAFB86D0075EAB0 /* DFBlunoManager.m */; };
@@ -171,8 +169,6 @@
 		EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerHome.m; sourceTree = "<group>"; };
 		EAC2D8FD1AAFB86D0075EAB0 /* ViewControllerPour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPour.h; sourceTree = "<group>"; };
 		EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerPour.m; sourceTree = "<group>"; };
-		EAC2D8FF1AAFB86D0075EAB0 /* ViewControllerPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPurchase.h; sourceTree = "<group>"; };
-		EAC2D9001AAFB86D0075EAB0 /* ViewControllerPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerPurchase.m; sourceTree = "<group>"; };
 		EAC2D9011AAFB86D0075EAB0 /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHome.h; sourceTree = "<group>"; };
 		EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHome.m; sourceTree = "<group>"; };
 		EAC2D9031AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHomeCenter.h; sourceTree = "<group>"; };
@@ -181,8 +177,6 @@
 		EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHomeLeftPanel.m; sourceTree = "<group>"; };
 		EAC2D90A1AAFB86D0075EAB0 /* ViewControllerUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerUsers.h; sourceTree = "<group>"; };
 		EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerUsers.m; sourceTree = "<group>"; };
-		EAC2D90C1AAFB86D0075EAB0 /* ViewControllerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWebView.h; sourceTree = "<group>"; };
-		EAC2D90D1AAFB86D0075EAB0 /* ViewControllerWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWebView.m; sourceTree = "<group>"; };
 		EAC2D90E1AAFB86D0075EAB0 /* ViewControllerWelcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWelcome.h; sourceTree = "<group>"; };
 		EAC2D90F1AAFB86D0075EAB0 /* ViewControllerWelcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWelcome.m; sourceTree = "<group>"; };
 		EAC2D9101AAFB86D0075EAB0 /* DFBlunoDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DFBlunoDevice.h; path = Bluno/DFBlunoDevice.h; sourceTree = "<group>"; };
@@ -445,8 +439,6 @@
 				EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */,
 				EAC2D8FD1AAFB86D0075EAB0 /* ViewControllerPour.h */,
 				EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */,
-				EAC2D8FF1AAFB86D0075EAB0 /* ViewControllerPurchase.h */,
-				EAC2D9001AAFB86D0075EAB0 /* ViewControllerPurchase.m */,
 				EAC2D9011AAFB86D0075EAB0 /* ViewControllerRootHome.h */,
 				EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */,
 				EAC2D9031AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.h */,
@@ -456,8 +448,6 @@
 				EAC2D8E91AAFB86D0075EAB0 /* returnToRootHome.h */,
 				EAC2D90A1AAFB86D0075EAB0 /* ViewControllerUsers.h */,
 				EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */,
-				EAC2D90C1AAFB86D0075EAB0 /* ViewControllerWebView.h */,
-				EAC2D90D1AAFB86D0075EAB0 /* ViewControllerWebView.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -746,12 +736,10 @@
 				EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */,
 				EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */,
 				EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */,
-				EAEC80641AB3A52D004EFD58 /* ViewControllerPurchase.m in Sources */,
 				EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */,
 				EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */,
 				EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */,
 				EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */,
-				EAEC80701AB3A52D004EFD58 /* ViewControllerWebView.m in Sources */,
 				EAEC80391AB3A41B004EFD58 /* main.m in Sources */,
 				EA54D6221ADDD58200E062D2 /* ViewControllerIntro.m in Sources */,
 				EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */,

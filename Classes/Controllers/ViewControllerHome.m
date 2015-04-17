@@ -53,6 +53,10 @@
     // update credit
     [self updateCredit];
     
+    // add roundness to btns
+    _btndrinkbeer.layer.cornerRadius = 5;
+    _btnLogout.layer.cornerRadius = 5;
+    
    
     
     // uialertview init
@@ -255,7 +259,7 @@
     
     // SUBTRACT - GLOBAL - subtract credit from logged in user
     for (Account *loggeduser in mutableFetchResults) {
-        if ([loggeduser.username isEqualToString:self.lblUSERNAME.text]) {
+        if ([loggeduser.username isEqualToString:_lblUSERNAME.text]) {
             
             // get current credit of logged in user
             int loggedusercurrentcredit = [loggeduser.credit intValue];
@@ -331,7 +335,7 @@
     
     // SUBTRACT - GLOBAL - subtract credit from logged in user
     for (Account *loggeduser in mutableFetchResults) {
-        if ([loggeduser.username isEqualToString:self.lblUSERNAME.text]) {
+        if ([loggeduser.username isEqualToString:_lblUSERNAME.text]) {
             
             // get current credit of logged in user
             int loggedusercurrentcredit = [loggeduser.credit intValue];

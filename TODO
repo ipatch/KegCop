@@ -8,11 +8,11 @@ Thanks,
 - Chris
 
 --------------
-N: change color of welcome vc navbar text
+C: change color of welcome vc navbar text
 
-N: change color of navbar / text for about vc
+C: change color of navbar / text for about vc
 
-N: round corners on pour beer / logout buttons
+C: round corners on pour beer / logout buttons
 
 F: Complete the add credit feature for admin / root user, and resolve github issue.
 

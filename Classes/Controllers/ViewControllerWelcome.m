@@ -160,7 +160,7 @@
                 green:239.0f/255.0f
                 blue:160.0f/255.0f
                 alpha:1.0f]};
-    navBar.translucent = YES;
+    navBar.translucent = NO;
     
     [self.view addSubview:navBar];
     

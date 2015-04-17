@@ -27,9 +27,15 @@
     
     UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"KegCop - About"];
     
-    navBar.barTintColor = [UIColor blackColor];
-    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    navBar.translucent = YES;
+    navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
+                                          green:83.0f/255.0f
+                                           blue:0.0f/255.0f
+                                          alpha:1.0f];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
+                                                                                green:239.0f/255.0f
+                                                                                    blue:160.0f/255.0f
+                                                                                   alpha:1.0f]};
+    navBar.translucent = NO;
     
     // add navbar btn
     UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(dismissAboutScene:)];

@@ -50,3 +50,5 @@ scripts/profile/*
 #####
 # Whitelist necessary files 
 ##
+!scripts/certs/dist.cer.enc
+!scripts/certs/dist.p12.enc

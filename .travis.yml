@@ -2,7 +2,7 @@ language: objective-c
 before_script:
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/travis-ci.mobileprovision.enc -d -a -out scripts/profile/travis-ci.mobileprovision
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.end -d -a -out scripts/certs/dist.p12
+- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
 - ./scripts/travis/add-key.sh
 xcode_workspace: KegCop.xcworkspace
 xcode_scheme: KegCop

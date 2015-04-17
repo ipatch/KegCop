@@ -52,4 +52,4 @@ scripts/profile/*
 ##
 !scripts/certs/dist.cer.enc
 !scripts/certs/dist.p12.enc
-!scripts/profile/travisci.mobileprovision.enc
+!scripts/profile/travis-ci.mobileprovision.enc

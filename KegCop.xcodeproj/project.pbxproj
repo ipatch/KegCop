@@ -24,6 +24,7 @@
 		EA9FF1311A00B19D00B7897A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9FF1301A00B19D00B7897A /* CoreVideo.framework */; };
 		EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA51B131598385B00D0D777 /* AudioToolbox.framework */; };
 		EAB120771756E709003035C3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB120761756E709003035C3 /* QuartzCore.framework */; };
+		EAB1C5941AE0959600E158B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB1C5931AE0959600E158B5 /* SystemConfiguration.framework */; };
 		EABC3B791AC5DEDD0086691E /* ViewControllerWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */; };
 		EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
@@ -145,6 +146,7 @@
 		EAB120761756E709003035C3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EAB1B95D1AE03B0A00E158B5 /* KegCop-Bluno-sketch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "KegCop-Bluno-sketch.c"; sourceTree = "<group>"; };
 		EAB1B9601AE04D8E00E158B5 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		EAB1C5931AE0959600E158B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EABC3B741AC4E0F70086691E /* GlobalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalData.h; sourceTree = "<group>"; };
 		EABC3B761AC5DEDD0086691E /* ViewControllerWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWebService.h; sourceTree = "<group>"; };
 		EABC3B771AC5DEDD0086691E /* ViewControllerWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWebService.m; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB1C5941AE0959600E158B5 /* SystemConfiguration.framework in Frameworks */,
 				EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */,
 				EA022CDD1A0ABAE900CE6B3C /* MapKit.framework in Frameworks */,
 				EAA51B141598385B00D0D777 /* AudioToolbox.framework in Frameworks */,
@@ -507,6 +510,7 @@
 		EAEFEE92157B296B00C666D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAB1C5931AE0959600E158B5 /* SystemConfiguration.framework */,
 				EABEFA3F1ABF4B570045D478 /* ImageIO.framework */,
 				EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */,
 				EA9FF1301A00B19D00B7897A /* CoreVideo.framework */,

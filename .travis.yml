@@ -14,8 +14,6 @@ env:
   - APP_NAME="KegCop"
   - 'DEVELOPER_NAME="iPhone Distribution: {your_name} ({code})"'
   - PROFILE_NAME="travis-ci"
-
-  - secure: T8LNVA0+YSW5GD+hov2XJXGC29/kpJzik8nEsOZPZTahpY8vrMKJ9iHDXnZLq0wQ1F0soWQjYHY+73OA189zb8JmDENknoB1nJLuuuRb/g8+MJFH4VtwZwdwnMDf/pS8G/NCdMqwNYIScOwDVl6XMOikHhJIPycTsToQ9NdcPb4=
   - secure: G4uyyzq6OJcriBfSo1aUkriunFYhvFYtvSkyS2iaODTUukyRR+actYyeBFOXagu0qletWd7Plx2fVtAvJ84FmpPe2jf4qJBEPpde8wvIOzoPYjc4eQQTo30J+UyO0rakENQYJCfaIFzauSWVBUuAiM1MRkfWJxJO5GVh7a/tzJI=
 
 

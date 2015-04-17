@@ -587,6 +587,11 @@
 					};
 					EAEFEE8E157B296B00C666D5 = {
 						DevelopmentTeam = DHF8B8Q5J4;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -944,7 +949,7 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CURRENT_PROJECT_VERSION = 109;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -985,7 +990,7 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
 				CURRENT_PROJECT_VERSION = 109;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -4,18 +4,12 @@ before_script:
 xcode_workspace: KegCop.xcworkspace
 xcode_scheme: KegCop
 xcode_sdk: iphonesimulator8.1
+after_script:
+- ./scripts/travis/remove-key.sh
 env:
   global:
   - APP_NAME="KegCop"
   - 'DEVELOPER_NAME="iPhone Distribution: {your_name} ({code})"'
   - PROFILE_NAME="travis-ci"
-  - secure: T8LNVA0+YSW5GD+hov2XJXGC29/kpJzik8nEsOZPZTahpY8vrMKJ9iHDXnZLq0wQ1F0soWQjYHY+73OA189zb8JmDENknoB1nJLuuuRb/g8+MJFH4VtwZwdwnMDf/pS8G/NCdMqwNYIScOwDVl6XMOikHhJIPycTsToQ9NdcPb4=
-  - secure: G4uyyzq6OJcriBfSo1aUkriunFYhvFYtvSkyS2iaODTUukyRR+actYyeBFOXagu0qletWd7Plx2fVtAvJ84FmpPe2jf4qJBEPpde8wvIOzoPYjc4eQQTo30J+UyO0rakENQYJCfaIFzauSWVBUuAiM1MRkfWJxJO5GVh7a/tzJI=
 
-before_script:
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/travis-ci.mobileprovision.enc -d -a -out scripts/profile/travis-ci.mobileprovision
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
-- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.end -d -a -out scripts/certs/dist.p12
 
-after_script:
-- ./scripts/travis/remove-key.sh

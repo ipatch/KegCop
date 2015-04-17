@@ -1,3 +1,4 @@
 language: objective-c
 xcode_workspace: KegCop.xcworkspace
 xcode_scheme: KegCop
+xcode_sdk: iphonesimulator7.0

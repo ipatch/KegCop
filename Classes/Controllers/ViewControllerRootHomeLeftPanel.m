@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSArray *items;
 @property (strong, nonatomic) NSArray *userNames;
 @property (strong, nonatomic) NSMutableArray *names;
+@property (strong, nonatomic) NSMutableArray *zeroToFifty;
 
 @end
 
@@ -78,6 +79,15 @@
     
 //    @"Test Bluno Connection"
 //    @"Connect to Web Service",
+    
+    // nums for Add Credits
+    _zeroToFifty = [NSMutableArray arrayWithCapacity:50];
+    for (int j=0; j < 50; j++) {
+        [_zeroToFifty addObject:[NSString stringWithFormat:@"%d",j]];
+    }
+
+    
+    
     
     self.tableView = [self makeTableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Options"];
@@ -224,6 +234,9 @@
         [self presentViewController:blunoTestVC animated:YES completion:nil];
     }
 }
+
+#pragma mark - pickerView Delegate methods
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // handle selection
     
@@ -236,21 +249,17 @@
     if(component == 0) {
         return _userNames.count;
     }
-//    else {
-//    
-//        NSMutableArray *zeroToFifty = [NSMutableArray arrayWithCapacity:50];
-//        for (int j=0; j < 50; j++) {
-//            [zeroToFifty addObject:[NSString stringWithFormat:@"%d",j]];
-//        }
-//        return zeroToFifty.count;
-//    }
+    else if(component == 1){
+    
+        return _zeroToFifty.count;
+    }
 }
 
 /*
- * the picker how many components it will have
+ * tell the picker how many components it will have
  */
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
+    return 2;
 }
 
 /*
@@ -261,8 +270,14 @@
 //    title = [@"" stringByAppendingFormat:@"%d",row];
 //    return title;
     
-    return _userNames[row][@"username"];
-    
+    if(component == 0) {
+     return _userNames[row][@"username"];
+    }
+    else if (component == 1) {
+//        return _zeroToFifty;
+        // how to return a NSMutableArray
+        return [_zeroToFifty objectAtIndex:row];
+        }
 }
 
 /*

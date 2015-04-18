@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     // Allocate a reachability object
-    Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    Reachability *reach = [Reachability reachabilityWithHostname:@"kegcop.chrisrjones.com"];
     
     // set the blocks
     reach.reachableBlock = ^(Reachability*reach)

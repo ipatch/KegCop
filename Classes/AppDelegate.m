@@ -58,7 +58,7 @@
     // could not access deviceToken from this method :'(
     
     // add RestKit singleton class for setting up base URI for app.
-    RKObjectManager *rkom = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://kegcop.chrisrjones.com"]];
+//    RKObjectManager *rkom = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://kegcop.chrisrjones.com"]];
     
     // Override point for customization after application launch.
 //    _storyboard = [UIStoryboard storyboardWithName:@"iPhone"  bundle:[NSBundle mainBundle]];

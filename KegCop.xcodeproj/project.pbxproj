@@ -15,7 +15,6 @@
 		EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1E87B1157C999A002C945B /* CoreData.framework */; };
 		EA3463431A0AB3AC00588DC5 /* KegCopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3463421A0AB3AC00588DC5 /* KegCopTests.m */; };
 		EA3AE8251AB5007B0083D0F0 /* AccountsDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3AE8241AB5007B0083D0F0 /* AccountsDataModel.m */; };
-		EA3AE8271AB620090083D0F0 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EA3AE8261AB620090083D0F0 /* TODO */; };
 		EA3AE82A1AB63E610083D0F0 /* HomeBrewPoster1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA3AE8291AB63E610083D0F0 /* HomeBrewPoster1.jpg */; };
 		EA54D6221ADDD58200E062D2 /* ViewControllerIntro.m in Sources */ = {isa = PBXBuildFile; fileRef = EA54D6201ADDD58200E062D2 /* ViewControllerIntro.m */; };
 		EA54D6231ADDD58200E062D2 /* ViewControllerIntro.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA54D6211ADDD58200E062D2 /* ViewControllerIntro.xib */; };
@@ -29,6 +28,7 @@
 		EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */; };
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABEFA3F1ABF4B570045D478 /* ImageIO.framework */; };
+		EABFA46C1AE2E49C006859A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
 		EAEC80391AB3A41B004EFD58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91C1AAFB86D0075EAB0 /* main.m */; };
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
@@ -42,13 +42,11 @@
 		EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9041AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m */; };
 		EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */; };
 		EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D90B1AAFB86D0075EAB0 /* ViewControllerUsers.m */; };
-		EAEC80711AB3A55A004EFD58 /* SERVICES.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9311AAFB86D0075EAB0 /* SERVICES.h */; };
 		EAEC80731AB3A55A004EFD58 /* DFBlunoDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9111AAFB86D0075EAB0 /* DFBlunoDevice.m */; };
 		EAEC80751AB3A55A004EFD58 /* DFBlunoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9131AAFB86D0075EAB0 /* DFBlunoManager.m */; };
 		EAEC80771AB3A55A004EFD58 /* BLEDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960200189C48BF00068808 /* BLEDevice.m */; };
 		EAEC80791AB3A55A004EFD58 /* BLEUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EA960203189C4A3500068808 /* BLEUtility.m */; };
 		EAEC807B1AB3A586004EFD58 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9211AAFB86D0075EAB0 /* NSData+AES256.m */; };
-		EAEC807C1AB3A586004EFD58 /* KegCop-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91B1AAFB86D0075EAB0 /* KegCop-Bridging-Header.h */; };
 		EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9161AAFB86D0075EAB0 /* iPhone.storyboard */; };
 		EAEC808F1AB3A928004EFD58 /* CenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */; };
 		EAEC80901AB3A928004EFD58 /* LeftPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */; };
@@ -137,6 +135,7 @@
 		EABC3B781AC5DEDD0086691E /* ViewControllerWebService.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerWebService.xib; sourceTree = "<group>"; };
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EABEFA3F1ABF4B570045D478 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EAC19E301AD8923D00F6131C /* secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secrets.h; sourceTree = "<group>"; };
 		EAC19E311AD9A1AD00F6131C /* KegCop_Development.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = KegCop_Development.mobileprovision; sourceTree = "<group>"; };
 		EAC2D8D81AAFB86D0075EAB0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Classes/DataModel/Account.h; sourceTree = "<group>"; };
@@ -326,6 +325,7 @@
 			children = (
 				EA3AE8281AB63E610083D0F0 /* avatars */,
 				EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */,
+				EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */,
 				EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */,
 				EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */,
 				EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */,
@@ -583,21 +583,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA3AE8271AB620090083D0F0 /* TODO in Resources */,
 				EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */,
+				EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */,
 				EA54D6231ADDD58200E062D2 /* ViewControllerIntro.xib in Resources */,
 				EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */,
+				EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */,
+				EAEC808F1AB3A928004EFD58 /* CenterViewController.xib in Resources */,
+				EAEC80901AB3A928004EFD58 /* LeftPanelViewController.xib in Resources */,
 				EAEC80911AB3AA1C004EFD58 /* Default-568@2x.png in Resources */,
+				EABFA46C1AE2E49C006859A9 /* Default-568h@2x.png in Resources */,
 				EA3AE82A1AB63E610083D0F0 /* HomeBrewPoster1.jpg in Resources */,
 				EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */,
 				EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */,
 				EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */,
-				EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */,
 				EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */,
 				EAEC80961AB3AA1C004EFD58 /* Icon.png in Resources */,
-				EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */,
-				EAEC808F1AB3A928004EFD58 /* CenterViewController.xib in Resources */,
-				EAEC80901AB3A928004EFD58 /* LeftPanelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,8 +686,6 @@
 				EABC3B791AC5DEDD0086691E /* ViewControllerWebService.m in Sources */,
 				EA01673A1ABE30ED00A98B2F /* ViewControllerAvatar4.m in Sources */,
 				EAEC807B1AB3A586004EFD58 /* NSData+AES256.m in Sources */,
-				EAEC807C1AB3A586004EFD58 /* KegCop-Bridging-Header.h in Sources */,
-				EAEC80711AB3A55A004EFD58 /* SERVICES.h in Sources */,
 				EAEC80731AB3A55A004EFD58 /* DFBlunoDevice.m in Sources */,
 				EAEC80751AB3A55A004EFD58 /* DFBlunoManager.m in Sources */,
 				EAEC80771AB3A55A004EFD58 /* BLEDevice.m in Sources */,
@@ -853,7 +851,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos8.1;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;

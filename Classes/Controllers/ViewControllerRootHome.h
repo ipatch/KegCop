@@ -47,11 +47,6 @@
 @property (weak, nonatomic) IBOutlet UITabBarItem *tbiMisc;
 @property (weak, nonatomic) IBOutlet UITabBarItem *tbiDev;
 
-
-// added for debugging purposes (make work)
-@property (weak, nonatomic) IBOutlet UILabel *lblArduinoGood;
-@property (weak, nonatomic) IBOutlet UILabel *lblArduinoBad;
-
 // added dev3 btn for CoreBluetooth testing.
 @property (weak, nonatomic) IBOutlet UIButton *btnDev4;
 
@@ -67,14 +62,6 @@
 - (IBAction)rfidOnOff;
 - (IBAction)addCredit:(id)sender;
 - (IBAction)logout:(id)sender;
-- (IBAction)checkFlow:(id)sender;
-- (IBAction)showSerialConsole:(id)sender;
-- (IBAction)showLogs:(id)sender;
-- (IBAction)showDev:(id)sender;
-- (IBAction)showDev4:(id)sender;
-- (IBAction)showFlowIndicator:(id)sender;
-
-- (IBAction)testArduinoConnection:(id)sender;
 
 @end
 

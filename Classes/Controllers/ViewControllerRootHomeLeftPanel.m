@@ -63,9 +63,21 @@
         _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
     }
-    // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"test", @"Manage Accounts", @"Add Credits", @"Change Pin", @"Logoff",@"Create Web Service",@"Test Bluno Connection", nil];
     
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
+    request.resultType = NSDictionaryResultType;
+    request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"username"]];
+    request.returnsDistinctResults = YES;
+    
+    _userNames = [_managedObjectContext executeFetchRequest:request error:nil];
+    
+    // tableView cell options
+    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin", @"Logoff", nil];
+    
+//    @"Test Bluno Connection"
+//    @"Connect to Web Service",
     
     self.tableView = [self makeTableView];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Options"];
@@ -113,7 +125,6 @@
     NSString *currentString = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
     
     if ([currentString isEqualToString:@"Logoff"]) {
-        NSLog(@"Logout button pressed");
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     
@@ -181,6 +192,12 @@
         
         
         [myDelegate loadVCRH];
+        
+        // how to remove pickerView from parent VC?
+            
+//      [self.parentViewController.view removeFromSuperview:pickerView];
+            
+//            [pickerView presentInView:self.parentViewController.view ];
         }
     }
     
@@ -215,36 +232,25 @@
  * tell the picker how many rows are available for a given component
  */
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-//    NSUInteger numRows = 2;
-//    return numRows;
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
-    request.resultType = NSDictionaryResultType;
-    request.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"username"]];
-    request.returnsDistinctResults = YES;
-    
-    _userNames = [_managedObjectContext executeFetchRequest:request error:nil];
-    
+
     if(component == 0) {
         return _userNames.count;
     }
-    else {
-    
-        NSMutableArray *zeroToFifty = [NSMutableArray arrayWithCapacity:50];
-        for (int j=0; j < 50; j++) {
-            [zeroToFifty addObject:[NSString stringWithFormat:@"%d",j]];
-        }
-        return zeroToFifty.count;
-    }
+//    else {
+//    
+//        NSMutableArray *zeroToFifty = [NSMutableArray arrayWithCapacity:50];
+//        for (int j=0; j < 50; j++) {
+//            [zeroToFifty addObject:[NSString stringWithFormat:@"%d",j]];
+//        }
+//        return zeroToFifty.count;
+//    }
 }
 
 /*
  * the picker how many components it will have
  */
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 2;
+    return 1;
 }
 
 /*

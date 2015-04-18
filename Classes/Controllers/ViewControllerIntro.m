@@ -197,9 +197,26 @@
 }
 
 - (void)registerAccount {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone"bundle:nil];
-    UIViewController *createVC = [storyboard instantiateViewControllerWithIdentifier:@"Create"];
-    createVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:createVC animated:YES completion:nil];
+    
+    // display a UIAlertView displaying legal disclaimer.
+    UIAlertView *alertlegal = [[UIAlertView alloc] initWithTitle:@"Terms of Service" message:@"By clicking agree you abide to the terms of this application.\n\nThis iOS application is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the MIT License for more details.\n\nBy creating an account on this system you are NOT PAYING FOR BEER!  YOU ARE MAKING A DONATION TO THE PERSON WHO IS RESPONSIBLE FOR THE ADMIN / ROOT ACCOUNT ON THE SYSTEM  THE PERSON WHO GOVERNS THE ROOT ACCOUNT ON THE SYSTEM IS NOT RESPONSIBLE FOR YOUR DRIINKING OR THE RESULTS FROM THE BEHAVIOR OF YOUR DRINKING.\n\nThat being said, PLEASE DRINK RESPONSIBLY, AND TRY TO HAVE SOME FUN." delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Agree", nil];
+    
+    [alertlegal show];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    }
+    if (buttonIndex == 1) {
+        
+        // display ViewControllerCreate
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone"bundle:nil];
+        UIViewController *createVC = [storyboard instantiateViewControllerWithIdentifier:@"Create"];
+        createVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:createVC animated:YES completion:nil];
+    }
 }
 @end

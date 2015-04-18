@@ -163,6 +163,7 @@
     navBar.translucent = NO;
     
     [self.view addSubview:navBar];
+    // END navBar
     
     
     // get the status bar back

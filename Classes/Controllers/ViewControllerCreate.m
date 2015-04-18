@@ -4,7 +4,6 @@
 //
 //  Created by capin on 6/11/12.
 //
-// implement method to validate - createUserTextField, creatPinTextField, createEmailTextField, createPhoneTextField
 
 #import "ViewControllerCreate.h"
 #import "NSData+AES256.h"
@@ -54,10 +53,7 @@
     
     // keyboard behavior
     [self registerForKeyboardNotifications];
-    
-    
-    // Added 5AUG13 - trying to figure out how to dismiss view controller based upon view property / id
-    NSLog(@"The currently loaded view:%c",[self.view isKindOfClass:[ViewControllerCreate class]]);
+
 }
 
 /*
@@ -291,8 +287,7 @@ if (i >= 1) return YES; else return NO;
 /*
  * method - keyboard behavior
  */
-- (void)registerForKeyboardNotifications
-{
+- (void)registerForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];
@@ -302,9 +297,7 @@ if (i >= 1) return YES; else return NO;
                                                  name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (void)keyboardWasShown:(NSNotification*)aNotification
-
-{
+- (void)keyboardWasShown:(NSNotification*)aNotification {
     
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
@@ -321,9 +314,7 @@ if (i >= 1) return YES; else return NO;
     }
 }
 
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-
-{
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
     
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     _createScroller.contentInset = contentInsets;
@@ -342,7 +333,6 @@ if (i >= 1) return YES; else return NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     NSLog(@"method was loaded at startup");
-    NSLog(@"for the love of all that is free"); 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

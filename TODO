@@ -9,8 +9,10 @@ Thanks,
 
 --------------
 N: look into iOS responsive scrolling
-N: programmatically create navbar for forgot vc
-N: programmatically create navbar for home vc
+
+C: programmatically create navbar for forgot vc
+
+C: programmatically create navbar for home vc
 
 C: change color of welcome vc navbar text
 

@@ -1,4 +1,11 @@
 ----------------------------------------------
+17APR15
+
+// Added 5AUG13 - trying to figure out how to dismiss view controller based upon view property / id
+NSLog(@"The currently loaded view:%c",[self.view isKindOfClass:[ViewControllerCreate class]]);
+
+
+----------------------------------------------
 15APR15
 
 NSInteger zeroToFifty[50];

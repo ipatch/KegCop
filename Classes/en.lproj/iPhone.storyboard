@@ -243,13 +243,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Please enter your email address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="UwO-9b-rRf">
-                                <rect key="frame" x="39" y="49" width="243" height="21"/>
+                                <rect key="frame" x="39" y="129" width="243" height="21"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="chris@chrisrjones.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZS-En-bzO">
-                                <rect key="frame" x="39" y="78" width="243" height="30"/>
+                                <rect key="frame" x="39" y="158" width="243" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                 <connections>
@@ -257,14 +257,14 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pK-9c-eQO">
-                                <rect key="frame" x="39" y="164" width="110" height="37"/>
+                                <rect key="frame" x="39" y="244" width="110" height="37"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.37240526870000001" green="0.83791185459999995" blue="0.55185885170000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vg-xH-auS">
-                                <rect key="frame" x="157" y="164" width="125" height="37"/>
+                                <rect key="frame" x="157" y="244" width="125" height="37"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.91448709240000003" green="0.20855711560000001" blue="0.14378680769999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -274,23 +274,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Email sent." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="T9N-Rr-lZD">
-                                <rect key="frame" x="39" y="209" width="243" height="41"/>
+                                <rect key="frame" x="39" y="289" width="243" height="41"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Email address not found." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uuF-Yf-X1n">
-                                <rect key="frame" x="39" y="117" width="243" height="21"/>
+                                <rect key="frame" x="39" y="197" width="243" height="21"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldItalicMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" red="0.91448709240000003" green="0.20855711560000001" blue="0.14378680769999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="woU-Ny-fqq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Forgot Username / Pin" id="c0k-BB-C4F"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.81568627449999997" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -712,12 +706,6 @@
                                     </button>
                                 </subviews>
                             </scrollView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-dh-xd6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Home" id="2nG-JG-hif"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.81568627449999997" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

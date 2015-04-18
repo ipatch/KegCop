@@ -158,7 +158,6 @@
         registerButton.frame = CGRectMake(160, 500.0, 140.0, 60.0);
         
         // change background color of register button
-        
         [registerButton setBackgroundColor: [UIColor colorWithRed:(100/255.0)
                                                             green:(83/255.0)
                                                              blue:(0/255.0)
@@ -198,6 +197,9 @@
 }
 
 - (void)registerAccount {
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone"bundle:nil];
+    UIViewController *createVC = [storyboard instantiateViewControllerWithIdentifier:@"Create"];
+    createVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:createVC animated:YES completion:nil];
 }
 @end

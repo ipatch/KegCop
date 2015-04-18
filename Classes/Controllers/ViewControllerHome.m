@@ -22,6 +22,30 @@
 
 - (void)viewDidLoad {
      [super viewDidLoad];
+    
+    // present UINavigationBar
+    // navBar
+    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
+    
+    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Home"];
+    
+    navBar.items = @[titleItem];
+    
+    navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
+                                          green:83.0f/255.0f
+                                           blue:0.0f/255.0f
+                                          alpha:1.0f];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
+                                                                                   green:239.0f/255.0f
+                                                                                    blue:160.0f/255.0f
+                                                                                   alpha:1.0f]};
+    navBar.translucent = NO;
+    
+    [self.view addSubview:navBar];
+    // end navBar
+
+    
 
     if (_managedObjectContext == nil) {
         _managedObjectContext = [[AccountsDataModel sharedDataModel] mainContext];

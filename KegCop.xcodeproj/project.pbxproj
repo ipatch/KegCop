@@ -38,7 +38,6 @@
 		EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F41AAFB86D0075EAB0 /* ViewControllerCreate.m */; };
 		EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */; };
 		EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */; };
-		EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */; };
 		EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */; };
 		EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9041AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.m */; };
 		EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D9061AAFB86D0075EAB0 /* ViewControllerRootHomeLeftPanel.m */; };
@@ -155,8 +154,6 @@
 		EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerForgot.m; sourceTree = "<group>"; };
 		EAC2D8F91AAFB86D0075EAB0 /* ViewControllerHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerHome.h; sourceTree = "<group>"; };
 		EAC2D8FA1AAFB86D0075EAB0 /* ViewControllerHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerHome.m; sourceTree = "<group>"; };
-		EAC2D8FD1AAFB86D0075EAB0 /* ViewControllerPour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerPour.h; sourceTree = "<group>"; };
-		EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerPour.m; sourceTree = "<group>"; };
 		EAC2D9011AAFB86D0075EAB0 /* ViewControllerRootHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHome.h; sourceTree = "<group>"; };
 		EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRootHome.m; sourceTree = "<group>"; };
 		EAC2D9031AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerRootHomeCenter.h; sourceTree = "<group>"; };
@@ -411,8 +408,6 @@
 				EAC2D9331AAFB86D0075EAB0 /* ViewControllerDev2.m */,
 				EAC2D8F71AAFB86D0075EAB0 /* ViewControllerForgot.h */,
 				EAC2D8F81AAFB86D0075EAB0 /* ViewControllerForgot.m */,
-				EAC2D8FD1AAFB86D0075EAB0 /* ViewControllerPour.h */,
-				EAC2D8FE1AAFB86D0075EAB0 /* ViewControllerPour.m */,
 				EAC2D9011AAFB86D0075EAB0 /* ViewControllerRootHome.h */,
 				EAC2D9021AAFB86D0075EAB0 /* ViewControllerRootHome.m */,
 				EAC2D9031AAFB86D0075EAB0 /* ViewControllerRootHomeCenter.h */,
@@ -703,7 +698,6 @@
 				EAEC80581AB3A52D004EFD58 /* ViewControllerCreate.m in Sources */,
 				EAEC805C1AB3A52D004EFD58 /* ViewControllerForgot.m in Sources */,
 				EAEC805E1AB3A52D004EFD58 /* ViewControllerHome.m in Sources */,
-				EAEC80621AB3A52D004EFD58 /* ViewControllerPour.m in Sources */,
 				EAEC80661AB3A52D004EFD58 /* ViewControllerRootHome.m in Sources */,
 				EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */,
 				EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */,

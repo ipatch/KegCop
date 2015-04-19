@@ -29,6 +29,7 @@
 		EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABE1D751581CB1E00FF9FA0 /* Security.framework */; };
 		EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABEFA3F1ABF4B570045D478 /* ImageIO.framework */; };
 		EABFA46C1AE2E49C006859A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */; };
+		EACF61F11AE42330005BE6D7 /* KCModalPickerViewForCredit.m in Sources */ = {isa = PBXBuildFile; fileRef = EACF61F01AE42330005BE6D7 /* KCModalPickerViewForCredit.m */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
 		EAEC80391AB3A41B004EFD58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91C1AAFB86D0075EAB0 /* main.m */; };
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
@@ -179,6 +180,8 @@
 		EAC2D9391AAFB86D0075EAB0 /* CenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CenterViewController.xib; sourceTree = "<group>"; };
 		EAC2D93C1AAFB86D0075EAB0 /* LeftPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftPanelViewController.xib; sourceTree = "<group>"; };
 		EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
+		EACF61EF1AE42330005BE6D7 /* KCModalPickerViewForCredit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCModalPickerViewForCredit.h; sourceTree = "<group>"; };
+		EACF61F01AE42330005BE6D7 /* KCModalPickerViewForCredit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCModalPickerViewForCredit.m; sourceTree = "<group>"; };
 		EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
 		EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_V2_60x60.png; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 				EABC3B741AC4E0F70086691E /* GlobalData.h */,
 				EAEC80A61AB4B0D4004EFD58 /* KCModalPickerView.h */,
 				EAEC80A41AB4B051004EFD58 /* KCModalPickerView.m */,
+				EACF61EF1AE42330005BE6D7 /* KCModalPickerViewForCredit.h */,
+				EACF61F01AE42330005BE6D7 /* KCModalPickerViewForCredit.m */,
 				EA4570351A046E78004DEEC4 /* DataModel */,
 				EAC2D8DC1AAFB86D0075EAB0 /* AppDelegate.h */,
 				EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */,
@@ -700,6 +705,7 @@
 				EAEC80681AB3A52D004EFD58 /* ViewControllerRootHomeCenter.m in Sources */,
 				EAEC806A1AB3A52D004EFD58 /* ViewControllerRootHomeLeftPanel.m in Sources */,
 				EAEC806E1AB3A52D004EFD58 /* ViewControllerUsers.m in Sources */,
+				EACF61F11AE42330005BE6D7 /* KCModalPickerViewForCredit.m in Sources */,
 				EAEC80391AB3A41B004EFD58 /* main.m in Sources */,
 				EA54D6221ADDD58200E062D2 /* ViewControllerIntro.m in Sources */,
 				EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */,

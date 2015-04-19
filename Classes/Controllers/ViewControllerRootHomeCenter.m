@@ -17,24 +17,6 @@
     
 }
 
-
-
-- (void)addCreditToUser:(UIBarButtonItem *)sender {
-    NSLog(@"inside AddCreditToUser method");
-    // get current selected user / credit from pickerView
-    
-//    // get currently selected username in pickerview and store it as a NSString variable
-//    NSInteger row;
-//    
-//    row = [_pickerView selectedRowInComponent:0];
-//    _strSelectedUN = _userNames[row][@"username"];
-//    NSLog(@"The currently selected row is %@",_strSelectedUN);
-}
-
-
-
-
-
 #pragma mark - View Did Load/Unload
 
 - (void)viewDidLoad {

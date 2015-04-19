@@ -10,6 +10,7 @@
 #import "ViewControllerRootHome.h"
 #import "ViewControllerRootHomeCenter.h"
 #import "KCModalPickerView.h"
+#import "KCModalPickerViewForCredit.h"
 #import "ViewControllerUsers.h"
 #import "Account.h"
 #import "ViewControllerWebService.h"
@@ -187,12 +188,11 @@
                 }
                 [_names addObject:accountName];
             }
-            
-            NSLog(@"load UIPickerView here :)");
-            _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 400, 320, 200)];
+
+            _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 216)];
             
             // add toolbar to pickerView
-            UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 43)];
+            UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 200, 320, 44)];
             toolBar.barStyle = UIBarStyleBlackOpaque;
             
             UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
@@ -202,30 +202,30 @@
 //            UIBarButtonItem *itemAboutUs = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
 //            
             
-            UIBarButtonItem *btnAddCredit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCreditToUser:)];
-            NSLog(@"btnAddCredit %hhd",btnAddCredit.isEnabled);
-            
-            [toolBar setItems:[NSArray arrayWithObjects:flex,btnAddCredit,nil]];
-            
-            toolBar.userInteractionEnabled = true;
+//            UIBarButtonItem *btnAddCredit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCreditToUser:)];
+//            [toolBar setItems:[NSArray arrayWithObjects:flex,btnAddCredit,nil]];
+//            
+//            toolBar.userInteractionEnabled = true;
             
             // line below is problematic line
-            
             [_pickerView addSubview:toolBar];
+           
+//            UIView *pickerToolBar = [[UIView alloc] initWithFrame:CGRectMake(0, 200, 320, 366)];
+           
             
-            
-            _pickerView.delegate = self;
-            _pickerView.showsSelectionIndicator = YES;
-            
-//             [self.parentViewController.view addSubview:toolBar];
-            [self.parentViewController.view addSubview:_pickerView];
-//            [self.parentViewController.view addSubview:infoButton];
-            
-            //            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:names];
+//            _pickerView.delegate = self;
+//            _pickerView.showsSelectionIndicator = YES;
 //            
-//            [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
-//                NSLog(@"Made choice? %d", madeChoice);
-//            }];
+//            [self.parentViewController.view addSubview:toolBar];
+//            [self.parentViewController.view addSubview:pickerToolBar];
+            
+            
+            
+            KCModalPickerViewForCredit *pickerView = [[KCModalPickerViewForCredit alloc] initWithValues:_names];
+//
+            [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
+                NSLog(@"Made choice? %d", madeChoice);
+            }];
         
         
         [myDelegate loadVCRH];

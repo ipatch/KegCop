@@ -24,8 +24,7 @@ a lot to be desired.  So if you have a great idea, don't hesitate to download th
 contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
 ## Installation
-A binary version of the app can be downloaded.  Add the following
-repo: chrisrjones.com/repo and load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)<br />
+STAY TUNED, and load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)<br />
 <br />
 cheers<br />
 Chris

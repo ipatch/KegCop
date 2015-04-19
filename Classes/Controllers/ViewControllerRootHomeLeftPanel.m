@@ -189,52 +189,12 @@
                 [_names addObject:accountName];
             }
 
-            _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 216)];
-            
-            // add toolbar to pickerView
-            UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 200, 320, 44)];
-            toolBar.barStyle = UIBarStyleBlackOpaque;
-            
-            UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-            
-//            UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-//            [infoButton addTarget:self action:@selector(displayAboutUs) forControlEvents:UIControlEventTouchDown];
-//            UIBarButtonItem *itemAboutUs = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-//            
-            
-//            UIBarButtonItem *btnAddCredit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCreditToUser:)];
-//            [toolBar setItems:[NSArray arrayWithObjects:flex,btnAddCredit,nil]];
-//            
-//            toolBar.userInteractionEnabled = true;
-            
-            // line below is problematic line
-            [_pickerView addSubview:toolBar];
-           
-//            UIView *pickerToolBar = [[UIView alloc] initWithFrame:CGRectMake(0, 200, 320, 366)];
-           
-            
-//            _pickerView.delegate = self;
-//            _pickerView.showsSelectionIndicator = YES;
-//            
-//            [self.parentViewController.view addSubview:toolBar];
-//            [self.parentViewController.view addSubview:pickerToolBar];
-            
-            
-            
             KCModalPickerViewForCredit *pickerView = [[KCModalPickerViewForCredit alloc] initWithValues:_names];
-//
-            [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) {
-                NSLog(@"Made choice? %d", madeChoice);
-            }];
-        
+            
+            [pickerView presentInView:self.parentViewController.view withBlock:^(BOOL madeChoice) { }];
         
         [myDelegate loadVCRH];
-        
-        // how to remove pickerView from parent VC?
-            
-//      [self.parentViewController.view removeFromSuperview:pickerView];
-            
-//            [pickerView presentInView:self.parentViewController.view ];
+
         }
     }
     

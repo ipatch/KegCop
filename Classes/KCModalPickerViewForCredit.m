@@ -10,11 +10,14 @@
 #define KCMODALPICKER_TOOLBAR_HEIGHT 40
 
 #import "KCModalPickerViewForCredit.h"
+#import "AccountsDataModel.h"
+#import "Account.h"
 
 @interface KCModalPickerViewForCredit () {
     UIPickerView *_picker;
     UIToolbar *_toolbar;
     UIView *_panel;
+    NSString *_selectedCredit;
 }
 
 @property (nonatomic, strong) KCModalPickerViewCallback callbackBlock;
@@ -42,6 +45,8 @@
     }
 }
 
+# pragma mark - selected value methods for component 0
+
 - (void)setSelectedIndex:(NSUInteger)selectedIndex {
     _selectedIndex = selectedIndex;
     if (_picker) {
@@ -58,20 +63,84 @@
     return [self.values objectAtIndex:self.selectedIndex];
 }
 
+# pragma mark - selected value methods for component 1
+
+- (void)setSelectedIndex2:(NSUInteger)selectedIndex2 {
+    _selectedIndex2 = selectedIndex2;
+    if (_picker) {
+        [_picker selectRow:selectedIndex2 inComponent:1 animated:YES];
+    }
+}
+
+- (void)setSelectedValue2:(NSString *)selectedValue2 {
+    NSInteger index2 = [self.values indexOfObject:selectedValue2];
+    [self setSelectedIndex2:index2];
+}
+
+- (NSString *)selectedValue2 {
+    return [self.values2 objectAtIndex:self.selectedIndex2];
+}
+
 - (void)onCancel:(id)sender {
     self.callbackBlock(NO);
     [self dismissPicker];
+}
+
+- (NSManagedObjectContext *)addCoreData {
+    // Core Data
+//    if (managedObjectContext == nil)
+//    {
+        NSManagedObjectContext *managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+//        NSLog(@"After _managedObjectContext: %@",  managedObjectContext);
+//    }
+    return managedObjectContext;
 }
 
 - (void)addCredits:(id)sender {
     self.callbackBlock(YES);
     
     // add logic for presenting a UIAlertView and adding credits.
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:self.addCoreData];
+    [request setEntity:entity];
     
+    // fetch records and handle error
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[self.addCoreData executeFetchRequest:request error:&error] mutableCopy];
     
-    
-    
+    if (!mutableFetchResults) {
+        // handle error
+    }
+    for (Account *anAccount in mutableFetchResults) {
+        if ([anAccount.username isEqualToString:self.selectedValue]) {
+            NSLog(@"selectedValue = %@",self.selectedValue);
+            
+            // get value stored in credit tf
+            int credit = [_selectedCredit integerValue];
+            NSLog(@"selectedValue2 = %@",self.selectedValue2);
+            
+            // get current credit amount in DB
+            int creditcurrent = [anAccount.credit intValue];
+            
+            // add selection with current credit
+            int newcredit = credit + creditcurrent;
+            NSLog(@"new credit amount = %i",newcredit);
+            
+            // save new value to anAccount.credit - convert int to NSNumber
+            NSNumber *creditnew = [NSNumber numberWithInt:newcredit];
+            anAccount.credit = creditnew;
+            NSLog(@"new credit amoutn = %@",creditnew);
+            
+            // save to DB
+            NSError *error = nil;
+            if (![self.addCoreData save:&error]) {
+                NSLog(@"error %@", error);
+            }
+        }
+    }
+
 //    [self dismissPicker];
 }
 
@@ -207,7 +276,11 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-//    self.selectedIndex = row;
+    if (component == 0) {
+        self.selectedIndex = row;
+    }
+    else if (component == 1) {
+        _selectedCredit = [self.addZeroTo49ToPicker objectAtIndex:row];
+    }
 }
-
 @end

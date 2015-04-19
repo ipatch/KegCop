@@ -22,7 +22,7 @@ C: change color of navbar / text for about vc
 
 C: round corners on pour beer / logout buttons
 
-F: Complete the add credit feature for admin / root user, and resolve github issue.
+C: Complete the add credit feature for admin / root user, and resolve github issue.
 
 C: Bump to version 0.1.4 build 100
 

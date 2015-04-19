@@ -295,7 +295,6 @@
     // load picker
     KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:self.items];
     [pickerView presentInView:self.view withBlock:^(BOOL madeChoice) {
-        NSLog(@"Made choice? %d", madeChoice);
     }];
 }
 

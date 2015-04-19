@@ -24,6 +24,8 @@
 @property (strong, nonatomic) NSArray *userNames;
 @property (strong, nonatomic) NSMutableArray *names;
 @property (strong, nonatomic) NSMutableArray *zeroToFifty;
+@property (strong, nonatomic) NSString  *strSelectedUN;
+@property (strong, nonatomic) UIPickerView *pickerView;
 
 @end
 
@@ -187,12 +189,37 @@
             }
             
             NSLog(@"load UIPickerView here :)");
-            UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 200)];
-            pickerView.delegate = self;
-            pickerView.showsSelectionIndicator = YES;
+            _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 400, 320, 200)];
             
-            [self.parentViewController.view addSubview:pickerView];
+            // add toolbar to pickerView
+            UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 43)];
+            toolBar.barStyle = UIBarStyleBlackOpaque;
             
+            UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+            
+//            UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+//            [infoButton addTarget:self action:@selector(displayAboutUs) forControlEvents:UIControlEventTouchDown];
+//            UIBarButtonItem *itemAboutUs = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+//            
+            
+            UIBarButtonItem *btnAddCredit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCreditToUser:)];
+            NSLog(@"btnAddCredit %hhd",btnAddCredit.isEnabled);
+            
+            [toolBar setItems:[NSArray arrayWithObjects:flex,btnAddCredit,nil]];
+            
+            toolBar.userInteractionEnabled = true;
+            
+            // line below is problematic line
+            
+            [_pickerView addSubview:toolBar];
+            
+            
+            _pickerView.delegate = self;
+            _pickerView.showsSelectionIndicator = YES;
+            
+//             [self.parentViewController.view addSubview:toolBar];
+            [self.parentViewController.view addSubview:_pickerView];
+//            [self.parentViewController.view addSubview:infoButton];
             
             //            KCModalPickerView *pickerView = [[KCModalPickerView alloc] initWithValues:names];
 //            
@@ -233,6 +260,22 @@
         ViewControllerDev2 *blunoTestVC = [storyboard instantiateViewControllerWithIdentifier:@"dev2"];
         [self presentViewController:blunoTestVC animated:YES completion:nil];
     }
+}
+
+- (void)displayAboutUs{
+    NSLog(@"inside displayAboutUs");
+}
+
+- (void)addCreditToUser:(UIBarButtonItem *)sender {
+    NSLog(@"inside AddCreditToUser method");
+    // get current selected user / credit from pickerView
+    
+    // get currently selected username in pickerview and store it as a NSString variable
+    NSInteger row;
+    
+    row = [_pickerView selectedRowInComponent:0];
+    _strSelectedUN = _userNames[row][@"username"];
+    NSLog(@"The currently selected row is %@",_strSelectedUN);
 }
 
 #pragma mark - pickerView Delegate methods
@@ -284,9 +327,14 @@
  * tell the picker the width of each row for a given component
  */
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    int sectionWidth = 75;
-    
+    if (component == 0) {
+        int sectionWidth = 150;
     return sectionWidth;
+    }
+    else if (component == 1) {
+        int sectionWidth = 50;
+    return sectionWidth;
+    }
 }
 
 @end

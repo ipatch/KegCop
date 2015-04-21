@@ -169,7 +169,6 @@
 		EAC2D9121AAFB86D0075EAB0 /* DFBlunoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DFBlunoManager.h; path = Bluno/DFBlunoManager.h; sourceTree = "<group>"; };
 		EAC2D9131AAFB86D0075EAB0 /* DFBlunoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DFBlunoManager.m; path = Bluno/DFBlunoManager.m; sourceTree = "<group>"; };
 		EAC2D9171AAFB86D0075EAB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
-		EAC2D9181AAFB86D0075EAB0 /* gen_entitlements.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = gen_entitlements.py; sourceTree = "<group>"; };
 		EAC2D91B1AAFB86D0075EAB0 /* KegCop-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KegCop-Bridging-Header.h"; sourceTree = "<group>"; };
 		EAC2D91C1AAFB86D0075EAB0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EAC2D9201AAFB86D0075EAB0 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
@@ -304,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				EAC19E311AD9A1AD00F6131C /* KegCop_Development.mobileprovision */,
-				EAC2D9181AAFB86D0075EAB0 /* gen_entitlements.py */,
 				EA2611D017BAD29000023814 /* Info.plist */,
 				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
 				EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */,
@@ -922,7 +920,7 @@
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cb573875-6074-4a96-8165-744cfb1fecdd";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KegCop-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -960,7 +958,7 @@
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cb573875-6074-4a96-8165-744cfb1fecdd";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KegCop-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

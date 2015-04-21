@@ -1,4 +1,83 @@
 ----------------------------------------------
+19APR15 - addCreditMethod
+
+- (void)addCreditToUser:(UIBarButtonItem *)sender {
+NSLog(@"inside AddCreditToUser method");
+// get current selected user / credit from pickerView
+
+// get currently selected username in pickerview and store it as a NSString variable
+NSInteger row;
+
+row = [_pickerView selectedRowInComponent:0];
+_strSelectedUN = _userNames[row][@"username"];
+NSLog(@"The currently selected row is %@",_strSelectedUN);
+}
+
+
+
+
+
+19APR15 - pickerView Delegate Methods
+
+#pragma mark - pickerView Delegate methods
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
+// handle selection
+
+}
+/*
+* tell the picker how many rows are available for a given component
+*/
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+
+if(component == 0) {
+return _userNames.count;
+}
+else if(component == 1){
+
+return _zeroToFifty.count;
+}
+}
+
+/*
+* tell the picker how many components it will have
+*/
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+return 2;
+}
+
+/*
+* tell the picker the title for a given component
+*/
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+//    NSString *title;
+//    title = [@"" stringByAppendingFormat:@"%d",row];
+//    return title;
+
+if(component == 0) {
+return _userNames[row][@"username"];
+}
+else if (component == 1) {
+//        return _zeroToFifty;
+// how to return a NSMutableArray
+return [_zeroToFifty objectAtIndex:row];
+}
+}
+
+/*
+* tell the picker the width of each row for a given component
+*/
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+if (component == 0) {
+int sectionWidth = 150;
+return sectionWidth;
+}
+else if (component == 1) {
+int sectionWidth = 50;
+return sectionWidth;
+}
+}
+----------------------------------------------
 19APR15 - UIPickerView for Add Credit functionality
 
 //            UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];

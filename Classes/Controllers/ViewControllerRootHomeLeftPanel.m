@@ -199,12 +199,10 @@
     }
     
     if ([currentString isEqualToString:@"Change Pin"]) {
-        NSLog(@"Change Pin field / cell tapped");
-        // load ViewControllerUsers vc.
-        AppDelegate *appDelegate = APPDELEGATE;
-        UIStoryboard *storyboard = appDelegate.storyboard;
-        UIViewController *changePin = [storyboard instantiateViewControllerWithIdentifier:@"users"];
-        [self presentViewController:changePin animated:YES completion:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+        UIViewController *changePinVC = [storyboard instantiateViewControllerWithIdentifier:@"users"];
+        changePinVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:changePinVC animated:YES completion:nil];
     }
     
     if ([currentString isEqualToString:@"Create Web Service"]) {
@@ -221,80 +219,4 @@
         [self presentViewController:blunoTestVC animated:YES completion:nil];
     }
 }
-
-- (void)displayAboutUs{
-    NSLog(@"inside displayAboutUs");
-}
-
-- (void)addCreditToUser:(UIBarButtonItem *)sender {
-    NSLog(@"inside AddCreditToUser method");
-    // get current selected user / credit from pickerView
-    
-    // get currently selected username in pickerview and store it as a NSString variable
-    NSInteger row;
-    
-    row = [_pickerView selectedRowInComponent:0];
-    _strSelectedUN = _userNames[row][@"username"];
-    NSLog(@"The currently selected row is %@",_strSelectedUN);
-}
-
-#pragma mark - pickerView Delegate methods
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
-    // handle selection
-    
-}
-/*
- * tell the picker how many rows are available for a given component
- */
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-
-    if(component == 0) {
-        return _userNames.count;
-    }
-    else if(component == 1){
-    
-        return _zeroToFifty.count;
-    }
-}
-
-/*
- * tell the picker how many components it will have
- */
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 2;
-}
-
-/*
- * tell the picker the title for a given component
- */
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-//    NSString *title;
-//    title = [@"" stringByAppendingFormat:@"%d",row];
-//    return title;
-    
-    if(component == 0) {
-     return _userNames[row][@"username"];
-    }
-    else if (component == 1) {
-//        return _zeroToFifty;
-        // how to return a NSMutableArray
-        return [_zeroToFifty objectAtIndex:row];
-        }
-}
-
-/*
- * tell the picker the width of each row for a given component
- */
-- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    if (component == 0) {
-        int sectionWidth = 150;
-    return sectionWidth;
-    }
-    else if (component == 1) {
-        int sectionWidth = 50;
-    return sectionWidth;
-    }
-}
-
 @end

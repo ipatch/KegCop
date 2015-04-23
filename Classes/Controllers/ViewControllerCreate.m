@@ -19,6 +19,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    // create a programmatic navbar
+    // navBar
+    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
+    
+    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Create Account"];
+    
+    navBar.items = @[titleItem];
+    
+    navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
+                                          green:83.0f/255.0f
+                                           blue:0.0f/255.0f
+                                          alpha:1.0f];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
+                                                                                   green:239.0f/255.0f
+                                                                                    blue:160.0f/255.0f
+                                                                                   alpha:1.0f]};
+    navBar.translucent = NO;
+    
+    [self.view addSubview:navBar];
+    // END navBar
 	
     // create new account
     [_createUNnotValid setHidden:YES];
@@ -53,6 +76,36 @@
     
     // keyboard behavior
     [self registerForKeyboardNotifications];
+    
+    // change color of txt for tf's
+    _createUserTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                      green:83.0f/255.0f
+                                                       blue:0.0f/255.0f
+                                                      alpha:1.0f];
+;
+    _createPinTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                    green:83.0f/255.0f
+                                                     blue:0.0f/255.0f
+                                                    alpha:1.0f];
+;
+    _createPinReTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                      green:83.0f/255.0f
+                                                       blue:0.0f/255.0f
+                                                      alpha:1.0f];
+;
+    _createEmailTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                      green:83.0f/255.0f
+                                                       blue:0.0f/255.0f
+                                                      alpha:1.0f];
+;
+    _createPhoneNumber.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                   green:83.0f/255.0f
+                                                    blue:0.0f/255.0f
+                                                   alpha:1.0f];
+;
+    
+    
+    
 
 }
 
@@ -99,7 +152,7 @@
         NSLog(@"code executed");
     }
     else {
-        [_createEmailNotValid setHidden:NO];
+//        [_createEmailNotValid setHidden:NO];
     }
 }
 

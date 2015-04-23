@@ -169,9 +169,17 @@
     
     // setup code to draw / display avatar
     UIView *avatarView = [[UIView alloc] init];
-    avatarView.frame = CGRectMake(20, 50, 280, 100);
+    avatarView.frame = CGRectMake(20, 60, 280, 100);
+
+    // put conditoinal code for DEBUG scheme
+    
+#ifdef DEBUG
+    
     avatarView.layer.borderColor = [UIColor redColor].CGColor;
     avatarView.layer.borderWidth = 3.0f;
+    
+#endif
+    
     [self.view addSubview:avatarView];
     
     // do additional loading for avatars
@@ -181,6 +189,10 @@
     // make corners round
     avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
     avatarButton.clipsToBounds = YES;
+    
+    
+    // hide capture avatar btn
+    _captureAvatar.hidden = true;
     
     
 //    // retrieve image from Core Data and place on UIButton

@@ -189,6 +189,22 @@
     
     
 //    [self addAvatarsToButtons];
+    
+    
+    // change color of txt for tfUserName / tfPin
+    _textFieldUsername.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                     green:83.0f/255.0f
+                                                      blue:0.0f/255.0f
+                                                     alpha:1.0f];
+    
+    _textFieldPin.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                   green:83.0f/255.0f
+                                                    blue:0.0f/255.0f
+                                                   alpha:1.0f];
+    
+    
+    // hide forgot pin btn
+    _btnForgot.hidden = TRUE;
 }
 
 -(void)fillUserName {

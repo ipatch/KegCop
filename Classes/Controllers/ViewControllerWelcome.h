@@ -31,9 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *welcomeLogin;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
 
-// forgot username / pin button
 @property (weak, nonatomic) IBOutlet UIButton *btnForgot;
-
 @property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 
 // info button - located lower right

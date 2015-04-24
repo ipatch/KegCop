@@ -19,7 +19,9 @@
     self.blunoManager = [DFBlunoManager sharedInstance];
     self.blunoManager.delegate = self;
     self.lbReady.text = @"Not Ready!";
+#ifdef DEBUG
     NSLog(@"view did load method called");
+#endif
     [self.blunoManager scan];
 }
 
@@ -38,7 +40,9 @@
         NSString *strTemp = self.txtSendMsg.text;
         NSData *data = [strTemp dataUsingEncoding:NSUTF8StringEncoding];
         [self.blunoManager writeDataToDevice:data Device:self.blunoDev];
+#ifdef DEBUG
         NSLog(@"data written = %@",data);
+#endif
     }
 }
 
@@ -55,7 +59,9 @@
 - (void)didDiscoverDevice:(DFBlunoDevice *)dev
 {
     [self.blunoManager connectToDevice:dev];
+#ifdef DEBUG
     NSLog(@"Connected to %@",dev);
+#endif
     self.blunoDev = dev;
 }
 
@@ -81,7 +87,9 @@
 }
 
 - (IBAction)dismissScene:(id)sender {
+#ifdef DEBUG
     NSLog(@"dismissScene method called");
+#endif
     // figure out way to disconnect from Bluno
     
      // stop scanning for BLE devices
@@ -91,8 +99,8 @@
     [self.blunoManager disconnectToDevice:self.blunoDev];
     
     [self dismissViewControllerAnimated:NO completion:nil];
-    
+#ifdef DEBUG
     NSLog(@"code execution reached here");
-    
+#endif
 }
 @end

@@ -65,7 +65,9 @@
     if (_managedObjectContext == nil)
     {
         _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+#ifdef DEBUG
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+#endif
     }
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
@@ -142,25 +144,29 @@
     }
     
     if ([currentString isEqualToString:@"Manage Accounts"]) {
+#ifdef DEBUG
         NSLog(@"Manage Accounts button pressed");
-        
+#endif
         // do any additional checks / loads for managing accounts.
         
         // What is the current view controller? i.e. print current vc
+#ifdef DEBUG
         NSLog(@"The current vc is %@",self);
+
         
         NSLog(@"The parent vc is %@",self.parentViewController);
-        
+#endif
         [myDelegate loadVCRH];
     }
     
     if ([currentString isEqualToString:@"Add Credits"]) {
+#ifdef DEBUG
         NSLog(@"Add Credits field / button tapped");
         
         NSLog(@"The current vc is %@",self);
         
         NSLog(@"The parent vc is %@",self.parentViewController);
-        
+#endif
         if (self.parentViewController.isViewLoaded)
         {
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -174,10 +180,14 @@
             NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
             
             if (error) {
+#ifdef DEBUG
                 NSLog(@"Unable to execute fetch request.");
                 NSLog(@"%@, %@", error, error.localizedDescription);
+#endif
             } else {
+#ifdef DEBUG
                 NSLog(@"%@", result);
+#endif
             }
             
             _names = [NSMutableArray arrayWithCapacity:[result count]];

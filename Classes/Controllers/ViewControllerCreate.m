@@ -71,7 +71,9 @@
     if (_managedObjectContext == nil)
     {
         _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+#ifdef DEBUG
         NSLog(@"After _managedObjectContext: %@", _managedObjectContext);
+#endif
     }
     
     // keyboard behavior
@@ -139,7 +141,9 @@
    
     if ([pin isEqualToString: repin])
     {
+#ifdef DEBUG
         NSLog(@"Pins are equal.");
+#endif
         [_createPinNotValid setHidden:YES];
     }
     else {
@@ -149,7 +153,9 @@
     if([self validateEmail:[_createEmailTextField text]] ==1)
 	{
         [_createEmailNotValid setHidden:YES];
+#ifdef DEBUG
         NSLog(@"code executed");
+#endif
     }
     else {
 //        [_createEmailNotValid setHidden:NO];
@@ -183,11 +189,15 @@
     // check if create textfields are empty, check if boolean is YES / NO
     if([self checkTextFieldEmpty] == YES ) // empty text fields
     {
+#ifdef DEBUG
         NSLog(@"Please fill in text fields");
+#endif
     }
     
     else {
+#ifdef DEBUG
         NSLog(@"Thanks for filling out the text fields.");
+#endif
         
         
         // query Core Data DB to see if username is already created
@@ -262,7 +272,9 @@
         [_managedObjectContext save:&error];
         
         [_createAccountSuccess setHidden:NO];
+#ifdef DEBUG
         NSLog(@"Succefully created account.");
+#endif
         
         // Load ViewControllerHome
         UIViewController *home = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
@@ -294,7 +306,9 @@
 //    if ([_createPhoneNumber.text length] == 10) {
 //        [_createPhoneNumberNotValid setHidden:YES];
 //    }
+#ifdef DEBUG
     NSLog(@"Passed text field char length.");
+#endif
 
 }
 
@@ -384,8 +398,9 @@ if (i >= 1) return YES; else return NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
+#ifdef DEBUG
     NSLog(@"method was loaded at startup");
+#endif
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

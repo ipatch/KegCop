@@ -22,7 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+#ifdef DEBUG
     NSLog(@"inside viewDidLoad of webServiceVC");
+#endif
     
     // establish delegate in calling method that launches vc
     
@@ -60,7 +62,9 @@
 }
 
 - (void)establishWebService {
+#ifdef DEBUG
     NSLog(@"Create Web Service btn pressed");
+#endif
     
     // create a UIAlertBox with a textfield
     alertview = [[UIAlertView alloc] initWithTitle:@"Enter a unique name" message:@"Your unique name will be the name of your kegerator." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
@@ -70,26 +74,30 @@
     // display alertview
     // keep this line at the bottom
     [alertview show];
-    
-    
-    
 }
 
 - (void)meetAndPotatoes {
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+#ifdef DEBUG
     NSLog(@"UUID = %@",idfv);
+#endif
     
     // establish connection with remote API
-    
+#ifdef DEBUG
     NSLog(@"I am your RKClient singleton : %@", [RKObjectManager sharedManager]);
+#endif
     
     
     // get deviceToken
     NSString *tokenString = [[NSUserDefaults standardUserDefaults] objectForKey:@"uniqueTokenString"];
+#ifdef DEBUG
     NSLog(@"tokenString = %@",tokenString);
+#endif
     // get length of tokenString
     NSUInteger tokenStringLen = [tokenString length];
+#ifdef DEBUG
     NSLog(@"tokenStringLen = %d",tokenStringLen);
+#endif
     
     // get length of string in standard int
     NSString *tokenLen = [NSString stringWithFormat:@"%d",[tokenString length]];
@@ -107,9 +115,13 @@
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if(conn) {
+#ifdef DEBUG
         NSLog(@"Connection Successful");
+#endif
     } else {
+#ifdef DEBUG
         NSLog(@"Connection could not be made");
+#endif
     }
     
 }
@@ -130,12 +142,16 @@
     
     if (buttonIndex == 0) {
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
+#ifdef DEBUG
         NSLog(@"alertView dismissed");
+#endif
     }
     if (buttonIndex == 1) {
         // get "name" inputted in alertview
         uniqueName = [[NSString alloc] initWithString:[alertview textFieldAtIndex:0].text];
+#ifdef DEBUG
         NSLog(@"Your unique name is: %@",uniqueName);
+#endif
         [self meetAndPotatoes];
     }
 }

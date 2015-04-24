@@ -48,12 +48,14 @@
     
 
     _context = [[AccountsDataModel sharedDataModel]mainContext];
+#ifdef DEBUG
     NSLog(@"context is %@",_context);
-    
+#endif
     // set version and build numbers
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+#ifdef DEBUG
     NSLog(@"version should = %@",version);
-
+#endif
     NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
                          
     _buildnumber.text = [NSString stringWithFormat:@"Version %@ Build %@", version, build];

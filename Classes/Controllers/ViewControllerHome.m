@@ -49,7 +49,9 @@
 
     if (_managedObjectContext == nil) {
         _managedObjectContext = [[AccountsDataModel sharedDataModel] mainContext];
+#ifdef DEBUG
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+#endif
     }
     
     // load Home Scrollview
@@ -73,7 +75,9 @@
     
     
     // change USERNAME label
+#ifdef DEBUG
     NSLog(@" username = %@",[self.delegate receiveUserName]);
+#endif
     _lblUSERNAME.text = [self.delegate receiveUserName];
     
     // update credit
@@ -99,7 +103,9 @@
 //    
     
     // 5AUG13
+#ifdef DEBUG
     NSLog(@"presenting view controller:%@",[self presentingViewController]);
+#endif
     
     // 6AUG13 - idle time logout
     _idleTimerTime.text = @"60 secs til";
@@ -165,7 +171,9 @@
     // Core Bluetooth - added 6FEB14
     self.blunoManager = [DFBlunoManager sharedInstance];
     self.blunoManager.delegate = self;
+#ifdef DEBUG
     NSLog(@"view did load method called");
+#endif
     [self.blunoManager scan];
     
     
@@ -218,11 +226,15 @@
 //    // find specific value in array
     
     // convert UILabel.text to NSString for searching
+#ifdef DEBUG
     NSLog(@"_lblUSERNAME.text = %@",_lblUSERNAME.text);
+#endif
     
     
     NSString *search = _lblUSERNAME.text;
+#ifdef DEBUG
     NSLog(@"un = %@",search);
+#endif
     
 //    for (Account *anAccount in results) {
 //        if ([anAccount.username isEqualToString:search]) {
@@ -232,7 +244,9 @@
 //        }
 //    }
     if (_avatar == nil) {
+#ifdef DEBUG
         NSLog(@"couldn't find avatar");
+#endif
     } else {
         [avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
     }
@@ -247,7 +261,9 @@
 }
 
 - (IBAction)removeAccount {
+#ifdef DEBUG
     NSLog(@"Button Pressed");
+#endif
     
     // TODO present alertview to confirm deletion of account
     alert = [[UIAlertView alloc]initWithTitle:@"Do you really want to delete this account?" message:@"This can not be undone!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];    
@@ -274,7 +290,9 @@
 }
 
 - (IBAction)tradeCredit:(id)sender {
+#ifdef DEBUG
     NSLog(@"btnTradeCredit pressed.");
+#endif
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -326,24 +344,30 @@
     // ADD - GLOBAL
     for (Account *anAccount in mutableFetchResults) {
         if ([anAccount.username isEqualToString:self.tfUsername.text]) {
+#ifdef DEBUG
             NSLog(@"username found.");
+#endif
             
             // get current credit amount in DB
             int creditcurrent = [anAccount.credit intValue];
             
             // add tf with current credit
             int newcredit = credit + creditcurrent;
+#ifdef DEBUG
             NSLog(@"new credit amount = %i",newcredit);
-            
+#endif
             // save new value to anAccount.credit - convert int to NSNumber
             NSNumber *creditnew = [NSNumber numberWithInt:newcredit];
             anAccount.credit = creditnew;
+#ifdef DEBUG
             NSLog(@"new credit amoutn = %@",creditnew);
-            
+#endif
                         // save results to DB
             NSError *error = nil;
             if (![_managedObjectContext save:&error]) {
+#ifdef DEBUG
                 NSLog(@"error %@", error);
+#endif
             }
             
             // update label credit trade label
@@ -353,8 +377,9 @@
 }
 
 - (IBAction)drinkBeer:(id)sender {
+#ifdef DEBUG
     NSLog(@"pour beer btn pressed");
-    
+#endif
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     // define table / entity to use
@@ -398,8 +423,9 @@
     // save the Core Data context to disk - prevents force quit bug found on 29SEP13
     // save the managed object context / save to DB
     [_managedObjectContext save:&error];
-
+#ifdef DEBUG
     NSLog(@"{open_valve} btn tapped.");
+#endif
     
     // 6FEB14 - CoreBluetooth - write message to Arduino
     if (self.blunoDev.bReadyToWrite)
@@ -407,7 +433,9 @@
         NSString *pourBeer = @"{open_valve}";
         NSData *data = [pourBeer dataUsingEncoding:NSUTF8StringEncoding];
         [self.blunoManager writeDataToDevice:data Device:self.blunoDev];
+#ifdef DEBUG
         NSLog(@"data written = %@",data);
+#endif
     }
 
     
@@ -419,8 +447,9 @@
 - (IBAction)addRFID:(id)sender {
     
     // btnAddRFID pressed
-    
+#ifdef DEBUG
     NSLog(@"rfid badge # is %@",newrfidtagid);
+#endif
 
     // set alert with a text input field
     [alertrfid setAlertViewStyle:UIAlertViewStylePlainTextInput];
@@ -434,7 +463,9 @@
 }
 
 - (IBAction)logout:(id)sender {
+#ifdef DEBUG
     NSLog(@"logout method called");
+#endif
     // this condition is satisfied when a new user creates an account then logs out
     if([self.presentingViewController isKindOfClass:[ViewControllerCreate class]] ) {
         
@@ -446,7 +477,9 @@
     [self.blunoManager disconnectToDevice:self.blunoDev];
     
     [self dismissViewControllerAnimated:NO completion:nil];
+#ifdef DEBUG
     NSLog(@"code execution reached here");
+#endif
 }
 
 # pragma mark - addAvatar
@@ -475,8 +508,9 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
+#ifdef DEBUG
     NSLog(@"Range: %@", NSStringFromRange(range));
+#endif
     return (textField.text.length - range.length + string.length <= 10);
 }
 
@@ -486,7 +520,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
+#ifdef DEBUG
         NSLog(@"The cancel button was clicked");
+#endif
         
         [alertrfid dismissWithClickedButtonIndex:0 animated:YES];
         [newrfidtagid setString:@""];
@@ -496,8 +532,9 @@
     
     // do stuff for additonal buttons
     if (buttonIndex == 1) {
-        
+#ifdef DEBUG
         NSLog(@"delegate method - save btn pressed");
+#endif
         [self saveTagIDtoAccount];
     }
 }
@@ -522,18 +559,18 @@
     // refine to just logged in user account
     for (Account *anAccount in mutableFetchResults) {
         if ([anAccount.username isEqualToString:_lblUSERNAME.text]) {
-            
+#ifdef DEBUG
             NSLog(@"%@ credit = %@",username,anAccount.credit);
-            
+#endif
             _creditX.text = [NSString stringWithFormat:@"%@",anAccount.credit];
         }
     }
 }
 
 -(void)saveTagIDtoAccount {
-    
+#ifdef DEBUG
     NSLog(@"inside saveTagIDtoAccount method");
-    
+#endif
     // check validity of tagID
     if( [self tagIDCheck] == FALSE)
     {
@@ -559,10 +596,12 @@
         if ([anAccount.username isEqualToString:_lblUSERNAME.text]) {
             
             //log the text of _lblUSERNAME.text
+#ifdef DEBUG
             NSLog(@"_lblUSERNAME = %@",_lblUSERNAME.text);
-            
+#endif
+#ifdef DEBUG
             NSLog(@"%@ RFID tagID will = %@",_lblUSERNAME,newrfidtagid);
-            
+#endif
             // associate tagid to account
             [anAccount setValue:newrfidtagid forKey:@"rfid"];
         }
@@ -572,9 +611,9 @@
 
 // method to check if account already has tagID, returns a TRUE / FALSE
 -(BOOL)tagIDCheck {
-    
+#ifdef DEBUG
      NSLog(@"inside tagIDCheck method");
-    
+#endif
     // check if account already has tagID
     
     // query Core Data DB to see if username is already created
@@ -605,8 +644,9 @@
     if ([[mutableFetchResults valueForKey:@"rfid"] containsObject:[alertrfid textFieldAtIndex:0].text]) {
         
         // log
+#ifdef DEBUG
         NSLog(@"alert tf text = %@",[alertrfid textFieldAtIndex:0].text);
-        
+#endif
         // let user know tagid already taken
         [alertrfid setMessage:@"RFID tag associated to other account."];
         return TRUE;
@@ -650,7 +690,9 @@
 
 - (void)didDiscoverDevice:(DFBlunoDevice *)dev {
     [self.blunoManager connectToDevice:dev];
+#ifdef DEBUG
     NSLog(@"Connected to %@",dev);
+#endif
     self.blunoDev = dev;
 }
 

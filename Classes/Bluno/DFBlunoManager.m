@@ -59,34 +59,44 @@
 
 -(void)scan
 {
+#ifdef DEBUG
     NSLog(@"Bluno scan started");
+#endif
     [self.centralManager stopScan];
     [self.dicBleDevices removeAllObjects];
     [self.dicBlunoDevices removeAllObjects];
     if (_bSupported)
     {
         [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:kBlunoService]] options:nil];
+#ifdef DEBUG
         NSLog(@"Scanning started");
+#endif
     }
 }
 
 -(void)stop
 {
+#ifdef DEBUG
     NSLog(@"Scanning stopped");
+#endif
     [self.centralManager stopScan];
 }
 
 -(void)connectToDevice:(DFBlunoDevice*)dev
 {
     BLEDevice *bleDev = [self.dicBleDevices objectForKey:dev.identifier];
+#ifdef DEBUG
     NSLog(@"Connecting to peripheral %@", bleDev.peripheral);
+#endif
     [bleDev.centralManager connectPeripheral:bleDev.peripheral options:nil];
 }
 
 -(void)disconnectToDevice:(DFBlunoDevice *)dev
 {
     BLEDevice *bleDev = [self.dicBleDevices objectForKey:dev.identifier];
+#ifdef DEBUG
     NSLog(@"Disconneting to peripheral %@", bleDev.peripheral);
+#endif
     [bleDev.centralManager cancelPeripheralConnection:bleDev.peripheral];
 }
 
@@ -139,7 +149,9 @@
 // "Any peripheral that is discovered is returned as a CBPeripheral object"
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
+#ifdef DEBUG
     NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
+#ifdef DEBUG
     NSString* key = [peripheral.identifier UUIDString];
     if ([self.dicBleDevices objectForKey:key] !=nil )
     {

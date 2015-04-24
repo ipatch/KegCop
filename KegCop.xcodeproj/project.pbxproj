@@ -79,8 +79,6 @@
 
 /* Begin PBXFileReference section */
 		16C5175EAEC3CBA524390977 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardCommandTest.m; sourceTree = "<group>"; };
-		422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBKegboardMessageTest.m; sourceTree = "<group>"; };
 		4CC4EEE47EAB4A04A9448C12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,8 +348,6 @@
 				EAA33D791588612600826A02 /* KegCopTests.h */,
 				EAA33D7A1588612600826A02 /* KegCopTests.m */,
 				EAA33D741588612600826A02 /* Supporting Files */,
-				422CA688176B703A00C6C918 /* KBKegboardCommandTest.m */,
-				422CA68F176D807D00C6C918 /* KBKegboardMessageTest.m */,
 			);
 			name = KegCopApplicationTests;
 			path = KegCopTests;

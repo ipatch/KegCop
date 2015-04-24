@@ -125,7 +125,9 @@
     if (_managedObjectContext == nil)
     {
         _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+#ifdef DEBUG
     NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+#endif
     }    
     
     // dev button
@@ -208,7 +210,9 @@
 }
 
 -(void)fillUserName {
+#ifdef DEBUG
     NSLog(@"avatar button press works :)");
+#endif
     
     // need to get NSMutableArray *avatars from addAvatarsToButtons method
 }
@@ -231,7 +235,9 @@
     NSArray *lastLoginArray = [sortedArray2 valueForKey:@"lastLogin"];
     
     _last5LoginArray = [[NSMutableArray alloc] initWithArray:[lastLoginArray subarrayWithRange:NSMakeRange(0, 5)] ];
+#ifdef DEBUG
     NSLog(@"last5LoginArray = %@",_last5LoginArray);
+#endif
     
     CGFloat staticX = 0;
     CGFloat staticWidth = 80;
@@ -272,16 +278,22 @@
             anAccount.avatar = imageData;
             NSError *error = nil;
             if (![_managedObjectContext save:&error]) {
+#ifdef DEBUG
                 NSLog(@"error %@", error);
+#endif
             }
         }else if([_last5LoginArray containsObject:anAccount.lastLogin]) { // the following line could be trouble
+#ifdef DEBUG
             NSLog(@"anAccount.lastLogin = %@",anAccount.lastLogin);
+#endif
             UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
             // apply avImg to btn
             [avatars addObject:avatarImg];
         }
     }
+#ifdef DEBUG
     NSLog(@"avatars = %@",avatars);
+#endif
 NSAssert(
          avatars.count == _last5LoginArray.count
 ,@"The loop is expected to find as many avatars as there are items in last5LoginArray"
@@ -355,13 +367,15 @@ NSAssert(
     
     // store DB usernames in results array
     NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
-    
+#ifdef DEBUG
     NSLog(@"The returned results are %@",results);
-    
+#endif
     // check text field against results stored in DB
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_textFieldUsername.text]){
+#ifdef DEBUG
             NSLog(@"Your username exists");
+#endif
             
             // PASSWORD - PIN AUTHENTICATION
             
@@ -381,8 +395,9 @@ NSAssert(
             NSString *secret = anAccount.pin;
         
             // password - print value of pin stored in DB
+#ifdef DEBUG
             NSLog(@"DB pin = %@",secret);
-            
+#endif
             // password - decode base64 NSData
             NSData *cipher = [[NSData alloc ]base64DataFromString:secret];
             
@@ -462,14 +477,18 @@ NSAssert(
                 }
             }
             else {
+#ifdef DEBUG
                 NSLog(@"Your pin is wrong");
+#endif
                 [_welcomeActivityIndicator stopAnimating];
                 [_wrongUserPin setHidden:NO];
                 }
             }
     
         else {
+#ifdef DEBUG
             NSLog(@"Your username was not found");
+#endif
             [_welcomeActivityIndicator stopAnimating];
             [_wrongUserPin setHidden:NO];
             }
@@ -477,10 +496,14 @@ NSAssert(
 }
 
 - (IBAction)showForgotScene:(id)sender {
+#ifdef DEBUG
     NSLog(@"show Forgot Scene - begin");
+#endif
     UIViewController *forgot = [self.storyboard instantiateViewControllerWithIdentifier:@"Forgot"];
     [self presentViewController:forgot animated:YES completion:nil];
+#ifdef DEBUG
     NSLog(@"show Forgot Scene - end");
+#endif
 }
 
 - (IBAction)showCreateScene:(id)sender {

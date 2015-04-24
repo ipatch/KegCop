@@ -30,7 +30,9 @@
         // on the main thread, like this:
         
         dispatch_async(dispatch_get_main_queue(), ^{
+#ifdef DEBUG
             NSLog(@"reachable!");
+#endif
             // create a webview that fills the bounds of the screen programmatically
             UIWebView *webView = [[UIWebView alloc] initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height ))];
             
@@ -110,7 +112,9 @@
     
     reach.unreachableBlock = ^(Reachability*reach)
     {
+#ifdef DEBUG
         NSLog(@"unreachable!");
+#endif
         self.view.backgroundColor = [UIColor colorWithRed:(245/255.0)
                                                     green:(208/255.0)
                                                      blue:(55/255)

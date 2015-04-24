@@ -31,7 +31,9 @@
 
 - (id)init {
     if (self = [super init]) {
+#ifdef DEBUG
         NSLog(@"device token = %@",_deviceToken);
+#endif
     }
     return self;
 }
@@ -68,9 +70,14 @@
     
     NSManagedObjectContext *context = [[AccountsDataModel sharedDataModel] mainContext];
     if (context) {
+#ifdef DEBUG
+
         NSLog(@"Context is ready!");
+#endif
     } else {
+#ifdef DEBUG
         NSLog(@"Context was nil :(");
+#endif
     }
     
     // see this SO thread - stackoverflow.com/questions/1768881
@@ -85,19 +92,25 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+#ifdef DEBUG
     NSLog(@"Did Register for Remote Notifications with Device Token (%@)", deviceToken);
+#endif
     
     // save deviceToken to string
     _tokenString = [[[NSString stringWithFormat:@"%@", deviceToken] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>" ]] stringByReplacingOccurrencesOfString:@" " withString:@"" ];
+#ifdef DEBUG
     NSLog(@"_tokenString = %@",_tokenString);
+#endif
     
     // save string to NSUserDefaults
     [[NSUserDefaults standardUserDefaults] setObject:_tokenString forKey:@"uniqueTokenString"];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+#ifdef DEBUG
     NSLog(@"Did Fail to Register for Remote Notifications");
     NSLog(@"%@, %@", error, error.localizedDescription);
+#endif
     
 }
 							

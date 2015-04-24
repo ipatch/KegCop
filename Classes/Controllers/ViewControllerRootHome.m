@@ -128,9 +128,9 @@
 #pragma mark Delegate Actions
 
 -(void)movePanelRight {
-    
+#ifdef DEBUG
     NSLog(@"inside movePanelRight method");
-    
+#endif
     UIView *childView = [self getLeftView];
     [self.view sendSubviewToBack:childView];
     
@@ -215,7 +215,9 @@
     if (_managedObjectContext == nil)
     {
         _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+#ifdef DEBUG
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+#endif
     }
     
     // text view stuff
@@ -399,8 +401,9 @@
     // compare text field text / string with results in an array
     for (Account *anAccount in mutableFetchResults) {
         if([anAccount.username isEqualToString:self.tfDeleteAccount.text]) {
+#ifdef DEBUG
             NSLog(@"username found.");
-            
+#endif
             // delete keychain for account
             [anAccount prepareForDeletion];
             
@@ -434,28 +437,36 @@
     
     for (NSManagedObject *managedObject in items) {
         [_managedObjectContext deleteObject:managedObject];
+#ifdef DEBUG
         NSLog(@"%@ object deleted",entityDescription);
+#endif
     }
     if (![_managedObjectContext save:&error]) {
+#ifdef DEBUG
         NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+#endif
     }
     
 }
 
 - (IBAction)saveMasterEmail {
  //- (IBAction)saveMasterEmail:(id)sender {
-    
+#ifdef DEBUG
     NSLog(@"save master Email button pressed");
+#endif
     
 }
 - (IBAction)rfidOnOff {
 //- (IBAction)rfidToggle:(id)sender {
+#ifdef DEBUG
     NSLog(@"toogle");
+#endif
 }
 
 - (IBAction)addCredit:(id)sender {
-    
+#ifdef DEBUG
     NSLog(@"Add credit button pressed");
+#endif
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -472,8 +483,9 @@
     }
     for (Account *anAccount in mutableFetchResults) {
         if ([anAccount.username isEqualToString:self.tfCreditUsername.text]) {
+#ifdef DEBUG
             NSLog(@"username found.");
-            
+#endif
             // get value stored in credit tf
             int credit = [_tfCredit.text integerValue];
             
@@ -482,17 +494,23 @@
             
             // add tf with current credit
             int newcredit = credit + creditcurrent;
+#ifdef DEBUG
             NSLog(@"new credit amount = %i",newcredit);
+#endif
             
             // save new value to anAccount.credit - convert int to NSNumber
             NSNumber *creditnew = [NSNumber numberWithInt:newcredit];
             anAccount.credit = creditnew;
-            NSLog(@"new credit amoutn = %@",creditnew); 
+#ifdef DEBUG
+            NSLog(@"new credit amoutn = %@",creditnew);
+#endif
 
             // save to DB
             NSError *error = nil;
             if (![_managedObjectContext save:&error]) {
+#ifdef DEBUG
                 NSLog(@"error %@", error);
+#endif
             }
             // update credit label
             _lblCredit.text = [NSString stringWithFormat:@"Credits added."];
@@ -501,7 +519,9 @@
 }
 
 - (IBAction)logout:(id)sender {
+#ifdef DEBUG
     NSLog(@"Logout button pressed");
+#endif
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -527,8 +547,9 @@
     // refine to just root account
     for (Account *anAccount in mutableFetchResults) {
         if ([anAccount.username isEqualToString:@"root"]) {
-                        
+#ifdef DEBUG
             NSLog(@"root credit = %@",anAccount.credit);
+#endif
             
             _lblRootCredit.text = [NSString stringWithFormat:@"root has %@ credits.",anAccount.credit];
         }
@@ -536,11 +557,14 @@
 }
 
 - (IBAction)showDev:(id)sender {
-    
+#ifdef DEBUG
     NSLog(@"dev button pressed");
+#endif
     UIViewController *dev = [self.storyboard instantiateViewControllerWithIdentifier:@"dev"];
     [self presentViewController:dev animated:YES completion:nil];
+#ifdef DEBUG
     NSLog(@"dev button press End");
+#endif
 }
 
 - (IBAction)showDev4:(id)sender {
@@ -550,8 +574,9 @@
 }
 
 - (IBAction)showFlowIndicator:(id)sender {
-    
+#ifdef DEBUG
     NSLog(@"flow indicator btn pressed");
+#endif
     UIViewController *flow = [self.storyboard instantiateViewControllerWithIdentifier:@"KBFlowIndicator"];
     [self presentViewController:flow animated:YES completion:nil];
 }
@@ -567,15 +592,18 @@
     }
     
     if (item.tag==1) {
-        
+#ifdef DEBUG
         NSLog(@"misc btn tapped");
+#endif
         UIViewController *mapview = [self.storyboard instantiateViewControllerWithIdentifier:@"mapView"];
         [self presentViewController:mapview animated:YES completion:nil];
     }
     
     
     if (item.tag==2) {
+#ifdef DEBUG
         NSLog(@"dev btn tapped");
+#endif
         UIViewController *dev3 = [self.storyboard instantiateViewControllerWithIdentifier:@"dev3"];
         [self presentViewController:dev3 animated:YES completion:nil];
     }

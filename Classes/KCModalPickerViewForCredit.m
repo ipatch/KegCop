@@ -115,28 +115,34 @@
     }
     for (Account *anAccount in mutableFetchResults) {
         if ([anAccount.username isEqualToString:self.selectedValue]) {
+#ifdef DEBUG
             NSLog(@"selectedValue = %@",self.selectedValue);
-            
+#endif
             // get value stored in credit tf
             int credit = [_selectedCredit integerValue];
+#ifdef DEBUG
             NSLog(@"selectedValue2 = %@",self.selectedValue2);
-            
+#endif
             // get current credit amount in DB
             int creditcurrent = [anAccount.credit intValue];
             
             // add selection with current credit
             int newcredit = credit + creditcurrent;
+#ifdef DEBUG
             NSLog(@"new credit amount = %i",newcredit);
-            
+#endif
             // save new value to anAccount.credit - convert int to NSNumber
             NSNumber *creditnew = [NSNumber numberWithInt:newcredit];
             anAccount.credit = creditnew;
+#ifdef DEBUG
             NSLog(@"new credit amoutn = %@",creditnew);
-            
+#endif
             // save to DB
             NSError *error = nil;
             if (![self.addCoreData save:&error]) {
+#ifdef DEBUG
                 NSLog(@"error %@", error);
+#endif
             }
         }
     }

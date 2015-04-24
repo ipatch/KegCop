@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // navBar crap
     _navBar = [[UINavigationBar alloc] init];
@@ -81,20 +80,24 @@
 #pragma mark - Button Actions
 
 -(IBAction)btnMovePanelRight:(id)sender {
-    
+#ifdef DEBUG
     NSLog(@"inside btMovePanelRight method");
-    
+#endif
     UIButton *button = sender;
     switch (button.tag) {
         case 0: {
+#ifdef DEBUG
             NSLog(@"the button tag = %ld",(long)button.tag);
+#endif
             [_delegate movePanelToOriginalPosition];
             break;
         }
             
         case 1: {
+#ifdef DEBUG
             NSLog(@"the button tag = %ld",(long)button.tag);
             NSLog(@"inside btnMovePanelRight method case 1");
+#endif
             [_delegate movePanelRight];
             break;
         }

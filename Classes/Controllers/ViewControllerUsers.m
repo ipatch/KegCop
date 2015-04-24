@@ -38,7 +38,9 @@
     if (_managedObjectContext == nil)
     {
         _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+#ifdef DEBUG
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+#endif
     }
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
@@ -49,8 +51,9 @@
     request.returnsDistinctResults = YES;
 
     _usernames = [_managedObjectContext executeFetchRequest:request error:nil];
-   
+#ifdef DEBUG
     NSLog (@"names: %@",_usernames);
+#endif
 }
 
 
@@ -92,7 +95,9 @@
     
     row = [_uiPickerViewUsers selectedRowInComponent:0];
     strSelectedUN = _usernames[row][@"username"];
+#ifdef DEBUG
     NSLog(@"The currently selected row is %@",strSelectedUN);
+#endif
     
     // create a compound string for title
     NSString *title = [NSString stringWithFormat:@"Change pin for %@",strSelectedUN];
@@ -124,7 +129,9 @@
     
     row = [_uiPickerViewUsers selectedRowInComponent:0];
     strSelectedUN = _usernames[row][@"username"];
+#ifdef DEBUG
     NSLog(@"The selected username is %@",strSelectedUN);
+#endif
     
     // get text from textfield's in UIAlertView, compare them, then store them in DB.
     pin = [alertview textFieldAtIndex:0].text;
@@ -133,7 +140,9 @@
     // compare if pins are equal
     if([pin isEqualToString: repin])
     {
+#ifdef DEBUG
         NSLog(@"pins are equal");
+#endif
         
         key = @"donkey balls";
         
@@ -170,9 +179,11 @@
         // compare text field text / string with results in an array
         for (Account *pinAccount in mutableFetchResults) {
             if([pinAccount.username isEqualToString:strSelectedUN]) {
+#ifdef DEBUG
                 NSLog(@"username found.");
                 
                 NSLog(@"pinAccount = %@",pinAccount.username);
+#endif
                 
                 [pinAccount setValue:cipherB64 forKey:@"pin"];
                 
@@ -182,7 +193,9 @@
         }
     }
     else {
+#ifdef DEBUG
         NSLog(@"pins are not equal");
+#endif
     }
 }
 
@@ -199,9 +212,9 @@
         [alertView dismissWithClickedButtonIndex:0 animated:YES];
     }
     if (buttonIndex == 1) {
-        
+#ifdef DEBUG
         NSLog(@"btn 1 tapped");
-        
+#endif
         [self saveNewPin];
     }
 }

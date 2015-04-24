@@ -26,29 +26,37 @@
 @implementation ViewControllerAvatar4
 
 -(void)viewDidLoad {
+#ifdef DEBUG
     NSLog(@"inside viewDidLoad of ViewControllerAvatar4");
-    
+#endif
     // Core Data
     if (_managedObjectContext == nil)
     {
         _managedObjectContext = [[AccountsDataModel sharedDataModel]mainContext];
+#ifdef DEBUG
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
+#endif
     }
     // Core Data END
     
     // retreive parent vc data
     NSMutableDictionary *dataFromParent = [self.delegate giveMeData];
+#ifdef DEBUG
     NSLog(@"dataFromParent = %@",dataFromParent);
     NSLog(@"Value for arrayKey: %@", [dataFromParent objectForKey:@"username"]);
-    
+#endif
     NSArray *values = [dataFromParent allValues];
+#ifdef DEBUG
     NSLog(@"Values: %@", values);
+#endif
     
     AVCaptureSession *session = [[AVCaptureSession alloc] init];
     session.sessionPreset = AVCaptureSessionPresetMedium;
     
     CALayer *viewLayer = self.vImagePreview.layer;
+#ifdef DEBUG
     NSLog(@"viewLayer = %@", viewLayer);
+#endif
     
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
     
@@ -59,7 +67,9 @@
     AVCaptureDevice *device = [self frontCamera];
     
     if (!device) {
+#ifdef DEBUG
         NSLog(@"Couldn't get a camera.");
+#endif
         return;
     }
     
@@ -67,7 +77,9 @@
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
     if (!input) {
         // handle the error
+#ifdef DEBUG
         NSLog(@"ERROR: trying to open camera: %@", error);
+#endif
     }
     [session addInput:input];
     
@@ -126,17 +138,22 @@
             break;
         }
     }
-    
+#ifdef DEBUG
     NSLog(@"about to request a capture from %@", _stillImageOutput);
+#endif
     [_stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageSampleBuffer, NSError *error)
      {
          CFDictionaryRef exifAttachments = CMGetAttachment( imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
          if (exifAttachments)
          {
              // do something with the attachments.
+#ifdef DEBUG
              NSLog(@"attachments: %@", exifAttachments);
+#endif
          } else {
+#ifdef DEBUG
              NSLog(@"no attachments");
+#endif
          }
          
          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
@@ -162,14 +179,18 @@
 }
 
 -(void)saveAvatar {
+#ifdef DEBUG
     NSLog(@"saveAvatar method reached");
+#endif
     
     // retreive parent vc data
     NSMutableDictionary *dataFromParent = [self.delegate giveMeData];
     // put the username in a String for comparison
     NSString *userName = [[NSString alloc] init];
     userName = [dataFromParent objectForKey:@"username"];
+#ifdef DEBUG
     NSLog(@"username = %@",userName);
+#endif
         
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
         
@@ -186,7 +207,9 @@
     }
     for (Account *anAccount in mutableFetchResults) {
         if ([anAccount.username isEqualToString:userName]) {
+#ifdef DEBUG
             NSLog(@"username found.");
+#endif
             
             // save picture
             [anAccount setValue:self.dataImage forKey:@"avatar"];
@@ -194,7 +217,9 @@
             // save to DB
             NSError *error = nil;
             if (![_managedObjectContext save:&error]) {
+#ifdef DEBUG
                 NSLog(@"error %@", error);
+#endif
             }
         }
     }

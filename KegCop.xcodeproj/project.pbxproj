@@ -897,8 +897,8 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Jones (DHF8B8Q5J4)";
 				CURRENT_PROJECT_VERSION = 109;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -938,8 +938,8 @@
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chris Jones (YF358XUQ53)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Jones (YF358XUQ53)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Jones (DHF8B8Q5J4)";
 				CURRENT_PROJECT_VERSION = 109;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -956,7 +956,7 @@
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cb573875-6074-4a96-8165-744cfb1fecdd";
+				PROVISIONING_PROFILE = "acc40b1e-b312-4b3b-8d9d-bf589049bc5a";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/KegCop-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

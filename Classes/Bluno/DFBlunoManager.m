@@ -151,7 +151,7 @@
 {
 #ifdef DEBUG
     NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
-#ifdef DEBUG
+#endif
     NSString* key = [peripheral.identifier UUIDString];
     if ([self.dicBleDevices objectForKey:key] !=nil )
     {

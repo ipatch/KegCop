@@ -1,8 +1,8 @@
 //
 //  ViewControllerRootHomeCenter.h
-//  KegCop
 //
-//  Created by capin on 11/19/14.
+//
+//
 //
 //
 
@@ -19,12 +19,15 @@
 - (void)movePanelToOriginalPosition;
 @end
 
+IB_DESIGNABLE
+
 @interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeCenterDelegate> {
 }
 
 @property (nonatomic, weak) id<ViewControllerRootHomeCenterDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIView *viewRootHomeCenter;
 
-@property (nonatomic, weak) IBOutlet UIButton *leftButton;
-@property (nonatomic, strong) IBOutlet UINavigationBar *navBar;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem *hamMenu;
+@property (nonatomic, weak) IBInspectable UIButton *leftButton;
+@property (nonatomic, strong) IBInspectable UINavigationBar *navBar;
+@property (nonatomic, strong) IBInspectable UIBarButtonItem *hamMenu;
 @end

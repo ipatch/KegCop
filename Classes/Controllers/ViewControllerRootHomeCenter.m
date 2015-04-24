@@ -25,7 +25,12 @@
     
     // navBar crap
     _navBar = [[UINavigationBar alloc] init];
-    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),80)];
+//    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),80)];
+    _navBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 64);
+
+#ifdef DEBUG
+    NSLog(@"frame width = %f",self.view.frame.size.width);
+#endif
     
     _hamMenu = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"hamburger-menu-42x.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(btnMovePanelRight:)];
     
@@ -45,7 +50,7 @@
     
     _navBar.items = @[navItem];
     
-    [self.view addSubview:_navBar];
+    [self.viewRootHomeCenter addSubview:_navBar];
 }
 
 #pragma mark - View Will/Did Appear

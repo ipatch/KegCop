@@ -11,6 +11,8 @@
 #import "returnToRootHome.h"
 @protocol ViewControllerRootHomeProtocol;
 
+IB_DESIGNABLE
+
 @interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate, returnToRootHome> {
     
     UIButton *nuke;

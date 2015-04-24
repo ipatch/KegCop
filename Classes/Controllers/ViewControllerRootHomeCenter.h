@@ -27,7 +27,7 @@ IB_DESIGNABLE
 @property (nonatomic, weak) id<ViewControllerRootHomeCenterDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIView *viewRootHomeCenter;
 
-@property (nonatomic, weak) IBInspectable UIButton *leftButton;
+@property (nonatomic, strong) IBInspectable UIButton *leftButton;
 @property (nonatomic, strong) IBInspectable UINavigationBar *navBar;
 @property (nonatomic, strong) IBInspectable UIBarButtonItem *hamMenu;
 @end

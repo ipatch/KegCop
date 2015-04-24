@@ -25,8 +25,7 @@
     
     // navBar crap
     _navBar = [[UINavigationBar alloc] init];
-//    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),80)];
-    _navBar.frame = CGRectMake(0, 0, self.view.frame.size.width, 64);
+    _navBar.frame = CGRectMake(0, 0, CGRectGetWidth([[UIScreen mainScreen]bounds]), 64);
 
 #ifdef DEBUG
     NSLog(@"frame width = %f",self.view.frame.size.width);
@@ -50,7 +49,9 @@
     
     _navBar.items = @[navItem];
     
-    [self.viewRootHomeCenter addSubview:_navBar];
+    _viewRootHomeCenter.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+    
+    [_viewRootHomeCenter addSubview:_navBar];
 }
 
 #pragma mark - View Will/Did Appear

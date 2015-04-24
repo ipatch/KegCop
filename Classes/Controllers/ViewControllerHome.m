@@ -68,7 +68,9 @@
     [removeAccount addTarget:self action:@selector(removeAccount) forControlEvents:UIControlEventTouchUpInside];
     
     // add the button to the scrollview
+    removeAccount.hidden = true;
     [self.homeScroller addSubview:removeAccount];
+    
     
     // change USERNAME label
     NSLog(@" username = %@",[self.delegate receiveUserName]);

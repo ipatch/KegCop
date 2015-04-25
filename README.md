@@ -1,4 +1,4 @@
-# KegCop [![Build Status](https://travis-ci.org/ipatch/KegCop.svg)](https://travis-ci.org/ipatch/KegCop)
+# KegCop [![Build Status](https://travis-ci.org/ipatch/KegCop.svg?branch=master)](https://travis-ci.org/ipatch/KegCop)
 
 [![Wilson demos KegCop](http://img.youtube.com/vi/1a6hxUb3zfU/0.jpg)](http://www.youtube.com/watch?v=1a6hxUb3zfU) 
 

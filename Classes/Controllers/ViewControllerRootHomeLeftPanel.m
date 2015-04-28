@@ -15,6 +15,7 @@
 #import "Account.h"
 #import "ViewControllerWebService.h"
 #import "ViewControllerDev2.h"
+#import "ViewControllerCalibrate.h"
 
 #define SLIDE_TIMING .25
 
@@ -80,7 +81,7 @@
     _userNames = [_managedObjectContext executeFetchRequest:request error:nil];
     
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin", @"Logoff", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin",@"Calibrate", @"Logoff", nil];
     
 //    @"Test Bluno Connection"
 //    @"Connect to Web Service",
@@ -138,6 +139,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
     NSString *currentString = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+    
+    if ([currentString isEqualToString:@"Calibrate"]) {
+        [self showCalibrate];
+    }
+         
     
     if ([currentString isEqualToString:@"Logoff"]) {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -228,5 +234,39 @@
         ViewControllerDev2 *blunoTestVC = [storyboard instantiateViewControllerWithIdentifier:@"dev2"];
         [self presentViewController:blunoTestVC animated:YES completion:nil];
     }
+}
+//- (BOOL)isShowingClass:(Class)class {
+//    ViewControllerRootHomeCenter *controller = self.ViewControllerRootHomeCenter;
+//    if ([controller isKindOfClass:class]) {
+//        return YES;
+//    }
+//    
+//    if ([controller isKindOfClass:[ViewControllerRootHomeCenter class]]) {
+//        ViewControllerRootHomeCenter *vcRootHomeCenter = (ViewControllerRootHomeCenter *)controller;
+//        if ([vcRootHomeCenter.visibleViewController isKindOfClass:class]) {
+//            return YES;
+//        }
+//    }
+//    return NO;
+//}
+
+-(void)showCalibrate{
+    // load the ViewControllerCalibrate class / XIB
+//    if ([self.parentViewController isEqual: @"ViewControllerRootHomeCenter"]) {
+    
+        NSLog(@"inside showCalibrate method");
+        
+        ViewControllerCalibrate *calibrateVC = [[ViewControllerCalibrate alloc] initWithNibName:@"ViewControllerCalibrate" bundle:nil];
+        [self.parentViewController addChildViewController:calibrateVC];
+    [self.parentViewController.view setFrame:CGRectMake(0.0f, 100.0f, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.parentViewController.view addSubview:calibrateVC.view];
+    
+        [myDelegate loadVCRH];
+        
+        
+    
+//    if ([self isShowingClass:[ViewControllerRootHomeCenter]]) {
+    
+//    }
 }
 @end

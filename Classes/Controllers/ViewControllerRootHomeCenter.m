@@ -7,7 +7,7 @@
 //
 
 #import "ViewControllerRootHomeCenter.h"
-
+#import "ViewControllerCalibrate.h"
 
 @interface ViewControllerRootHomeCenter ()
 
@@ -51,6 +51,9 @@
     _viewRootHomeCenter.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
     
     [_viewRootHomeCenter addSubview:_navBar];
+#ifdef DEBUG
+    _viewRootHomeCenter.backgroundColor = [UIColor yellowColor];
+#endif
 }
 
 #pragma mark - View Will/Did Appear
@@ -77,12 +80,20 @@
     [super viewDidDisappear:animated];
 }
 
+- (void)removeSubViews{
+//    // may need check / verify which view is loaded in vc
+//    ViewControllerCalibrate *vcCalibrate = [ViewControllerCalibrate alloc];
+//    if (vcCalibrate.isViewLoaded) {
+//        [vcCalibrate dismissViewControllerAnimated:NO completion:nil];
+//    }
+    
+    NSLog(@"removeSubViews method called");
+}
+
 #pragma mark - Button Actions
 
 -(IBAction)btnMovePanelRight:(id)sender {
-#ifdef DEBUG
-    NSLog(@"inside btMovePanelRight method");
-#endif
+
     UIButton *button = sender;
     switch (button.tag) {
         case 0: {
@@ -90,6 +101,7 @@
             NSLog(@"the button tag = %ld",(long)button.tag);
 #endif
             [_delegate movePanelToOriginalPosition];
+            
             break;
         }
             
@@ -97,6 +109,9 @@
 #ifdef DEBUG
             NSLog(@"the button tag = %ld",(long)button.tag);
             NSLog(@"inside btnMovePanelRight method case 1");
+            
+            // remove any views / vc's loaded in the current vc
+            [self removeSubViews];
 #endif
             [_delegate movePanelRight];
             break;

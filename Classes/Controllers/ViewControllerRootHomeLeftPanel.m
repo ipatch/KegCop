@@ -149,30 +149,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     
-    if ([currentString isEqualToString:@"Manage Accounts"]) {
-#ifdef DEBUG
-        NSLog(@"Manage Accounts button pressed");
-#endif
-        // do any additional checks / loads for managing accounts.
-        
-        // What is the current view controller? i.e. print current vc
-#ifdef DEBUG
-        NSLog(@"The current vc is %@",self);
-
-        
-        NSLog(@"The parent vc is %@",self.parentViewController);
-#endif
-        [myDelegate loadVCRH];
-    }
-    
     if ([currentString isEqualToString:@"Add Credits"]) {
-#ifdef DEBUG
-        NSLog(@"Add Credits field / button tapped");
-        
-        NSLog(@"The current vc is %@",self);
-        
-        NSLog(@"The parent vc is %@",self.parentViewController);
-#endif
         if (self.parentViewController.isViewLoaded)
         {
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -235,38 +212,19 @@
         [self presentViewController:blunoTestVC animated:YES completion:nil];
     }
 }
-//- (BOOL)isShowingClass:(Class)class {
-//    ViewControllerRootHomeCenter *controller = self.ViewControllerRootHomeCenter;
-//    if ([controller isKindOfClass:class]) {
-//        return YES;
-//    }
-//    
-//    if ([controller isKindOfClass:[ViewControllerRootHomeCenter class]]) {
-//        ViewControllerRootHomeCenter *vcRootHomeCenter = (ViewControllerRootHomeCenter *)controller;
-//        if ([vcRootHomeCenter.visibleViewController isKindOfClass:class]) {
-//            return YES;
-//        }
-//    }
-//    return NO;
-//}
 
 -(void)showCalibrate{
     // load the ViewControllerCalibrate class / XIB
-//    if ([self.parentViewController isEqual: @"ViewControllerRootHomeCenter"]) {
-    
         NSLog(@"inside showCalibrate method");
         
         ViewControllerCalibrate *calibrateVC = [[ViewControllerCalibrate alloc] initWithNibName:@"ViewControllerCalibrate" bundle:nil];
         [self.parentViewController addChildViewController:calibrateVC];
-    [self.parentViewController.view setFrame:CGRectMake(0.0f, 100.0f, self.view.frame.size.width, self.view.frame.size.height)];
+    [calibrateVC.view setFrame:CGRectMake(0.0f, 65.0f, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    [calibrateVC didMoveToParentViewController:self];
+    
     [self.parentViewController.view addSubview:calibrateVC.view];
     
-        [myDelegate loadVCRH];
-        
-        
-    
-//    if ([self isShowingClass:[ViewControllerRootHomeCenter]]) {
-    
-//    }
+//        [myDelegate loadVCRH];
 }
 @end

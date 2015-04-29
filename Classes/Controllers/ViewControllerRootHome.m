@@ -167,15 +167,6 @@
         self.showingLeftPanel = NO;
     }
     
-    // NO RIGHT PANEL IMPLEMENTED
-    
-//    if (_rightPanelViewController != nil) {
-//        [self.rightPanelViewController.view removeFromSuperview];
-//        self.rightPanelViewController = nil;
-//        _centerViewController.rightButton.tag = 1;
-//        self.showingRightPanel = NO;
-//    }
-    // remove view shadows
     [self showCenterViewWithShadow:NO withOffset:0];
 }
 
@@ -220,77 +211,10 @@
 #endif
     }
     
-    // text view stuff
-//    [_tvDisplayAccount setScrollEnabled:TRUE];
-//    [_tvDisplayAccount setUserInteractionEnabled:YES];
-    
-    // declare nuke button
-//    nuke = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    
-    // set title for button
-//    [nuke setTitle:@"Nuke DB" forState:UIControlStateNormal];
-    
-    // set position (X, Y, bsizeW, bsizeH)
-//    nuke.frame = CGRectMake(100, 460, 150, 30);
-    
-    // listen for clicks
-//    [nuke addTarget:self action:@selector(deleteAllObjects)forControlEvents:UIControlEventTouchUpInside];
-    
-    // add nuke to the scrollview
-//    [self.rootHomeScroller addSubview:nuke];
-    
-    // Core Data - load root credits
     [self rootCreditAmount];
-    
-    
-    // declare / initialize tfEmail
-//    tfEmail = [[UITextField alloc] initWithFrame:CGRectMake(10, 500, 250, 30)];
-//    
-//    tfEmail.borderStyle = UITextBorderStyleRoundedRect;
-//    tfEmail.textColor = [UIColor blackColor];
-//    tfEmail.font = [UIFont systemFontOfSize:17.0];
-//    tfEmail.placeholder = @"Enter Master Paypal Address.";
-//    tfEmail.backgroundColor = [UIColor whiteColor];
-//    tfEmail.autocorrectionType = UITextAutocorrectionTypeNo;
-//    tfEmail.keyboardType = UIKeyboardTypeDefault;
-//    tfEmail.returnKeyType = UIReturnKeyDone;
-//    
-//    [self.rootHomeScroller addSubview:tfEmail];
-    
-//    // declare / initialize btnEmailSave
-//    btnEmailSave = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    
-//    [btnEmailSave setTitle:@"SaveMasterEmail" forState:UIControlStateNormal];
-//    
-//    btnEmailSave.frame = CGRectMake(100, 550, 150, 30);
-//    
-//    [btnEmailSave addTarget:self action:@selector(saveMasterEmail)forControlEvents:UIControlEventTouchUpInside];
-//    
-//    [self.rootHomeScroller addSubview:btnEmailSave];
-    
-    
-//    // RFID switch
-//    UISwitch *switchRfid = [[UISwitch alloc] initWithFrame: CGRectMake(20, 550, 50, 50)];
-//    [switchRfid addTarget: self action: @selector(rfidOnOff) forControlEvents:UIControlEventValueChanged];
-//    // add switch to the desired frame
-//    [self.rootHomeScroller addSubview:switchRfid];
-//    
-//    [self rootCreditAmount];
-    
-//    //tabbar crap
-//    //[self.tbRoot setItems: _tbiUsers animated:TRUE];
-//    self.tbRoot.delegate = self;
-//    _tbiUsers.tag = 0;
-//    _tbiMisc.tag = 1;
-//    _tbiDev.tag = 2;
     
     // load array items - TEMP ITEMS TO LOAD IN UIPICKERVIEW
     self.items = [NSArray arrayWithObjects:@"Red",@"Green",@"Blue", nil];
-//    [self loadPickerView];
-    
-    
-    
-
 }
 
 - (void)loadPickerView {
@@ -610,6 +534,4 @@
 }
 
 // added for debugging purposes - program was crashing when following method / action was removed :/
-- (IBAction)testArduinoConnection:(id)sender {
-}
 @end

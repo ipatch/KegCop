@@ -218,10 +218,8 @@
     NSLog(@"inside showCalibrate method");
     
     ViewControllerCalibrate *calibrateVC = [[ViewControllerCalibrate alloc] initWithNibName:@"ViewControllerCalibrate" bundle:nil];
-    
-//    UIViewController *cont = self.parentViewController;
     [((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter addChildViewController:calibrateVC];
-    [calibrateVC.view setFrame:CGRectMake(0.0f, 65.0f, self.view.frame.size.width, self.view.frame.size.height)];
+    [calibrateVC.view setFrame:CGRectMake(0.0f, 64.0f, self.view.frame.size.width, self.view.frame.size.height)];
     
     [calibrateVC didMoveToParentViewController:((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter];
     

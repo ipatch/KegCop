@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.tag = 3;
+    
     // navBar
 //    UINavigationBar *navBar = [[UINavigationBar alloc] init];
 //    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth([[UIScreen mainScreen]bounds]),60)];

@@ -81,13 +81,12 @@
 }
 
 - (void)removeSubViews{
-//    // may need check / verify which view is loaded in vc
-//    ViewControllerCalibrate *vcCalibrate = [ViewControllerCalibrate alloc];
-//    if (vcCalibrate.isViewLoaded) {
-//        [vcCalibrate dismissViewControllerAnimated:NO completion:nil];
-//    }
-    
-    NSLog(@"removeSubViews method called");
+    for (UIView *subview in [self.view subviews]){
+        NSLog(@"subviews = %@",[self.view subviews]);
+        if (subview.tag == 3) {
+            [subview removeFromSuperview];
+        }
+    }
 }
 
 #pragma mark - Button Actions

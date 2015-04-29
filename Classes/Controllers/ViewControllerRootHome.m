@@ -25,7 +25,7 @@
 
 @interface ViewControllerRootHome () <ViewControllerRootHomeCenterDelegate>
 
-@property (nonatomic, strong) ViewControllerRootHomeCenter *viewControllerRootHomeCenter;
+//@property (nonatomic, strong) ViewControllerRootHomeCenter *viewControllerRootHomeCenter;
 @property (nonatomic, strong) ViewControllerRootHomeLeftPanel *viewControllerRootHomeLeftPanel;
 @property (nonatomic, assign) BOOL showingLeftPanel;
 

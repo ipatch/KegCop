@@ -215,16 +215,18 @@
 
 -(void)showCalibrate{
     // load the ViewControllerCalibrate class / XIB
-        NSLog(@"inside showCalibrate method");
-        
-        ViewControllerCalibrate *calibrateVC = [[ViewControllerCalibrate alloc] initWithNibName:@"ViewControllerCalibrate" bundle:nil];
-        [self.parentViewController addChildViewController:calibrateVC];
+    NSLog(@"inside showCalibrate method");
+    
+    ViewControllerCalibrate *calibrateVC = [[ViewControllerCalibrate alloc] initWithNibName:@"ViewControllerCalibrate" bundle:nil];
+    
+//    UIViewController *cont = self.parentViewController;
+    [((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter addChildViewController:calibrateVC];
     [calibrateVC.view setFrame:CGRectMake(0.0f, 65.0f, self.view.frame.size.width, self.view.frame.size.height)];
     
-    [calibrateVC didMoveToParentViewController:self];
+    [calibrateVC didMoveToParentViewController:((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter];
     
-    [self.parentViewController.view addSubview:calibrateVC.view];
+    [((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter.view addSubview:calibrateVC.view];
     
-//        [myDelegate loadVCRH];
+    [myDelegate loadVCRH];
 }
 @end

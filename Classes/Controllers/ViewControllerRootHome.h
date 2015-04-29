@@ -9,8 +9,9 @@
 #import "ViewControllerWelcome.h"
 #import "ViewControllerRootHomeLeftPanel.h"
 #import "returnToRootHome.h"
+//#import "ViewControllerRootHomeCenter.h"
 @protocol ViewControllerRootHomeProtocol;
-
+@class ViewControllerRootHomeCenter;
 IB_DESIGNABLE
 
 @interface ViewControllerRootHome : UIViewController <UITabBarDelegate, UITextFieldDelegate, returnToRootHome> {
@@ -40,6 +41,9 @@ IB_DESIGNABLE
 @property (weak, nonatomic) IBOutlet UIButton *btnSerialConsole;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogs;
 @property (weak, nonatomic) IBOutlet UIButton *btndev;
+
+@property (nonatomic, strong) ViewControllerRootHomeCenter *viewControllerRootHomeCenter;
+
 
 // added button to get to flow indicator scene
 @property (weak, nonatomic) IBOutlet UIButton *btnFlowIndicator;

@@ -12,12 +12,33 @@
 
 @interface ViewControllerIntro ()
 
+@property(nonatomic, retain) UIWebView *webView;
+
 @end
 
 @implementation ViewControllerIntro
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // below is an ASCII art representation of the intro view
+    
+    /*
+     
+      ---------------
+     |               |
+     |               |
+     |               |
+     |               |
+     |    KegCop     |
+     |               |
+     |               |
+     |               |
+     |               |
+     | SIGNIN   REG  |
+      ---------------
+     
+     */
     
     // Allocate a reachability object
     Reachability *reach = [Reachability reachabilityWithHostname:@"kegcop.chrisrjones.com"];
@@ -34,7 +55,7 @@
             NSLog(@"reachable!");
 #endif
             // create a webview that fills the bounds of the screen programmatically
-            UIWebView *webView = [[UIWebView alloc] initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height ))];
+            _webView = [[UIWebView alloc] initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height ))];
             
             NSString *urlAddress = @"http://kegcop.chrisrjones.com/bubbles";
             
@@ -44,12 +65,13 @@
             // URL request object
             NSURLRequest *request = [NSURLRequest requestWithURL:kegcopURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
             
-            [webView loadRequest:request];
+            [_webView loadRequest:request];
             
-            [self.view addSubview:webView];
+            [self.view addSubview:_webView];
             
             // add UILabel w/ custom font for KegCop
-            UILabel *kegCop = [[UILabel alloc] initWithFrame:(CGRectMake(70, 120, 300, 300))];
+            UILabel *kegCop = [[UILabel alloc] init];
+//            UILabel *kegCop = [[UILabel alloc] initWithFrame:(CGRectMake(70, 120, 300, 300))];
             
             //    kegCop.textColor = [UIColor yellowColor];
             kegCop.text = @"KegCop";
@@ -59,6 +81,62 @@
                                                   green:(83/255.0)
                                                    blue:(0/255.0)
                                                   alpha:(1.0f)]];
+            
+            // center the kegCop Label
+//            [kegCop setCenter:_webView.center];
+//            kegCop.textAlignment = NSTextAlignmentCenter;
+//            
+            // manually specify Auto Layout constraints in code
+            [kegCop setTranslatesAutoresizingMaskIntoConstraints:NO];
+            
+            // add UILabel, KegCop to view
+            [self.view addSubview:kegCop];
+            
+            
+//            NSLayoutConstraint *constraintWidth = [NSLayoutConstraint constraintWithItem:kegCop attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:100];
+            
+NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:kegCop
+                                                                          attribute:NSLayoutAttributeCenterX
+                                                                          relatedBy:NSLayoutRelationEqual toItem:kegCop.superview
+                                                                          attribute:NSLayoutAttributeCenterX
+                                                                         multiplier:1.0
+                                                                           constant:0.0];
+
+NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
+                                                                                      attribute:NSLayoutAttributeCenterY
+                                                                                      relatedBy:NSLayoutRelationEqual toItem:kegCop.superview
+                                                                                      attribute:NSLayoutAttributeCenterY
+                                                                                     multiplier:1.0
+                                                                                       constant:0.0];
+            [kegCop.superview addConstraints:@[centerX, centerY]];
+            
+            
+            
+
+//NSLayoutConstraint *kegCopConstraintTop = [NSLayoutConstraint constraintWithItem:kegCop
+//                                                                       attribute:NSLayoutAttributeTop
+//                                                                       relatedBy:NSLayoutRelationEqual toItem:self.view
+//                                                                       attribute:NSLayoutAttributeTop multiplier:1.0
+//                                                                        constant:150];
+//            [self.view addConstraint:kegCopConstraintTop];
+//            
+            // may need to create a left constraint for the kegCop label
+            
+            
+            
+            
+            
+            
+            
+//            NSLayoutConstraint *constraintX = [NSLayoutConstraint constraintWithItem:kegCop attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0];
+//            NSLayoutConstraint *constraintY = [NSLayoutConstraint constraintWithItem:kegCop attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0];
+//            [self.view addConstraint:constraintX];
+//            [self.view addConstraint:constraintY];
+//            
+            
+            
+            
+    
             
             UIButton *signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [signInButton addTarget:self
@@ -76,6 +154,10 @@
                                                         green:239/255.0
                                                          blue:160/255.0
                                                         alpha:1.0f] forState:UIControlStateNormal];
+            
+            // turn off AutoLayout for signInButton
+            [signInButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+            
             
             // round corners of signInButton
             signInButton.layer.cornerRadius = 5;
@@ -100,16 +182,28 @@
                                                            blue:160/255.0
                                                           alpha:1.0f] forState:UIControlStateNormal];
             
+            
+            // turn off AutoLayout for signInButton
+            [registerButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+            
             // round corners of registerButton
             registerButton.layer.cornerRadius = 5;
             
             
-            [self.view addSubview:signInButton];
-            [self.view addSubview:registerButton];
-            [self.view addSubview:kegCop];
+//            [self.view addSubview:signInButton];
+//            [self.view addSubview:registerButton];
+        
+//            NSDictionary *elementsDict = NSDictionaryOfVariableBindings(signInButton, kegCop, registerButton);
+            
+//            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[kegCop]-[signInButton]-[registerButton]-|" options:NSLayoutFormatDirectionLeadingToTrailing
+//                                                                              metrics:nil
+//                                                    views:elementsDict]];
+//            
+//        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[kegCop]-|" options:NSLayoutFormatDirectionLeadingToTrailing
+//                                                                             metrics:nil
+//                                                                               views:elementsDict]];
         });
     };
-    
     reach.unreachableBlock = ^(Reachability*reach)
     {
 #ifdef DEBUG
@@ -222,5 +316,15 @@
         createVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:createVC animated:YES completion:nil];
     }
+}
+
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    _webView.frame = self.view.bounds;
 }
 @end

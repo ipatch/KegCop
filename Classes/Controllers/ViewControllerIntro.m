@@ -82,18 +82,11 @@
                                                    blue:(0/255.0)
                                                   alpha:(1.0f)]];
             
-            // center the kegCop Label
-//            [kegCop setCenter:_webView.center];
-//            kegCop.textAlignment = NSTextAlignmentCenter;
-//            
             // manually specify Auto Layout constraints in code
             [kegCop setTranslatesAutoresizingMaskIntoConstraints:NO];
             
             // add UILabel, KegCop to view
             [self.view addSubview:kegCop];
-            
-            
-//            NSLayoutConstraint *constraintWidth = [NSLayoutConstraint constraintWithItem:kegCop attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:100];
             
 NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:kegCop
                                                                           attribute:NSLayoutAttributeCenterX
@@ -143,7 +136,6 @@ NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
             [signInButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[signInButton(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(signInButton)]];
             
             [signInButton.superview addConstraints:@[pullToBottom, pullToRight]];
-//          [signInButton addConstraints:@[signInBtnWidth]];
             
             UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [registerButton addTarget:self
@@ -153,7 +145,6 @@ NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
             registerButton.frame = CGRectMake(160, 500.0, 140.0, 60.0);
             
             // change background color of register button
-            
             [registerButton setBackgroundColor: [UIColor colorWithRed:(100/255.0)
                                                                 green:(83/255.0)
                                                                  blue:(0/255.0)
@@ -163,27 +154,21 @@ NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
                                                           green:239/255.0
                                                            blue:160/255.0
                                                           alpha:1.0f] forState:UIControlStateNormal];
-            
-            
-            // turn off AutoLayout for signInButton
+            // set Auto Layout constraints in code
             [registerButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-            
             // round corners of registerButton
             registerButton.layer.cornerRadius = 5;
+            [self.view addSubview:registerButton];
+            // add constraints to button
+            NSLayoutConstraint *pullRegToBottom = [NSLayoutConstraint constraintWithItem:registerButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:registerButton.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
             
+            NSLayoutConstraint *pullRegToRight = [NSLayoutConstraint constraintWithItem:registerButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:registerButton.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-15.0];
             
-
-//            [self.view addSubview:registerButton];
-        
-//            NSDictionary *elementsDict = NSDictionaryOfVariableBindings(signInButton, kegCop, registerButton);
+            [registerButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[registerButton(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(registerButton)]];
             
-//            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[kegCop]-[signInButton]-[registerButton]-|" options:NSLayoutFormatDirectionLeadingToTrailing
-//                                                                              metrics:nil
-//                                                    views:elementsDict]];
-//            
-//        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[kegCop]-|" options:NSLayoutFormatDirectionLeadingToTrailing
-//                                                                             metrics:nil
-//                                                                               views:elementsDict]];
+            [registerButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[registerButton(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(registerButton)]];
+            
+            [registerButton.superview addConstraints:@[pullRegToBottom, pullRegToRight]];
         });
     };
     reach.unreachableBlock = ^(Reachability*reach)

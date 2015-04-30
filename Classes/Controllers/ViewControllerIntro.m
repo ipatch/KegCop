@@ -110,34 +110,6 @@ NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
                                                                                        constant:0.0];
             [kegCop.superview addConstraints:@[centerX, centerY]];
             
-            
-            
-
-//NSLayoutConstraint *kegCopConstraintTop = [NSLayoutConstraint constraintWithItem:kegCop
-//                                                                       attribute:NSLayoutAttributeTop
-//                                                                       relatedBy:NSLayoutRelationEqual toItem:self.view
-//                                                                       attribute:NSLayoutAttributeTop multiplier:1.0
-//                                                                        constant:150];
-//            [self.view addConstraint:kegCopConstraintTop];
-//            
-            // may need to create a left constraint for the kegCop label
-            
-            
-            
-            
-            
-            
-            
-//            NSLayoutConstraint *constraintX = [NSLayoutConstraint constraintWithItem:kegCop attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0];
-//            NSLayoutConstraint *constraintY = [NSLayoutConstraint constraintWithItem:kegCop attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0];
-//            [self.view addConstraint:constraintX];
-//            [self.view addConstraint:constraintY];
-//            
-            
-            
-            
-    
-            
             UIButton *signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [signInButton addTarget:self
                              action:@selector(signIn)
@@ -157,12 +129,22 @@ NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
             
             // turn off AutoLayout for signInButton
             [signInButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-            
-            
             // round corners of signInButton
             signInButton.layer.cornerRadius = 5;
+            [self.view addSubview:signInButton];
+            // add constraints, bottom / left for signInButton
             
-            // how to change font color UIButton
+            NSLayoutConstraint *pullToBottom = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:signInButton.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
+            
+            NSLayoutConstraint *pullToRight = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:signInButton.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:15.0];
+            
+            [signInButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[signInButton(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(signInButton)]];
+            
+            [signInButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[signInButton(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(signInButton)]];
+            
+            [signInButton.superview addConstraints:@[pullToBottom, pullToRight]];
+//          [signInButton addConstraints:@[signInBtnWidth]];
+            
             UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [registerButton addTarget:self
                                action:@selector(registerAccount)
@@ -190,7 +172,7 @@ NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
             registerButton.layer.cornerRadius = 5;
             
             
-//            [self.view addSubview:signInButton];
+
 //            [self.view addSubview:registerButton];
         
 //            NSDictionary *elementsDict = NSDictionaryOfVariableBindings(signInButton, kegCop, registerButton);

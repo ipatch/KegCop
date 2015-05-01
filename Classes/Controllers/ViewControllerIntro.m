@@ -13,6 +13,9 @@
 @interface ViewControllerIntro ()
 
 @property(nonatomic, retain) UIWebView *webView;
+@property(nonatomic, retain) UILabel *kegCop;
+@property(nonatomic, retain) UIButton *signInButton;
+@property(nonatomic, retain) UIButton *registerButton;
 
 @end
 
@@ -69,106 +72,9 @@
             
             [self.view addSubview:_webView];
             
-            // add UILabel w/ custom font for KegCop
-            UILabel *kegCop = [[UILabel alloc] init];
-//            UILabel *kegCop = [[UILabel alloc] initWithFrame:(CGRectMake(70, 120, 300, 300))];
+            [self addUIElements];
             
-            //    kegCop.textColor = [UIColor yellowColor];
-            kegCop.text = @"KegCop";
-            kegCop.font = [UIFont fontWithName:@"Helvetica" size:50];
-            
-            [kegCop setTextColor: [UIColor colorWithRed:(100/255.0)
-                                                  green:(83/255.0)
-                                                   blue:(0/255.0)
-                                                  alpha:(1.0f)]];
-            
-            // manually specify Auto Layout constraints in code
-            [kegCop setTranslatesAutoresizingMaskIntoConstraints:NO];
-            
-            // add UILabel, KegCop to view
-            [self.view addSubview:kegCop];
-            
-NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:kegCop
-                                                                          attribute:NSLayoutAttributeCenterX
-                                                                          relatedBy:NSLayoutRelationEqual toItem:kegCop.superview
-                                                                          attribute:NSLayoutAttributeCenterX
-                                                                         multiplier:1.0
-                                                                           constant:0.0];
-
-NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
-                                                                                      attribute:NSLayoutAttributeCenterY
-                                                                                      relatedBy:NSLayoutRelationEqual toItem:kegCop.superview
-                                                                                      attribute:NSLayoutAttributeCenterY
-                                                                                     multiplier:1.0
-                                                                                       constant:0.0];
-            [kegCop.superview addConstraints:@[centerX, centerY]];
-            
-            UIButton *signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [signInButton addTarget:self
-                             action:@selector(signIn)
-                   forControlEvents:UIControlEventTouchUpInside];
-            [signInButton setTitle:@"SIGN IN"  forState:UIControlStateNormal ];
-            signInButton.frame = CGRectMake(10, 500.0, 130.0, 60.0); // x, y, width, height
-            
-            [signInButton setBackgroundColor: [UIColor colorWithRed:(221/255.0)
-                                                              green:(183/255.0)
-                                                               blue:(0/255.0)
-                                                              alpha:(1.0f)]];
-            
-            [signInButton setTitleColor:[UIColor colorWithRed:255/255.0
-                                                        green:239/255.0
-                                                         blue:160/255.0
-                                                        alpha:1.0f] forState:UIControlStateNormal];
-            
-            // turn off AutoLayout for signInButton
-            [signInButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-            // round corners of signInButton
-            signInButton.layer.cornerRadius = 5;
-            [self.view addSubview:signInButton];
-            // add constraints, bottom / left for signInButton
-            
-            NSLayoutConstraint *pullToBottom = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:signInButton.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
-            
-            NSLayoutConstraint *pullToRight = [NSLayoutConstraint constraintWithItem:signInButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:signInButton.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:15.0];
-            
-            [signInButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[signInButton(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(signInButton)]];
-            
-            [signInButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[signInButton(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(signInButton)]];
-            
-            [signInButton.superview addConstraints:@[pullToBottom, pullToRight]];
-            
-            UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [registerButton addTarget:self
-                               action:@selector(registerAccount)
-                     forControlEvents:UIControlEventTouchUpInside];
-            [registerButton setTitle:@"REGISTER"  forState:UIControlStateNormal ];
-            registerButton.frame = CGRectMake(160, 500.0, 140.0, 60.0);
-            
-            // change background color of register button
-            [registerButton setBackgroundColor: [UIColor colorWithRed:(100/255.0)
-                                                                green:(83/255.0)
-                                                                 blue:(0/255.0)
-                                                                alpha:(1.0f)]];
-            
-            [registerButton setTitleColor:[UIColor colorWithRed:255/255.0
-                                                          green:239/255.0
-                                                           blue:160/255.0
-                                                          alpha:1.0f] forState:UIControlStateNormal];
-            // set Auto Layout constraints in code
-            [registerButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-            // round corners of registerButton
-            registerButton.layer.cornerRadius = 5;
-            [self.view addSubview:registerButton];
-            // add constraints to button
-            NSLayoutConstraint *pullRegToBottom = [NSLayoutConstraint constraintWithItem:registerButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:registerButton.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
-            
-            NSLayoutConstraint *pullRegToRight = [NSLayoutConstraint constraintWithItem:registerButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:registerButton.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-15.0];
-            
-            [registerButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[registerButton(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(registerButton)]];
-            
-            [registerButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[registerButton(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(registerButton)]];
-            
-            [registerButton.superview addConstraints:@[pullRegToBottom, pullRegToRight]];
+            [self addConstraintsToUIElements];
         });
     };
     reach.unreachableBlock = ^(Reachability*reach)
@@ -180,71 +86,120 @@ NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:kegCop
                                                     green:(208/255.0)
                                                      blue:(55/255)
                                                     alpha:(1.0f) ];
-        
-        
-        // add UILabel w/ custom font for KegCop
-        UILabel *kegCop = [[UILabel alloc] initWithFrame:(CGRectMake(70, 120, 300, 300))];
-        
-        //    kegCop.textColor = [UIColor yellowColor];
-        kegCop.text = @"KegCop";
-        kegCop.font = [UIFont fontWithName:@"Helvetica" size:50];
-        
-        [kegCop setTextColor: [UIColor colorWithRed:(100/255.0)
-                                              green:(83/255.0)
-                                               blue:(0/255.0)
-                                              alpha:(1.0f)]];
-        
-        UIButton *signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [signInButton addTarget:self
-                         action:@selector(signIn)
-               forControlEvents:UIControlEventTouchUpInside];
-        [signInButton setTitle:@"SIGN IN"  forState:UIControlStateNormal ];
-        signInButton.frame = CGRectMake(10, 500.0, 130.0, 60.0); // x, y, width, height
-        
-        [signInButton setBackgroundColor: [UIColor colorWithRed:(221/255.0)
-                                                          green:(183/255.0)
-                                                           blue:(0/255.0)
-                                                          alpha:(1.0f)]];
-        
-        [signInButton setTitleColor:[UIColor colorWithRed:255/255.0
-                                                    green:239/255.0
-                                                     blue:160/255.0
-                                                    alpha:1.0f] forState:UIControlStateNormal];
-        
-        // round corners of signInButton
-        signInButton.layer.cornerRadius = 5;
-        
-        // how to change font color UIButton
-        UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [registerButton addTarget:self
-                           action:@selector(registerAccount)
-                 forControlEvents:UIControlEventTouchUpInside];
-        [registerButton setTitle:@"REGISTER"  forState:UIControlStateNormal ];
-        registerButton.frame = CGRectMake(160, 500.0, 140.0, 60.0);
-        
-        // change background color of register button
-        [registerButton setBackgroundColor: [UIColor colorWithRed:(100/255.0)
-                                                            green:(83/255.0)
-                                                             blue:(0/255.0)
-                                                            alpha:(1.0f)]];
-        
-        [registerButton setTitleColor:[UIColor colorWithRed:255/255.0
-                                                      green:239/255.0
-                                                       blue:160/255.0
-                                                      alpha:1.0f] forState:UIControlStateNormal];
-        
-        // round corners of registerButton
-        registerButton.layer.cornerRadius = 5;
-        
-        
-        [self.view addSubview:signInButton];
-        [self.view addSubview:registerButton];
-        [self.view addSubview:kegCop];
+        [self addUIElements];
+        [self addConstraintsToUIElements];
     };
     
     // start the notifier, which will cause the reachability object
     // to retain itself.
     [reach startNotifier];
+}
+
+- (void)addUIElements {
+    
+    _kegCop = [[UILabel alloc] init];
+    _kegCop.text = @"KegCop";
+    _kegCop.font = [UIFont fontWithName:@"Helvetica" size:50];
+    
+    [_kegCop setTextColor: [UIColor colorWithRed:(100/255.0)
+                                          green:(83/255.0)
+                                           blue:(0/255.0)
+                                          alpha:(1.0f)]];
+    
+    // manually specify Auto Layout constraints in code
+    [_kegCop setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    // add UILabel, KegCop to view
+    [self.view addSubview:_kegCop];
+    
+    _signInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_signInButton addTarget:self
+                     action:@selector(signIn)
+           forControlEvents:UIControlEventTouchUpInside];
+    [_signInButton setTitle:@"SIGN IN"  forState:UIControlStateNormal ];
+    _signInButton.frame = CGRectMake(10, 500.0, 130.0, 60.0); // x, y, width, height
+    
+    [_signInButton setBackgroundColor: [UIColor colorWithRed:(221/255.0)
+                                                      green:(183/255.0)
+                                                       blue:(0/255.0)
+                                                      alpha:(1.0f)]];
+    
+    [_signInButton setTitleColor:[UIColor colorWithRed:255/255.0
+                                                green:239/255.0
+                                                 blue:160/255.0
+                                                alpha:1.0f] forState:UIControlStateNormal];
+    
+    // turn off AutoLayout for signInButton
+    [_signInButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    // round corners of signInButton
+    _signInButton.layer.cornerRadius = 5;
+    [self.view addSubview:_signInButton];
+    
+    
+    _registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_registerButton addTarget:self
+                       action:@selector(registerAccount)
+             forControlEvents:UIControlEventTouchUpInside];
+    [_registerButton setTitle:@"REGISTER"  forState:UIControlStateNormal ];
+    _registerButton.frame = CGRectMake(160, 500.0, 140.0, 60.0);
+    
+    // change background color of register button
+    [_registerButton setBackgroundColor: [UIColor colorWithRed:(100/255.0)
+                                                        green:(83/255.0)
+                                                         blue:(0/255.0)
+                                                        alpha:(1.0f)]];
+    
+    [_registerButton setTitleColor:[UIColor colorWithRed:255/255.0
+                                                  green:239/255.0
+                                                   blue:160/255.0
+                                                  alpha:1.0f] forState:UIControlStateNormal];
+}
+
+- (void)addConstraintsToUIElements {
+    
+    NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:_kegCop
+                                                               attribute:NSLayoutAttributeCenterX
+                                                               relatedBy:NSLayoutRelationEqual toItem:_kegCop.superview
+                                                               attribute:NSLayoutAttributeCenterX
+                                                              multiplier:1.0
+                                                                constant:0.0];
+    
+    NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:_kegCop
+                                                               attribute:NSLayoutAttributeCenterY
+                                                               relatedBy:NSLayoutRelationEqual toItem:_kegCop.superview
+                                                               attribute:NSLayoutAttributeCenterY
+                                                              multiplier:1.0
+                                                                constant:0.0];
+    [_kegCop.superview addConstraints:@[centerX, centerY]];
+    
+    
+    // add constraints, bottom / left for signInButton
+    NSLayoutConstraint *pullToBottom = [NSLayoutConstraint constraintWithItem:_signInButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_signInButton.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
+    
+    NSLayoutConstraint *pullToRight = [NSLayoutConstraint constraintWithItem:_signInButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_signInButton.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:15.0];
+    
+    [_signInButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_signInButton(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_signInButton)]];
+    
+    [_signInButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_signInButton(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_signInButton)]];
+    
+    [_signInButton.superview addConstraints:@[pullToBottom, pullToRight]];
+    
+    
+    // set Auto Layout constraints in code
+    [_registerButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    // round corners of registerButton
+    _registerButton.layer.cornerRadius = 5;
+    [self.view addSubview:_registerButton];
+    // add constraints to button
+    NSLayoutConstraint *pullRegToBottom = [NSLayoutConstraint constraintWithItem:_registerButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_registerButton.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
+    
+    NSLayoutConstraint *pullRegToRight = [NSLayoutConstraint constraintWithItem:_registerButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_registerButton.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-15.0];
+    
+    [_registerButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_registerButton(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_registerButton)]];
+    
+    [_registerButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_registerButton(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_registerButton)]];
+    
+    [_registerButton.superview addConstraints:@[pullRegToBottom, pullRegToRight]];
 }
 
 - (void)didReceiveMemoryWarning {

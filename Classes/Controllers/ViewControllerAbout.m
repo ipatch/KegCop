@@ -118,4 +118,8 @@ forControlEvents:UIControlEventTouchUpInside];
 - (IBAction)dismissAboutScene:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
+}
 @end

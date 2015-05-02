@@ -51,9 +51,7 @@
     _viewRootHomeCenter.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
     
     [_viewRootHomeCenter addSubview:_navBar];
-#ifdef DEBUG
-    _viewRootHomeCenter.backgroundColor = [UIColor yellowColor];
-#endif
+
 }
 
 #pragma mark - View Will/Did Appear

@@ -712,4 +712,9 @@
 - (void)didReceiveData:(NSData *)data Device:(DFBlunoDevice *)dev {
 }
 
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
+}
+
 @end

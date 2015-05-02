@@ -73,7 +73,6 @@
             [self.view addSubview:_webView];
             
             [self addUIElements];
-            
             [self addConstraintsToUIElements];
         });
     };

@@ -227,5 +227,8 @@
 -(void)done {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
+}
 @end

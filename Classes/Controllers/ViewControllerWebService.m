@@ -165,4 +165,8 @@
     [super didReceiveMemoryWarning];
     
 }
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
+}
 @end

@@ -533,5 +533,8 @@
     }
 }
 
-// added for debugging purposes - program was crashing when following method / action was removed :/
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
+}
 @end

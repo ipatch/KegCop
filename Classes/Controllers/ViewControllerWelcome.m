@@ -640,4 +640,9 @@ NSAssert(
     
 }
 
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

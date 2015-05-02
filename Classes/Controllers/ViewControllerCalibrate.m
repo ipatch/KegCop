@@ -10,6 +10,9 @@
 
 @interface ViewControllerCalibrate ()
 
+@property (nonatomic, retain) UISlider *sliderCalibrate;
+@property (nonatomic) CGRect sliderFrame;
+
 @end
 
 @implementation ViewControllerCalibrate
@@ -19,54 +22,46 @@
     
     self.view.tag = 3;
     
-    // navBar
-//    UINavigationBar *navBar = [[UINavigationBar alloc] init];
-//    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth([[UIScreen mainScreen]bounds]),60)];
-//    
-//    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Calibrate"];
-//    
-//    navBar.items = @[titleItem];
-//    
-//    navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
-//                                          green:83.0f/255.0f
-//                                           blue:0.0f/255.0f
-//                                          alpha:1.0f];
-//    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
-//                                                                                   green:239.0f/255.0f
-//                                                                                    blue:160.0f/255.0f
-//                                                                                   alpha:1.0f]};
-//    navBar.translucent = NO;
-//    
-//    [self.view addSubview:navBar];
-    // END navBar
-    
-    // add navbar btn
-//    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCalibrateVC)];
-//    // add doneBtn / item to navBar
-//    titleItem.rightBarButtonItem = doneBtn;
-//    
-//    navBar.items = @[titleItem];
+    [self addUIElements];
+    [self addConstraintsToUIElements];
+}
 
-
-    
-    
+-(void)addUIElements {
     // create slider programmatically
     
-    CGRect sliderFrame = CGRectMake(10.0f, 10.0f, 250.0f, 400.0f);
+    _sliderFrame = CGRectMake(10.0f, 10.0f, 250.0f, 400.0f);
     
-    UISlider *sliderCalibrate = [[UISlider alloc] initWithFrame:sliderFrame];
+    _sliderCalibrate = [[UISlider alloc] initWithFrame:_sliderFrame];
     
-    sliderCalibrate.minimumValue = 1.0f;
+    _sliderCalibrate.minimumValue = 1.0f;
     
-    sliderCalibrate.maximumValue = 100.0f;
+    _sliderCalibrate.maximumValue = 100.0f;
     
-    sliderCalibrate.value = 50.0f;
+    _sliderCalibrate.value = 50.0f;
     
-#ifdef DEBUG
-    self.view.backgroundColor = [UIColor blueColor];
-#endif
+    // manually specify Auto Layout constraints in code
+    [_sliderCalibrate setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     // add slider to view
-    [self.view addSubview:sliderCalibrate];
+    [self.view addSubview:_sliderCalibrate];
+}
+
+- (void)addConstraintsToUIElements {
+    NSLayoutConstraint *centerSliderX = [NSLayoutConstraint constraintWithItem:_sliderCalibrate
+                                                               attribute:NSLayoutAttributeCenterX
+                                                               relatedBy:NSLayoutRelationEqual toItem:_sliderCalibrate.superview
+                                                               attribute:NSLayoutAttributeCenterX
+                                                              multiplier:1.0
+                                                                constant:0.0];
+    
+    NSLayoutConstraint *centerSliderY = [NSLayoutConstraint constraintWithItem:_sliderCalibrate
+                                                               attribute:NSLayoutAttributeCenterY
+                                                               relatedBy:NSLayoutRelationEqual toItem:_sliderCalibrate.superview
+                                                               attribute:NSLayoutAttributeCenterY
+                                                              multiplier:1.0
+                                                                constant:0.0];
+    [_sliderCalibrate.superview addConstraints:@[centerSliderX, centerSliderY]];
+    
 }
 
 - (void)dismissCalibrateVC {
@@ -76,5 +71,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
 }
 @end

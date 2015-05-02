@@ -458,4 +458,8 @@ if (i >= 1) return YES; else return NO;
     else if ([_createPhoneNumber isFirstResponder]) [self.createEmailTextField becomeFirstResponder];
     
 }
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationPortrait;
+}
 @end

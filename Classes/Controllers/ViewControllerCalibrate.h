@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol ViewControllerCalibrateDelegate;
+@protocol ViewControllerCalibrateDelegate <NSObject>
+- (void) removeCalibrateView;
+@end
 
 @interface ViewControllerCalibrate : UIViewController
-
+@property (nonatomic, weak) id<ViewControllerCalibrateDelegate> delegate;
 @end

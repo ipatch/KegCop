@@ -566,7 +566,7 @@
         }
     }
 }
-
+#pragma mark RFID
 -(void)saveTagIDtoAccount {
 #ifdef DEBUG
     NSLog(@"inside saveTagIDtoAccount method");

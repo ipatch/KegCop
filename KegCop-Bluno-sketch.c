@@ -137,7 +137,7 @@ ISR(TIMER2_COMPA_vect)
     if(valve_open){
         gMillis++;
         //    Serial.println(gMillis);
-        if(gMillis >= 30000){
+        if(gMillis >= 30000){ // 30000 == 30 seconds
             close_valve();
             gMillis = 0;
             valveClosed = 1;
@@ -171,7 +171,7 @@ bool getFlow4() {
         lastmillis = millis(); // Update lastmillis
         attachInterrupt(0, count, FALLING); // enable interrupt
     }
-    if(numTicks >= 331 || valveClosed == 1) {
+    if(numTicks >= 475 || valveClosed == 1) {
         close_valve();
         numTicks = 0; // Restart the counter.
         valveClosed = 0;

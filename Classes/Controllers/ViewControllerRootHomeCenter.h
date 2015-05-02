@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerRootHomeLeftPanel.h"
+#import "ViewControllerCalibrate.h"
 
 @protocol ViewControllerRootHomeCenterDelegate;
 @protocol ViewControllerRootHomeCenterDelegate <NSObject>
@@ -21,8 +22,7 @@
 
 IB_DESIGNABLE
 
-@interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeCenterDelegate> {
-}
+@interface ViewControllerRootHomeCenter : UIViewController <ViewControllerRootHomeCenterDelegate, ViewControllerCalibrateDelegate>
 
 @property (nonatomic, weak) id<ViewControllerRootHomeCenterDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIView *viewRootHomeCenter;

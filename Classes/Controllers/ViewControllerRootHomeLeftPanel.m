@@ -215,7 +215,7 @@
 
 -(void)showCalibrate{
     // load the ViewControllerCalibrate class / XIB
-    NSLog(@"inside showCalibrate method");
+//    NSLog(@"inside showCalibrate method");
     
     ViewControllerCalibrate *calibrateVC = [[ViewControllerCalibrate alloc] initWithNibName:@"ViewControllerCalibrate" bundle:nil];
     [((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter addChildViewController:calibrateVC];
@@ -224,6 +224,8 @@
     [calibrateVC didMoveToParentViewController:((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter];
     
     [((ViewControllerRootHome *)self.parentViewController).viewControllerRootHomeCenter.view addSubview:calibrateVC.view];
+    
+//    [((ViewControllerRootHome *)self.parentViewController) presentViewController:calibrateVC animated:NO completion:nil];
     
     [myDelegate loadVCRH];
 }

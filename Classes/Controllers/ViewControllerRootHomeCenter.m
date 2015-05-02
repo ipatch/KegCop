@@ -77,12 +77,16 @@
 {
     [super viewDidDisappear:animated];
 }
-
+#pragma mark - Remove subviews i.e. Calibration
 - (void)removeSubViews{
     for (UIView *subview in [self.view subviews]){
         NSLog(@"subviews = %@",[self.view subviews]);
         if (subview.tag == 3) {
+            
+            [self removeCalibrateView];
             [subview removeFromSuperview];
+            
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
 }

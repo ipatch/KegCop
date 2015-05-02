@@ -62,6 +62,7 @@
                                                                 constant:0.0];
     [_sliderCalibrate.superview addConstraints:@[centerSliderX, centerSliderY]];
     
+    [_sliderCalibrate addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_sliderCalibrate(==300)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sliderCalibrate)]];
 }
 
 - (void)dismissCalibrateVC {
@@ -74,6 +75,6 @@
 }
 # pragma mark - device orientation
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationMaskAll;
 }
 @end

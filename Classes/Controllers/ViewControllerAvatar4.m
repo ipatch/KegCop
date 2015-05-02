@@ -229,6 +229,6 @@
 }
 # pragma mark - device orientation
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationMaskAll;
 }
 @end

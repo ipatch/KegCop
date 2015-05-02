@@ -227,4 +227,8 @@
     
     [myDelegate loadVCRH];
 }
+# pragma mark - device orientation
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
 @end

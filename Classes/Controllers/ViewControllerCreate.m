@@ -460,6 +460,6 @@ if (i >= 1) return YES; else return NO;
 }
 # pragma mark - device orientation
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationMaskAll;
 }
 @end

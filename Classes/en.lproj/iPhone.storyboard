@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Welcome-->
@@ -17,136 +16,11 @@
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHi-CK-bre">
-                                <rect key="frame" x="20" y="229" width="280" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="4yg-5C-TKC"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                <connections>
-                                    <action selector="textFieldDoneEditing:" destination="2" eventType="editingDidEndOnExit" id="wBL-MW-U77"/>
-                                    <outlet property="delegate" destination="2" id="YFQ-Nz-wPA"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Pin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ouS-iy-nbk">
-                                <rect key="frame" x="19" y="268" width="280" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="zbO-f7-1Bv"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" secureTextEntry="YES"/>
-                                <connections>
-                                    <action selector="textFieldDoneEditing:" destination="2" eventType="editingDidEndOnExit" id="exM-rV-7VF"/>
-                                    <outlet property="delegate" destination="2" id="563-G8-40M"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F81-yy-Ds4">
-                                <rect key="frame" x="19" y="318" width="280" height="54"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.37240526870000001" green="0.83791185459999995" blue="0.55185885170000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" red="0.1122859549" green="0.66666666669999997" blue="0.49881906819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="processLogin:" destination="2" eventType="touchUpInside" id="S7b-5u-djh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tj7-Wr-uRF">
-                                <rect key="frame" x="20" y="436" width="280" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="8Ax-4k-vGQ"/>
-                                </constraints>
-                                <state key="normal" title="Forgot Username / Pin">
-                                    <color key="titleColor" red="0.43053668478260865" green="0.098187814648519514" blue="0.067694225539320876" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showForgotScene:" destination="2" eventType="touchUpInside" id="rH6-80-qfx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnI-wi-p7f">
-                                <rect key="frame" x="20" y="481" width="280" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="W8j-8g-xff"/>
-                                </constraints>
-                                <state key="normal" title="Create new account">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showCreateScene:" destination="2" eventType="touchUpInside" id="Vq6-8n-fzf"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FHu-Dk-pjF">
-                                <rect key="frame" x="262" y="318" width="37" height="37"/>
-                            </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvG-Yp-BGt" userLabel="Button - About">
-                                <rect key="frame" x="282" y="526" width="22" height="22"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.39215686274509803" green="0.32549019607843138" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showAboutScreen:" destination="2" eventType="touchUpInside" id="b4I-c7-skG"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username or pin is wrong" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="rtA-LP-7De">
-                                <rect key="frame" x="62" y="380" width="196" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="gpb-ty-0OU"/>
-                                    <constraint firstAttribute="width" constant="196" id="jr1-Iz-77H"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Arial-BoldItalicMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" red="0.91448709239130432" green="0.20855711557197371" blue="0.14378680765935831" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.81568627450980391" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="1de-MP-Bts"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ouS-iy-nbk" secondAttribute="trailing" constant="5" id="2Wh-ZR-cP9"/>
-                            <constraint firstItem="ouS-iy-nbk" firstAttribute="leading" secondItem="F81-yy-Ds4" secondAttribute="leading" id="7Zn-M6-xof"/>
-                            <constraint firstItem="rtA-LP-7De" firstAttribute="top" secondItem="F81-yy-Ds4" secondAttribute="bottom" constant="8" symbolic="YES" id="CR9-Ie-7Ba"/>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="leading" secondItem="LHi-CK-bre" secondAttribute="leading" id="CzE-fM-koB"/>
-                            <constraint firstItem="ouS-iy-nbk" firstAttribute="trailing" secondItem="FHu-Dk-pjF" secondAttribute="trailing" id="Dbe-zf-ITj"/>
-                            <constraint firstItem="vvG-Yp-BGt" firstAttribute="trailing" secondItem="3" secondAttribute="trailingMargin" id="G1b-At-zKJ"/>
-                            <constraint firstItem="FHu-Dk-pjF" firstAttribute="top" secondItem="ouS-iy-nbk" secondAttribute="bottom" constant="19" id="IMo-dY-jMb"/>
-                            <constraint firstItem="ouS-iy-nbk" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="3" id="LJX-AI-KC4"/>
-                            <constraint firstItem="vvG-Yp-BGt" firstAttribute="top" secondItem="DnI-wi-p7f" secondAttribute="bottom" constant="8" symbolic="YES" id="PDF-Mh-WCM"/>
-                            <constraint firstItem="ouS-iy-nbk" firstAttribute="top" secondItem="3" secondAttribute="top" constant="268" id="Qp1-hH-nWO"/>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="trailing" secondItem="Tj7-Wr-uRF" secondAttribute="trailing" id="SNT-ae-5Ep"/>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="top" secondItem="Tj7-Wr-uRF" secondAttribute="bottom" constant="8" symbolic="YES" id="Uc1-hl-4Mx"/>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="leading" secondItem="Tj7-Wr-uRF" secondAttribute="leading" id="WQo-yx-CUQ"/>
-                            <constraint firstItem="ouS-iy-nbk" firstAttribute="trailing" secondItem="F81-yy-Ds4" secondAttribute="trailing" id="bjk-Ib-cN3"/>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="4" id="ft7-NQ-hcm"/>
-                            <constraint firstItem="ouS-iy-nbk" firstAttribute="top" secondItem="LHi-CK-bre" secondAttribute="bottom" constant="8" symbolic="YES" id="m22-L7-EjF"/>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="trailing" secondItem="LHi-CK-bre" secondAttribute="trailing" id="mJh-pb-Ri2"/>
-                            <constraint firstAttribute="bottom" secondItem="DnI-wi-p7f" secondAttribute="bottom" constant="50" id="owf-nZ-3WP"/>
-                            <constraint firstItem="DnI-wi-p7f" firstAttribute="centerX" secondItem="rtA-LP-7De" secondAttribute="centerX" id="qB7-E6-u9C"/>
-                            <constraint firstItem="Tj7-Wr-uRF" firstAttribute="top" secondItem="rtA-LP-7De" secondAttribute="bottom" constant="35" id="rCc-xr-PtK"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnCreate" destination="DnI-wi-p7f" id="5dA-xJ-wZs"/>
-                        <outlet property="btnForgot" destination="Tj7-Wr-uRF" id="PvY-sP-pUJ"/>
                         <outlet property="doneButton" destination="eev-bv-eyl" id="KjW-vJ-oKn"/>
-                        <outlet property="textFieldPin" destination="ouS-iy-nbk" id="qja-Jr-msZ"/>
-                        <outlet property="textFieldUsername" destination="LHi-CK-bre" id="Z2O-2f-SK0"/>
                         <outlet property="toolBar" destination="FaE-k4-3gd" id="PEh-A2-n2U"/>
-                        <outlet property="welcomeAbout" destination="vvG-Yp-BGt" id="sYS-x2-0z1"/>
-                        <outlet property="welcomeActivityIndicator" destination="FHu-Dk-pjF" id="HmN-xN-VIJ"/>
-                        <outlet property="welcomeLogin" destination="F81-yy-Ds4" id="a7c-Zc-zGX"/>
-                        <outlet property="wrongUserPin" destination="rtA-LP-7De" id="36M-pe-Lsk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>

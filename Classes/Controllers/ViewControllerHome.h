@@ -53,18 +53,11 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 -(IBAction)removeAccount;
-
 - (IBAction)dismissKeyboard:(id)sender;
-
 - (IBAction)tradeCredit:(id)sender;
-
 - (IBAction)drinkBeer:(id)sender;
-
 - (IBAction)addRFID:(id)sender;
-
 - (IBAction)logout:(id)sender;
-
 - (IBAction)addAvatar:(id)sender;
-
 - (IBAction)showTestScene:(id)sender;
 @end

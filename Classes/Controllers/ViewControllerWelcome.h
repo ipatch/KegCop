@@ -21,43 +21,14 @@
 @class ViewControllerWelcome;
 
 @interface ViewControllerWelcome : UIViewController <ViewControllerHomeDelegate>
-
-
-// Welcome screen
-@property (weak, nonatomic) IBOutlet UIScrollView *welcomeScroller;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldUsername;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldPin;
-@property (weak, nonatomic) IBOutlet UILabel *wrongUserPin;
-@property (weak, nonatomic) IBOutlet UIButton *welcomeLogin;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
-
-@property (weak, nonatomic) IBOutlet UIButton *btnForgot;
-@property (weak, nonatomic) IBOutlet UIButton *btnCreate;
-
-// info button - located lower right
-@property (weak, nonatomic) IBOutlet UIButton *welcomeAbout;
-
-// this button is set to hidden by default - used for testing out new features
-@property (weak, nonatomic) IBOutlet UIButton *dev;
-
-// keyboard toolbar
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-// end Welcome
-
 - (IBAction)dismissKeyboard:(id)sender;
-
 - (IBAction)textFieldDoneEditing:(id)sender;
-
 - (IBAction)processLogin:(id)sender;
-
 - (IBAction)showForgotScene:(id)sender;
-
 - (IBAction)showCreateScene:(id)sender;
-
 - (IBAction)showAboutScreen:(id)sender;
 
 // keyboard toolbar

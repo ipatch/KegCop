@@ -81,7 +81,9 @@
     _userNames = [_managedObjectContext executeFetchRequest:request error:nil];
     
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin",@"Calibrate", @"Logoff", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin", @"Logoff", nil];
+    
+//    @"Calibrate",
     
 //    @"Test Bluno Connection"
 //    @"Connect to Web Service",

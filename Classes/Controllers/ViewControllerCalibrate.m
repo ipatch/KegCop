@@ -91,8 +91,7 @@
 }
 # pragma mark - Remove Calibrate View
 - (void)removeCalibrateView {
-    NSLog(@"dismissCalibrateVC method called");
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"removeCalibrateView method called");
 }
 
 - (void)didReceiveMemoryWarning {

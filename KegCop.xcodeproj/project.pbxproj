@@ -32,6 +32,7 @@
 		EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABEFA3F1ABF4B570045D478 /* ImageIO.framework */; };
 		EABFA46C1AE2E49C006859A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */; };
 		EACF61F11AE42330005BE6D7 /* KCModalPickerViewForCredit.m in Sources */ = {isa = PBXBuildFile; fileRef = EACF61F01AE42330005BE6D7 /* KCModalPickerViewForCredit.m */; };
+		EAD387161AF8096900B54FE0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD387151AF8096900B54FE0 /* Default.png */; };
 		EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */; };
 		EAEC80391AB3A41B004EFD58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D91C1AAFB86D0075EAB0 /* main.m */; };
 		EAEC803B1AB3A442004EFD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8DD1AAFB86D0075EAB0 /* AppDelegate.m */; };
@@ -57,7 +58,6 @@
 		EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */; };
 		EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */; };
 		EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */; };
-		EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E117BAF46700023814 /* Default.png */; };
 		EAEC80961AB3AA1C004EFD58 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2611E517BCA33100023814 /* Icon.png */; };
 		EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = EA9D260F1767A24E00B277ED /* Glass.aiff */; };
 		EAEC809F1AB3AA89004EFD58 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D8D91AAFB86D0075EAB0 /* Account.m */; };
@@ -91,7 +91,6 @@
 		EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EA1E87B1157C999A002C945B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA2611D017BAD29000023814 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
-		EA2611E117BAF46700023814 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EA2611E517BCA33100023814 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		EA34633E1A0AB3AC00588DC5 /* KegCopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KegCopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3463411A0AB3AC00588DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +183,7 @@
 		EACD704C177A4EE800A13B91 /* Accounts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Accounts.xcdatamodel; sourceTree = "<group>"; };
 		EACF61EF1AE42330005BE6D7 /* KCModalPickerViewForCredit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCModalPickerViewForCredit.h; sourceTree = "<group>"; };
 		EACF61F01AE42330005BE6D7 /* KCModalPickerViewForCredit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCModalPickerViewForCredit.m; sourceTree = "<group>"; };
+		EAD387151AF8096900B54FE0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EADB6DA9187A922800A0A8D2 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
 		EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_V2_60x60.png; sourceTree = "<group>"; };
@@ -330,10 +330,10 @@
 				EA3AE8281AB63E610083D0F0 /* avatars */,
 				EAE2C09518729D5C00DC3F02 /* Default-568@2x.png */,
 				EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */,
+				EAD387151AF8096900B54FE0 /* Default.png */,
 				EAEEBF951A17CFE100E9C489 /* hamburger-menu-42x.png */,
 				EAE2C0D718788D2200DC3F02 /* icon_V2_60x60.png */,
 				EAE2C0D818788D2200DC3F02 /* icon_V2_120x120.png */,
-				EA2611E117BAF46700023814 /* Default.png */,
 				EA2611E517BCA33100023814 /* Icon.png */,
 			);
 			path = pics;
@@ -593,6 +593,7 @@
 				EAEC809D1AB3AA54004EFD58 /* Glass.aiff in Resources */,
 				EAEC808E1AB3A928004EFD58 /* iPhone.storyboard in Resources */,
 				EA7A99571AEED901002E7EA1 /* ViewControllerCalibrate.xib in Resources */,
+				EAD387161AF8096900B54FE0 /* Default.png in Resources */,
 				EA54D6231ADDD58200E062D2 /* ViewControllerIntro.xib in Resources */,
 				EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */,
 				EABC3B7A1AC5DEDD0086691E /* ViewControllerWebService.xib in Resources */,
@@ -604,7 +605,6 @@
 				EAEC80921AB3AA1C004EFD58 /* hamburger-menu-42x.png in Resources */,
 				EAEC80931AB3AA1C004EFD58 /* icon_V2_60x60.png in Resources */,
 				EAEC80941AB3AA1C004EFD58 /* icon_V2_120x120.png in Resources */,
-				EAEC80951AB3AA1C004EFD58 /* Default.png in Resources */,
 				EAEC80961AB3AA1C004EFD58 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

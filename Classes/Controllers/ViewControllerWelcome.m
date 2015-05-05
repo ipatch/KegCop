@@ -8,6 +8,8 @@
 #import "ViewControllerWelcome.h"
 
 #define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
+// keyboard offset
+#define kOFFSET_FOR_KEYBOARD 300.0
 
 @interface ViewControllerWelcome ()
 {
@@ -36,6 +38,7 @@
 // keyboard toolbar
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
+
 @end
 
 @implementation ViewControllerWelcome {
@@ -50,13 +53,54 @@
     UINavigationBar *navBar;
     AppDelegate *appDelegate;
     UIStoryboard *storyboard;
+    bool moved;
 }
 
 - (NSString *)receiveUserName {
     return _textFieldUsername.text;
 }
+#pragma mark - keyboard methods
+-(void)keyboardWillShow {
+    // animate the current view out of the way
+    if (_contentView.frame.origin.y >= 0) {
+        [self setViewMovedUp:YES];
+    }
+    else if (_contentView.frame.origin.y < 0) {
+        [self setViewMovedUp:NO];
+    }
+}
 
-#pragma mark GUI Elements
+-(void)keyboardWillHide {
+    if (_contentView.frame.origin.y >= 0) {
+        [self setViewMovedUp:YES];
+    }
+    else if (_contentView.frame.origin.y < 0) {
+        [self setViewMovedUp:NO];
+    }
+}
+
+-(void)setViewMovedUp:(BOOL)movedUp {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    
+    CGRect rect = _contentView.frame;
+    if (movedUp) {
+        // 1. move the view's origin up
+        // 2. increase the size of the view,
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+        rect.size.height += kOFFSET_FOR_KEYBOARD;
+    }
+    else {
+        // revert back to the normal state
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+    }
+    _contentView.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
+#pragma mark - GUI Elements
 -(void)addGUIElements {
     // navBar
     navBar = [[UINavigationBar alloc] init];
@@ -448,9 +492,25 @@ NSAssert(
     return UIStatusBarStyleLightContent;
 }
 #pragma mark - text field delegate methods
--(void)textFieldDidBeginEditing:(UITextField *)textField{
+-(void)textFieldDidBeginEditing:(UITextField *)sender{
  
-    [textField setInputAccessoryView:toolBar];
+    [sender setInputAccessoryView:toolBar];
+    
+//    if(!moved) {
+//        [self animateViewToPosition:_contentView directionUP:YES];
+//        moved = YES;
+//    }
+    
+//    if ([sender isEqual:_textFieldUsername]) {
+//        // move the main view, so the keyboard doesn't hide it.
+//        if (_contentView.frame.origin.y >= 0) {
+//            [self setViewMovedUp:YES];
+//        }
+//    }
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    [_textFieldUsername resignFirstResponder];
+    [_textFieldPin resignFirstResponder];
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     return YES;
@@ -458,7 +518,39 @@ NSAssert(
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [_textFieldUsername resignFirstResponder];
     [_textFieldPin resignFirstResponder];
+//    if(moved) {
+//        [self animateViewToPosition:_contentView directionUP:NO];
+//    }
+//    moved = NO;
     return YES;
+}
+
+-(void)animateViewToPosition:(UIView *)viewToMove directionUP:(BOOL)up {
+    const int movementDistance = -60; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = ( up ? movementDistance : -movementDistance);
+    [UIView beginAnimations:@"animateTextField" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:movementDuration];
+    viewToMove.frame = CGRectOffset(viewToMove.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+- (void)keyboardDidShow:(NSNotification *) notif{
+    // keyboard becomes visible
+    _contentView.frame = CGRectMake(_contentView.frame.origin.x,
+                                    _contentView.frame.origin.y,
+                                    _contentView.frame.size.width,
+                                    _contentView.frame.size.height - 220); // move
+}
+
+- (void)keyboardDidHide: (NSNotification *) notif{
+    //keyboard will hide
+    _contentView.frame = CGRectMake(_contentView.frame.origin.x,
+                                        _contentView.frame.origin.y,
+                                        _contentView.frame.size.width,
+                                        _contentView.frame.size.height + 220); // move
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
@@ -702,14 +794,12 @@ NSAssert(
     [self presentViewController:about animated:YES completion:nil];
 }
 
-// method keyboard behavior
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 // method keyboard behavior

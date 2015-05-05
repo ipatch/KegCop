@@ -20,12 +20,14 @@
 @property(nonatomic, retain) NSArray *results;
 @property(nonatomic, retain) NSMutableArray *last5LoginArray;
 // GUI
-@property (weak, nonatomic) IBOutlet UIScrollView *welcomeScroller;
+@property (nonatomic, retain) UIView *contentView;
+@property (nonatomic, retain) UIScrollView *welcomeScroller;
 @property (nonatomic, retain) UITextField *textFieldUsername;
 @property (nonatomic, retain) UITextField *textFieldPin;
 @property (weak, nonatomic) IBOutlet UILabel *wrongUserPin;
 @property (nonatomic, retain) UIButton *welcomeLogin;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
+@property (nonatomic, retain) UILabel *test;
 // info button - located lower right
 @property(nonatomic, retain) UIButton *welcomeAbout;
 
@@ -77,25 +79,52 @@
     [self.view addSubview:navBar];
     // END navBar
     
-    // add about btn to lower left
+    // add scroller
+    _welcomeScroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    _welcomeScroller.userInteractionEnabled = YES;
+    _welcomeScroller.scrollEnabled = YES;
+    _welcomeScroller.showsHorizontalScrollIndicator = YES;
+    _welcomeScroller.showsVerticalScrollIndicator = YES;
+#ifdef DEBUG
+    [_welcomeScroller setBackgroundColor:[UIColor greenColor]];
+#endif
+    [self.view addSubview:_welcomeScroller];
+    CGSize welcomeScrollerSize = CGSizeMake(2000, 2000);
+    [_welcomeScroller setContentSize:welcomeScrollerSize];
+    
+    // add test view
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    _contentView = [[UIView alloc] initWithFrame:applicationFrame];
+    _contentView.backgroundColor = [UIColor orangeColor];
+    [_welcomeScroller addSubview:_contentView];
+#ifdef DEBUG
+    // add test label
+    _test = [[UILabel alloc] initWithFrame:CGRectMake(200, 200, 200, 200)];
+    [_test setText:@"TEST"];
+    [_test setFont:[UIFont systemFontOfSize:44]];
+    [_test setBackgroundColor:[UIColor redColor]];
+    [_contentView addSubview:_test];
+#endif
+    
+    // add about btn to lower right
     _welcomeAbout = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [_welcomeAbout addTarget:self action:@selector(showAboutScreen:) forControlEvents:UIControlEventTouchUpInside];
     [_welcomeAbout setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:_welcomeAbout];
+    [_contentView addSubview:_welcomeAbout];
     
     // add create button just above info button
     _btnCreate = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_btnCreate addTarget:self action:@selector(showCreateScene:) forControlEvents:UIControlEventTouchUpInside];
     [_btnCreate setTitle:@"CREATE AN ACCOUNT" forState:UIControlStateNormal];
     [_btnCreate setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:_btnCreate];
+    [_contentView addSubview:_btnCreate];
     
     // add login button just above create button
     _welcomeLogin = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_welcomeLogin addTarget:self action:@selector(processLogin:) forControlEvents:UIControlEventTouchUpInside];
     [_welcomeLogin setTitle:@"LOGIN" forState:UIControlStateNormal];
     [_welcomeLogin setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:_welcomeLogin];
+    [_contentView addSubview:_welcomeLogin];
     
     // add tf pin just above login button
     _textFieldPin = [[UITextField alloc] init];
@@ -104,7 +133,9 @@
     _textFieldPin.layer.cornerRadius = 5;
     [_textFieldPin setSecureTextEntry:YES];
     [_textFieldPin setPlaceholder:@"PIN" ];
-    [self.view addSubview:_textFieldPin];
+    _textFieldPin.delegate = self;
+    _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
+    [_contentView addSubview:_textFieldPin];
     
     // add tf username just above tf pin
     _textFieldUsername = [[UITextField alloc] init];
@@ -112,7 +143,8 @@
     _textFieldUsername.backgroundColor = [UIColor whiteColor];
     _textFieldUsername.layer.cornerRadius = 5;
     [_textFieldUsername setPlaceholder:@"USERNAME"];
-    [self.view addSubview:_textFieldUsername];
+    _textFieldUsername.delegate = self;
+    [_contentView addSubview:_textFieldUsername];
 
     // add borders for buttons, iOS 7 fix - 5JAN14
     // use twitterbootstrap color scheme
@@ -178,9 +210,6 @@
     _btnCreate.layer.cornerRadius = 5;
     // end _btnCreate
     
-    // load Welcome Scrollview
-    [_welcomeScroller setContentSize:CGSizeMake(320,750)];
-    
     // hidden at load
     [_wrongUserPin setHidden:YES];
     
@@ -214,55 +243,61 @@
 -(void)addGUIElementConstraints {
     
     // add constraints, bottom / right for _welcomeAbout
-    NSLayoutConstraint *pullToBottom = [NSLayoutConstraint constraintWithItem:_welcomeAbout attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_welcomeAbout.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-10.0];
+    NSLayoutConstraint *pullToBottom = [NSLayoutConstraint constraintWithItem:_welcomeAbout attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-10.0];
     
-    NSLayoutConstraint *pullToRight = [NSLayoutConstraint constraintWithItem:_welcomeAbout attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_welcomeAbout.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-10];
+    NSLayoutConstraint *pullToRight = [NSLayoutConstraint constraintWithItem:_welcomeAbout attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-10];
     
-    [_welcomeAbout.superview addConstraints:@[pullToBottom, pullToRight]];
+    [_contentView addConstraints:@[pullToBottom, pullToRight]];
     
-    NSLayoutConstraint *pullCreateToBottom = [NSLayoutConstraint constraintWithItem:_btnCreate attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_btnCreate.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-40.0];
+    NSLayoutConstraint *pullCreateToBottom = [NSLayoutConstraint constraintWithItem:_btnCreate attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-40.0];
     
-    NSLayoutConstraint *pullCreateToRight = [NSLayoutConstraint constraintWithItem:_btnCreate attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_btnCreate.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    NSLayoutConstraint *pullCreateToRight = [NSLayoutConstraint constraintWithItem:_btnCreate attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+     NSLayoutConstraint *pullCreateToLeft = [NSLayoutConstraint constraintWithItem:_btnCreate attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
     [_btnCreate addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_btnCreate(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_btnCreate)]];
     
     [_btnCreate addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_btnCreate(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_btnCreate)]];
     
-    [_btnCreate.superview addConstraints:@[pullCreateToBottom, pullCreateToRight]];
+    [_contentView addConstraints:@[pullCreateToBottom, pullCreateToRight, pullCreateToLeft]];
     
-    NSLayoutConstraint *pullLoginToBottom = [NSLayoutConstraint constraintWithItem:_welcomeLogin attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_welcomeLogin.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-120.0];
+    NSLayoutConstraint *pullLoginToBottom = [NSLayoutConstraint constraintWithItem:_welcomeLogin attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-120.0];
     
-    NSLayoutConstraint *pullLoginToRight = [NSLayoutConstraint constraintWithItem:_welcomeLogin attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_welcomeLogin.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    NSLayoutConstraint *pullLoginToRight = [NSLayoutConstraint constraintWithItem:_welcomeLogin attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pullLoginToLeft = [NSLayoutConstraint constraintWithItem:_welcomeLogin attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
     [_welcomeLogin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_welcomeLogin(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_welcomeLogin)]];
     
     [_welcomeLogin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_welcomeLogin(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_welcomeLogin)]];
 
-    [_welcomeLogin.superview addConstraints:@[pullLoginToBottom, pullLoginToRight]];
+    [_contentView addConstraints:@[pullLoginToBottom, pullLoginToRight, pullLoginToLeft]];
     
     // add tf pin constraints below
-    NSLayoutConstraint *pulltfPinToBottom = [NSLayoutConstraint constraintWithItem:_textFieldPin attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_textFieldPin.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-190.0];
+    NSLayoutConstraint *pulltfPinToBottom = [NSLayoutConstraint constraintWithItem:_textFieldPin attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-190.0];
     
-    NSLayoutConstraint *pulltfPinToRight = [NSLayoutConstraint constraintWithItem:_textFieldPin attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_textFieldPin.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    NSLayoutConstraint *pulltfPinToRight = [NSLayoutConstraint constraintWithItem:_textFieldPin attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pulltfPinToLeft = [NSLayoutConstraint constraintWithItem:_textFieldPin attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
     [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldPin(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
     
     [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldPin(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
 
-    [_textFieldPin.superview addConstraints:@[pulltfPinToBottom, pulltfPinToRight]];
+    [_contentView addConstraints:@[pulltfPinToBottom, pulltfPinToRight,pulltfPinToLeft]];
     
     // add tf username constraints below
-    NSLayoutConstraint *pulltfUsernameToBottom = [NSLayoutConstraint constraintWithItem:_textFieldUsername attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_textFieldUsername.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-260.0];
+    NSLayoutConstraint *pulltfUsernameToBottom = [NSLayoutConstraint constraintWithItem:_textFieldUsername attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-260.0];
     
-    NSLayoutConstraint *pulltfUsernameToRight = [NSLayoutConstraint constraintWithItem:_textFieldUsername attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_textFieldUsername.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    NSLayoutConstraint *pulltfUsernameToRight = [NSLayoutConstraint constraintWithItem:_textFieldUsername attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pulltfUsernameToLeft = [NSLayoutConstraint constraintWithItem:_textFieldUsername attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
     [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldUsername(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
     
     [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldUsername(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
     
-    [_textFieldPin.superview addConstraints:@[pulltfUsernameToBottom, pulltfUsernameToRight]];
-
-
+    [_contentView addConstraints:@[pulltfUsernameToBottom, pulltfUsernameToRight,pulltfUsernameToLeft]];
 }
 #pragma mark viewDidLoad
 - (void)viewDidLoad {
@@ -412,10 +447,18 @@ NSAssert(
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
-
+#pragma mark - text field delegate methods
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
  
     [textField setInputAccessoryView:toolBar];
+}
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return YES;
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [_textFieldUsername resignFirstResponder];
+    [_textFieldPin resignFirstResponder];
+    return YES;
 }
 
 - (IBAction)dismissKeyboard:(id)sender {

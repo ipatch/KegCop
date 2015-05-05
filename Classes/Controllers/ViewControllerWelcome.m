@@ -120,7 +120,7 @@
                                                                                    alpha:1.0f]};
     navBar.translucent = NO;
     
-    [self.view addSubview:navBar];
+//    [self.view addSubview:navBar];
     // END navBar
     
     // add scroller
@@ -129,25 +129,32 @@
     _welcomeScroller.scrollEnabled = YES;
     _welcomeScroller.showsHorizontalScrollIndicator = YES;
     _welcomeScroller.showsVerticalScrollIndicator = YES;
-#ifdef DEBUG
-    [_welcomeScroller setBackgroundColor:[UIColor greenColor]];
-#endif
+
+    [_welcomeScroller setBackgroundColor:[UIColor colorWithRed:100.0f/255.0f
+                                                         green:83.0f/255.0f
+                                                          blue:0.0f/255.0f
+                                                         alpha:1.0f]];
+
     [self.view addSubview:_welcomeScroller];
-    CGSize welcomeScrollerSize = CGSizeMake(2000, 2000);
+    CGSize welcomeScrollerSize = CGSizeMake(self.view.bounds.size.width, 1500);
     [_welcomeScroller setContentSize:welcomeScrollerSize];
     
-    // add test view
+    // add the content view (contains auto layout constraints)
     CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
     _contentView = [[UIView alloc] initWithFrame:applicationFrame];
-    _contentView.backgroundColor = [UIColor orangeColor];
+    _contentView.backgroundColor = [UIColor colorWithRed:(245/255.0)
+                                                   green:(208/255.0)
+                                                    blue:(55/255)
+                                                   alpha:(1.0f) ];
     [_welcomeScroller addSubview:_contentView];
+    [_contentView addSubview:navBar];
 #ifdef DEBUG
-    // add test label
-    _test = [[UILabel alloc] initWithFrame:CGRectMake(200, 200, 200, 200)];
-    [_test setText:@"TEST"];
-    [_test setFont:[UIFont systemFontOfSize:44]];
-    [_test setBackgroundColor:[UIColor redColor]];
-    [_contentView addSubview:_test];
+//    // add test label
+//    _test = [[UILabel alloc] initWithFrame:CGRectMake(200, 200, 200, 200)];
+//    [_test setText:@"TEST"];
+//    [_test setFont:[UIFont systemFontOfSize:44]];
+//    [_test setBackgroundColor:[UIColor redColor]];
+//    [_contentView addSubview:_test];
 #endif
     
     // add about btn to lower right

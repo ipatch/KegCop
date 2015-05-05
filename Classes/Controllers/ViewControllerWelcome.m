@@ -119,8 +119,6 @@
                                                                                     blue:160.0f/255.0f
                                                                                    alpha:1.0f]};
     navBar.translucent = NO;
-    
-//    [self.view addSubview:navBar];
     // END navBar
     
     // add scroller
@@ -306,7 +304,7 @@
     
      NSLayoutConstraint *pullCreateToLeft = [NSLayoutConstraint constraintWithItem:_btnCreate attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
-    [_btnCreate addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_btnCreate(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_btnCreate)]];
+//    [_btnCreate addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_btnCreate(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_btnCreate)]];
     
     [_btnCreate addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_btnCreate(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_btnCreate)]];
     
@@ -318,7 +316,7 @@
     
     NSLayoutConstraint *pullLoginToLeft = [NSLayoutConstraint constraintWithItem:_welcomeLogin attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
-    [_welcomeLogin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_welcomeLogin(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_welcomeLogin)]];
+//    [_welcomeLogin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_welcomeLogin(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_welcomeLogin)]];
     
     [_welcomeLogin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_welcomeLogin(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_welcomeLogin)]];
 
@@ -331,7 +329,7 @@
     
     NSLayoutConstraint *pulltfPinToLeft = [NSLayoutConstraint constraintWithItem:_textFieldPin attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
-    [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldPin(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
+//    [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldPin(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
     
     [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldPin(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
 
@@ -344,7 +342,7 @@
     
     NSLayoutConstraint *pulltfUsernameToLeft = [NSLayoutConstraint constraintWithItem:_textFieldUsername attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
-    [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldUsername(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
+//    [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldUsername(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
     
     [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldUsername(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
     

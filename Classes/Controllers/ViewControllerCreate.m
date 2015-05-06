@@ -11,61 +11,200 @@
 @interface ViewControllerCreate() {
     
 }
+
+@property (nonatomic, retain) UINavigationBar *navBar;
+@property (nonatomic, retain) UITextField *createUserTextField;
+@property (nonatomic, retain) UITextField *createPinTextField;
+@property (nonatomic, retain) UITextField *createPinReTextField;
+@property (nonatomic, retain) UITextField *createEmailTextField;
+@property (nonatomic, retain) UITextField *createPhoneNumber;
+@property (nonatomic, retain) UIButton *createSubmit;
+@property (nonatomic, retain) UIButton *btnCancel;
+
 @end
 
 @implementation ViewControllerCreate {
     
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+#pragma mark - View Did Load
+-(void)addUIElements {
     
-    
-    // create a programmatic navbar
-    // navBar
-    UINavigationBar *navBar = [[UINavigationBar alloc] init];
-    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
+    _navBar = [[UINavigationBar alloc] init];
+    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
     
     UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Create Account"];
     
-    navBar.items = @[titleItem];
+    _navBar.items = @[titleItem];
     
-    navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
+    _navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
                                           green:83.0f/255.0f
                                            blue:0.0f/255.0f
                                           alpha:1.0f];
-    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
-                                                                                   green:239.0f/255.0f
-                                                                                    blue:160.0f/255.0f
-                                                                                   alpha:1.0f]};
-    navBar.translucent = NO;
+    _navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
+                        green:239.0f/255.0f
+                        blue:160.0f/255.0f
+                        alpha:1.0f]};
+    _navBar.translucent = NO;
     
-    [self.view addSubview:navBar];
+    [self.view addSubview:_navBar];
     // END navBar
-	
+    
+    // create account - scrollview
+    [_createScroller setScrollEnabled:YES];
+    [_createScroller setContentSize:CGSizeMake(320, 750)];
+    
+    // setup textfields
+    _createUserTextField = [[UITextField alloc] init];
+    [_createUserTextField setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _createUserTextField.backgroundColor = [UIColor whiteColor];
+    _createUserTextField.layer.cornerRadius = 5;
+//    [_textFieldPin setSecureTextEntry:YES];
+    [_createUserTextField setPlaceholder:@"INPUT USERNAME" ];
+    _createUserTextField.delegate = self;
+//    _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
+     _createUserTextField.clearButtonMode = YES;
+    [self.view addSubview:_createUserTextField];
+    
+    // setup pin tf
+    _createPinTextField = [[UITextField alloc] init];
+    [_createPinTextField setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _createPinTextField.backgroundColor = [UIColor whiteColor];
+    _createPinTextField.layer.cornerRadius = 5;
+    [_createPinTextField setSecureTextEntry:YES];
+    [_createPinTextField setPlaceholder:@"INPUT PIN" ];
+    _createPinTextField.delegate = self;
+    _createPinTextField.keyboardType = UIKeyboardTypeNumberPad;
+    _createPinTextField.clearButtonMode = YES;
+    [self.view addSubview:_createPinTextField];
+    
+    // setup pinre tf
+    _createPinReTextField = [[UITextField alloc] init];
+    [_createPinReTextField setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _createPinReTextField.backgroundColor = [UIColor whiteColor];
+    _createPinReTextField.layer.cornerRadius = 5;
+    [_createPinReTextField setSecureTextEntry:YES];
+    [_createPinReTextField setPlaceholder:@"RE-ENTER PIN" ];
+    _createPinReTextField.delegate = self;
+    _createPinReTextField.keyboardType = UIKeyboardTypeNumberPad;
+    _createPinReTextField.clearButtonMode = YES;
+    [self.view addSubview:_createPinReTextField];
+    
+    // setup email tf
+    _createEmailTextField = [[UITextField alloc] init];
+    [_createEmailTextField setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _createEmailTextField.backgroundColor = [UIColor whiteColor];
+    _createEmailTextField.layer.cornerRadius = 5;
+//    [_createEmailTextField setSecureTextEntry:YES];
+    [_createEmailTextField setPlaceholder:@"INPUT EMAIL (OPTIONAL)" ];
+    _createEmailTextField.delegate = self;
+//    _createEmailTextField.keyboardType = UIKeyboardTypeNumberPad;
+    _createEmailTextField.clearButtonMode = YES;
+    [self.view addSubview:_createEmailTextField];
+
+    // setup phoneNumbertf
+    _createPhoneNumber = [[UITextField alloc] init];
+    [_createPhoneNumber setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _createPhoneNumber.backgroundColor = [UIColor whiteColor];
+    _createPhoneNumber.layer.cornerRadius = 5;
+//    [_createPhoneNumber setSecureTextEntry:YES];
+    [_createPhoneNumber setPlaceholder:@"INPUT PHONE NUMBER (OPTIONAL)" ];
+    _createPhoneNumber.delegate = self;
+//    _createPhoneNumber.keyboardType = UIKeyboardTypeNumberPad;
+    _createPhoneNumber.clearButtonMode = YES;
+    [self.view addSubview:_createPhoneNumber];
+    
+    // change color of txt for tf's
+    _createUserTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                     green:83.0f/255.0f
+                                                      blue:0.0f/255.0f
+                                                     alpha:1.0f];
+    
+    _createPinTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                    green:83.0f/255.0f
+                                                     blue:0.0f/255.0f
+                                                    alpha:1.0f];
+    
+    _createPinReTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                      green:83.0f/255.0f
+                                                       blue:0.0f/255.0f
+                                                      alpha:1.0f];
+    
+    _createEmailTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                      green:83.0f/255.0f
+                                                       blue:0.0f/255.0f
+                                                      alpha:1.0f];
+    
+    _createPhoneNumber.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                                   green:83.0f/255.0f
+                                                    blue:0.0f/255.0f
+                                                   alpha:1.0f];
+
+    
+}
+-(void)addUIElementConstraints {
+    
+    // add constraints for _createUsernametf
+    NSLayoutConstraint *pullcreatetfToTop = [NSLayoutConstraint constraintWithItem:_createUserTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createUserTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:80.0];
+    
+    // center horizontaly in view
+    NSLayoutConstraint *centerXcreatetf = [NSLayoutConstraint constraintWithItem:_createUserTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createUserTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    // add constraints
+    [_createUserTextField.superview addConstraints:@[pullcreatetfToTop, centerXcreatetf]];
+    
+    // add constraints for _createPintf
+    NSLayoutConstraint *pullcreatePintfToTop = [NSLayoutConstraint constraintWithItem:_createPinTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:120.0];
+    
+    // center horizontaly in view
+    NSLayoutConstraint *centerXcreatePintf = [NSLayoutConstraint constraintWithItem:_createPinTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    // add constraints
+    [_createUserTextField.superview addConstraints:@[pullcreatePintfToTop, centerXcreatePintf]];
+    
+    // add constraints for _createPintf
+    NSLayoutConstraint *pullcreatePinRetfToTop = [NSLayoutConstraint constraintWithItem:_createPinReTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:160.0];
+    
+    // center horizontaly in view
+    NSLayoutConstraint *centerXcreatePinRetf = [NSLayoutConstraint constraintWithItem:_createPinReTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    // add constraints
+    [_createUserTextField.superview addConstraints:@[pullcreatePinRetfToTop, centerXcreatePinRetf]];
+    
+    // add constraints for _createEmailtf
+    NSLayoutConstraint *pullcreateEmailtfToTop = [NSLayoutConstraint constraintWithItem:_createEmailTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:200.0];
+    
+    // center horizontaly in view
+    NSLayoutConstraint *centerXcreateEmailtf = [NSLayoutConstraint constraintWithItem:_createEmailTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    // add constraints
+    [_createUserTextField.superview addConstraints:@[pullcreateEmailtfToTop, centerXcreateEmailtf]];
+    
+    // add constraints for _createPhoneNumbertf
+    NSLayoutConstraint *pullcreatePhoneNumbertfToTop = [NSLayoutConstraint constraintWithItem:_createPhoneNumber attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:240.0];
+    
+    // center horizontaly in view
+    NSLayoutConstraint *centerXcreatePhoneNumbertf = [NSLayoutConstraint constraintWithItem:_createPhoneNumber                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    // add constraints
+    [_createUserTextField.superview addConstraints:@[pullcreatePhoneNumbertfToTop, centerXcreatePhoneNumbertf]];
+    
+    // add constraints for submit btn
+    
+    // add constraints for cancel btn
+
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self addUIElements];
+    [self addUIElementConstraints];
+    
     // create new account
     [_createUNnotValid setHidden:YES];
     [_createPinNotValid setHidden:YES];
     [_createEmailNotValid setHidden:YES];
     [_createPhoneNumberNotValid setHidden:YES];
     [_createAccountSuccess setHidden:YES];
-    
-    // create account - scrollview
-    [_createScroller setScrollEnabled:YES];
-    [_createScroller setContentSize:CGSizeMake(320, 750)];
-    
-    // set delegate of pin textfields
-    _createUserTextField.delegate =self;
-    _createPinTextField.delegate = self;
-    _createPinReTextField.delegate = self;
-    _createPhoneNumber.delegate = self;
-    
-    // enable clear button for text fields
-    _createUserTextField.clearButtonMode = YES;
-    _createPinTextField.clearButtonMode = YES;
-    _createPinReTextField.clearButtonMode = YES;
-    _createEmailTextField.clearButtonMode = YES;
-    _createPhoneNumber.clearButtonMode = YES;
     
     // Core Data
     if (_managedObjectContext == nil)
@@ -75,40 +214,8 @@
         NSLog(@"After _managedObjectContext: %@", _managedObjectContext);
 #endif
     }
-    
     // keyboard behavior
     [self registerForKeyboardNotifications];
-    
-    // change color of txt for tf's
-    _createUserTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
-                                                      green:83.0f/255.0f
-                                                       blue:0.0f/255.0f
-                                                      alpha:1.0f];
-;
-    _createPinTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
-                                                    green:83.0f/255.0f
-                                                     blue:0.0f/255.0f
-                                                    alpha:1.0f];
-;
-    _createPinReTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
-                                                      green:83.0f/255.0f
-                                                       blue:0.0f/255.0f
-                                                      alpha:1.0f];
-;
-    _createEmailTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
-                                                      green:83.0f/255.0f
-                                                       blue:0.0f/255.0f
-                                                      alpha:1.0f];
-;
-    _createPhoneNumber.textColor = [UIColor colorWithRed:100.0f/255.0f
-                                                   green:83.0f/255.0f
-                                                    blue:0.0f/255.0f
-                                                   alpha:1.0f];
-;
-    
-    
-    
-
 }
 
 /*
@@ -160,14 +267,6 @@
     else {
 //        [_createEmailNotValid setHidden:NO];
     }
-}
-
-/*
- * method to determine screen layout
- */
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
@@ -281,8 +380,14 @@
         
         // pass user tf text to home screen
         username = _createUserTextField.text;
-        
-        [self presentViewController:home animated:YES completion:nil];
+        if ([_createUserTextField.text isEqualToString:@"root"]) {
+            UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+            ViewControllerRootHome *rootHome = [storyboardLocal instantiateViewControllerWithIdentifier:@"rootHome"];
+            [self presentViewController:rootHome animated:YES completion:nil];
+        }
+        else {
+            [self presentViewController:home animated:YES completion:nil];
+        }
     }
 }
 
@@ -389,9 +494,7 @@ if (i >= 1) return YES; else return NO;
     
 }
 
-/*
- * methods - keyboard behavior
- */
+#pragma mark - view will appear
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -402,14 +505,14 @@ if (i >= 1) return YES; else return NO;
     NSLog(@"method was loaded at startup");
 #endif
 }
-
+#pragma mark - view will disappear
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
+#pragma mark - keyboard methods for showing / hiding the keyboard
 - (void)keyboardWillHide:(NSNotification *)notification {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
@@ -431,7 +534,7 @@ if (i >= 1) return YES; else return NO;
     
     [UIView commitAnimations];
 }
-
+#pragma mark - Keyboard toolbar methods
 - (IBAction) next:(id)sender
 {
     if([self.createUserTextField isFirstResponder]) [self.createPinTextField becomeFirstResponder];
@@ -459,6 +562,12 @@ if (i >= 1) return YES; else return NO;
     
 }
 # pragma mark - device orientation
+/*
+ * method to determine screen layout
+ */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
+}
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }

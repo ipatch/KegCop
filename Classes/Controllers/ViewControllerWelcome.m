@@ -22,6 +22,7 @@
 @property(nonatomic, retain) NSArray *results;
 @property(nonatomic, retain) NSMutableArray *last5LoginArray;
 // GUI
+@property (nonatomic, retain) UINavigationBar *navBar;
 @property (nonatomic, retain) UIView *contentView;
 @property (nonatomic, retain) UIScrollView *welcomeScroller;
 @property (nonatomic, retain) UITextField *textFieldUsername;
@@ -49,8 +50,6 @@
     NSMutableString *scantagid;
     // legal disclaimer
     UIAlertView *alertlegal;
-    // Navigation bar
-    UINavigationBar *navBar;
     AppDelegate *appDelegate;
     UIStoryboard *storyboard;
     bool moved;
@@ -103,22 +102,22 @@
 #pragma mark - GUI Elements
 -(void)addGUIElements {
     // navBar
-    navBar = [[UINavigationBar alloc] init];
-    [navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
+    _navBar = [[UINavigationBar alloc] init];
+    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),64)];
     
     UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"KegCop"];
     
-    navBar.items = @[titleItem];
+    _navBar.items = @[titleItem];
     
-    navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
+    _navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
                                           green:83.0f/255.0f
                                            blue:0.0f/255.0f
                                           alpha:1.0f];
-    navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
+    _navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
                                                                                    green:239.0f/255.0f
                                                                                     blue:160.0f/255.0f
                                                                                    alpha:1.0f]};
-    navBar.translucent = NO;
+    _navBar.translucent = NO;
     // END navBar
     
     // add scroller
@@ -145,7 +144,7 @@
                                                     blue:(55/255)
                                                    alpha:(1.0f) ];
     [_welcomeScroller addSubview:_contentView];
-    [_contentView addSubview:navBar];
+    [_contentView addSubview:_navBar];
 #ifdef DEBUG
 //    // add test label
 //    _test = [[UILabel alloc] initWithFrame:CGRectMake(200, 200, 200, 200)];
@@ -547,7 +546,7 @@ NSAssert(
     _contentView.frame = CGRectMake(_contentView.frame.origin.x,
                                     _contentView.frame.origin.y,
                                     _contentView.frame.size.width,
-                                    _contentView.frame.size.height - 220); // move
+                                    _contentView.frame.size.height - 120); // move
 }
 
 - (void)keyboardDidHide: (NSNotification *) notif{
@@ -555,7 +554,7 @@ NSAssert(
     _contentView.frame = CGRectMake(_contentView.frame.origin.x,
                                         _contentView.frame.origin.y,
                                         _contentView.frame.size.width,
-                                        _contentView.frame.size.height + 220); // move
+                                        _contentView.frame.size.height + 120); // move
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
@@ -568,7 +567,7 @@ NSAssert(
 - (IBAction) textFieldDoneEditing : (id) sender {
     [sender resignFirstResponder];
 }
-
+#pragma mark - Process Login
 - (IBAction)processLogin:(id)sender {
     
     // hide keyboard

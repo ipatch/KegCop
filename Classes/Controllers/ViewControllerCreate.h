@@ -18,13 +18,6 @@
 }
 
 // Create new account
-@property (weak, nonatomic) IBOutlet UITextField *createUserTextField;
-@property (weak, nonatomic) IBOutlet UITextField *createPinTextField;
-@property (weak, nonatomic) IBOutlet UITextField *createPinReTextField;
-@property (weak, nonatomic) IBOutlet UITextField *createEmailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *createPhoneNumber;
-@property (weak, nonatomic) IBOutlet UIButton *createSubmit;
-@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 @property (weak, nonatomic) IBOutlet UIScrollView *createScroller;
 @property (weak, nonatomic) IBOutlet UILabel *createUNnotValid;
 @property (weak, nonatomic) IBOutlet UILabel *createPinNotValid;
@@ -39,9 +32,8 @@
 // Create new account - methods
 - (IBAction)createAccount:(id)sender;
 - (IBAction)dismissCreateScene:(id)sender;
-
+// toolbar - keyboard methods
 - (IBAction)dismissKeyboard:(id)sender;
-
 - (IBAction) next:(id)sender;
 - (IBAction) prev:(id)sender;
 

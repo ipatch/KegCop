@@ -16,6 +16,7 @@
 #import "ViewControllerWebService.h"
 #import "ViewControllerDev2.h"
 #import "ViewControllerCalibrate.h"
+#import "ViewControllerCreate.h"
 
 #define SLIDE_TIMING .25
 
@@ -148,6 +149,12 @@
          
     
     if ([currentString isEqualToString:@"Logoff"]) {
+        // this condition is satisfied when a new user creates an account then logs out
+        if([self.presentingViewController isKindOfClass:[ViewControllerCreate class]] ) {
+            
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion: nil];
+        }
+
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     

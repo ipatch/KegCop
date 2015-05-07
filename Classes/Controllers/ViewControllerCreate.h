@@ -17,8 +17,6 @@
     NSString *username;
 }
 
-// Create new account
-@property (weak, nonatomic) IBOutlet UIScrollView *createScroller;
 @property (weak, nonatomic) IBOutlet UILabel *createUNnotValid;
 @property (weak, nonatomic) IBOutlet UILabel *createPinNotValid;
 @property (weak, nonatomic) IBOutlet UILabel *createEmailNotValid;

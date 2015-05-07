@@ -481,9 +481,7 @@
     NSLog(@"code execution reached here");
 #endif
 }
-
 # pragma mark - addAvatar
-
 - (IBAction)addAvatar:(id)sender {
     ViewControllerAvatar4 *avatarVC = [[ViewControllerAvatar4 alloc] initWithNibName:@"avatar" bundle:nil];
     // set the delegate before launching vc

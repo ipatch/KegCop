@@ -99,7 +99,7 @@
     [UIView commitAnimations];
 }
 
-#pragma mark - GUI Elements
+#pragma mark - Add GUI Elements
 -(void)addGUIElements {
     // navBar
     _navBar = [[UINavigationBar alloc] init];
@@ -180,6 +180,8 @@
     _textFieldPin.backgroundColor = [UIColor whiteColor];
     _textFieldPin.layer.cornerRadius = 5;
     [_textFieldPin setSecureTextEntry:YES];
+    [_textFieldPin setAutocorrectionType:NO];
+    [_textFieldPin setFont:[UIFont systemFontOfSize:30]];
     [_textFieldPin setPlaceholder:@"PIN" ];
     _textFieldPin.delegate = self;
     _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
@@ -190,6 +192,9 @@
     [_textFieldUsername setTranslatesAutoresizingMaskIntoConstraints:NO];
     _textFieldUsername.backgroundColor = [UIColor whiteColor];
     _textFieldUsername.layer.cornerRadius = 5;
+    [_textFieldUsername setFont:[UIFont systemFontOfSize:30]];
+    [_textFieldUsername setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+    [_textFieldUsername setAutocorrectionType:UITextAutocorrectionTypeNo];
     [_textFieldUsername setPlaceholder:@"USERNAME"];
     _textFieldUsername.delegate = self;
     [_contentView addSubview:_textFieldUsername];
@@ -214,8 +219,6 @@
                                                  alpha:1.0f] forState:UIControlStateNormal];
     _welcomeLogin.layer.cornerRadius = 5;
     // end welcome btn
-    
-    
     
     _btnForgot.layer.borderWidth=1.0f;
     _btnForgot.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
@@ -287,7 +290,7 @@
     _btnForgot.hidden = TRUE;
 
 }
-#pragma mark - GUI Element Constraints
+#pragma mark - Add GUI Element Constraints
 -(void)addGUIElementConstraints {
     
     // add constraints, bottom / right for _welcomeAbout
@@ -330,7 +333,7 @@
     
 //    [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldPin(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
     
-    [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldPin(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
+    [_textFieldPin addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldPin(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldPin)]];
 
     [_contentView addConstraints:@[pulltfPinToBottom, pulltfPinToRight,pulltfPinToLeft]];
     
@@ -343,11 +346,11 @@
     
 //    [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_textFieldUsername(==250)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
     
-    [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldUsername(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
+    [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldUsername(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
     
     [_contentView addConstraints:@[pulltfUsernameToBottom, pulltfUsernameToRight,pulltfUsernameToLeft]];
 }
-#pragma mark viewDidLoad
+#pragma mark - View Did Load
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -373,8 +376,6 @@
     // RFID stuff
     scantagid = [[NSMutableString alloc] init];
     
-    
-    
     // get the status bar back
     // see SO thread - stackoverflow.com/questions/17678881/
     [self setNeedsStatusBarAppearanceUpdate];
@@ -394,7 +395,7 @@
     
 //    [self addAvatarsToButtons];
 }
-
+# pragma mark - Fill Username from Avatar Button
 -(void)fillUserName {
 #ifdef DEBUG
     NSLog(@"avatar button press works :)");
@@ -402,7 +403,7 @@
     
     // need to get NSMutableArray *avatars from addAvatarsToButtons method
 }
-
+# pragma mark - Fetch Avatars / Create Avatars
 -(void)fetchAvatarLoginsAndCreateAvatarButtons {
     // fetch Data from Core Data
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -451,7 +452,7 @@
         [avatarScroll addSubview:_avatarButton];
     }
 }
-
+# pragma mark - Add Avatar to Button
 -(void)addAvatarsToButtons {
     NSMutableArray *avatars = [NSMutableArray arrayWithCapacity:5];
     Account *anAccount;
@@ -491,7 +492,7 @@ NSAssert(
         }
     }
 }
-
+#pragma mark - Status bar method
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
@@ -528,7 +529,7 @@ NSAssert(
 //    moved = NO;
     return YES;
 }
-
+# pragma mark - Animate View - Direction Up
 -(void)animateViewToPosition:(UIView *)viewToMove directionUP:(BOOL)up {
     const int movementDistance = -60; // tweak as needed
     const float movementDuration = 0.3f; // tweak as needed
@@ -797,7 +798,7 @@ NSAssert(
     UIViewController *about = [self.storyboard instantiateViewControllerWithIdentifier:@"About"];
     [self presentViewController:about animated:YES completion:nil];
 }
-
+#pragma mark - View Will Appear
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // register for keyboard notifications
@@ -805,18 +806,14 @@ NSAssert(
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
 }
-
-// method keyboard behavior
-
+#pragma mark - View Will Disappear
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
-// method keyboard behavior
-
+#pragma mark - Keyboard Will Show
 - (void)keyboardWillShow:(NSNotification *)notification {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
@@ -827,9 +824,7 @@ NSAssert(
     
     [UIView commitAnimations];
 }
-
-// method keyboard behavior
-
+#pragma mark - Keyboard Will Hide
 - (void)keyboardWillHide:(NSNotification *)notification {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
@@ -840,18 +835,14 @@ NSAssert(
     
     [UIView commitAnimations];
 }
-
-// method keyboard behavior - next button
-
+#pragma mark - keyboard toolbar method - next
 - (IBAction) next:(id)sender
 {
     if([self.textFieldUsername isFirstResponder])[self.textFieldPin becomeFirstResponder];
     
     else if([self.textFieldPin isFirstResponder])[self.textFieldUsername becomeFirstResponder];
 }
-
-// method keyboard behavior - prev button
-
+#pragma mark - keyboard toolbar method - prev
 - (IBAction) prev:(id)sender
 {
     if([self.textFieldUsername isFirstResponder])[self.textFieldPin becomeFirstResponder];
@@ -862,10 +853,9 @@ NSAssert(
 -(void)onTick:(NSTimer *)timer {
     // do something
 }
-
-// create a method that spawns a new thread to listen for an RFID badge scan / swipe
-
+#pragma mark - RFID methods (OBSOLETE)
 -(void)checkTagID {
+    // create a method that spawns a new thread to listen for an RFID badge scan / swipe
     
     //scan_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     

@@ -53,16 +53,17 @@
     [_createScroller setScrollEnabled:YES];
     [_createScroller setContentSize:CGSizeMake(320, 750)];
     
-    // setup textfields
+    // setup username textfield
     _createUserTextField = [[UITextField alloc] init];
     [_createUserTextField setTranslatesAutoresizingMaskIntoConstraints:NO];
     _createUserTextField.backgroundColor = [UIColor whiteColor];
     _createUserTextField.layer.cornerRadius = 5;
 //    [_textFieldPin setSecureTextEntry:YES];
-    [_createUserTextField setPlaceholder:@"INPUT USERNAME" ];
+    [_createUserTextField setPlaceholder:@"USERNAME" ];
     _createUserTextField.delegate = self;
 //    _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
      _createUserTextField.clearButtonMode = YES;
+    [_createUserTextField setFont:[UIFont systemFontOfSize:30]];
     [self.view addSubview:_createUserTextField];
     
     // setup pin tf
@@ -75,6 +76,7 @@
     _createPinTextField.delegate = self;
     _createPinTextField.keyboardType = UIKeyboardTypeNumberPad;
     _createPinTextField.clearButtonMode = YES;
+    [_createPinTextField setFont:[UIFont systemFontOfSize:30]];
     [self.view addSubview:_createPinTextField];
     
     // setup pinre tf
@@ -87,6 +89,7 @@
     _createPinReTextField.delegate = self;
     _createPinReTextField.keyboardType = UIKeyboardTypeNumberPad;
     _createPinReTextField.clearButtonMode = YES;
+    [_createPinReTextField setFont:[UIFont systemFontOfSize:30]];
     [self.view addSubview:_createPinReTextField];
     
     // setup email tf
@@ -95,10 +98,11 @@
     _createEmailTextField.backgroundColor = [UIColor whiteColor];
     _createEmailTextField.layer.cornerRadius = 5;
 //    [_createEmailTextField setSecureTextEntry:YES];
-    [_createEmailTextField setPlaceholder:@"INPUT EMAIL (OPTIONAL)" ];
+    [_createEmailTextField setPlaceholder:@"(OPTIONAL) EMAIL" ];
     _createEmailTextField.delegate = self;
 //    _createEmailTextField.keyboardType = UIKeyboardTypeNumberPad;
     _createEmailTextField.clearButtonMode = YES;
+    [_createEmailTextField setFont:[UIFont systemFontOfSize:25]];
     [self.view addSubview:_createEmailTextField];
 
     // setup phoneNumbertf
@@ -107,12 +111,59 @@
     _createPhoneNumber.backgroundColor = [UIColor whiteColor];
     _createPhoneNumber.layer.cornerRadius = 5;
 //    [_createPhoneNumber setSecureTextEntry:YES];
-    [_createPhoneNumber setPlaceholder:@"INPUT PHONE NUMBER (OPTIONAL)" ];
+    [_createPhoneNumber setPlaceholder:@"(OPTIONAL) PHONE NUMBER" ];
     _createPhoneNumber.delegate = self;
 //    _createPhoneNumber.keyboardType = UIKeyboardTypeNumberPad;
     _createPhoneNumber.clearButtonMode = YES;
+    [_createPhoneNumber setFont:[UIFont systemFontOfSize:25]];
     [self.view addSubview:_createPhoneNumber];
     
+    // add submit button
+    _createSubmit = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_createSubmit addTarget:self action:@selector(createAccount:) forControlEvents:UIControlEventTouchUpInside];
+    [_createSubmit setTitle:@"SUBMIT" forState:UIControlStateNormal];
+    [_createSubmit setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _createSubmit.layer.borderWidth=1.0f;
+    _createSubmit.layer.borderColor=[[UIColor colorWithRed: 57.0f/255.0f
+                                                     green: 132.0f/255.0f
+                                                      blue: 57.0f/255.0f
+                                                     alpha:1.0f] CGColor];
+    [_createSubmit setBackgroundColor:[UIColor colorWithRed:68.0f/255.0f
+                                                      green:157.0f/255.0f
+                                                       blue:68.0f/255.0f
+                                                      alpha:1.0f]];
+    // set btn font color
+    [_createSubmit setTitleColor:[UIColor colorWithRed:255/255.0
+                                                 green:255/255.0
+                                                  blue:255/255.0
+                                                 alpha:1.0f] forState:UIControlStateNormal];
+    _createSubmit.layer.cornerRadius = 5;
+    [self.view addSubview:_createSubmit];
+    
+    // add cancel button
+    _btnCancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_btnCancel addTarget:self action:@selector(dismissCreateScene:) forControlEvents:UIControlEventTouchUpInside];
+    [_btnCancel setTitle:@"CANCEL" forState:UIControlStateNormal];
+    [_btnCancel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _btnCancel.layer.borderWidth=1.0f;
+    _btnCancel.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
+                                                  green: 41/255.0f
+                                                   blue: 37/255.0f
+                                                  alpha:1.0f] CGColor];
+    [_btnCancel setBackgroundColor:[UIColor colorWithRed:201.0f/255.0f
+                                                   green:48.0f/255.0f
+                                                    blue:44.0f/255.0f
+                                                   alpha:1.0f]];
+    
+    
+    // set btn font color
+    [_btnCancel setTitleColor:[UIColor colorWithRed:255/255.0
+                                              green:255/255.0
+                                               blue:255/255.0
+                                              alpha:1.0f] forState:UIControlStateNormal];
+    _btnCancel.layer.cornerRadius = 5;
+    [self.view addSubview:_btnCancel];
+
     // change color of txt for tf's
     _createUserTextField.textColor = [UIColor colorWithRed:100.0f/255.0f
                                                      green:83.0f/255.0f
@@ -138,8 +189,6 @@
                                                    green:83.0f/255.0f
                                                     blue:0.0f/255.0f
                                                    alpha:1.0f];
-
-    
 }
 -(void)addUIElementConstraints {
     
@@ -147,50 +196,101 @@
     NSLayoutConstraint *pullcreatetfToTop = [NSLayoutConstraint constraintWithItem:_createUserTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createUserTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:80.0];
     
     // center horizontaly in view
-    NSLayoutConstraint *centerXcreatetf = [NSLayoutConstraint constraintWithItem:_createUserTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createUserTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+//    NSLayoutConstraint *centerXcreatetf = [NSLayoutConstraint constraintWithItem:_createUserTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createUserTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    NSLayoutConstraint *pullcreateToRight = [NSLayoutConstraint constraintWithItem:_createUserTextField attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_createUserTextField.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pullcreateToLeft = [NSLayoutConstraint constraintWithItem:_createUserTextField attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_createUserTextField.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
+
+    
+    [_createUserTextField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_createUserTextField(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_createUserTextField)]];
     
     // add constraints
-    [_createUserTextField.superview addConstraints:@[pullcreatetfToTop, centerXcreatetf]];
+    [_createUserTextField.superview addConstraints:@[pullcreatetfToTop,  pullcreateToRight, pullcreateToLeft]]; // centerXcreatetf,
     
     // add constraints for _createPintf
-    NSLayoutConstraint *pullcreatePintfToTop = [NSLayoutConstraint constraintWithItem:_createPinTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:120.0];
+    NSLayoutConstraint *pullcreatePintfToTop = [NSLayoutConstraint constraintWithItem:_createPinTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:140.0];
+    
+    NSLayoutConstraint *pullcreatePinToRight = [NSLayoutConstraint constraintWithItem:_createPinTextField attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pullcreatePinToLeft = [NSLayoutConstraint constraintWithItem:_createPinTextField attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
+    
+    
+    [_createPinTextField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_createPinTextField(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_createPinTextField)]];
     
     // center horizontaly in view
-    NSLayoutConstraint *centerXcreatePintf = [NSLayoutConstraint constraintWithItem:_createPinTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+//    NSLayoutConstraint *centerXcreatePintf = [NSLayoutConstraint constraintWithItem:_createPinTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPinTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     
     // add constraints
-    [_createUserTextField.superview addConstraints:@[pullcreatePintfToTop, centerXcreatePintf]];
+    [_createUserTextField.superview addConstraints:@[pullcreatePintfToTop, pullcreatePinToLeft, pullcreatePinToRight]]; //centerXcreatePintf
     
-    // add constraints for _createPintf
-    NSLayoutConstraint *pullcreatePinRetfToTop = [NSLayoutConstraint constraintWithItem:_createPinReTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:160.0];
+    // add constraints for _createPinRetf
+    NSLayoutConstraint *pullcreatePinRetfToTop = [NSLayoutConstraint constraintWithItem:_createPinReTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:200.0];
     
     // center horizontaly in view
-    NSLayoutConstraint *centerXcreatePinRetf = [NSLayoutConstraint constraintWithItem:_createPinReTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+//    NSLayoutConstraint *centerXcreatePinRetf = [NSLayoutConstraint constraintWithItem:_createPinReTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     
+    NSLayoutConstraint *pullcreatePinReToRight = [NSLayoutConstraint constraintWithItem:_createPinReTextField attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pullcreatePinReToLeft = [NSLayoutConstraint constraintWithItem:_createPinReTextField attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_createPinReTextField.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
+
+    
+    [_createPinReTextField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_createPinReTextField(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_createPinReTextField)]];
+
     // add constraints
-    [_createUserTextField.superview addConstraints:@[pullcreatePinRetfToTop, centerXcreatePinRetf]];
+    [_createPinReTextField.superview addConstraints:@[pullcreatePinRetfToTop, pullcreatePinReToLeft, pullcreatePinReToRight]]; // centerXcreatePinRetf
     
     // add constraints for _createEmailtf
-    NSLayoutConstraint *pullcreateEmailtfToTop = [NSLayoutConstraint constraintWithItem:_createEmailTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:200.0];
+    NSLayoutConstraint *pullcreateEmailtfToTop = [NSLayoutConstraint constraintWithItem:_createEmailTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:260.0];
     
     // center horizontaly in view
-    NSLayoutConstraint *centerXcreateEmailtf = [NSLayoutConstraint constraintWithItem:_createEmailTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+//    NSLayoutConstraint *centerXcreateEmailtf = [NSLayoutConstraint constraintWithItem:_createEmailTextField                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     
+    [_createEmailTextField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_createEmailTextField(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_createEmailTextField)]];
+    
+    NSLayoutConstraint *pullcreateEmailToRight = [NSLayoutConstraint constraintWithItem:_createEmailTextField attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pullcreateEmailToLeft = [NSLayoutConstraint constraintWithItem:_createEmailTextField attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_createEmailTextField.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
+
     // add constraints
-    [_createUserTextField.superview addConstraints:@[pullcreateEmailtfToTop, centerXcreateEmailtf]];
+    [_createEmailTextField.superview addConstraints:@[pullcreateEmailtfToTop, pullcreateEmailToLeft, pullcreateEmailToRight]]; // centerXcreateEmailtf
     
     // add constraints for _createPhoneNumbertf
-    NSLayoutConstraint *pullcreatePhoneNumbertfToTop = [NSLayoutConstraint constraintWithItem:_createPhoneNumber attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:240.0];
+    NSLayoutConstraint *pullcreatePhoneNumbertfToTop = [NSLayoutConstraint constraintWithItem:_createPhoneNumber attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:320.0];
     
     // center horizontaly in view
-    NSLayoutConstraint *centerXcreatePhoneNumbertf = [NSLayoutConstraint constraintWithItem:_createPhoneNumber                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+//    NSLayoutConstraint *centerXcreatePhoneNumbertf = [NSLayoutConstraint constraintWithItem:_createPhoneNumber                                                attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    [_createPhoneNumber addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_createPhoneNumber(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_createPhoneNumber)]];
+    
+    NSLayoutConstraint *pullcreatePhoneNumberToRight = [NSLayoutConstraint constraintWithItem:_createPhoneNumber attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35];
+    
+    NSLayoutConstraint *pullcreatePhoneNumberToLeft = [NSLayoutConstraint constraintWithItem:_createPhoneNumber attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_createPhoneNumber.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35];
     
     // add constraints
-    [_createUserTextField.superview addConstraints:@[pullcreatePhoneNumbertfToTop, centerXcreatePhoneNumbertf]];
+    [_createPhoneNumber.superview addConstraints:@[pullcreatePhoneNumbertfToTop, pullcreatePhoneNumberToLeft, pullcreatePhoneNumberToRight]]; // centerXcreatePhoneNumbertf,
     
-    // add constraints for submit btn
+    // add constraints for submit btn, bottom / left
+    NSLayoutConstraint *pullSubmitToBottom = [NSLayoutConstraint constraintWithItem:_createSubmit attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_createSubmit.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
     
-    // add constraints for cancel btn
+    NSLayoutConstraint *pullSubmitToLeft = [NSLayoutConstraint constraintWithItem:_createSubmit attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_createSubmit.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:15.0];
+    
+    [_createSubmit addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_createSubmit(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_createSubmit)]];
+    
+    [_createSubmit addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_createSubmit(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_createSubmit)]];
+    
+    [_createSubmit.superview addConstraints:@[pullSubmitToBottom, pullSubmitToLeft]];
+    
+    // add constraints for cancel btn, bottom / right
+    NSLayoutConstraint *pullCancelToBottom = [NSLayoutConstraint constraintWithItem:_btnCancel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_btnCancel.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-15.0];
+    
+    NSLayoutConstraint *pullCancelToRight = [NSLayoutConstraint constraintWithItem:_btnCancel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_btnCancel.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-15.0];
+    
+    [_btnCancel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_btnCancel(==130)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_btnCancel)]];
+    
+    [_btnCancel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_btnCancel(==60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_btnCancel)]];
+    
+    [_btnCancel.superview addConstraints:@[pullCancelToBottom, pullCancelToRight]];
 
 }
 - (void)viewDidLoad {
@@ -494,23 +594,36 @@ if (i >= 1) return YES; else return NO;
     
 }
 
-#pragma mark - view will appear
+#pragma mark - View Will Appear
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-#ifdef DEBUG
-    NSLog(@"method was loaded at startup");
-#endif
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
 }
-#pragma mark - view will disappear
+#pragma mark - View Will Disappear
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+#pragma mark - Keyboard Did Show
+- (void)keyboardDidShow:(NSNotification *) notif{
+    // keyboard becomes visible
+    self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                    self.view.frame.origin.y,
+                                    self.view.frame.size.width,
+                                    self.view.frame.size.height - 120); // move
+}
+#pragma mark - Keyboard Did Hide
+- (void)keyboardDidHide: (NSNotification *) notif{
+    //keyboard will hide
+    self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                    self.view.frame.origin.y,
+                                    self.view.frame.size.width,
+                                    self.view.frame.size.height + 120); // move
 }
 #pragma mark - keyboard methods for showing / hiding the keyboard
 - (void)keyboardWillHide:(NSNotification *)notification {

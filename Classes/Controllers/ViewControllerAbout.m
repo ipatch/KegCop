@@ -55,7 +55,7 @@
     // change color of demoVideo button text to blue
     [_demoVideo setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     // draw / render button to screen
-    _demoVideo.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+//    _demoVideo.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     // add action to button
     [_demoVideo addTarget:self action:@selector(loadDemoVideo)
         forControlEvents:UIControlEventTouchUpInside];
@@ -65,7 +65,7 @@
     _issueButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_issueButton setTitle:@"Report Issue" forState:UIControlStateNormal];
     [_issueButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    _issueButton.frame = CGRectMake(80, 300, 160.0, 40.0);
+//    _issueButton.frame = CGRectMake(80, 300, 160.0, 40.0);
     [_issueButton addTarget:self action:@selector(submitIssue) forControlEvents:UIControlEventTouchUpInside];
     // add button(s) to view
     [_issueButton setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -109,12 +109,16 @@
     // center demo btn horizontally
     NSLayoutConstraint *centerXdemoBtn = [NSLayoutConstraint constraintWithItem:_demoVideo                                                 attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_demoVideo.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     
-    [_demoVideo.superview addConstraints:@[centerXdemoBtn]];
+    NSLayoutConstraint *pulldemoToTop = [NSLayoutConstraint constraintWithItem:_demoVideo attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_demoVideo.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:160.0];
+    
+    [_demoVideo.superview addConstraints:@[centerXdemoBtn, pulldemoToTop]];
     
     // center issue btn horizontally
     NSLayoutConstraint *centerXissueBtn = [NSLayoutConstraint constraintWithItem:_issueButton                                                 attribute:NSLayoutAttributeCenterX                                                               relatedBy:NSLayoutRelationEqual toItem:_issueButton.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
     
-    [_issueButton.superview addConstraints:@[centerXissueBtn]];
+    NSLayoutConstraint *pullIssueButtonToTop = [NSLayoutConstraint constraintWithItem:_issueButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_issueButton.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:200.0];
+    
+    [_issueButton.superview addConstraints:@[centerXissueBtn, pullIssueButtonToTop]];
 
 }
 

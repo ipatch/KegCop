@@ -31,16 +31,12 @@
     NSMutableString *newrfidtagid;
 }
 @property (strong, nonatomic) id<ViewControllerHomeDelegate>delegate;
-@property (weak, nonatomic) IBOutlet UIScrollView *homeScroller;
-@property (weak, nonatomic) IBOutlet UILabel *lblUSERNAME;
-@property (weak, nonatomic) IBOutlet UILabel *creditX;
-@property (weak, nonatomic) IBOutlet UIButton *btndrinkbeer;
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
 @property (weak, nonatomic) IBOutlet UITextField *tfCredit;
 @property (weak, nonatomic) IBOutlet UIButton *btnTradeCredit;
 @property (weak, nonatomic) IBOutlet UILabel *lblTradeCredit;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRFID;
-@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
+
 @property (weak, nonatomic) IBOutlet UILabel *idleTimerTime;
 @property (weak, nonatomic) IBOutlet UIButton *captureAvatar;
 
@@ -52,12 +48,11 @@
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
--(IBAction)removeAccount;
+- (IBAction)removeAccount;
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)tradeCredit:(id)sender;
 - (IBAction)drinkBeer:(id)sender;
 - (IBAction)addRFID:(id)sender;
 - (IBAction)logout:(id)sender;
 - (IBAction)addAvatar:(id)sender;
-- (IBAction)showTestScene:(id)sender;
 @end

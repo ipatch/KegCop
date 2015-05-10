@@ -13,6 +13,8 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon.png</string>
+		<string>icon-76.png</string>
+		<string>icon-152.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.chrisrjones.${PRODUCT_NAME:rfc1034identifier}</string>

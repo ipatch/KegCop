@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Resources/pics/icon-76.png">
+   </FileRef>
+   <FileRef
+      location = "group:Resources/pics/icon-152.png">
+   </FileRef>
+   <FileRef
       location = "group:KegCop.xcodeproj">
    </FileRef>
    <FileRef

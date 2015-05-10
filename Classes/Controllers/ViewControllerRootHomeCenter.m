@@ -80,7 +80,9 @@
 #pragma mark - Remove subviews i.e. Calibration
 - (void)removeSubViews{
     for (UIView *subview in [self.view subviews]){
+#ifdef DEBUG
         NSLog(@"subviews = %@",[self.view subviews]);
+#endif
         if (subview.tag == 3) {
             
             [self removeCalibrateView];

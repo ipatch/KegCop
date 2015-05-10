@@ -71,7 +71,6 @@
     NSManagedObjectContext *context = [[AccountsDataModel sharedDataModel] mainContext];
     if (context) {
 #ifdef DEBUG
-
         NSLog(@"Context is ready!");
 #endif
     } else {

@@ -84,7 +84,7 @@
     
     // display created user accounts
     _createdaccounts = [[UILabel alloc] init];
-    _createdaccounts.text = [NSString stringWithFormat:@"X accounts have been created."];
+    _createdaccounts.text = [NSString stringWithFormat:@"%d accounts have been created.",[self countUsernames]];
     [_createdaccounts setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_createdaccounts];
 }
@@ -126,13 +126,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addUIElements];
-    [self addUIElementConstraints];
-    
     _context = [[AccountsDataModel sharedDataModel]mainContext];
 #ifdef DEBUG
     NSLog(@"context is %@",_context);
 #endif
+    [self addUIElements];
+    [self addUIElementConstraints];
 }
 
 - (void)loadDemoVideo {
@@ -143,7 +142,7 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/ipatch/KegCop/issues"]];
 }
 
-- (int)countUsernames {
+- (NSUInteger)countUsernames {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setIncludesSubentities:NO];
     [request setEntity:[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_context]];

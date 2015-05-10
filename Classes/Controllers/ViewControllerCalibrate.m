@@ -91,7 +91,9 @@
 }
 # pragma mark - Remove Calibrate View
 - (void)removeCalibrateView {
+#ifdef DEBUG
     NSLog(@"removeCalibrateView method called");
+#endif
 }
 
 - (void)didReceiveMemoryWarning {

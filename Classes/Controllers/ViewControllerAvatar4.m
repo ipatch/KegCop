@@ -26,9 +26,6 @@
 @implementation ViewControllerAvatar4
 
 -(void)viewDidLoad {
-#ifdef DEBUG
-    NSLog(@"inside viewDidLoad of ViewControllerAvatar4");
-#endif
     // Core Data
     if (_managedObjectContext == nil)
     {

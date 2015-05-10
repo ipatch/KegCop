@@ -525,7 +525,6 @@
 }
 #pragma mark - Update Credit
 -(void)updateCredit {
-    NSLog(@"inside updateCredit method");
     // Core Data - root credit amount
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -545,7 +544,9 @@
     // refine to just logged in user account
     for (Account *anAccount in mutableFetchResults) {
         // the below line is causing null credits
+#ifdef DEBUG
         NSLog(@"_un = %@",_un);
+#endif
         if ([anAccount.username isEqualToString:_un]) {
 #ifdef DEBUG
             NSLog(@"%@ credit = %@",anAccount.username,anAccount.credit);

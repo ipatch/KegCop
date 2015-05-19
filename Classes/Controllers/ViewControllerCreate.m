@@ -518,7 +518,8 @@
         }
         else {
             // Load ViewControllerHome
-            UIViewController *home = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
+            UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+            ViewControllerHome *home = [storyboardLocal instantiateViewControllerWithIdentifier:@"Home"];
             [self presentViewController:home animated:YES completion:nil];
         }
     }

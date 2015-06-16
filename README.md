@@ -24,6 +24,8 @@ a lot to be desired.  So if you have a great idea, don't hesitate to download th
 contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
 ## Installation
+![KegCop awaiting review](http://chrisrjones.com/attachments/view/37 "KegCop awaiting review")
+<br />
 STAY TUNED, and load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)<br />
 <br />
 cheers<br />

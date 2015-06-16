@@ -1,7 +1,7 @@
 //
 //  ViewControllerWelcome.h
 //  KegCop
-//  Login / Sign Screen - INITIAL VIEW THAT IS LOADED ON LAUNCH
+//  Login / Sign Screen
 //
 //  Created by capin on 6/3/12.
 //
@@ -20,7 +20,7 @@
 
 @class ViewControllerWelcome;
 
-@interface ViewControllerWelcome : UIViewController <ViewControllerHomeDelegate, UITextFieldDelegate>
+@interface ViewControllerWelcome : UIViewController <UITextFieldDelegate>
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

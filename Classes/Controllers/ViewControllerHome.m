@@ -18,7 +18,6 @@
 @property (nonatomic, retain) UINavigationBar *navBar;
 @property (nonatomic, retain) UIImage *avatar;
 @property (nonatomic, retain) UILabel *lblUSERNAME;
-@property (nonatomic, retain) NSString *un;
 @property (nonatomic, retain) NSString *credit;
 @property (nonatomic, retain) UILabel *creditX;
 @property (nonatomic, retain) UIButton *btndrinkbeer;
@@ -209,7 +208,7 @@
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
 #endif
     }
-    _un = [NSString stringWithFormat:[self.delegate receiveUserName]];
+//    _un = [NSString stringWithFormat:[self.delegate receiveUserName]];
     
     
     [self addUIElements];

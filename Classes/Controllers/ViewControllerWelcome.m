@@ -682,10 +682,11 @@ NSAssert(
                     ViewControllerHome *home = [storyboardLocal instantiateViewControllerWithIdentifier:@"Home"];
                    
                     // declare delegate property
-                    home.delegate = self;
+//                    home.delegate = self;
+                    
                     
                     // pass username text to home screen
-                    username = _textFieldUsername.text;
+                    home.un = _textFieldUsername.text;
                     
 //                    [self passValues];
                     

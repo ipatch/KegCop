@@ -519,7 +519,10 @@
         else {
             // Load ViewControllerHome
             UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+            
             ViewControllerHome *home = [storyboardLocal instantiateViewControllerWithIdentifier:@"Home"];
+            home.un = self.createUserTextField.text;
+
             [self presentViewController:home animated:YES completion:nil];
         }
     }

@@ -7,11 +7,11 @@
 
 @class ViewControllerHome;
 
-@protocol ViewControllerHomeDelegate
-
--(NSString *) receiveUserName;
-
-@end
+//@protocol ViewControllerHomeDelegate
+//
+//-(NSString *) receiveUserName;
+//
+//@end
 // put protocol declaration def above imports
 // see this SO thread, stackoverflow.com/questions/6447573
 #import "Account.h"
@@ -30,7 +30,7 @@
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;
 }
-@property (strong, nonatomic) id<ViewControllerHomeDelegate>delegate;
+
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
 @property (weak, nonatomic) IBOutlet UITextField *tfCredit;
 @property (weak, nonatomic) IBOutlet UIButton *btnTradeCredit;
@@ -47,6 +47,9 @@
 @property(strong, nonatomic) DFBlunoDevice *blunoDev;
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, retain) NSString *un;
+
 
 - (IBAction)removeAccount;
 - (IBAction)dismissKeyboard:(id)sender;

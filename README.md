@@ -24,9 +24,7 @@ a lot to be desired.  So if you have a great idea, don't hesitate to download th
 contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
 ## Installation
-![KegCop pending contract](http://chrisrjones.com/attachments/view/47 "KegCop pending contract")
-<br />
-STAY TUNED, and load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)<br />
+[Download](https://itunes.apple.com/us/app/kegcop/id989403454?mt=8) the app from the App Store, and load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)<br />
 <br />
 cheers<br />
 Chris

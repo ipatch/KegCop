@@ -141,8 +141,6 @@
 		EABE1D751581CB1E00FF9FA0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EABEFA3F1ABF4B570045D478 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		EAC19E301AD8923D00F6131C /* secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secrets.h; sourceTree = "<group>"; };
-		EAC19E311AD9A1AD00F6131C /* KegCop_Development.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = KegCop_Development.mobileprovision; sourceTree = "<group>"; };
 		EAC2D8D81AAFB86D0075EAB0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Classes/DataModel/Account.h; sourceTree = "<group>"; };
 		EAC2D8D91AAFB86D0075EAB0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = Classes/DataModel/Account.m; sourceTree = "<group>"; };
 		EAC2D8DA1AAFB86D0075EAB0 /* AccountBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountBase.h; path = Classes/DataModel/AccountBase.h; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 		EA9D25DF1767A24E00B277ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EAC19E311AD9A1AD00F6131C /* KegCop_Development.mobileprovision */,
 				EA2611D017BAD29000023814 /* Info.plist */,
 				EAEFEE9C157B296B00C666D5 /* InfoPlist.strings */,
 				EA56282A17BAC48C00E3725B /* KegCop-Prefix.pch */,
@@ -458,7 +455,6 @@
 			isa = PBXGroup;
 			children = (
 				EAB1B95D1AE03B0A00E158B5 /* KegCop-Bluno-sketch.c */,
-				EAC19E301AD8923D00F6131C /* secrets.h */,
 				EAC2D8D71AAFB86D0075EAB0 /* Classes */,
 				EA9D25DF1767A24E00B277ED /* Resources */,
 				EAA33D731588612600826A02 /* KegCopApplicationTests */,

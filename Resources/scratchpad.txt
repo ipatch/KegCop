@@ -1,4 +1,9 @@
 ----------------------------------------------
+13OCT15 - begin to implement a function where the DB / SQLite can be exported to a CSV file.
+https://docs.google.com/document/d/1PKGGriP6tFyz2yZ9ueMa1FSQyPS22YUxxJYhSCxUHUc/edit?usp=sharing
+
+
+----------------------------------------------
 19APR15 - addCreditMethod
 
 - (void)addCreditToUser:(UIBarButtonItem *)sender {

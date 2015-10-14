@@ -23,6 +23,8 @@
 @property (nonatomic, retain) UIButton *createSubmit;
 @property (nonatomic, retain) UIButton *btnCancel;
 
+@property (nonatomic, weak) UITextField *previousTextField;
+
 @end
 
 @implementation ViewControllerCreate {
@@ -148,7 +150,7 @@
     [_createScroller addSubview:_createPhoneNumber];
     
     // add submit button
-    _createSubmit = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _createSubmit = [UIButton buttonWithType:UIButtonTypeSystem];
     [_createSubmit addTarget:self action:@selector(createAccount:) forControlEvents:UIControlEventTouchUpInside];
     [_createSubmit setTitle:@"SUBMIT" forState:UIControlStateNormal];
     [_createSubmit setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -337,7 +339,7 @@
 #pragma mark - View Did Load
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _previousTextField  =nil;
     [self addUIElements];
     [self addUIElementConstraints];
     [self clearTextFields];
@@ -375,15 +377,24 @@
 
 - (void) textFieldDidBeginEditing:(UITextField *)textFieldView
 {
+    [_previousTextField resignFirstResponder];
+    [_previousTextField setInputAccessoryView:nil];
     currentTextField = textFieldView;
     [currentTextField setInputAccessoryView:toolBar];
 }
-
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [_previousTextField resignFirstResponder];
+    [_previousTextField setInputAccessoryView:nil];
+    return YES;
+}
 /*
  * method to determine values in text fields - compare pins,
  */
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    _previousTextField = textField;
+    [textField resignFirstResponder];
     currentTextField = nil;
     
     NSString *pin = _createPinTextField.text;
@@ -418,12 +429,15 @@
 [_createPinReTextField resignFirstResponder];
 [_createEmailTextField resignFirstResponder];
 [_createPhoneNumber resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 /*
  * CREATE - to pull text from text fields and store in account database
  */
 - (IBAction)createAccount:(id)sender {
+    
+    NSLog(@"inside createAccount method");
     
     [self checkTextFieldCharLength];
     
@@ -608,26 +622,26 @@ if (i >= 1) return YES; else return NO;
 
 - (void)keyboardWasShown:(NSNotification*)aNotification {
     
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    _createScroller.contentInset = contentInsets;
-    _createScroller.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, currentTextField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbSize.height);
-        [_createScroller setContentOffset:scrollPoint animated:YES];
-    }
+//    NSDictionary* info = [aNotification userInfo];
+//    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+//    _createScroller.contentInset = contentInsets;
+//    _createScroller.scrollIndicatorInsets = contentInsets;
+//    
+//    // If active text field is hidden by keyboard, scroll it so it's visible
+//    CGRect aRect = self.view.frame;
+//    aRect.size.height -= kbSize.height;
+//    if (!CGRectContainsPoint(aRect, currentTextField.frame.origin) ) {
+//        CGPoint scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbSize.height);
+//        [_createScroller setContentOffset:scrollPoint animated:YES];
+//    }
 }
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification {
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    _createScroller.contentInset = contentInsets;
-    _createScroller.scrollIndicatorInsets = contentInsets;
+//    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+//    _createScroller.contentInset = contentInsets;
+//    _createScroller.scrollIndicatorInsets = contentInsets;
     
 }
 
@@ -670,7 +684,7 @@ if (i >= 1) return YES; else return NO;
     CGRect frame = self->toolBar.frame;
     frame.origin.y = self.view.frame.size.height;
     self->toolBar.frame = frame;
-    
+    self->toolBar.userInteractionEnabled = false;
     [UIView commitAnimations];
 }
 
@@ -681,36 +695,69 @@ if (i >= 1) return YES; else return NO;
     CGRect frame = self->toolBar.frame;
     frame.origin.y = self.view.frame.size.height - 260.0;
     self->toolBar.frame = frame;
-    
+    self->toolBar.userInteractionEnabled = true;
+
     [UIView commitAnimations];
 }
 #pragma mark - Keyboard toolbar methods
 - (IBAction) next:(id)sender
 {
-    if([self.createUserTextField isFirstResponder]) [self.createPinTextField becomeFirstResponder];
+    if([self.createUserTextField isFirstResponder]) {
+        [self.createUserTextField resignFirstResponder];
+     [self.createPinTextField becomeFirstResponder];
+    }
     
-    else if ([self.createPinTextField isFirstResponder]) [self.createPinReTextField becomeFirstResponder];
+    else if ([self.createPinTextField isFirstResponder]){
+        [self.createPinTextField resignFirstResponder];
+     [self.createPinReTextField becomeFirstResponder];
+    }
     
-    else if ([self.createPinReTextField isFirstResponder]) [self.createEmailTextField becomeFirstResponder];
+    else if ([self.createPinReTextField isFirstResponder]){
+        [self.createPinReTextField resignFirstResponder];
+        [self.createEmailTextField becomeFirstResponder];
+    }
     
-    else if ([self.createEmailTextField isFirstResponder]) [self.createPhoneNumber becomeFirstResponder];
+    else if ([self.createEmailTextField isFirstResponder]){
+        [self.createEmailTextField resignFirstResponder];
+        [self.createPhoneNumber becomeFirstResponder];
+    }
     
-    else if ([self.createPhoneNumber isFirstResponder]) [self.createUserTextField becomeFirstResponder];
+    else if ([self.createPhoneNumber isFirstResponder]) {
+        [self.createPhoneNumber resignFirstResponder];
+        [self.createUserTextField becomeFirstResponder];
+    }
 }
 
 - (IBAction) prev: (id)sender
 {
-    if([self.createUserTextField isFirstResponder]) [self.createPhoneNumber becomeFirstResponder];
+    if([self.createUserTextField isFirstResponder]) {
+        [self.createUserTextField resignFirstResponder];
+        [self.createPhoneNumber becomeFirstResponder];
+    }
     
-    else if ([_createPinTextField isFirstResponder]) [self.createUserTextField becomeFirstResponder];
+    else if ([_createPinTextField isFirstResponder]) {
+        [_createPinTextField resignFirstResponder];
+        [self.createUserTextField becomeFirstResponder];
+    }
     
-    else if ([_createPinReTextField isFirstResponder]) [self.createPinTextField becomeFirstResponder];
+    else if ([_createPinReTextField isFirstResponder]){
+        [_createPinReTextField resignFirstResponder];
+        [self.createPinTextField becomeFirstResponder];
+    }
     
-    else if ([_createEmailTextField isFirstResponder]) [self.createPinReTextField becomeFirstResponder];
+    else if ([_createEmailTextField isFirstResponder]) {
+        [_createEmailTextField resignFirstResponder];
+        [self.createPinReTextField becomeFirstResponder];
+    }
     
-    else if ([_createPhoneNumber isFirstResponder]) [self.createEmailTextField becomeFirstResponder];
+    else if ([_createPhoneNumber isFirstResponder]) {
+        [_createPhoneNumber resignFirstResponder];
+        [self.createEmailTextField becomeFirstResponder];
+    }
     
 }
+
+
 # pragma mark - device orientation
 /*
  * method to determine screen layout

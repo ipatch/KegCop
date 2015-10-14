@@ -17,6 +17,7 @@
 #import "ViewControllerDev2.h"
 #import "ViewControllerCalibrate.h"
 #import "ViewControllerCreate.h"
+#import "ViewControllerDBExportImport.h"
 
 #define SLIDE_TIMING .25
 
@@ -139,6 +140,8 @@
     }
 }
 
+#pragma mark - table view cell entry selections
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
     NSString *currentString = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
@@ -212,6 +215,12 @@
         // establish delegate for vc
         webServiceVC.delegate = self;
         [self presentViewController:webServiceVC animated:YES completion:nil];
+    }
+    
+    // add condition to load import / export SQLite / Core Data DB
+    if ([currentString isEqualToString:@"Import / Export Users"]) {
+        ViewControllerDBExportImport *exportImportVC = [[ViewControllerDBExportImport alloc] initWithNibName:@"ViewControllerDBExportImport" bundle:nil];
+        [self presentViewController:exportImportVC animated:YES completion:nil];
     }
     
     if ([currentString isEqualToString:@"Test Bluno Connection"]) {

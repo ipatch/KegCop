@@ -6,6 +6,8 @@ pod 'RestKit', '~> 0.24.1'
 
 pod 'Reachability', '~> 3.2'
 
+pod 'CHCSVParser', '~> 2.1.0'
+
 target :KegCopTests, :exclusive => true do
 	pod 'Kiwi', '~> 2.2'
 end

@@ -83,7 +83,7 @@
     _userNames = [_managedObjectContext executeFetchRequest:request error:nil];
     
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin", @"Logoff", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin", @"Import / Export Users", @"Logoff", nil];
     
 //    @"Calibrate",
     

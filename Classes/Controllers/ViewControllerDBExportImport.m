@@ -186,9 +186,11 @@
     // need to figure out how to fetch the DeviceID and append it to the file name
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
+    NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
     // write array to CSV file
 //    CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:@"KegCop-users.csv"]];
-    CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]]];
+    CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[documents stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]]];
     [csvWriter writeLineOfFields:csvObjects];
     [csvWriter closeStream];
     
@@ -199,8 +201,29 @@
     NSLog(@"inside uploadCSV method");
     
     // begin uploading CSV file using AFNetworking
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
+    NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+
+    //NSString *homeDirectory = NSSearchPathForDirectoriesInDomains(NSHomeDirectory, NSUserDomainMask, YES)[0];
     
+    NSString *filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]];
+    
+    NSURL *url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/"];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    
+    NSData *data = [NSData dataWithContentsOfFile:filename];
+    
+    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+        [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"text/csv"];
+    }];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+    }];
+    [httpClient enqueueHTTPRequestOperation:operation];
 }
 
 #pragma mark - delegate methods for CHCSVParser

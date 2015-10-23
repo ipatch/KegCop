@@ -183,8 +183,12 @@
     }
     NSLog(@"The output:%@",csvObjects);
     
+    // need to figure out how to fetch the DeviceID and append it to the file name
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
     // write array to CSV file
-    CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:@"KegCop-users.csv"]];
+//    CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:@"KegCop-users.csv"]];
+    CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]]];
     [csvWriter writeLineOfFields:csvObjects];
     [csvWriter closeStream];
     
@@ -193,6 +197,10 @@
 
 - (void) uploadCSV {
     NSLog(@"inside uploadCSV method");
+    
+    // begin uploading CSV file using AFNetworking
+    
+    
 }
 
 #pragma mark - delegate methods for CHCSVParser

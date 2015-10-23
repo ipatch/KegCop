@@ -189,9 +189,9 @@
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     // write array to CSV file
-//    CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[NSHomeDirectory() stringByAppendingPathComponent:@"KegCop-users.csv"]];
     CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[documents stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]]];
     [csvWriter writeLineOfFields:csvObjects];
+    
     [csvWriter closeStream];
     
     [self uploadCSV];
@@ -200,54 +200,66 @@
 - (void) uploadCSV {
     NSLog(@"inside uploadCSV method");
     
-    // begin uploading CSV file using AFNetworking
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-
-    //NSString *homeDirectory = NSSearchPathForDirectoriesInDomains(NSHomeDirectory, NSUserDomainMask, YES)[0];
     
+    // the below string will include the entire path, not just the file name
     NSString *filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]];
+    
+    // place just the filename in a string var
+    NSString *justFilename = [filename lastPathComponent];
+    
+    NSLog(@"justFilename = %@",justFilename);
+    
+    NSLog(@"the filename is: %@",filename); // currently the entire path to the file is being placed in the filename var
     
     NSURL *url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/"];
     
+    // begin uploading CSV file using AFNetworking
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
     NSData *data = [NSData dataWithContentsOfFile:filename];
     
-    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+    // try adding params to the POST request, params are required for placing the filename in the "csv_file_filename" column of the rails DB.
+    NSDictionary *params = @{@"csv_file_filename":justFilename};
+    
+    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"text/csv"];
     }];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
     }];
     [httpClient enqueueHTTPRequestOperation:operation];
+
 }
 
 #pragma mark - delegate methods for CHCSVParser
 -(void) parserDidBeginDocument:(CHCSVParser *)parser {
-//    currentRow = [[NSMutableArray alloc] init];
+
 }
 
 -(void) parserDidEndDocument:(CHCSVParser *)parser {
-//    for(int i=0;i<[currentRow count];i++) {
-//        NSLog(@"%@ %@ %@",[[currentRow objectAtIndex:i] valueForKey:[NSString stringWithFormat:@"0"]],[[currentRow objectAtIndex:i] valueForKey:[NSString stringWithFormat:@"1"]],[[currentRow objectAtIndex:i] valueForKey:[NSString stringWithFormat:@"2"]]);
-//    }
+    
 }
 
 - (void) parser:(CHCSVParser *)parser didFailWithError:(NSError *)error {
-//    NSLog(@"Parser failed with error: %@ %@", [error localizedDescription], [error userInfo]);
+    
 }
 
 -(void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber {
+    
 }
 
 -(void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex {
+    
 }
 
 - (void) parser:(CHCSVParser *)parser didEndLine:(NSUInteger)lineNumber {
+    
 }
 
 /*

@@ -157,6 +157,52 @@
 
 - (void)importUsers {
     NSLog(@"importUsers method reached");
+    
+    [self getCSV];
+}
+
+- (void)getCSV {
+    // use AFNetworking to retrieve remote CSV file from API then log the output of file
+    
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://kegcop.chrisrjones.com/api/csv_files"]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    NSString *fullPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[url lastPathComponent]];
+    
+    [operation setOutputStream:[NSOutputStream outputStreamToFileAtPath:fullPath append:NO]];
+    
+    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        NSLog(@"bytesRead: %u, totalBytesRead: %lld, totalBytesExpectedToRead: %lld", bytesRead, totalBytesRead, totalBytesExpectedToRead);
+    }];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"RES: %@", [[[operation response] allHeaderFields] description]);
+        
+        NSError *error;
+        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fullPath error:&error];
+        
+        if (error) {
+            NSLog(@"ERR: %@", [error description]);
+        } else {
+            NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
+            long long fileSize = [fileSizeNumber longLongValue];
+            
+//            [[_downloadFile titleLabel] setText:[NSString stringWithFormat:@"%lld", fileSize]];
+            NSLog(@"filesize = %lld",fileSize);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"ERR: %@", [error description]);
+    }];
+    
+    [operation start];
 }
 
 - (void)exportUsers {
@@ -212,17 +258,27 @@
     
     NSLog(@"justFilename = %@",justFilename);
     
-    NSLog(@"the filename is: %@",filename); // currently the entire path to the file is being placed in the filename var
+//    NSLog(@"the filename is: %@",filename); // currently the entire path to the file is being placed in the filename var
     
-    NSURL *url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/"];
+    NSURL *url;
+#ifdef DEBUG
+    // want to use this variable on DEBUG build
+    url = [NSURL URLWithString:@"http://localhost:3000/api/"];
+#else
+    // want to use this variable on RELEASE build
+    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/"];
+#endif
     
     // begin uploading CSV file using AFNetworking
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
     NSData *data = [NSData dataWithContentsOfFile:filename];
     
+    // string to hold the "csv_file_id"
+    NSString *csv_file_id = [NSString stringWithFormat:@""];
+    
     // try adding params to the POST request, params are required for placing the filename in the "csv_file_filename" column of the rails DB.
-    NSDictionary *params = @{@"csv_file_filename":justFilename};
+    NSDictionary *params = @{@"csv_file_filename":justFilename,@"csv_file_id":csv_file_id};
     
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"text/csv"];

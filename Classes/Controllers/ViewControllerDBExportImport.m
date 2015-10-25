@@ -276,15 +276,25 @@
     
     // string to hold the "csv_file_id"
     NSString *csv_file_id = [NSString stringWithFormat:@""];
+    NSString *csv_file_content_type = [NSString stringWithFormat:@"application/octet-stream"];
     
     // try adding params to the POST request, params are required for placing the filename in the "csv_file_filename" column of the rails DB.
-    NSDictionary *params = @{@"csv_file_filename":justFilename,@"csv_file_id":csv_file_id};
     
-    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:params constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-        [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"text/csv"];
+    // ,@"csv_file_id":csv_file_id
+    
+//    NSDictionary *params = @{@"csv_file_filename":justFilename,@"csv_file_content_type":csv_file_content_type};
+    NSDictionary *params2 = @{@"csv_file":justFilename};
+    
+    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+        [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"csv_file"] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"application/octet-stream"];
     }];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    
+//    [operation.request setValue:[NSString stringWithFormat:@"Token token=101010"] forHTTPHeaderField:@"Authorization"];
+    
+    
     
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);

@@ -275,15 +275,15 @@
     NSData *data = [NSData dataWithContentsOfFile:filename];
     
     // string to hold the "csv_file_id"
-    NSString *csv_file_id = [NSString stringWithFormat:@""];
-    NSString *csv_file_content_type = [NSString stringWithFormat:@"application/octet-stream"];
+//    NSString *csv_file_id = [NSString stringWithFormat:@""];
+//    NSString *csv_file_content_type = [NSString stringWithFormat:@"application/octet-stream"];
     
     // try adding params to the POST request, params are required for placing the filename in the "csv_file_filename" column of the rails DB.
     
     // ,@"csv_file_id":csv_file_id
     
 //    NSDictionary *params = @{@"csv_file_filename":justFilename,@"csv_file_content_type":csv_file_content_type};
-    NSDictionary *params2 = @{@"csv_file":justFilename};
+//    NSDictionary *params2 = @{@"csv_file":justFilename};
     
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"csv_file"] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"application/octet-stream"];

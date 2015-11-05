@@ -7,6 +7,7 @@
 
 #import "AccountsDataModel.h"
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 @interface ViewControllerAbout : UIViewController 
 {

@@ -18,6 +18,7 @@
 
 @property (nonatomic, retain) UIButton *demoVideo;
 @property (nonatomic, retain) UIButton *issueButton;
+@property (nonatomic, retain) UIButton *importUsersBtn;
 
 
 @end
@@ -71,6 +72,14 @@
     [_issueButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_issueButton];
     
+    // add importUsersBtn to VC
+    _importUsersBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_importUsersBtn setTitle:@"Import Users" forState:UIControlStateNormal];
+    [_importUsersBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [_importUsersBtn addTarget:self action:@selector(importUsers) forControlEvents:UIControlEventTouchUpInside];
+    [_importUsersBtn setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:_importUsersBtn];
+    
     // _buildNumber setup
     _buildnumber = [[UILabel alloc] init];
     // set version and build numbers
@@ -119,6 +128,13 @@
     NSLayoutConstraint *pullIssueButtonToTop = [NSLayoutConstraint constraintWithItem:_issueButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_issueButton.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:200.0];
     
     [_issueButton.superview addConstraints:@[centerXissueBtn, pullIssueButtonToTop]];
+    
+    // add constraints for importUsersBtn
+    NSLayoutConstraint *centerXimportUsersBtn = [NSLayoutConstraint constraintWithItem:_importUsersBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_importUsersBtn.superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0];
+    
+    NSLayoutConstraint *pullImportUsersBtnToTop = [NSLayoutConstraint constraintWithItem:_importUsersBtn attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_importUsersBtn.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:240];
+    
+    [_importUsersBtn.superview addConstraints:@[centerXimportUsersBtn, pullImportUsersBtnToTop]];
 
 }
 
@@ -142,6 +158,121 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/ipatch/KegCop/issues"]];
 }
 
+- (void)importUsers {
+#ifdef DEBUG
+    NSLog(@"inside importUsers method");
+#endif
+    [self getCSV];
+}
+
+- (void)getCSV {
+    // use AFNetworking to retrieve remote CSV file from the API then log the output of file
+    
+    NSURL *url;
+#ifdef DEBUG
+    // use this variable on DEBUG build
+    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files"];
+#else
+    // use this variable on RELEASE build
+    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files"];
+#endif
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    __weak typeof(self) weakSelf = self;
+    AFJSONRequestOperation *operation =
+    [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                        NSDictionary *jsonDict = (NSDictionary *) JSON;
+                                                        // this is the array that stores the JSON response
+                                                        NSArray *csvFiles = [jsonDict objectForKey:@"csv_files"];
+                                                        [csvFiles enumerateObjectsUsingBlock:^(id obj,NSUInteger idx, BOOL *stop){
+                                                            //                                                              NSString *csvFileFilename = [obj objectForKey:@"csv_file_filename"];
+                                                            //                                                              NSLog(@"CSV Filenames:%@",csvFileFilename);
+                                                            [weakSelf processJSONResponse:csvFiles];
+                                                        }];
+                                                        
+                                                    }   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                        NSLog(@"Request Failure Because %@",[error userInfo]);
+                                                    }];
+    [operation start];
+}
+
+- (void)processJSONResponse:(NSArray *) csvFiles {
+    
+    NSLog(@"CSV Files array:%@",csvFiles);
+    
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    NSString *fileName = [NSString stringWithFormat:@"KegCop-users-%@.csv",idfv];
+    
+    BOOL hasString = NO;
+    for (NSDictionary *fileInfo in csvFiles) {
+        if ([fileInfo[@"csv_file_filename"] isEqualToString:fileName]) {
+            hasString = YES;
+            break;
+        }
+    }
+    NSLog(@"%hhd",hasString);
+    //    the below method will return the id of the CSV file
+    //    [self getIDFromCSVArray:csvFiles];
+    NSLog(@"the id is:%ld",(long)[self getIDFromCSVArray:csvFiles]);
+    [self getSpecificCSVFile:csvFiles];
+}
+
+- (void)getSpecificCSVFile:(NSArray *) csvFiles {
+    // setup method to use AFNetworking to retrieve CSV file
+    NSURL *url;
+#ifdef DEBUG
+    // use this variable on DEBUG build
+    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files/"];
+#else
+    // use this variable on RELEASE build
+    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files/"];
+#endif
+    
+    // convert int into string
+    NSString *railsID = [NSString stringWithFormat:@"%d",[self getIDFromCSVArray:csvFiles]];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:railsID
+                                                      parameters:nil];
+    __block NSArray* responseObjectArray = nil;
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        
+        // save the Specific CSV File to an NSArray
+        responseObjectArray = (NSArray*)responseObject;
+        
+        // save the array to a file in the Documents dir
+        NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        NSString *users = [documents stringByAppendingPathComponent:@"KegCop-imported-users.csv"];
+        
+        [responseObjectArray writeToFile:users atomically:YES];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [operation start];
+}
+
+- (NSInteger)getIDFromCSVArray:(NSArray *) csvFiles {
+    
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    for (NSDictionary *fileInfo in csvFiles) {
+        if ([fileInfo[@"csv_file_filename"] containsString:idfv]) {
+            return [fileInfo[@"id"] integerValue];
+        }
+    }
+    return -1;
+}
+
 - (NSUInteger)countUsernames {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setIncludesSubentities:NO];
@@ -159,8 +290,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 # pragma mark - device orientation
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+#endif
+    
 }
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;

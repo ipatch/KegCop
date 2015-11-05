@@ -214,11 +214,6 @@
 //    [self getIDFromCSVArray:csvFiles];
     NSLog(@"the id is:%ld",(long)[self getIDFromCSVArray:csvFiles]);
     [self getSpecificCSVFile:csvFiles];
-    
-    
-    [self saveSpecificCSVFile];
-    
-    
 }
 
 - (void)getSpecificCSVFile:(NSArray *) csvFiles {
@@ -261,10 +256,6 @@
         NSLog(@"Error: %@", error);
     }];
     [operation start];
-}
-
-- (void)saveSpecificCSVFile {
-    
 }
 
 - (NSInteger)getIDFromCSVArray:(NSArray *) csvFiles {

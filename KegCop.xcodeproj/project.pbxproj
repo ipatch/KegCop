@@ -32,8 +32,8 @@
 		EABEFA401ABF4B570045D478 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABEFA3F1ABF4B570045D478 /* ImageIO.framework */; };
 		EABFA46C1AE2E49C006859A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EABFA46B1AE2E49C006859A9 /* Default-568h@2x.png */; };
 		EACF61F11AE42330005BE6D7 /* KCModalPickerViewForCredit.m in Sources */ = {isa = PBXBuildFile; fileRef = EACF61F01AE42330005BE6D7 /* KCModalPickerViewForCredit.m */; };
-		EACFE96C1BCD76C40081811B /* ViewControllerDBExportImport.m in Sources */ = {isa = PBXBuildFile; fileRef = EACFE96A1BCD76C40081811B /* ViewControllerDBExportImport.m */; settings = {ASSET_TAGS = (); }; };
-		EACFE96D1BCD76C40081811B /* ViewControllerDBExportImport.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACFE96B1BCD76C40081811B /* ViewControllerDBExportImport.xib */; settings = {ASSET_TAGS = (); }; };
+		EACFE96C1BCD76C40081811B /* ViewControllerDBExportImport.m in Sources */ = {isa = PBXBuildFile; fileRef = EACFE96A1BCD76C40081811B /* ViewControllerDBExportImport.m */; };
+		EACFE96D1BCD76C40081811B /* ViewControllerDBExportImport.xib in Resources */ = {isa = PBXBuildFile; fileRef = EACFE96B1BCD76C40081811B /* ViewControllerDBExportImport.xib */; };
 		EAD387161AF8096900B54FE0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD387151AF8096900B54FE0 /* Default.png */; };
 		EAD68DA71AFEF5B40098ECA8 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD68DA51AFEF5B40098ECA8 /* icon-76.png */; };
 		EAD68DA81AFEF5B40098ECA8 /* icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD68DA61AFEF5B40098ECA8 /* icon-152.png */; };
@@ -554,7 +554,7 @@
 		EAEFEE86157B296B00C666D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0710;
 				TargetAttributes = {
 					EA34633D1A0AB3AC00588DC5 = {
 						CreatedOnToolsVersion = 6.1;
@@ -803,6 +803,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisrjones.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KegCop.app/KegCop";
 			};
@@ -836,6 +837,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisrjones.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KegCop.app/KegCop";
 			};
@@ -858,6 +860,7 @@
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -941,6 +944,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisrjones.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -979,6 +983,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisrjones.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

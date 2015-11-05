@@ -162,47 +162,66 @@
 }
 
 - (void)getCSV {
-    // use AFNetworking to retrieve remote CSV file from API then log the output of file
+    // use AFNetworking to retrieve remote CSV file from the API then log the output of file
     
-    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://kegcop.chrisrjones.com/api/csv_files"]];
+    NSURL *url;
+#ifdef DEBUG
+    // use this variable on DEBUG build
+    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files"];
+#else
+    // use this variable on RELEASE build
+    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files"];
+#endif
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    NSString *fullPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[url lastPathComponent]];
-    
-    [operation setOutputStream:[NSOutputStream outputStreamToFileAtPath:fullPath append:NO]];
-    
-    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-        NSLog(@"bytesRead: %u, totalBytesRead: %lld, totalBytesExpectedToRead: %lld", bytesRead, totalBytesRead, totalBytesExpectedToRead);
-    }];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"RES: %@", [[[operation response] allHeaderFields] description]);
-        
-        NSError *error;
-        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:fullPath error:&error];
-        
-        if (error) {
-            NSLog(@"ERR: %@", [error description]);
-        } else {
-            NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
-            long long fileSize = [fileSizeNumber longLongValue];
-            
-//            [[_downloadFile titleLabel] setText:[NSString stringWithFormat:@"%lld", fileSize]];
-            NSLog(@"filesize = %lld",fileSize);
-        }
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"ERR: %@", [error description]);
-    }];
-    
+    __weak typeof(self) weakSelf = self;
+    AFJSONRequestOperation *operation =
+        [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                            NSDictionary *jsonDict = (NSDictionary *) JSON;
+                                                            // this is the array that stores the JSON response
+                                                            NSArray *csvFiles = [jsonDict objectForKey:@"csv_files"];
+                                                            [csvFiles enumerateObjectsUsingBlock:^(id obj,NSUInteger idx, BOOL *stop){
+//                                                              NSString *csvFileFilename = [obj objectForKey:@"csv_file_filename"];
+//                                                              NSLog(@"CSV Filenames:%@",csvFileFilename);
+                                                                [weakSelf processJSONResponse:csvFiles];
+                                                                                            }];
+                                                                                            
+                                                    }   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                            NSLog(@"Request Failure Because %@",[error userInfo]);
+                                                                                            }];
     [operation start];
+}
+
+- (void)processJSONResponse:(NSArray *) csvFiles {
+    
+    NSLog(@"CSV Files array:%@",csvFiles);
+    
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    
+    NSString *fileName = [NSString stringWithFormat:@"KegCop-users-%@.csv",idfv];
+    
+    BOOL hasString = NO;
+    for (NSDictionary *fileInfo in csvFiles) {
+        if ([fileInfo[@"csv_file_filename"] isEqualToString:fileName]) {
+            hasString = YES;
+            break;
+        }
+    }
+    NSLog(@"%hhd",hasString);
+    [self getIDFromCSVArray:csvFiles];
+}
+
+- (NSInteger)getIDFromCSVArray:(NSArray *) csvFiles {
+    
+    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    for (NSDictionary *fileInfo in csvFiles) {
+        if ([fileInfo[@"csv_file_filename"] containsString:idfv]) {
+            return [fileInfo[@"id"] integerValue];
+        }
+    }
+    return -1;
 }
 
 - (void)exportUsers {

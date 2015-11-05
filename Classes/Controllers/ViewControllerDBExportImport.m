@@ -210,7 +210,61 @@
         }
     }
     NSLog(@"%hhd",hasString);
-    [self getIDFromCSVArray:csvFiles];
+//    the below method will return the id of the CSV file
+//    [self getIDFromCSVArray:csvFiles];
+    NSLog(@"the id is:%ld",(long)[self getIDFromCSVArray:csvFiles]);
+    [self getSpecificCSVFile:csvFiles];
+    
+    
+    [self saveSpecificCSVFile];
+    
+    
+}
+
+- (void)getSpecificCSVFile:(NSArray *) csvFiles {
+    // setup method to use AFNetworking to retrieve CSV file
+    NSURL *url;
+#ifdef DEBUG
+    // use this variable on DEBUG build
+    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files/"];
+#else
+    // use this variable on RELEASE build
+    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files/"];
+#endif
+    
+    // convert int into string
+    NSString *railsID = [NSString stringWithFormat:@"%d",[self getIDFromCSVArray:csvFiles]];
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:railsID
+                                                      parameters:nil];
+    __block NSArray* responseObjectArray = nil;
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        
+        // save the Specific CSV File to an NSArray
+        responseObjectArray = (NSArray*)responseObject;
+        
+        // save the array to a file in the Documents dir
+        NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        NSString *users = [documents stringByAppendingPathComponent:@"KegCop-imported-users.csv"];
+        
+        [responseObjectArray writeToFile:users atomically:YES];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [operation start];
+}
+
+- (void)saveSpecificCSVFile {
+    
 }
 
 - (NSInteger)getIDFromCSVArray:(NSArray *) csvFiles {

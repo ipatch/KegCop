@@ -760,12 +760,17 @@ if (i >= 1) return YES; else return NO;
 
 # pragma mark - device orientation
 /*
- * method to determine screen layout
+ * methods to determine screen layout
  */
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+#endif
 }
 @end

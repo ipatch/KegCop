@@ -37,22 +37,22 @@
     // Core Data END
     
     // retreive parent vc data
-    NSMutableDictionary *dataFromParent = [self.delegate giveMeData];
+//    NSDictionary *dataFromParent = [self.delegate giveMeData];
 #ifdef DEBUG
     NSLog(@"dataFromParent = %@",dataFromParent);
     NSLog(@"Value for arrayKey: %@", [dataFromParent objectForKey:@"username"]);
 #endif
-    NSArray *values = [dataFromParent allValues];
+//    NSArray *values = [dataFromParent allValues];
 #ifdef DEBUG
-    NSLog(@"Values: %@", values);
+//    NSLog(@"Values: %@", values);
 #endif
     
     AVCaptureSession *session = [[AVCaptureSession alloc] init];
     session.sessionPreset = AVCaptureSessionPresetMedium;
     
-    CALayer *viewLayer = self.vImagePreview.layer;
+//    CALayer *viewLayer = self.vImagePreview.layer;
 #ifdef DEBUG
-    NSLog(@"viewLayer = %@", viewLayer);
+//    NSLog(@"viewLayer = %@", viewLayer);
 #endif
     
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
@@ -181,7 +181,7 @@
 #endif
     
     // retreive parent vc data
-    NSMutableDictionary *dataFromParent = [self.delegate giveMeData];
+    NSDictionary *dataFromParent = [self.delegate giveMeData];
     // put the username in a String for comparison
     NSString *userName = [[NSString alloc] init];
     userName = [dataFromParent objectForKey:@"username"];
@@ -225,7 +225,13 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 # pragma mark - device orientation
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+#endif        
 }
 @end

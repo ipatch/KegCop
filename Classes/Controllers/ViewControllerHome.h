@@ -25,7 +25,6 @@
     UIButton *removeAccount;
     UIAlertView *alert;
     NSString *username;
-    UILabel *lblUSERNAME;
     NSMutableString *rfidbadgenumber;
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;

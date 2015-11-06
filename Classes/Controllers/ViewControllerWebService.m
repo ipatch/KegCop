@@ -76,11 +76,11 @@
     [alertview show];
 }
 
-- (void)meetAndPotatoes {
-    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-#ifdef DEBUG
-    NSLog(@"UUID = %@",idfv);
-#endif
+- (void)meatAndPotatoes {
+//    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+//#ifdef DEBUG
+//    NSLog(@"UUID = %@",idfv);
+//#endif
     
     // establish connection with remote API
 #ifdef DEBUG
@@ -94,10 +94,10 @@
     NSLog(@"tokenString = %@",tokenString);
 #endif
     // get length of tokenString
-    NSUInteger tokenStringLen = [tokenString length];
-#ifdef DEBUG
-    NSLog(@"tokenStringLen = %d",tokenStringLen);
-#endif
+//    NSUInteger tokenStringLen = [tokenString length];
+//#ifdef DEBUG
+//    NSLog(@"tokenStringLen = %d",tokenStringLen);
+//#endif
     
     // get length of string in standard int
     NSString *tokenLen = [NSString stringWithFormat:@"%d",[tokenString length]];
@@ -152,7 +152,7 @@
 #ifdef DEBUG
         NSLog(@"Your unique name is: %@",uniqueName);
 #endif
-        [self meetAndPotatoes];
+        [self meatAndPotatoes];
     }
 }
 
@@ -165,8 +165,15 @@
     [super didReceiveMemoryWarning];
     
 }
+
 # pragma mark - device orientation
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationMaskAll;
+#else
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+#endif
 }
 @end

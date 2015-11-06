@@ -181,7 +181,9 @@
         }
         [csvObjects addObject:anObjectArray];
     }
+#ifdef DEBUG
     NSLog(@"The output:%@",csvObjects);
+#endif
     
     // need to figure out how to fetch the DeviceID and append it to the file name
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
@@ -208,13 +210,6 @@
     
     // the below string will include the entire path, not just the file name
     NSString *filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]];
-    
-    // place just the filename in a string var
-    NSString *justFilename = [filename lastPathComponent];
-
-
-    NSLog(@"justFilename = %@",justFilename);
-
     
     NSURL *url;
 #ifdef DEBUG

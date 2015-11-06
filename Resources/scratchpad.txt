@@ -1,3 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------
+6NOV15 - removed unesscary vars from uploadCSV fun
+
+// place just the filename in a string var
+NSString *justFilename = [filename lastPathComponent];
+
+NSLog(@"justFilename = %@",justFilename);
+
 -----------------------------------------------
 6NOV15 - working on storing a unique value in a Keychain
 

@@ -37,14 +37,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnForgot;
 @property (nonatomic, retain) UIButton *btnCreate;
 // keyboard toolbar
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+// toolbar
+@property (retain, nonatomic) UIToolbar *toolBar;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 
 @end
 
 @implementation ViewControllerWelcome {
-    // toolbar
-    IBOutlet UIToolbar *toolBar;
+    
     NSString *username;
     // RFID stuff
     NSMutableString *scantagid;
@@ -101,6 +102,18 @@
 
 #pragma mark - Add GUI Elements
 -(void)addGUIElements {
+    
+    _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    _toolBar.barStyle = UIBarStyleBlackTranslucent;
+    _toolBar.items = [NSArray arrayWithObjects:
+                      [[UIBarButtonItem alloc]initWithTitle:@"Previous" style:UIBarButtonItemStyleBordered target:self action:@selector(prev:)],
+                      [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(next:)],
+                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                      [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(textFieldDidEndEditing:)],
+                           nil];
+    [_toolBar sizeToFit];
+    
+    
     // navBar
     _navBar = [[UINavigationBar alloc] init];
     [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),64)];
@@ -185,6 +198,7 @@
     [_textFieldPin setPlaceholder:@"PIN" ];
     _textFieldPin.delegate = self;
     _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
+    _textFieldPin.inputAccessoryView = _toolBar;
     [_contentView addSubview:_textFieldPin];
     
     // add tf username just above tf pin
@@ -197,6 +211,7 @@
     [_textFieldUsername setAutocorrectionType:UITextAutocorrectionTypeNo];
     [_textFieldUsername setPlaceholder:@"USERNAME"];
     _textFieldUsername.delegate = self;
+    _textFieldUsername.inputAccessoryView = _toolBar;
     [_contentView addSubview:_textFieldUsername];
 
     // add borders for buttons, iOS 7 fix - 5JAN14
@@ -499,7 +514,7 @@ NSAssert(
 #pragma mark - text field delegate methods
 -(void)textFieldDidBeginEditing:(UITextField *)sender{
  
-    [sender setInputAccessoryView:toolBar];
+    [sender setInputAccessoryView:_toolBar];
     
 //    if(!moved) {
 //        [self animateViewToPosition:_contentView directionUP:YES];
@@ -819,9 +834,9 @@ NSAssert(
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     
-    CGRect frame = self->toolBar.frame;
+    CGRect frame = self->_toolBar.frame;
     frame.origin.y = self.view.frame.size.height - 260.0;
-    self->toolBar.frame = frame;
+    self->_toolBar.frame = frame;
     
     [UIView commitAnimations];
 }
@@ -830,9 +845,9 @@ NSAssert(
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     
-    CGRect frame = self->toolBar.frame;
+    CGRect frame = self->_toolBar.frame;
     frame.origin.y = self.view.frame.size.height;
-    self->toolBar.frame = frame;
+    self->_toolBar.frame = frame;
     
     [UIView commitAnimations];
 }

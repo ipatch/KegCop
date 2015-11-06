@@ -1,15 +1,24 @@
 
+-----------------------------------------------
+6NOV15 - toolbar for keypad snippet
 
+UIToolbar *doneToolbar = [[UIToolbar alloc] initWithFrame:(CGRect){0, 0, 50, 50}]; // Create and init
+doneToolbar.barStyle = UIBarStyleBlackTranslucent; // Specify the preferred barStyle
+doneToolbar.items = @[
+[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+[[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneEditAction)] // Add your target action
+]; // Define items -- you can add more
 
+yourField.inputAccessoryView = doneToolbar; // Now add toolbar to your field's inputview and run
+[doneToolbar sizeToFit]; // call this to auto fit to the view
 
-
-
-
+- (void)doneEditAction {
+[self.view endEditing:YES];
 
 
 
 -----------------------------------------------
-6NOV15 - removed unesscary vars from uploadCSV fun
+6NOV15 - removed unesscary vars from uploadCSV func
 
 // place just the filename in a string var
 NSString *justFilename = [filename lastPathComponent];
@@ -17,7 +26,7 @@ NSString *justFilename = [filename lastPathComponent];
 NSLog(@"justFilename = %@",justFilename);
 
 -----------------------------------------------
-6NOV15 - working on storing a unique value in a Keychain
+6NOV15 - working on storing a unique value in a Keychain - sample below
 
 // apply / call set keychain item
 NSString *userID = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.user" account:@"com.chrisrjones.KegCop"];
@@ -116,22 +125,6 @@ userID = [newUUID UUIDString];
 [SSKeychain setPassword:userID forService:userKey account:KEYCHAIN_ACCOUNT_IDENTIFIER];
 return [[NSUUID UUID] initWithUUIDString:userID];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 -----------------------------------------------
 6NOV15 - obsolete code from VCDBExport func

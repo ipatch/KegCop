@@ -448,7 +448,6 @@
         NSLog(@"Please fill in text fields");
 #endif
     }
-    
     else {
 #ifdef DEBUG
         NSLog(@"Thanks for filling out the text fields.");

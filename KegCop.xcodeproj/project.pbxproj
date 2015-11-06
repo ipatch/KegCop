@@ -518,7 +518,6 @@
 				EA34633B1A0AB3AC00588DC5 /* Frameworks */,
 				EA34633C1A0AB3AC00588DC5 /* Resources */,
 				1C1FB978076E9EF0D4709FC1 /* Copy Pods Resources */,
-				1244B4F61C7B7145B02A2D3A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -539,7 +538,6 @@
 				06F2684553644706A2B3A865 /* Copy Pods Resources */,
 				EAEC80031AB3A2D6004EFD58 /* Sources */,
 				EAEC808D1AB3A918004EFD58 /* Resources */,
-				9C57BECC7996E0D5636E8BF6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -645,21 +643,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1244B4F61C7B7145B02A2D3A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KegCopTests/Pods-KegCopTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1C1FB978076E9EF0D4709FC1 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -703,21 +686,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9C57BECC7996E0D5636E8BF6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

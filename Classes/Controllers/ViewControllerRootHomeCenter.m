@@ -54,6 +54,14 @@
 
 }
 
+- (void) movePanelToOriginalPosition {
+    // created blank method to supress warning / issue in Xcode.
+}
+
+- (void) removeCalibrateView {
+    // created blank method to supress warning / issue in Xcode.
+}
+
 #pragma mark - View Will/Did Appear
 
 - (void)viewWillAppear:(BOOL)animated

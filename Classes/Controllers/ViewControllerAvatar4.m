@@ -37,23 +37,23 @@
     // Core Data END
     
     // retreive parent vc data
-//    NSDictionary *dataFromParent = [self.delegate giveMeData];
+    NSDictionary *dataFromParent = [self.delegate giveMeData];
 #ifdef DEBUG
     NSLog(@"dataFromParent = %@",dataFromParent);
     NSLog(@"Value for arrayKey: %@", [dataFromParent objectForKey:@"username"]);
 #endif
-//    NSArray *values = [dataFromParent allValues];
-#ifdef DEBUG
-//    NSLog(@"Values: %@", values);
-#endif
+    NSArray *values = [dataFromParent allValues];
+
+    NSLog(@"Values: %@", values);
+
     
     AVCaptureSession *session = [[AVCaptureSession alloc] init];
     session.sessionPreset = AVCaptureSessionPresetMedium;
     
-//    CALayer *viewLayer = self.vImagePreview.layer;
-#ifdef DEBUG
-//    NSLog(@"viewLayer = %@", viewLayer);
-#endif
+    CALayer *viewLayer = self.vImagePreview.layer;
+
+    NSLog(@"viewLayer = %@", viewLayer);
+
     
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
     

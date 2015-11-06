@@ -117,7 +117,7 @@
     }
     
     // configure the cell
-    cell.textLabel.text = [NSString stringWithFormat:[_options objectAtIndex:indexPath.row]];
+    cell.textLabel.text = [NSString stringWithString:[_options objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -210,14 +210,18 @@
         [self presentViewController:changePinVC animated:YES completion:nil];
     }
     
-    if ([currentString isEqualToString:@"Create Web Service"]) {
+    if ([currentString isEqualToString:@"Establish Web Service"]) {
         ViewControllerWebService *webServiceVC = [[ViewControllerWebService alloc] initWithNibName:@"ViewControllerWebService" bundle:nil];
         // establish delegate for vc
-        webServiceVC.delegate = self;
+        
+        // comment the below line for the time being, to surpress Xcode warning / issue.
+        
+//        webServiceVC.delegate = self;
+        
         [self presentViewController:webServiceVC animated:YES completion:nil];
     }
     
-    // add condition to load import / export SQLite / Core Data DB
+    // add condition to load export VC of SQLite / Core Data DB
     if ([currentString isEqualToString:@"Export Users"]) {
         ViewControllerDBExportImport *exportImportVC = [[ViewControllerDBExportImport alloc] initWithNibName:@"ViewControllerDBExportImport" bundle:nil];
         [self presentViewController:exportImportVC animated:YES completion:nil];

@@ -28,7 +28,7 @@
     // the below line allows the _navBar to work with both iPhone and iPad.
     [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth([[UIScreen mainScreen]bounds]),60)];
     
-    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Import / Export User Accounts"];
+    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"Export User Accounts"];
     
     //_navBar.items = @[titleItem];
     
@@ -48,7 +48,7 @@
                                                                 style:UIBarButtonItemStyleDone
                                                                target:self
                                                                action:@selector(dismissScene)];
-    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Import / Export Users"];
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Export Users"];
     item.leftBarButtonItem = doneBtn;
     item.hidesBackButton = YES;
     
@@ -78,7 +78,7 @@
     [_import setTranslatesAutoresizingMaskIntoConstraints:NO];
     // round corners of signInButton
     _import.layer.cornerRadius = 5;
-    [self.view addSubview:_import];
+//    [self.view addSubview:_import];
     
     
     // add export btn
@@ -104,7 +104,6 @@
     // round corners of signInButton
     _exportBtn.layer.cornerRadius = 5;
     [self.view addSubview:_exportBtn];
-    
 }
 
 - (void)addConstraintsToUIElements {
@@ -141,7 +140,6 @@
     NSLog(@"context is %@",_context);
 #endif
 
-    
     [self addUIElements];
     [self addConstraintsToUIElements];
 }
@@ -156,121 +154,13 @@
 }
 
 - (void)importUsers {
-    NSLog(@"importUsers method reached");
-    
-    [self getCSV];
-}
-
-- (void)getCSV {
-    // use AFNetworking to retrieve remote CSV file from the API then log the output of file
-    
-    NSURL *url;
-#ifdef DEBUG
-    // use this variable on DEBUG build
-    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files"];
-#else
-    // use this variable on RELEASE build
-    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files"];
-#endif
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    __weak typeof(self) weakSelf = self;
-    AFJSONRequestOperation *operation =
-        [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                            NSDictionary *jsonDict = (NSDictionary *) JSON;
-                                                            // this is the array that stores the JSON response
-                                                            NSArray *csvFiles = [jsonDict objectForKey:@"csv_files"];
-                                                            [csvFiles enumerateObjectsUsingBlock:^(id obj,NSUInteger idx, BOOL *stop){
-//                                                              NSString *csvFileFilename = [obj objectForKey:@"csv_file_filename"];
-//                                                              NSLog(@"CSV Filenames:%@",csvFileFilename);
-                                                                [weakSelf processJSONResponse:csvFiles];
-                                                                                            }];
-                                                                                            
-                                                    }   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                            NSLog(@"Request Failure Because %@",[error userInfo]);
-                                                                                            }];
-    [operation start];
-}
-
-- (void)processJSONResponse:(NSArray *) csvFiles {
-    
-    NSLog(@"CSV Files array:%@",csvFiles);
-    
-    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    
-    NSString *fileName = [NSString stringWithFormat:@"KegCop-users-%@.csv",idfv];
-    
-    BOOL hasString = NO;
-    for (NSDictionary *fileInfo in csvFiles) {
-        if ([fileInfo[@"csv_file_filename"] isEqualToString:fileName]) {
-            hasString = YES;
-            break;
-        }
-    }
-    NSLog(@"%hhd",hasString);
-//    the below method will return the id of the CSV file
-//    [self getIDFromCSVArray:csvFiles];
-    NSLog(@"the id is:%ld",(long)[self getIDFromCSVArray:csvFiles]);
-    [self getSpecificCSVFile:csvFiles];
-}
-
-- (void)getSpecificCSVFile:(NSArray *) csvFiles {
-    // setup method to use AFNetworking to retrieve CSV file
-    NSURL *url;
-#ifdef DEBUG
-    // use this variable on DEBUG build
-    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files/"];
-#else
-    // use this variable on RELEASE build
-    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files/"];
-#endif
-    
-    // convert int into string
-    NSString *railsID = [NSString stringWithFormat:@"%d",[self getIDFromCSVArray:csvFiles]];
-    
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:railsID
-                                                      parameters:nil];
-    __block NSArray* responseObjectArray = nil;
-    
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // Print the response body in text
-        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-        
-        // save the Specific CSV File to an NSArray
-        responseObjectArray = (NSArray*)responseObject;
-        
-        // save the array to a file in the Documents dir
-        NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        
-        NSString *users = [documents stringByAppendingPathComponent:@"KegCop-imported-users.csv"];
-        
-        [responseObjectArray writeToFile:users atomically:YES];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-    [operation start];
-}
-
-- (NSInteger)getIDFromCSVArray:(NSArray *) csvFiles {
-    
-    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    for (NSDictionary *fileInfo in csvFiles) {
-        if ([fileInfo[@"csv_file_filename"] containsString:idfv]) {
-            return [fileInfo[@"id"] integerValue];
-        }
-    }
-    return -1;
+    // leave empty because import func moved to VCAbout, this method will suppress the "warning" in the btn creation above.
 }
 
 - (void)exportUsers {
+#ifdef DEBUG
     NSLog(@"exportUsers method reached");
+#endif
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_context]];
@@ -308,8 +198,10 @@
 }
 
 - (void) uploadCSV {
+#ifdef DEBUG
     NSLog(@"inside uploadCSV method");
-    
+#endif
+
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -319,10 +211,10 @@
     
     // place just the filename in a string var
     NSString *justFilename = [filename lastPathComponent];
-    
+
+
     NSLog(@"justFilename = %@",justFilename);
-    
-//    NSLog(@"the filename is: %@",filename); // currently the entire path to the file is being placed in the filename var
+
     
     NSURL *url;
 #ifdef DEBUG
@@ -338,33 +230,16 @@
     
     NSData *data = [NSData dataWithContentsOfFile:filename];
     
-    // string to hold the "csv_file_id"
-//    NSString *csv_file_id = [NSString stringWithFormat:@""];
-//    NSString *csv_file_content_type = [NSString stringWithFormat:@"application/octet-stream"];
-    
-    // try adding params to the POST request, params are required for placing the filename in the "csv_file_filename" column of the rails DB.
-    
-    // ,@"csv_file_id":csv_file_id
-    
-//    NSDictionary *params = @{@"csv_file_filename":justFilename,@"csv_file_content_type":csv_file_content_type};
-//    NSDictionary *params2 = @{@"csv_file":justFilename};
-    
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"csv_file"] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"application/octet-stream"];
     }];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
-    
-//    [operation.request setValue:[NSString stringWithFormat:@"Token token=101010"] forHTTPHeaderField:@"Authorization"];
-    
-    
-    
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
     }];
     [httpClient enqueueHTTPRequestOperation:operation];
-
 }
 
 #pragma mark - delegate methods for CHCSVParser

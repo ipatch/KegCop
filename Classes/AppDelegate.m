@@ -83,8 +83,39 @@
     [application setStatusBarHidden:NO];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
+    [self checkUseriCloudSync];
+    
     return YES;
 }
+
+- (BOOL)checkUseriCloudSync {
+    NSString *userKey = @"com.chrisrjones.KegCop.user";
+    NSString *KEYCHAIN_ACCOUNT_IDENTIFIER = @"com.chrisrjones.KegCop";
+    NSString *localID = [SSKeychain passwordForService:userKey account:KEYCHAIN_ACCOUNT_IDENTIFIER];
+    NSString *iCloudID = [[NSUbiquitousKeyValueStore defaultStore] stringForKey:userKey];
+    
+    if (!iCloudID) {
+        // iCloud does not have the key saved, so we write the key to iCloud
+        [[NSUbiquitousKeyValueStore defaultStore] setString:localID forKey:userKey];
+        return YES;
+    }
+    
+    if (!localID || [iCloudID isEqualToString:localID]) {
+        return YES;
+    }
+    
+    // both IDs exist, so we keep the one from iCloud since the functionality requires synchronization
+    // before setting, so that means that it was the earliest one
+    
+//    [self handleMigration:userKey from:localID to:iCloudID];
+    
+    return NO;
+}
+
+//- (void) handleMigration:(NSString *):(NSString *):(NSString *) {
+//    
+//}
 
 - (NSData *) obtainDeviceToken {
     return self.deviceToken;

@@ -1,3 +1,136 @@
+-----------------------------------------------
+6NOV15 - working on storing a unique value in a Keychain
+
+// apply / call set keychain item
+NSString *userID = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.user" account:@"com.chrisrjones.KegCop"];
+[SSKeychain setPassword:userID forService:@"com.chrisrjones.KegCop.user" account:@"com.chrisrjones.KegCop"];
+
+// save data to iCloud
+// create the UUID
+NSUUID *userUUID = [NSUUID UUID];
+// convert to string
+NSString *userCloudID = [userUUID UUIDString];
+// create the key to store the ID
+NSString *userKey = @"com.chrisrjones.KegCop.user";
+
+// a read must be called before saving to iCloud
+[[NSUbiquitousKeyValueStore defaultStore] synchronize];
+
+// Save to iCloud
+[[NSUbiquitousKeyValueStore defaultStore] setString:userCloudID forKey:userKey];
+
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(iCloudStoreDidChange:)
+name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
+object:[NSUbiquitousKeyValueStore defaultStore]];
+
+NSString *const USER_KEY = @"com.chrisrjones.KegCop.user";
+NSString *const KEYCHAIN_ACCOUNT_IDENTIFIER = @"com.chrisrjones.KegCop";
+
+- (void)iCloudStoreDidChange:(NSNotification *)notification {
+NSDictionary *userInfo = notification.userInfo;
+NSNumber *changeReason = userInfo[NSUbiquitousKeyValueStoreChangeReasonKey];
+NSArray *keysChanged = userInfo[NSUbiquitousKeyValueStoreChangedKeysKey];
+if (changeReason) {
+switch ([changeReason intValue]) {
+default:
+case NSUbiquitousKeyValueStoreServerChange:
+case NSUbiquitousKeyValueStoreInitialSyncChange:
+// check changed keys
+for (NSString *keyChanged in keysChanged) {
+NSString *iCloudID = [[NSUbiquitousKeyValueStore defaultStore] stringForKey:keyChanged];
+if (![keyChanged isEqualToString:USER_KEY]) {
+NSLog(@"Unknown key changed [%@:%@]", keyChanged, iCloudID);
+continue;
+}
+
+// get the local key
+NSString *localID = [SSKeychain passwordForService:keyChanged account:KEYCHAIN_ACCOUNT_IDENTIFIER];
+if (!iCloudID) {
+// no value from iCloud
+continue;
+}
+// local ID not created yet
+if (!localID) {
+// save the iCloud value locally
+[SSKeychain setPassword:iCloudID forService:keyChanged account:KEYCHAIN_ACCOUNT_IDENTIFIER];
+continue; // continue because there is no user information on the server, so no migration
+}
+
+if ([iCloudID isEqualToString:localID]) {
+// IDs match, so continue
+continue;
+}
+
+//                    [self handleMigration:keyChanged from:localID to:iCloudID];
+}
+
+break;
+case NSUbiquitousKeyValueStoreAccountChange:
+// need to delete all data and download new data from server
+break;
+}
+}
+}
+
+- (void)handleMigration {
+
+}
+
+- (NSUUID *)createUserID {
+NSString *userKey = @"com.chrisrjones.KegCop.user";
+NSString *KEYCHAIN_ACCOUNT_IDENTIFIER = @"com.chrisrjones.KegCop";
+NSString *userID = [SSKeychain passwordForService:userKey account:KEYCHAIN_ACCOUNT_IDENTIFIER];
+if (userID) {
+return [[NSUUID UUID] initWithUUIDString:userID];
+}
+
+// check iCloud
+userID = [[NSUbiquitousKeyValueStore defaultStore] stringForKey:userKey];
+if (!userID) {
+// none in iCloud, create one
+NSUUID *newUUID = [NSUUID UUID];
+userID = [newUUID UUIDString];
+// save to iCloud
+[[NSUbiquitousKeyValueStore defaultStore] setString:userID forKey:userKey];
+}
+
+// store the user ID locally
+[SSKeychain setPassword:userID forService:userKey account:KEYCHAIN_ACCOUNT_IDENTIFIER];
+return [[NSUUID UUID] initWithUUIDString:userID];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------
+6NOV15 - obsolete code from VCDBExport func
+
+// string to hold the "csv_file_id"
+//    NSString *csv_file_id = [NSString stringWithFormat:@""];
+//    NSString *csv_file_content_type = [NSString stringWithFormat:@"application/octet-stream"];
+
+// try adding params to the POST request, params are required for placing the filename in the "csv_file_filename" column of the rails DB.
+
+// ,@"csv_file_id":csv_file_id
+
+//    NSDictionary *params = @{@"csv_file_filename":justFilename,@"csv_file_content_type":csv_file_content_type};
+//    NSDictionary *params2 = @{@"csv_file":justFilename};
+
+
+
 ----------------------------------------------
 13OCT15 - begin to implement a function where the DB / SQLite can be exported to a CSV file.
 https://docs.google.com/document/d/1PKGGriP6tFyz2yZ9ueMa1FSQyPS22YUxxJYhSCxUHUc/edit?usp=sharing
@@ -18,10 +151,7 @@ _strSelectedUN = _userNames[row][@"username"];
 NSLog(@"The currently selected row is %@",_strSelectedUN);
 }
 
-
-
-
-
+----------------------------------------------
 19APR15 - pickerView Delegate Methods
 
 #pragma mark - pickerView Delegate methods

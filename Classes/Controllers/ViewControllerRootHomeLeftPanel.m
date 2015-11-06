@@ -83,7 +83,7 @@
     _userNames = [_managedObjectContext executeFetchRequest:request error:nil];
     
     // tableView cell options
-    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin", @"Import / Export Users", @"Logoff", nil];
+    _options = [[NSMutableArray alloc] initWithObjects:@"Add Credits", @"Change Pin", @"Export Users", @"Logoff", nil];
     
 //    @"Calibrate",
     
@@ -218,7 +218,7 @@
     }
     
     // add condition to load import / export SQLite / Core Data DB
-    if ([currentString isEqualToString:@"Import / Export Users"]) {
+    if ([currentString isEqualToString:@"Export Users"]) {
         ViewControllerDBExportImport *exportImportVC = [[ViewControllerDBExportImport alloc] initWithNibName:@"ViewControllerDBExportImport" bundle:nil];
         [self presentViewController:exportImportVC animated:YES completion:nil];
     }

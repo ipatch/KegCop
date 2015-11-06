@@ -247,6 +247,21 @@
     
     [myDelegate loadVCRH];
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    
+    // added the following method to surpress Xcode warning / issue.
+    
+    return 0;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    // added the following method to surpress Xcode warning / issue.
+
+    return 0;
+}
+
 # pragma mark - device orientation
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 90000

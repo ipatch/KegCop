@@ -265,6 +265,7 @@
     else if (component == 1) {
         return self.addZeroTo49ToPicker.count;
     }
+    return 0;
 }
 
 // edit this method
@@ -276,9 +277,8 @@
     }
     else if (component == 1) {
         return [self.addZeroTo49ToPicker objectAtIndex:row];
-        
-        // .objectAtIndex:row;
     }
+    return 0;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {

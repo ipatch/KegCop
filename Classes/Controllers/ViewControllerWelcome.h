@@ -24,8 +24,6 @@
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)dismissKeyboard:(id)sender;
-- (IBAction)textFieldDoneEditing:(id)sender;
 - (IBAction)processLogin:(id)sender;
 - (IBAction)showForgotScene:(id)sender;
 - (IBAction)showCreateScene:(id)sender;

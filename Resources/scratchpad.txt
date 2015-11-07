@@ -1,3 +1,11 @@
+-----------------------------------------------
+6NOV15 - keyboard offset macro
+
+// keyboard offset
+#define kOFFSET_FOR_KEYBOARD 300.0
+
+
+
 
 -----------------------------------------------
 6NOV15 - toolbar for keypad snippet

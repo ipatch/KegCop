@@ -8,8 +8,7 @@
 #import "ViewControllerWelcome.h"
 
 #define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
-// keyboard offset
-#define kOFFSET_FOR_KEYBOARD 300.0
+#define kOFFSET_FOR_KEYBOARD 80.0
 
 @interface ViewControllerWelcome ()
 {
@@ -39,8 +38,6 @@
 // keyboard toolbar
 // toolbar
 @property (retain, nonatomic) UIToolbar *toolBar;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-
 
 @end
 
@@ -59,57 +56,23 @@
 - (NSString *)receiveUserName {
     return _textFieldUsername.text;
 }
-#pragma mark - keyboard methods
--(void)keyboardWillShow {
-    // animate the current view out of the way
-    if (_contentView.frame.origin.y >= 0) {
-        [self setViewMovedUp:YES];
-    }
-    else if (_contentView.frame.origin.y < 0) {
-        [self setViewMovedUp:NO];
-    }
-}
 
--(void)keyboardWillHide {
-    if (_contentView.frame.origin.y >= 0) {
-        [self setViewMovedUp:YES];
-    }
-    else if (_contentView.frame.origin.y < 0) {
-        [self setViewMovedUp:NO];
-    }
-}
-
--(void)setViewMovedUp:(BOOL)movedUp {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
-    
-    CGRect rect = _contentView.frame;
-    if (movedUp) {
-        // 1. move the view's origin up
-        // 2. increase the size of the view,
-        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
-        rect.size.height += kOFFSET_FOR_KEYBOARD;
-    }
-    else {
-        // revert back to the normal state
-        rect.origin.y += kOFFSET_FOR_KEYBOARD;
-        rect.size.height -= kOFFSET_FOR_KEYBOARD;
-    }
-    _contentView.frame = rect;
-    
-    [UIView commitAnimations];
+- (void)doneClicked {
+    [_textFieldUsername resignFirstResponder];
+    [_textFieldPin resignFirstResponder];
 }
 
 #pragma mark - Add GUI Elements
 -(void)addGUIElements {
     
+    // toolbar - displayed above keypad / keyboard
     _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
     _toolBar.barStyle = UIBarStyleBlackTranslucent;
     _toolBar.items = [NSArray arrayWithObjects:
                       [[UIBarButtonItem alloc]initWithTitle:@"Previous" style:UIBarButtonItemStyleBordered target:self action:@selector(prev:)],
                       [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(next:)],
                             [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                      [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(textFieldDidEndEditing:)],
+                      [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneClicked)],
                            nil];
     [_toolBar sizeToFit];
     
@@ -512,77 +475,42 @@ NSAssert(
     return UIStatusBarStyleLightContent;
 }
 #pragma mark - text field delegate methods
--(void)textFieldDidBeginEditing:(UITextField *)sender{
- 
-    [sender setInputAccessoryView:_toolBar];
-    
-//    if(!moved) {
-//        [self animateViewToPosition:_contentView directionUP:YES];
-//        moved = YES;
-//    }
-    
-//    if ([sender isEqual:_textFieldUsername]) {
-//        // move the main view, so the keyboard doesn't hide it.
-//        if (_contentView.frame.origin.y >= 0) {
-//            [self setViewMovedUp:YES];
-//        }
-//    }
+
+#pragma mark - textFieldDidBeginEditing
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    [self animateTextField:textField up:YES withOffset:textField.frame.origin.y / 2];
 }
+#pragma mark - textFieldDidEndEditing
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     [_textFieldUsername resignFirstResponder];
     [_textFieldPin resignFirstResponder];
+    [self animateTextField:textField up:NO withOffset:textField.frame.origin.y / 2];
 }
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [_textFieldUsername resignFirstResponder];
+    [_textFieldPin resignFirstResponder];
+    [textField resignFirstResponder];
+    return true;
+}
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     return YES;
 }
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [_textFieldUsername resignFirstResponder];
-    [_textFieldPin resignFirstResponder];
-//    if(moved) {
-//        [self animateViewToPosition:_contentView directionUP:NO];
-//    }
-//    moved = NO;
-    return YES;
-}
-# pragma mark - Animate View - Direction Up
--(void)animateViewToPosition:(UIView *)viewToMove directionUP:(BOOL)up {
-    const int movementDistance = -60; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
-    
-    int movement = ( up ? movementDistance : -movementDistance);
-    [UIView beginAnimations:@"animateTextField" context:nil];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:movementDuration];
-    viewToMove.frame = CGRectOffset(viewToMove.frame, 0, movement);
+
+-(void)animateTextField:(UITextField*)textField up:(BOOL)up withOffset:(CGFloat)offset
+{
+    const int movementDistance = -offset;
+    const float movementDuration = 0.4f;
+    int movement = (up ? movementDistance : -movementDistance);
+    [UIView beginAnimations: @"animateTextField" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
     [UIView commitAnimations];
 }
 
-- (void)keyboardDidShow:(NSNotification *) notif{
-    // keyboard becomes visible
-    _contentView.frame = CGRectMake(_contentView.frame.origin.x,
-                                    _contentView.frame.origin.y,
-                                    _contentView.frame.size.width,
-                                    _contentView.frame.size.height - 120); // move
-}
 
-- (void)keyboardDidHide: (NSNotification *) notif{
-    //keyboard will hide
-    _contentView.frame = CGRectMake(_contentView.frame.origin.x,
-                                        _contentView.frame.origin.y,
-                                        _contentView.frame.size.width,
-                                        _contentView.frame.size.height + 120); // move
-}
-
-- (IBAction)dismissKeyboard:(id)sender {
-    // welcome
-    [_textFieldUsername resignFirstResponder];
-    [_textFieldPin resignFirstResponder];
-}
-
-// method to dismiss keyboard - return button
-- (IBAction) textFieldDoneEditing : (id) sender {
-    [sender resignFirstResponder];
-}
 #pragma mark - Process Login
 - (IBAction)processLogin:(id)sender {
     
@@ -740,14 +668,14 @@ NSAssert(
                 }
             }
     
-        else {
+            else {
 #ifdef DEBUG
             NSLog(@"Your username was not found");
 #endif
             [_welcomeActivityIndicator stopAnimating];
             [_wrongUserPin setHidden:NO];
             }
-    }
+        }
 }
 
 - (IBAction)showForgotScene:(id)sender {
@@ -798,7 +726,6 @@ NSAssert(
         // display ViewControllerCreate
         UIViewController *create = [self.storyboard instantiateViewControllerWithIdentifier:@"Create"];
         [self presentViewController:create animated:YES completion:nil];
-        
     }
 }
 
@@ -814,42 +741,34 @@ NSAssert(
     UIViewController *about = [self.storyboard instantiateViewControllerWithIdentifier:@"About"];
     [self presentViewController:about animated:YES completion:nil];
 }
+
 #pragma mark - View Will Appear
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+    // register for keyboard notifications
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillShow)
+//                                                 name:UIKeyboardWillShowNotification
+//                                               object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillHide)
+//                                                 name:UIKeyboardWillHideNotification
+//                                               object:nil];
 }
 #pragma mark - View Will Disappear
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-#pragma mark - Keyboard Will Show
-- (void)keyboardWillShow:(NSNotification *)notification {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    
-    CGRect frame = self->_toolBar.frame;
-    frame.origin.y = self.view.frame.size.height - 260.0;
-    self->_toolBar.frame = frame;
-    
-    [UIView commitAnimations];
-}
-#pragma mark - Keyboard Will Hide
-- (void)keyboardWillHide:(NSNotification *)notification {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    
-    CGRect frame = self->_toolBar.frame;
-    frame.origin.y = self.view.frame.size.height;
-    self->_toolBar.frame = frame;
-    
-    [UIView commitAnimations];
+
+    // unregister for keyboard notifications while not visible.
+//    [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                    name:UIKeyboardWillShowNotification
+//                                                  object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self
+//                                                    name:UIKeyboardWillHideNotification
+//                                                  object:nil];
 }
 #pragma mark - keyboard toolbar method - next
 - (IBAction) next:(id)sender

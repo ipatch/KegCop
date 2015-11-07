@@ -13,7 +13,6 @@
     BOOL keyboardIsShown;
     UITextField *currentTextField;
     // keyboard toolbar
-    IBOutlet UIToolbar *toolBar;
     NSString *username;
 }
 

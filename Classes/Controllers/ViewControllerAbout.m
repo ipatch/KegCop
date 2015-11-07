@@ -93,7 +93,7 @@
     
     // display created user accounts
     _createdaccounts = [[UILabel alloc] init];
-    _createdaccounts.text = [NSString stringWithFormat:@"%d accounts have been created.",[self countUsernames]];
+    _createdaccounts.text = [NSString stringWithFormat:@"%lu accounts have been created.",(unsigned long)[self countUsernames]];
     [_createdaccounts setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_createdaccounts];
 }
@@ -213,7 +213,7 @@
             break;
         }
     }
-    NSLog(@"%hhd",hasString);
+    NSLog(@"%d",hasString);
     //    the below method will return the id of the CSV file
     //    [self getIDFromCSVArray:csvFiles];
     NSLog(@"the id is:%ld",(long)[self getIDFromCSVArray:csvFiles]);
@@ -232,7 +232,7 @@
 #endif
     
     // convert int into string
-    NSString *railsID = [NSString stringWithFormat:@"%d",[self getIDFromCSVArray:csvFiles]];
+    NSString *railsID = [NSString stringWithFormat:@"%ld",(long)[self getIDFromCSVArray:csvFiles]];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"

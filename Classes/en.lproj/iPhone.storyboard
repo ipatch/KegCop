@@ -137,34 +137,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.81568627449999997" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <connections>
-                        <outlet property="doneButton" destination="FNv-Zb-8qk" id="85u-sB-DwW"/>
-                        <outlet property="toolBar" destination="Ug8-pX-IHk" id="P7r-jt-RZq"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdw-TY-3lV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="Ug8-pX-IHk">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <items>
-                        <barButtonItem title="Previous" id="oLr-9E-aE1">
-                            <connections>
-                                <action selector="prev:" destination="iDf-5q-CIv" id="az9-O3-VNz"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Next" id="l3Z-LK-Eeh">
-                            <connections>
-                                <action selector="next:" destination="iDf-5q-CIv" id="CZo-32-NZ4"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="klO-7p-YOd"/>
-                        <barButtonItem title="Done" id="FNv-Zb-8qk">
-                            <connections>
-                                <action selector="dismissKeyboard:" destination="iDf-5q-CIv" id="PIy-Mb-InL"/>
-                            </connections>
-                        </barButtonItem>
-                    </items>
-                </toolbar>
             </objects>
             <point key="canvasLocation" x="477" y="-225"/>
         </scene>

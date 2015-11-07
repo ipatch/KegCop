@@ -309,7 +309,7 @@
     // TRADE CREDITS
     
     // get value stored in credit tf
-    int credit = [_tfCredit.text integerValue];
+    NSUInteger credit = [_tfCredit.text integerValue];
     
     // SUBTRACT - GLOBAL - subtract credit from logged in user
     for (Account *loggeduser in mutableFetchResults) {
@@ -328,11 +328,11 @@
                 _lblTradeCredit.text = [NSString stringWithFormat:@"Can't trade more credits than you have."];
                 return;
             }
-            int loggedusernewcredit = loggedusercurrentcredit - credit;
+            NSUInteger loggedusernewcredit = loggedusercurrentcredit - credit;
             
             
             // save new value in DB to loggeduser
-            NSNumber *loggedusercreditnew = [NSNumber numberWithInt:loggedusernewcredit];
+            NSNumber *loggedusercreditnew = [NSNumber numberWithInteger:loggedusernewcredit];
             loggeduser.credit = loggedusercreditnew;
             
             // update creditX label
@@ -350,12 +350,12 @@
             int creditcurrent = [anAccount.credit intValue];
             
             // add tf with current credit
-            int newcredit = credit + creditcurrent;
+            NSUInteger newcredit = credit + creditcurrent;
 #ifdef DEBUG
             NSLog(@"new credit amount = %i",newcredit);
 #endif
             // save new value to anAccount.credit - convert int to NSNumber
-            NSNumber *creditnew = [NSNumber numberWithInt:newcredit];
+            NSNumber *creditnew = [NSNumber numberWithInteger:newcredit];
             anAccount.credit = creditnew;
 #ifdef DEBUG
             NSLog(@"new credit amoutn = %@",creditnew);

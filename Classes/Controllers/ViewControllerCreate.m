@@ -25,13 +25,36 @@
 
 @property (nonatomic, weak) UITextField *previousTextField;
 
+// keyboard toolbar
+@property (nonatomic, retain) UIToolbar *toolBar;
+
 @end
 
 @implementation ViewControllerCreate {
     
 }
+
+- (void)doneClicked {
+    [_createUserTextField resignFirstResponder];
+    [_createPinTextField resignFirstResponder];
+    [_createPinReTextField resignFirstResponder];
+    [_createEmailTextField   resignFirstResponder];
+    [_createPhoneNumber resignFirstResponder];
+}
+
 #pragma mark - Add UI Elements
 -(void)addUIElements {
+    
+    // toolbar - displayed above keypad / keyboard
+    _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    _toolBar.barStyle = UIBarStyleBlackTranslucent;
+    _toolBar.items = [NSArray arrayWithObjects:
+                      [[UIBarButtonItem alloc]initWithTitle:@"Previous" style:UIBarButtonItemStyleBordered target:self action:@selector(prev:)],
+                      [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleBordered target:self action:@selector(next:)],
+                      [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                      [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneClicked)],
+                      nil];
+    [_toolBar sizeToFit];
     
     _navBar = [[UINavigationBar alloc] init];
     [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
@@ -91,6 +114,7 @@
 //    _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
      _createUserTextField.clearButtonMode = YES;
     [_createUserTextField setFont:[UIFont systemFontOfSize:30]];
+    _createUserTextField.inputAccessoryView = _toolBar;
     [_createScroller addSubview:_createUserTextField];
     
     // setup pin tf
@@ -104,6 +128,7 @@
     _createPinTextField.keyboardType = UIKeyboardTypeNumberPad;
     _createPinTextField.clearButtonMode = YES;
     [_createPinTextField setFont:[UIFont systemFontOfSize:30]];
+    _createPinTextField.inputAccessoryView = _toolBar;
     [_createScroller addSubview:_createPinTextField];
     
     // setup pinre tf
@@ -117,6 +142,7 @@
     _createPinReTextField.keyboardType = UIKeyboardTypeNumberPad;
     _createPinReTextField.clearButtonMode = YES;
     [_createPinReTextField setFont:[UIFont systemFontOfSize:30]];
+    _createPinReTextField.inputAccessoryView = _toolBar;
     [_createScroller addSubview:_createPinReTextField];
     
     // setup email tf
@@ -132,9 +158,10 @@
 //    _createEmailTextField.keyboardType = UIKeyboardTypeNumberPad;
     _createEmailTextField.clearButtonMode = YES;
     [_createEmailTextField setFont:[UIFont systemFontOfSize:25]];
+    _createEmailTextField.inputAccessoryView = _toolBar;
     [_createScroller addSubview:_createEmailTextField];
 
-    // setup phoneNumbertf
+    // setup phoneNumber tf
     _createPhoneNumber = [[UITextField alloc] init];
     [_createPhoneNumber setTranslatesAutoresizingMaskIntoConstraints:NO];
     _createPhoneNumber.backgroundColor = [UIColor whiteColor];
@@ -147,6 +174,7 @@
 //    _createPhoneNumber.keyboardType = UIKeyboardTypeNumberPad;
     _createPhoneNumber.clearButtonMode = YES;
     [_createPhoneNumber setFont:[UIFont systemFontOfSize:25]];
+    _createPhoneNumber.inputAccessoryView = _toolBar;
     [_createScroller addSubview:_createPhoneNumber];
     
     // add submit button
@@ -359,15 +387,12 @@
         NSLog(@"After _managedObjectContext: %@", _managedObjectContext);
 #endif
     }
-    // keyboard behavior
-    [self registerForKeyboardNotifications];
 }
 
 /*
  * method to limit character input in text fields
  */
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if(textField == _createUserTextField) return (_createUserTextField.text.length + string.length <=16);
     if(textField == _createPinTextField) return (_createPinTextField.text.length + string.length <= 4);
     if(textField == _createPinReTextField) return (_createPinReTextField.text.length + string.length <=4);
@@ -375,15 +400,16 @@
     return YES;
 }
 
-- (void) textFieldDidBeginEditing:(UITextField *)textFieldView
-{
-    [_previousTextField resignFirstResponder];
-    [_previousTextField setInputAccessoryView:nil];
-    currentTextField = textFieldView;
-    [currentTextField setInputAccessoryView:toolBar];
+- (void) textFieldDidBeginEditing:(UITextField *)textField {
+    
+    [self animateTextField:textField up:YES withOffset:textField.frame.origin.y / 2];
+    
+//    [_previousTextField resignFirstResponder];
+//    [_previousTextField setInputAccessoryView:nil];
+//    currentTextField = textFieldView;
+//    [currentTextField setInputAccessoryView:_toolBar];
 }
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     [_previousTextField resignFirstResponder];
     [_previousTextField setInputAccessoryView:nil];
     return YES;
@@ -391,37 +417,17 @@
 /*
  * method to determine values in text fields - compare pins,
  */
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    _previousTextField = textField;
-    [textField resignFirstResponder];
-    currentTextField = nil;
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     
-    NSString *pin = _createPinTextField.text;
-    NSString *repin = _createPinReTextField.text;
-   
-    if ([pin isEqualToString: repin])
-    {
-#ifdef DEBUG
-        NSLog(@"Pins are equal.");
-#endif
-        [_createPinNotValid setHidden:YES];
-    }
-    else {
-        [_createPinNotValid setHidden:NO];
-    }
-    // check _createEmailTextField
-    if([self validateEmail:[_createEmailTextField text]] ==1)
-	{
-        [_createEmailNotValid setHidden:YES];
-#ifdef DEBUG
-        NSLog(@"code executed");
-#endif
-    }
-    else {
-//        [_createEmailNotValid setHidden:NO];
-    }
+    [self animateTextField:textField up:NO withOffset:textField.frame.origin.y / 2];
 }
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return true;
+}
+
 
 - (IBAction)dismissKeyboard:(id)sender {
 [_createUserTextField resignFirstResponder];
@@ -430,6 +436,18 @@
 [_createEmailTextField resignFirstResponder];
 [_createPhoneNumber resignFirstResponder];
     [self.view endEditing:YES];
+}
+
+-(void)animateTextField:(UITextField*)textField up:(BOOL)up withOffset:(CGFloat)offset
+{
+    const int movementDistance = -offset;
+    const float movementDuration = 0.4f;
+    int movement = (up ? movementDistance : -movementDistance);
+    [UIView beginAnimations: @"animateTextField" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
 }
 
 /*
@@ -606,99 +624,16 @@ if (i >= 1) return YES; else return NO;
     return [emailTest evaluateWithObject:candidate];
 }
 
-/*
- * method - keyboard behavior
- */
-- (void)registerForKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)keyboardWasShown:(NSNotification*)aNotification {
-    
-//    NSDictionary* info = [aNotification userInfo];
-//    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-//    _createScroller.contentInset = contentInsets;
-//    _createScroller.scrollIndicatorInsets = contentInsets;
-//    
-//    // If active text field is hidden by keyboard, scroll it so it's visible
-//    CGRect aRect = self.view.frame;
-//    aRect.size.height -= kbSize.height;
-//    if (!CGRectContainsPoint(aRect, currentTextField.frame.origin) ) {
-//        CGPoint scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbSize.height);
-//        [_createScroller setContentOffset:scrollPoint animated:YES];
-//    }
-}
-
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
-    
-//    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-//    _createScroller.contentInset = contentInsets;
-//    _createScroller.scrollIndicatorInsets = contentInsets;
-    
-}
-
 #pragma mark - View Will Appear
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 #pragma mark - View Will Disappear
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-#pragma mark - Keyboard Did Show
-- (void)keyboardDidShow:(NSNotification *) notif{
-    // keyboard becomes visible
-    self.view.frame = CGRectMake(self.view.frame.origin.x,
-                                    self.view.frame.origin.y,
-                                    self.view.frame.size.width,
-                                    self.view.frame.size.height - 120); // move
-}
-#pragma mark - Keyboard Did Hide
-- (void)keyboardDidHide: (NSNotification *) notif{
-    //keyboard will hide
-    self.view.frame = CGRectMake(self.view.frame.origin.x,
-                                    self.view.frame.origin.y,
-                                    self.view.frame.size.width,
-                                    self.view.frame.size.height + 120); // move
-}
-#pragma mark - keyboard methods for showing / hiding the keyboard
-- (void)keyboardWillHide:(NSNotification *)notification {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    
-    CGRect frame = self->toolBar.frame;
-    frame.origin.y = self.view.frame.size.height;
-    self->toolBar.frame = frame;
-    self->toolBar.userInteractionEnabled = false;
-    [UIView commitAnimations];
 }
 
-- (void)keyboardWillShow:(NSNotification *)notification {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    
-    CGRect frame = self->toolBar.frame;
-    frame.origin.y = self.view.frame.size.height - 260.0;
-    self->toolBar.frame = frame;
-    self->toolBar.userInteractionEnabled = true;
-
-    [UIView commitAnimations];
-}
-#pragma mark - Keyboard toolbar methods
+#pragma mark - toolbar next method
 - (IBAction) next:(id)sender
 {
     if([self.createUserTextField isFirstResponder]) {
@@ -726,7 +661,7 @@ if (i >= 1) return YES; else return NO;
         [self.createUserTextField becomeFirstResponder];
     }
 }
-
+#pragma mark - toolbar previous method
 - (IBAction) prev: (id)sender
 {
     if([self.createUserTextField isFirstResponder]) {

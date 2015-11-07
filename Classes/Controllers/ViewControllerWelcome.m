@@ -35,8 +35,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnForgot;
 @property (nonatomic, retain) UIButton *btnCreate;
+
 // keyboard toolbar
-// toolbar
 @property (retain, nonatomic) UIToolbar *toolBar;
 
 @end

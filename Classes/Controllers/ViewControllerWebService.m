@@ -100,7 +100,7 @@
 //#endif
     
     // get length of string in standard int
-    NSString *tokenLen = [NSString stringWithFormat:@"%d",[tokenString length]];
+    NSString *tokenLen = [NSString stringWithFormat:@"%lu",(unsigned long)[tokenString length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     

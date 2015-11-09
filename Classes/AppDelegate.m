@@ -86,6 +86,30 @@
     [[NSUbiquitousKeyValueStore defaultStore] synchronize];
     [self checkUseriCloudSync];
     
+    // need to figure out how to fetch the DeviceID and append it to the file name
+    NSString *idfv;
+    
+    // Specify how the keychain items can be access
+    // Do this in your -application:didFinishLaunchingWithOptions: callback
+    [SSKeychain setAccessibilityType:kSecAttrAccessibleWhenUnlocked];
+    
+//    NSString *uuid;
+    
+    // get a password
+    if ( (idfv = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"]) == nil) {
+        
+        NSString *idfvString = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        
+        // set a password
+        NSString *enteredPassword = idfvString;
+        
+        // set a password
+        [SSKeychain setPassword:enteredPassword forService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
+    }
+    
+    // log the password
+    NSLog(@"uniqueIDFV = %@",idfv);
+    
     return YES;
 }
 

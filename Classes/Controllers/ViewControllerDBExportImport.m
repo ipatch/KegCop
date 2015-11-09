@@ -188,6 +188,15 @@
     // need to figure out how to fetch the DeviceID and append it to the file name
     NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
+    // get a password
+//    NSString *uniqueIDFV = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
+    
+    // set a password
+    NSString *enteredPassword = idfv;
+    [SSKeychain setPassword:enteredPassword forService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
+    
+    NSLog(@"enteredPassword = %@",enteredPassword);
+    
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     // write array to CSV file

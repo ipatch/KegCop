@@ -202,7 +202,7 @@
     
     NSLog(@"CSV Files array:%@",csvFiles);
     
-    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSString *idfv = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
     
     NSString *fileName = [NSString stringWithFormat:@"KegCop-users-%@.csv",idfv];
     
@@ -264,7 +264,8 @@
 
 - (NSInteger)getIDFromCSVArray:(NSArray *) csvFiles {
     
-    NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSString *idfv = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
+
     for (NSDictionary *fileInfo in csvFiles) {
         if ([fileInfo[@"csv_file_filename"] containsString:idfv]) {
             return [fileInfo[@"id"] integerValue];

@@ -8,6 +8,7 @@
 #import "AccountsDataModel.h"
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
+#import "SSKeychain.h"
 
 @interface ViewControllerAbout : UIViewController 
 {

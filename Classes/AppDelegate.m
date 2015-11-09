@@ -106,7 +106,6 @@
         // set a password
         [SSKeychain setPassword:enteredPassword forService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
     }
-    
     // log the password
     NSLog(@"uniqueIDFV = %@",idfv);
     

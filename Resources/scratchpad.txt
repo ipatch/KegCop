@@ -1,4 +1,32 @@
 -----------------------------------------------
+9NOV15 - rough implementation of import function
+
+
+NSLog(@"inside populateCDDB method");
+// place above listed file / parsed results in Core Data / SQLite store
+NSFetchRequest *request = [[NSFetchRequest alloc] init];
+[request setEntity:[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_context]];
+NSError *error = nil;
+
+NSArray *objectsForImport = [_context executeFetchRequest:request error:&error];
+NSArray *importKeys = [NSArray arrayWithObjects:@"username", @"pin", @"credit", @"email", @"lastLogin", @"rfid", @"phoneNumber", nil];
+
+//    [usersArray arrayWithCapacity:[objectsForImport count]];
+for (NSManagedObject *object in objectsForImport) {
+NSMutableArray *anObjectArray = [NSMutableArray arrayWithCapacity:[importKeys count]];
+for (NSString *key in importKeys) {
+id value = [object valueForKey:key];
+if (!value) {
+value = @"";
+}
+[anObjectArray addObject:[value description]];
+}
+//        [csvObjects addObject:anObjectArray];
+[usersArray addObject:anObjectArray ];
+}
+
+
+-----------------------------------------------
 6NOV15 - keyboard offset macro
 
 // keyboard offset

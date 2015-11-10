@@ -157,14 +157,14 @@
 - (void)submitIssue {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/ipatch/KegCop/issues"]];
 }
-
+#pragma mark - importUsers
 - (void)importUsers {
 #ifdef DEBUG
     NSLog(@"inside importUsers method");
 #endif
     [self getCSV];
 }
-
+#pragma mark - getCSV
 - (void)getCSV {
     // use AFNetworking to retrieve remote CSV file from the API then log the output of file
     
@@ -197,7 +197,7 @@
                                                     }];
     [operation start];
 }
-
+#pragma mark - processJSONResponse
 - (void)processJSONResponse:(NSArray *) csvFiles {
     
     NSLog(@"CSV Files array:%@",csvFiles);
@@ -219,7 +219,7 @@
     NSLog(@"the id is:%ld",(long)[self getIDFromCSVArray:csvFiles]);
     [self getSpecificCSVFile:csvFiles];
 }
-
+#pragma mark - getSpecificCSVFile
 - (void)getSpecificCSVFile:(NSArray *) csvFiles {
     // setup method to use AFNetworking to retrieve CSV file
     NSURL *url;
@@ -231,7 +231,7 @@
     url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files/"];
 #endif
     
-    // convert int into string
+    // convert int into string - call the "getIDFromCSVArray"
     NSString *railsID = [NSString stringWithFormat:@"%ld",(long)[self getIDFromCSVArray:csvFiles]];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
@@ -260,8 +260,122 @@
         NSLog(@"Error: %@", error);
     }];
     [operation start];
+    
+    [self processCSVFile];
+}
+#pragma mark - process CSV File
+- (void) processCSVFile {
+    
+    // create function to open KegCop-imported-users.csv file
+    NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *users = [documents stringByAppendingPathComponent:@"KegCop-imported-users.csv"];
+    
+    NSURL *filePath = [NSURL fileURLWithPath:users];
+    
+    CHCSVParser *file = [[CHCSVParser alloc] initWithContentsOfCSVURL:filePath];
+    
+    [file setDelegate:self];
+    
+    // parse above listed file
+    [file parse];
 }
 
+- (void)populateCDDB {
+    
+    // hopefully this is the last step.
+//    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:usersArray];
+    NSLog(@"usersArray = %@",usersArray);
+    
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    [request setEntity:[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_context]];
+//    NSArray *objectsForImport = [_context executeFetchRequest:request error:&error];
+    
+    NSArray *importKeys = [NSArray arrayWithObjects:@"username", @"pin", @"credit", @"email", @"lastLogin", @"rfid", @"phoneNumber", nil];
+    
+    Account *account = [NSEntityDescription insertNewObjectForEntityForName: @"Account" inManagedObjectContext: _context];
+    
+    [account setValuesForKeysWithDictionary: [usersArray dictionaryWithValuesForKeys: importKeys]];
+    
+    NSError *error = nil;
+    
+    [_context save:&error];
+    
+//    for (NSManagedObject *object in objectsForImport) {
+//        NSMutableArray *anObjectArray = [NSMutableArray arrayWithCapacity:[importKeys count]];
+//        for (NSString *key in importKeys) {
+//            id value = [object valueForKey:key];
+//            if (!value) {
+//                value = @"";
+//            }
+//            [usersArray addObject:[value description]];
+//        }
+//    }
+    //save the results to Core Data / SQLite store.
+    
+}
+
+- (BOOL)addUsersFromArray {
+    
+    NSArray *importKeys = @[@"pin", @"credit", @"email", @"lastLogin", @"rfid", @"phoneNumber"];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
+    
+    for (id Account in usersArray) {
+        
+        id username = [Account valueForKey:@"username"];
+        
+        NSError *error = nil;
+        // See if we already have an Account for this user - username is unique key
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"username = %@", username];
+        NSArray *fetched = [_context executeFetchRequest:fetchRequest error:&error];
+        if (fetched == nil) return NO;
+        
+        NSManagedObject *account = [fetched firstObject];
+        if (account == nil) {
+            account = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:_context];
+            [account setValue:username forKey:@"username"];
+        }
+        for (NSString *key in importKeys) {
+            id value = [Account valueForKey:key];
+            if (value) {
+                [account setValue:value forKey:key];
+            }
+        }
+        [_context save:&error];
+    }
+    return YES;
+}
+
+#pragma mark - delegate methods for CHCSVParser
+-(void) parserDidBeginDocument:(CHCSVParser *)parser {
+    NSLog(@"Parser started!");
+}
+
+-(void) parserDidEndDocument:(CHCSVParser *)parser {
+    
+}
+
+- (void) parser:(CHCSVParser *)parser didFailWithError:(NSError *)error {
+    
+}
+
+-(void)parser:(CHCSVParser *)parser didBeginLine:(NSUInteger)recordNumber {
+    usersArray = [[NSMutableArray alloc] init];
+    
+}
+
+-(void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex {
+    [usersArray addObject:field];
+}
+
+- (void) parser:(CHCSVParser *)parser didEndLine:(NSUInteger)lineNumber {
+    NSLog(@"finished line! %@", usersArray);
+    [self addUsersFromArray];
+    
+}
+
+#pragma mark - getIDFromCSVArray
 - (NSInteger)getIDFromCSVArray:(NSArray *) csvFiles {
     
     NSString *idfv = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
@@ -273,7 +387,7 @@
     }
     return -1;
 }
-
+#pragma mark - count Usernames
 - (NSUInteger)countUsernames {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setIncludesSubentities:NO];
@@ -286,7 +400,7 @@
     }
     return count;
 }
-
+#pragma mark - dismiss About VC / Scene
 - (IBAction)dismissAboutScene:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -453,6 +453,7 @@
 /*
  * CREATE - to pull text from text fields and store in account database
  */
+#pragma mark - Create Account
 - (IBAction)createAccount:(id)sender {
     
     NSLog(@"inside createAccount method");
@@ -688,9 +689,7 @@ if (i >= 1) return YES; else return NO;
         [_createPhoneNumber resignFirstResponder];
         [self.createEmailTextField becomeFirstResponder];
     }
-    
 }
-
 
 # pragma mark - device orientation
 /*

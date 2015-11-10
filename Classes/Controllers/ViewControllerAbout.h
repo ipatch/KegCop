@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
 #import "SSKeychain.h"
+#import "CHCSVParser.h"
+#import "Account.h"
 
-@interface ViewControllerAbout : UIViewController 
+@interface ViewControllerAbout : UIViewController  <CHCSVParserDelegate>
 {
+    NSMutableArray * usersArray;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;

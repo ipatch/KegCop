@@ -256,12 +256,14 @@
         
         [responseObjectArray writeToFile:users atomically:YES];
         
+        [self processCSVFile];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     [operation start];
     
-    [self processCSVFile];
+    
 }
 #pragma mark - process CSV File
 - (void) processCSVFile {
@@ -281,39 +283,7 @@
     [file parse];
 }
 
-- (void)populateCDDB {
-    
-    // hopefully this is the last step.
-//    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:usersArray];
-    NSLog(@"usersArray = %@",usersArray);
-    
-//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//    [request setEntity:[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_context]];
-//    NSArray *objectsForImport = [_context executeFetchRequest:request error:&error];
-    
-    NSArray *importKeys = [NSArray arrayWithObjects:@"username", @"pin", @"credit", @"email", @"lastLogin", @"rfid", @"phoneNumber", nil];
-    
-    Account *account = [NSEntityDescription insertNewObjectForEntityForName: @"Account" inManagedObjectContext: _context];
-    
-    [account setValuesForKeysWithDictionary: [usersArray dictionaryWithValuesForKeys: importKeys]];
-    
-    NSError *error = nil;
-    
-    [_context save:&error];
-    
-//    for (NSManagedObject *object in objectsForImport) {
-//        NSMutableArray *anObjectArray = [NSMutableArray arrayWithCapacity:[importKeys count]];
-//        for (NSString *key in importKeys) {
-//            id value = [object valueForKey:key];
-//            if (!value) {
-//                value = @"";
-//            }
-//            [usersArray addObject:[value description]];
-//        }
-//    }
-    //save the results to Core Data / SQLite store.
-    
-}
+
 
 - (BOOL)addUsersFromArray {
     
@@ -321,9 +291,8 @@
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Account"];
     
-    for (id Account in usersArray) {
-        
-        id username = [Account valueForKey:@"username"];
+    NSLog(@"usersArray = %@",usersArray);
+        id username = usersArray [0];
         
         NSError *error = nil;
         // See if we already have an Account for this user - username is unique key
@@ -337,13 +306,22 @@
             [account setValue:username forKey:@"username"];
         }
         for (NSString *key in importKeys) {
-            id value = [Account valueForKey:key];
+            id value = usersArray[[importKeys indexOfObject:key] + 1];
             if (value) {
-                [account setValue:value forKey:key];
+                if ([key isEqualToString:@"credit"]) {
+                    [account setValue:@([value integerValue]) forKey:key];
+                }
+                else {
+                    if([key isEqualToString:@"lastLogin"]) {
+                        [account setValue:[NSDate date]forKey:key];
+                    }
+                    else {
+                        [account setValue:[value description] forKey:key];
+                    }
+                }
             }
         }
         [_context save:&error];
-    }
     return YES;
 }
 
@@ -367,11 +345,17 @@
 
 -(void)parser:(CHCSVParser *)parser didReadField:(NSString *)field atIndex:(NSInteger)fieldIndex {
     [usersArray addObject:field];
+    // iterate through CSV file, group objects in 7
+    if( fieldIndex %7 == 6) {
+        [self addUsersFromArray];
+        [usersArray removeAllObjects];
+    }
+    NSLog(@"field = %@",field);
 }
 
 - (void) parser:(CHCSVParser *)parser didEndLine:(NSUInteger)lineNumber {
     NSLog(@"finished line! %@", usersArray);
-    [self addUsersFromArray];
+//    [self addUsersFromArray];
     
 }
 

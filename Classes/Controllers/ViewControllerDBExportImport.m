@@ -162,29 +162,6 @@
     NSLog(@"exportUsers method reached");
 #endif
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_context]];
-    NSError *error = nil;
-    
-    NSArray *objectsForExport = [_context executeFetchRequest:request error:&error];
-    NSArray *exportKeys = [NSArray arrayWithObjects:@"username", @"pin", @"credit", @"email", @"lastLogin", @"rfid", @"phoneNumber", nil];
-    
-    NSMutableArray *csvObjects = [NSMutableArray arrayWithCapacity:[objectsForExport count]];
-    for (NSManagedObject *object in objectsForExport) {
-        NSMutableArray *anObjectArray = [NSMutableArray arrayWithCapacity:[exportKeys count]];
-        for (NSString *key in exportKeys) {
-            id value = [object valueForKey:key];
-            if (!value) {
-                value = @"";
-            }
-            [anObjectArray addObject:[value description]];
-        }
-        [csvObjects addObject:anObjectArray];
-    }
-#ifdef DEBUG
-    NSLog(@"The output:%@",csvObjects);
-#endif
-    
     // get a password
     NSString *idfv = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
     
@@ -194,7 +171,32 @@
     
     // write array to CSV file
     CHCSVWriter *csvWriter=[[CHCSVWriter alloc]initForWritingToCSVFile:[documents stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]]];
-    [csvWriter writeLineOfFields:csvObjects];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Account" inManagedObjectContext:_context]];
+    NSError *error = nil;
+    
+    NSArray *objectsForExport = [_context executeFetchRequest:request error:&error];
+    NSArray *exportKeys = [NSArray arrayWithObjects:@"username", @"pin", @"credit", @"email", @"lastLogin", @"rfid", @"phoneNumber", nil];
+    
+    for (NSManagedObject *object in objectsForExport) {
+        NSMutableArray *csvObjects = [NSMutableArray arrayWithCapacity:[objectsForExport count]];
+
+//        NSMutableArray *anObjectArray = [NSMutableArray arrayWithCapacity:[exportKeys count]];
+        for (NSString *key in exportKeys) {
+            id value = [object valueForKey:key];
+            if (!value) {
+                value = @"";
+            }
+            [csvObjects addObject:[value description]];
+        }
+//        [csvObjects addObject:anObjectArray];
+        [csvWriter writeLineOfFields:csvObjects];
+        [csvWriter finishLine];
+    }
+#ifdef DEBUG
+//    NSLog(@"The output:%@",csvObjects);
+#endif
     
     [csvWriter closeStream];
     

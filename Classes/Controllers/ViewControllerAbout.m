@@ -174,7 +174,7 @@
     url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files"];
 #else
     // use this variable on RELEASE build
-    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files"];
+    url = [NSURL URLWithString:@"http://api.kegcop.chrisrjones.com/api/csv_files"];
 #endif
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -228,7 +228,7 @@
     url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files/"];
 #else
     // use this variable on RELEASE build
-    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files/"];
+    url = [NSURL URLWithString:@"http://api.kegcop.chrisrjones.com/api/csv_files/"];
 #endif
     
     // convert int into string - call the "getIDFromCSVArray"
@@ -262,8 +262,6 @@
         NSLog(@"Error: %@", error);
     }];
     [operation start];
-    
-    
 }
 #pragma mark - process CSV File
 - (void) processCSVFile {

@@ -128,14 +128,6 @@
     // hide capture avatar btn
     _captureAvatar.hidden = true;
     
-    if (_avatar == nil) {
-#ifdef DEBUG
-        NSLog(@"couldn't find avatar");
-#endif
-        // add default avatar to user
-        [self displayDefaultAvatar];
-    }
-    
     // 6AUG13 - idle time logout
     _idleTimerTime.text = @"60 secs til";
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
@@ -234,7 +226,8 @@
     [_lblUSERNAME setText:[NSString stringWithFormat:@"%@ you have %@ credits.",_un,_credit]];
     
     //display avatar
-    [self displayAvatar];
+    NSLog(@"inside viewDidLoad method");
+    [self checkAvatarStatus];
 
     // Core Bluetooth - added 6FEB14
     self.blunoManager = [DFBlunoManager sharedInstance];
@@ -244,11 +237,60 @@
 }
 #pragma mark - View Did Appear
 - (void)viewDidAppear:(BOOL)animated {
-    [self displayAvatar];
+
+        [self checkAvatarStatus];
+#ifdef DEBUG
+        NSLog(@"inside viewDidAppear method");
+#endif
 }
+#pragma mark - Check Avatar Status
+-(void)checkAvatarStatus {
+#ifdef DEBUG
+    NSLog(@"inside checkAvatarStatus method");
+#endif
+    // retrieve image from Core Data and place on UIButton
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"avatar",@"username"]];
+    
+    //     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+    }
+#ifdef DEBUG
+    NSLog(@"results = %@",results);
+#endif
+    // find specific value in array
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:_un]) {
+            NSLog(@"username found.");
+            // set the _avatarButton image to the avatar!!!
+            if(anAccount.avatar == nil) {
+                [self displayDefaultAvatar];
+            }
+            else {
+                [self displayAvatar];
+            }
+        }
+#ifdef DEBUG
+            NSLog(@"avatar = %@",_avatar);
+#endif
+    }
+}
+
 #pragma mark - display Avatar
 - (void)displayAvatar {
-//    // retrieve image from Core Data and place on UIButton
+#ifdef DEBUG
+    NSLog(@"inside displayAvatar method");
+#endif
+    // retrieve image from Core Data and place on UIButton
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     // define table / entity to use
@@ -273,7 +315,6 @@
             NSLog(@"username found.");
             // set the _avatarButton image to the avatar!!!
             _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
-//            [_avatarButton setImage:_avatar forState:UIControlStateNormal];
             [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
 #ifdef DEBUG
             NSLog(@"avatar = %@",_avatar);
@@ -283,6 +324,7 @@
 }
 #pragma mark - Display Default Avatar
 - (void)displayDefaultAvatar {
+    NSLog(@"inside displayDefaultAvatar method");
     // retrieve image from Core Data and place on UIButton
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -305,7 +347,14 @@
     // find specific value in array
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_un]) {
-            NSLog(@"username found.");
+#ifdef DEBUG
+            NSLog(@"usernameee found.");
+#endif
+            
+            NSURL *avatarURL = [[NSBundle mainBundle] URLForResource:@"HomeBrewPoster1" withExtension:@"jpg"];
+#ifdef DEBUG
+            NSLog(@"avatarURL = %@",avatarURL);
+#endif
             
             _avatar = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
             
@@ -313,6 +362,7 @@
             [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
 #ifdef DEBUG
             NSLog(@"avatar = %@",_avatar);
+            NSLog(@"avatarURL = %@",avatarURL);
 #endif
         }
     }

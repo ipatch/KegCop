@@ -22,9 +22,11 @@
 @property (nonatomic, retain) UILabel *creditX;
 @property (nonatomic, retain) UIButton *btndrinkbeer;
 @property (nonatomic, retain) UIButton *btnLogout;
+@property (nonatomic, retain) UIButton *avatarButton;
 @end
 
 @implementation ViewControllerHome { }
+
 #pragma mark - Add UI Elements
 -(void)addUIElements {
     _navBar = [[UINavigationBar alloc] init];
@@ -52,7 +54,7 @@
     
     // setup code to draw / display avatar
     UIView *avatarView = [[UIView alloc] init];
-    avatarView.frame = CGRectMake(20, 60, 280, 100);
+    avatarView.frame = CGRectMake(-10, 50, 100, 100); // what do these values mean? -- position of red outline where avatar will be displayed ;) original values were (20, 60, 280, 100) 100 = height, 280 = width
 #ifdef DEBUG
     avatarView.layer.borderColor = [UIColor redColor].CGColor;
     avatarView.layer.borderWidth = 3.0f;
@@ -60,12 +62,21 @@
     [self.view addSubview:avatarView];
     
     // do additional loading for avatars
-    UIButton *avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     // the last two values control the size of the button
-    avatarButton.frame = CGRectMake(0, 0, 80, 80);
+//    _avatarButton.frame = CGRectMake(0, 0, 100, 100); // <- this line is not needed because the constraints resolve the btn location
     // make corners round
-    avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
-    avatarButton.clipsToBounds = YES;
+    _avatarButton.layer.cornerRadius = 50; // value varies -- // 35 yields a pretty good circle.
+    _avatarButton.clipsToBounds = YES;
+    _avatarButton.layer.borderColor = [UIColor blueColor].CGColor;
+    _avatarButton.layer.borderWidth = 3.0f;
+    [_avatarButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    // add method to button
+    [_avatarButton addTarget:self
+                      action:@selector(addAvatar:)
+            forControlEvents:UIControlEventTouchUpInside];
+    // add button to subview
+    [avatarView addSubview:_avatarButton];
     
     // setup lblUSERNAME
     _lblUSERNAME = [[UILabel alloc] init];
@@ -112,24 +123,17 @@
                                                  alpha:1.0f] forState:UIControlStateNormal];
     [self.view addSubview:_btndrinkbeer];
     
-    
-    
-    
-    
     // hide capture avatar btn
     _captureAvatar.hidden = true;
-    
     
     if (_avatar == nil) {
 #ifdef DEBUG
         NSLog(@"couldn't find avatar");
 #endif
     } else {
-        [avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
+        
     }
-    // add button to subview
-    [avatarView addSubview:avatarButton];
-
+    
     // 6AUG13 - idle time logout
     _idleTimerTime.text = @"60 secs til";
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
@@ -166,13 +170,23 @@
 #pragma mark - Add UI Element Constraints
 -(void)addUIElementConstraints {
     
+    // setup constraints for avatar btn
+    NSLayoutConstraint *pullAvatarBtnToTop = [NSLayoutConstraint constraintWithItem:_avatarButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_avatarButton.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0];
+    
+    NSLayoutConstraint *pullAvatarBtnToBottom = [NSLayoutConstraint constraintWithItem:_avatarButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_avatarButton.superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+    
+    NSLayoutConstraint *pullAvatarBtnToLeft = [NSLayoutConstraint constraintWithItem:_avatarButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_avatarButton.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
+    
+    NSLayoutConstraint *pullAvatarBtnToRight = [NSLayoutConstraint constraintWithItem:_avatarButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_avatarButton.superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
+    
+    [_avatarButton.superview addConstraints:@[pullAvatarBtnToTop, pullAvatarBtnToBottom, pullAvatarBtnToLeft, pullAvatarBtnToRight]];
+    
     // setup lblUSERNAME constraints
     NSLayoutConstraint *pulllblUserNameToTop = [NSLayoutConstraint constraintWithItem:_lblUSERNAME attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_lblUSERNAME.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:180.0];
     
     NSLayoutConstraint *pulllblUserNameToLeft = [NSLayoutConstraint constraintWithItem:_lblUSERNAME attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_lblUSERNAME.superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:15.0];
     
     [_lblUSERNAME.superview addConstraints:@[pulllblUserNameToTop, pulllblUserNameToLeft]];
-    
     
     // setup pour beer button constraints
     NSLayoutConstraint *pullPourBeerToTop = [NSLayoutConstraint constraintWithItem:_btndrinkbeer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_btndrinkbeer.superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:220.0];
@@ -208,56 +222,57 @@
         NSLog(@"After _managedObjectContext: %@",  _managedObjectContext);
 #endif
     }
-//    _un = [NSString stringWithFormat:[self.delegate receiveUserName]];
-    
     
     [self addUIElements];
     [self addUIElementConstraints];
     // update credit
     [self updateCredit];
-//    _credit = [NSString stringWithFormat:@"%@",_creditX.text];
     
     // change USERNAME label
     [_lblUSERNAME setText:[NSString stringWithFormat:@"%@ you have %@ credits.",_un,_credit]];
+    
+    //display avatar
+    [self displayAvatar];
 
     // Core Bluetooth - added 6FEB14
     self.blunoManager = [DFBlunoManager sharedInstance];
     self.blunoManager.delegate = self;
     [self.blunoManager scan];
     
-    
-    
-//    // retrieve image from Core Data and place on UIButton
-//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//    
-//    // define table / entity to use
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
-//    [request setEntity:entity];
-////    [request setResultType:NSDictionaryResultType];
-//    [request setReturnsDistinctResults:YES];
-//    [request setPropertiesToFetch:@[@"avatar",@"username"]];
-    
-    // fetch records and handle error
-//    NSError *error;
-//    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
-//    
-//    if (!results) {
-//        // handle error
-//    }
-//    NSLog(@"results = %@",results);
-//    // find specific value in array
-    
-    // convert UILabel.text to NSString for searching
-    
-//    for (Account *anAccount in results) {
-//        if ([anAccount.username isEqualToString:search]) {
-//            NSLog(@"username found.");
-//            _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
-//            NSLog(@"avatar = %@",_avatar);
-//        }
-//    }
 }
-
+#pragma mark - display Avatar
+- (void)displayAvatar {
+//    // retrieve image from Core Data and place on UIButton
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"avatar",@"username"]];
+    
+//     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+    }
+    NSLog(@"results = %@",results);
+    // find specific value in array
+    
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:_un]) {
+            NSLog(@"username found.");
+            // set the _avatarButton image to the avatar!!!
+            _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
+//            [_avatarButton setImage:_avatar forState:UIControlStateNormal];
+            [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
+            NSLog(@"avatar = %@",_avatar);
+        }
+    }
+}
+#pragma mark - delete Account
 - (IBAction)removeAccount {
 #ifdef DEBUG
     NSLog(@"Button Pressed");
@@ -352,7 +367,7 @@
             // add tf with current credit
             NSUInteger newcredit = credit + creditcurrent;
 #ifdef DEBUG
-            NSLog(@"new credit amount = %i",newcredit);
+            NSLog(@"new credit amount = %lu",(unsigned long)newcredit);
 #endif
             // save new value to anAccount.credit - convert int to NSNumber
             NSNumber *creditnew = [NSNumber numberWithInteger:newcredit];
@@ -485,7 +500,7 @@
     NSMutableDictionary *dataToReturn = [[NSMutableDictionary alloc] init];
     
     // how to add lblUSERNAME(.text) to mutable dictionary ?
-    [dataToReturn setObject:_lblUSERNAME.text  forKey:@"username"];
+    [dataToReturn setObject:_un forKey:@"username"];
     
     return dataToReturn;
 }

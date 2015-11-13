@@ -25,6 +25,7 @@
     
 @implementation ViewControllerAvatar4
 
+# pragma mark - view Did Load
 -(void)viewDidLoad {
     // Core Data
     if (_managedObjectContext == nil)
@@ -107,7 +108,7 @@
     toolbar.userInteractionEnabled = YES;
     
 }
-
+# pragma mark - front camera
 - (AVCaptureDevice *)frontCamera {
     for (AVCaptureDevice *device in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
         if ([device position] == AVCaptureDevicePositionFront) {
@@ -118,6 +119,7 @@
     return [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
 }
 
+# pragma mark - capture Now
 -(IBAction)captureNow {
     AVCaptureConnection *videoConnection = nil;
     for (AVCaptureConnection *connection in _stillImageOutput.connections)
@@ -163,18 +165,15 @@
          
          _dataImage = UIImageJPEGRepresentation(image, 0.0);
          
-         
          // figure out how to save pic for a particular account entity
          
          // save to Core Data moc
-//         [_managedObjectContext setValue:dataImage forKey:@"Account"];
          // save picture / avatar to CoreData entity specific to username
          [self saveAvatar];
-         
-         
      }];
 }
 
+# pragma mark - save Avatar
 -(void)saveAvatar {
 #ifdef DEBUG
     NSLog(@"saveAvatar method reached");
@@ -220,7 +219,9 @@
             }
         }
     }
+    [self done];
 }
+# pragma mark - dismiss Scene
 -(void)done {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

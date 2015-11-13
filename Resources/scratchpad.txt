@@ -1,4 +1,9 @@
 -----------------------------------------------
+12NOV15 - and the quest for avatars begins :)
+
+
+
+-----------------------------------------------
 9NOV15 - rough implementation of import function
 
 

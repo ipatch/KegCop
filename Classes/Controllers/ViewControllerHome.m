@@ -79,6 +79,8 @@
             forControlEvents:UIControlEventTouchUpInside];
     // add button to subview
     [avatarView addSubview:_avatarButton];
+    // place the avatar below other GUI elements - see SO answer, http://stackoverflow.com/a/10051522/708807
+    [self.view insertSubview:avatarView atIndex:0];
     
     // setup lblUSERNAME
     _lblUSERNAME = [[UILabel alloc] init];
@@ -226,7 +228,9 @@
     [_lblUSERNAME setText:[NSString stringWithFormat:@"%@ you have %@ credits.",_un,_credit]];
     
     //display avatar
+#ifdef DEBUG
     NSLog(@"inside viewDidLoad method");
+#endif
     [self checkAvatarStatus];
 
     // Core Bluetooth - added 6FEB14
@@ -270,7 +274,9 @@
     // find specific value in array
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_un]) {
+#ifdef DEBUG
             NSLog(@"username found.");
+#endif
             // set the _avatarButton image to the avatar!!!
             if(anAccount.avatar == nil) {
                 [self displayDefaultAvatar];

@@ -68,8 +68,10 @@
     // make corners round
     _avatarButton.layer.cornerRadius = 50; // value varies -- // 35 yields a pretty good circle.
     _avatarButton.clipsToBounds = YES;
+#ifdef DEBUG
     _avatarButton.layer.borderColor = [UIColor blueColor].CGColor;
     _avatarButton.layer.borderWidth = 3.0f;
+#endif
     [_avatarButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     // add method to button
     [_avatarButton addTarget:self
@@ -130,8 +132,8 @@
 #ifdef DEBUG
         NSLog(@"couldn't find avatar");
 #endif
-    } else {
-        
+        // add default avatar to user
+        [self displayDefaultAvatar];
     }
     
     // 6AUG13 - idle time logout
@@ -240,6 +242,10 @@
     [self.blunoManager scan];
     
 }
+#pragma mark - View Did Appear
+- (void)viewDidAppear:(BOOL)animated {
+    [self displayAvatar];
+}
 #pragma mark - display Avatar
 - (void)displayAvatar {
 //    // retrieve image from Core Data and place on UIButton
@@ -258,9 +264,10 @@
     if (!results) {
         // handle error
     }
+#ifdef DEBUG
     NSLog(@"results = %@",results);
+#endif
     // find specific value in array
-    
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_un]) {
             NSLog(@"username found.");
@@ -268,10 +275,49 @@
             _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
 //            [_avatarButton setImage:_avatar forState:UIControlStateNormal];
             [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
+#ifdef DEBUG
             NSLog(@"avatar = %@",_avatar);
+#endif
         }
     }
 }
+#pragma mark - Display Default Avatar
+- (void)displayDefaultAvatar {
+    // retrieve image from Core Data and place on UIButton
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"avatar",@"username"]];
+    
+    //     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+    }
+#ifdef DEBUG
+    NSLog(@"results = %@",results);
+#endif
+    // find specific value in array
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:_un]) {
+            NSLog(@"username found.");
+            
+            _avatar = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
+            
+            // set the _avatarButton image to the avatar!!!
+            [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
+#ifdef DEBUG
+            NSLog(@"avatar = %@",_avatar);
+#endif
+        }
+    }
+}
+
 #pragma mark - delete Account
 - (IBAction)removeAccount {
 #ifdef DEBUG

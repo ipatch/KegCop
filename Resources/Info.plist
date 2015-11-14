@@ -60,6 +60,8 @@
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>iPhone</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

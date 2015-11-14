@@ -18,6 +18,8 @@
 @property(nonatomic, retain) AVCaptureStillImageOutput *stillImageOutput;
 @property(nonatomic, retain) IBOutlet UIImageView *vImage;
 @property(nonatomic, retain) NSData *dataImage;
+@property(nonatomic, retain) UIImage *image;
+@property(nonatomic, retain) UIImage *croppedImage;
 // Core Data
 @property(nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
@@ -82,6 +84,20 @@
     [session addInput:input];
     
     _stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+    
+    // add Dictionary to store PixelXDimension / PixelYDimension
+    double width = 480;
+    double height = 480;
+    NSDictionary *pixelBufferOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [NSNumber numberWithDouble:width], (id)kCVPixelBufferWidthKey,
+                                        [NSNumber numberWithDouble:height], (id)kCVPixelBufferHeightKey,
+                                        [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA], (id)kCVPixelBufferPixelFormatTypeKey,
+                                        nil];
+    
+//    NSDictionary *options = @{(id)kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA,
+//                              (id)kCVPixelBufferWidthKey : width,
+//                              (id)kCVPixelBufferHeightKey : height };
+
     NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecJPEG, AVVideoCodecKey, nil];
     [_stillImageOutput setOutputSettings:outputSettings];
     [session addOutput:_stillImageOutput];
@@ -156,21 +172,73 @@
          }
          
          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-         UIImage *image = [[UIImage alloc] initWithData:imageData];
+         _image = [[UIImage alloc] initWithData:imageData];
          
-         self.vImage.image = image;
+         self.vImage.image = _image;
          
          // the below line will save the image to the PhotoAlbum
 //         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+         float width = 360;
+         float height = 360;
+         CGSize squareSize = CGSizeMake(width, height);
          
-         _dataImage = UIImageJPEGRepresentation(image, 0.0);
+         [self squareImageWithImage:_image scaledToSize:squareSize];
          
-         // figure out how to save pic for a particular account entity
+         _dataImage = UIImageJPEGRepresentation(_image, 0.0);
+         
+         
          
          // save to Core Data moc
          // save picture / avatar to CoreData entity specific to username
          [self saveAvatar];
      }];
+}
+
+
+#pragma mark - Square Image With Image
+- (UIImage *)squareImageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    
+    // see http://stackoverflow.com/questions/158914/cropping-an-uiimage
+    // see http://stackoverflow.com/a/28085176/708807
+    
+    double ratio;
+    double delta;
+    CGPoint offset;
+    
+    //make a new square size, that is the resized imaged width
+    CGSize sz = CGSizeMake(newSize.width, newSize.width);
+    
+    //figure out if the picture is landscape or portrait, then
+    //calculate scale factor and offset
+    if (image.size.width > image.size.height) {
+        ratio = newSize.width / image.size.width;
+        delta = (ratio*image.size.width - ratio*image.size.height);
+        offset = CGPointMake(delta/2, 0);
+    } else {
+        ratio = newSize.width / image.size.height;
+        delta = (ratio*image.size.height - ratio*image.size.width);
+        offset = CGPointMake(0, delta/2);
+    }
+    
+    //make the final clipping rect based on the calculated values
+    CGRect clipRect = CGRectMake(-offset.x, -offset.y,
+                                 (ratio * image.size.width) + delta,
+                                 (ratio * image.size.height) + delta);
+    
+    
+    //start a new context, with scale factor 0.0 so retina displays get
+    //high quality image
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        UIGraphicsBeginImageContextWithOptions(sz, YES, 0.0);
+    } else {
+        UIGraphicsBeginImageContext(sz);
+    }
+    UIRectClip(clipRect);
+    [image drawInRect:clipRect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 # pragma mark - save Avatar

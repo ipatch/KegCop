@@ -12,7 +12,7 @@ F: add alert / notification that credits have been added
 
 F: add TOS agreement to Core Data DB
 
-N: look into iOS responsive scrolling
+C: look into iOS responsive scrolling
 
 C: programmatically create navbar for forgot vc
 
@@ -56,7 +56,7 @@ F: redesign home screen for normal users, incorporate a hamburger flyout menu.
 
 F: add support for frequent flyers to login screen, i.e. the last 5 logged in users.
 
-F: figure out why scroll views stopped working in iOS 7.x and greater.
+C: figure out why scroll views stopped working in iOS 7.x and greater.
 
 C: add support for taking pictures / avatars with front facing camera.
 

@@ -184,7 +184,9 @@
          
          [self squareImageWithImage:_image scaledToSize:squareSize];
          
-         _dataImage = UIImageJPEGRepresentation(_image, 0.0);
+         NSLog(@"_croppedImage = %@",_croppedImage);
+         
+         _dataImage = UIImageJPEGRepresentation(_croppedImage, 0.0);
          
          
          
@@ -238,7 +240,12 @@
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
+    NSLog(@"newImage = %@",newImage);
+    
+    _croppedImage = newImage;
+    
     return newImage;
+    
 }
 
 # pragma mark - save Avatar

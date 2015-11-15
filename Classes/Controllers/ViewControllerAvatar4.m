@@ -188,8 +188,6 @@
          
          _dataImage = UIImageJPEGRepresentation(_croppedImage, 0.0);
          
-         
-         
          // save to Core Data moc
          // save picture / avatar to CoreData entity specific to username
          [self saveAvatar];

@@ -14,7 +14,6 @@
 {
 // declare private methods here
     dispatch_queue_t scan_queue;
-    UIScrollView *avatarScroll;
 }
 @property(nonatomic, retain) NSDate *loginTime;
 @property(nonatomic, retain) UIButton *avatarButton;
@@ -38,6 +37,10 @@
 
 // keyboard toolbar
 @property (retain, nonatomic) UIToolbar *toolBar;
+
+// Avatar - properties
+@property (retain, nonatomic) UIView *avatarView;
+@property (retain, nonatomic) UIScrollView *avatarScroll;
 
 @end
 
@@ -64,6 +67,27 @@
 
 #pragma mark - Add GUI Elements
 -(void)addGUIElements {
+    
+    // AVATARS
+    // create a subview for avatar buttons
+    _avatarView = [[UIView alloc] init];
+    _avatarView.frame = CGRectMake(20, 125, 280, 100); // don't mess with these values.
+    [_avatarView setTranslatesAutoresizingMaskIntoConstraints:NO];
+#ifdef DEBUG
+    _avatarView.layer.borderColor = [UIColor redColor].CGColor;
+    _avatarView.layer.borderWidth = 3.0f;
+#endif
+//    [self.view addSubview:_avatarView];
+    
+    _avatarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    _avatarScroll.contentSize = CGSizeMake(500, 500);
+    _avatarScroll.scrollEnabled = YES;
+#ifdef DEBUG
+    _avatarScroll.layer.borderColor = [UIColor greenColor].CGColor;
+    _avatarScroll.layer.borderWidth = 3.0f;
+#endif
+//    [_avatarView addSubview:_avatarScroll];
+    [_contentView addSubview:_avatarView];
     
     // toolbar - displayed above keypad / keyboard
     _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
@@ -327,6 +351,18 @@
     [_textFieldUsername addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_textFieldUsername(==50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_textFieldUsername)]];
     
     [_contentView addConstraints:@[pulltfUsernameToBottom, pulltfUsernameToRight,pulltfUsernameToLeft]];
+    
+    // add constraints for _avatarView
+    NSLayoutConstraint *pullAvatarViewToBottom = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-300.0];
+    
+    NSLayoutConstraint *pullAvatarViewToRight = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35.0];
+    
+    NSLayoutConstraint *pullAvatarViewToLeft = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35.0];
+    
+//    THE BELOW LINE IS CAUSING THE APP TO CRASH
+    
+//    [self.view addConstraints:@[pullAvatarViewToBottom, pullAvatarViewToRight, pullAvatarViewToLeft]];
+    
 }
 #pragma mark - View Did Load
 - (void)viewDidLoad {
@@ -358,20 +394,7 @@
     // see SO thread - stackoverflow.com/questions/17678881/
     [self setNeedsStatusBarAppearanceUpdate];
     
-    // create a subview for avatar buttons
-    UIView *avatarView = [[UIView alloc] init];
-    avatarView.frame = CGRectMake(20, 125, 280, 100); // don't mess with these values.
-//    avatarView.layer.borderColor = [UIColor redColor].CGColor;
-//    avatarView.layer.borderWidth = 3.0f;
-    [self.view addSubview:avatarView];
-    
-    avatarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
-    avatarScroll.contentSize = CGSizeMake(500, 500);
-    avatarScroll.scrollEnabled = YES;
-    [avatarView addSubview:avatarScroll];
-    
-    
-//    [self addAvatarsToButtons];
+    [self addAvatarsToButtons];
 }
 # pragma mark - Fill Username from Avatar Button
 -(void)fillUserName {
@@ -427,7 +450,7 @@
         [_avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
         
         // this should add 5x buttons
-        [avatarScroll addSubview:_avatarButton];
+        [_avatarScroll addSubview:_avatarButton];
     }
 }
 # pragma mark - Add Avatar to Button

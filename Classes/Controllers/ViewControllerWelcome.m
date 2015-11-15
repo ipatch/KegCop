@@ -68,16 +68,64 @@
 #pragma mark - Add GUI Elements
 -(void)addGUIElements {
     
+    // MAKE SURE GUI ELEMENTS ARE INITIALIZED IN THE PROPER ORDER, OR APP WILL CRASH
+    
+    // add scroller to default view, self.view
+    _welcomeScroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    _welcomeScroller.userInteractionEnabled = YES;
+    _welcomeScroller.scrollEnabled = YES;
+    _welcomeScroller.showsHorizontalScrollIndicator = YES;
+    _welcomeScroller.showsVerticalScrollIndicator = YES;
+    
+    [_welcomeScroller setBackgroundColor:[UIColor colorWithRed:100.0f/255.0f
+                                                         green:83.0f/255.0f
+                                                          blue:0.0f/255.0f
+                                                         alpha:1.0f]];
+    CGSize welcomeScrollerSize = CGSizeMake(self.view.bounds.size.width, 1000);
+    [_welcomeScroller setContentSize:welcomeScrollerSize];
+    
+    [self.view addSubview:_welcomeScroller];
+    
+    // add the content view (contains auto layout constraints)
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    _contentView = [[UIView alloc] initWithFrame:applicationFrame];
+    _contentView.backgroundColor = [UIColor colorWithRed:(245/255.0)
+                                                   green:(208/255.0)
+                                                    blue:(55/255)
+                                                   alpha:(1.0f) ];
+    
+    [_welcomeScroller addSubview:_contentView];
+    
+    // navBar
+    _navBar = [[UINavigationBar alloc] init];
+    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),64)];
+    
+    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"KegCop"];
+    
+    _navBar.items = @[titleItem];
+    
+    _navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
+                                           green:83.0f/255.0f
+                                            blue:0.0f/255.0f
+                                           alpha:1.0f];
+    _navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
+                                                                                    green:239.0f/255.0f
+                                                                                     blue:160.0f/255.0f
+                                                                                    alpha:1.0f]};
+    _navBar.translucent = NO;
+    [_contentView addSubview:_navBar];
+    // END navBar
+    
     // AVATARS
     // create a subview for avatar buttons
     _avatarView = [[UIView alloc] init];
-    _avatarView.frame = CGRectMake(20, 125, 280, 100); // don't mess with these values.
+//    _avatarView.frame = CGRectMake(20, 125, 280, 100); // don't mess with these values. 3rd value = width, 4th value = height
     [_avatarView setTranslatesAutoresizingMaskIntoConstraints:NO];
 #ifdef DEBUG
     _avatarView.layer.borderColor = [UIColor redColor].CGColor;
     _avatarView.layer.borderWidth = 3.0f;
 #endif
-//    [self.view addSubview:_avatarView];
+    [_contentView addSubview:_avatarView];
     
     _avatarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
     _avatarScroll.contentSize = CGSizeMake(500, 500);
@@ -87,7 +135,6 @@
     _avatarScroll.layer.borderWidth = 3.0f;
 #endif
 //    [_avatarView addSubview:_avatarScroll];
-    [_contentView addSubview:_avatarView];
     
     // toolbar - displayed above keypad / keyboard
     _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
@@ -100,64 +147,15 @@
                            nil];
     [_toolBar sizeToFit];
     
-    
-    // navBar
-    _navBar = [[UINavigationBar alloc] init];
-    [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),64)];
-    
-    UINavigationItem *titleItem = [[UINavigationItem alloc] initWithTitle:@"KegCop"];
-    
-    _navBar.items = @[titleItem];
-    
-    _navBar.barTintColor = [UIColor colorWithRed:100.0f/255.0f
-                                          green:83.0f/255.0f
-                                           blue:0.0f/255.0f
-                                          alpha:1.0f];
-    _navBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:255.0f/255.0f
-                                                                            green:239.0f/255.0f
-                                                    blue:160.0f/255.0f
-                                                    alpha:1.0f]};
-    _navBar.translucent = NO;
-    // END navBar
-    
-    // add scroller
-    _welcomeScroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    _welcomeScroller.userInteractionEnabled = YES;
-    _welcomeScroller.scrollEnabled = YES;
-    _welcomeScroller.showsHorizontalScrollIndicator = YES;
-    _welcomeScroller.showsVerticalScrollIndicator = YES;
-
-    [_welcomeScroller setBackgroundColor:[UIColor colorWithRed:100.0f/255.0f
-                                                         green:83.0f/255.0f
-                                                          blue:0.0f/255.0f
-                                                         alpha:1.0f]];
-
-    [self.view addSubview:_welcomeScroller];
-    CGSize welcomeScrollerSize = CGSizeMake(self.view.bounds.size.width, 1000);
-    [_welcomeScroller setContentSize:welcomeScrollerSize];
-    
-    // add the content view (contains auto layout constraints)
-    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
-    _contentView = [[UIView alloc] initWithFrame:applicationFrame];
-    _contentView.backgroundColor = [UIColor colorWithRed:(245/255.0)
-                                                   green:(208/255.0)
-                                                    blue:(55/255)
-                                                   alpha:(1.0f) ];
-    [_welcomeScroller addSubview:_contentView];
-    [_contentView addSubview:_navBar];
-#ifdef DEBUG
-//    // add test label
-//    _test = [[UILabel alloc] initWithFrame:CGRectMake(200, 200, 200, 200)];
-//    [_test setText:@"TEST"];
-//    [_test setFont:[UIFont systemFontOfSize:44]];
-//    [_test setBackgroundColor:[UIColor redColor]];
-//    [_contentView addSubview:_test];
-#endif
+    // add borders for buttons, iOS 7 fix - 5JAN14
+    // use twitterbootstrap color scheme
+    // www.javascripter.net/faq/hextorgb.htm
     
     // add about btn to lower right
     _welcomeAbout = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [_welcomeAbout addTarget:self action:@selector(showAboutScreen:) forControlEvents:UIControlEventTouchUpInside];
     [_welcomeAbout setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     [_contentView addSubview:_welcomeAbout];
     
     // add create button just above info button
@@ -165,83 +163,6 @@
     [_btnCreate addTarget:self action:@selector(showCreateScene:) forControlEvents:UIControlEventTouchUpInside];
     [_btnCreate setTitle:@"CREATE AN ACCOUNT" forState:UIControlStateNormal];
     [_btnCreate setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_contentView addSubview:_btnCreate];
-    
-    // add login button just above create button
-    _welcomeLogin = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [_welcomeLogin addTarget:self action:@selector(processLogin:) forControlEvents:UIControlEventTouchUpInside];
-    [_welcomeLogin setTitle:@"LOGIN" forState:UIControlStateNormal];
-    [_welcomeLogin setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_contentView addSubview:_welcomeLogin];
-    
-    // add tf pin just above login button
-    _textFieldPin = [[UITextField alloc] init];
-    [_textFieldPin setTranslatesAutoresizingMaskIntoConstraints:NO];
-    _textFieldPin.backgroundColor = [UIColor whiteColor];
-    _textFieldPin.layer.cornerRadius = 5;
-    [_textFieldPin setSecureTextEntry:YES];
-    [_textFieldPin setAutocorrectionType:NO];
-    [_textFieldPin setFont:[UIFont systemFontOfSize:30]];
-    [_textFieldPin setPlaceholder:@"PIN" ];
-    _textFieldPin.delegate = self;
-    _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
-    _textFieldPin.inputAccessoryView = _toolBar;
-    [_contentView addSubview:_textFieldPin];
-    
-    // add tf username just above tf pin
-    _textFieldUsername = [[UITextField alloc] init];
-    [_textFieldUsername setTranslatesAutoresizingMaskIntoConstraints:NO];
-    _textFieldUsername.backgroundColor = [UIColor whiteColor];
-    _textFieldUsername.layer.cornerRadius = 5;
-    [_textFieldUsername setFont:[UIFont systemFontOfSize:30]];
-    [_textFieldUsername setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-    [_textFieldUsername setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [_textFieldUsername setPlaceholder:@"USERNAME"];
-    _textFieldUsername.delegate = self;
-    _textFieldUsername.inputAccessoryView = _toolBar;
-    [_contentView addSubview:_textFieldUsername];
-
-    // add borders for buttons, iOS 7 fix - 5JAN14
-    // use twitterbootstrap color scheme
-    // www.javascripter.net/faq/hextorgb.htm
-    
-    _welcomeLogin.layer.borderWidth=1.0f;
-    _welcomeLogin.layer.borderColor=[[UIColor colorWithRed: 57.0f/255.0f
-                                                     green: 132.0f/255.0f
-                                                      blue: 57.0f/255.0f
-                                                     alpha:1.0f] CGColor];
-    [_welcomeLogin setBackgroundColor:[UIColor colorWithRed:68.0f/255.0f
-                                                      green:157.0f/255.0f
-                                                       blue:68.0f/255.0f
-                                                      alpha:1.0f]];
-    // set btn font color
-    [_welcomeLogin setTitleColor:[UIColor colorWithRed:255/255.0
-                                                 green:255/255.0
-                                                  blue:255/255.0
-                                                 alpha:1.0f] forState:UIControlStateNormal];
-    _welcomeLogin.layer.cornerRadius = 5;
-    // end welcome btn
-    
-    _btnForgot.layer.borderWidth=1.0f;
-    _btnForgot.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
-                                                  green: 41/255.0f
-                                                   blue: 37/255.0f
-                                                  alpha:1.0f] CGColor];
-    [_btnForgot setBackgroundColor:[UIColor colorWithRed:201.0f/255.0f
-                                                   green:48.0f/255.0f
-                                                    blue:44.0f/255.0f
-                                                   alpha:1.0f]];
-    
-    
-    // set btn font color
-    [_btnForgot setTitleColor:[UIColor colorWithRed:255/255.0
-                                              green:255/255.0
-                                               blue:255/255.0
-                                              alpha:1.0f] forState:UIControlStateNormal];
-    _btnForgot.layer.cornerRadius = 5;
-    // end forgot btn
-    
-    
     _btnCreate.layer.borderWidth=1.0f;
     _btnCreate.layer.borderColor=[[UIColor colorWithRed: 53.0f/255.0f
                                                   green: 126.0f/255.0f
@@ -263,33 +184,101 @@
     _btnCreate.layer.cornerRadius = 5;
     // end _btnCreate
     
-    // hidden at load
-    [_wrongUserPin setHidden:YES];
+    [_contentView addSubview:_btnCreate];
     
+    // add login button just above create button
+    _welcomeLogin = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_welcomeLogin addTarget:self action:@selector(processLogin:) forControlEvents:UIControlEventTouchUpInside];
+    [_welcomeLogin setTitle:@"LOGIN" forState:UIControlStateNormal];
+    [_welcomeLogin setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _welcomeLogin.layer.borderWidth=1.0f;
+    _welcomeLogin.layer.borderColor=[[UIColor colorWithRed: 57.0f/255.0f
+                                                     green: 132.0f/255.0f
+                                                      blue: 57.0f/255.0f
+                                                     alpha:1.0f] CGColor];
+    [_welcomeLogin setBackgroundColor:[UIColor colorWithRed:68.0f/255.0f
+                                                      green:157.0f/255.0f
+                                                       blue:68.0f/255.0f
+                                                      alpha:1.0f]];
+    // set btn font color
+    [_welcomeLogin setTitleColor:[UIColor colorWithRed:255/255.0
+                                                 green:255/255.0
+                                                  blue:255/255.0
+                                                 alpha:1.0f] forState:UIControlStateNormal];
+    _welcomeLogin.layer.cornerRadius = 5;
+    // end welcome btn
+    [_contentView addSubview:_welcomeLogin];
+    
+    // add tf pin just above login button
+    _textFieldPin = [[UITextField alloc] init];
+    [_textFieldPin setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _textFieldPin.backgroundColor = [UIColor whiteColor];
+    _textFieldPin.layer.cornerRadius = 5;
+    [_textFieldPin setSecureTextEntry:YES];
+    [_textFieldPin setAutocorrectionType:NO];
+    [_textFieldPin setFont:[UIFont systemFontOfSize:30]];
+    [_textFieldPin setPlaceholder:@"PIN" ];
+    _textFieldPin.delegate = self;
+    _textFieldPin.clearButtonMode = YES;
+    _textFieldPin.keyboardType = UIKeyboardTypeNumberPad;
+    _textFieldPin.inputAccessoryView = _toolBar;
+    _textFieldPin.textColor = [UIColor colorWithRed:100.0f/255.0f
+                                              green:83.0f/255.0f
+                                               blue:0.0f/255.0f
+                                              alpha:1.0f];
+    
+    [_contentView addSubview:_textFieldPin];
+    
+    // add tf username just above tf pin
+    _textFieldUsername = [[UITextField alloc] init];
+    [_textFieldUsername setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _textFieldUsername.backgroundColor = [UIColor whiteColor];
+    _textFieldUsername.layer.cornerRadius = 5;
+    [_textFieldUsername setFont:[UIFont systemFontOfSize:30]];
+    [_textFieldUsername setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+    [_textFieldUsername setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [_textFieldUsername setPlaceholder:@"USERNAME"];
+    _textFieldUsername.delegate = self;
     // enable clear button for text fields
     _textFieldUsername.clearButtonMode=YES;
-    _textFieldPin.clearButtonMode = YES;
-    
-    
+    _textFieldUsername.inputAccessoryView = _toolBar;
     // change textfield outline / border color
     _textFieldUsername.layer.borderColor = [UIColor whiteColor].CGColor;
     //    _textFieldUsername.layer.cornerRadius = 5;
     _textFieldUsername.layer.masksToBounds = true;
-    
     // change color of txt for tfUserName / tfPin
     _textFieldUsername.textColor = [UIColor colorWithRed:100.0f/255.0f
                                                    green:83.0f/255.0f
                                                     blue:0.0f/255.0f
                                                    alpha:1.0f];
     
-    _textFieldPin.textColor = [UIColor colorWithRed:100.0f/255.0f
-                                              green:83.0f/255.0f
-                                               blue:0.0f/255.0f
-                                              alpha:1.0f];
+    [_contentView addSubview:_textFieldUsername];
+
+    // currently, 15NOV15 - _btnForgot is NOT being used / displayed
+    _btnForgot.layer.borderWidth=1.0f;
+    _btnForgot.layer.borderColor=[[UIColor colorWithRed: 172/255.0f
+                                                  green: 41/255.0f
+                                                   blue: 37/255.0f
+                                                  alpha:1.0f] CGColor];
+    [_btnForgot setBackgroundColor:[UIColor colorWithRed:201.0f/255.0f
+                                                   green:48.0f/255.0f
+                                                    blue:44.0f/255.0f
+                                                   alpha:1.0f]];
     
+    
+    // set btn font color
+    [_btnForgot setTitleColor:[UIColor colorWithRed:255/255.0
+                                              green:255/255.0
+                                               blue:255/255.0
+                                              alpha:1.0f] forState:UIControlStateNormal];
+    _btnForgot.layer.cornerRadius = 5;
     
     // hide forgot pin btn
     _btnForgot.hidden = TRUE;
+    // end forgot btn
+    
+    // hidden at load
+    [_wrongUserPin setHidden:YES];
 
 }
 #pragma mark - Add GUI Element Constraints
@@ -353,15 +342,17 @@
     [_contentView addConstraints:@[pulltfUsernameToBottom, pulltfUsernameToRight,pulltfUsernameToLeft]];
     
     // add constraints for _avatarView
-    NSLayoutConstraint *pullAvatarViewToBottom = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-300.0];
+    NSLayoutConstraint *pullAvatarViewToBottom = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-320.0];
     
     NSLayoutConstraint *pullAvatarViewToRight = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35.0];
     
     NSLayoutConstraint *pullAvatarViewToLeft = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35.0];
     
-//    THE BELOW LINE IS CAUSING THE APP TO CRASH
+    [_avatarView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_avatarView(==100)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_avatarView)]];
     
-//    [self.view addConstraints:@[pullAvatarViewToBottom, pullAvatarViewToRight, pullAvatarViewToLeft]];
+//    THE BELOW LINE IS CAUSING THE APP TO CRASH -- FIXED BY INITIALIZING GUI ELEMENTS IN PROPER ORDER
+    
+    [_contentView addConstraints:@[pullAvatarViewToBottom, pullAvatarViewToRight, pullAvatarViewToLeft]];
     
 }
 #pragma mark - View Did Load
@@ -370,6 +361,10 @@
     
     [self addGUIElements];
     [self addGUIElementConstraints];
+    
+    // log the size of the _avatarView
+    NSLog(@"avatarView width = %@, avatarView height = %@",_avatarView.widthAnchor,_avatarView.heightAnchor);
+    NSLog(@"avatarView = %@",_avatarView);
     
     // Core Data
     if (_managedObjectContext == nil)
@@ -394,7 +389,7 @@
     // see SO thread - stackoverflow.com/questions/17678881/
     [self setNeedsStatusBarAppearanceUpdate];
     
-    [self addAvatarsToButtons];
+//    [self addAvatarsToButtons];
 }
 # pragma mark - Fill Username from Avatar Button
 -(void)fillUserName {

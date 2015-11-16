@@ -7,6 +7,7 @@
 
 #import "ViewControllerHome.h"
 #import <CommonCrypto/CommonCryptor.h>
+#import <UIKit/UIKit.h>
 
 @interface ViewControllerCreate : UIViewController <UITextFieldDelegate>
 {

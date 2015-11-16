@@ -86,14 +86,14 @@
     _stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     
     // add Dictionary to store PixelXDimension / PixelYDimension
-    double width = 480;
-    double height = 480;
-    NSDictionary *pixelBufferOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSNumber numberWithDouble:width], (id)kCVPixelBufferWidthKey,
-                                        [NSNumber numberWithDouble:height], (id)kCVPixelBufferHeightKey,
-                                        [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA], (id)kCVPixelBufferPixelFormatTypeKey,
-                                        nil];
-    
+//    double width = 480;
+//    double height = 480;
+//    NSDictionary *pixelBufferOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                        [NSNumber numberWithDouble:width], (id)kCVPixelBufferWidthKey,
+//                                        [NSNumber numberWithDouble:height], (id)kCVPixelBufferHeightKey,
+//                                        [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA], (id)kCVPixelBufferPixelFormatTypeKey,
+//                                        nil];
+//    
 //    NSDictionary *options = @{(id)kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA,
 //                              (id)kCVPixelBufferWidthKey : width,
 //                              (id)kCVPixelBufferHeightKey : height };

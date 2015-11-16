@@ -7,11 +7,13 @@
 
 @class ViewControllerHome;
 
-//@protocol ViewControllerHomeDelegate
-//
-//-(NSString *) receiveUserName;
-//
-//@end
+@protocol ViewControllerHomeDelegate <NSObject>
+
+- (void) sendUserNameToWelcomeVC:(NSString *)_un;
+- (void)addItemViewController:(ViewControllerHome *)controller didFinishEnteringItem:(NSString *)_un;
+//- (void)addAvatarToViewControllerWelcome:(ViewControllerHome *)controller didFinishSendingItem:(UIImage *)_avatar;
+
+@end
 // put protocol declaration def above imports
 // see this SO thread, stackoverflow.com/questions/6447573
 #import "Account.h"
@@ -19,6 +21,7 @@
 #import "DFBlunoManager.h"
 #import "ViewControllerAvatar4.h"
 #import "ViewControllerWelcome.h"
+#import <UIKit/UIKit.h>
 
 @interface ViewControllerHome : UIViewController <UITextFieldDelegate, DFBlunoDelegate, ViewControllerAvatar4Delegate>
 {
@@ -28,7 +31,10 @@
     NSMutableString *rfidbadgenumber;
     UIAlertView *alertrfid;
     NSMutableString *newrfidtagid;
+    id myDelegate;
 }
+
+@property (nonatomic, assign) id<ViewControllerHomeDelegate> myDelegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
 @property (weak, nonatomic) IBOutlet UITextField *tfCredit;
@@ -48,6 +54,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, retain) NSString *un;
+@property (nonatomic, retain) UIImage *avatar;
 
 
 - (IBAction)removeAccount;

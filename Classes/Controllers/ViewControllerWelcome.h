@@ -20,7 +20,7 @@
 
 @class ViewControllerWelcome;
 
-@interface ViewControllerWelcome : UIViewController <UITextFieldDelegate>
+@interface ViewControllerWelcome : UIViewController <UITextFieldDelegate, ViewControllerHomeDelegate>
 // Core Data
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

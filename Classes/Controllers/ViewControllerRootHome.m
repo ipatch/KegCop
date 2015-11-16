@@ -419,7 +419,7 @@
             // add tf with current credit
             NSUInteger newcredit = credit + creditcurrent;
 #ifdef DEBUG
-            NSLog(@"new credit amount = %i",newcredit);
+            NSLog(@"new credit amount = %lu",(unsigned long)newcredit);
 #endif
             
             // save new value to anAccount.credit - convert int to NSNumber

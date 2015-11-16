@@ -11,12 +11,14 @@
 #import "AccountsDataModel.h"
 #import "ViewControllerAvatar4.h"
 #import "Account.h"
+#import <UIKit/UIKit.h>
+#import "ViewControllerWelcome.h"
 
 @interface ViewControllerHome () {
 }
 @property (nonatomic, retain) UIScrollView *homeScroller;
 @property (nonatomic, retain) UINavigationBar *navBar;
-@property (nonatomic, retain) UIImage *avatar;
+
 @property (nonatomic, retain) UILabel *lblUSERNAME;
 @property (nonatomic, retain) NSString *credit;
 @property (nonatomic, retain) UILabel *creditX;
@@ -227,10 +229,8 @@
     // change USERNAME label
     [_lblUSERNAME setText:[NSString stringWithFormat:@"%@ you have %@ credits.",_un,_credit]];
     
-    //display avatar
-#ifdef DEBUG
-    NSLog(@"inside viewDidLoad method");
-#endif
+    [self.myDelegate addItemViewController:self didFinishEnteringItem:_un];
+    
     [self checkAvatarStatus];
 
     // Core Bluetooth - added 6FEB14
@@ -246,9 +246,13 @@
 #ifdef DEBUG
         NSLog(@"inside viewDidAppear method");
 #endif
+
 }
+
 #pragma mark - Check Avatar Status
+
 -(void)checkAvatarStatus {
+    
 #ifdef DEBUG
     NSLog(@"inside checkAvatarStatus method");
 #endif
@@ -292,6 +296,7 @@
 }
 
 #pragma mark - display Avatar
+
 - (void)displayAvatar {
 #ifdef DEBUG
     NSLog(@"inside displayAvatar method");
@@ -328,7 +333,9 @@
         }
     }
 }
+
 #pragma mark - Display Default Avatar
+
 - (void)displayDefaultAvatar {
     NSLog(@"inside displayDefaultAvatar method");
     // retrieve image from Core Data and place on UIButton

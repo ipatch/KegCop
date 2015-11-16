@@ -8,7 +8,6 @@
 #import "ViewControllerWelcome.h"
 
 #define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
-#define kOFFSET_FOR_KEYBOARD 80.0
 
 @interface ViewControllerWelcome ()
 {
@@ -25,9 +24,9 @@
 @property (nonatomic, retain) UIScrollView *welcomeScroller;
 @property (nonatomic, retain) UITextField *textFieldUsername;
 @property (nonatomic, retain) UITextField *textFieldPin;
-@property (weak, nonatomic) IBOutlet UILabel *wrongUserPin;
+
 @property (nonatomic, retain) UIButton *welcomeLogin;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *welcomeActivityIndicator;
+
 @property (nonatomic, retain) UILabel *test;
 // info button - located lower right
 @property(nonatomic, retain) UIButton *welcomeAbout;
@@ -39,8 +38,11 @@
 @property (retain, nonatomic) UIToolbar *toolBar;
 
 // Avatar - properties
-@property (retain, nonatomic) UIView *avatarView;
 @property (retain, nonatomic) UIScrollView *avatarScroll;
+
+// delegation
+@property (retain, nonatomic)NSString *userNameString;
+@property (retain, nonatomic)UIImage *avatarImage;
 
 @end
 
@@ -118,23 +120,23 @@
     
     // AVATARS
     // create a subview for avatar buttons
-    _avatarView = [[UIView alloc] init];
-//    _avatarView.frame = CGRectMake(20, 125, 280, 100); // don't mess with these values. 3rd value = width, 4th value = height
-    [_avatarView setTranslatesAutoresizingMaskIntoConstraints:NO];
-#ifdef DEBUG
-    _avatarView.layer.borderColor = [UIColor redColor].CGColor;
-    _avatarView.layer.borderWidth = 3.0f;
-#endif
-    [_contentView addSubview:_avatarView];
-    
-    _avatarScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
-    _avatarScroll.contentSize = CGSizeMake(500, 500);
+    _avatarScroll = [[UIScrollView alloc] init]; // initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    _avatarScroll.contentSize = CGSizeMake(500, 100); // 500 = width, 100 = height
     _avatarScroll.scrollEnabled = YES;
-#ifdef DEBUG
-    _avatarScroll.layer.borderColor = [UIColor greenColor].CGColor;
-    _avatarScroll.layer.borderWidth = 3.0f;
-#endif
-//    [_avatarView addSubview:_avatarScroll];
+
+    _avatarScroll.layer.borderColor = [[UIColor colorWithRed:100.0f/255.0f
+                                                       green:83.0f/255.0f
+                                                        blue:0.0f/255.0f
+                                                       alpha:1.0f]CGColor];
+    _avatarScroll.layer.borderWidth = 1.0f;
+
+    [_avatarScroll setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _avatarScroll.layer.cornerRadius = 5;
+    _avatarScroll.backgroundColor = [UIColor colorWithRed:(204/255.0)
+                                                    green:(173/255.0)
+                                                     blue:(46/255)
+                                                    alpha:(1.0f) ];
+    [_contentView addSubview:_avatarScroll];
     
     // toolbar - displayed above keypad / keyboard
     _toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
@@ -276,10 +278,6 @@
     // hide forgot pin btn
     _btnForgot.hidden = TRUE;
     // end forgot btn
-    
-    // hidden at load
-    [_wrongUserPin setHidden:YES];
-
 }
 #pragma mark - Add GUI Element Constraints
 -(void)addGUIElementConstraints {
@@ -341,30 +339,60 @@
     
     [_contentView addConstraints:@[pulltfUsernameToBottom, pulltfUsernameToRight,pulltfUsernameToLeft]];
     
-    // add constraints for _avatarView
-    NSLayoutConstraint *pullAvatarViewToBottom = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-320.0];
+    // add constraints for _avatarScroll
+    NSLayoutConstraint *pullAvatarScrollToBottom = [NSLayoutConstraint constraintWithItem:_avatarScroll attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-320.0];
     
-    NSLayoutConstraint *pullAvatarViewToRight = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35.0];
+    NSLayoutConstraint *pullAvatarScrollToRight = [NSLayoutConstraint constraintWithItem:_avatarScroll attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-35.0];
     
-    NSLayoutConstraint *pullAvatarViewToLeft = [NSLayoutConstraint constraintWithItem:_avatarView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35.0];
+    NSLayoutConstraint *pullAvatarScrollToLeft = [NSLayoutConstraint constraintWithItem:_avatarScroll attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:35.0];
     
-    [_avatarView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_avatarView(==100)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_avatarView)]];
+    [_avatarScroll addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_avatarScroll(==100)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_avatarScroll)]];
     
-//    THE BELOW LINE IS CAUSING THE APP TO CRASH -- FIXED BY INITIALIZING GUI ELEMENTS IN PROPER ORDER
-    
-    [_contentView addConstraints:@[pullAvatarViewToBottom, pullAvatarViewToRight, pullAvatarViewToLeft]];
-    
+    [_contentView addConstraints:@[pullAvatarScrollToBottom, pullAvatarScrollToRight, pullAvatarScrollToLeft]];
 }
+
+#pragma mark - Set Red Border Around TextField Username
+
+- (void)setRedBorderAroundTextFieldUserName {
+    
+    _textFieldUsername.layer.borderColor = [[UIColor colorWithRed:255.0f/255.0f
+                                                       green:0.0f/255.0f
+                                                        blue:0.0f/255.0f
+                                                       alpha:1.0f]CGColor];
+    _textFieldUsername.layer.borderWidth = 2.0f;
+}
+
+#pragma mark - Set Red Border Around TextField Pin
+
+- (void)setRedBorderAroundTextFieldPin {
+    
+    _textFieldPin.layer.borderColor = [[UIColor colorWithRed:255.0f/255.0f
+                                                            green:0.0f/255.0f
+                                                             blue:0.0f/255.0f
+                                                            alpha:1.0f]CGColor];
+    _textFieldPin.layer.borderWidth = 2.0f;
+}
+
+#pragma mark - Hide Red Border Around TextField Username
+
+- (void)hideRedBorderAroundTextFieldUserName {
+    _textFieldUsername.layer.borderWidth = 0.0f;
+}
+
+# pragma mark - Hide Red Border Around TextField Pin
+
+- (void)hideRedBorderAroundTextFieldPin {
+    _textFieldPin.layer.borderWidth = 0.0f;
+}
+
+
 #pragma mark - View Did Load
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self addGUIElements];
     [self addGUIElementConstraints];
-    
-    // log the size of the _avatarView
-    NSLog(@"avatarView width = %@, avatarView height = %@",_avatarView.widthAnchor,_avatarView.heightAnchor);
-    NSLog(@"avatarView = %@",_avatarView);
     
     // Core Data
     if (_managedObjectContext == nil)
@@ -389,6 +417,7 @@
     // see SO thread - stackoverflow.com/questions/17678881/
     [self setNeedsStatusBarAppearanceUpdate];
     
+    [self fetchAvatarLoginsAndCreateAvatarButtons];
 //    [self addAvatarsToButtons];
 }
 # pragma mark - Fill Username from Avatar Button
@@ -401,26 +430,6 @@
 }
 # pragma mark - Fetch Avatars / Create Avatars
 -(void)fetchAvatarLoginsAndCreateAvatarButtons {
-    // fetch Data from Core Data
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:_managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // fetch records and handle error
-    NSError *error;
-    _results = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    
-    // sort results array by lastLogin
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastLogin" ascending:NO];
-    NSArray *sortedArray = [NSArray arrayWithObject:sort];
-    NSArray *sortedArray2 = [_results sortedArrayUsingDescriptors:sortedArray];
-    // how to remove values from NSArray
-    NSArray *lastLoginArray = [sortedArray2 valueForKey:@"lastLogin"];
-    
-    _last5LoginArray = [[NSMutableArray alloc] initWithArray:[lastLoginArray subarrayWithRange:NSMakeRange(0, 5)] ];
-#ifdef DEBUG
-    NSLog(@"last5LoginArray = %@",_last5LoginArray);
-#endif
     
     CGFloat staticX = 0;
     CGFloat staticWidth = 80;
@@ -446,6 +455,7 @@
         
         // this should add 5x buttons
         [_avatarScroll addSubview:_avatarButton];
+        [self addAvatarsToButtons];
     }
 }
 # pragma mark - Add Avatar to Button
@@ -465,7 +475,8 @@
                 NSLog(@"error %@", error);
 #endif
             }
-        }else if([_last5LoginArray containsObject:anAccount.lastLogin]) { // the following line could be trouble
+        }
+        else if([_last5LoginArray containsObject:anAccount.lastLogin]) { // the following line could be trouble
 #ifdef DEBUG
             NSLog(@"anAccount.lastLogin = %@",anAccount.lastLogin);
 #endif
@@ -488,6 +499,158 @@ NSAssert(
         }
     }
 }
+# pragma mark - View Did Appear
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self checkAvatarStatus];
+}
+
+# pragma mark - Check Avatar Status
+
+-(void)checkAvatarStatus {
+    
+#ifdef DEBUG
+    NSLog(@"inside checkAvatarStatus method");
+#endif
+    // retrieve image from Core Data and place on UIButton
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"avatar",@"username"]];
+    
+    //     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+    }
+#ifdef DEBUG
+    NSLog(@"results = %@",results);
+#endif
+    // find specific value in array
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:_userNameString])
+#ifdef DEBUG
+            NSLog(@"username found.");
+#endif
+            // set the _avatarButton image to the avatar!!!
+            if(anAccount.avatar == nil) {
+                [self displayDefaultAvatar];
+            }
+            else {
+                [self displayAvatar];
+            }
+    }
+}
+
+# pragma mark Add Item ViewController - _un
+
+- (void)addItemViewController:(ViewControllerHome *)controller didFinishEnteringItem:(NSString *)_un {
+    NSLog(@"This was returned from ViewControllerB %@",_un);
+    
+    _un = _userNameString;
+}
+
+- (void)addAvatarToViewControllerWelcome:(ViewControllerHome *)controller didFinishSendingItem:(UIImage *)_avatar {
+    
+    _avatar = _avatarImage;
+}
+
+- (void)sendUserNameToWelcomeVC:(NSString *)_un {
+    
+}
+
+#pragma mark - Display Default Avatar
+
+- (void)displayDefaultAvatar {
+    NSLog(@"inside displayDefaultAvatar method");
+    // retrieve image from Core Data and place on UIButton
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"avatar",@"username"]];
+    
+    //     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+    }
+#ifdef DEBUG
+    NSLog(@"results = %@",results);
+#endif
+    // find specific value in array
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:_userNameString]) {
+#ifdef DEBUG
+            NSLog(@"usernameee found.");
+#endif
+            
+            NSURL *avatarURL = [[NSBundle mainBundle] URLForResource:@"HomeBrewPoster1" withExtension:@"jpg"];
+#ifdef DEBUG
+            NSLog(@"avatarURL = %@",avatarURL);
+#endif
+            
+            _avatarImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
+            
+            // set the _avatarButton image to the avatar!!!
+            [_avatarButton setBackgroundImage:_avatarImage forState:UIControlStateNormal];
+#ifdef DEBUG
+            NSLog(@"avatar = %@",_avatarImage);
+            NSLog(@"avatarURL = %@",avatarURL);
+#endif
+        }
+    }
+}
+
+#pragma mark - Display Avatar
+
+- (void)displayAvatar {
+#ifdef DEBUG
+    NSLog(@"inside displayAvatar method");
+#endif
+    // retrieve image from Core Data and place on UIButton
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"avatar",@"username"]];
+    
+    //     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+    }
+#ifdef DEBUG
+    NSLog(@"results = %@",results);
+#endif
+    // find specific value in array
+    for (Account *anAccount in results) {
+        if ([anAccount.username isEqualToString:_userNameString]) {
+            NSLog(@"username found.");
+            // set the _avatarButton image to the avatar!!!
+            _avatarImage = [[UIImage alloc] initWithData:anAccount.avatar];
+            [_avatarButton setBackgroundImage:_avatarImage forState:UIControlStateNormal];
+#ifdef DEBUG
+            NSLog(@"avatar = %@",_avatarImage);
+#endif
+        }
+    }
+}
+
+
 #pragma mark - Status bar method
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -497,6 +660,8 @@ NSAssert(
 #pragma mark - textFieldDidBeginEditing
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     [self animateTextField:textField up:YES withOffset:textField.frame.origin.y / 2];
+    [self hideRedBorderAroundTextFieldUserName];
+    [self hideRedBorderAroundTextFieldPin];
 }
 #pragma mark - textFieldDidEndEditing
 -(void)textFieldDidEndEditing:(UITextField *)textField {
@@ -516,6 +681,8 @@ NSAssert(
     return YES;
 }
 
+#pragma mark - Animate TextField
+
 -(void)animateTextField:(UITextField*)textField up:(BOOL)up withOffset:(CGFloat)offset
 {
     const int movementDistance = -offset;
@@ -530,24 +697,19 @@ NSAssert(
 
 
 #pragma mark - Process Login
+
 - (IBAction)processLogin:(id)sender {
     
     // hide keyboard
     [_textFieldUsername resignFirstResponder];
     [_textFieldPin resignFirstResponder];
-
     
-    // First - make activity indicator visible, then start animating, then turn of wrong user / pin label
-    _welcomeActivityIndicator.hidden = FALSE;
-    [_welcomeActivityIndicator startAnimating ];
-    
-    [_wrongUserPin setHidden:YES];
-        
     // check if username and pin text fields are populated
     if ([_textFieldUsername.text length ] == 0 &&  [_textFieldPin.text length ] == 0)
     {
-        [_welcomeActivityIndicator stopAnimating];
-        [_wrongUserPin setHidden:NO];   
+        // add red borders to tfUN / tfPin
+        [self setRedBorderAroundTextFieldUserName];
+        [self setRedBorderAroundTextFieldUserName];
     }
     
     // CORE DATA
@@ -623,8 +785,6 @@ NSAssert(
                 // Load ViewController(Root)Home
                 if([anAccount.username isEqualToString:@"root"])
                 {
-//                    appDelegate = APPDELEGATE;
-//                    storyboard = appDelegate.storyboard;
                     UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
                     ViewControllerRootHome *rootHome = [storyboardLocal instantiateViewControllerWithIdentifier:@"rootHome"];
                     [self presentViewController:rootHome animated:YES completion:nil];
@@ -632,66 +792,55 @@ NSAssert(
                     // clear out / blank tfusername and tfpin
                     _textFieldUsername.text = @"";
                     _textFieldPin.text = @"";
-                    // stop activityIndicator from spinning once logged in
-                    [_welcomeActivityIndicator stopAnimating];
                 }
                 else {
-//                    appDelegate = APPDELEGATE;
-//                    storyboard = appDelegate.storyboard;
                     UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
                     
                     ViewControllerHome *home = [storyboardLocal instantiateViewControllerWithIdentifier:@"Home"];
-                   
-                    // declare delegate property
-//                    home.delegate = self;
-                    
                     
                     // pass username text to home screen
                     home.un = _textFieldUsername.text;
                     
-//                    [self passValues];
+                    // get current time
+                    NSString *timestamp = TimeStamp;
+                    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+                    _loginTime = [[NSDate alloc] init];
                     
-//                    // get current time
-//                    NSString *timestamp = TimeStamp;
-//                    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
-//                    _loginTime = [[NSDate alloc] init];
-//                    
-//                    // adjust timezone
-//                    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
-//                    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
-//                    
-//                    anAccount.lastLogin = localDate;
-//                    NSLog(@"login time = %@",anAccount.lastLogin);
-//                    // save anAccount.lastLogin attribute to Core Data DB
-//                    NSError *error = nil;
-//                    if (![_managedObjectContext save:&error]) {
-//                        NSLog(@"error %@", error);
-//                    }
+                    // adjust timezone
+                    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
+                    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
+                    
+                    anAccount.lastLogin = localDate;
+                    NSLog(@"login time = %@",anAccount.lastLogin);
+                    // save anAccount.lastLogin attribute to Core Data DB
+                    NSError *error = nil;
+                    if (![_managedObjectContext save:&error]) {
+                        NSLog(@"error %@", error);
+                    }
 
                     [self presentViewController:home animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin
                     _textFieldUsername.text = @"";
                     _textFieldPin.text = @"";
-                    // stop activityIndicator from spinning once logged in
-                    [_welcomeActivityIndicator stopAnimating];
                 }
             }
             else {
 #ifdef DEBUG
                 NSLog(@"Your pin is wrong");
 #endif
-                [_welcomeActivityIndicator stopAnimating];
-                [_wrongUserPin setHidden:NO];
+                // add red border to tfPin
+                [self setRedBorderAroundTextFieldPin];
                 }
             }
     
             else {
 #ifdef DEBUG
-            NSLog(@"Your username was not found");
+                NSLog(@"Your username was not found");
 #endif
-            [_welcomeActivityIndicator stopAnimating];
-            [_wrongUserPin setHidden:NO];
+                // add red border to tfUserName
+                [self setRedBorderAroundTextFieldUserName];
+            
             }
         }
 }

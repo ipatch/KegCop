@@ -232,6 +232,7 @@
 //    [_myDelegate ItemViewController:self didFinishEnteringItem:_un];
     
     [self checkAvatarStatus];
+    [self lastLoginTime];
 
     // Core Bluetooth - added 6FEB14
     self.blunoManager = [DFBlunoManager sharedInstance];
@@ -239,6 +240,49 @@
     [self.blunoManager scan];
     
 }
+
+- (void) lastLoginTime {
+    NSLog(@"inside last login time method");
+    // need to access Core Data to retrieve the last five logins
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+    
+    [request setPropertiesToFetch:@[@"avatar",@"username",@"lastLogin"]];
+    
+    // sort / filter "results" to display the last five "lastLogin(s)"
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastLogin" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    
+    [request setFetchLimit:5];
+    
+    [request setSortDescriptors:sortDescriptors];
+    
+    Account *anAccount;
+    
+    //     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    for (anAccount in results) {
+        NSLog(@"results array = username:%@ last logged in at:%@",anAccount.username,anAccount.lastLogin);
+    }
+    
+    if (!results) {
+        // handle error
+        // also if there is login data handle error so app doesn't crash
+    }
+    
+    for (anAccount in results) {
+        if ([anAccount.username isEqualToString:_un]) {
+            NSLog(@"last login time = %@",anAccount.lastLogin);
+        }
+    }
+}
+
+
+
 #pragma mark - View Did Appear
 - (void)viewDidAppear:(BOOL)animated {
 
@@ -272,15 +316,10 @@
     if (!results) {
         // handle error
     }
-#ifdef DEBUG
-    NSLog(@"results = %@",results);
-#endif
     // find specific value in array
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_un]) {
-#ifdef DEBUG
-            NSLog(@"username found.");
-#endif
+
             // set the _avatarButton image to the avatar!!!
             if(anAccount.avatar == nil) {
                 [self displayDefaultAvatar];
@@ -289,9 +328,6 @@
                 [self displayAvatar];
             }
         }
-#ifdef DEBUG
-            NSLog(@"avatar = %@",_avatar);
-#endif
     }
 }
 
@@ -317,19 +353,12 @@
     if (!results) {
         // handle error
     }
-#ifdef DEBUG
-    NSLog(@"results = %@",results);
-#endif
     // find specific value in array
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_un]) {
-            NSLog(@"username found.");
             // set the _avatarButton image to the avatar!!!
             _avatar = [[UIImage alloc] initWithData:anAccount.avatar];
             [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
-#ifdef DEBUG
-            NSLog(@"avatar = %@",_avatar);
-#endif
         }
     }
 }
@@ -354,23 +383,13 @@
     if (!results) {
         // handle error
     }
-#ifdef DEBUG
-    NSLog(@"results = %@",results);
-#endif
     // find specific value in array
     for (Account *anAccount in results) {
         if ([anAccount.username isEqualToString:_un]) {
-#ifdef DEBUG
-            NSLog(@"usernameee found.");
-#endif
-
             _avatar = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
             
             // set the _avatarButton image to the avatar!!!
             [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
-#ifdef DEBUG
-            NSLog(@"avatar = %@",_avatar);
-#endif
         }
     }
 }

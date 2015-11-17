@@ -1,3 +1,47 @@
+16NOV15 - iterating through an array
+
+for ( int i = 0; i < 5; i++) {
+NSLog(@"test");
+CGFloat staticX = 0;
+CGFloat staticWidth = 80;
+CGFloat staticHeight = 80;
+CGFloat staticPadding = 5;
+
+_avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+
+// the last two values control the size of the button
+_avatarButton.frame = CGRectMake(0, 0, 80, 80);
+[_avatarButton setFrame:CGRectMake((staticX + (i * (staticHeight + staticPadding))),5,staticWidth,staticHeight)];
+
+// make corners round
+_avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
+_avatarButton.clipsToBounds = YES;
+
+// assign method / action to button
+[_avatarButton addTarget:self action:@selector(fillUserName) forControlEvents:UIControlEventTouchDown];
+
+// create a stock image
+UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
+
+for (anAccount in results) {
+if (anAccount.avatar != nil) {
+// load avatar from Core Data
+_avatarImage = [[UIImage alloc] initWithData:anAccount.avatar];
+[_avatarButton setBackgroundImage:_avatarImage forState:UIControlStateNormal];
+[_avatarScroll addSubview:_avatarButton];
+NSLog(@"test second for loop");
+}
+
+else {
+[_avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
+[_avatarScroll addSubview:_avatarButton];
+}
+}
+}
+
+
+
+
 -----------------------------------------------
 12NOV15 - and the quest for avatars begins :)
 

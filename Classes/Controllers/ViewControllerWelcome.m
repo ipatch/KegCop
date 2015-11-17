@@ -460,11 +460,62 @@
         // handle error
         // also if there is login data handle error so app doesn't crash
     }
-        Account *anAccount;
-        for ( anAccount in results) {
-                NSLog(@"lastlogin = %@ by %@",anAccount.lastLogin,anAccount.username);
-            
+    Account *anAccount;
+    for ( anAccount in results) {
+        NSLog(@"lastlogin = %@ by %@",anAccount.lastLogin,anAccount.username);
+    }
+    
+    // create a stock image
+    UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
+    
+    NSMutableArray *avatars = [NSMutableArray arrayWithCapacity:5];
+    for ( anAccount in results) {
+        NSLog(@"results%@",anAccount.lastLogin);
+        if(anAccount.lastLogin) {
+            NSLog(@"anAccount.lastLogin = %@",anAccount.lastLogin);
+            if (anAccount.avatar != nil) {
+                UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
+                [avatars addObject:avatarImg];
+            }
+            else {
+                [avatars addObject:btnImage];
+            }
         }
+    }
+    NSLog(@"avatars array%lu",(unsigned long)avatars.count);
+    for ( NSInteger i = 0; i < 4; i++) {
+        // Check that we have enough logins
+        if (i < results.count) {
+            NSLog(@"avatars =%@",avatars[i]);
+            
+            CGFloat staticX = 0;
+            CGFloat staticWidth = 80;
+            CGFloat staticHeight = 80;
+            CGFloat staticPadding = 5;
+            
+            // the below line isn't adding avatars
+            
+            _avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            
+            // the last two values control the size of the button
+            _avatarButton.frame = CGRectMake(0, 0, 80, 80);
+            [_avatarButton setFrame:CGRectMake((staticX + (i * (staticHeight + staticPadding))),5,staticWidth,staticHeight)];
+            
+            // make corners round
+            _avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
+            _avatarButton.clipsToBounds = YES;
+            
+            // assign method / action to button
+            [_avatarButton addTarget:self action:@selector(fillUserName) forControlEvents:UIControlEventTouchDown];
+
+            
+            [_avatarButton setBackgroundImage:[avatars objectAtIndex:i] forState:UIControlStateNormal];
+            
+            
+            NSLog(@"avatarImage = %@",[_avatarButton backgroundImageForState:UIControlStateNormal]);
+            [_avatarScroll addSubview:_avatarButton];
+        }
+    }
 }
 
 # pragma mark - Fetch Avatars / Create Avatars
@@ -497,7 +548,7 @@
         
         // this should add 5x buttons
         [_avatarScroll addSubview:_avatarButton];
-        [self addAvatarsToButtons];
+//        [self addAvatarsToButtons];
     }
 }
 # pragma mark - Add Avatar to Button
@@ -544,7 +595,7 @@ NSAssert(
 # pragma mark - View Did Appear
 
 - (void)viewDidAppear:(BOOL)animated {
-//    [self checkAvatarStatus];
+    [self fetchLastFiveLogins];
 }
 
 # pragma mark - Check Avatar Status

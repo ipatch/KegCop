@@ -8,11 +8,13 @@
 #import "ViewControllerCreate.h"
 #import "NSData+AES256.h"
 
+#define TimeStamp [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000]
+
 
 @interface ViewControllerCreate() {
     
 }
-
+@property (nonatomic, retain) NSDate *loginTime;
 @property (nonatomic, retain) UINavigationBar *navBar;
 @property (nonatomic, retain) UIScrollView *createScroller;
 @property (nonatomic, retain) UIView *contentView;
@@ -509,8 +511,7 @@
         Account *newAccount;
         newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:_managedObjectContext];
         [newAccount setValue:_createUserTextField.text forKey:@"username"];
-        
-                [newAccount setValue:_createEmailTextField.text forKey:@"email"];
+        [newAccount setValue:_createEmailTextField.text forKey:@"email"];
         [newAccount setValue:_createPhoneNumber.text forKey:@"phoneNumber"];
         
         // password - set key
@@ -535,13 +536,33 @@
         // NSLog(@"Pin saved is %@", [newAccount password]);
         
         NSError *error;
-        [_managedObjectContext save:&error];
+        
         
         [_createAccountSuccess setHidden:NO];
 #ifdef DEBUG
         NSLog(@"Succefully created account.");
 #endif
         // pass user tf text to home screen
+        
+        // call saveLastLoginTime method
+//        [self saveLastLoginTime];
+        
+        // get current time
+        NSString *timestamp = TimeStamp;
+        NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+        _loginTime = [[NSDate alloc] init];
+        
+        // adjust timezone
+        NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
+        NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
+        
+        newAccount.lastLogin = localDate;
+        NSLog(@"login time = %@",newAccount.lastLogin);
+        // save anAccount.lastLogin attribute to Core Data DB
+        
+        [_managedObjectContext save:&error];
+        
+        
         
         username = _createUserTextField.text;
         if ([_createUserTextField.text  isEqual:@"root"]){
@@ -558,6 +579,26 @@
 
             [self presentViewController:home animated:YES completion:nil];
         }
+    }
+}
+
+- (void)saveLastLoginTime {
+    // get current time
+    NSString *timestamp = TimeStamp;
+    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+    _loginTime = [[NSDate alloc] init];
+    
+    // adjust timezone
+    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
+    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
+    
+    Account *anAccount;
+    anAccount.lastLogin = localDate;
+    NSLog(@"login time = %@",anAccount.lastLogin);
+    // save anAccount.lastLogin attribute to Core Data DB
+    NSError *error = nil;
+    if (![_managedObjectContext save:&error]) {
+        NSLog(@"error %@", error);
     }
 }
 

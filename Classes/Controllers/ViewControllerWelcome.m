@@ -417,10 +417,12 @@
     // see SO thread - stackoverflow.com/questions/17678881/
     [self setNeedsStatusBarAppearanceUpdate];
     
-    [self fetchAvatarLoginsAndCreateAvatarButtons];
+//    [self fetchAvatarLoginsAndCreateAvatarButtons];
 //    [self addAvatarsToButtons];
+    [self fetchLastFiveLogins];
 }
 # pragma mark - Fill Username from Avatar Button
+
 -(void)fillUserName {
 #ifdef DEBUG
     NSLog(@"avatar button press works :)");
@@ -428,8 +430,48 @@
     
     // need to get NSMutableArray *avatars from addAvatarsToButtons method
 }
+
+# pragma mark - Fetch Last Five Logins
+
+- (void)fetchLastFiveLogins {
+    
+    // need to access Core Data to retrieve the last five logins
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // define table / entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
+    [request setEntity:entity];
+//    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"avatar",@"username",@"lastLogin"]];
+    
+    // sort / filter "results" to display the last five "lastLogin(s)"
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastLogin" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    
+    [request setFetchLimit:5];
+    
+    [request setSortDescriptors:sortDescriptors];
+    
+    //     fetch records and handle error
+    NSError *error;
+    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!results) {
+        // handle error
+        // also if there is login data handle error so app doesn't crash
+    }
+        Account *anAccount;
+        for ( anAccount in results) {
+                NSLog(@"lastlogin = %@ by %@",anAccount.lastLogin,anAccount.username);
+            
+        }
+}
+
 # pragma mark - Fetch Avatars / Create Avatars
+
 -(void)fetchAvatarLoginsAndCreateAvatarButtons {
+    
+    // currently (16NOV15) - this method is not fetching lastLogin(s)
     
     CGFloat staticX = 0;
     CGFloat staticWidth = 80;
@@ -502,7 +544,7 @@ NSAssert(
 # pragma mark - View Did Appear
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self checkAvatarStatus];
+//    [self checkAvatarStatus];
 }
 
 # pragma mark - Check Avatar Status
@@ -554,6 +596,8 @@ NSAssert(
     
     _un = _userNameString;
 }
+
+# pragma mark - Delegate Method - Add Avatar To View Controller Welcome
 
 - (void)addAvatarToViewControllerWelcome:(ViewControllerHome *)controller didFinishSendingItem:(UIImage *)_avatar {
     
@@ -801,23 +845,8 @@ NSAssert(
                     // pass username text to home screen
                     home.un = _textFieldUsername.text;
                     
-                    // get current time
-                    NSString *timestamp = TimeStamp;
-                    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
-                    _loginTime = [[NSDate alloc] init];
+                    [self saveLastLoginTime];
                     
-                    // adjust timezone
-                    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
-                    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
-                    
-                    anAccount.lastLogin = localDate;
-                    NSLog(@"login time = %@",anAccount.lastLogin);
-                    // save anAccount.lastLogin attribute to Core Data DB
-                    NSError *error = nil;
-                    if (![_managedObjectContext save:&error]) {
-                        NSLog(@"error %@", error);
-                    }
-
                     [self presentViewController:home animated:YES completion:nil];
                     
                     // clear out / blank tfusername and tfpin
@@ -843,6 +872,26 @@ NSAssert(
             
             }
         }
+}
+
+- (void)saveLastLoginTime {
+    // get current time
+    NSString *timestamp = TimeStamp;
+    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+    _loginTime = [[NSDate alloc] init];
+    
+    // adjust timezone
+    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
+    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
+    
+    Account *anAccount;
+    anAccount.lastLogin = localDate;
+    NSLog(@"login time = %@",anAccount.lastLogin);
+    // save anAccount.lastLogin attribute to Core Data DB
+    NSError *error = nil;
+    if (![_managedObjectContext save:&error]) {
+        NSLog(@"error %@", error);
+    }
 }
 
 - (IBAction)showForgotScene:(id)sender {

@@ -229,7 +229,7 @@
     // change USERNAME label
     [_lblUSERNAME setText:[NSString stringWithFormat:@"%@ you have %@ credits.",_un,_credit]];
     
-    [self.myDelegate addItemViewController:self didFinishEnteringItem:_un];
+//    [_myDelegate ItemViewController:self didFinishEnteringItem:_un];
     
     [self checkAvatarStatus];
 
@@ -363,19 +363,13 @@
 #ifdef DEBUG
             NSLog(@"usernameee found.");
 #endif
-            
-            NSURL *avatarURL = [[NSBundle mainBundle] URLForResource:@"HomeBrewPoster1" withExtension:@"jpg"];
-#ifdef DEBUG
-            NSLog(@"avatarURL = %@",avatarURL);
-#endif
-            
+
             _avatar = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
             
             // set the _avatarButton image to the avatar!!!
             [_avatarButton setBackgroundImage:_avatar forState:UIControlStateNormal];
 #ifdef DEBUG
             NSLog(@"avatar = %@",_avatar);
-            NSLog(@"avatarURL = %@",avatarURL);
 #endif
         }
     }

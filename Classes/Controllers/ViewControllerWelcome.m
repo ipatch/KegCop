@@ -417,8 +417,6 @@
     // see SO thread - stackoverflow.com/questions/17678881/
     [self setNeedsStatusBarAppearanceUpdate];
     
-//    [self fetchAvatarLoginsAndCreateAvatarButtons];
-//    [self addAvatarsToButtons];
     [self fetchLastFiveLogins];
 }
 # pragma mark - Fill Username from Avatar Button
@@ -441,7 +439,7 @@
     // define table / entity to use
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
     [request setEntity:entity];
-//    [request setReturnsDistinctResults:YES];
+
     [request setPropertiesToFetch:@[@"avatar",@"username",@"lastLogin"]];
     
     // sort / filter "results" to display the last five "lastLogin(s)"
@@ -461,18 +459,15 @@
         // also if there is login data handle error so app doesn't crash
     }
     Account *anAccount;
-    for ( anAccount in results) {
-        NSLog(@"lastlogin = %@ by %@",anAccount.lastLogin,anAccount.username);
-    }
     
     // create a stock image
     UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
     
     NSMutableArray *avatars = [NSMutableArray arrayWithCapacity:5];
     for ( anAccount in results) {
-        NSLog(@"results%@",anAccount.lastLogin);
+//        NSLog(@"results%@",anAccount.lastLogin);
         if(anAccount.lastLogin) {
-            NSLog(@"anAccount.lastLogin = %@",anAccount.lastLogin);
+//            NSLog(@"anAccount.lastLogin = %@",anAccount.lastLogin);
             if (anAccount.avatar != nil) {
                 UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
                 [avatars addObject:avatarImg];
@@ -482,11 +477,11 @@
             }
         }
     }
-    NSLog(@"avatars array%lu",(unsigned long)avatars.count);
+//    NSLog(@"avatars array%lu",(unsigned long)avatars.count);
     for ( NSInteger i = 0; i < 4; i++) {
         // Check that we have enough logins
         if (i < results.count) {
-            NSLog(@"avatars =%@",avatars[i]);
+//            NSLog(@"avatars =%@",avatars[i]);
             
             CGFloat staticX = 0;
             CGFloat staticWidth = 80;
@@ -512,132 +507,16 @@
             [_avatarButton setBackgroundImage:[avatars objectAtIndex:i] forState:UIControlStateNormal];
             
             
-            NSLog(@"avatarImage = %@",[_avatarButton backgroundImageForState:UIControlStateNormal]);
+//            NSLog(@"avatarImage = %@",[_avatarButton backgroundImageForState:UIControlStateNormal]);
             [_avatarScroll addSubview:_avatarButton];
         }
     }
 }
 
-# pragma mark - Fetch Avatars / Create Avatars
-
--(void)fetchAvatarLoginsAndCreateAvatarButtons {
-    
-    // currently (16NOV15) - this method is not fetching lastLogin(s)
-    
-    CGFloat staticX = 0;
-    CGFloat staticWidth = 80;
-    CGFloat staticHeight = 80;
-    CGFloat staticPadding = 5;
-    
-    // need to put the avatars stored in sortedArray2 in the scrollView
-    for ( int i = 0; i < 5; i++) {
-        // do additional loading for avatars
-        _avatarButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        // the last two values control the size of the button
-        _avatarButton.frame = CGRectMake(0, 0, 80, 80);
-        [_avatarButton setFrame:CGRectMake((staticX + (i * (staticHeight + staticPadding))),5,staticWidth,staticHeight)];
-        // make corners round
-        _avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
-        _avatarButton.clipsToBounds = YES;
-        // assign method / action to button
-        [_avatarButton addTarget:self action:@selector(fillUserName) forControlEvents:UIControlEventTouchDown];
-        // create a stock image
-        UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
-        
-        [_avatarButton setBackgroundImage:btnImage forState:UIControlStateNormal];
-        
-        // this should add 5x buttons
-        [_avatarScroll addSubview:_avatarButton];
-//        [self addAvatarsToButtons];
-    }
-}
-# pragma mark - Add Avatar to Button
--(void)addAvatarsToButtons {
-    NSMutableArray *avatars = [NSMutableArray arrayWithCapacity:5];
-    Account *anAccount;
-    for ( anAccount in _results) {
-        if( anAccount.avatar == nil) {
-            UIImage *avtarImg = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
-            // convert UIImage to NSData
-            NSData *imageData = UIImageJPEGRepresentation(avtarImg, 1.0);
-            // save data to account
-            anAccount.avatar = imageData;
-            NSError *error = nil;
-            if (![_managedObjectContext save:&error]) {
-#ifdef DEBUG
-                NSLog(@"error %@", error);
-#endif
-            }
-        }
-        else if([_last5LoginArray containsObject:anAccount.lastLogin]) { // the following line could be trouble
-#ifdef DEBUG
-            NSLog(@"anAccount.lastLogin = %@",anAccount.lastLogin);
-#endif
-            UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
-            // apply avImg to btn
-            [avatars addObject:avatarImg];
-        }
-    }
-#ifdef DEBUG
-    NSLog(@"avatars = %@",avatars);
-#endif
-NSAssert(
-         avatars.count == _last5LoginArray.count
-,@"The loop is expected to find as many avatars as there are items in last5LoginArray"
-);
-    for ( int i = 0; i<5; i++) {
-        // check that we have enough logins
-        if ( i < _last5LoginArray.count) {
-            [_avatarButton setBackgroundImage:avatars[i] forState:UIControlStateNormal];
-        }
-    }
-}
 # pragma mark - View Did Appear
 
 - (void)viewDidAppear:(BOOL)animated {
     [self fetchLastFiveLogins];
-}
-
-# pragma mark - Check Avatar Status
-
--(void)checkAvatarStatus {
-    
-#ifdef DEBUG
-    NSLog(@"inside checkAvatarStatus method");
-#endif
-    // retrieve image from Core Data and place on UIButton
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    // define table / entity to use
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
-    [request setEntity:entity];
-    [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"avatar",@"username"]];
-    
-    //     fetch records and handle error
-    NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (!results) {
-        // handle error
-    }
-#ifdef DEBUG
-    NSLog(@"results = %@",results);
-#endif
-    // find specific value in array
-    for (Account *anAccount in results) {
-        if ([anAccount.username isEqualToString:_userNameString])
-#ifdef DEBUG
-            NSLog(@"username found.");
-#endif
-            // set the _avatarButton image to the avatar!!!
-            if(anAccount.avatar == nil) {
-                [self displayDefaultAvatar];
-            }
-            else {
-                [self displayAvatar];
-            }
-    }
 }
 
 # pragma mark Add Item ViewController - _un
@@ -658,93 +537,6 @@ NSAssert(
 - (void)sendUserNameToWelcomeVC:(NSString *)_un {
     
 }
-
-#pragma mark - Display Default Avatar
-
-- (void)displayDefaultAvatar {
-    NSLog(@"inside displayDefaultAvatar method");
-    // retrieve image from Core Data and place on UIButton
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    // define table / entity to use
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
-    [request setEntity:entity];
-    [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"avatar",@"username"]];
-    
-    //     fetch records and handle error
-    NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (!results) {
-        // handle error
-    }
-#ifdef DEBUG
-    NSLog(@"results = %@",results);
-#endif
-    // find specific value in array
-    for (Account *anAccount in results) {
-        if ([anAccount.username isEqualToString:_userNameString]) {
-#ifdef DEBUG
-            NSLog(@"usernameee found.");
-#endif
-            
-            NSURL *avatarURL = [[NSBundle mainBundle] URLForResource:@"HomeBrewPoster1" withExtension:@"jpg"];
-#ifdef DEBUG
-            NSLog(@"avatarURL = %@",avatarURL);
-#endif
-            
-            _avatarImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
-            
-            // set the _avatarButton image to the avatar!!!
-            [_avatarButton setBackgroundImage:_avatarImage forState:UIControlStateNormal];
-#ifdef DEBUG
-            NSLog(@"avatar = %@",_avatarImage);
-            NSLog(@"avatarURL = %@",avatarURL);
-#endif
-        }
-    }
-}
-
-#pragma mark - Display Avatar
-
-- (void)displayAvatar {
-#ifdef DEBUG
-    NSLog(@"inside displayAvatar method");
-#endif
-    // retrieve image from Core Data and place on UIButton
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    // define table / entity to use
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
-    [request setEntity:entity];
-    [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"avatar",@"username"]];
-    
-    //     fetch records and handle error
-    NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (!results) {
-        // handle error
-    }
-#ifdef DEBUG
-    NSLog(@"results = %@",results);
-#endif
-    // find specific value in array
-    for (Account *anAccount in results) {
-        if ([anAccount.username isEqualToString:_userNameString]) {
-            NSLog(@"username found.");
-            // set the _avatarButton image to the avatar!!!
-            _avatarImage = [[UIImage alloc] initWithData:anAccount.avatar];
-            [_avatarButton setBackgroundImage:_avatarImage forState:UIControlStateNormal];
-#ifdef DEBUG
-            NSLog(@"avatar = %@",_avatarImage);
-#endif
-        }
-    }
-}
-
 
 #pragma mark - Status bar method
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -1012,30 +804,12 @@ NSAssert(
 #pragma mark - View Will Appear
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    // register for keyboard notifications
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(keyboardWillShow)
-//                                                 name:UIKeyboardWillShowNotification
-//                                               object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(keyboardWillHide)
-//                                                 name:UIKeyboardWillHideNotification
-//                                               object:nil];
+
 }
 #pragma mark - View Will Disappear
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
-    // unregister for keyboard notifications while not visible.
-//    [[NSNotificationCenter defaultCenter] removeObserver:self
-//                                                    name:UIKeyboardWillShowNotification
-//                                                  object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] removeObserver:self
-//                                                    name:UIKeyboardWillHideNotification
-//                                                  object:nil];
 }
 #pragma mark - keyboard toolbar method - next
 - (IBAction) next:(id)sender

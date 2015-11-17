@@ -34,7 +34,7 @@
     id myDelegate;
 }
 
-@property (nonatomic, assign) id<ViewControllerHomeDelegate> myDelegate;
+@property (nonatomic, assign) id<ViewControllerHomeDelegate> _myDelegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *tfUsername;
 @property (weak, nonatomic) IBOutlet UITextField *tfCredit;

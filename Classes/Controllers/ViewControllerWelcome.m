@@ -428,11 +428,14 @@
 -(void)fillUserName:(id) sender {
     
     UIButton *button = (UIButton *)sender;
+#ifdef DEBUG
     NSLog(@"avatar btn tag = %ld",(long)button.tag);
-    
+#endif
     if (button.tag) {
-        NSString *key = [NSString stringWithFormat:@"%i", button.tag];
+        NSString *key = [NSString stringWithFormat:@"%li", (long)button.tag];
+#ifdef DEBUG
         NSLog(@"key %@", key);
+#endif
         _textFieldUsername.text = _avatarButtonDictionary[key];
 
     }
@@ -480,9 +483,7 @@
     NSInteger tempTag = 1000;
     for ( anAccount in _lastFiveLoginResults) {
         if(anAccount.lastLogin) {
-            [_avatarButtonDictionary setObject:anAccount.username forKey:[NSString stringWithFormat:@"%i", tempTag]];
-//            [_avatarButtonDictionary setObject:anAccount.username]
-            NSLog(@"anAccount.lastLogin = %@, by:%@",anAccount.lastLogin,anAccount.username);
+            [_avatarButtonDictionary setObject:anAccount.username forKey:[NSString stringWithFormat:@"%li", (long)tempTag]];
             if (anAccount.avatar != nil) {
                 UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
                 [avatars addObject:avatarImg];
@@ -493,7 +494,6 @@
             tempTag++;
         }
     }
-    NSLog(@"avatars array%lu",(unsigned long)avatars.count);
     for ( NSInteger i = 0; i < 4; i++) {
         // Check that we have enough logins
         if (i < _lastFiveLoginResults.count) {
@@ -517,14 +517,11 @@
             // set the button tag to the index of the array
             _avatarButton.tag = i+1000;
             
-//            [_avatarButtonDictionary setObject:anAccount.username forKey:[NSString stringWithFormat:@"%i", _avatarButton.tag]];
-            
             // assign method / action to button
             [_avatarButton addTarget:self action:@selector(fillUserName:) forControlEvents:UIControlEventTouchDown];
 
             [_avatarButton setBackgroundImage:[avatars objectAtIndex:i] forState:UIControlStateNormal];
             
-//            NSLog(@"avatarImage = %@",[_avatarButton backgroundImageForState:UIControlStateNormal]);
             [_avatarScroll addSubview:_avatarButton];
         }
     }
@@ -539,8 +536,9 @@
 # pragma mark Add Item ViewController - _un
 
 - (void)addItemViewController:(ViewControllerHome *)controller didFinishEnteringItem:(NSString *)_un {
+#ifdef DEBUG
     NSLog(@"This was returned from ViewControllerB %@",_un);
-    
+#endif
     _un = _userNameString;
 }
 
@@ -707,7 +705,9 @@
                     
                     // get current time
                     NSString *timestamp = TimeStamp;
+#ifdef DEBUG
                     NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+#endif
                     _loginTime = [[NSDate alloc] init];
                     
                     // adjust timezone
@@ -715,7 +715,9 @@
                     NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
                     
                     anAccount.lastLogin = localDate;
+#ifdef DEBUG
                     NSLog(@"login time = %@",anAccount.lastLogin);
+#endif
                     // save anAccount.lastLogin attribute to Core Data DB
                     NSError *error = nil;
                     if (![_managedObjectContext save:&error]) {

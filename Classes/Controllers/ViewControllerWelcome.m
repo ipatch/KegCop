@@ -39,6 +39,8 @@
 
 // Avatar - properties
 @property (retain, nonatomic) UIScrollView *avatarScroll;
+@property (retain, nonatomic) NSArray *lastFiveLoginResults;
+@property (retain, nonatomic) NSMutableDictionary *avatarButtonDictionary;
 
 // delegation
 @property (retain, nonatomic)NSString *userNameString;
@@ -417,46 +419,22 @@
     // see SO thread - stackoverflow.com/questions/17678881/
     [self setNeedsStatusBarAppearanceUpdate];
     
+    
+    
     [self fetchLastFiveLogins];
 }
 # pragma mark - Fill Username from Avatar Button
 
--(void)fillUserName {
-#ifdef DEBUG
-    NSLog(@"avatar button press works :)");
-#endif
-    // need to access Core Data to retrieve the last five logins
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+-(void)fillUserName:(id) sender {
     
-    // define table / entity to use
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account"inManagedObjectContext:_managedObjectContext];
-    [request setEntity:entity];
+    UIButton *button = (UIButton *)sender;
+    NSLog(@"avatar btn tag = %ld",(long)button.tag);
     
-    [request setPropertiesToFetch:@[@"avatar",@"username",@"lastLogin"]];
-    
-    // sort / filter "results" to display the last five "lastLogin(s)"
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastLogin" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    
-    [request setFetchLimit:5];
-    
-    [request setSortDescriptors:sortDescriptors];
-    
-    //     fetch records and handle error
-    NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (!results) {
-        // handle error
-        // also if there is login data handle error so app doesn't crash
-    }
-    NSLog(@"avatarButton = %@",_avatarButton);
-    Account *anAccount;
-    for (anAccount in results) {
-        if (anAccount.lastLogin) {
-            // set the TextField for the username to be filled by which avatar is pressed.
-            _textFieldUsername.text = anAccount.username;
-        }
+    if (button.tag) {
+        NSString *key = [NSString stringWithFormat:@"%i", button.tag];
+        NSLog(@"key %@", key);
+        _textFieldUsername.text = _avatarButtonDictionary[key];
+
     }
 }
 
@@ -464,6 +442,8 @@
 
 - (void)fetchLastFiveLogins {
     
+    // this method fetches the last 5 logged in users and displays their avatar on a button in the VCWelcome
+    
     // need to access Core Data to retrieve the last five logins
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -483,21 +463,25 @@
     
     //     fetch records and handle error
     NSError *error;
-    NSArray *results = [_managedObjectContext executeFetchRequest:request error:&error];
+    _lastFiveLoginResults = [_managedObjectContext executeFetchRequest:request error:&error];
     
-    if (!results) {
+    if (!_lastFiveLoginResults) {
         // handle error
         // also if there is login data handle error so app doesn't crash
     }
     Account *anAccount;
     
+    _avatarButtonDictionary = [[NSMutableDictionary alloc] init];
+    
     // create a stock image
     UIImage *btnImage = [UIImage imageNamed:@"HomeBrewPoster1.jpg"];
     
     NSMutableArray *avatars = [NSMutableArray arrayWithCapacity:5];
-    for ( anAccount in results) {
-        NSLog(@"results%@",anAccount.lastLogin);
+    NSInteger tempTag = 1000;
+    for ( anAccount in _lastFiveLoginResults) {
         if(anAccount.lastLogin) {
+            [_avatarButtonDictionary setObject:anAccount.username forKey:[NSString stringWithFormat:@"%i", tempTag]];
+//            [_avatarButtonDictionary setObject:anAccount.username]
             NSLog(@"anAccount.lastLogin = %@, by:%@",anAccount.lastLogin,anAccount.username);
             if (anAccount.avatar != nil) {
                 UIImage *avatarImg = [UIImage imageWithData:anAccount.avatar ];
@@ -506,13 +490,14 @@
             else {
                 [avatars addObject:btnImage];
             }
+            tempTag++;
         }
     }
     NSLog(@"avatars array%lu",(unsigned long)avatars.count);
     for ( NSInteger i = 0; i < 4; i++) {
         // Check that we have enough logins
-        if (i < results.count) {
-            NSLog(@"avatars =%@",avatars[i]);
+        if (i < _lastFiveLoginResults.count) {
+//            NSLog(@"avatars =%@",avatars[i]);
             
             CGFloat staticX = 0;
             CGFloat staticWidth = 80;
@@ -529,12 +514,17 @@
             _avatarButton.layer.cornerRadius = 40; // value varies -- // 35 yields a pretty good circle.
             _avatarButton.clipsToBounds = YES;
             
+            // set the button tag to the index of the array
+            _avatarButton.tag = i+1000;
+            
+//            [_avatarButtonDictionary setObject:anAccount.username forKey:[NSString stringWithFormat:@"%i", _avatarButton.tag]];
+            
             // assign method / action to button
-            [_avatarButton addTarget:self action:@selector(fillUserName) forControlEvents:UIControlEventTouchDown];
+            [_avatarButton addTarget:self action:@selector(fillUserName:) forControlEvents:UIControlEventTouchDown];
 
             [_avatarButton setBackgroundImage:[avatars objectAtIndex:i] forState:UIControlStateNormal];
             
-            NSLog(@"avatarImage = %@",[_avatarButton backgroundImageForState:UIControlStateNormal]);
+//            NSLog(@"avatarImage = %@",[_avatarButton backgroundImageForState:UIControlStateNormal]);
             [_avatarScroll addSubview:_avatarButton];
         }
     }

@@ -165,8 +165,8 @@ bool getFlow4() {
         // disconnect flow meter from interrupt
         detachInterrupt(0); // Disable interrupt when calculating
         
-        Serial.print("Ticks:");
-        Serial.println(numTicks);
+//        Serial.print("Ticks:");
+        Serial.print(numTicks);
         // numTicks = 0; // Restart the counter.
         lastmillis = millis(); // Update lastmillis
         attachInterrupt(0, count, FALLING); // enable interrupt

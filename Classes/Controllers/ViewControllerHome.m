@@ -25,12 +25,29 @@
 @property (nonatomic, retain) UIButton *btndrinkbeer;
 @property (nonatomic, retain) UIButton *btnLogout;
 @property (nonatomic, retain) UIButton *avatarButton;
+@property (nonatomic, retain) UILabel *tickAmount;
+@property (nonatomic, retain) NSString *ticks;
 @end
 
 @implementation ViewControllerHome { }
 
 #pragma mark - Add UI Elements
 -(void)addUIElements {
+    
+    _tickAmount = [[UILabel alloc] init];
+    _tickAmount.textColor = [UIColor colorWithRed:255/255.0
+                                         green:255/255.0
+                                          blue:255/255.0
+                                         alpha:1.0f];
+    _tickAmount.layer.borderColor = [UIColor redColor].CGColor;
+    _tickAmount.layer.borderWidth = 3.0f;
+    
+    
+    _tickAmount.frame = CGRectMake(100, 50, 100, 100);
+    [self.view addSubview:_tickAmount];
+
+    
+    
     _navBar = [[UINavigationBar alloc] init];
     [_navBar setFrame:CGRectMake(0,0,CGRectGetWidth(self.view.frame),60)];
     
@@ -833,6 +850,11 @@
 }
 
 - (void)didReceiveData:(NSData *)data Device:(DFBlunoDevice *)dev {
+    
+    // setup label to update
+    _ticks = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [_tickAmount setText:[NSString stringWithFormat:@"Ticks:%@",_ticks]];
+    NSLog(@"ticks = %@",_ticks);
 }
 
 # pragma mark - device orientation

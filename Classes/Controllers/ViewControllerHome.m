@@ -854,6 +854,7 @@
     // setup label to update
     _ticks = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     [_tickAmount setText:[NSString stringWithFormat:@"Ticks:%@",_ticks]];
+//    [_tickAmount setNeedsDisplay];
     NSLog(@"ticks = %@",_ticks);
 }
 

@@ -141,7 +141,8 @@ ISR(TIMER2_COMPA_vect)
             close_valve();
             gMillis = 0;
             valveClosed = 1;
-            loop();
+            //loop();
+            return;
         }
     }
     
@@ -164,13 +165,12 @@ bool getFlow4() {
     if (millis() - lastmillis >= 250) { // Update every 1/4 second
         // disconnect flow meter from interrupt
         detachInterrupt(0); // Disable interrupt when calculating
-        
-//        Serial.print("Ticks:");
-        Serial.print(numTicks);
         // numTicks = 0; // Restart the counter.
         lastmillis = millis(); // Update lastmillis
         attachInterrupt(0, count, FALLING); // enable interrupt
+        //        Serial.print(numTicks); putting the print statement here still yields the same results. :'(
     }
+    Serial.print(numTicks);
     if(numTicks >= 475 || valveClosed == 1) {
         close_valve();
         numTicks = 0; // Restart the counter.

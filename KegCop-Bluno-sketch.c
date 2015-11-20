@@ -168,9 +168,9 @@ bool getFlow4() {
         // numTicks = 0; // Restart the counter.
         lastmillis = millis(); // Update lastmillis
         attachInterrupt(0, count, FALLING); // enable interrupt
-        //        Serial.print(numTicks); putting the print statement here still yields the same results. :'(
+        
     }
-    Serial.print(numTicks);
+    //    Serial.print(numTicks);
     if(numTicks >= 475 || valveClosed == 1) {
         close_valve();
         numTicks = 0; // Restart the counter.
@@ -182,6 +182,7 @@ bool getFlow4() {
 void count(){
     numTicks++;
     flow_A_blink();
+    Serial.print(numTicks);
 }
 
 /*

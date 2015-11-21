@@ -640,119 +640,106 @@
 #ifdef DEBUG
             NSLog(@"Your username exists");
 #endif
+            [self authenticate:anAccount];
             
-            // PASSWORD - PIN AUTHENTICATION
-            
-            /*
-             * 0) establish secret key
-             * 1) get value stored in DB
-             * 1.1) convert / decode base64 string to NSData
-             * 2) decrypt NSData
-             * 3) convert data to string
-             * 4) compare inputted text to decrptyed value
-             */
-            
-            // password - set key
-            NSString *key = @"donkey balls";
-            
-            // password - get value stored in Core Data DB
-            NSString *secret = anAccount.pin;
-        
-            // password - print value of pin stored in DB
-#ifdef DEBUG
-            NSLog(@"DB pin = %@",secret);
-#endif
-            // password - decode base64 NSData
-            NSData *cipher = [[NSData alloc ]base64DataFromString:secret];
-            
-            // password - decrypt data
-            NSData *plain = [cipher AES256DecryptWithKey:key];
-            
-            // password - convert data to string
-            NSString *strplain = [[NSString alloc] initWithData:plain encoding:NSUTF8StringEncoding];
-            
-            // password - display string
-            // NSLog(@"%@",strplain);
-            
-            if ([strplain isEqualToString:_textFieldPin.text]){
-        
-                // play audio bell if user logs in correctly
-                CFBundleRef mainBundle = CFBundleGetMainBundle();
-                CFURLRef soundFileURLRef;
-                soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"Glass", CFSTR("aiff"), NULL);
-                UInt32 soundID;
-                AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-                AudioServicesPlaySystemSound(soundID);
-                
-                // Load ViewController(Root)Home
-                if([anAccount.username isEqualToString:@"root"])
-                {
-                    UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-                    ViewControllerRootHome *rootHome = [storyboardLocal instantiateViewControllerWithIdentifier:@"rootHome"];
-                    [self presentViewController:rootHome animated:YES completion:nil];
-                    
-                    // clear out / blank tfusername and tfpin
-                    _textFieldUsername.text = @"";
-                    _textFieldPin.text = @"";
-                }
-                else {
-                    UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
-                    
-                    ViewControllerHome *home = [storyboardLocal instantiateViewControllerWithIdentifier:@"Home"];
-                    
-                    // pass username text to home screen
-                    home.un = _textFieldUsername.text;
-                    
-                    // get current time
-                    NSString *timestamp = TimeStamp;
-#ifdef DEBUG
-                    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
-#endif
-                    _loginTime = [[NSDate alloc] init];
-                    
-                    // adjust timezone
-                    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
-                    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
-                    
-                    anAccount.lastLogin = localDate;
-#ifdef DEBUG
-                    NSLog(@"login time = %@",anAccount.lastLogin);
-#endif
-                    // save anAccount.lastLogin attribute to Core Data DB
-                    NSError *error = nil;
-                    if (![_managedObjectContext save:&error]) {
-                        NSLog(@"error %@", error);
-                    }
-
-                    [self presentViewController:home animated:YES completion:nil];
-                    
-                    // clear out / blank tfusername and tfpin
-                    _textFieldUsername.text = @"";
-                    _textFieldPin.text = @"";
-                }
-            }
-            else {
-#ifdef DEBUG
-                NSLog(@"Your pin is wrong");
-#endif
-                // add red border to tfPin
-                [self setRedBorderAroundTextFieldPin];
-                }
-            }
-    
-            else {
-#ifdef DEBUG
-                NSLog(@"Your username was not found");
-#endif
-                // add red border to tfUserName
-                [self setRedBorderAroundTextFieldUserName];
-            
+            NSError *error = nil;
+            if (![_managedObjectContext save:&error]) {
+                    NSLog(@"error %@", error);
             }
         }
+    // if (anAccount = _tf.text
+    } // for loop
+} // end of method
+
+- (void)authenticate:(Account *) anAccount {
+    // PASSWORD - PIN AUTHENTICATION
+    
+    /*
+     * 0) establish secret key
+     * 1) get value stored in DB
+     * 1.1) convert / decode base64 string to NSData
+     * 2) decrypt NSData
+     * 3) convert data to string
+     * 4) compare inputted text to decrptyed value
+     */
+    
+    // password - set key
+    NSString *key = @"donkey balls";
+    
+    // password - get value stored in Core Data DB
+    NSString *secret = anAccount.pin;
+    
+    // password - print value of pin stored in DB
+#ifdef DEBUG
+    NSLog(@"DB pin = %@",secret);
+#endif
+    // password - decode base64 NSData
+    NSData *cipher = [[NSData alloc ]base64DataFromString:secret];
+    
+    // password - decrypt data
+    NSData *plain = [cipher AES256DecryptWithKey:key];
+    
+    // password - convert data to string
+    NSString *strplain = [[NSString alloc] initWithData:plain encoding:NSUTF8StringEncoding];
+    
+    // password - display string
+    // NSLog(@"%@",strplain);
+    if ([strplain isEqualToString:_textFieldPin.text]){
+        
+        // play audio bell if user logs in correctly
+        CFBundleRef mainBundle = CFBundleGetMainBundle();
+        CFURLRef soundFileURLRef;
+        soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"Glass", CFSTR("aiff"), NULL);
+        UInt32 soundID;
+        AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+        AudioServicesPlaySystemSound(soundID);
+        
+        [self saveLastLoginTime:anAccount]; // save anAccount.lastLogin attribute to Core Data DB
+    
+        // Load ViewController(Root)Home
+        if([anAccount.username isEqualToString:@"root"]) {
+            UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+            ViewControllerRootHome *rootHome = [storyboardLocal instantiateViewControllerWithIdentifier:@"rootHome"];
+            [self presentViewController:rootHome animated:YES completion:nil];
+            
+            // clear out / blank tfusername and tfpin
+            _textFieldUsername.text = @"";
+            _textFieldPin.text = @"";
+        }
+    
+        else {
+            UIStoryboard *storyboardLocal = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+            ViewControllerHome *home = [storyboardLocal instantiateViewControllerWithIdentifier:@"Home"];
+            // pass username text to home screen
+            home.un = _textFieldUsername.text;
+            [self presentViewController:home animated:YES completion:nil];
+            
+            // clear out / blank tfusername and tfpin
+            _textFieldUsername.text = @"";
+            _textFieldPin.text = @"";
+        }
+    }
+    else {
+        [self setRedBorderAroundTextFieldPin];
+    }
 }
 
-- (void)saveLastLoginTime {
+- (void)saveLastLoginTime:(Account *) anAccount {
+    // get current time
+    NSString *timestamp = TimeStamp;
+#ifdef DEBUG
+    NSLog(@"current time = %@",timestamp); // ex. 1427178876698.blah
+#endif
+    _loginTime = [[NSDate alloc] init];
     
+    // adjust timezone
+    NSTimeInterval timeZoneOffset = [[NSTimeZone systemTimeZone] secondsFromGMTForDate:_loginTime];
+    NSDate *localDate = [_loginTime dateByAddingTimeInterval:timeZoneOffset];
+    
+    anAccount.lastLogin = localDate;
+#ifdef DEBUG
+    NSLog(@"login time = %@",anAccount.lastLogin);
+#endif
 }
 
 - (IBAction)showForgotScene:(id)sender {

@@ -39,10 +39,10 @@
                                          green:255/255.0
                                           blue:255/255.0
                                          alpha:1.0f];
+#ifdef DEBUG
     _tickAmount.layer.borderColor = [UIColor redColor].CGColor;
     _tickAmount.layer.borderWidth = 3.0f;
-    
-    
+#endif
     _tickAmount.frame = CGRectMake(100, 50, 100, 100);
     [self.view addSubview:_tickAmount];
 

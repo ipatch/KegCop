@@ -1,3 +1,18 @@
+-----------------------------------------------
+21NOV15
+
+for (Account *anAccount in results) {
+// see, http://stackoverflow.com/questions/3520728/
+if (![_textFieldUsername.text  isEqualToString:anAccount.username]) {
+#ifdef DEBUG
+NSLog(@"Your username was not found");
+#endif
+// add red border to tfUserName
+[self setRedBorderAroundTextFieldUserName];
+}
+}
+
+
 
 Notes
 - to bump build

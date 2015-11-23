@@ -656,8 +656,6 @@
 #endif
         [self setRedBorderAroundTextFieldUserName];
     }
-
-    
 } // end of method
 
 - (void)authenticate:(Account *) anAccount {

@@ -644,11 +644,20 @@
             
             NSError *error = nil;
             if (![_managedObjectContext save:&error]) {
+#ifdef DEBUG
                     NSLog(@"error %@", error);
+#endif
             }
         }
-    // if (anAccount = _tf.text
-    } // for loop
+    }
+    if(results == nil || [results count] == 0) {
+#ifdef DEBUG
+        NSLog(@"username invalid");
+#endif
+        [self setRedBorderAroundTextFieldUserName];
+    }
+
+    
 } // end of method
 
 - (void)authenticate:(Account *) anAccount {

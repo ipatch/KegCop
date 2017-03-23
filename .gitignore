@@ -13,7 +13,7 @@
 *~.nib
 ####
 # Xcode build files -
-# 
+#
 DerivedData/
 build/
 ####
@@ -48,8 +48,13 @@ secrets.h
 scripts/certs/*
 scripts/profile/*
 #####
-# Whitelist necessary files 
+# Whitelist necessary files
 ##
 !scripts/certs/dist.cer.enc
 !scripts/certs/dist.p12.enc
 !scripts/profile/travis-ci.mobileprovision.enc
+
+#######
+# Ignore node_modules
+###
+node_modules

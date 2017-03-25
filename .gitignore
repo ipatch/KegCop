@@ -58,3 +58,4 @@ scripts/profile/*
 # Ignore node_modules
 ###
 node_modules
+npm-debug.log

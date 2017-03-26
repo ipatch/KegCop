@@ -8,17 +8,11 @@ new webpack.ProvidePlugin({
   jQuery: 'jquery'
 })
 
-
 Question: Bootstrap - does bootstrap need to be a production dependency?
 Answer:
 For the time being I installed bootstrap / jQuery in the production dependencies
 
-
-
-
-
 Note/Question: March 22, 2017 - why is bundle.js not loading?
-
 
 Note: Webpack hot reloading you can attach to your own server
 https://github.com/glenjamin/webpack-hot-middleware

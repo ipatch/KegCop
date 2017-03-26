@@ -7,7 +7,7 @@
     "start": "webpack-dev-server",
     "compile": "webpack",
     "build:dev": "webpack --env=dev --progress --profile --colors",
-    "build:dist": "webpack --env=prod --progress --profile --colors",
+    "build:dist": "webpack --env=prod --progress --profile --colors --optimize-minimize",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run compile",
     "deploy": "gh-pages -d dist"

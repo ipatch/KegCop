@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.css';
-import NavBar from './common/Navbar';
-import NavLink from './common/NavLink';
+// import NavBar from './common/Navbar';
+// import NavLink from './common/NavLink';
 
 
 
@@ -9,7 +9,7 @@ import NavLink from './common/NavLink';
 
 const App = () => (
   <div className={styles.app}>
-    <NavBar />
+    
     <h2>Hello, KegCop.</h2>
   </div>
 );

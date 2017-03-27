@@ -64,7 +64,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
 
     new webpack.NamedModulesPlugin(),

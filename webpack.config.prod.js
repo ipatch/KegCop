@@ -67,7 +67,7 @@ module.exports = {
     // new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
 
-    new webpack.NamedModulesPlugin(),
+    // new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
 
     new webpack.ProvidePlugin({
@@ -78,7 +78,5 @@ module.exports = {
     // new webpack.optimize.UglifyJsPlugin({
     //   sourceMap: options.devtool && (options.devtool.indexOf("sourcemap") >= 0 || options.devtool.indexOf("source-map") >= 0)
     //   })
-
-
   ],
 };

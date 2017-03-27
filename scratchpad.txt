@@ -1,12 +1,13 @@
-Note: March 27, 2017 - removed "source-map" from production configuration file,
+Note: March 27, 2017 - remove "source-map" from the webpack configuration.
+Answer: March 27, 2017 - removed "source-map" from production configuration file,
 "webpack.config.prod.js" and it reduced the bundle from ~ 4.5MB to 278KB.
 
 Note: March 27, 2017 - look into creating a production config for webpack-2.
 Answer: created webpack.config.prod.js and reference it in the package.json
 
-Note: March 27, 2017 - remove "source-map" from the webpack configuration.
-
 Note: March 27, 2017 - don't need HMR for production builds using webpack-2.
+Answer: removed all references to HMR in the "webpack.config.prod.js" thus
+further reducing the bundle.js file from 278K to ~ 149K.
 
 Question: How to setup jQuery in a React project?
 Answer:

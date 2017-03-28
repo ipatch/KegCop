@@ -60,3 +60,4 @@ scripts/profile/*
 node_modules
 npm-debug.log
 scratchpad.txt
+Pods/

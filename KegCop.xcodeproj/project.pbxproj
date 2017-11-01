@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D1D3CDD3A3E40E789538892 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC4EEE47EAB4A04A9448C12 /* libPods.a */; };
-		E52E849B1C392B67330A801F /* libPods-KegCopTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */; };
+		96DD45BF5F88B4DC080A7961 /* libPods-KegCop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DC4047CED864F50245BB2F /* libPods-KegCop.a */; };
 		EA01673A1ABE30ED00A98B2F /* ViewControllerAvatar4.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0167391ABE30ED00A98B2F /* ViewControllerAvatar4.m */; };
 		EA01673C1ABE31FE00A98B2F /* avatar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA01673B1ABE31FE00A98B2F /* avatar.xib */; };
 		EA022CDD1A0ABAE900CE6B3C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA022CDC1A0ABAE900CE6B3C /* MapKit.framework */; };
@@ -84,10 +83,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16C5175EAEC3CBA524390977 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		4CC4EEE47EAB4A04A9448C12 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		287821C1C0876CF0581BA7A6 /* Pods-KegCop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KegCop.release.xcconfig"; path = "Pods/Target Support Files/Pods-KegCop/Pods-KegCop.release.xcconfig"; sourceTree = "<group>"; };
+		83DC4047CED864F50245BB2F /* libPods-KegCop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KegCop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EEDBA24C64AE9992CF4C86 /* Pods-KegCop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KegCop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KegCop/Pods-KegCop.debug.xcconfig"; sourceTree = "<group>"; };
 		EA0167371ABE16C500A98B2F /* Accounts 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Accounts 2.xcdatamodel"; sourceTree = "<group>"; };
 		EA0167381ABE30ED00A98B2F /* ViewControllerAvatar4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAvatar4.h; sourceTree = "<group>"; };
 		EA0167391ABE30ED00A98B2F /* ViewControllerAvatar4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAvatar4.m; sourceTree = "<group>"; };
@@ -204,8 +202,6 @@
 		EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EAEFEE9D157B296B00C666D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EAF85AD41AC1344600E8705C /* Accounts 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Accounts 3.xcdatamodel"; sourceTree = "<group>"; };
-		F85637C58D0B30CD1F406793 /* Pods-KegCopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KegCopTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KegCopTests/Pods-KegCopTests.release.xcconfig"; sourceTree = "<group>"; };
-		FEAF2D287464FFFCA939CFE1 /* Pods-KegCopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KegCopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KegCopTests/Pods-KegCopTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +209,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E52E849B1C392B67330A801F /* libPods-KegCopTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,20 +230,18 @@
 				EADB6DAA187A922800A0A8D2 /* CoreBluetooth.framework in Frameworks */,
 				EABE1D761581CB1E00FF9FA0 /* Security.framework in Frameworks */,
 				EA1E87B2157C999A002C945B /* CoreData.framework in Frameworks */,
-				5D1D3CDD3A3E40E789538892 /* libPods.a in Frameworks */,
+				96DD45BF5F88B4DC080A7961 /* libPods-KegCop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C6BCE9853FEDCFB2F2C44BD /* Pods */ = {
+		65586F8E0062F8BB86924B24 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */,
-				16C5175EAEC3CBA524390977 /* Pods.release.xcconfig */,
-				FEAF2D287464FFFCA939CFE1 /* Pods-KegCopTests.debug.xcconfig */,
-				F85637C58D0B30CD1F406793 /* Pods-KegCopTests.release.xcconfig */,
+				E5EEDBA24C64AE9992CF4C86 /* Pods-KegCop.debug.xcconfig */,
+				287821C1C0876CF0581BA7A6 /* Pods-KegCop.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -469,7 +462,7 @@
 				EA34633F1A0AB3AC00588DC5 /* KegCopTests */,
 				EAEFEE92157B296B00C666D5 /* Frameworks */,
 				EAEFEE90157B296B00C666D5 /* Products */,
-				2C6BCE9853FEDCFB2F2C44BD /* Pods */,
+				65586F8E0062F8BB86924B24 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -500,8 +493,7 @@
 				EAEFEE93157B296B00C666D5 /* UIKit.framework */,
 				EAEFEE95157B296B00C666D5 /* Foundation.framework */,
 				EAEFEE97157B296B00C666D5 /* CoreGraphics.framework */,
-				4CC4EEE47EAB4A04A9448C12 /* libPods.a */,
-				D80D09334B60A38D84A28F02 /* libPods-KegCopTests.a */,
+				83DC4047CED864F50245BB2F /* libPods-KegCop.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -513,11 +505,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA3463481A0AB3AD00588DC5 /* Build configuration list for PBXNativeTarget "KegCopTests" */;
 			buildPhases = (
-				52BA2C2224E3B3A4E641C7BE /* Check Pods Manifest.lock */,
 				EA34633A1A0AB3AC00588DC5 /* Sources */,
 				EA34633B1A0AB3AC00588DC5 /* Frameworks */,
 				EA34633C1A0AB3AC00588DC5 /* Resources */,
-				1C1FB978076E9EF0D4709FC1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -533,11 +523,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAEFEEAD157B296B00C666D5 /* Build configuration list for PBXNativeTarget "KegCop" */;
 			buildPhases = (
-				40B5D04DABA44828BD0F8032 /* Check Pods Manifest.lock */,
+				21BFF29DC97E7BA5E5086E0E /* [CP] Check Pods Manifest.lock */,
 				EAEFEE8C157B296B00C666D5 /* Frameworks */,
-				06F2684553644706A2B3A865 /* Copy Pods Resources */,
 				EAEC80031AB3A2D6004EFD58 /* Sources */,
 				EAEC808D1AB3A918004EFD58 /* Resources */,
+				DDE3FAC59B814A40808A67B7 /* [CP] Embed Pods Frameworks */,
+				0EB1E13E55C7531A667E95C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -628,64 +619,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06F2684553644706A2B3A865 /* Copy Pods Resources */ = {
+		0EB1E13E55C7531A667E95C1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KegCop/Pods-KegCop-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1C1FB978076E9EF0D4709FC1 /* Copy Pods Resources */ = {
+		21BFF29DC97E7BA5E5086E0E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KegCop-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KegCopTests/Pods-KegCopTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		40B5D04DABA44828BD0F8032 /* Check Pods Manifest.lock */ = {
+		DDE3FAC59B814A40808A67B7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		52BA2C2224E3B3A4E641C7BE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KegCop/Pods-KegCop-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -776,7 +755,6 @@
 /* Begin XCBuildConfiguration section */
 		EA3463461A0AB3AD00588DC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEAF2D287464FFFCA939CFE1 /* Pods-KegCopTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -814,7 +792,6 @@
 		};
 		EA3463471A0AB3AD00588DC5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F85637C58D0B30CD1F406793 /* Pods-KegCopTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -922,7 +899,7 @@
 		};
 		EAEFEEAE157B296B00C666D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1317D6D5FB97FE0337AA7E1 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E5EEDBA24C64AE9992CF4C86 /* Pods-KegCop.debug.xcconfig */;
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;
@@ -936,10 +913,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
-					"DEBUG=1",
-					"COCOAPODS=1",
-				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "DEBUG=1 COCOAPODS=1";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -964,7 +938,7 @@
 		};
 		EAEFEEAF157B296B00C666D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16C5175EAEC3CBA524390977 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 287821C1C0876CF0581BA7A6 /* Pods-KegCop.release.xcconfig */;
 			buildSettings = {
 				ALTERNATE_OWNER = "iPhone Developer";
 				CLANG_ENABLE_MODULES = YES;

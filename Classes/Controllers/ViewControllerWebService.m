@@ -84,7 +84,7 @@
     
     // establish connection with remote API
 #ifdef DEBUG
-    NSLog(@"I am your RKClient singleton : %@", [RKObjectManager sharedManager]);
+//    NSLog(@"I am your RKClient singleton : %@", [RKObjectManager sharedManager]);
 #endif
     
     

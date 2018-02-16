@@ -168,34 +168,37 @@
 - (void)getCSV {
     // use AFNetworking to retrieve remote CSV file from the API then log the output of file
     
-    NSURL *url;
+    NSString *url;
 #ifdef DEBUG
     // use this variable on DEBUG build
-    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files"];
+    url = @"http://localhost:3000/api/csv_files";
 #else
     // use this variable on RELEASE build
-    url = [NSURL URLWithString:@"http://api.kegcop.chrisrjones.com/api/csv_files"];
+    url = @"http://api.kegcop.chrisrjones.com/api/csv_files";
 #endif
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
     
-    __weak typeof(self) weakSelf = self;
-    AFJSONRequestOperation *operation =
-    [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                        NSDictionary *jsonDict = (NSDictionary *) JSON;
-                                                        // this is the array that stores the JSON response
-                                                        NSArray *csvFiles = [jsonDict objectForKey:@"csv_files"];
-                                                        [csvFiles enumerateObjectsUsingBlock:^(id obj,NSUInteger idx, BOOL *stop){
-                                                            //                                                              NSString *csvFileFilename = [obj objectForKey:@"csv_file_filename"];
-                                                            //                                                              NSLog(@"CSV Filenames:%@",csvFileFilename);
-                                                            [weakSelf processJSONResponse:csvFiles];
-                                                        }];
-                                                        
-                                                    }   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                        NSLog(@"Request Failure Because %@",[error userInfo]);
-                                                    }];
-    [operation start];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+//    __weak typeof(self) weakSelf = self;
+    [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:url parameters:parameters error:nil];
+//    AFJSONRequestOperation *operation =
+//    [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+//                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//                                                        NSDictionary *jsonDict = (NSDictionary *) JSON;
+//                                                        // this is the array that stores the JSON response
+//                                                        NSArray *csvFiles = [jsonDict objectForKey:@"csv_files"];
+//                                                        [csvFiles enumerateObjectsUsingBlock:^(id obj,NSUInteger idx, BOOL *stop){
+//                                                            //                                                              NSString *csvFileFilename = [obj objectForKey:@"csv_file_filename"];
+//                                                            //                                                              NSLog(@"CSV Filenames:%@",csvFileFilename);
+//                                                            [weakSelf processJSONResponse:csvFiles];
+//                                                        }];
+//
+//                                                    }   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+//                                                        NSLog(@"Request Failure Because %@",[error userInfo]);
+//                                                    }];
+//    [operation start];
 }
 #pragma mark - processJSONResponse
 - (void)processJSONResponse:(NSArray *) csvFiles {
@@ -222,6 +225,13 @@
 #pragma mark - getSpecificCSVFile
 - (void)getSpecificCSVFile:(NSArray *) csvFiles {
     // setup method to use AFNetworking to retrieve CSV file
+    
+    // afnetworking - https://cocoapods.org/?q=afnetworking
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    // afnetworking
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
     NSURL *url;
 #ifdef DEBUG
     // use this variable on DEBUG build
@@ -234,34 +244,91 @@
     // convert int into string - call the "getIDFromCSVArray"
     NSString *railsID = [NSString stringWithFormat:@"%ld",(long)[self getIDFromCSVArray:csvFiles]];
     
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:railsID
-                                                      parameters:nil];
-    __block NSArray* responseObjectArray = nil;
+    NSURL *getURLrailsCSVID = [url URLByAppendingPathComponent:railsID];
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // Print the response body in text
-        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//    NSURL *URL = [NSURL URLWithString:@"http://example.com/download.zip"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:getURLrailsCSVID];
+    
+    
+    NSURLSessionDownloadTask *downloadCVSFile = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
         
+//        NSLog(@"Response: %@", [[response MIMEType] lowercaseString]);
+        
+        __block NSArray* responseObjectArray = nil;
         // save the Specific CSV File to an NSArray
-        responseObjectArray = (NSArray*)responseObject;
+        responseObjectArray = (NSArray*)response;
         
-        // save the array to a file in the Documents dir
         NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        
         NSString *users = [documents stringByAppendingPathComponent:@"KegCop-imported-users.csv"];
         
         [responseObjectArray writeToFile:users atomically:YES];
         
         [self processCSVFile];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
     }];
-    [operation start];
+    [downloadCVSFile resume];
+    
+    
+    
+    
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    [manager GET:getURLrailsCSVID.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+//
+////        NSLog(@"JSON: %@", responseObject);
+//        // Print the response body in text
+//        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//             __block NSArray* responseObjectArray = nil;
+//            // save the Specific CSV File to an NSArray
+//            responseObjectArray = (NSArray*)responseObject;
+//
+////         save the array to a file in the Documents dir
+//           NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//
+//           NSString *users = [documents stringByAppendingPathComponent:@"KegCop-imported-users.csv"];
+//
+//            [responseObjectArray writeToFile:users atomically:YES];
+//
+//        [self processCSVFile];
+//
+    
+//    } failure:^(NSURLSessionTask *operation, NSError *error) {
+//
+//        NSLog(@"Error: %@", error);
+//    }];
+//    [operation start];
+    
+//    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+//    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+//                                                            path:railsID
+//                                                      parameters:nil];
+//    __block NSArray* responseObjectArray = nil;
+//
+//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+//    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        // Print the response body in text
+//        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//
+//        // save the Specific CSV File to an NSArray
+//        responseObjectArray = (NSArray*)responseObject;
+//
+//        // save the array to a file in the Documents dir
+//        NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//
+//        NSString *users = [documents stringByAppendingPathComponent:@"KegCop-imported-users.csv"];
+//
+//        [responseObjectArray writeToFile:users atomically:YES];
+//
+//        [self processCSVFile];
+//
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
+//    [operation start];
 }
 #pragma mark - process CSV File
 - (void) processCSVFile {

@@ -2,7 +2,7 @@ target 'KegCop' do
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 
 pod 'RestKit', '~> 0.24.1'
 

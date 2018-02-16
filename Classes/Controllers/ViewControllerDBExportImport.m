@@ -136,9 +136,9 @@
     // Do any additional setup after loading the view from its nib.
     
     _context = [[AccountsDataModel sharedDataModel]mainContext];
-#ifdef DEBUG
+//#ifdef DEBUG
     NSLog(@"context is %@",_context);
-#endif
+//#endif
 
     [self addUIElements];
     [self addConstraintsToUIElements];
@@ -158,9 +158,9 @@
 }
 
 - (void)exportUsers {
-#ifdef DEBUG
+//#ifdef DEBUG
     NSLog(@"exportUsers method reached");
-#endif
+//#endif
     
     // get a password
     NSString *idfv = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
@@ -193,10 +193,8 @@
 //        [csvObjects addObject:anObjectArray];
         [csvWriter writeLineOfFields:csvObjects];
         [csvWriter finishLine];
+//        NSLog(@"The output:%@",csvObjects);
     }
-#ifdef DEBUG
-//    NSLog(@"The output:%@",csvObjects);
-#endif
     
     [csvWriter closeStream];
     
@@ -204,9 +202,9 @@
 }
 
 - (void) uploadCSV {
-#ifdef DEBUG
+//#ifdef DEBUG
     NSLog(@"inside uploadCSV method");
-#endif
+//#endif
     NSString *idfv = [SSKeychain passwordForService:@"com.chrisrjones.KegCop.idfv" account:@"com.chrisrjones.KegCop"];
     
     NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -214,30 +212,56 @@
     // the below string will include the entire path, not just the file name
     NSString *filename = [documents stringByAppendingPathComponent:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv]];
     
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    // afnetworking class
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
     NSURL *url;
 #ifdef DEBUG
     // want to use this variable on DEBUG build
-    url = [NSURL URLWithString:@"http://localhost:3000/api/"];
+    url = [NSURL URLWithString:@"http://localhost:3000/api/csv_files/"];
 #else
     // want to use this variable on RELEASE build
-    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/"];
+    url = [NSURL URLWithString:@"http://kegcop.chrisrjones.com/api/csv_files/"];
 #endif
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURL *filePath = [NSURL fileURLWithPath:filename];
+    
+    // TODO: setup a `filePath`
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromFile:filePath progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"Success: %@ %@", response, responseObject);
+        }
+    }];
+    [uploadTask resume];
+    
+    
+    
+// LEGACY
+    
+//    NSData *data = [NSData dataWithContentsOfFile:filename];
     
     // begin uploading CSV file using AFNetworking
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    //    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
-    NSData *data = [NSData dataWithContentsOfFile:filename];
     
-    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-        [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"csv_file"] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"application/octet-stream"];
-    }];
+//    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"csv_files" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+//        [formData appendPartWithFileData:data name:[NSString stringWithFormat:@"csv_file"] fileName:[NSString stringWithFormat:@"KegCop-users-%@.csv",idfv] mimeType:@"application/octet-stream"];
+//    }];
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-        NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
-    }];
-    [httpClient enqueueHTTPRequestOperation:operation];
+//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+//
+//    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+//        NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+//    }];
+//    [httpClient enqueueHTTPRequestOperation:operation];
+//
+// END - LEGACY
 }
 
 #pragma mark - delegate methods for CHCSVParser

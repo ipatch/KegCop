@@ -229,8 +229,6 @@
     
     NSURL *filePath = [NSURL fileURLWithPath:filename];
     
-    // TODO: setup a `filePath`
-    
     NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request fromFile:filePath progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);

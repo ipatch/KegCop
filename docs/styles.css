@@ -1,0 +1,12 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+ width: 100%;
+ height: 100%;
+ margin: 0;
+}
+
+/* Experiment with SVG graphic inside div element */

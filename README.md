@@ -49,6 +49,12 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 - Clone this repo, then build for your device using Xcode.
 - Load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)
 
+<a id="todos"></a>
+
+## TODOs
+
+- [ ] add instructions for building app, ie. **KegCop.ipa** from CLI.
+
 cheers 🍻
 
 [@ipatch](https://github.com/ipatch)<br />

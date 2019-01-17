@@ -135,12 +135,12 @@
     [self.view sendSubviewToBack:childView];
     
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        _viewControllerRootHomeCenter.view.frame = CGRectMake(self.view.frame.size.width - PANEL_WIDTH, 0, self.view.frame.size.width, self.view.frame.size.height);
+      self->_viewControllerRootHomeCenter.view.frame = CGRectMake(self.view.frame.size.width - PANEL_WIDTH, 0, self.view.frame.size.width, self.view.frame.size.height);
     }
                      completion:^(BOOL finished) {
                          if (finished) {
-                             _viewControllerRootHomeCenter.leftButton.tag = 0;
-                             _viewControllerRootHomeCenter.hamMenu.tag = 0;
+                           self->_viewControllerRootHomeCenter.leftButton.tag = 0;
+                           self->_viewControllerRootHomeCenter.hamMenu.tag = 0;
                          }
                      }];
 }
@@ -148,7 +148,7 @@
 -(void)movePanelToOriginalPosition {
 //    [self.delegate movePanelToOriginalPosition:self];
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        _viewControllerRootHomeCenter.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+      self->_viewControllerRootHomeCenter.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }
                      completion:^(BOOL finished) {
                          if (finished) {

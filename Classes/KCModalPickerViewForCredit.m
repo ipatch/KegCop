@@ -165,13 +165,13 @@
     [UIView animateWithDuration:0.25 delay:0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         CGRect newFrame = _panel.frame;
-                         newFrame.origin.y += _panel.frame.size.height;
-                         _panel.frame = newFrame;
+                       CGRect newFrame = self->_panel.frame;
+                       newFrame.origin.y += self->_panel.frame.size.height;
+                       self->_panel.frame = newFrame;
                         // _backdropView.alpha = 0;
                      } completion:^(BOOL finished) {
-                         [_panel removeFromSuperview];
-                         _panel = nil;
+                       [self->_panel removeFromSuperview];
+                       self->_panel = nil;
                          
                          //[//_backdropView removeFromSuperview];
                          //_backdropView = nil;
@@ -233,7 +233,7 @@
     [UIView animateWithDuration:0.25 delay:0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         _panel.frame = oldFrame;
+                       self->_panel.frame = oldFrame;
                         // _backdropView.alpha = 1;
                      } completion:^(BOOL finished) {
                          

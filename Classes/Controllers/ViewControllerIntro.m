@@ -58,7 +58,7 @@
             NSLog(@"reachable!");
 #endif
             // create a webview that fills the bounds of the screen programmatically
-            _webView = [[UIWebView alloc] initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height ))];
+          self->_webView = [[UIWebView alloc] initWithFrame:(CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height ))];
             
             NSString *urlAddress = @"http://kegcop.chrisrjones.com/bubbles";
             
@@ -68,9 +68,9 @@
             // URL request object
             NSURLRequest *request = [NSURLRequest requestWithURL:kegcopURL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
             
-            [_webView loadRequest:request];
+          [self->_webView loadRequest:request];
             
-            [self.view addSubview:_webView];
+          [self.view addSubview:self->_webView];
             
             [self addUIElements];
             [self addConstraintsToUIElements];

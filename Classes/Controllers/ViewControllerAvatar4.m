@@ -172,9 +172,9 @@
          }
          
          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-         _image = [[UIImage alloc] initWithData:imageData];
+       self->_image = [[UIImage alloc] initWithData:imageData];
          
-         self.vImage.image = _image;
+       self.vImage.image = self->_image;
          
          // the below line will save the image to the PhotoAlbum
 //         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
@@ -182,11 +182,11 @@
          float height = 360;
          CGSize squareSize = CGSizeMake(width, height);
          
-         [self squareImageWithImage:_image scaledToSize:squareSize];
+       [self squareImageWithImage:self->_image scaledToSize:squareSize];
          
-         NSLog(@"_croppedImage = %@",_croppedImage);
+       NSLog(@"_croppedImage = %@",self->_croppedImage);
          
-         _dataImage = UIImageJPEGRepresentation(_croppedImage, 0.0);
+       self->_dataImage = UIImageJPEGRepresentation(self->_croppedImage, 0.0);
          
          // save to Core Data moc
          // save picture / avatar to CoreData entity specific to username

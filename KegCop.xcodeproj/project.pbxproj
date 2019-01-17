@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -464,7 +464,10 @@
 				EAEFEE90157B296B00C666D5 /* Products */,
 				65586F8E0062F8BB86924B24 /* Pods */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
 		};
 		EAEFEE90157B296B00C666D5 /* Products */ = {
 			isa = PBXGroup;
@@ -567,7 +570,7 @@
 				};
 			};
 			buildConfigurationList = EAEFEE89157B296B00C666D5 /* Build configuration list for PBXProject "KegCop" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -908,7 +911,10 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Resources/KegCop-Prefix.pch";
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "DEBUG=1 COCOAPODS=1";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"DEBUG=1",
+					"COCOAPODS=1",
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -926,7 +932,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
-				VALID_ARCHS = "armv7 armv6 arm64";
+				VALID_ARCHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -964,7 +970,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
-				VALID_ARCHS = "armv7 armv6 arm64";
+				VALID_ARCHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};

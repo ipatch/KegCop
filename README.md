@@ -20,6 +20,10 @@ An iOS device, i.e. iPhone / iPod Touch will connect to a Bluno via Bluetooth 4.
 
 ## Build
 
+As of January 17, 2019, I'm building the **KegCop.app** with Xcode Version 10.1 (10B61) to build the app for iOS 9.3.x on an iPod Touch 5th generation model.
+
+> The iPod Touch 5th Gen has the same screen size and specs as iPhone 5 and 5s, which is useful to know when building using the Simulator.
+
 As of Feburary 15, 2018 iOS >= 8.0 is required in order to run KegCop and the preffered build system is Xcode 9.2.
 
 <a id="license-and-copyright"></a>

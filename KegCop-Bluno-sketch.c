@@ -71,118 +71,117 @@ int interval = 250;
 volatile long previousMillis = 0;
 
 void setup() {
-    // initialize serial
-    // Serial.flush(); // flush the serial buffer on setup.
-    Serial.begin(115200); // open serial port, sets data rate to 9600bps
-    Serial.println("Power on test");
-    inputString.reserve(200);
-    valve_open = false;
-    
-    // relay for solenoid cut off valve
-    pinMode(RELAY_A, OUTPUT);
-    
-    // flowmeter shit
-    pinMode(flowmeterPin, INPUT);
-    digitalWrite(flowmeterPin, HIGH); // Need to set these HIGH so they won't just tick away
-    
-    // The Hall-effect sensor is connected to pin 2 which uses interrupt 0.
-    // Configured to trigger on a RISING state change (transition from HIGH
-    // state to LOW state)
-    attachInterrupt(0, count, FALLING);
-    
-    setupTime();
-    
+  // initialize serial
+  // Serial.flush(); // flush the serial buffer on setup.
+  Serial.begin(115200); // open serial port, sets data rate to 9600bps
+  Serial.println("Power on test");
+  inputString.reserve(200);
+  valve_open = false;
+
+  // relay for solenoid cut off valve
+  pinMode(RELAY_A, OUTPUT);
+
+  // flowmeter shit
+  pinMode(flowmeterPin, INPUT);
+  digitalWrite(flowmeterPin, HIGH); // Need to set these HIGH so they won't just tick away
+
+  // The Hall-effect sensor is connected to pin 2 which uses interrupt 0.
+  // Configured to trigger on a RISING state change (transition from HIGH
+  // state to LOW state)
+  attachInterrupt(0, count, FALLING);
+
+  setupTime();
 }
 
 // Just call this function within your setup
 void setupTime(){
-    TCCR2B |= _BV(CS02);
-    TIMSK2 |= _BV(OCIE0A);
-    
-    sei(); // enable interupts
+  TCCR2B |= _BV(CS02);
+  TIMSK2 |= _BV(OCIE0A);
+
+  sei(); // enable interupts
 }
 
 void open_valve() {
-    digitalWrite(RELAY_A, HIGH); // turn RELAY_A on
-    valve_open = true;
+  digitalWrite(RELAY_A, HIGH); // turn RELAY_A on
+  valve_open = true;
 }
 
 void close_valve() {
-    digitalWrite(RELAY_A, LOW); // turn RELAY_A off
-    valve_open = false;
+  digitalWrite(RELAY_A, LOW); // turn RELAY_A off
+  valve_open = false;
 }
 
 void flow_A_blink() {
-    digitalWrite(led, HIGH); // turn the LED on (HIGH is the voltage level)
-    delay(1000); // wait for one second
-    digitalWrite(led, LOW); // turn the LED off by making the voltage LOW
-    delay(1000); // wait for a second
+  digitalWrite(led, HIGH); // turn the LED on (HIGH is the voltage level)
+  delay(1000); // wait for one second
+  digitalWrite(led, LOW); // turn the LED off by making the voltage LOW
+  delay(1000); // wait for a second
 }
 
 void flow_A_blink_stop() {
-    digitalWrite(led, LOW);
+  digitalWrite(led, LOW);
 }
 
 void flow_A_on() {
-    digitalWrite(led, HIGH); // turn the LED on (HIGH is the voltage level)
+  digitalWrite(led, HIGH); // turn the LED on (HIGH is the voltage level)
 }
 
 void flow_A_off() {
-    digitalWrite(led, LOW); // turn the LED off by making the voltage LOW
+  digitalWrite(led, LOW); // turn the LED off by making the voltage LOW
 }
 
 // This interruption will be called every 1ms
 ISR(TIMER2_COMPA_vect)
 {
-    if(valve_open){
-        gMillis++;
-        //    Serial.println(gMillis);
-        if(gMillis >= 30000){ // 30000 == 30 seconds
-            close_valve();
-            gMillis = 0;
-            valveClosed = 1;
-            //loop();
-            return;
-        }
+  if(valve_open){
+    gMillis++;
+    //    Serial.println(gMillis);
+    if(gMillis >= 30000){ // 30000 == 30 seconds
+      close_valve();
+      gMillis = 0;
+      valveClosed = 1;
+      //loop();
+      return;
     }
-    
-    gNextOCR += GMilliSecondPeriod;
-    OCR2A = gNextOCR >> 8; // smart way to handle millis, they will always be average of what they should be
+  }
+
+  gNextOCR += GMilliSecondPeriod;
+  OCR2A = gNextOCR >> 8; // smart way to handle millis, they will always be average of what they should be
 }
 
 
 // flowmeter stuff
 bool getFlow4() {
-    
-    // call the countdown function for pouring beer
-    
-    
-    // Serial.println(flowmeterPin);
-    flowmeterPinState = digitalRead(flowmeterPin);
-    // Serial.println(flowmeterPinStatePinState);
-    volatile unsigned long currentMillis = millis();
-    // if the predefined interval has passed
-    if (millis() - lastmillis >= 250) { // Update every 1/4 second
-        // disconnect flow meter from interrupt
-        detachInterrupt(0); // Disable interrupt when calculating
-        // numTicks = 0; // Restart the counter.
-        lastmillis = millis(); // Update lastmillis
-        attachInterrupt(0, count, FALLING); // enable interrupt
-        
-    }
-    //    Serial.print(numTicks);
-    if(numTicks >= 475 || valveClosed == 1) {
-        close_valve();
-        numTicks = 0; // Restart the counter.
-        valveClosed = 0;
-        return 0;
-    }
+
+  // call the countdown function for pouring beer
+
+
+  // Serial.println(flowmeterPin);
+  flowmeterPinState = digitalRead(flowmeterPin);
+  // Serial.println(flowmeterPinStatePinState);
+  volatile unsigned long currentMillis = millis();
+  // if the predefined interval has passed
+  if (millis() - lastmillis >= 250) { // Update every 1/4 second
+    // disconnect flow meter from interrupt
+    detachInterrupt(0); // Disable interrupt when calculating
+    // numTicks = 0; // Restart the counter.
+    lastmillis = millis(); // Update lastmillis
+    attachInterrupt(0, count, FALLING); // enable interrupt
+
+  }
+  //    Serial.print(numTicks);
+  if(numTicks >= 475 || valveClosed == 1) {
+    close_valve();
+    numTicks = 0; // Restart the counter.
+    valveClosed = 0;
+    return 0;
+  }
 }
 // flow meter interrupt function
 void count(){
-    numTicks++;
-    flow_A_blink();
-    Serial.print(numTicks);
+  numTicks++;
+  flow_A_blink();
+  Serial.print(numTicks);
 }
 
 /*
@@ -190,51 +189,51 @@ void count(){
  */
 
 void loop() {
-    if(stringComplete) {
-        // Serial.println(inputString);
-        
-        if(inputString.equals("{open_valve}")) {
-            // Serial.println("inputString equates :)");
-            open_valve();
-        }
-        
-        if(inputString.equals("{close_valve}")) {
-            // Serial.println("close vavle.");
-            close_valve();
-        }
-        if(valve_open) {
-            // Serial.println("valve_open = true");
-            inputString = "";
-            stringComplete = false;
-            while(getFlow4()) {
-            }
-            // Serial.println("I'm here now :)");
-        }
-        // clear the string:
-        inputString = "";
-        stringComplete = false;
+  if(stringComplete) {
+    // Serial.println(inputString);
+
+    if(inputString.equals("{open_valve}")) {
+      // Serial.println("inputString equates :)");
+      open_valve();
     }
-    //Serial.println("over and over");
+
+    if(inputString.equals("{close_valve}")) {
+      // Serial.println("close vavle.");
+      close_valve();
+    }
+    if(valve_open) {
+      // Serial.println("valve_open = true");
+      inputString = "";
+      stringComplete = false;
+      while(getFlow4()) {
+      }
+      // Serial.println("I'm here now :)");
+    }
+    // clear the string:
+    inputString = "";
+    stringComplete = false;
+  }
+  //Serial.println("over and over");
 }
 
 /*
- SerialEvent occurs whenever a new data comes in the
- hardware serial RX. This routine is run between each
- time loop() runs, so using delay inside loop can delay
- response. Multiple bytes of data may be available.
- */
+   SerialEvent occurs whenever a new data comes in the
+   hardware serial RX. This routine is run between each
+   time loop() runs, so using delay inside loop can delay
+   response. Multiple bytes of data may be available.
+   */
 
 void serialEvent() {
-    while(Serial.available()) {
-        // get the new byte:
-        char inChar = (char)Serial.read();
-        // add it to the inputString:
-        inputString += inChar;
-        // if the incoming character is a newline, set a flag
-        // so the main loop can do something about it:
-        if (inChar == '}') {
-            stringComplete = true;
-        }
-        // Serial.println(inputString.length());
+  while(Serial.available()) {
+    // get the new byte:
+    char inChar = (char)Serial.read();
+    // add it to the inputString:
+    inputString += inChar;
+    // if the incoming character is a newline, set a flag
+    // so the main loop can do something about it:
+    if (inChar == '}') {
+      stringComplete = true;
     }
+    // Serial.println(inputString.length());
+  }
 }

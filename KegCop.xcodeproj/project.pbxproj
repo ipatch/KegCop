@@ -899,7 +899,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E5EEDBA24C64AE9992CF4C86 /* Pods-KegCop.debug.xcconfig */;
 			buildSettings = {
-				ALTERNATE_OWNER = capin;
+				ALTERNATE_OWNER = $USER;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Resources/KegCop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -941,7 +941,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 287821C1C0876CF0581BA7A6 /* Pods-KegCop.release.xcconfig */;
 			buildSettings = {
-				ALTERNATE_OWNER = capin;
+				ALTERNATE_OWNER = $USER;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Resources/KegCop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

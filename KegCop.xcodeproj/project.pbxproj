@@ -553,7 +553,6 @@
 						TestTargetID = EAEFEE8E157B296B00C666D5;
 					};
 					EAEFEE8E157B296B00C666D5 = {
-						DevelopmentTeam = DHF8B8Q5J4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -900,7 +899,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E5EEDBA24C64AE9992CF4C86 /* Pods-KegCop.debug.xcconfig */;
 			buildSettings = {
-				ALTERNATE_OWNER = "iPhone Developer";
+				ALTERNATE_OWNER = capin;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Resources/KegCop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -932,9 +931,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
-				VALID_ARCHS = "";
-				"VALID_ARCHS[sdk=iphoneos*]" = "";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = "";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -944,7 +941,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 287821C1C0876CF0581BA7A6 /* Pods-KegCop.release.xcconfig */;
 			buildSettings = {
-				ALTERNATE_OWNER = "iPhone Developer";
+				ALTERNATE_OWNER = capin;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Resources/KegCop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -962,7 +959,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chrisrjones.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -972,9 +969,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) <Multiple values>";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
-				VALID_ARCHS = "";
-				"VALID_ARCHS[sdk=iphoneos*]" = "";
-				"VALID_ARCHS[sdk=iphonesimulator*]" = "";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};

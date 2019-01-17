@@ -47,5 +47,5 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 
 cheers 🍻
 
-[@ipatch](https://github.com/ipatch)
-[@truckmonth](https://twitter.com/truckmonth)<br />
+[@ipatch](https://github.com/ipatch)<br />
+[@truckmonth](https://twitter.com/truckmonth)

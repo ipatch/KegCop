@@ -24,6 +24,8 @@ As of January 17, 2019, I'm building the **KegCop.app** with Xcode Version 10.1 
 
 > The iPod Touch 5th Gen has the same screen size and specs as iPhone 5 and 5s, which is useful to know when building using the Simulator.
 
+To build this app from a CLI using **xcodebuild** [see](https://github.com/ipatch/KegCop/wiki#building-from-a-cli)
+
 <a id="license-and-copyright"></a>
 
 ## License and Copyright

@@ -4,8 +4,10 @@
   "description": "GitHub homepage for KegCop",
   "private": "true",
   "scripts": {
-    "build": "webpack --config=config/webpack.dev.js",
-    "dev": "webpack-dev-server --config=./config/webpack.dev.js --watch --open",
+    "build": "",
+    "dev": "",
+    "legacy-build": "webpack --config=config/webpack.dev.js",
+    "legacy-dev": "webpack-dev-server --config=./config/webpack.dev.js --watch --open",
     "format": "prettier --write \"src/**/*.js\""
   },
   "author": "Chris",

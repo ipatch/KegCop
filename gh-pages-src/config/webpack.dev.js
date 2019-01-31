@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WebappWebpackPlugin = require('webapp-webpack-plugin')
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin')
 
 module.exports = {
@@ -47,7 +48,7 @@ module.exports = {
       template: './src/index.html'
     }),
     new WebappWebpackPlugin({
-      logo: './src/images/logo.svg',
+      logo: './src/images/kegcop-logo.svg',
       cache: true,
       prefix: 'assets/',
       inject: true,

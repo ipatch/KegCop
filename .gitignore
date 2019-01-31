@@ -61,3 +61,9 @@ node_modules
 npm-debug.log
 scratchpad.txt
 Pods/
+
+#######
+# Ignore files and directories related to gh-pages-src project
+###
+**/node_modules
+**/dist

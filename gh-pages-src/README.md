@@ -1,10 +1,14 @@
+<div align="center">
+
 ## GitHub Pages source directory
+
+</div>
 
 <div align="center">
 
-•TODOs•
+•[TODOs](#todos)•
 
-<div>
+</div>
 
 The contents of this directory
 

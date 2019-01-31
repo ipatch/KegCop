@@ -11,8 +11,6 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod.js",
     "dev": "webpack-dev-server --watch --open --config ./config/webpack.config.dev.js",
-    "legacy-build": "webpack --config=config/webpack.dev.js",
-    "legacy-dev": "webpack-dev-server --config=./config/webpack.dev.js --watch --open",
     "format": "prettier --write \"src/**/*.js\""
   },
   "author": "Chris",

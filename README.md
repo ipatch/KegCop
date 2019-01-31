@@ -1,8 +1,12 @@
+<div align="center">
+
 <a id="kegcop"></a>
 
 # KegCop [![Build Status](https://travis-ci.org/ipatch/KegCop.svg?branch=master)](https://travis-ci.org/ipatch/KegCop)
 
 [![Wilson demos KegCop](http://img.youtube.com/vi/1a6hxUb3zfU/0.jpg)](http://www.youtube.com/watch?v=1a6hxUb3zfU)
+
+</div>
 
 <a id="objective"></a>
 

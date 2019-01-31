@@ -46,6 +46,22 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new WebappWebpackPlugin({
+      logo: './src/images/logo.svg',
+      cache: true,
+      prefix: 'assets/',
+      inject: true,
+      favicons: {
+        appName: 'KegCop',
+        appDescription: null,
+        developerName: '@ipatch',
+        developerURL: null,
+        icons: {
+          coast: false,
+          yandex: false,
+        }
+      },
+    }),
     new ExtractCssChunks({
       filename: '[name].css',
       chunkFilename: '[id].css',

@@ -1,11 +1,16 @@
 {
   "name": "KegCop-GitHub-Pages",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GitHub homepage for KegCop",
   "private": "true",
+  "engines": {
+    "node": ">= 8.x",
+    "npm": ">= 5.x",
+    "yarn": ""
+  },
   "scripts": {
-    "build": "",
-    "dev": "",
+    "build": "webpack --config ./config/webpack.config.prod.js",
+    "dev": "webpack-dev-server --watch --open --config ./config/webpack.config.dev.js",
     "legacy-build": "webpack --config=config/webpack.dev.js",
     "legacy-dev": "webpack-dev-server --config=./config/webpack.dev.js --watch --open",
     "format": "prettier --write \"src/**/*.js\""
@@ -22,7 +27,9 @@
     "prettier": "^1.16.3",
     "webapp-webpack-plugin": "^2.6.0",
     "webpack": "^4.29.0",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
   }
 }

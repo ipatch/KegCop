@@ -1,28 +1,19 @@
-body {
+html {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  /* background-color: pink; */
-  background-color: #444;
 }
 
-.profile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  flex-flow: column;
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: rgb(222, 0, 0);
 }
 
 img {
-  /* margin: 20px; */
-  border-radius: 100%;
-  width: 100px;
-  box-shadow: 0 0 20px black;
-}
-
-h1 {
-  /* height: 100vh; */
-  color: white;
-  font-size: 5em;
-  font-family: sans-serif;
-  text-shadow: 0 0 20px black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }

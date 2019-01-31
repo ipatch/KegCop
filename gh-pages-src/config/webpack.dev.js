@@ -28,13 +28,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(html)$/,
-        use: {
-          loader: 'html-loader'
-        }
-      },
-      {
-        test: /\.(jpe?g|gif|png|bmp)$/,
+        test: /\.(jpe?g|gif|png|bmp|svg)$/,
         use: [
           {
             // NOTE file-loader can also be used to work with the below font types as well

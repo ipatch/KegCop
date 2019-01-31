@@ -57,7 +57,7 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 
 ## TODOs
 
-- [ ] add instructions for building app, ie. **KegCop.ipa** from CLI.
+- [x] ~~add instructions for building app, ie. **KegCop.ipa** from CLI.~~ [see](https://github.com/ipatch/kegcop/wiki#building-from-a-cli)
 
 cheers 🍻
 

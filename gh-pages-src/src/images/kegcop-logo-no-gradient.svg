@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="220"
+   height="220.00078"
+   version="1.1"
+   viewBox="0 0 58.208334 58.208537"
+   id="svg34"
+   sodipodi:docname="kegcop-logo.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   style="enable-background:new">
+  <defs
+     id="defs38" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1275"
+     inkscape:window-height="767"
+     id="namedview36"
+     showgrid="false"
+     inkscape:zoom="2.3545371"
+     inkscape:cx="99.382202"
+     inkscape:cy="110.00039"
+     inkscape:window-x="88"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg34"
+     showguides="false"
+     inkscape:snap-grids="true"
+     inkscape:guide-bbox="true"
+     inkscape:pagecheckerboard="false"
+     borderlayer="true"
+     showborder="true"
+     inkscape:showpageshadow="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid902"
+       dotted="false"
+       enabled="true"
+       originx="0"
+       originy="0.00020449999" />
+    <sodipodi:guide
+       position="-29.104167,44.979369"
+       orientation="1,0"
+       id="guide4655"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="25.135417,47.625202"
+       orientation="0,1"
+       id="guide4968"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="7.9375001,10.583537"
+       orientation="0,1"
+       id="guide4970"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <title
+     id="title10">KegCop Logo</title>
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>KegCop Logo</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Chris Jones</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(157.96,-25.802417)"
+     id="g16"
+     style="display:inline"
+     inkscape:label="white-right-red-background"
+     inkscape:groupmode="layer">
+    <path
+       d="m -147.37667,25.802418 h 37.12943 c 6.52682,0 10.495573,3.96875 10.495573,10.495575 v 37.194915 c 0,6.549094 -3.968753,10.517859 -10.686813,10.517888 l -36.81244,1.59e-4 c -6.74033,0 -10.70908,-3.968953 -10.70908,-10.613664 v -37.01154 c 0,-6.614582 3.96875,-10.583333 10.58333,-10.583333 z"
+       id="path14"
+       inkscape:connector-curvature="0"
+       style="display:inline;fill:#de0000;stroke:none"
+       sodipodi:nodetypes="ccccccccc" />
+  </g>
+  <g
+     transform="translate(157.81352,-25.538924)"
+     id="g20"
+     style="display:inline"
+     inkscape:label="white-ring">
+    <path
+       d="m -128.19,33.168 c -8.2055,-0.14316 -16.728,4.4368 -19.92,12.222 -3.2277,6.1119 -2.6502,13.741 0.78627,19.636 3.71,6.7063 11.128,11.562 18.937,11.06 5.8796,-0.09271 11.852,-2.4361 15.667,-7.0249 6.189,-7.0947 7.6191,-18.449 2.1189,-26.349 -2.508,-3.587 -5.8593,-6.7201 -10.055,-8.1831 -2.4042,-0.89774 -4.9704,-1.3422 -7.5345,-1.3616 z m -1.124,2.3952 c 5.9096,-0.34587 11.813,2.4199 15.409,7.1046 4.7038,5.8021 5.8124,14.527 1.8715,21.021 -2.4963,5.0071 -7.5429,8.4674 -13.031,9.3313 -7.3738,1.3444 -15.775,-1.6844 -19.542,-8.4034 -2.8363,-4.1627 -3.6928,-9.5276 -2.363,-14.379 1.9081,-7.6201 8.6423,-14.246 16.702,-14.65 0.31744,-0.01759 0.6354,-0.02593 0.95331,-0.02503 z"
+       id="path18"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff" />
+  </g>
+  <g
+     transform="translate(157.57476,-27.512131)"
+     id="g24"
+     style="display:inline"
+     inkscape:label="shield">
+    <path
+       d="m -130.8,67.011 c -1.2724,0.14742 -2.723,-0.4107 -3.2411,-1.6536 -1.9518,0.29385 -3.7031,-1.0007 -5.0646,-2.2462 -1.4642,-1.44 -2.0899,-3.8346 -1.0189,-5.6823 0.8865,-1.8554 2.0569,-3.7191 1.933,-5.8616 0.0642,-1.7459 -0.0282,-3.8984 -1.6509,-4.96 0.80934,-0.9599 1.6187,-1.9198 2.428,-2.8797 1.5066,0.87726 2.9637,2.198 4.7998,2.2011 1.5916,-0.18898 2.8816,-1.2512 4.2272,-2.0297 1.5874,0.74681 3.1775,1.9545 5.0234,1.7399 1.418,-0.29681 2.5978,-1.1992 3.8287,-1.9112 0.80934,0.9599 1.6187,1.9198 2.428,2.8797 -1.7396,1.1557 -1.7175,3.4888 -1.6366,5.3482 -0.0612,2.5035 1.7553,4.4642 2.3898,6.7736 0.43672,2.2781 -1.0839,4.4202 -2.9526,5.5655 -1.0475,0.69758 -2.3117,1.3024 -3.602,1.0627 -0.5181,1.2429 -1.9688,1.8011 -3.2411,1.6536 -0.74583,0.83139 -1.4917,1.6628 -2.2375,2.4942 -0.80412,-0.83139 -1.6082,-1.6628 -2.4124,-2.4942 z"
+       id="path22"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;fill-rule:evenodd" />
+  </g>
+  <g
+     transform="translate(157.28955,-25.963631)"
+     id="g32"
+     style="display:inline"
+     inkscape:label="text-kegcop">
+    <text
+       x="-136.6524"
+       y="56.456806"
+       font-size="9.1359px"
+       letter-spacing="0px"
+       word-spacing="0px"
+       style="font-size:9.13589954px;line-height:125%;font-family:sans-serif;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.22840001px"
+       xml:space="preserve"
+       id="text30"><tspan
+         x="-136.6524"
+         y="56.456806"
+         id="tspan28"
+         style="stroke-width:0.22840001px"><tspan
+           x="-136.6524"
+           y="56.456806"
+           font-size="3.8806px"
+           font-weight="bold"
+           style="font-weight:bold;font-size:3.88059998px;font-family:Arial;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;fill:#de0000;stroke-width:0.22840001px"
+           id="tspan26">KEGCOP</tspan></tspan></text>
+  </g>
+</svg>

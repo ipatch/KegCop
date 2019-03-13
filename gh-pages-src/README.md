@@ -12,12 +12,13 @@
 
 The contents of this directory **./gh-pages-src** are the soon to be source for [ipatch.github.io/KegCop](https://ipatch.github.io/KegCop)
 
-The site is rather primitive right now, but uses webpack to generate a bundle and inject the bundle into a div contained in the **index.html**.
+The site is rather primitive right now, but uses webpack to generate a bundle and inject the bundle into a div within the **index.html**.
 
 <a id="todos"></a>
 
 ## TODOs
 
+- [ ] add SVG graphic using an **svg tag** as opposed to using a **img tag**
 - [ ] remove Google Analytics from **./src/index.html** and into its own js module that can be _required_ or _imported_ into **index.js**
 - [x] ~~setup a webpack loader for generating favicons~~
 - [x] ~~add a bundle analyzer for measuring performance of different bundles and webpack settings.~~

@@ -1,4 +1,5 @@
 import './index.css';
+import './index.html';
 // import KegCopLogoSrc from './images/kegcop-logo-no-gradient.svg';
 // import KegCopLogoSrc from './images/kegcop-logo-neo-neo-03.svg';
 
@@ -31,20 +32,20 @@ document.body.appendChild(newdiv);
 // 4. objective: avoid using the <img> tag
 
 // setup namespace for SVG
-var svgns = 'http://www.w3.org/2000/svg';
-var svg = document.createElementNS(svgns, 'svg');
-document.body.appendChild(svg);
-svg.setAttribute('version', '1.1');
-svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+// var svgns = 'http://www.w3.org/2000/svg';
+// var svg = document.createElementNS(svgns, 'svg');
+// document.body.appendChild(svg);
+// svg.setAttribute('version', '1.1');
+// svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 // baseProfile
 // width
 // height
 
 // bring in external svg
-var use1 = document.createElementNS(svgns, "use");
-use1.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', './images/purple-circle-plain.svg#circle-purple'); 
+// var use1 = document.createElementNS(svgns, "use");
+// use1.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', './images/purple-circle-plain.svg#circle-purple'); 
 
-svg.appendChild(use1);
+// svg.appendChild(use1);
 
 // let svgElement = document.createElement('svg');
 // document.body.appendChild(svgElement);

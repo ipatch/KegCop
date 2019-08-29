@@ -42,6 +42,25 @@ I would love for someone to make a branch and start editing some code.  My Objec
 a lot to be desired.  So if you have a great idea, don't hesitate to download the code and
 contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
+### Contributing > Maintenance
+
+<details>
+<summary>Revert from nuclear 🤯 **git** changes</summary>
+
+### Workaround
+
+god forbid‚Ñ¢Ô∏è I **merge** then **push** a branch into master that I did not mean to, perform the below steps
+
+```shell
+git reset --hard [tag/branch/commit id]
+echo "reset local working branch, ie. [master] to one of the specified fields"
+git push [remote(s)] -f
+echo "[remote] can be `origin` or `upstream`"
+echo "NOTE: the above two step should revert a brach local and remote from nuclear changes"
+```
+
+</details>
+
 <a id="installation"></a>
 
 ## Installation

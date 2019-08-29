@@ -39,6 +39,14 @@ I would love for someone to make a branch and start editing some code.  My Objec
 
 ### Contributing > Maintenance
 
+To fix vulnerable **pods** or various pages GitHub find vulnerable
+
+```shell
+
+```
+
+### Contributing > Troubleshooting
+
 <details>
 <summary><strong>Reverting from nuclear 🤯 <code>git</code> changes</strong></summary>
 
@@ -56,7 +64,7 @@ echo "NOTE: the above two step should revert a brach local and remote from nucle
 
 </details>
 
-## Contributing > [Website](http://ipatch.github.io/KegCop/)
+### Contributing > [Website](http://ipatch.github.io/KegCop/)
 
 ```shell
 http://ipatch.github.io/KegCop/

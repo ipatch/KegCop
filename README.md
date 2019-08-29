@@ -49,7 +49,7 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 
 ### Workaround
 
-god forbid‚Ñ¢Ô∏è I **merge** then **push** a branch into master that I did not mean to, perform the below steps
+god forbid‚™️ I **merge** then **push** a branch into master that I did not mean to, perform the below steps
 
 ```shell
 git reset --hard [tag/branch/commit id]

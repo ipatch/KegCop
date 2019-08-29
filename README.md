@@ -47,7 +47,7 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 <details>
 <summary>Revert from nuclear 🤯 **git** changes</summary>
 
-### Workaround
+#### Workaround > git
 
 god forbid‚™️ I **merge** then **push** a branch into master that I did not mean to, perform the below steps
 
@@ -60,6 +60,14 @@ echo "NOTE: the above two step should revert a brach local and remote from nucle
 ```
 
 </details>
+
+## Contributing > [Website](http://ipatch.github.io/KegCop/)
+
+```shell
+http://ipatch.github.io/KegCop/
+```
+
+There is a git branch **gh-pages-src** that contains a node project to build a website using github pages for the aboe listed URL, that branch src does not correlate to the main objc src for the actual iOS app, but only serves a purpose to be the directory / src for the accompanying website.
 
 <a id="installation"></a>
 

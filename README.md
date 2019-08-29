@@ -49,7 +49,7 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 ### Contributing > Maintenance
 
 <details>
-<summary>Revert from nuclear 🤯 **git** changes</summary>
+<summary><strong>Reverting from nuclear 🤯 <code>git</code> changes</strong></summary>
 
 #### Workaround > git
 

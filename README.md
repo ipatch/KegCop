@@ -24,21 +24,18 @@ As of January 17, 2019, I'm building the **KegCop.app** with Xcode Version 10.1 
 
 > The iPod Touch 5th Gen has the same screen size and specs as iPhone 5 and 5s, which is useful to know when building using the Simulator.
 
-As of Feburary 15, 2018 iOS >= 8.0 is required in order to run KegCop and the preffered build system is Xcode 9.2.
-
 <a id="license-and-copyright"></a>
 
 ## License and Copyright
 
 All code is offered under the MIT license, unless otherwise noted.  Please see LICENSE.txt for
-the full license.  All code and documentation are Copyright 2015 to present, Chris Jones, unless otherwise
-noted.
+the full license.  All code and documentation are Copyright 2015 to present, Chris Jones unless otherwise noted.
 
 <a id="contributing"></a>
 
 ## Contributing
 
-I would love for someone to make a branch and start editing some code.  My Objective-C skills leave
+I would love <3 for someone to make a branch and start editing some code.  My Objective-C skills leave
 a lot to be desired.  So if you have a great idea, don't hesitate to download the code and
 contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 

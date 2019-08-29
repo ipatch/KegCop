@@ -35,9 +35,7 @@ the full license.  All code and documentation are Copyright 2015 to present, Chr
 
 ## Contributing
 
-I would love <3 for someone to make a branch and start editing some code.  My Objective-C skills leave
-a lot to be desired.  So if you have a great idea, don't hesitate to download the code and
-contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
+I would love for someone to make a branch and start editing some code.  My Objective-C skills leave a lot to be desired.  So if you have a great idea, don't hesitate to download the code and contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
 ### Contributing > Maintenance
 
@@ -46,7 +44,7 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 
 #### Workaround > git
 
-god forbid‚™️ I **merge** then **push** a branch into master that I did not mean to, perform the below steps
+god forbid‚™️ I `merge` then `push` a branch into master that I did not mean to, perform the below steps
 
 ```shell
 git reset --hard [tag/branch/commit id]

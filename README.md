@@ -46,6 +46,33 @@ I would love for someone to make a branch and start editing some code.  My Objec
 a lot to be desired.  So if you have a great idea, don't hesitate to download the code and
 contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
+### Contributing > Maintenance
+
+<details>
+<summary>Revert from nuclear 🤯 **git** changes</summary>
+
+#### Workaround > git
+
+god forbid‚™️ I **merge** then **push** a branch into master that I did not mean to, perform the below steps
+
+```shell
+git reset --hard [tag/branch/commit id]
+echo "reset local working branch, ie. [master] to one of the specified fields"
+git push [remote(s)] -f
+echo "[remote] can be `origin` or `upstream`"
+echo "NOTE: the above two step should revert a brach local and remote from nuclear changes"
+```
+
+</details>
+
+## Contributing > [Website](http://ipatch.github.io/KegCop/)
+
+```shell
+http://ipatch.github.io/KegCop/
+```
+
+There is a git branch **gh-pages-src** that contains a node project to build a website using github pages for the aboe listed URL, that branch src does not correlate to the main objc src for the actual iOS app, but only serves a purpose to be the directory / src for the accompanying website.
+
 <a id="installation"></a>
 
 ## Installation

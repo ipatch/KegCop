@@ -1,12 +1,8 @@
-<div align="center">
-
 <a id="kegcop"></a>
 
 # KegCop [![Build Status](https://travis-ci.org/ipatch/KegCop.svg?branch=master)](https://travis-ci.org/ipatch/KegCop)
 
 [![Wilson demos KegCop](http://img.youtube.com/vi/1a6hxUb3zfU/0.jpg)](http://www.youtube.com/watch?v=1a6hxUb3zfU)
-
-</div>
 
 <a id="objective"></a>
 
@@ -28,23 +24,18 @@ As of January 17, 2019, I'm building the **KegCop.app** with Xcode Version 10.1 
 
 > The iPod Touch 5th Gen has the same screen size and specs as iPhone 5 and 5s, which is useful to know when building using the Simulator.
 
-To build this app from a CLI using **xcodebuild** [see](https://github.com/ipatch/KegCop/wiki#building-from-a-cli)
-
 <a id="license-and-copyright"></a>
 
 ## License and Copyright
 
 All code is offered under the MIT license, unless otherwise noted.  Please see LICENSE.txt for
-the full license.  All code and documentation are Copyright 2015 to present, Chris Jones, unless otherwise
-noted.
+the full license.  All code and documentation are Copyright 2015 to present, Chris Jones unless otherwise noted.
 
 <a id="contributing"></a>
 
 ## Contributing
 
-I would love for someone to make a branch and start editing some code.  My Objective-C skills leave
-a lot to be desired.  So if you have a great idea, don't hesitate to download the code and
-contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
+I would love for someone to make a branch and start editing some code.  My Objective-C skills leave a lot to be desired.  So if you have a great idea, don't hesitate to download the code and contribute.  There is a guide for contributing, [here](https://github.com/ipatch/KegCop/wiki/Contribute)
 
 ### Contributing > Maintenance
 
@@ -53,7 +44,7 @@ contribute.  There is a guide for contributing, [here](https://github.com/ipatch
 
 #### Workaround > git
 
-god forbid‚™️ I **merge** then **push** a branch into master that I did not mean to, perform the below steps
+god forbid‚™️ I `merge` then `push` a branch into master that I did not mean to, perform the below steps
 
 ```shell
 git reset --hard [tag/branch/commit id]
@@ -79,12 +70,6 @@ There is a git branch **gh-pages-src** that contains a node project to build a w
 
 - Clone this repo, then build for your device using Xcode.
 - Load the following sketch on your Bluno, from [here](https://github.com/ipatch/KegCop/blob/master/KegCop-Bluno-sketch.c)
-
-<a id="todos"></a>
-
-## TODOs
-
-- [x] ~~add instructions for building app, ie. **KegCop.ipa** from CLI.~~ [see](https://github.com/ipatch/kegcop/wiki#building-from-a-cli)
 
 cheers 🍻
 

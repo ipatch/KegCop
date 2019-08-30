@@ -10,9 +10,11 @@
 
 </div>
 
-The contents of this directory **./gh-pages-src** are the soon to be source for [ipatch.github.io/KegCop](https://ipatch.github.io/KegCop)
+The contents of **./gh-pages-src** are the ~~soon to be source~~ for [ipatch.github.io/KegCop](https://ipatch.github.io/KegCop)
 
 The site is rather primitive right now, but uses webpack to generate a bundle and inject the bundle into a div within the **index.html**.
+
+The compiled / bundled production build for https://ipatch.github.io/KegCop is located within the [docs](https://github.com/ipatch/KegCop/tree/master/docs) directory of the [master](https://github.com/ipatch/KegCop/tree/master) branch.
 
 <a id="todos"></a>
 

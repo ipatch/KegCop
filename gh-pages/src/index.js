@@ -3,6 +3,12 @@ import './index.html';
 // import KegCopLogoSrc from './images/kegcop-logo-no-gradient.svg';
 // import KegCopLogoSrc from './images/kegcop-logo-neo-neo-03.svg';
 
+
+//
+// EXPs
+//
+// document.getElementsByTagName("body").style.color = "red";
+
 function addLogo() {
   let kegCopBackgroundLogoDiv = document.createElement('div');
   // add logo to DOM
@@ -17,10 +23,19 @@ function addLogo() {
 // document.body.appendChild(addLogo());
 
 // 100% working with webpack | add div to DOM and add text to div
-let newdiv = document.createElement('div');
-newdiv.appendChild(document.createTextNode('text added from index.js using JavaScript'));
-newdiv.id = 'mr-fancy-new-div';
-document.body.appendChild(newdiv);
+// let newdiv = document.createElement('div');
+// newdiv.appendChild(document.createTextNode('text added from index.js using JavaScript'));
+// newdiv.id = 'mr-fancy-new-div';
+// document.body.appendChild(newdiv);
+
+
+let divApp = document.createElement('div');
+divApp.appendChild(document.createTextNode('text added from index.js using JavaScript'));
+divApp.id = 'app';
+document.body.appendChild(divApp);
+//
+document.getElementById('divApp').style.color = "purple";
+
 
 // EXP > sanity check
 // alert('wtf');

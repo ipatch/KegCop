@@ -12,10 +12,13 @@
   },
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod.js",
-    "dev": "webpack-dev-server --watch --open --config ./config/webpack.config.dev.js",
+    "dev": "webpack-dev-server --watch --config ./config/webpack.config.dev.js",
     "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
     "css-loader": "3.2.0",
     "extract-css-chunks-webpack-plugin": "4.6.0",
     "extract-loader": "^3.1.0",

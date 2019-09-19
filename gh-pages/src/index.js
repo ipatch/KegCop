@@ -3,6 +3,9 @@ import './index.html';
 // import KegCopLogoSrc from './images/kegcop-logo-no-gradient.svg';
 // import KegCopLogoSrc from './images/kegcop-logo-neo-neo-03.svg';
 
+// NOTE: importing and running logic form the below js files appears to be working ...yay!
+import './utils/google-analytics';
+
 
 //
 // EXPs

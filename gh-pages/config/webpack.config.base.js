@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js?x$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -46,17 +46,21 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpe?g|gif|png|svg|bmp)$/,
+        test: /\.(jpe?g|gif|png|bmp)$/,
         use: [
           // NOTE file-loader can also be used to work with the below font types as well
           // woff,woff2,eot,ttf,otf
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name].[ext]',
+              name: '[path][name].[ext]',
             },
           },
         ],
+      },
+      {
+      test: /\.(svg)$/,
+      loader: 'svg-inline-loader',
       },
     ],
   },

@@ -1,10 +1,26 @@
 import './index.css';
 import './index.html';
+// NOTE: importing and running logic form the below js files appears to be working ...yay!
+import './utils/google-analytics';
+
+
+//
+//EXPs
+import kegCopLogo from './images/kegcop-logo.svg'
+
+
+function component() {
+const element = document.createElement('div');
+
+element.innerHTML = kegCopLogo;
+
+return element;
+}
+document.body.appendChild(component());
+//
 // import KegCopLogoSrc from './images/kegcop-logo-no-gradient.svg';
 // import KegCopLogoSrc from './images/kegcop-logo-neo-neo-03.svg';
 
-// NOTE: importing and running logic form the below js files appears to be working ...yay!
-import './utils/google-analytics';
 
 
 //

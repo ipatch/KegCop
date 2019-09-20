@@ -68,8 +68,8 @@ Pods/
 **/node_modules
 dist/**
 !dist/.gitkeep
-docs/**
-!docs/.gitkeep
 
-foo/**
-!foo/.gitkeep
+# The below bundled files must be tracked by git so they can be merged into master
+
+# docs/**
+# !docs/.gitkeep

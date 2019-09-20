@@ -17,6 +17,7 @@
     "format": "prettier --write \"src/**/*.js\"",
     "ghp:clean": "rimraf docs",
     "ghp:pkg": "webpack --config ./config/webpack.config.prod.js",
+    "ghp:update": "git add .; git commit -m 'new deoployment build'",
     "ghp:deploy": "git checkout master; git checkout gh-pages docs; git commit -m 'new ghp build'; git push; git checkout -"
   },
   "devDependencies": {

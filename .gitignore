@@ -67,4 +67,4 @@ Pods/
 ###
 **/node_modules
 !.dist/.gitkeep
-**/dist
+dist/**

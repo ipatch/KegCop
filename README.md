@@ -10,7 +10,11 @@
 
 </div>
 
-The contents of **./gh-pages-src** are the ~~soon to be source~~ for [ipatch.github.io/KegCop](https://ipatch.github.io/KegCop)
+The contents of [branch](https://github.com/ipatch/KegCop/tree/gh-pages) are the ~~soon to be source~~ for [ipatch.github.io/KegCop](https://ipatch.github.io/KegCop)
+
+#### Disclaimer
+
+❗️ The source code is branch is completely separate from the source contained within the [master](https://github.com/ipatch/KegCop/tree/master) branch, and should remain separate, ie. changes from this branch **should not** be merged into any other branch contained within this git repo, as this branch is only here to serve a [gh-pages](https://pages.github.com/) website hosted by GitHub. The compiled version of this source can be viewed at [ipatch.github.io/KegCop](https://ipatch.github.io/KegCop)
 
 The site is rather primitive right now, but uses webpack to generate a bundle and inject the bundle into a div within the **index.html**.
 

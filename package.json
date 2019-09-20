@@ -15,6 +15,7 @@
     "build:clean": "rimraf docs",
     "dev": "webpack-dev-server --watch --config ./config/webpack.config.dev.js",
     "format": "prettier --write \"src/**/*.js\"",
+    "ghp:clean": "rimraf docs",
     "ghp:pkg": "webpack --config ./config/webpack.config.prod.js",
     "ghp:bundle": "git checkout master; git checkout gh-pages docs"
   },

@@ -11,17 +11,25 @@ function loadGoogleAnalytics() {
 }
 
 // NOTE: only load GA on production domain
-if (document.location.hostname.search('https://ipatch.github.io/KegCop') !== -1) {
+// if (document.location.hostname.search('https://ipatch.github.io/KegCop') !== -1) {
 
-  loadGoogleAnalytics();
+//   loadGoogleAnalytics();
 
-  window.dataLayer = window.dataLayer || [];
+//   window.dataLayer = window.dataLayer || [];
 
-  function gtag(){dataLayer.push(arguments);}
+//   function gtag(){dataLayer.push(arguments);}
 
-  gtag('js', new Date());
+//   gtag('js', new Date());
 
-  gtag('config', 'UA-43223650-1');
+//   gtag('config', 'UA-43223650-1');
 
+// } else {
+//   (document.location.hostname.search('http:/locallhost') !== -1)
+//   console.log('app is running from localhost');
+// }
+
+if (document.location.hostname.search('https://ipatch.github.io/KegCop') === 1) {
+  console.log('app is running from https://ipatch.github.io/KegCop domain');
+} else {
+  console.log('not hotdog');
 }
-

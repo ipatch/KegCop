@@ -1,6 +1,6 @@
 import './styles.css';
 import './index.html';
-// NOTE: importing and running logic form the below js files appears to be working ...yay!
+// NOTE: importing and running logic form below js file appears working ...yay!
 import './utils/google-analytics';
 
 // LOGOs

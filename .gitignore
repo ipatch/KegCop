@@ -66,5 +66,5 @@ Pods/
 # Ignore files and directories related to gh-pages-src project
 ###
 **/node_modules
-!./dist/.gitkeep
+!.dist/.gitkeep
 **/dist

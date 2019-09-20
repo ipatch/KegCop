@@ -13,7 +13,8 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod.js",
     "dev": "webpack-dev-server --watch --config ./config/webpack.config.dev.js",
-    "format": "prettier --write \"src/**/*.js\""
+    "format": "prettier --write \"src/**/*.js\"",
+    "ghp-pkg": "webpack --config ./config/webpack.config.prod.js"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -21,6 +22,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "3.2.0",
     "extract-loader": "^3.1.0",
+    "favicons-webpack-plugin": "^1.0.2",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
@@ -28,7 +30,6 @@
     "prettier": "^1.18.2",
     "style-loader": "^1.0.0",
     "svg-inline-loader": "^0.8.0",
-    "webapp-webpack-plugin": "^2.7.1",
     "webpack": "^4.40.2",
     "webpack-bundle-analyzer": "^3.5.0",
     "webpack-cli": "^3.3.9",

@@ -1,5 +1,5 @@
 const path = require('path');
-const WebappWebpackPlugin = require('webapp-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   // `mode:` is defined in the `...prod.js` and `...dev.js`
@@ -70,7 +70,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new WebappWebpackPlugin({
+    new FaviconsWebpackPlugin({
       logo: './src/images/kegcop-logo.svg',
       cache: true,
       prefix: 'assets/',

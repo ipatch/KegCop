@@ -1,0 +1,16 @@
+html, body {
+  /* background-color: pink; */
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  background-color: rgb(237, 66, 74);
+  margin: auto;
+  display: block;
+}
+
+.container div {
+  margin: auto;
+  display: block;
+}

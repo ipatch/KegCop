@@ -1,7 +1,5 @@
 const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebappWebpackPlugin = require('webapp-webpack-plugin');
-const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 module.exports = {
   // `mode:` is defined in the `...prod.js` and `...dev.js`
@@ -21,8 +19,19 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: [ExtractCssChunks.loader, 'css-loader'],
+        test: /\.css$/i,
+        use: [
+          { 
+            loader: 'style-loader',
+              options: {
+              }
+            },
+          {
+            loader: 'css-loader',
+            options: {
+            }
+          }
+        ],
       },
       {
         test: /\.htm?l$/,
@@ -31,7 +40,6 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].html',
-              // minimize: true
             }
           },
           {
@@ -39,9 +47,6 @@ module.exports = {
           },
           {
             loader: 'html-loader',
-            options: {
-              // attr: ['img:src']
-            }
           }
         ]
       },
@@ -59,16 +64,12 @@ module.exports = {
         ],
       },
       {
-      test: /\.(svg)$/,
-      loader: 'svg-inline-loader',
+        test: /\.(svg)$/,
+        loader: 'svg-inline-loader',
       },
     ],
   },
   plugins: [
-    // new HtmlWebpackPlugin({
-    //   // html-webpack-plugin can be used to minify an HTML document, see cra-exp for more details
-    //   template: './src/index.html',
-    // }),
     new WebappWebpackPlugin({
       logo: './src/images/kegcop-logo.svg',
       cache: true,
@@ -85,13 +86,5 @@ module.exports = {
         }
       },
     }),
-    new ExtractCssChunks({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-      hot: true,
-      orderWarning: true,
-      reloadAll: true,
-      cssModules: true
-    })
   ]
 }

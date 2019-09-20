@@ -1,19 +1,25 @@
-import './index.css';
+import './styles.css';
 import './index.html';
 // NOTE: importing and running logic form the below js files appears to be working ...yay!
 import './utils/google-analytics';
 
 // LOGOs
 // import kegCopLogo from './images/kegcop-logo.svg' // OG logo
-import kegCopLogoNeo from './images/kegcop-logo-neo-not-fin.svg'
 
-function component() {
+function addContainerComponent() {
   const element = document.createElement('div');
-
-  element.innerHTML = kegCopLogoNeo;
-
-  return element;
+  element.className = 'container';
+  element.id = 'container';
+  element.innerHTML = '';
+  document.body.appendChild(element);
 }
+addContainerComponent();
 
-document.body.appendChild(component());
+import kegCopLogoNeo from './images/kegcop-logo-dynamic-wh.svg'
 
+function addLogoToContainer() {
+  const element = document.createElement('div');
+  element.innerHTML = kegCopLogoNeo;
+  document.getElementById('container').appendChild(element);
+}
+addLogoToContainer();

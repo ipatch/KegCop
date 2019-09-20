@@ -28,8 +28,10 @@ function loadGoogleAnalytics() {
 //   console.log('app is running from localhost');
 // }
 
-if (document.location.hostname.search('https://ipatch.github.io/KegCop') === 1) {
-  console.log('app is running from https://ipatch.github.io/KegCop domain');
+if (document.location.hostname.search('https://ipatch.github.io/KegCop') === -1) {
+  console.log("app is running from https://ipatch.github.io/KegCop domain");
+} else if (document.location.hostname.search('http://localhost') === -1) {
+  console.log('hotdogs for all');
 } else {
   console.log('not hotdog');
 }

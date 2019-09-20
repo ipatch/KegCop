@@ -17,7 +17,7 @@
     "format": "prettier --write \"src/**/*.js\"",
     "ghp:clean": "rimraf docs",
     "ghp:pkg": "webpack --config ./config/webpack.config.prod.js",
-    "ghp:bundle": "git checkout master; git add ./docs; git commit -m 'new ghp build'; git push"
+    "ghp:bundle": "git checkout master; git checkout gh-pages docs/**; git commit -m 'new ghp build'; git push"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

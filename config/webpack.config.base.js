@@ -6,7 +6,7 @@ module.exports = {
   entry: ['./src/index.js'],
   output: {
     // `path:` has to be absolute NOT relative
-    path: path.join(__dirname, '../dist'),
+    path: path.join(__dirname, '../docs'),
     filename: 'app.bundle.js',
   },
   module: {

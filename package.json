@@ -12,9 +12,11 @@
   },
   "scripts": {
     "build": "webpack --config ./config/webpack.config.prod.js",
+    "build:clean": "rimraf docs",
     "dev": "webpack-dev-server --watch --config ./config/webpack.config.dev.js",
     "format": "prettier --write \"src/**/*.js\"",
-    "ghp-pkg": "webpack --config ./config/webpack.config.prod.js"
+    "ghp:pkg": "webpack --config ./config/webpack.config.prod.js",
+    "ghp:bundle": "git checkout master; git checkout gh-pages docs"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

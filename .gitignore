@@ -67,3 +67,9 @@ Pods/
 ###
 **/node_modules
 **/dist
+
+# ignore gh-pages build artifacts
+**/docs/bundle_sizes.html
+!docs/app.bundle.js
+!docs/assets/
+!docs/index.html

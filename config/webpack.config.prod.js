@@ -39,7 +39,10 @@ module.exports = merge(baseConfig, {
           {
             loader: 'html-loader',
             options: {
-              removeComments: true,
+              minimize: true,
+              removeComments: true, // requires minimize be set to true
+              collapseWhitespace: true,
+              preserveLineBreaks: true
             }
           }
         ]
@@ -63,6 +66,11 @@ module.exports = merge(baseConfig, {
       },
     ],
   },
+  // htmlLoader: {
+  //   // minimize: true,
+  //   // removeComments: true,
+  //   // collapseWhitespace: false
+  // },
 
   plugins: [
     new BundleAnalyzerPlugin({

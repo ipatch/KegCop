@@ -11,12 +11,12 @@
     "yarn": ""
   },
   "scripts": {
-    "build": "webpack --config ./config/webpack.config.prod.js",
+    "build": "NODE_ENV=production webpack --config ./config/webpack.config.prod.js",
     "build:clean": "rimraf docs",
-    "dev": "webpack-dev-server --watch --config ./config/webpack.config.dev.js",
+    "dev": "NODE_ENV=development webpack-dev-server --watch --config ./config/webpack.config.dev.js",
     "format": "prettier --write \"src/**/*.js\"",
     "ghp:clean": "rimraf docs",
-    "ghp:pkg": "webpack --config ./config/webpack.config.prod.js",
+    "ghp:pkg": "NODE_ENV=production webpack --config ./config/webpack.config.prod.js",
     "ghp:update": "git add .; git commit -m 'new deoployment build'; git push",
     "ghp:deploy": "git checkout master; git checkout gh-pages docs; git commit -m 'new ghp build'; git push; git checkout -"
   },

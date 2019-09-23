@@ -7,6 +7,19 @@ const baseConfig = require('./webpack.config.base');
 
 module.exports = merge(baseConfig, {
   mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        use: [ {
+          loader: 'html-loader',
+          options: {
+            removeComments: true,
+          }
+        }],
+      }
+    ]
+  },
   plugins: [
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',

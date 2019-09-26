@@ -2,6 +2,7 @@ html, body {
   /* background-color: pink; */
   height: 100%;
   margin: 0;
+  /* top left red gradient color used in svg */
   background-color: rgb(237, 66, 74);
 }
 

@@ -25,7 +25,7 @@ DEPENDENCIES:
   - SSKeychain (~> 1.4.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - CHCSVParser
     - Reachability
@@ -39,4 +39,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9819c24667976e3e9ed36acd56aeb09e73c4ef13
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

@@ -4,9 +4,9 @@ const baseConfig = require('./webpack.config.base');
 module.exports = merge(baseConfig, {
   mode: 'development',
   devServer: {
-    overlay: true,
-    host: '0.0.0',
-    useLocalIp: true,
+    // overlay: true,
+    host: '0.0.0.0',
+    // useLocalIp: true,
   },
   devtool: 'eval-source-map', // `eval-source-map` faster rebuild time over `source-map`
 

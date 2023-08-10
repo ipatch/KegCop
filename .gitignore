@@ -1,24 +1,27 @@
-###########################
+#--------------------------
 #
 # .gitignore file for Xcode4, Xcode5, Xcode6 Source projects
 #
-##########################
-###
+#-------------------------
+
+#---
 # OS X temporary files that should never be committed
-#
+#-
 .DS_Store
 *.swp
 # Don't ignore Podfile.lock - all workspaces should have same version!
 .Trashes
 *~.nib
-####
+
+#---
 # Xcode build files -
-#
+#-
 DerivedData/
 build/
-####
+
+#---
 # Xcode private settings
-#
+#-
 *.pbxuser
 *.mode1v3
 *.mode2v3
@@ -28,9 +31,10 @@ build/
 !default.mode1v3
 !default.mode2v3
 !default.perspective3
-####
+
+#---
 # Xcode 4 - semi personal settings
-#
+#-
 xcuserdata
 *.xccheckout
 *.moved-aside
@@ -38,38 +42,35 @@ xcuserdata
 *.ipa
 *.xcuserstate
 KegCop.xcworkspace/xcuserdata/capin.xcuserdatad/UserInterfaceState.xcuserstate
-#####
+
+#----
 # Custom files
-#
+#-
 repoupdate.sh
 secrets.h
 *.mobileprovision
 **.mobileprovision
 scripts/certs/*
 scripts/profile/*
-#####
+
+#----
 # Whitelist necessary files
-##
+#-
 !scripts/certs/dist.cer.enc
 !scripts/certs/dist.p12.enc
 !scripts/profile/travis-ci.mobileprovision.enc
 
-#######
+#------
 # Ignore node_modules
-###
+#--
 node_modules
 npm-debug.log
 scratchpad.txt
 Pods/
 
-#######
+#------
 # Ignore files and directories related to gh-pages-src project
-###
+#--
 **/node_modules
-dist/**
 !dist/.gitkeep
 
-# The below bundled files must be tracked by git so they can be merged into master
-
-# docs/**
-# !docs/.gitkeep

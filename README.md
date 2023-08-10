@@ -20,10 +20,11 @@ The site is rather primitive right now, but uses webpack to generate a bundle an
 
 The compiled / bundled production build for [ipatch.github.io/KegCop](https://ipatch.github.io/KegCop) is located within the [docs](https://github.com/ipatch/KegCop/tree/master/docs) directory of the [master](https://github.com/ipatch/KegCop/tree/master) branch.
 
-<a id="todos"></a>
-
 ## TODOs
 
+<a id="todos"></a>
+
+- [ ] see if i can find a version of the super old site that had the CSS animations 🕵️‍♂️
 - [x] ~~add SVG graphic using an **svg tag** as opposed to using a **img tag**~~
 - [x] ~~remove Google Analytics from **./src/index.html** and into its own js module that can be _required_ or _imported_ into **index.js**~~
 - [x] ~~setup a webpack loader for generating favicons~~
